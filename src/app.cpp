@@ -2,6 +2,7 @@
  * @author Mário Soares
  * @contributors Jefferson González
  * @contributors René Vögeli / Rangee GmbH
+ * @contributors Ciprian Dosoftei
  *
  * @license
  * This file is part of wxPHP check the LICENSE file for information.
@@ -91,9 +92,9 @@ bool wxAppWrapper::OnInit()
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
                 NULL, &phpObj, &function_name, &function_return_value,
-                0, NULL, 0, NULL
+                0, NULL
         );
 
         if(function_called == SUCCESS)
@@ -132,9 +133,9 @@ int wxAppWrapper::OnExit()
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, &phpObj, &function_name, &function_return_value,
-            0, NULL, 0, NULL
+            0, NULL
         );
 
         if(function_called == SUCCESS)
@@ -182,9 +183,9 @@ void wxAppWrapper::MacNewFile()
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, phpObj, &function_name, &function_return_value,
-            0, NULL, 0, NULL
+            0, NULL
         );
     }
     else
@@ -249,9 +250,9 @@ void wxAppWrapper::MacOpenFiles ( const wxArrayString &  fileNames)
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, phpObj, &function_name, &function_return_value,
-            1, params, 0, NULL
+            1, params
         );
     }
     else
@@ -312,9 +313,9 @@ void wxAppWrapper::MacOpenFile(const wxString& fileName)
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, phpObj, &function_name, &function_return_value,
-            1, params, 0, NULL
+            1, params
         );
     }
     else
@@ -375,9 +376,9 @@ void wxAppWrapper::MacOpenURL(const wxString& url)
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, phpObj, &function_name, &function_return_value,
-            1, params, 0, NULL
+            1, params
         );
     }
     else
@@ -438,9 +439,9 @@ void wxAppWrapper::MacPrintFile(const wxString& fileName)
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, phpObj, &function_name, &function_return_value,
-            1, params, 0, NULL
+            1, params
         );
     }
     else
@@ -492,9 +493,9 @@ void wxAppWrapper::MacReopenApp()
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, phpObj, &function_name, &function_return_value,
-            0, NULL, 0, NULL
+            0, NULL
         );
     }
     else
@@ -543,9 +544,9 @@ bool wxAppWrapper::OSXIsGUIApplication()
 
     if(is_php_user_space_implemented)
     {
-        function_called = call_user_function_ex(
+        function_called = call_user_function(
             NULL, phpObj, &function_name, &function_return_value,
-            0, NULL, 0, NULL
+            0, NULL
         );
     }
     else
@@ -642,7 +643,7 @@ PHP_METHOD(php_wxApp, Yield)
     if (zend_parse_parameters_none() == FAILURE)
         return;
 
-    RETURN_BOOL(native_object->Yield())
+    RETURN_BOOL(native_object->Yield());
 }
 /* }}} */
 

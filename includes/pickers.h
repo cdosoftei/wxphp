@@ -49,10 +49,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxColourPickerCtrl_functions[] = {
-    PHP_ME(php_wxColourPickerCtrl, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourPickerCtrl, GetColour, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourPickerCtrl, SetColour, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourPickerCtrl, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxColourPickerCtrl, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourPickerCtrl, GetColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourPickerCtrl, SetColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourPickerCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -95,12 +95,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDatePickerCtrl_functions[] = {
-    PHP_ME(php_wxDatePickerCtrl, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxDatePickerCtrl, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDatePickerCtrl, SetValue, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDatePickerCtrl, SetRange, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDatePickerCtrl, GetValue, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDatePickerCtrl, GetRange, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDatePickerCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDatePickerCtrl, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDatePickerCtrl, SetValue, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDatePickerCtrl, SetRange, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDatePickerCtrl, GetValue, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDatePickerCtrl, GetRange, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -143,12 +143,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFilePickerCtrl_functions[] = {
-    PHP_ME(php_wxFilePickerCtrl, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFilePickerCtrl, GetPath, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFilePickerCtrl, SetFileName, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFilePickerCtrl, SetPath, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFilePickerCtrl, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxFilePickerCtrl, GetFileName, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFilePickerCtrl, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFilePickerCtrl, GetPath, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFilePickerCtrl, SetFileName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFilePickerCtrl, SetPath, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFilePickerCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFilePickerCtrl, GetFileName, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -191,12 +191,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDirPickerCtrl_functions[] = {
-    PHP_ME(php_wxDirPickerCtrl, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirPickerCtrl, GetDirName, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirPickerCtrl, GetPath, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirPickerCtrl, SetDirName, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirPickerCtrl, SetPath, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirPickerCtrl, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDirPickerCtrl, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirPickerCtrl, GetDirName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirPickerCtrl, GetPath, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirPickerCtrl, SetDirName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirPickerCtrl, SetPath, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirPickerCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -239,12 +239,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFontPickerCtrl_functions[] = {
-    PHP_ME(php_wxFontPickerCtrl, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontPickerCtrl, GetMaxPointSize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontPickerCtrl, GetSelectedFont, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontPickerCtrl, SetMaxPointSize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontPickerCtrl, SetSelectedFont, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontPickerCtrl, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFontPickerCtrl, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontPickerCtrl, GetMaxPointSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontPickerCtrl, GetSelectedFont, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontPickerCtrl, SetMaxPointSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontPickerCtrl, SetSelectedFont, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontPickerCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -286,19 +286,19 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPickerBase_functions[] = {
-    PHP_ME(php_wxPickerBase, GetInternalMargin, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, GetPickerCtrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, GetPickerCtrlProportion, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, GetTextCtrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, GetTextCtrlProportion, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, HasTextCtrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, IsPickerCtrlGrowable, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, IsTextCtrlGrowable, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, SetInternalMargin, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, SetPickerCtrlGrowable, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, SetPickerCtrlProportion, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, SetTextCtrlGrowable, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPickerBase, SetTextCtrlProportion, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, GetInternalMargin, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, GetPickerCtrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, GetPickerCtrlProportion, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, GetTextCtrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, GetTextCtrlProportion, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, HasTextCtrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, IsPickerCtrlGrowable, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, IsTextCtrlGrowable, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, SetInternalMargin, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, SetPickerCtrlGrowable, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, SetPickerCtrlProportion, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, SetTextCtrlGrowable, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPickerBase, SetTextCtrlProportion, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -341,10 +341,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTimePickerCtrl_functions[] = {
-    PHP_ME(php_wxTimePickerCtrl, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxTimePickerCtrl, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimePickerCtrl, GetValue, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimePickerCtrl, SetValue, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimePickerCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTimePickerCtrl, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimePickerCtrl, GetValue, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimePickerCtrl, SetValue, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

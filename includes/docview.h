@@ -49,19 +49,19 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFileHistory_functions[] = {
-    PHP_ME(php_wxFileHistory, AddFileToHistory, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, AddFilesToMenu, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, GetBaseId, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, GetCount, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, GetHistoryFile, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, GetMaxFiles, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, Load, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, RemoveFileFromHistory, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, RemoveMenu, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, Save, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, SetBaseId, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, UseMenu, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileHistory, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFileHistory, AddFileToHistory, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, AddFilesToMenu, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, GetBaseId, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, GetCount, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, GetHistoryFile, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, GetMaxFiles, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, Load, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, RemoveFileFromHistory, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, RemoveMenu, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, Save, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, SetBaseId, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, UseMenu, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileHistory, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

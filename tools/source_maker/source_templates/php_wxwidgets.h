@@ -2,6 +2,7 @@
  * @author Mário Soares
  * @contributors Jefferson González
  * @contributors René Vögeli / Rangee GmbH
+ * @contributors Ciprian Dosoftei
  *
  * @license
  * This file is part of wxPHP check the LICENSE file for information.
@@ -121,6 +122,9 @@ public:
     zend_fcall_info fci;
     zend_fcall_info_cache fci_cache;
 };
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_null, 0, 0, 0)
+ZEND_END_ARG_INFO()
 
 /**
  * Predefined wxApp class method bindings

@@ -49,19 +49,19 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxClipboard_functions[] = {
-    PHP_ME(php_wxClipboard, AddData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, Clear, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, Close, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, Flush, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, GetData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, IsOpened, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, IsSupported, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, IsUsingPrimarySelection, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, Open, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, SetData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, UsePrimarySelection, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClipboard, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxClipboard, Get, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, AddData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, Clear, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, Close, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, Flush, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, GetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, IsOpened, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, IsSupported, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, IsUsingPrimarySelection, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, Open, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, SetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, UsePrimarySelection, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClipboard, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxClipboard, Get, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -105,11 +105,11 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDataFormat_functions[] = {
-    PHP_ME(php_wxDataFormat, GetId, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataFormat, GetType, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataFormat, SetId, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataFormat, SetType, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataFormat, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDataFormat, GetId, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataFormat, GetType, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataFormat, SetId, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataFormat, SetType, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataFormat, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -157,9 +157,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDataObject_functions[] = {
-    PHP_ME(php_wxDataObject, IsSupported, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObject, SetData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObject, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDataObject, IsSupported, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObject, SetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObject, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -202,13 +202,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxCustomDataObject_functions[] = {
-    PHP_ME(php_wxCustomDataObject, Alloc, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCustomDataObject, Free, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCustomDataObject, GetData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCustomDataObject, GetSize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCustomDataObject, SetData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCustomDataObject, TakeData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCustomDataObject, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxCustomDataObject, Alloc, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCustomDataObject, Free, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCustomDataObject, GetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCustomDataObject, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCustomDataObject, SetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCustomDataObject, TakeData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCustomDataObject, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -251,10 +251,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDataObjectComposite_functions[] = {
-    PHP_ME(php_wxDataObjectComposite, Add, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObjectComposite, GetReceivedFormat, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObjectComposite, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxDataObjectComposite, GetObject, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectComposite, Add, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectComposite, GetReceivedFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectComposite, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDataObjectComposite, GetObject, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -297,12 +297,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDataObjectSimple_functions[] = {
-    PHP_ME(php_wxDataObjectSimple, GetDataHere, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObjectSimple, GetDataSize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObjectSimple, GetFormat, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObjectSimple, SetData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObjectSimple, SetFormat, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataObjectSimple, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDataObjectSimple, GetDataHere, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectSimple, GetDataSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectSimple, GetFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectSimple, SetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectSimple, SetFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataObjectSimple, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -345,9 +345,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxBitmapDataObject_functions[] = {
-    PHP_ME(php_wxBitmapDataObject, GetBitmap, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxBitmapDataObject, SetBitmap, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxBitmapDataObject, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxBitmapDataObject, GetBitmap, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapDataObject, SetBitmap, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapDataObject, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -390,9 +390,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxURLDataObject_functions[] = {
-    PHP_ME(php_wxURLDataObject, GetURL, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxURLDataObject, SetURL, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxURLDataObject, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxURLDataObject, GetURL, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxURLDataObject, SetURL, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxURLDataObject, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -435,13 +435,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTextDataObject_functions[] = {
-    PHP_ME(php_wxTextDataObject, GetFormat, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextDataObject, GetText, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextDataObject, GetTextLength, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextDataObject, GetFormatCount, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextDataObject, GetAllFormats, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextDataObject, SetText, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextDataObject, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTextDataObject, GetFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextDataObject, GetText, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextDataObject, GetTextLength, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextDataObject, GetFormatCount, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextDataObject, GetAllFormats, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextDataObject, SetText, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextDataObject, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -484,9 +484,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFileDataObject_functions[] = {
-    PHP_ME(php_wxFileDataObject, AddFile, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDataObject, GetFilenames, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDataObject, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFileDataObject, AddFile, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDataObject, GetFilenames, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDataObject, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -534,9 +534,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDropTarget_functions[] = {
-    PHP_ME(php_wxDropTarget, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxDropTarget, SetDataObject, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDropTarget, GetData, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDropTarget, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDropTarget, SetDataObject, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDropTarget, GetData, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -581,7 +581,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTextDropTarget_functions[] = {
-    PHP_ME(php_wxTextDropTarget, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTextDropTarget, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -626,7 +626,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFileDropTarget_functions[] = {
-    PHP_ME(php_wxFileDropTarget, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFileDropTarget, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

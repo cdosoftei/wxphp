@@ -51,18 +51,18 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxHtmlHelpController_functions[] = {
-    PHP_ME(php_wxHtmlHelpController, AddBook, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, Display, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, DisplayContents, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, DisplayIndex, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, KeywordSearch, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, ReadCustomization, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, SetShouldPreventAppExit, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, SetTempDir, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, SetTitleFormat, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, UseConfig, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, WriteCustomization, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpController, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxHtmlHelpController, AddBook, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, Display, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, DisplayContents, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, DisplayIndex, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, KeywordSearch, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, ReadCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, SetShouldPreventAppExit, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, SetTempDir, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, SetTitleFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, UseConfig, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, WriteCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -105,7 +105,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxHtmlModalHelp_functions[] = {
-    PHP_ME(php_wxHtmlModalHelp, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxHtmlModalHelp, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -148,11 +148,11 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxHtmlHelpData_functions[] = {
-    PHP_ME(php_wxHtmlHelpData, AddBook, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpData, FindPageById, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpData, FindPageByName, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpData, SetTempDir, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpData, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxHtmlHelpData, AddBook, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, FindPageById, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, FindPageByName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, SetTempDir, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -196,12 +196,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxHtmlHelpDialog_functions[] = {
-    PHP_ME(php_wxHtmlHelpDialog, AddToolbarButtons, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpDialog, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpDialog, GetController, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpDialog, SetController, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpDialog, SetTitleFormat, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpDialog, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxHtmlHelpDialog, AddToolbarButtons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, GetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, SetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, SetTitleFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -245,12 +245,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxHtmlHelpFrame_functions[] = {
-    PHP_ME(php_wxHtmlHelpFrame, AddToolbarButtons, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpFrame, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpFrame, GetController, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpFrame, SetController, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpFrame, SetTitleFormat, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpFrame, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxHtmlHelpFrame, AddToolbarButtons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, GetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, SetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, SetTitleFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -295,17 +295,17 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxHtmlHelpWindow_functions[] = {
-    PHP_ME(php_wxHtmlHelpWindow, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, Display, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, DisplayIndex, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, GetData, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, DisplayContents, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, KeywordSearch, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, ReadCustomization, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, RefreshLists, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, UseConfig, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, WriteCustomization, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxHtmlHelpWindow, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxHtmlHelpWindow, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, Display, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, DisplayIndex, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, GetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, DisplayContents, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, KeywordSearch, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, ReadCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, RefreshLists, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, UseConfig, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, WriteCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -348,14 +348,14 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxToolTip_functions[] = {
-    PHP_ME(php_wxToolTip, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxToolTip, SetTip, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxToolTip, SetReshow, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxToolTip, SetDelay, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxToolTip, SetAutoPop, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxToolTip, GetWindow, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxToolTip, GetTip, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxToolTip, Enable, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxToolTip, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxToolTip, SetTip, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxToolTip, SetReshow, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxToolTip, SetDelay, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxToolTip, SetAutoPop, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxToolTip, GetWindow, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxToolTip, GetTip, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxToolTip, Enable, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

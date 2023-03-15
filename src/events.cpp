@@ -11173,7 +11173,14 @@ void wxEvtHandler_php::onEvent(wxEvent& evnt)
     co->fci.retval = &dummy;
     co->fci.param_count = 1;
     co->fci.params = arg;
+
+    #if PHP_VERSION_ID < 80000
     co->fci.no_separation = 0;
+    #endif
+
+    #if PHP_VERSION_ID >= 80000
+    co->fci.named_params = NULL;
+    #endif
 
     if(zend_call_function(&co->fci, &co->fci_cache) == FAILURE)
     {

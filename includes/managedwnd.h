@@ -52,25 +52,25 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFrame_functions[] = {
-    PHP_ME(php_wxFrame, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxFrame, Centre, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, SetStatusBar, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, SetStatusBarPane, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, SetStatusText, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, SetMenuBar, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, GetMenuBar, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, GetStatusBar, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, GetStatusBarPane, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, GetClientAreaOrigin, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, PopStatusText, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, ProcessCommand, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, PushStatusText, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, SetStatusWidths, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, GetToolBar, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, SetToolBar, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, CreateStatusBar, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFrame, CreateToolBar, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFrame, Centre, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, SetStatusBar, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, SetStatusBarPane, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, SetStatusText, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, SetMenuBar, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, GetMenuBar, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, GetStatusBar, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, GetStatusBarPane, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, GetClientAreaOrigin, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, PopStatusText, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, ProcessCommand, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, PushStatusText, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, SetStatusWidths, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, GetToolBar, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, SetToolBar, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, CreateStatusBar, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFrame, CreateToolBar, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -113,8 +113,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMDIClientWindow_functions[] = {
-    PHP_ME(php_wxMDIClientWindow, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxMDIClientWindow, CreateClient, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIClientWindow, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMDIClientWindow, CreateClient, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -159,17 +159,17 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMDIParentFrame_functions[] = {
-    PHP_ME(php_wxMDIParentFrame, ActivateNext, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, ActivatePrevious, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, ArrangeIcons, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, Cascade, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, GetActiveChild, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, GetWindowMenu, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, IsTDI, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, SetWindowMenu, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, Tile, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIParentFrame, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMDIParentFrame, ActivateNext, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, ActivatePrevious, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, ArrangeIcons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, Cascade, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, GetActiveChild, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, GetWindowMenu, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, IsTDI, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, SetWindowMenu, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, Tile, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIParentFrame, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -213,13 +213,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMDIChildFrame_functions[] = {
-    PHP_ME(php_wxMDIChildFrame, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxMDIChildFrame, Restore, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIChildFrame, Maximize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIChildFrame, IsAlwaysMaximized, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIChildFrame, GetMDIParent, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIChildFrame, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMDIChildFrame, Activate, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIChildFrame, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMDIChildFrame, Restore, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIChildFrame, Maximize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIChildFrame, IsAlwaysMaximized, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIChildFrame, GetMDIParent, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIChildFrame, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMDIChildFrame, Activate, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -263,8 +263,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMiniFrame_functions[] = {
-    PHP_ME(php_wxMiniFrame, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMiniFrame, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMiniFrame, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMiniFrame, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -307,9 +307,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPopupWindow_functions[] = {
-    PHP_ME(php_wxPopupWindow, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPopupWindow, Position, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPopupWindow, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPopupWindow, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPopupWindow, Position, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPopupWindow, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -352,10 +352,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPopupTransientWindow_functions[] = {
-    PHP_ME(php_wxPopupTransientWindow, Dismiss, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPopupTransientWindow, Popup, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPopupTransientWindow, ProcessLeftDown, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPopupTransientWindow, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPopupTransientWindow, Dismiss, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPopupTransientWindow, Popup, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPopupTransientWindow, ProcessLeftDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPopupTransientWindow, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -398,17 +398,17 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPropertySheetDialog_functions[] = {
-    PHP_ME(php_wxPropertySheetDialog, AddBookCtrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, CreateBookCtrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, CreateButtons, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, GetBookCtrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, GetInnerSizer, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, GetSheetStyle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, LayoutDialog, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, SetBookCtrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, SetSheetStyle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPropertySheetDialog, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPropertySheetDialog, AddBookCtrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, CreateBookCtrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, CreateButtons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, GetBookCtrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, GetInnerSizer, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, GetSheetStyle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, LayoutDialog, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, SetBookCtrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, SetSheetStyle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPropertySheetDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -451,9 +451,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxSplashScreen_functions[] = {
-    PHP_ME(php_wxSplashScreen, GetSplashStyle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSplashScreen, GetTimeout, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSplashScreen, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxSplashScreen, GetSplashStyle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSplashScreen, GetTimeout, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSplashScreen, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -497,37 +497,37 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTopLevelWindow_functions[] = {
-    PHP_ME(php_wxTopLevelWindow, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxTopLevelWindow, SetTitle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, Maximize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, GetTitle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, ShowFullScreen, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, IsFullScreen, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetIcon, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, CanSetTransparent, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, CentreOnScreen, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, CenterOnScreen, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, Create, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, GetDefaultItem, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, GetDefaultSize, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, GetIcon, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, GetIcons, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, GetTmpDefaultItem, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, Iconize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, IsActive, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, IsAlwaysMaximized, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, IsIconized, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, IsMaximized, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, Layout, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, RequestUserAttention, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetDefaultItem, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetIcons, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetMaxSize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetMinSize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetSizeHints, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetTmpDefaultItem, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, SetTransparent, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTopLevelWindow, ShouldPreventAppExit, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTopLevelWindow, SetTitle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, Maximize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, GetTitle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, ShowFullScreen, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, IsFullScreen, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetIcon, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, CanSetTransparent, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, CentreOnScreen, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, CenterOnScreen, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, GetDefaultItem, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, GetDefaultSize, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, GetIcon, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, GetIcons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, GetTmpDefaultItem, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, Iconize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, IsActive, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, IsAlwaysMaximized, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, IsIconized, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, IsMaximized, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, Layout, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, RequestUserAttention, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetDefaultItem, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetIcons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetMaxSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetMinSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetSizeHints, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetTmpDefaultItem, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, SetTransparent, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTopLevelWindow, ShouldPreventAppExit, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

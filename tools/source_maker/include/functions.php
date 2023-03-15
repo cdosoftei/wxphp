@@ -3,6 +3,7 @@
  * @author Mário Soares
  * @contributors Jefferson González
  * @contributors René Vögeli / Rangee GmbH
+ * @contributors Ciprian Dosoftei
  *
  * @license
  * This file is part of wxPHP check the LICENSE file for information.
@@ -347,7 +348,7 @@ function derivationsOfClass($class)
  *
  * @return array All function names
  */
-function funcsOfClass($classN, $ctor=0, &$output, $ar = array(), $multiple_inheritance = false)
+function funcsOfClass($classN, $ctor, &$output, $ar = array(), $multiple_inheritance = false)
 {
     global $defIni;
     $class_methods = "";
@@ -359,7 +360,7 @@ function funcsOfClass($classN, $ctor=0, &$output, $ar = array(), $multiple_inher
 
     foreach($classDef as $funcName => $funcDef)
     {
-        if($funcName{0}=="_")
+        if($funcName[0]=="_")
             continue;
 
         if(($funcDef[0]["virtual"] && $funcDef[0]["protected"]) || $funcDef[0]["pure_virtual"] ||
@@ -384,7 +385,7 @@ function funcsOfClass($classN, $ctor=0, &$output, $ar = array(), $multiple_inher
 
         $ar[] = $funcName2;
 
-        $class_methods .= tabs(1)."PHP_ME(php_{$classN}, {$funcName2}, NULL, ";
+        $class_methods .= tabs(1)."PHP_ME(php_{$classN}, {$funcName2}, arginfo_null, ";
 
         if($funcDef[0]["static"])
         {
@@ -457,11 +458,11 @@ function funcsOfClass($classN, $ctor=0, &$output, $ar = array(), $multiple_inher
                 {
                     if($funcDef[0]["static"])
                     {
-                        $class_methods .= tabs(1)."PHP_ME(php_{$imp}, {$funcName2}, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)\n";
+                        $class_methods .= tabs(1)."PHP_ME(php_{$imp}, {$funcName2}, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)\n";
                     }
                     else
                     {
-                        $class_methods .= tabs(1)."PHP_ME(php_{$imp}, {$funcName2}, NULL, ZEND_ACC_PUBLIC)\n";
+                        $class_methods .= tabs(1)."PHP_ME(php_{$imp}, {$funcName2}, arginfo_null, ZEND_ACC_PUBLIC)\n";
                     }
                 }
             }
@@ -621,7 +622,7 @@ function classes_method_merger(&$classes)
                 {
 
                     //Skip internal structures
-                    if($parent_class_method_name{0}=="_")
+                    if($parent_class_method_name[0]=="_")
                         continue;
 
                     //Skip constructros since they cannot be overloaded in C++
@@ -694,7 +695,7 @@ function remove_protected_methods(&$classes)
         foreach($class_methods as $method_name=>$method_definitions)
         {
             //Skip _implements (inheritance) list
-            if($method_name{0} == "_")
+            if($method_name[0] == "_")
                 continue;
 
             //Remove protected methods from method_definitions
@@ -749,11 +750,15 @@ function remove_virtual_methods_overrides(&$classes)
 
         foreach($class_methods as $method_name=>$method_definitions)
         {
+            if (is_bool($method_definitions)) {
+                continue;
+            }
+
             //Only remove virtual methods that override non virtual methods with the same name
             if(count($method_definitions) > 1)
             {
                 //Skip _implements (inheritance) list
-                if($method_name{0} == "_")
+                if($method_name[0] == "_")
                     continue;
 
                 //Not remove if all overrides are virtual
@@ -878,7 +883,7 @@ function remove_methods_duplicated_on_base_classes(&$classes)
             foreach($method_definitions as $method_name=>$method_definition)
             {
                 //Skip _implements
-                if($method_name{0} == "_")
+                if($method_name[0] == "_")
                     continue;
 
                 //Stores the amount of base classes that implement the method
@@ -926,7 +931,7 @@ function remove_methods_implementing_unknown_types(&$classes)
         foreach($class_methods as $method_name=>$method_definitions)
         {
             //Skip _implements
-            if($method_name{0} == "_")
+            if($method_name[0] == "_")
                 continue;
 
             //Skip wxEvtHandler
@@ -1166,7 +1171,7 @@ function remove_classes_and_methods_not_crossplatform(&$classes)
         foreach($class_methods as $method_name=>$method_definitions)
         {
             //Skip _implements, _platforms (inheritance) list
-            if($method_name{0} == "_")
+            if($method_name[0] == "_")
                 continue;
 
             //Remove not crossplatform methods from method_definitions
@@ -1225,7 +1230,7 @@ function remove_deprecated_methods(&$classes)
         foreach($class_methods as $method_name=>$method_definitions)
         {
             //Skip _implements (inheritance) list
-            if($method_name{0} == "_")
+            if($method_name[0] == "_")
                 continue;
 
             //Remove protected methods from method_definitions
@@ -1272,7 +1277,7 @@ function remove_methods_implementing_unhandled_arguments(&$classes)
         foreach($class_methods as $method_name=>$method_definitions)
         {
             //Skip _implements, _platforms (inheritance) list
-            if($method_name{0} == "_")
+            if($method_name[0] == "_")
                 continue;
 
             //Remove methods implementing unhandled argument declarations from method_definitions
@@ -1610,6 +1615,10 @@ function php_eval($string)
  */
 function parameter_type($parameter_type, $is_array, $function_name, $class_name=null, &$parameter_modifier=null, $return_unknown=false)
 {
+    if (is_null($parameter_type)) {
+        return '';
+    }
+
     global $defIni, $defTypedef;
 
     $cleaned_type = str_replace(array("const ", "&", "*"), "", $parameter_type);
@@ -1788,7 +1797,11 @@ function function_arguments_string($function_definition, $default_argument=true)
             $arguments .= "[]";
         }
 
-        if(strlen($function_definition["parameters_default_value"][$parameter_index]) > 0 && $default_argument)
+        if(
+            !is_null($function_definition["parameters_default_value"][$parameter_index]) &&
+            strlen($function_definition["parameters_default_value"][$parameter_index]) > 0 &&
+            $default_argument
+        )
         {
             $arguments .= "=" . $function_definition["parameters_default_value"][$parameter_index];
         }
@@ -1886,6 +1899,10 @@ function proto_end()
  */
 function get_proto_php_type($type, $type_name, $function_name, $class_name=null)
 {
+    if (is_null($type)) {
+        return '';
+    }
+
     $declaration_modifier = "";
     $standard_type = parameter_type($type, false, $function_name, $class_name, $declaration_modifier, true);
 

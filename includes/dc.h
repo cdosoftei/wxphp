@@ -48,93 +48,93 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDC_functions[] = {
-    PHP_ME(php_wxDC, StartPage, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, StartDoc, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetUserScale, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetTextForeground, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetTextBackground, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, CalcBoundingBox, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, CanUseTransformMatrix, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, Clear, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, CopyAttributes, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, CrossHair, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DestroyClippingRegion, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DeviceToLogicalX, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DeviceToLogicalXRel, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DeviceToLogicalY, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DeviceToLogicalYRel, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawArc, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawBitmap, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawCheckMark, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawCircle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawEllipse, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawEllipticArc, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawIcon, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawLabel, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawLine, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawPoint, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawRectangle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawRotatedText, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawRoundedRectangle, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawSpline, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, DrawText, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, EndDoc, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, EndPage, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, FloodFill, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetBackground, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetBackgroundMode, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetBrush, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetCharHeight, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetCharWidth, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetClippingBox, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetDepth, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetDeviceOrigin, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetFont, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetLayoutDirection, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetLogicalFunction, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetLogicalOrigin, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetLogicalScale, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetMapMode, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetMultiLineTextExtent, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetPPI, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetPen, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetPixel, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetSize, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetSizeMM, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetTextBackground, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetTextExtent, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetTextForeground, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GetUserScale, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GradientFillConcentric, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, GradientFillLinear, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, IsOk, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, LogicalToDeviceX, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, LogicalToDeviceY, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, LogicalToDeviceXRel, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, LogicalToDeviceYRel, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, MaxX, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, MaxY, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, MinX, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, MinY, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, ResetBoundingBox, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, ResetTransformMatrix, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetAxisOrientation, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetBackground, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetBackgroundMode, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetBrush, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetClippingRegion, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetDeviceClippingRegion, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetDeviceOrigin, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetFont, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetLayoutDirection, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetLogicalFunction, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetLogicalOrigin, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetLogicalScale, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetMapMode, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetPalette, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, SetPen, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, StretchBlit, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDC, Blit, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, StartPage, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, StartDoc, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetUserScale, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetTextForeground, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetTextBackground, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, CalcBoundingBox, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, CanUseTransformMatrix, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, Clear, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, CopyAttributes, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, CrossHair, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DestroyClippingRegion, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DeviceToLogicalX, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DeviceToLogicalXRel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DeviceToLogicalY, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DeviceToLogicalYRel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawArc, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawBitmap, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawCheckMark, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawCircle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawEllipse, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawEllipticArc, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawIcon, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawLabel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawLine, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawPoint, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawRectangle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawRotatedText, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawRoundedRectangle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawSpline, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawText, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, EndDoc, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, EndPage, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, FloodFill, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetBackground, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetBackgroundMode, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetBrush, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetCharHeight, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetCharWidth, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetClippingBox, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetDepth, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetDeviceOrigin, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetFont, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetLayoutDirection, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetLogicalFunction, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetLogicalOrigin, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetLogicalScale, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetMapMode, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetMultiLineTextExtent, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetPPI, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetPen, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetPixel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetSizeMM, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetTextBackground, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetTextExtent, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetTextForeground, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GetUserScale, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GradientFillConcentric, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, GradientFillLinear, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, LogicalToDeviceX, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, LogicalToDeviceY, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, LogicalToDeviceXRel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, LogicalToDeviceYRel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, MaxX, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, MaxY, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, MinX, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, MinY, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, ResetBoundingBox, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, ResetTransformMatrix, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetAxisOrientation, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetBackground, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetBackgroundMode, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetBrush, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetClippingRegion, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetDeviceClippingRegion, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetDeviceOrigin, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetFont, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetLayoutDirection, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetLogicalFunction, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetLogicalOrigin, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetLogicalScale, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetMapMode, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetPalette, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, SetPen, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, StretchBlit, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, Blit, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -179,8 +179,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxBufferedDC_functions[] = {
-    PHP_ME(php_wxBufferedDC, Init, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxBufferedDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxBufferedDC, Init, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBufferedDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -223,7 +223,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxAutoBufferedPaintDC_functions[] = {
-    PHP_ME(php_wxAutoBufferedPaintDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxAutoBufferedPaintDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -267,7 +267,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxBufferedPaintDC_functions[] = {
-    PHP_ME(php_wxBufferedPaintDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxBufferedPaintDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -310,7 +310,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPaintDC_functions[] = {
-    PHP_ME(php_wxPaintDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPaintDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -353,7 +353,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxClientDC_functions[] = {
-    PHP_ME(php_wxClientDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxClientDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -396,7 +396,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWindowDC_functions[] = {
-    PHP_ME(php_wxWindowDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxWindowDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -441,9 +441,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMemoryDC_functions[] = {
-    PHP_ME(php_wxMemoryDC, SelectObject, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMemoryDC, SelectObjectAsSource, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMemoryDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMemoryDC, SelectObject, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMemoryDC, SelectObjectAsSource, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMemoryDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -486,7 +486,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMirrorDC_functions[] = {
-    PHP_ME(php_wxMirrorDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMirrorDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -530,7 +530,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPostScriptDC_functions[] = {
-    PHP_ME(php_wxPostScriptDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPostScriptDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -573,9 +573,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxScreenDC_functions[] = {
-    PHP_ME(php_wxScreenDC, EndDrawingOnTop, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxScreenDC, StartDrawingOnTop, NULL, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxScreenDC, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxScreenDC, EndDrawingOnTop, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxScreenDC, StartDrawingOnTop, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxScreenDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

@@ -2,6 +2,7 @@
 /**
  * @author Jefferson González
  * @contributors René Vögeli / Rangee GmbH
+ * @contributors Ciprian Dosoftei
  *
  * @license
  * This file is part of wxPHP check the LICENSE file for information.
@@ -45,12 +46,16 @@ function class_virtual_declarations($class_name, $class_methods)
     {
         foreach($method_definitions as $method_definition)
         {
+            if (is_string($method_definition)) {
+                continue;
+            }
+
             //Skip constructors, static functions, and non protected virtual functions or pure virtual
             if(($method_definition["virtual"] && $method_definition["protected"]) || $method_definition["pure_virtual"] ||
                 "".strpos($method_name, "On")."" == "0"
             )
             {
-                if($method_name{0} != "_")
+                if($method_name[0] != "_")
                 {
                     $virtual_methods .= $method_definition["return_type"] . " {$method_name}(";
 

@@ -49,7 +49,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxClientData_functions[] = {
-    PHP_ME(php_wxClientData, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxClientData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -92,9 +92,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTreeItemData_functions[] = {
-    PHP_ME(php_wxTreeItemData, GetId, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTreeItemData, SetId, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTreeItemData, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTreeItemData, GetId, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTreeItemData, SetId, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTreeItemData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

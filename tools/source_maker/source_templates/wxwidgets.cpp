@@ -2,6 +2,7 @@
  * @author Mário Soares
  * @contributors Jefferson González
  * @contributors René Vögeli / Rangee GmbH
+ * @contributors Ciprian Dosoftei
  *
  * @license
  * This file is part of wxPHP check the LICENSE file for information.
@@ -101,7 +102,14 @@ int wxphp_call_method(zval *object_p, zend_class_entry *obj_ce, zend_function **
     fci.retval = retval_ptr ? retval_ptr : retval;
     fci.param_count = param_count;
     fci.params = *params;
+
+    #if PHP_VERSION_ID < 80000
     fci.no_separation = 1;
+    #endif
+
+    #if PHP_VERSION_ID >= 80000
+    fci.named_params = NULL;
+    #endif
 
     if (!fn_proxy && !obj_ce) {
         /* no interest in caching and no information already present that is
@@ -249,18 +257,17 @@ BOOL WINAPI DllMain(
  * Global functions table entry used on the module initialization code
  */
 static zend_function_entry php_wxWidgets_functions[] = {
-    PHP_FALIAS(wxExecute, php_wxExecute, NULL)
-    PHP_FALIAS(wxEntry, php_wxEntry, NULL)
-    PHP_FALIAS(wxC2D, php_wxC2D, NULL)
-
-    PHP_FALIAS(wxLogError, php_wxLogError, NULL)
-    PHP_FALIAS(wxLogFatalError, php_wxLogFatalError, NULL)
-    PHP_FALIAS(wxLogGeneric, php_wxLogGeneric, NULL)
-    PHP_FALIAS(wxLogMessage, php_wxLogMessage, NULL)
-    PHP_FALIAS(wxLogStatus, php_wxLogStatus, NULL)
-    PHP_FALIAS(wxLogSysError, php_wxLogSysError, NULL)
-    PHP_FALIAS(wxLogVerbose, php_wxLogVerbose, NULL)
-    PHP_FALIAS(wxLogWarning, php_wxLogWarning, NULL)
+    PHP_FALIAS(wxExecute, php_wxExecute, arginfo_null)
+    PHP_FALIAS(wxEntry, php_wxEntry, arginfo_null)
+    PHP_FALIAS(wxC2D, php_wxC2D, arginfo_null)
+    PHP_FALIAS(wxLogError, php_wxLogError, arginfo_null)
+    PHP_FALIAS(wxLogFatalError, php_wxLogFatalError, arginfo_null)
+    PHP_FALIAS(wxLogGeneric, php_wxLogGeneric, arginfo_null)
+    PHP_FALIAS(wxLogMessage, php_wxLogMessage, arginfo_null)
+    PHP_FALIAS(wxLogStatus, php_wxLogStatus, arginfo_null)
+    PHP_FALIAS(wxLogSysError, php_wxLogSysError, arginfo_null)
+    PHP_FALIAS(wxLogVerbose, php_wxLogVerbose, arginfo_null)
+    PHP_FALIAS(wxLogWarning, php_wxLogWarning, arginfo_null)
 
     /**
      * Space reserved for the addition to functions table of

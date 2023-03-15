@@ -37,14 +37,22 @@ class mainFrame extends wxFrame
 
     function __construct()
     {
+
         parent::__construct(
             null,
-            null,
+            wxID_ANY,
             "Minimal wxPHP App",
             wxDefaultPosition,
-            wxDefaultSize
+            wxDefaultSize,
         );
-
+/*
+            $parent,
+            wxID_ANY,
+            wxEmptyString,
+            wxDefaultPosition,
+            new wxSize( 500,300 ),
+            wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL
+*/
         $mb = new wxMenuBar();
 
         $mn = new wxMenu();

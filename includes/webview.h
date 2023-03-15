@@ -49,9 +49,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWebViewHistoryItem_functions[] = {
-    PHP_ME(php_wxWebViewHistoryItem, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxWebViewHistoryItem, GetUrl, NULL, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWebViewHistoryItem, GetTitle, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWebViewHistoryItem, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxWebViewHistoryItem, GetUrl, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWebViewHistoryItem, GetTitle, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -95,8 +95,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWebViewHandler_functions[] = {
-    PHP_ME(php_wxWebViewHandler, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxWebViewHandler, GetName, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWebViewHandler, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxWebViewHandler, GetName, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -139,8 +139,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWebViewArchiveHandler_functions[] = {
-    PHP_ME(php_wxWebViewArchiveHandler, __construct, NULL, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxWebViewArchiveHandler, GetFile, NULL, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWebViewArchiveHandler, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxWebViewArchiveHandler, GetFile, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

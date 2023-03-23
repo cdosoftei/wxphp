@@ -463,10 +463,15 @@ PHP_METHOD(php_wxWindow, GetHandle)
                 references = &((wxRibbonToolBar_php*)native_object)->references;
                 reference_type_found = true;
             }
+
+            // Disable WebView
+            /*
             if((current_object_type == PHP_WXWEBVIEW_TYPE) && (!reference_type_found)){
                 references = &((wxWebView_php*)native_object)->references;
                 reference_type_found = true;
             }
+            */
+
             if((current_object_type == PHP_WXMEDIACTRL_TYPE) && (!reference_type_found)){
                 references = &((wxMediaCtrl_php*)native_object)->references;
                 reference_type_found = true;

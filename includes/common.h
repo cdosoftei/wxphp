@@ -381,7 +381,6 @@
 #include <wx/vidmode.h>
 #include <wx/vlbox.h>
 #include <wx/weakref.h>
-#include <wx/webview.h>
 #include <wx/webviewarchivehandler.h>
 #include <wx/webviewfshandler.h>
 #include <wx/windowptr.h>

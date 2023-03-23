@@ -263,7 +263,8 @@ if test "$PHP_WXWIDGETS" != "no"; then
             LDFLAGS="$LDFLAGS $PHP_WXWIDGETS_LDFLAGS"
         fi
     else
-        PHP_WXWIDGETS_LIBS=`$WXCONFIG_PATH --libs xrc,webview,stc,richtext,ribbon,propgrid,aui,html,qa,adv,core,xml,net,media,base`
+        dnl Append webview below to enable it
+        PHP_WXWIDGETS_LIBS=`$WXCONFIG_PATH --libs xrc,stc,richtext,ribbon,propgrid,aui,html,qa,adv,core,xml,net,media,base`
     fi
 
     dnl Append wxWidgets flags to the compiler flags and suppress warning flags

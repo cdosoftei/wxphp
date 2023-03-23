@@ -72,6 +72,9 @@ if(file_exists("./../../json/includes.json"))
     unset($defIncludes["wx/dde.h"]);
     unset($defIncludes["wx/msw/regconf.h"]);
     unset($defIncludes["wx/msw/registry.h"]);
+
+    // Disable WebView
+    unset($defIncludes['wx/webview.h']);
 }
 
 //Load functions parsed by the json_generator
@@ -109,6 +112,13 @@ if(file_exists("./../../json/classes.json"))
 
     //Blacklist classes
     unset($defIni['wxArrayString']); //Dont implement this class since it is interpreted as php native array()
+
+    // Disable WebView
+    unset($defIni['wxWebView']);
+    unset($defIni['wxWebViewEvent']);
+    unset($defIni['wxWebViewHistoryItem']);
+    unset($defIni['wxWebViewHandler']);
+    unset($defIni['wxWebViewArchiveHandler']);
 }
 
 //Load class properties parsed by the json_generator
@@ -136,6 +146,13 @@ if(file_exists("./../../json/enums.json"))
     $defEnums = unserialize_json(
 		file_get_contents("./../../json/enums.json")
 	);
+
+    // Disable WebView
+    foreach (array_keys($defEnums[1]) as $key) {
+        if (strpos($key, 'wxWebView') === 0) {
+            unset($defEnums[1][$key]);
+        }
+    }
 
     //Blacklist enumerations
     $position = array_search(
@@ -208,6 +225,14 @@ if(file_exists("./../../json/global_variables.json"))
     unset($defGlobals['wxEVT_WEBKIT_STATE_CHANGED']);
     unset($defGlobals['wxEVT_WEBKIT_BEFORE_LOAD']);
     unset($defGlobals['wxEVT_WEBKIT_NEW_WINDOW']);
+
+    // Disable WebView
+    unset($defGlobals['wxEVT_WEBVIEW_NAVIGATING']);
+    unset($defGlobals['wxEVT_WEBVIEW_NAVIGATED']);
+    unset($defGlobals['wxEVT_WEBVIEW_LOADED']);
+    unset($defGlobals['wxEVT_WEBVIEW_ERROR']);
+    unset($defGlobals['wxEVT_WEBVIEW_NEWWINDOW']);
+    unset($defGlobals['wxEVT_WEBVIEW_TITLE_CHANGED']);
 }
 
 //Load typedef parsed by the json_generator

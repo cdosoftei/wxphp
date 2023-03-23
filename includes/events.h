@@ -3283,52 +3283,6 @@ static inline zo_wxTreeEvent * php_wxTreeEvent_fetch_object(zend_object *obj) {
 
 #define Z_wxTreeEvent_P(zv) \
     php_wxTreeEvent_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxWebViewEvent_entry;
-extern zend_object_handlers wxphp_wxWebViewEvent_object_handlers;
-void php_wxWebViewEvent_destruction_handler(zend_resource*);
-
-class wxWebViewEvent_php: public wxWebViewEvent{
-    public:
-
-    wxWebViewEvent_php():wxWebViewEvent(){}
-    wxWebViewEvent_php(wxEventType type, int id, const wxString href, const wxString target):wxWebViewEvent(type, id, href, target){}
-    
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxWebViewEvent{
-    wxWebViewEvent_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxWebViewEvent;
-
-void php_wxWebViewEvent_free(void *object);
-zend_object* php_wxWebViewEvent_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxWebViewEvent_functions[] = {
-    PHP_ME(php_wxWebViewEvent, GetTarget, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWebViewEvent, GetURL, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWebViewEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxWebViewEvent * php_wxWebViewEvent_fetch_object(zend_object *obj) {
-    return (zo_wxWebViewEvent *)(
-        (char *)(obj) - XtOffsetOf(zo_wxWebViewEvent, zo)
-    );
-}
-
-#define Z_wxWebViewEvent_P(zv) \
-    php_wxWebViewEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxWizardEvent_entry;
 extern zend_object_handlers wxphp_wxWizardEvent_object_handlers;
 void php_wxWizardEvent_destruction_handler(zend_resource*);

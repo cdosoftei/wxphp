@@ -16,7 +16,8 @@ if (PHP_WXWIDGETS != "no") {
 		CHECK_LIB("wxmsw30u_propgrid.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&
 		CHECK_LIB("wxmsw30u_ribbon.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&
 		CHECK_LIB("wxmsw30u_stc.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&
-		CHECK_LIB("wxmsw30u_webview.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&
+		// Disable WebView
+		// CHECK_LIB("wxmsw30u_webview.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&
 		CHECK_LIB("wxmsw30u_core.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&
 		CHECK_LIB("wxbase30u.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&
 		CHECK_LIB("wxpng.lib", "wxwidgets", PHP_WXWIDGETS + "\\lib\\vc_lib") &&

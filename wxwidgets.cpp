@@ -69,7 +69,6 @@
 #include "threading.h"
 #include "validator.h"
 #include "vfs.h"
-#include "webview.h"
 #include "winlayout.h"
 #include "xml.h"
 #include "xrc.h"
@@ -1001,16 +1000,6 @@ zend_class_entry* php_wxGenericProgressDialog_entry;
 zend_object_handlers wxphp_wxGenericProgressDialog_object_handlers;
 zend_class_entry* php_wxToolBarToolBase_entry;
 zend_object_handlers wxphp_wxToolBarToolBase_object_handlers;
-zend_class_entry* php_wxWebViewHistoryItem_entry;
-zend_object_handlers wxphp_wxWebViewHistoryItem_object_handlers;
-zend_class_entry* php_wxWebViewHandler_entry;
-zend_object_handlers wxphp_wxWebViewHandler_object_handlers;
-zend_class_entry* php_wxWebViewEvent_entry;
-zend_object_handlers wxphp_wxWebViewEvent_object_handlers;
-zend_class_entry* php_wxWebViewArchiveHandler_entry;
-zend_object_handlers wxphp_wxWebViewArchiveHandler_object_handlers;
-zend_class_entry* php_wxWebView_entry;
-zend_object_handlers wxphp_wxWebView_object_handlers;
 zend_class_entry* php_wxTextCompleterSimple_entry;
 zend_object_handlers wxphp_wxTextCompleterSimple_object_handlers;
 zend_class_entry* php_wxMediaCtrl_entry;
@@ -1870,12 +1859,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxHeaderColumn_entry->create_object = php_wxHeaderColumn_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxHeaderColumn)
 
-    char PHP_wxWebViewHandler_name[] = "wxWebViewHandler";
-    INIT_CLASS_ENTRY(ce, PHP_wxWebViewHandler_name, php_wxWebViewHandler_functions);
-    php_wxWebViewHandler_entry = zend_register_internal_class(&ce);
-    php_wxWebViewHandler_entry->create_object = php_wxWebViewHandler_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewHandler)
-
     char PHP_wxScrolled_name[] = "wxScrolled";
     INIT_CLASS_ENTRY(ce, PHP_wxScrolled_name, php_wxScrolled_functions);
     php_wxScrolled_entry = zend_register_internal_class(&ce);
@@ -2476,12 +2459,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxWindowDisabler_entry->create_object = php_wxWindowDisabler_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxWindowDisabler)
 
-    char PHP_wxWebViewHistoryItem_name[] = "wxWebViewHistoryItem";
-    INIT_CLASS_ENTRY(ce, PHP_wxWebViewHistoryItem_name, php_wxWebViewHistoryItem_functions);
-    php_wxWebViewHistoryItem_entry = zend_register_internal_class(&ce);
-    php_wxWebViewHistoryItem_entry->create_object = php_wxWebViewHistoryItem_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewHistoryItem)
-
     char PHP_wxURI_name[] = "wxURI";
     INIT_CLASS_ENTRY(ce, PHP_wxURI_name, php_wxURI_functions);
     php_wxURI_entry = zend_register_internal_class(&ce);
@@ -2518,17 +2495,17 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxCommandEvent_entry->create_object = php_wxCommandEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxCommandEvent)
 
-    char PHP_wxNotifyEvent_name[] = "wxNotifyEvent";
-    INIT_CLASS_ENTRY(ce, PHP_wxNotifyEvent_name, php_wxNotifyEvent_functions);
-    php_wxNotifyEvent_entry = zend_register_internal_class_ex(&ce, php_wxCommandEvent_entry);
-    php_wxNotifyEvent_entry->create_object = php_wxNotifyEvent_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxNotifyEvent)
-
     char PHP_wxNonOwnedWindow_name[] = "wxNonOwnedWindow";
     INIT_CLASS_ENTRY(ce, PHP_wxNonOwnedWindow_name, php_wxNonOwnedWindow_functions);
     php_wxNonOwnedWindow_entry = zend_register_internal_class_ex(&ce, php_wxWindow_entry);
     php_wxNonOwnedWindow_entry->create_object = php_wxNonOwnedWindow_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxNonOwnedWindow)
+
+    char PHP_wxNotifyEvent_name[] = "wxNotifyEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxNotifyEvent_name, php_wxNotifyEvent_functions);
+    php_wxNotifyEvent_entry = zend_register_internal_class_ex(&ce, php_wxCommandEvent_entry);
+    php_wxNotifyEvent_entry->create_object = php_wxNotifyEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxNotifyEvent)
 
     char PHP_wxTopLevelWindow_name[] = "wxTopLevelWindow";
     INIT_CLASS_ENTRY(ce, PHP_wxTopLevelWindow_name, php_wxTopLevelWindow_functions);
@@ -4593,24 +4570,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxToolBarToolBase_entry = zend_register_internal_class_ex(&ce, php_wxObject_entry);
     php_wxToolBarToolBase_entry->create_object = php_wxToolBarToolBase_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxToolBarToolBase)
-
-    char PHP_wxWebViewEvent_name[] = "wxWebViewEvent";
-    INIT_CLASS_ENTRY(ce, PHP_wxWebViewEvent_name, php_wxWebViewEvent_functions);
-    php_wxWebViewEvent_entry = zend_register_internal_class_ex(&ce, php_wxNotifyEvent_entry);
-    php_wxWebViewEvent_entry->create_object = php_wxWebViewEvent_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewEvent)
-
-    char PHP_wxWebViewArchiveHandler_name[] = "wxWebViewArchiveHandler";
-    INIT_CLASS_ENTRY(ce, PHP_wxWebViewArchiveHandler_name, php_wxWebViewArchiveHandler_functions);
-    php_wxWebViewArchiveHandler_entry = zend_register_internal_class_ex(&ce, php_wxWebViewHandler_entry);
-    php_wxWebViewArchiveHandler_entry->create_object = php_wxWebViewArchiveHandler_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebViewArchiveHandler)
-
-    char PHP_wxWebView_name[] = "wxWebView";
-    INIT_CLASS_ENTRY(ce, PHP_wxWebView_name, php_wxWebView_functions);
-    php_wxWebView_entry = zend_register_internal_class_ex(&ce, php_wxControl_entry);
-    php_wxWebView_entry->create_object = php_wxWebView_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxWebView)
 
     char PHP_wxTextCompleterSimple_name[] = "wxTextCompleterSimple";
     INIT_CLASS_ENTRY(ce, PHP_wxTextCompleterSimple_name, php_wxTextCompleterSimple_functions);
@@ -9894,29 +9853,6 @@ REGISTER_STRING_CONSTANT("wxIMAGE_OPTION_TIFF_SAMPLESPERPIXEL", _wxchar_wxIMAGE_
     REGISTER_LONG_CONSTANT("wxVERTICAL", wxVERTICAL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxVSCROLL", wxVSCROLL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxWANTS_CHARS", wxWANTS_CHARS, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_FIND_BACKWARDS", wxWEBVIEW_FIND_BACKWARDS, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_FIND_DEFAULT", wxWEBVIEW_FIND_DEFAULT, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_FIND_ENTIRE_WORD", wxWEBVIEW_FIND_ENTIRE_WORD, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_FIND_HIGHLIGHT_RESULT", wxWEBVIEW_FIND_HIGHLIGHT_RESULT, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_FIND_MATCH_CASE", wxWEBVIEW_FIND_MATCH_CASE, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_FIND_WRAP", wxWEBVIEW_FIND_WRAP, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_AUTH", wxWEBVIEW_NAV_ERR_AUTH, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_CERTIFICATE", wxWEBVIEW_NAV_ERR_CERTIFICATE, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_CONNECTION", wxWEBVIEW_NAV_ERR_CONNECTION, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_NOT_FOUND", wxWEBVIEW_NAV_ERR_NOT_FOUND, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_OTHER", wxWEBVIEW_NAV_ERR_OTHER, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_REQUEST", wxWEBVIEW_NAV_ERR_REQUEST, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_SECURITY", wxWEBVIEW_NAV_ERR_SECURITY, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_NAV_ERR_USER_CANCELLED", wxWEBVIEW_NAV_ERR_USER_CANCELLED, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_RELOAD_DEFAULT", wxWEBVIEW_RELOAD_DEFAULT, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_RELOAD_NO_CACHE", wxWEBVIEW_RELOAD_NO_CACHE, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_ZOOM_LARGE", wxWEBVIEW_ZOOM_LARGE, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_ZOOM_LARGEST", wxWEBVIEW_ZOOM_LARGEST, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_ZOOM_MEDIUM", wxWEBVIEW_ZOOM_MEDIUM, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_ZOOM_SMALL", wxWEBVIEW_ZOOM_SMALL, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_ZOOM_TINY", wxWEBVIEW_ZOOM_TINY, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_ZOOM_TYPE_LAYOUT", wxWEBVIEW_ZOOM_TYPE_LAYOUT, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxWEBVIEW_ZOOM_TYPE_TEXT", wxWEBVIEW_ZOOM_TYPE_TEXT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxWEST", wxWEST, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxWINDING_RULE", wxWINDING_RULE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxWINDOW_STYLE_MASK", (wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
@@ -10401,12 +10337,6 @@ REGISTER_STRING_CONSTANT("wxIMAGE_OPTION_TIFF_SAMPLESPERPIXEL", _wxchar_wxIMAGE_
     REGISTER_LONG_CONSTANT("wxEVT_TREELIST_ITEM_ACTIVATED", wxEVT_TREELIST_ITEM_ACTIVATED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_TREELIST_ITEM_CONTEXT_MENU", wxEVT_TREELIST_ITEM_CONTEXT_MENU, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_TREELIST_COLUMN_SORTED", wxEVT_TREELIST_COLUMN_SORTED, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxEVT_WEBVIEW_NAVIGATING", wxEVT_WEBVIEW_NAVIGATING, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxEVT_WEBVIEW_NAVIGATED", wxEVT_WEBVIEW_NAVIGATED, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxEVT_WEBVIEW_LOADED", wxEVT_WEBVIEW_LOADED, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxEVT_WEBVIEW_ERROR", wxEVT_WEBVIEW_ERROR, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxEVT_WEBVIEW_NEWWINDOW", wxEVT_WEBVIEW_NEWWINDOW, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxEVT_WEBVIEW_TITLE_CHANGED", wxEVT_WEBVIEW_TITLE_CHANGED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_WIZARD_BEFORE_PAGE_CHANGED", wxEVT_WIZARD_BEFORE_PAGE_CHANGED, CONST_CS | CONST_PERSISTENT);
 
     //Class enumerations

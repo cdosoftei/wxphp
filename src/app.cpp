@@ -184,7 +184,7 @@ void wxAppWrapper::MacNewFile()
     if(is_php_user_space_implemented)
     {
         function_called = call_user_function(
-            NULL, phpObj, &function_name, &function_return_value,
+            NULL, &phpObj, &function_name, &function_return_value,
             0, NULL
         );
     }
@@ -251,8 +251,8 @@ void wxAppWrapper::MacOpenFiles ( const wxArrayString &  fileNames)
     if(is_php_user_space_implemented)
     {
         function_called = call_user_function(
-            NULL, phpObj, &function_name, &function_return_value,
-            1, params
+            NULL, &phpObj, &function_name, &function_return_value,
+            1, *params
         );
     }
     else
@@ -314,8 +314,8 @@ void wxAppWrapper::MacOpenFile(const wxString& fileName)
     if(is_php_user_space_implemented)
     {
         function_called = call_user_function(
-            NULL, phpObj, &function_name, &function_return_value,
-            1, params
+            NULL, &phpObj, &function_name, &function_return_value,
+            1, *params
         );
     }
     else
@@ -377,8 +377,8 @@ void wxAppWrapper::MacOpenURL(const wxString& url)
     if(is_php_user_space_implemented)
     {
         function_called = call_user_function(
-            NULL, phpObj, &function_name, &function_return_value,
-            1, params
+            NULL, &phpObj, &function_name, &function_return_value,
+            1, *params
         );
     }
     else
@@ -440,8 +440,8 @@ void wxAppWrapper::MacPrintFile(const wxString& fileName)
     if(is_php_user_space_implemented)
     {
         function_called = call_user_function(
-            NULL, phpObj, &function_name, &function_return_value,
-            1, params
+            NULL, &phpObj, &function_name, &function_return_value,
+            1, *params
         );
     }
     else
@@ -494,7 +494,7 @@ void wxAppWrapper::MacReopenApp()
     if(is_php_user_space_implemented)
     {
         function_called = call_user_function(
-            NULL, phpObj, &function_name, &function_return_value,
+            NULL, &phpObj, &function_name, &function_return_value,
             0, NULL
         );
     }
@@ -545,7 +545,7 @@ bool wxAppWrapper::OSXIsGUIApplication()
     if(is_php_user_space_implemented)
     {
         function_called = call_user_function(
-            NULL, phpObj, &function_name, &function_return_value,
+            NULL, &phpObj, &function_name, &function_return_value,
             0, NULL
         );
     }

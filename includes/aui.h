@@ -634,10 +634,25 @@ class wxAuiPaneInfo_php: public wxAuiPaneInfo{
     
     
     void InitProperties(){
-        properties = new void*[2];
+        properties = new void*[17];
 
         properties[0] = &name;
         properties[1] = &caption;
+        properties[2] = &icon;
+        properties[3] = &window;
+        properties[4] = &frame;
+        properties[5] = &state;
+        properties[6] = &dock_direction;
+        properties[7] = &dock_layer;
+        properties[8] = &dock_row;
+        properties[9] = &dock_pos;
+        properties[10] = &best_size;
+        properties[11] = &min_size;
+        properties[12] = &max_size;
+        properties[13] = &floating_pos;
+        properties[14] = &floating_size;
+        properties[15] = &dock_proportion;
+        properties[16] = &rect;
         
     }
 
@@ -751,59 +766,4 @@ static inline zo_wxAuiPaneInfo * php_wxAuiPaneInfo_fetch_object(zend_object *obj
 
 #define Z_wxAuiPaneInfo_P(zv) \
     php_wxAuiPaneInfo_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxAuiManagerEvent_entry;
-extern zend_object_handlers wxphp_wxAuiManagerEvent_object_handlers;
-void php_wxAuiManagerEvent_destruction_handler(zend_resource*);
-
-class wxAuiManagerEvent_php: public wxAuiManagerEvent{
-    public:
-
-    wxAuiManagerEvent_php(wxEventType type=wxEVT_NULL):wxAuiManagerEvent(type){}
-    
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxAuiManagerEvent{
-    wxAuiManagerEvent_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxAuiManagerEvent;
-
-void php_wxAuiManagerEvent_free(void *object);
-zend_object* php_wxAuiManagerEvent_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxAuiManagerEvent_functions[] = {
-    PHP_ME(php_wxAuiManagerEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxAuiManagerEvent, Veto, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, SetPane, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, SetManager, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, SetDC, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, SetCanVeto, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, SetButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, GetVeto, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, GetPane, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, GetManager, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, GetDC, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, GetButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManagerEvent, CanVeto, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxAuiManagerEvent * php_wxAuiManagerEvent_fetch_object(zend_object *obj) {
-    return (zo_wxAuiManagerEvent *)(
-        (char *)(obj) - XtOffsetOf(zo_wxAuiManagerEvent, zo)
-    );
-}
-
-#define Z_wxAuiManagerEvent_P(zv) \
-    php_wxAuiManagerEvent_fetch_object(Z_OBJ_P(zv))
 #endif //WXPHP_AUI_H_GUARD

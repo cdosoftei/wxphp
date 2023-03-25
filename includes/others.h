@@ -641,6 +641,57 @@ static inline zo_wxWithImages * php_wxWithImages_fetch_object(zend_object *obj) 
 
 #define Z_wxWithImages_P(zv) \
     php_wxWithImages_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxAnimation_entry;
+extern zend_object_handlers wxphp_wxAnimation_object_handlers;
+void php_wxAnimation_destruction_handler(zend_resource*);
+
+class wxAnimation_php: public wxAnimation{
+    public:
+
+    wxAnimation_php(const wxAnimation& anim):wxAnimation(anim){}
+    wxAnimation_php(const wxString& name, wxAnimationType type=wxANIMATION_TYPE_ANY):wxAnimation(name, type){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxAnimation{
+    wxAnimation_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxAnimation;
+
+void php_wxAnimation_free(void *object);
+zend_object* php_wxAnimation_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxAnimation_functions[] = {
+    PHP_ME(php_wxAnimation, GetDelay, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAnimation, GetFrame, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAnimation, GetFrameCount, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAnimation, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAnimation, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAnimation, LoadFile, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAnimation, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxAnimation, Load, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxAnimation * php_wxAnimation_fetch_object(zend_object *obj) {
+    return (zo_wxAnimation *)(
+        (char *)(obj) - XtOffsetOf(zo_wxAnimation, zo)
+    );
+}
+
+#define Z_wxAnimation_P(zv) \
+    php_wxAnimation_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxTextCompleter_entry;
 extern zend_object_handlers wxphp_wxTextCompleter_object_handlers;
 void php_wxTextCompleter_destruction_handler(zend_resource*);
@@ -684,6 +735,59 @@ static inline zo_wxTextCompleter * php_wxTextCompleter_fetch_object(zend_object 
 
 #define Z_wxTextCompleter_P(zv) \
     php_wxTextCompleter_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxListItemAttr_entry;
+extern zend_object_handlers wxphp_wxListItemAttr_object_handlers;
+void php_wxListItemAttr_destruction_handler(zend_resource*);
+
+class wxListItemAttr_php: public wxListItemAttr{
+    public:
+
+    wxListItemAttr_php():wxListItemAttr(){}
+    wxListItemAttr_php(const wxColour& colText, const wxColour& colBack, const wxFont& font):wxListItemAttr(colText, colBack, font){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxListItemAttr{
+    wxListItemAttr_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxListItemAttr;
+
+void php_wxListItemAttr_free(void *object);
+zend_object* php_wxListItemAttr_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxListItemAttr_functions[] = {
+    PHP_ME(php_wxListItemAttr, GetBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxListItemAttr, SetTextColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, SetFont, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, SetBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, HasTextColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, HasFont, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, HasBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, GetTextColour, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxListItemAttr, GetFont, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxListItemAttr * php_wxListItemAttr_fetch_object(zend_object *obj) {
+    return (zo_wxListItemAttr *)(
+        (char *)(obj) - XtOffsetOf(zo_wxListItemAttr, zo)
+    );
+}
+
+#define Z_wxListItemAttr_P(zv) \
+    php_wxListItemAttr_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxWindowModalDialogEvent_entry;
 extern zend_object_handlers wxphp_wxWindowModalDialogEvent_object_handlers;
 void php_wxWindowModalDialogEvent_destruction_handler(zend_resource*);
@@ -1706,49 +1810,6 @@ static inline zo_wxFileTypeInfo * php_wxFileTypeInfo_fetch_object(zend_object *o
 
 #define Z_wxFileTypeInfo_P(zv) \
     php_wxFileTypeInfo_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxDisplayChangedEvent_entry;
-extern zend_object_handlers wxphp_wxDisplayChangedEvent_object_handlers;
-void php_wxDisplayChangedEvent_destruction_handler(zend_resource*);
-
-class wxDisplayChangedEvent_php: public wxDisplayChangedEvent{
-    public:
-
-    wxDisplayChangedEvent_php():wxDisplayChangedEvent(){}
-    
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxDisplayChangedEvent{
-    wxDisplayChangedEvent_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxDisplayChangedEvent;
-
-void php_wxDisplayChangedEvent_free(void *object);
-zend_object* php_wxDisplayChangedEvent_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxDisplayChangedEvent_functions[] = {
-    PHP_ME(php_wxDisplayChangedEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxDisplayChangedEvent * php_wxDisplayChangedEvent_fetch_object(zend_object *obj) {
-    return (zo_wxDisplayChangedEvent *)(
-        (char *)(obj) - XtOffsetOf(zo_wxDisplayChangedEvent, zo)
-    );
-}
-
-#define Z_wxDisplayChangedEvent_P(zv) \
-    php_wxDisplayChangedEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxTimerRunner_entry;
 extern zend_object_handlers wxphp_wxTimerRunner_object_handlers;
 void php_wxTimerRunner_destruction_handler(zend_resource*);

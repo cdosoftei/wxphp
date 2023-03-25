@@ -148,7 +148,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				}
 				
 				//skip destructor
-				if($function_name{0} == "~")
+				if($function_name[0] == "~")
 					continue;
 					
 				$function_constant = false;
@@ -282,7 +282,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				$enum_name = $class_xpath->evaluate("name", $class_member->item($member))->item(0)->nodeValue;
 				
 				//Skip unnamed enums TODO: implement them
-				if($enum_name{0} == "@")
+				if($enum_name[0] == "@")
 					continue;
 				
 				if(!isset($enums[0][$name]))
@@ -368,7 +368,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				}
 				
 				//Skip defines used for compiler
-				if($define_name{0} == "_" && $define_name{1} == "_")
+				if($define_name[0] == "_" && $define_name[1] == "_")
 				{
 					continue;
 				}
@@ -382,7 +382,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				$enum_name = $file_xpath->evaluate("name", $file_members->item($member))->item(0)->nodeValue;
 				
 				//If unnamed enum store on consts.json
-				if($enum_name{0} != "@")
+				if($enum_name[0] != "@")
 				{
 					if(!isset($enums[1]))
 						$enums[1] = array();
@@ -392,7 +392,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				
 				$enum_values = $file_xpath->evaluate("enumvalue", $file_members->item($member));
 				
-				if($enum_name{0} != "@")
+				if($enum_name[0] != "@")
 				{
 					for($enum_value=0; $enum_value<$enum_values->length; $enum_value++)
 					{
@@ -415,7 +415,7 @@ for ($i = 0; $i < $entries->length; $i++)
 				{
 					$function_name = $file_xpath->evaluate("name", $file_members->item($member))->item(0)->nodeValue;
 					
-					if($function_name{0} == "w" && $function_name{1} == "x")
+					if($function_name[0] == "w" && $function_name[1] == "x")
 					{
 						$function_type = $file_xpath->evaluate("type", $file_members->item($member))->item(0)->nodeValue;
 						$function_brief_description = trim($file_xpath->evaluate("briefdescription", $file_members->item($member))->item(0)->nodeValue);

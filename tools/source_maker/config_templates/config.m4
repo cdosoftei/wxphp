@@ -1,5 +1,5 @@
 PHP_ARG_WITH(wxwidgets,for wxWidgets support,
-[  --with-wxwidgets[=DIR]    Enable wxWidgets extension (requires wxWidgets >= 3.0.0).])
+[  --with-wxwidgets[=DIR]    Enable wxWidgets extension (requires wxWidgets >= 3.1.4).])
 
 PHP_ARG_WITH(wxwidgets-version,set wxWidgets version,
 [  --with-wxwidgets[=VERSION]
@@ -24,7 +24,7 @@ PHP_ARG_ENABLE(wxphp-references-management, whether to enable references managem
 if test "$PHP_WXWIDGETS" != "no"; then
 
     dnl Set the wxWidgets version to download and compile
-    PHP_WX_VERSION="3.0.5"
+    PHP_WX_VERSION="3.1.4"
 
     if test "$PHP_WXWIDGETS_VERSION" != "no"; then
         PHP_WX_VERSION=$PHP_WXWIDGETS_VERSION
@@ -46,13 +46,13 @@ if test "$PHP_WXWIDGETS" != "no"; then
 
     dnl Check for the installation path of wx-config
     if test "$PHP_WXWIDGETS" != "yes"; then
-        AC_MSG_CHECKING([for wx-config existance and wxWidgets version >= 3.0.x])
+        AC_MSG_CHECKING([for wx-config existance and wxWidgets version >= 3.1.x])
         for directory in "$PHP_WXWIDGETS" "$PHP_WXWIDGETS/bin" /usr /usr/bin /usr/local /usr/local/bin; do
             dnl search for know command names (prefered first)
-            for cmd in wx-config-3.0 wx-config; do
+            for cmd in wx-config-3.1 wx-config; do
                 if test -e "$directory/$cmd"; then
                     wxwidgets_version=`$directory/$cmd --version`
-                    version_check=`echo $wxwidgets_version | grep "3.0" && echo $wxwidgets_version | grep "0.[0-9]"`
+                    version_check=`echo $wxwidgets_version | grep "3.1" && echo $wxwidgets_version | grep "0.[0-9]"`
                     if test -n "$version_check"; then
                         WXCONFIG_PATH="$directory/$cmd"
                         AC_MSG_RESULT([version $wxwidgets_version found])
@@ -156,7 +156,7 @@ if test "$PHP_WXWIDGETS" != "no"; then
 
         if test ! -e "Makefile"; then
             if test "$PHP_WXWIDGETS_MACOSX" == "no"; then
-                CFLAGS="$WX_FLAGS" CXXFLAGS="$WX_FLAGS"  \
+                CFLAGS="$WX_FLAGS" CXXFLAGS="$WX_FLAGS" \
                 ../configure --prefix=$WX_BUILD_DIR --disable-shared \
                 --enable-monolithic --with-{gtk=3,sdl}
             else
@@ -237,6 +237,7 @@ if test "$PHP_WXWIDGETS" != "no"; then
     if test "$PHP_WXWIDGETS_MACOSX" == "no"; then
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
             PHP_WXWIDGETS_OTHER_LDFLAGS=`pkg-config --libs sdl gstreamer-1.0 gstreamer-video-1.0`
+            PHP_WXWIDGETS_OTHER_LDFLAGS="$PHP_WXWIDGETS_OTHER_LDFLAGS -L./wxWidgets-build/lib"
         fi
     else
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
@@ -259,7 +260,7 @@ if test "$PHP_WXWIDGETS" != "no"; then
 
         dnl Append wxscintilla and gstreamer if static build
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
-            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.0 $WEBKIT_LIB $PHP_WXWIDGETS_OTHER_LDFLAGS"
+            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.1 $WEBKIT_LIB $PHP_WXWIDGETS_OTHER_LDFLAGS"
             LDFLAGS="$LDFLAGS $PHP_WXWIDGETS_LDFLAGS"
         fi
     else

@@ -157,6 +157,9 @@ const wxMBConv&	bool wxFFile::ReadAll(wxString* str, const wxMBConv& conv=wxConv
 FILE*	void wxFFile::Attach(FILE* fp, const wxString& name=wxEmptyString)
 FILE*	FILE* wxFFile::Detach()
 FILE*	FILE* wxFFile::fp()
+wxThreadIdType	wxThreadIdType wxThread::GetCurrentId()
+wxThreadIdType	wxThreadIdType wxThread::GetId()
+wxThreadIdType	wxThreadIdType wxThread::GetMainId()
 ExtraControlCreatorFunction	bool wxFileDialog::SetExtraControlCreator(ExtraControlCreatorFunction creator)
 const wxAuiNotebookPageArray&	int wxAuiTabArt::GetBestTabCtrlSize(wxWindow* , const wxAuiNotebookPageArray& , const wxSize&)
 const wxAuiNotebookPage&	void wxAuiTabArt::DrawTab(wxDC& dc, wxWindow* wnd, const wxAuiNotebookPage& page, const wxRect& rect, int close_button_state, wxRect* out_tab_rect, wxRect* out_button_rect, int* x_extent)
@@ -263,6 +266,8 @@ const wxChar*	const wxChar* wxSysErrorMsg(unsigned long errCode=0)
 va_list	void wxVLogGeneric(wxLogLevel level, const char* formatString, va_list argPtr)
 ...	void wxLogMessage(const char* formatString, ...)
 va_list	void wxVLogMessage(const char* formatString, va_list argPtr)
+...	void wxLogInfo(const char* formatString, ...)
+va_list	void wxVLogInfo(const char* formatString, va_list argPtr)
 ...	void wxLogVerbose(const char* formatString, ...)
 va_list	void wxVLogVerbose(const char* formatString, va_list argPtr)
 ...	void wxLogWarning(const char* formatString, ...)
@@ -297,13 +302,13 @@ wxAssertHandler_t	wxAssertHandler_t wxSetAssertHandler(wxAssertHandler_t handler
 	 wxDELETEA(T*& array)
 	 wxSwap(T& first, T& second)
 va_list	void wxVaCopy(va_list argptrDst, va_list argptrSrc)
-wxLongLong	bool wxGetDiskSpace(const wxString& path, wxLongLong total=NULL, wxLongLong free=NULL)
 wxChar*	void wxDos2UnixFilename(wxChar* s)
 wxChar*	void wxUnix2DosFilename(wxChar* s)
 time_t	time_t wxFileModificationTime(const wxString& filename)
 FILE*	wxFileKind wxGetFileKind(FILE* fp)
 wxChar**	bool wxEntryStart(int& argc, wxChar** argv)
 HINSTANCE	bool wxEntryStart(HINSTANCE hInstance, HINSTANCE hPrevInstance=NULL, char* pCmdLine=NULL, int nCmdShow=SW_SHOWNORMAL)
+wxLocale*	wxLocale* wxGetLocale()
 wxLongLong_t	wxLongLong_t wxLL(number)
 wxLongLong_t	wxLongLong_t wxULL(number)
 const wxInt8*	wxFloat64 wxConvertFromIeeeExtended(const wxInt8* bytes)
@@ -317,6 +322,7 @@ wxRichTextAttr&	bool wxRichTextRemoveStyle(wxRichTextAttr& destStyle, const wxRi
 const wxRichTextAttr&	bool wxRichTextSplitParaCharStyles(const wxRichTextAttr& style, wxRichTextAttr& parStyle, wxRichTextAttr& charStyle)
 const wxArrayInt&	bool wxRichTextTabsEq(const wxArrayInt& tabs1, const wxArrayInt& tabs2)
 wxScopeGuard	wxScopeGuard wxMakeGuard(F func, P1 p1, ... , PN pN)
+T*	bool wxCreateScrolled(T* self, wxWindow* parent, wxWindowID winid, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
 wxLongLong	wxLongLong wxGetLocalTimeMillis()
 wxLongLong	wxLongLong wxGetUTCTimeMillis()
 wxLongLong	wxLongLong wxGetUTCTimeUSec()
@@ -328,14 +334,16 @@ const wxCStrData&	char* wxGetenv(const wxCStrData& name)
 const wxCharBuffer&	char* wxGetenv(const wxCharBuffer& name)
 wchar_t*	wchar_t* wxGetenv(const wxWCharBuffer& name)
 wxEnvVariableHashMap*	bool wxGetEnvMap(wxEnvVariableHashMap* map)
+wxLongLong	bool wxGetDiskSpace(const wxString& path, wxLongLong total=NULL, wxLongLong free=NULL)
 wxSortCallback	void wxQsort(void* pbase, size_t total_elems, size_t size, wxSortCallback cmp, const void* user_data)
 wxMemorySize	wxMemorySize wxGetFreeMemory()
 wxLinuxDistributionInfo	wxLinuxDistributionInfo wxGetLinuxDistributionInfo()
 const wxExecuteEnv*	long wxExecute(const wxString& command, int flags=wxEXEC_ASYNC, wxProcess* callback=NULL, const wxExecuteEnv* env=NULL)
-const wxExecuteEnv*	long wxExecute(char** argv, int flags=wxEXEC_ASYNC, wxProcess* callback=NULL, const wxExecuteEnv* env=NULL)
-wchar_t**	long wxExecute(wchar_t** argv, int flags=wxEXEC_ASYNC, wxProcess* callback=NULL, const wxExecuteEnv* env=NULL)
+const char*const*	long wxExecute(const char*const* argv, int flags=wxEXEC_ASYNC, wxProcess* callback=NULL, const wxExecuteEnv* env=NULL)
+const wchar_t*const*	long wxExecute(const wchar_t*const* argv, int flags=wxEXEC_ASYNC, wxProcess* callback=NULL, const wxExecuteEnv* env=NULL)
 const wxExecuteEnv*	long wxExecute(const wxString& command, wxArrayString& output, int flags=0, const wxExecuteEnv* env=NULL)
 const wxExecuteEnv*	long wxExecute(const wxString& command, wxArrayString& output, wxArrayString& errors, int flags=0, const wxExecuteEnv* env=NULL)
+wxChar*	void wxDecToHex(unsigned char dec, wxChar* buf)
 wxFloatingPointValidator< T >	wxFloatingPointValidator< T > wxMakeFloatingPointValidator(T* value, int style=wxNUM_VAL_DEFAULT)
 wxFloatingPointValidator< T >	wxFloatingPointValidator< T > wxMakeFloatingPointValidator(int precision, T* value, int style=wxNUM_VAL_DEFAULT)
 wxIntegerValidator< T >	wxIntegerValidator< T > wxMakeIntegerValidator(T* value, int style=wxNUM_VAL_DEFAULT)
@@ -501,11 +509,10 @@ const wchar_t*	unsigned long wxStrtoul_l(const wchar_t* c, wchar_t** endptr, int
 
 Deprecated Functions
 
-bool wxYield()
 void wxSplitPath(const wxString& fullname, wxString* path, wxString* name, wxString* ext)
 wxWindow* wxFindWindowByLabel(const wxString& label, wxWindow* parent=NULL)
 wxWindow* wxFindWindowByName(const wxString& name, wxWindow* parent=NULL)
-int wxNewId()
+wxWindowID wxNewId()
 void wxUsleep(unsigned long milliseconds)
 
 
@@ -581,39 +588,120 @@ Methods implemented unhandled argument declarations
 
 Constants
 
+wxAC_DEFAULT_STYLE = "(wxBORDER_NONE)"
+wxAC_NO_AUTORESIZE = "(0x0010)"
+wxAEDIALOG_STYLE = "(wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER | wxOK | wxCANCEL | wxCENTRE)"
+wxBITMAP_SCREEN_DEPTH = "(-1)"
+wxBK_ALIGN_MASK = "(wxBK_TOP | wxBK_BOTTOM | wxBK_LEFT | wxBK_RIGHT)"
+wxBU_ALIGN_MASK = "( wxBU_LEFT | wxBU_TOP | wxBU_RIGHT | wxBU_BOTTOM )"
+wxCANCEL_DEFAULT = "0x80000000  /* only valid with wxCANCEL */"
+wxCHOICEDLG_STYLE = "(wxDEFAULT_DIALOG_STYLE | wxOK | wxCANCEL | wxCENTRE | wxRESIZE_BORDER)"
+wxCLRP_USE_TEXTCTRL = "(wxPB_USE_TEXTCTRL)"
+wxCP_DEFAULT_STYLE = "(wxTAB_TRAVERSAL | wxNO_BORDER)"
+wxCP_NO_TLW_RESIZE = "(0x0002)"
+wxDD_DEFAULT_STYLE = "(wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER)"
 wxDEBUG_LEVEL = ""
-wxEXPLICIT = ""
+wxDEFAULT_DELIMITERS = "" \t\r\n""
+wxDVR_DEFAULT_ALIGNMENT = "-1"
+wxEL_DEFAULT_STYLE = "(wxEL_ALLOW_NEW | wxEL_ALLOW_EDIT | wxEL_ALLOW_DELETE)"
 wxFAIL = ""
+wxFONTBTN_DEFAULT_STYLE = "(wxFNTP_FONTDESC_AS_LABEL | wxFNTP_USEFONT_FOR_LABEL)"
+wxGRID_AUTOSIZE = "(-1)"
+wxHF_DEFAULT_STYLE = "(wxHF_TOOLBAR | wxHF_CONTENTS | \
+                                     wxHF_INDEX | wxHF_SEARCH | \
+                                     wxHF_BOOKMARKS | wxHF_PRINT)"
+wxHTML_INDENT_ALL = "(wxHTML_INDENT_VERTICAL | wxHTML_INDENT_HORIZONTAL)"
+wxHTML_INDENT_HORIZONTAL = "(wxHTML_INDENT_LEFT | wxHTML_INDENT_RIGHT)"
+wxHTML_INDENT_VERTICAL = "(wxHTML_INDENT_TOP | wxHTML_INDENT_BOTTOM)"
+wxICON_MASK = "(wxICON_EXCLAMATION|wxICON_HAND|wxICON_QUESTION|wxICON_INFORMATION|wxICON_NONE)"
+wxICON_SCREEN_DEPTH = "(-1)"
+wxID_HTML_HELPFRAME = "(wxID_HIGHEST + 1)"
+wxID_RICHTEXT_PROPERTIES1 = "(wxID_HIGHEST + 1)"
+wxID_RICHTEXT_PROPERTIES2 = "(wxID_HIGHEST + 2)"
+wxID_RICHTEXT_PROPERTIES3 = "(wxID_HIGHEST + 3)"
+wxIMAGE_OPTION_BMP_FORMAT = "wxString("wxBMP_FORMAT")"
+wxIMAGE_OPTION_CUR_HOTSPOT_X = "wxString("HotSpotX")"
+wxIMAGE_OPTION_CUR_HOTSPOT_Y = "wxString("HotSpotY")"
+wxIMAGE_OPTION_FILENAME = "wxString("FileName")"
+wxIMAGE_OPTION_GIF_COMMENT = "wxT("GifComment")"
+wxIMAGE_OPTION_GIF_TRANSPARENCY = "wxString("Transparency")"
+wxIMAGE_OPTION_GIF_TRANSPARENCY_HIGHLIGHT = "wxString("Highlight")"
+wxIMAGE_OPTION_GIF_TRANSPARENCY_UNCHANGED = "wxString("Unchanged")"
+wxIMAGE_OPTION_MAX_HEIGHT = "wxString("MaxHeight")"
+wxIMAGE_OPTION_MAX_WIDTH = "wxString("MaxWidth")"
+wxIMAGE_OPTION_ORIGINAL_HEIGHT = "wxString("OriginalHeight")"
+wxIMAGE_OPTION_ORIGINAL_WIDTH = "wxString("OriginalWidth")"
+wxIMAGE_OPTION_PNG_BITDEPTH = "wxT("PngBitDepth")"
+wxIMAGE_OPTION_PNG_COMPRESSION_BUFFER_SIZE = "wxT("PngZB")"
+wxIMAGE_OPTION_PNG_COMPRESSION_LEVEL = "wxT("PngZL")"
+wxIMAGE_OPTION_PNG_COMPRESSION_MEM_LEVEL = "wxT("PngZM")"
+wxIMAGE_OPTION_PNG_COMPRESSION_STRATEGY = "wxT("PngZS")"
+wxIMAGE_OPTION_PNG_FILTER = "wxT("PngF")"
+wxIMAGE_OPTION_PNG_FORMAT = "wxT("PngFormat")"
+wxIMAGE_OPTION_QUALITY = "wxString("quality")"
+wxIMAGE_OPTION_RESOLUTION = "wxString("Resolution")"
+wxIMAGE_OPTION_RESOLUTIONUNIT = "wxString("ResolutionUnit")"
+wxIMAGE_OPTION_RESOLUTIONX = "wxString("ResolutionX")"
+wxIMAGE_OPTION_RESOLUTIONY = "wxString("ResolutionY")"
+wxIMAGE_OPTION_TIFF_BITSPERSAMPLE = "wxString("BitsPerSample")"
+wxIMAGE_OPTION_TIFF_COMPRESSION = "wxString("Compression")"
+wxIMAGE_OPTION_TIFF_IMAGEDESCRIPTOR = "wxString("ImageDescriptor")"
+wxIMAGE_OPTION_TIFF_PHOTOMETRIC = "wxString("Photometric")"
+wxIMAGE_OPTION_TIFF_SAMPLESPERPIXEL = "wxString("SamplesPerPixel")"
+wxLC_MASK_ALIGN = "(wxLC_ALIGN_TOP | wxLC_ALIGN_LEFT)"
+wxLC_MASK_SORT = "(wxLC_SORT_ASCENDING | wxLC_SORT_DESCENDING)"
+wxLC_MASK_TYPE = "(wxLC_ICON | wxLC_SMALL_ICON | wxLC_LIST | wxLC_REPORT)"
+wxLIST_GETSUBITEMRECT_WHOLEITEM = "-1l"
+wxLIST_HITTEST_ONITEM = "(wxLIST_HITTEST_ONITEMICON | wxLIST_HITTEST_ONITEMLABEL | wxLIST_HITTEST_ONITEMSTATEICON)"
 wxLongLongFmtSpec = ""
+wxNOT_FOUND = "(-1)"
+wxOK_DEFAULT = "0x00000000  /* has no effect (default) */"
+wxOVERRIDE = ""
+wxPGChoicesEmptyData = "((wxPGChoicesData*)NULL)"
+wxPGMAN_DEFAULT_STYLE = "(0)"
+wxPGVFBFlags = "unsigned char"
 wxPG_ARRAY_DELIMITER = "wxS("Delimiter")"
 wxPG_ATTR_AUTOCOMPLETE = "wxS("AutoComplete")"
 wxPG_ATTR_DEFAULT_VALUE = "wxS("DefaultValue")"
 wxPG_ATTR_HINT = "wxS("Hint")"
-wxPG_ATTR_INLINE_HELP = "wxS("InlineHelp")"
 wxPG_ATTR_MAX = "wxS("Max")"
 wxPG_ATTR_MIN = "wxS("Min")"
 wxPG_ATTR_MULTICHOICE_USERSTRINGMODE = "wxS("UserStringMode")"
-wxPG_ATTR_SPINCTRL_MOTIONSPIN = "wxS("MotionSpin")"
+wxPG_ATTR_SPINCTRL_MOTION = "wxS("MotionSpin")"
 wxPG_ATTR_SPINCTRL_STEP = "wxS("Step")"
 wxPG_ATTR_SPINCTRL_WRAP = "wxS("Wrap")"
 wxPG_ATTR_UNITS = "wxS("Units")"
 wxPG_BOOL_USE_CHECKBOX = "wxS("UseCheckbox")"
 wxPG_BOOL_USE_DOUBLE_CLICK_CYCLING = "wxS("UseDClickCycling")"
 wxPG_COLOUR_ALLOW_CUSTOM = "wxS("AllowCustom")"
+wxPG_COLOUR_BLACK = "(*wxBLACK)"
 wxPG_COLOUR_HAS_ALPHA = "wxS("HasAlpha")"
+wxPG_COLOUR_UNSPECIFIED = "(wxPG_COLOUR_CUSTOM+1)"
 wxPG_DATE_FORMAT = "wxS("DateFormat")"
 wxPG_DATE_PICKER_STYLE = "wxS("PickerStyle")"
-wxPG_DIR_DIALOG_MESSAGE = "wxS("DialogMessage")"
+wxPG_DEFAULT_STYLE = "(0)"
+wxPG_DIALOG_TITLE = "wxS("DialogTitle")"
 wxPG_FILE_DIALOG_STYLE = "wxS("DialogStyle")"
-wxPG_FILE_DIALOG_TITLE = "wxS("DialogTitle")"
 wxPG_FILE_INITIAL_PATH = "wxS("InitialPath")"
 wxPG_FILE_SHOW_FULL_PATH = "wxS("ShowFullPath")"
 wxPG_FILE_SHOW_RELATIVE_PATH = "wxS("ShowRelativePath")"
 wxPG_FILE_WILDCARD = "wxS("Wildcard")"
 wxPG_FLOAT_PRECISION = "wxS("Precision")"
+wxPG_LABEL = "(*wxPGProperty::sm_wxPG_LABEL)"
+wxPG_LABEL_STRING = "wxS("@!")"
+wxPG_PROP_PARENTAL_FLAGS = "((wxPGPropertyFlags)(wxPG_PROP_AGGREGATE | \
+                         wxPG_PROP_CATEGORY | \
+                         wxPG_PROP_MISC_PARENT))"
 wxPG_STRING_PASSWORD = "wxS("Password")"
+wxPG_STRING_STORED_FLAGS = "(wxPG_PROP_DISABLED|wxPG_PROP_HIDDEN|wxPG_PROP_NOEDITOR|wxPG_PROP_COLLAPSED)"
 wxPG_UINT_BASE = "wxS("Base")"
 wxPG_UINT_PREFIX = "wxS("Prefix")"
+wxPREVIEW_DEFAULT = "(wxPREVIEW_PREVIOUS|wxPREVIEW_NEXT|wxPREVIEW_ZOOM\
+                            |wxPREVIEW_FIRST|wxPREVIEW_GOTO|wxPREVIEW_LAST)"
+wxPRINT_QUALITY_DRAFT = "-4"
+wxPRINT_QUALITY_HIGH = "-1"
+wxPRINT_QUALITY_LOW = "-3"
+wxPRINT_QUALITY_MEDIUM = "-2"
 wxRICHTEXT_ALL = "wxRichTextRange(-2, -2)"
 wxRICHTEXT_DEFAULT_FOCUSSED_BACKGROUND = "wxColour(140, 140, 140)"
 wxRICHTEXT_DEFAULT_FOCUS_RECT_COLOUR = "wxColour(100, 80, 80)"
@@ -624,4 +712,19 @@ wxRICHTEXT_DEFAULT_UNFOCUSSED_BACKGROUND = "wxColour(175, 175, 175)"
 wxRICHTEXT_DEFAULT_UNSELECTED_BACKGROUND = "wxSystemSettings::GetColour(wxSYS_COLOUR_3DFACE)"
 wxRICHTEXT_NONE = "wxRichTextRange(-1, -1)"
 wxRICHTEXT_NO_SELECTION = "wxRichTextRange(-2, -2)"
+wxRICHTEXT_ORGANISER_BROWSE = "(wxRICHTEXT_ORGANISER_SHOW_ALL|wxRICHTEXT_ORGANISER_OK_CANCEL)"
+wxRICHTEXT_ORGANISER_BROWSE_NUMBERING = "(wxRICHTEXT_ORGANISER_SHOW_LIST|wxRICHTEXT_ORGANISER_OK_CANCEL|wxRICHTEXT_ORGANISER_RENUMBER)"
+wxRICHTEXT_ORGANISER_ORGANISE = "(wxRICHTEXT_ORGANISER_SHOW_ALL|wxRICHTEXT_ORGANISER_DELETE_STYLES|wxRICHTEXT_ORGANISER_CREATE_STYLES|wxRICHTEXT_ORGANISER_APPLY_STYLES|wxRICHTEXT_ORGANISER_EDIT_STYLES|wxRICHTEXT_ORGANISER_RENAME_STYLES)"
+wxSCRIPT_MUL_FACTOR = "1.5"
+wxSIZE_AUTO = "(wxSIZE_AUTO_WIDTH|wxSIZE_AUTO_HEIGHT)"
+wxSTACKWALKER_MAX_DEPTH = "(200)"
+wxSTB_DEFAULT_STYLE = "(wxSTB_SIZEGRIP|wxSTB_ELLIPSIZE_END|wxSTB_SHOW_TIPS|wxFULL_REPAINT_ON_RESIZE)"
+wxSW_3D = "(wxSW_3DSASH | wxSW_3DBORDER)"
+wxTC_MULTILINE = "0x0200    /* == wxNB_MULTILINE */"
+wxTC_TOP = "0x0000    /*  default */"
+wxTextEntryDialogStyle = "(wxOK | wxCANCEL | wxCENTRE)"
 wxTheClipboard = ""
+wxWINDOW_STYLE_MASK = "(wxVSCROLL|wxHSCROLL|wxBORDER_MASK|wxALWAYS_SHOW_SB|wxCLIP_CHILDREN| \
+     wxCLIP_SIBLINGS|wxTRANSPARENT_WINDOW|wxTAB_TRAVERSAL|wxWANTS_CHARS| \
+     wxRETAINED|wxPOPUP_WINDOW|wxFULL_REPAINT_ON_RESIZE)"
+wxXML_NO_INDENTATION = "(-1)"

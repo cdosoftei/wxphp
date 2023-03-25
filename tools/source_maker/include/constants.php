@@ -122,7 +122,6 @@ $defConsts["wxNB_BOTTOM"] = true;
 $defConsts["wxNB_FIXEDWIDTH"] = true;
 $defConsts["wxNB_MULTILINE"] = true;
 $defConsts["wxNB_NOPAGETHEME"] = true;
-$defConsts["wxNB_FLAT"] = true;
 
 //Id's
 $defConsts["wxID_LOWEST"] = true;

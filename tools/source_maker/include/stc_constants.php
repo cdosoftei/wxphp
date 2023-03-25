@@ -13,6 +13,14 @@
  * 
 */
 
+// Dropped as of 3.1.x
+// $defConsts["wxEVT_STC_URIDROPPED"] = true;
+// $defConsts["wxEVT_STC_KEY"] = true;
+// $defConsts["wxSTC_INDIC0_MASK"] = true;
+// $defConsts["wxSTC_INDIC1_MASK"] = true;
+// $defConsts["wxSTC_INDIC2_MASK"] = true;
+// $defConsts["wxSTC_INDICS_MASK"] = true;
+
 //Event types
 $defConsts["wxEVT_STC_CHANGE"] = true;
 $defConsts["wxEVT_STC_STYLENEEDED"] = true;
@@ -20,7 +28,6 @@ $defConsts["wxEVT_STC_CHARADDED"] = true;
 $defConsts["wxEVT_STC_SAVEPOINTREACHED"] = true;
 $defConsts["wxEVT_STC_SAVEPOINTLEFT"] = true;
 $defConsts["wxEVT_STC_ROMODIFYATTEMPT"] = true;
-$defConsts["wxEVT_STC_KEY"] = true;
 $defConsts["wxEVT_STC_DOUBLECLICK"] = true;
 $defConsts["wxEVT_STC_UPDATEUI"] = true;
 $defConsts["wxEVT_STC_MODIFIED"] = true;
@@ -29,7 +36,7 @@ $defConsts["wxEVT_STC_MARGINCLICK"] = true;
 $defConsts["wxEVT_STC_NEEDSHOWN"] = true;
 $defConsts["wxEVT_STC_PAINTED"] = true;
 $defConsts["wxEVT_STC_USERLISTSELECTION"] = true;
-$defConsts["wxEVT_STC_URIDROPPED"] = true;
+
 $defConsts["wxEVT_STC_DWELLSTART"] = true;
 $defConsts["wxEVT_STC_DWELLEND"] = true;
 $defConsts["wxEVT_STC_START_DRAG"] = true;
@@ -168,10 +175,6 @@ $defConsts["wxSTC_INDIC_BOX"] = true;
 $defConsts["wxSTC_INDIC_ROUNDBOX"] = true;
 $defConsts["wxSTC_INDIC_MAX"] = true;
 $defConsts["wxSTC_INDIC_CONTAINER"] = true;
-$defConsts["wxSTC_INDIC0_MASK"] = true;
-$defConsts["wxSTC_INDIC1_MASK"] = true;
-$defConsts["wxSTC_INDIC2_MASK"] = true;
-$defConsts["wxSTC_INDICS_MASK"] = true;
 $defConsts["wxSTC_IV_NONE"] = true;
 $defConsts["wxSTC_IV_REAL"] = true;
 $defConsts["wxSTC_IV_LOOKFORWARD"] = true;
@@ -281,9 +284,9 @@ $defConsts["wxSTC_ANNOTATION_HIDDEN"] = true;
 $defConsts["wxSTC_ANNOTATION_STANDARD"] = true;
 $defConsts["wxSTC_ANNOTATION_BOXED"] = true;
 $defConsts["wxSTC_UNDO_MAY_COALESCE"] = true;
-$defConsts["wxSTC_SCVS_NONE"] = true;
-$defConsts["wxSTC_SCVS_RECTANGULARSELECTION"] = true;
-$defConsts["wxSTC_SCVS_USERACCESSIBLE"] = true;
+$defConsts["wxSTC_VS_NONE"] = true;
+$defConsts["wxSTC_VS_RECTANGULARSELECTION"] = true;
+$defConsts["wxSTC_VS_USERACCESSIBLE"] = true;
 
 // Maximum value of keywordSet parameter of SetKeyWords.
 $defConsts["wxSTC_KEYWORDSET_MAX"] = true;
@@ -336,11 +339,11 @@ $defConsts["wxSTC_KEY_DIVIDE"] = true;
 $defConsts["wxSTC_KEY_WIN"] = true;
 $defConsts["wxSTC_KEY_RWIN"] = true;
 $defConsts["wxSTC_KEY_MENU"] = true;
-$defConsts["wxSTC_SCMOD_NORM"] = true;
-$defConsts["wxSTC_SCMOD_SHIFT"] = true;
-$defConsts["wxSTC_SCMOD_CTRL"] = true;
-$defConsts["wxSTC_SCMOD_ALT"] = true;
-$defConsts["wxSTC_SCMOD_SUPER"] = true;
+$defConsts["wxSTC_KEYMOD_NORM"] = true;
+$defConsts["wxSTC_KEYMOD_SHIFT"] = true;
+$defConsts["wxSTC_KEYMOD_CTRL"] = true;
+$defConsts["wxSTC_KEYMOD_ALT"] = true;
+$defConsts["wxSTC_KEYMOD_SUPER"] = true;
 
 // For SciLexer.h
 $defConsts["wxSTC_LEX_CONTAINER"] = true;

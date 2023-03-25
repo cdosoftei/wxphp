@@ -117,57 +117,6 @@ static inline zo_wxGraphicsGradientStops * php_wxGraphicsGradientStops_fetch_obj
 
 #define Z_wxGraphicsGradientStops_P(zv) \
     php_wxGraphicsGradientStops_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxAnimation_entry;
-extern zend_object_handlers wxphp_wxAnimation_object_handlers;
-void php_wxAnimation_destruction_handler(zend_resource*);
-
-class wxAnimation_php: public wxAnimation{
-    public:
-
-    wxAnimation_php(const wxAnimation& anim):wxAnimation(anim){}
-    wxAnimation_php(const wxString& name, wxAnimationType type=wxANIMATION_TYPE_ANY):wxAnimation(name, type){}
-    
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxAnimation{
-    wxAnimation_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxAnimation;
-
-void php_wxAnimation_free(void *object);
-zend_object* php_wxAnimation_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxAnimation_functions[] = {
-    PHP_ME(php_wxAnimation, GetDelay, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAnimation, GetFrame, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAnimation, GetFrameCount, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAnimation, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAnimation, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAnimation, LoadFile, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAnimation, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxAnimation, Load, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxAnimation * php_wxAnimation_fetch_object(zend_object *obj) {
-    return (zo_wxAnimation *)(
-        (char *)(obj) - XtOffsetOf(zo_wxAnimation, zo)
-    );
-}
-
-#define Z_wxAnimation_P(zv) \
-    php_wxAnimation_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxBitmapHandler_entry;
 extern zend_object_handlers wxphp_wxBitmapHandler_object_handlers;
 void php_wxBitmapHandler_destruction_handler(zend_resource*);
@@ -261,9 +210,6 @@ static zend_function_entry php_wxBitmap_functions[] = {
     PHP_ME(php_wxBitmap, LoadFile, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBitmap, RemoveHandler, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBitmap, SaveFile, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxBitmap, SetDepth, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxBitmap, SetHeight, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxBitmap, SetWidth, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBitmap, ConvertToImage, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBitmap, CopyFromIcon, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBitmap, Create, arginfo_null, ZEND_ACC_PUBLIC)
@@ -988,9 +934,6 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxIcon_functions[] = {
     PHP_ME(php_wxIcon, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxIcon, SetWidth, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxIcon, SetHeight, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxIcon, SetDepth, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxIcon, LoadFile, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxIcon, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxIcon, GetWidth, arginfo_null, ZEND_ACC_PUBLIC)

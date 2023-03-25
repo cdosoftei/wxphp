@@ -2107,15 +2107,11 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxGauge_functions[] = {
     PHP_ME(php_wxGauge, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGauge, GetBezelFace, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGauge, GetRange, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGauge, GetShadowWidth, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGauge, GetValue, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGauge, IsVertical, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGauge, Pulse, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGauge, SetBezelFace, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGauge, SetRange, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGauge, SetShadowWidth, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGauge, SetValue, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGauge, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END

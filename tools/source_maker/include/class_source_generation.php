@@ -152,6 +152,8 @@ function classes_get_property_code($class_name)
                     }
                     break;
 
+                /*
+                // This is misbehaving as of 3.1.x
                 case "object":
                     switch($type_modifier)
                     {
@@ -170,6 +172,7 @@ function classes_get_property_code($class_name)
                             break;
                     }
                     break;
+                */
 
                 default:
                     //Just skip unknown types

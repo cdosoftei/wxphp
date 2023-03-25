@@ -20,6 +20,98 @@ ZEND_BEGIN_ARG_INFO_EX(wxphp_data_get_args, 0, 0, 1)
     ZEND_ARG_INFO(0, name)
 ZEND_END_ARG_INFO()
 
+extern zend_class_entry* php_wxRect_entry;
+extern zend_object_handlers wxphp_wxRect_object_handlers;
+void php_wxRect_destruction_handler(zend_resource*);
+
+class wxRect_php: public wxRect{
+    public:
+
+    wxRect_php():wxRect(){}
+    wxRect_php(int x, int y, int width, int height):wxRect(x, y, width, height){}
+    wxRect_php(const wxPoint& topLeft, const wxPoint& bottomRight):wxRect(topLeft, bottomRight){}
+    wxRect_php(const wxPoint& pos, const wxSize& size):wxRect(pos, size){}
+    wxRect_php(const wxSize& size):wxRect(size){}
+    
+    
+    void InitProperties(){
+        properties = new void*[4];
+
+        properties[0] = &height;
+        properties[1] = &width;
+        properties[2] = &x;
+        properties[3] = &y;
+        
+    }
+
+    void UninitProperties(){
+        delete[] properties;
+    }
+
+    void** properties;
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxRect{
+    wxRect_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxRect;
+
+void php_wxRect_free(void *object);
+zend_object* php_wxRect_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxRect_functions[] = {
+    PHP_ME(php_wxRect, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRect, SetX, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, SetY, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, Union, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, SetWidth, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, SetSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, SetHeight, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, Offset, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, IsEmpty, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, Intersects, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, Intersect, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, Inflate, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetY, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetX, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetWidth, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetTopRight, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetTopLeft, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetTop, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetRight, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetPosition, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, CenterIn, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, CentreIn, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, Contains, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, Deflate, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetBottom, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetBottomLeft, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetBottomRight, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetHeight, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, GetLeft, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRect, __get, wxphp_data_get_args, ZEND_ACC_PUBLIC)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxRect * php_wxRect_fetch_object(zend_object *obj) {
+    return (zo_wxRect *)(
+        (char *)(obj) - XtOffsetOf(zo_wxRect, zo)
+    );
+}
+
+#define Z_wxRect_P(zv) \
+    php_wxRect_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxAcceleratorEntry_entry;
 extern zend_object_handlers wxphp_wxAcceleratorEntry_object_handlers;
 void php_wxAcceleratorEntry_destruction_handler(zend_resource*);
@@ -377,98 +469,6 @@ static inline zo_wxRealPoint * php_wxRealPoint_fetch_object(zend_object *obj) {
 
 #define Z_wxRealPoint_P(zv) \
     php_wxRealPoint_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxRect_entry;
-extern zend_object_handlers wxphp_wxRect_object_handlers;
-void php_wxRect_destruction_handler(zend_resource*);
-
-class wxRect_php: public wxRect{
-    public:
-
-    wxRect_php():wxRect(){}
-    wxRect_php(int x, int y, int width, int height):wxRect(x, y, width, height){}
-    wxRect_php(const wxPoint& topLeft, const wxPoint& bottomRight):wxRect(topLeft, bottomRight){}
-    wxRect_php(const wxPoint& pos, const wxSize& size):wxRect(pos, size){}
-    wxRect_php(const wxSize& size):wxRect(size){}
-    
-    
-    void InitProperties(){
-        properties = new void*[4];
-
-        properties[0] = &height;
-        properties[1] = &width;
-        properties[2] = &x;
-        properties[3] = &y;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxRect{
-    wxRect_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxRect;
-
-void php_wxRect_free(void *object);
-zend_object* php_wxRect_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxRect_functions[] = {
-    PHP_ME(php_wxRect, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxRect, SetX, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, SetY, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, Union, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, SetWidth, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, SetSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, SetHeight, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, Offset, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, IsEmpty, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, Intersects, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, Intersect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, Inflate, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetY, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetX, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetWidth, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetTopRight, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetTopLeft, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetTop, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetRight, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetPosition, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, CenterIn, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, CentreIn, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, Contains, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, Deflate, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetBottom, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetBottomLeft, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetBottomRight, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetHeight, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, GetLeft, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, __get, wxphp_data_get_args, ZEND_ACC_PUBLIC)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxRect * php_wxRect_fetch_object(zend_object *obj) {
-    return (zo_wxRect *)(
-        (char *)(obj) - XtOffsetOf(zo_wxRect, zo)
-    );
-}
-
-#define Z_wxRect_P(zv) \
-    php_wxRect_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxPoint_entry;
 extern zend_object_handlers wxphp_wxPoint_object_handlers;
 void php_wxPoint_destruction_handler(zend_resource*);
@@ -583,59 +583,6 @@ static inline zo_wxSize * php_wxSize_fetch_object(zend_object *obj) {
 
 #define Z_wxSize_P(zv) \
     php_wxSize_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxListItemAttr_entry;
-extern zend_object_handlers wxphp_wxListItemAttr_object_handlers;
-void php_wxListItemAttr_destruction_handler(zend_resource*);
-
-class wxListItemAttr_php: public wxListItemAttr{
-    public:
-
-    wxListItemAttr_php():wxListItemAttr(){}
-    wxListItemAttr_php(const wxColour& colText, const wxColour& colBack, const wxFont& font):wxListItemAttr(colText, colBack, font){}
-    
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxListItemAttr{
-    wxListItemAttr_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxListItemAttr;
-
-void php_wxListItemAttr_free(void *object);
-zend_object* php_wxListItemAttr_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxListItemAttr_functions[] = {
-    PHP_ME(php_wxListItemAttr, GetBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxListItemAttr, SetTextColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, SetFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, SetBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, HasTextColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, HasFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, HasBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, GetTextColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxListItemAttr, GetFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxListItemAttr * php_wxListItemAttr_fetch_object(zend_object *obj) {
-    return (zo_wxListItemAttr *)(
-        (char *)(obj) - XtOffsetOf(zo_wxListItemAttr, zo)
-    );
-}
-
-#define Z_wxListItemAttr_P(zv) \
-    php_wxListItemAttr_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxListItem_entry;
 extern zend_object_handlers wxphp_wxListItem_object_handlers;
 void php_wxListItem_destruction_handler(zend_resource*);

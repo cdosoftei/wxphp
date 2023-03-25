@@ -45,6 +45,8 @@ PHP_FUNCTION(php_wxUninitialize);
 
 PHP_FUNCTION(php_wxWakeUpIdle);
 
+PHP_FUNCTION(php_wxYield);
+
 PHP_FUNCTION(php_wxSafeYield);
 
 PHP_FUNCTION(php_wxExit);
@@ -59,6 +61,8 @@ PHP_FUNCTION(php_wxSafeShowMessage);
 
 PHP_FUNCTION(php_wxSysErrorCode);
 
+PHP_FUNCTION(php_wxSysErrorMsgStr);
+
 PHP_FUNCTION(php_wxIsMainThread);
 
 PHP_FUNCTION(php_wxMutexGuiEnter);
@@ -66,6 +70,22 @@ PHP_FUNCTION(php_wxMutexGuiEnter);
 PHP_FUNCTION(php_wxMutexGuiLeave);
 
 PHP_FUNCTION(php_wxAboutBox);
+
+PHP_FUNCTION(php_wxStringSortAscending);
+
+PHP_FUNCTION(php_wxStringSortDescending);
+
+PHP_FUNCTION(php_wxDictionaryStringSortAscending);
+
+PHP_FUNCTION(php_wxDictionaryStringSortDescending);
+
+PHP_FUNCTION(php_wxNaturalStringSortAscending);
+
+PHP_FUNCTION(php_wxNaturalStringSortDescending);
+
+PHP_FUNCTION(php_wxCmpNatural);
+
+PHP_FUNCTION(php_wxCmpNaturalGeneric);
 
 PHP_FUNCTION(php_wxBase64Encode);
 
@@ -173,9 +193,19 @@ PHP_FUNCTION(php_wxInitAllImageHandlers);
 
 PHP_FUNCTION(php_wxEntryCleanup);
 
+PHP_FUNCTION(php_wxGetLibLZMAVersionInfo);
+
 PHP_FUNCTION(php_wxFinite);
 
+PHP_FUNCTION(php_wxGCD);
+
 PHP_FUNCTION(php_wxIsNaN);
+
+PHP_FUNCTION(php_wxDegToRad);
+
+PHP_FUNCTION(php_wxRadToDeg);
+
+PHP_FUNCTION(php_wxCTZ);
 
 PHP_FUNCTION(php_wxRound);
 
@@ -194,6 +224,8 @@ PHP_FUNCTION(php_wxFindWindowAtPointer);
 PHP_FUNCTION(php_wxGetActiveWindow);
 
 PHP_FUNCTION(php_wxGetTopLevelParent);
+
+PHP_FUNCTION(php_wxPGGetDefaultImageWildcard);
 
 PHP_FUNCTION(php_wxRichTextHasStyle);
 
@@ -275,6 +307,8 @@ PHP_FUNCTION(php_wxGetOsDescription);
 
 PHP_FUNCTION(php_wxGetOsVersion);
 
+PHP_FUNCTION(php_wxCheckOsVersion);
+
 PHP_FUNCTION(php_wxIsPlatform64Bit);
 
 PHP_FUNCTION(php_wxIsPlatformLittleEndian);
@@ -294,6 +328,10 @@ PHP_FUNCTION(php_wxMilliSleep);
 PHP_FUNCTION(php_wxNow);
 
 PHP_FUNCTION(php_wxSleep);
+
+PHP_FUNCTION(php_wxDecToHex);
+
+PHP_FUNCTION(php_wxHexToDec);
 
 PHP_FUNCTION(php_wxIsEmpty);
 

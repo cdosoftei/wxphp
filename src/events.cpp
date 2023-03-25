@@ -12,29 +12,27 @@
 
 #include "php_wxwidgets.h"
 #include "appmanagement.h"
-#include "aui.h"
-#include "bookctrl.h"
 #include "cfg.h"
+#include "bookctrl.h"
+#include "dnd.h"
 #include "cmndlg.h"
 #include "containers.h"
 #include "ctrl.h"
 #include "data.h"
 #include "dc.h"
-#include "dnd.h"
 #include "docview.h"
-#include "dvc.h"
 #include "events.h"
 #include "file.h"
 #include "gdi.h"
 #include "grid.h"
-#include "help.h"
 #include "html.h"
+#include "help.h"
 #include "logging.h"
 #include "managedwnd.h"
-#include "media.h"
 #include "menus.h"
 #include "misc.h"
 #include "miscwnd.h"
+#include "media.h"
 #include "net.h"
 #include "pickers.h"
 #include "printing.h"
@@ -46,9 +44,11 @@
 #include "threading.h"
 #include "validator.h"
 #include "vfs.h"
+#include "aui.h"
 #include "winlayout.h"
 #include "xml.h"
 #include "xrc.h"
+#include "dvc.h"
 #include "others.h"
 
 
@@ -2144,6 +2144,1629 @@ PHP_METHOD(php_wxKeyboardState, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
+void php_wxAuiManagerEvent_free(void *object)
+{
+    zo_wxAuiManagerEvent* custom_object = (zo_wxAuiManagerEvent*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxAuiManagerEvent_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxAuiManagerEvent done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxAuiManagerEvent_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxAuiManagerEvent_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* custom_object;
+
+    custom_object = (zo_wxAuiManagerEvent*) ecalloc(
+        1,
+        sizeof(zo_wxAuiManagerEvent)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxAuiManagerEvent_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXAUIMANAGEREVENT_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxAuiManagerEvent::wxAuiManagerEvent(int type)
+   Constructor. */
+PHP_METHOD(php_wxAuiManagerEvent, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    long type0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&type0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &type0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxAuiManagerEvent_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((wxEventType) type0)\n");
+                #endif
+
+                native_object = new wxAuiManagerEvent_php((wxEventType) type0);
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxAuiManagerEvent::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+/* {{{ proto  wxAuiManagerEvent::Veto(bool veto)
+   Cancels the action indicated by this event if CanVeto() is true. */
+PHP_METHOD(php_wxAuiManagerEvent, Veto)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::Veto\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::Veto call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool veto0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|b' (&veto0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &veto0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::Veto()\n\n");
+                #endif
+
+                ((wxAuiManagerEvent_php*)native_object)->Veto();
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::Veto(veto0)\n\n");
+                #endif
+
+                ((wxAuiManagerEvent_php*)native_object)->Veto(veto0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::Veto\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxAuiManagerEvent::SetPane(wxAuiPaneInfo &pane)
+   Sets the pane this event is associated with. */
+PHP_METHOD(php_wxAuiManagerEvent, SetPane)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::SetPane\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::SetPane call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* pane0;
+    wxAuiPaneInfo* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'z' (&pane0)\n");
+        #endif
+
+        char parse_parameters_string[] = "z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pane0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(pane0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxAuiPaneInfo_P(pane0)->object_type;
+                    argument_native_object = (void*) Z_wxAuiPaneInfo_P(pane0)->native_object;
+                    object_pointer0_0 = (wxAuiPaneInfo*) argument_native_object;
+                    if (!object_pointer0_0 || (argument_type != PHP_WXAUIPANEINFO_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'pane' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(pane0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'pane' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::SetPane((wxAuiPaneInfo*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxAuiManagerEvent_php*)native_object)->SetPane((wxAuiPaneInfo*) object_pointer0_0);
+
+                references->AddReference(pane0, "wxAuiManagerEvent::SetPane at call 1 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::SetPane\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxAuiManagerEvent::SetManager(wxAuiManager &manager)
+   Sets the wxAuiManager this event is associated with. */
+PHP_METHOD(php_wxAuiManagerEvent, SetManager)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::SetManager\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::SetManager call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* manager0;
+    wxAuiManager* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'z' (&manager0)\n");
+        #endif
+
+        char parse_parameters_string[] = "z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &manager0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(manager0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxAuiManager_P(manager0)->object_type;
+                    argument_native_object = (void*) Z_wxAuiManager_P(manager0)->native_object;
+                    object_pointer0_0 = (wxAuiManager*) argument_native_object;
+                    if (!object_pointer0_0 || (argument_type != PHP_WXAUIMANAGER_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'manager' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(manager0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'manager' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::SetManager((wxAuiManager*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxAuiManagerEvent_php*)native_object)->SetManager((wxAuiManager*) object_pointer0_0);
+
+                references->AddReference(manager0, "wxAuiManagerEvent::SetManager at call 1 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::SetManager\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxAuiManagerEvent::SetDC(wxDC &pdc) */
+PHP_METHOD(php_wxAuiManagerEvent, SetDC)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::SetDC\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::SetDC call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* pdc0;
+    wxDC* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'z' (&pdc0)\n");
+        #endif
+
+        char parse_parameters_string[] = "z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pdc0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(pdc0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDC_P(pdc0)->object_type;
+                    argument_native_object = (void*) Z_wxDC_P(pdc0)->native_object;
+                    object_pointer0_0 = (wxDC*) argument_native_object;
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDC_TYPE && argument_type != PHP_WXWINDOWDC_TYPE && argument_type != PHP_WXCLIENTDC_TYPE && argument_type != PHP_WXPAINTDC_TYPE && argument_type != PHP_WXSCREENDC_TYPE && argument_type != PHP_WXPOSTSCRIPTDC_TYPE && argument_type != PHP_WXPRINTERDC_TYPE && argument_type != PHP_WXMEMORYDC_TYPE && argument_type != PHP_WXBUFFEREDDC_TYPE && argument_type != PHP_WXBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXAUTOBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXMIRRORDC_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'pdc' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(pdc0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'pdc' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::SetDC((wxDC*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxAuiManagerEvent_php*)native_object)->SetDC((wxDC*) object_pointer0_0);
+
+                references->AddReference(pdc0, "wxAuiManagerEvent::SetDC at call 1 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::SetDC\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxAuiManagerEvent::SetCanVeto(bool can_veto)
+   Sets whether or not this event can be vetoed. */
+PHP_METHOD(php_wxAuiManagerEvent, SetCanVeto)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::SetCanVeto\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::SetCanVeto call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool can_veto0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'b' (&can_veto0)\n");
+        #endif
+
+        char parse_parameters_string[] = "b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &can_veto0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::SetCanVeto(can_veto0)\n\n");
+                #endif
+
+                ((wxAuiManagerEvent_php*)native_object)->SetCanVeto(can_veto0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::SetCanVeto\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxAuiManagerEvent::SetButton(int button)
+   Sets the ID of the button clicked that triggered this event. */
+PHP_METHOD(php_wxAuiManagerEvent, SetButton)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::SetButton\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::SetButton call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long button0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&button0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &button0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::SetButton((int) button0)\n\n");
+                #endif
+
+                ((wxAuiManagerEvent_php*)native_object)->SetButton((int) button0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::SetButton\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxAuiManagerEvent::GetVeto() */
+PHP_METHOD(php_wxAuiManagerEvent, GetVeto)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::GetVeto\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::GetVeto call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxAuiManagerEvent::GetVeto())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxAuiManagerEvent_php*)native_object)->GetVeto());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::GetVeto\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxAuiPaneInfo wxAuiManagerEvent::GetPane() */
+PHP_METHOD(php_wxAuiManagerEvent, GetPane)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::GetPane\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::GetPane call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::GetPane() to return object pointer\n\n");
+                #endif
+
+                wxAuiPaneInfo_php* value_to_return0;
+                value_to_return0 = (wxAuiPaneInfo_php*) ((wxAuiManagerEvent_php*)native_object)->GetPane();
+
+                if(value_to_return0 == NULL){
+                    RETVAL_NULL();
+                }
+                else if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value, php_wxAuiPaneInfo_entry);
+                    Z_wxAuiPaneInfo_P(return_value)->native_object = (wxAuiPaneInfo_php*) value_to_return0;
+                }
+
+                if(Z_TYPE_P(return_value) != IS_NULL && (void*)value_to_return0 != (void*)native_object && return_is_user_initialized){
+                    references->AddReference(return_value, "wxAuiManagerEvent::GetPane at call 5 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::GetPane\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxAuiManager wxAuiManagerEvent::GetManager() */
+PHP_METHOD(php_wxAuiManagerEvent, GetManager)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::GetManager\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::GetManager call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::GetManager() to return object pointer\n\n");
+                #endif
+
+                wxAuiManager_php* value_to_return0;
+                value_to_return0 = (wxAuiManager_php*) ((wxAuiManagerEvent_php*)native_object)->GetManager();
+
+                if(value_to_return0 == NULL){
+                    RETVAL_NULL();
+                }
+                else if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value, php_wxAuiManager_entry);
+                    Z_wxAuiManager_P(return_value)->native_object = (wxAuiManager_php*) value_to_return0;
+                }
+
+                if(Z_TYPE_P(return_value) != IS_NULL && (void*)value_to_return0 != (void*)native_object && return_is_user_initialized){
+                    references->AddReference(return_value, "wxAuiManagerEvent::GetManager at call 5 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::GetManager\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDC wxAuiManagerEvent::GetDC() */
+PHP_METHOD(php_wxAuiManagerEvent, GetDC)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::GetDC\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::GetDC call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxAuiManagerEvent::GetDC() to return object pointer\n\n");
+                #endif
+
+                wxDC_php* value_to_return0;
+                value_to_return0 = (wxDC_php*) ((wxAuiManagerEvent_php*)native_object)->GetDC();
+
+                if(value_to_return0 == NULL){
+                    RETVAL_NULL();
+                }
+                else if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value, php_wxDC_entry);
+                    Z_wxDC_P(return_value)->native_object = (wxDC_php*) value_to_return0;
+                }
+
+                if(Z_TYPE_P(return_value) != IS_NULL && (void*)value_to_return0 != (void*)native_object && return_is_user_initialized){
+                    references->AddReference(return_value, "wxAuiManagerEvent::GetDC at call 5 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::GetDC\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxAuiManagerEvent::GetButton() */
+PHP_METHOD(php_wxAuiManagerEvent, GetButton)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::GetButton\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::GetButton call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxAuiManagerEvent::GetButton())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxAuiManagerEvent_php*)native_object)->GetButton());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::GetButton\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxAuiManagerEvent::CanVeto() */
+PHP_METHOD(php_wxAuiManagerEvent, CanVeto)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxAuiManagerEvent::CanVeto\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxAuiManagerEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxAuiManagerEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxAuiManagerEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxAuiManagerEvent::CanVeto call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXAUIMANAGEREVENT_TYPE){
+                references = &((wxAuiManagerEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxAuiManagerEvent::CanVeto())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxAuiManagerEvent_php*)native_object)->CanVeto());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxAuiManagerEvent::CanVeto\n"
+        );
+    }
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
 void php_wxCalendarEvent_free(void *object)
 {
     zo_wxCalendarEvent* custom_object = (zo_wxCalendarEvent*) object;
@@ -3298,6 +4921,1991 @@ PHP_METHOD(php_wxCollapsiblePaneEvent, __construct)
             E_ERROR,
             "Abstract class or wrong type/count of parameters "
             "passed to: wxCollapsiblePaneEvent::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxDataViewEvent_free(void *object)
+{
+    zo_wxDataViewEvent* custom_object = (zo_wxDataViewEvent*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDataViewEvent_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxDataViewEvent done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxDataViewEvent_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDataViewEvent_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* custom_object;
+
+    custom_object = (zo_wxDataViewEvent*) ecalloc(
+        1,
+        sizeof(zo_wxDataViewEvent)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxDataViewEvent_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXDATAVIEWEVENT_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto wxDataViewItem wxDataViewEvent::GetItem() */
+PHP_METHOD(php_wxDataViewEvent, GetItem)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetItem\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetItem call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::GetItem() to return new object\n\n");
+                #endif
+
+                wxDataViewItem value_to_return0;
+                value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetItem();
+                void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataViewItem));
+                object_init_ex(return_value, php_wxDataViewItem_entry);
+                ((wxDataViewItem_php*)ptr)->phpObj = *return_value;
+                zo_wxDataViewItem* zo0 = Z_wxDataViewItem_P(return_value);
+                zo0->native_object = (wxDataViewItem_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetItem\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDataViewEvent::GetCacheFrom()
+   Return the first row that will be displayed. */
+PHP_METHOD(php_wxDataViewEvent, GetCacheFrom)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetCacheFrom\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetCacheFrom call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDataViewEvent::GetCacheFrom())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetCacheFrom());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetCacheFrom\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDataViewEvent::GetCacheTo()
+   Return the last row that will be displayed. */
+PHP_METHOD(php_wxDataViewEvent, GetCacheTo)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetCacheTo\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetCacheTo call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDataViewEvent::GetCacheTo())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetCacheTo());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetCacheTo\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDataViewEvent::GetColumn()
+   Returns the position of the column in the control or -1 if no column field was set by the event emitter. */
+PHP_METHOD(php_wxDataViewEvent, GetColumn)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetColumn\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetColumn call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDataViewEvent::GetColumn())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetColumn());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetColumn\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto void wxDataViewEvent::GetDataBuffer()
+   Gets the data buffer for a drop data transfer. */
+PHP_METHOD(php_wxDataViewEvent, GetDataBuffer)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetDataBuffer\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetDataBuffer call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::GetDataBuffer()\n\n");
+                #endif
+
+                RETVAL_STRING((char*) ((wxDataViewEvent_php*)native_object)->GetDataBuffer());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetDataBuffer\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDataFormat wxDataViewEvent::GetDataFormat()
+   Gets the wxDataFormat during a drop operation. */
+PHP_METHOD(php_wxDataViewEvent, GetDataFormat)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetDataFormat\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetDataFormat call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::GetDataFormat() to return new object\n\n");
+                #endif
+
+                wxDataFormat value_to_return0;
+                value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetDataFormat();
+                void* ptr = safe_emalloc(1, sizeof(wxDataFormat_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxDataFormat));
+                object_init_ex(return_value, php_wxDataFormat_entry);
+                ((wxDataFormat_php*)ptr)->phpObj = *return_value;
+                zo_wxDataFormat* zo0 = Z_wxDataFormat_P(return_value);
+                zo0->native_object = (wxDataFormat_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetDataFormat\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDataViewEvent::GetDataSize()
+   Gets the data size for a drop data transfer. */
+PHP_METHOD(php_wxDataViewEvent, GetDataSize)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetDataSize\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetDataSize call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxDataViewEvent::GetDataSize())\n\n");
+                #endif
+
+                RETVAL_LONG(((wxDataViewEvent_php*)native_object)->GetDataSize());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetDataSize\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDataViewColumn wxDataViewEvent::GetDataViewColumn()
+   Returns a pointer to the wxDataViewColumn from which the event was emitted or NULL. */
+PHP_METHOD(php_wxDataViewEvent, GetDataViewColumn)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetDataViewColumn\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetDataViewColumn call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::GetDataViewColumn() to return object pointer\n\n");
+                #endif
+
+                wxDataViewColumn_php* value_to_return0;
+                value_to_return0 = (wxDataViewColumn_php*) ((wxDataViewEvent_php*)native_object)->GetDataViewColumn();
+
+                if(value_to_return0 == NULL){
+                    RETVAL_NULL();
+                }
+                else if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value, php_wxDataViewColumn_entry);
+                    Z_wxDataViewColumn_P(return_value)->native_object = (wxDataViewColumn_php*) value_to_return0;
+                }
+
+                if(Z_TYPE_P(return_value) != IS_NULL && (void*)value_to_return0 != (void*)native_object && return_is_user_initialized){
+                    references->AddReference(return_value, "wxDataViewEvent::GetDataViewColumn at call 5 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetDataViewColumn\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxDataViewModel wxDataViewEvent::GetModel()
+   Returns the wxDataViewModel associated with the event. */
+PHP_METHOD(php_wxDataViewEvent, GetModel)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetModel\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetModel call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::GetModel() to return object pointer\n\n");
+                #endif
+
+                wxDataViewModel_php* value_to_return0;
+                value_to_return0 = (wxDataViewModel_php*) ((wxDataViewEvent_php*)native_object)->GetModel();
+
+                if(value_to_return0 == NULL){
+                    RETVAL_NULL();
+                }
+                else if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value, php_wxDataViewModel_entry);
+                    Z_wxDataViewModel_P(return_value)->native_object = (wxDataViewModel_php*) value_to_return0;
+                }
+
+                if(Z_TYPE_P(return_value) != IS_NULL && (void*)value_to_return0 != (void*)native_object && return_is_user_initialized){
+                    references->AddReference(return_value, "wxDataViewEvent::GetModel at call 5 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetModel\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxPoint wxDataViewEvent::GetPosition()
+   Returns the position of a context menu event in screen coordinates. */
+PHP_METHOD(php_wxDataViewEvent, GetPosition)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetPosition\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetPosition call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::GetPosition() to return new object\n\n");
+                #endif
+
+                wxPoint value_to_return0;
+                value_to_return0 = ((wxDataViewEvent_php*)native_object)->GetPosition();
+                void* ptr = safe_emalloc(1, sizeof(wxPoint_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
+                object_init_ex(return_value, php_wxPoint_entry);
+                ((wxPoint_php*)ptr)->phpObj = *return_value;
+                ((wxPoint_php*)ptr)->InitProperties();
+                zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
+                zo0->native_object = (wxPoint_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetPosition\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto wxVariant wxDataViewEvent::GetValue()
+   Returns a reference to a value. */
+PHP_METHOD(php_wxDataViewEvent, GetValue)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::GetValue\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::GetValue call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::GetValue() to return object reference\n\n");
+                #endif
+
+                wxVariant_php* value_to_return0;
+                value_to_return0 = (wxVariant_php*) &((wxDataViewEvent_php*)native_object)->GetValue();
+
+                if(value_to_return0->references.IsUserInitialized()){
+                    if(!Z_ISNULL(value_to_return0->phpObj)){
+                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
+                        zval_add_ref(&value_to_return0->phpObj);
+                        return_is_user_initialized = true;
+                    }
+                    else{
+                        zend_error(E_ERROR, "Could not retreive original zval.");
+                    }
+                }
+                else{
+                    object_init_ex(return_value,php_wxVariant_entry);
+                    Z_wxVariant_P(return_value)->native_object = (wxVariant_php*) value_to_return0;
+                }
+
+                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
+                    references->AddReference(return_value, "wxDataViewEvent::GetValue at call 6 with 0 argument(s)");
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::GetValue\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxDataViewEvent::IsEditCancelled()
+   Can be used to determine whether the new value is going to be accepted in wxEVT_DATAVIEW_ITEM_EDITING_DONE handler. */
+PHP_METHOD(php_wxDataViewEvent, IsEditCancelled)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::IsEditCancelled\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::IsEditCancelled call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxDataViewEvent::IsEditCancelled())\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxDataViewEvent_php*)native_object)->IsEditCancelled());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::IsEditCancelled\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxDataViewEvent::SetColumn(int col)
+   Sets the column index associated with this event. */
+PHP_METHOD(php_wxDataViewEvent, SetColumn)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::SetColumn\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::SetColumn call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long col0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&col0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &col0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::SetColumn((int) col0)\n\n");
+                #endif
+
+                ((wxDataViewEvent_php*)native_object)->SetColumn((int) col0);
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::SetColumn\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxDataViewEvent::SetDataObject(wxDataObject &obj)
+   Set wxDataObject for data transfer within a drag operation. */
+PHP_METHOD(php_wxDataViewEvent, SetDataObject)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::SetDataObject\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::SetDataObject call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* obj0;
+    wxDataObject* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'z' (&obj0)\n");
+        #endif
+
+        char parse_parameters_string[] = "z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &obj0 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(obj0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDataObject_P(obj0)->object_type;
+                    argument_native_object = (void*) Z_wxDataObject_P(obj0)->native_object;
+                    object_pointer0_0 = (wxDataObject*) argument_native_object;
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'obj' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(obj0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'obj' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::SetDataObject((wxDataObject*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxDataViewEvent_php*)native_object)->SetDataObject((wxDataObject*) object_pointer0_0);
+
+                references->AddReference(obj0, "wxDataViewEvent::SetDataObject at call 1 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::SetDataObject\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxDataViewEvent::SetValue(wxVariant value)
+   Sets the value associated with this event. */
+PHP_METHOD(php_wxDataViewEvent, SetValue)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::SetValue\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxphp_object_type current_object_type;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDataViewEvent::SetValue call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDATAVIEWEVENT_TYPE){
+                references = &((wxDataViewEvent_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    zval* value0;
+    wxVariant* object_pointer0_0 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&value0, php_wxVariant_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &value0, php_wxVariant_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(value0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxVariant_P(value0)->object_type;
+                    argument_native_object = (void*) Z_wxVariant_P(value0)->native_object;
+                    object_pointer0_0 = (wxVariant*) argument_native_object;
+                    if (!object_pointer0_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'value' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(value0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'value' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDataViewEvent::SetValue(*(wxVariant*) object_pointer0_0)\n\n");
+                #endif
+
+                ((wxDataViewEvent_php*)native_object)->SetValue(*(wxVariant*) object_pointer0_0);
+
+                references->AddReference(value0, "wxDataViewEvent::SetValue at call 3 with 1 argument(s)");
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDataViewEvent::SetValue\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto  wxDataViewEvent::wxDataViewEvent(int evtType, wxDataViewCtrl &dvc, wxDataViewColumn &column, wxDataViewItem item)
+   Constructor for the events affecting columns (and possibly also items). */
+PHP_METHOD(php_wxDataViewEvent, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDataViewEvent::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDataViewEvent* current_object;
+    wxDataViewEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    long evtType0;
+    zval* dvc0;
+    wxDataViewCtrl* object_pointer0_1 = 0;
+    zval* column0;
+    wxDataViewColumn* object_pointer0_2 = 0;
+    zval* item0;
+    wxDataViewItem* object_pointer0_3 = 0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 3  && arguments_received <= 4)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'lzz|O' (&evtType0, &dvc0, &column0, &item0, php_wxDataViewItem_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "lzz|O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &evtType0, &dvc0, &column0, &item0, php_wxDataViewItem_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(dvc0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDataViewCtrl_P(dvc0)->object_type;
+                    argument_native_object = (void*) Z_wxDataViewCtrl_P(dvc0)->native_object;
+                    object_pointer0_1 = (wxDataViewCtrl*) argument_native_object;
+                    if (!object_pointer0_1 || (argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'dvc' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(dvc0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'dvc' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(column0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDataViewColumn_P(column0)->object_type;
+                    argument_native_object = (void*) Z_wxDataViewColumn_P(column0)->native_object;
+                    object_pointer0_2 = (wxDataViewColumn*) argument_native_object;
+                    if (!object_pointer0_2 || (argument_type != PHP_WXDATAVIEWCOLUMN_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'column' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(column0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'column' not null, could not be retreived correctly.");
+                }
+            }
+
+            if(arguments_received >= 4){
+                if(Z_TYPE_P(item0) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDataViewItem_P(item0)->object_type;
+                    argument_native_object = (void*) Z_wxDataViewItem_P(item0)->native_object;
+                    object_pointer0_3 = (wxDataViewItem*) argument_native_object;
+                    if (!object_pointer0_3 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'item' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(item0) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'item' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((wxEventType) evtType0, (wxDataViewCtrl*) object_pointer0_1, (wxDataViewColumn*) object_pointer0_2)\n");
+                #endif
+
+                native_object = new wxDataViewEvent_php((wxEventType) evtType0, (wxDataViewCtrl*) object_pointer0_1, (wxDataViewColumn*) object_pointer0_2);
+
+                native_object->references.Initialize();
+                ((wxDataViewEvent_php*) native_object)->references.AddReference(dvc0, "wxDataViewEvent::wxDataViewEvent at call 2 with 3 argument(s)");
+                ((wxDataViewEvent_php*) native_object)->references.AddReference(column0, "wxDataViewEvent::wxDataViewEvent at call 2 with 3 argument(s)");
+                break;
+            }
+            case 4:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((wxEventType) evtType0, (wxDataViewCtrl*) object_pointer0_1, (wxDataViewColumn*) object_pointer0_2, *(wxDataViewItem*) object_pointer0_3)\n");
+                #endif
+
+                native_object = new wxDataViewEvent_php((wxEventType) evtType0, (wxDataViewCtrl*) object_pointer0_1, (wxDataViewColumn*) object_pointer0_2, *(wxDataViewItem*) object_pointer0_3);
+
+                native_object->references.Initialize();
+                ((wxDataViewEvent_php*) native_object)->references.AddReference(dvc0, "wxDataViewEvent::wxDataViewEvent at call 2 with 4 argument(s)");
+                ((wxDataViewEvent_php*) native_object)->references.AddReference(column0, "wxDataViewEvent::wxDataViewEvent at call 2 with 4 argument(s)");
+                ((wxDataViewEvent_php*) native_object)->references.AddReference(item0, "wxDataViewEvent::wxDataViewEvent at call 4 with 4 argument(s)");
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+
+        current_object = Z_wxDataViewEvent_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxDataViewEvent::__construct\n"
         );
     }
 
@@ -27593,105 +31201,6 @@ zend_object* php_wxPaintEvent_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto  wxPaintEvent::wxPaintEvent(int id)
-   Constructor. */
-PHP_METHOD(php_wxPaintEvent, __construct)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxPaintEvent::__construct\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxPaintEvent* current_object;
-    wxPaintEvent_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    int arguments_received = ZEND_NUM_ARGS();
-
-
-    //Parameters for overload 0
-    long id0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|l' (&id0)\n");
-        #endif
-
-        char parse_parameters_string[] = "|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &id0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct()\n");
-                #endif
-
-                native_object = new wxPaintEvent_php();
-
-                native_object->references.Initialize();
-                break;
-            }
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct((int) id0)\n");
-                #endif
-
-                native_object = new wxPaintEvent_php((int) id0);
-
-                native_object->references.Initialize();
-                break;
-            }
-        }
-    }
-
-    
-    if(already_called)
-    {
-        native_object->phpObj = *getThis();
-
-
-        current_object = Z_wxPaintEvent_P(getThis());
-
-        current_object->native_object = native_object;
-
-        current_object->is_user_initialized = 1;
-    }
-    else
-    {
-        zend_error(
-            E_ERROR,
-            "Abstract class or wrong type/count of parameters "
-            "passed to: wxPaintEvent::__construct\n"
-        );
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-        php_printf("===========================================\n\n");
-    #endif
-}
-/* }}} */
-
 BEGIN_EXTERN_C()
 void php_wxMaximizeEvent_free(void *object)
 {
@@ -35930,6 +39439,167 @@ PHP_METHOD(php_wxChildFocusEvent, __construct)
             E_ERROR,
             "Abstract class or wrong type/count of parameters "
             "passed to: wxChildFocusEvent::__construct\n"
+        );
+    }
+
+    #ifdef USE_WXPHP_DEBUG
+        php_printf("===========================================\n\n");
+    #endif
+}
+/* }}} */
+
+BEGIN_EXTERN_C()
+void php_wxDisplayChangedEvent_free(void *object)
+{
+    zo_wxDisplayChangedEvent* custom_object = (zo_wxDisplayChangedEvent*) object;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDisplayChangedEvent_free on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxDisplayChangedEvent done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
+
+    zend_object_std_dtor(&custom_object->zo);
+    efree(custom_object);
+}
+
+zend_object* php_wxDisplayChangedEvent_new(zend_class_entry *class_type)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Calling php_wxDisplayChangedEvent_new on %s at line %i\n",
+        zend_get_executed_filename(),
+        zend_get_executed_lineno()
+    );
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDisplayChangedEvent* custom_object;
+
+    custom_object = (zo_wxDisplayChangedEvent*) ecalloc(
+        1,
+        sizeof(zo_wxDisplayChangedEvent)
+        + zend_object_properties_size(class_type)
+    );
+
+    zend_object_std_init(&custom_object->zo, class_type);
+    object_properties_init(&custom_object->zo, class_type);
+
+    custom_object->zo.handlers = &wxphp_wxDisplayChangedEvent_object_handlers;
+
+    custom_object->native_object = NULL;
+    custom_object->object_type = PHP_WXDISPLAYCHANGEDEVENT_TYPE;
+    custom_object->is_user_initialized = 0;
+
+    return &custom_object->zo;
+}
+END_EXTERN_C()
+
+/* {{{ proto  wxDisplayChangedEvent::wxDisplayChangedEvent() */
+PHP_METHOD(php_wxDisplayChangedEvent, __construct)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDisplayChangedEvent::__construct\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDisplayChangedEvent* current_object;
+    wxDisplayChangedEvent_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    int arguments_received = ZEND_NUM_ARGS();
+
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxDisplayChangedEvent_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    
+    if(already_called)
+    {
+        native_object->phpObj = *getThis();
+
+
+        current_object = Z_wxDisplayChangedEvent_P(getThis());
+
+        current_object->native_object = native_object;
+
+        current_object->is_user_initialized = 1;
+    }
+    else
+    {
+        zend_error(
+            E_ERROR,
+            "Abstract class or wrong type/count of parameters "
+            "passed to: wxDisplayChangedEvent::__construct\n"
         );
     }
 
@@ -69401,7 +73071,10 @@ PHP_METHOD(php_wxTimerEvent, GetInterval)
                 php_printf("Executing RETURN_LONG(wxTimerEvent::GetInterval())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxTimerEvent_php*)native_object)->GetInterval());
+                if(current_object_type == PHP_WXTIMEREVENT_TYPE)
+                {
+                    RETVAL_LONG(((wxTimerEvent_php*)native_object)->GetInterval());
+                }
 
 
                 return;
@@ -69420,146 +73093,6 @@ PHP_METHOD(php_wxTimerEvent, GetInterval)
             "wxTimerEvent::GetInterval\n"
         );
     }
-}
-/* }}} */
-
-/* {{{ proto  wxTimerEvent::wxTimerEvent() */
-PHP_METHOD(php_wxTimerEvent, __construct)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxTimerEvent::__construct\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxTimerEvent* current_object;
-    wxTimerEvent_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    int arguments_received = ZEND_NUM_ARGS();
-
-
-    //Parameters for overload 0
-    bool overload0_called = false;
-
-    //Parameters for overload 1
-    zval* timer1;
-    wxTimer* object_pointer1_0 = 0;
-    bool overload1_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 0)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '' ()\n");
-        #endif
-
-        overload0_called = true;
-        already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&timer1, php_wxTimer_entry)\n");
-        #endif
-
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &timer1, php_wxTimer_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(timer1) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxTimer_P(timer1)->object_type;
-                    argument_native_object = (void*) Z_wxTimer_P(timer1)->native_object;
-                    object_pointer1_0 = (wxTimer*) argument_native_object;
-                    if (!object_pointer1_0 )
-                    {
-                        zend_error(E_ERROR, "Parameter 'timer' could not be retreived correctly.");
-                    }
-                }
-                else if(Z_TYPE_P(timer1) != IS_NULL)
-                {
-                    zend_error(E_ERROR, "Parameter 'timer' not null, could not be retreived correctly.");
-                }
-            }
-
-            overload1_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct()\n");
-                #endif
-
-                native_object = new wxTimerEvent_php();
-
-                native_object->references.Initialize();
-                break;
-            }
-        }
-    }
-
-    if(overload1_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxTimer*) object_pointer1_0)\n");
-                #endif
-
-                native_object = new wxTimerEvent_php(*(wxTimer*) object_pointer1_0);
-
-                native_object->references.Initialize();
-                ((wxTimerEvent_php*) native_object)->references.AddReference(timer1, "wxTimerEvent::wxTimerEvent at call 4 with 1 argument(s)");
-                break;
-            }
-        }
-    }
-
-    
-    if(already_called)
-    {
-        native_object->phpObj = *getThis();
-
-
-        current_object = Z_wxTimerEvent_P(getThis());
-
-        current_object->native_object = native_object;
-
-        current_object->is_user_initialized = 1;
-    }
-    else
-    {
-        zend_error(
-            E_ERROR,
-            "Abstract class or wrong type/count of parameters "
-            "passed to: wxTimerEvent::__construct\n"
-        );
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-        php_printf("===========================================\n\n");
-    #endif
 }
 /* }}} */
 

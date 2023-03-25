@@ -72,9 +72,12 @@ if(file_exists("./../../json/includes.json"))
     unset($defIncludes["wx/dde.h"]);
     unset($defIncludes["wx/msw/regconf.h"]);
     unset($defIncludes["wx/msw/registry.h"]);
+    unset($defIncludes["wx/msw/ole/oleutils.h"]);
+    unset($defIncludes["wx/msw/ole/safearray.h"]);
 
     // Disable WebView
     unset($defIncludes['wx/webview.h']);
+    unset($defIncludes['wx/html/webkit.h']);
 }
 
 //Load functions parsed by the json_generator
@@ -634,8 +637,17 @@ file_put_contents("discarded.log", "Constants\n\n", FILE_APPEND);
 
 foreach($defConsts as $constant_name => $constant_value)
 {
-    // Check if string
+    if (preg_match('/[^a-z_0-9]/i', $constant_value)) {
+        file_put_contents(
+            "discarded.log",
+            "$constant_name = \"$constant_value\"\n",
+            FILE_APPEND
+        );
+        continue;
+    }
 
+    // Check if string
+/*
     if (preg_match('/^(wxString\()?(?P<str>".*")\)?$/', $constant_value, $match))
     {
         $classes .= tabs(1)
@@ -650,7 +662,7 @@ foreach($defConsts as $constant_name => $constant_value)
 		;
         continue;
     }
-
+*/
     // Skip empty constants and function calls
 
     if(
@@ -707,6 +719,10 @@ foreach($defGlobals as $variable_name => $variable_type)
     if(isset($defConsts[$variable_name]))
         continue;
 
+    if (in_array($variable_name, ['wxEVT_STC_KEY', 'wxEVT_STC_URIDROPPED'])) {
+        continue;
+    }
+
     //Manually define wxEmptyString
     if($variable_name == "wxEmptyString")
     {
@@ -744,12 +760,14 @@ foreach($defGlobals as $variable_name => $variable_type)
     }
 
     //Since wxART_ global variables are defined as wxString but what they are really is a char[]
+    /*
     if("".strpos($variable_name,"wxART_")."" != "")
     {
         $classes .= "    char _wxchar_{$variable_name}[] = $variable_name;\n";
         $classes .= "    REGISTER_STRING_CONSTANT(\"$variable_name\", _wxchar_$variable_name, CONST_CS | CONST_PERSISTENT);\n";
         continue;
     }
+    */
 
     //To prevent wx/datetime.h(1810): assert "IsValid()" failed in GetTicks(): invalid wxDateTime
     if($variable_name == "wxDefaultDateTime")

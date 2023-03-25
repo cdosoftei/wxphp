@@ -20,6 +20,305 @@ ZEND_BEGIN_ARG_INFO_EX(wxphp_html_get_args, 0, 0, 1)
     ZEND_ARG_INFO(0, name)
 ZEND_END_ARG_INFO()
 
+extern zend_class_entry* php_wxHtmlHelpController_entry;
+extern zend_object_handlers wxphp_wxHtmlHelpController_object_handlers;
+void php_wxHtmlHelpController_destruction_handler(zend_resource*);
+
+class wxHtmlHelpController_php: public wxHtmlHelpController{
+    public:
+
+    wxHtmlHelpController_php(int style=wxHF_DEFAULT_STYLE, wxWindow* parentWindow=NULL):wxHtmlHelpController(style, parentWindow){}
+    
+    wxHtmlHelpDialog* CreateHelpDialog(wxHtmlHelpData* data);
+    wxHtmlHelpFrame* CreateHelpFrame(wxHtmlHelpData* data);
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxHtmlHelpController{
+    wxHtmlHelpController_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxHtmlHelpController;
+
+void php_wxHtmlHelpController_free(void *object);
+zend_object* php_wxHtmlHelpController_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxHtmlHelpController_functions[] = {
+    PHP_ME(php_wxHtmlHelpController, AddBook, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, Display, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, DisplayContents, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, DisplayIndex, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, KeywordSearch, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, ReadCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, SetShouldPreventAppExit, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, SetTempDir, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, SetTitleFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, UseConfig, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, WriteCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpController, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxHtmlHelpController * php_wxHtmlHelpController_fetch_object(zend_object *obj) {
+    return (zo_wxHtmlHelpController *)(
+        (char *)(obj) - XtOffsetOf(zo_wxHtmlHelpController, zo)
+    );
+}
+
+#define Z_wxHtmlHelpController_P(zv) \
+    php_wxHtmlHelpController_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxHtmlModalHelp_entry;
+extern zend_object_handlers wxphp_wxHtmlModalHelp_object_handlers;
+void php_wxHtmlModalHelp_destruction_handler(zend_resource*);
+
+class wxHtmlModalHelp_php: public wxHtmlModalHelp{
+    public:
+
+    wxHtmlModalHelp_php(wxWindow* parent, const wxString& helpFile, const wxString& topic=wxEmptyString, int style=wxHF_DEFAULT_STYLE|wxHF_DIALOG|wxHF_MODAL):wxHtmlModalHelp(parent, helpFile, topic, style){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxHtmlModalHelp{
+    wxHtmlModalHelp_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxHtmlModalHelp;
+
+void php_wxHtmlModalHelp_free(void *object);
+zend_object* php_wxHtmlModalHelp_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxHtmlModalHelp_functions[] = {
+    PHP_ME(php_wxHtmlModalHelp, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxHtmlModalHelp * php_wxHtmlModalHelp_fetch_object(zend_object *obj) {
+    return (zo_wxHtmlModalHelp *)(
+        (char *)(obj) - XtOffsetOf(zo_wxHtmlModalHelp, zo)
+    );
+}
+
+#define Z_wxHtmlModalHelp_P(zv) \
+    php_wxHtmlModalHelp_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxHtmlHelpData_entry;
+extern zend_object_handlers wxphp_wxHtmlHelpData_object_handlers;
+void php_wxHtmlHelpData_destruction_handler(zend_resource*);
+
+class wxHtmlHelpData_php: public wxHtmlHelpData{
+    public:
+
+    wxHtmlHelpData_php():wxHtmlHelpData(){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxHtmlHelpData{
+    wxHtmlHelpData_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxHtmlHelpData;
+
+void php_wxHtmlHelpData_free(void *object);
+zend_object* php_wxHtmlHelpData_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxHtmlHelpData_functions[] = {
+    PHP_ME(php_wxHtmlHelpData, AddBook, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, FindPageById, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, FindPageByName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, SetTempDir, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxHtmlHelpData * php_wxHtmlHelpData_fetch_object(zend_object *obj) {
+    return (zo_wxHtmlHelpData *)(
+        (char *)(obj) - XtOffsetOf(zo_wxHtmlHelpData, zo)
+    );
+}
+
+#define Z_wxHtmlHelpData_P(zv) \
+    php_wxHtmlHelpData_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxHtmlHelpDialog_entry;
+extern zend_object_handlers wxphp_wxHtmlHelpDialog_object_handlers;
+void php_wxHtmlHelpDialog_destruction_handler(zend_resource*);
+
+class wxHtmlHelpDialog_php: public wxHtmlHelpDialog{
+    public:
+
+    wxHtmlHelpDialog_php(wxHtmlHelpData* data=NULL):wxHtmlHelpDialog(data){}
+    wxHtmlHelpDialog_php(wxWindow* parent, wxWindowID id, const wxString& title=wxEmptyString, int style=wxHF_DEFAULT_STYLE, wxHtmlHelpData* data=NULL):wxHtmlHelpDialog(parent, id, title, style, data){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxHtmlHelpDialog{
+    wxHtmlHelpDialog_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxHtmlHelpDialog;
+
+void php_wxHtmlHelpDialog_free(void *object);
+zend_object* php_wxHtmlHelpDialog_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxHtmlHelpDialog_functions[] = {
+    PHP_ME(php_wxHtmlHelpDialog, AddToolbarButtons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, GetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, SetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, SetTitleFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxHtmlHelpDialog * php_wxHtmlHelpDialog_fetch_object(zend_object *obj) {
+    return (zo_wxHtmlHelpDialog *)(
+        (char *)(obj) - XtOffsetOf(zo_wxHtmlHelpDialog, zo)
+    );
+}
+
+#define Z_wxHtmlHelpDialog_P(zv) \
+    php_wxHtmlHelpDialog_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxHtmlHelpFrame_entry;
+extern zend_object_handlers wxphp_wxHtmlHelpFrame_object_handlers;
+void php_wxHtmlHelpFrame_destruction_handler(zend_resource*);
+
+class wxHtmlHelpFrame_php: public wxHtmlHelpFrame{
+    public:
+
+    wxHtmlHelpFrame_php(wxHtmlHelpData* data=NULL):wxHtmlHelpFrame(data){}
+    wxHtmlHelpFrame_php(wxWindow* parent, wxWindowID id, const wxString& title=wxEmptyString, int style=wxHF_DEFAULT_STYLE, wxHtmlHelpData* data=NULL, wxConfigBase* config=NULL, const wxString& rootpath=wxEmptyString):wxHtmlHelpFrame(parent, id, title, style, data, config, rootpath){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxHtmlHelpFrame{
+    wxHtmlHelpFrame_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxHtmlHelpFrame;
+
+void php_wxHtmlHelpFrame_free(void *object);
+zend_object* php_wxHtmlHelpFrame_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxHtmlHelpFrame_functions[] = {
+    PHP_ME(php_wxHtmlHelpFrame, AddToolbarButtons, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, GetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, SetController, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, SetTitleFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpFrame, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxHtmlHelpFrame * php_wxHtmlHelpFrame_fetch_object(zend_object *obj) {
+    return (zo_wxHtmlHelpFrame *)(
+        (char *)(obj) - XtOffsetOf(zo_wxHtmlHelpFrame, zo)
+    );
+}
+
+#define Z_wxHtmlHelpFrame_P(zv) \
+    php_wxHtmlHelpFrame_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxHtmlHelpWindow_entry;
+extern zend_object_handlers wxphp_wxHtmlHelpWindow_object_handlers;
+void php_wxHtmlHelpWindow_destruction_handler(zend_resource*);
+
+class wxHtmlHelpWindow_php: public wxHtmlHelpWindow{
+    public:
+
+    wxHtmlHelpWindow_php(wxHtmlHelpData* data=NULL):wxHtmlHelpWindow(data){}
+    wxHtmlHelpWindow_php(wxWindow* parent, int wxWindowID, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, int style=wxTAB_TRAVERSAL|wxBORDER_NONE, int helpStyle=wxHF_DEFAULT_STYLE, wxHtmlHelpData* data=NULL):wxHtmlHelpWindow(parent, wxWindowID, pos, size, style, helpStyle, data){}
+    
+    void AddToolbarButtons(wxToolBar* toolBar, int style);
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxHtmlHelpWindow{
+    wxHtmlHelpWindow_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxHtmlHelpWindow;
+
+void php_wxHtmlHelpWindow_free(void *object);
+zend_object* php_wxHtmlHelpWindow_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxHtmlHelpWindow_functions[] = {
+    PHP_ME(php_wxHtmlHelpWindow, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, Display, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, DisplayIndex, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, GetData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, DisplayContents, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, KeywordSearch, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, ReadCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, RefreshLists, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, UseConfig, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, WriteCustomization, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxHtmlHelpWindow, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxHtmlHelpWindow * php_wxHtmlHelpWindow_fetch_object(zend_object *obj) {
+    return (zo_wxHtmlHelpWindow *)(
+        (char *)(obj) - XtOffsetOf(zo_wxHtmlHelpWindow, zo)
+    );
+}
+
+#define Z_wxHtmlHelpWindow_P(zv) \
+    php_wxHtmlHelpWindow_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxHtmlRenderingStyle_entry;
 extern zend_object_handlers wxphp_wxHtmlRenderingStyle_object_handlers;
 void php_wxHtmlRenderingStyle_destruction_handler(zend_resource*);

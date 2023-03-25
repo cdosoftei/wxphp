@@ -119,6 +119,61 @@ static inline zo_wxKeyboardState * php_wxKeyboardState_fetch_object(zend_object 
 
 #define Z_wxKeyboardState_P(zv) \
     php_wxKeyboardState_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxAuiManagerEvent_entry;
+extern zend_object_handlers wxphp_wxAuiManagerEvent_object_handlers;
+void php_wxAuiManagerEvent_destruction_handler(zend_resource*);
+
+class wxAuiManagerEvent_php: public wxAuiManagerEvent{
+    public:
+
+    wxAuiManagerEvent_php(wxEventType type=wxEVT_NULL):wxAuiManagerEvent(type){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxAuiManagerEvent{
+    wxAuiManagerEvent_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxAuiManagerEvent;
+
+void php_wxAuiManagerEvent_free(void *object);
+zend_object* php_wxAuiManagerEvent_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxAuiManagerEvent_functions[] = {
+    PHP_ME(php_wxAuiManagerEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxAuiManagerEvent, Veto, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, SetPane, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, SetManager, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, SetDC, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, SetCanVeto, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, SetButton, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, GetVeto, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, GetPane, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, GetManager, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, GetDC, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, GetButton, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAuiManagerEvent, CanVeto, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxAuiManagerEvent * php_wxAuiManagerEvent_fetch_object(zend_object *obj) {
+    return (zo_wxAuiManagerEvent *)(
+        (char *)(obj) - XtOffsetOf(zo_wxAuiManagerEvent, zo)
+    );
+}
+
+#define Z_wxAuiManagerEvent_P(zv) \
+    php_wxAuiManagerEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxCalendarEvent_entry;
 extern zend_object_handlers wxphp_wxCalendarEvent_object_handlers;
 void php_wxCalendarEvent_destruction_handler(zend_resource*);
@@ -252,6 +307,64 @@ static inline zo_wxCollapsiblePaneEvent * php_wxCollapsiblePaneEvent_fetch_objec
 
 #define Z_wxCollapsiblePaneEvent_P(zv) \
     php_wxCollapsiblePaneEvent_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxDataViewEvent_entry;
+extern zend_object_handlers wxphp_wxDataViewEvent_object_handlers;
+void php_wxDataViewEvent_destruction_handler(zend_resource*);
+
+class wxDataViewEvent_php: public wxDataViewEvent{
+    public:
+
+    wxDataViewEvent_php(wxEventType evtType, wxDataViewCtrl* dvc, wxDataViewColumn* column, const wxDataViewItem& item=wxDataViewItem()):wxDataViewEvent(evtType, dvc, column, item){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxDataViewEvent{
+    wxDataViewEvent_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxDataViewEvent;
+
+void php_wxDataViewEvent_free(void *object);
+zend_object* php_wxDataViewEvent_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxDataViewEvent_functions[] = {
+    PHP_ME(php_wxDataViewEvent, GetItem, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetCacheFrom, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetCacheTo, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetColumn, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetDataBuffer, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetDataFormat, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetDataSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetDataViewColumn, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetModel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetPosition, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, GetValue, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, IsEditCancelled, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, SetColumn, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, SetDataObject, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, SetValue, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDataViewEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxDataViewEvent * php_wxDataViewEvent_fetch_object(zend_object *obj) {
+    return (zo_wxDataViewEvent *)(
+        (char *)(obj) - XtOffsetOf(zo_wxDataViewEvent, zo)
+    );
+}
+
+#define Z_wxDataViewEvent_P(zv) \
+    php_wxDataViewEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxDateEvent_entry;
 extern zend_object_handlers wxphp_wxDateEvent_object_handlers;
 void php_wxDateEvent_destruction_handler(zend_resource*);
@@ -754,7 +867,6 @@ void php_wxPaintEvent_destruction_handler(zend_resource*);
 class wxPaintEvent_php: public wxPaintEvent{
     public:
 
-    wxPaintEvent_php(int id=0):wxPaintEvent(id){}
     
     
 
@@ -776,7 +888,6 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPaintEvent_functions[] = {
-    PHP_ME(php_wxPaintEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -1284,6 +1395,49 @@ static inline zo_wxChildFocusEvent * php_wxChildFocusEvent_fetch_object(zend_obj
 
 #define Z_wxChildFocusEvent_P(zv) \
     php_wxChildFocusEvent_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxDisplayChangedEvent_entry;
+extern zend_object_handlers wxphp_wxDisplayChangedEvent_object_handlers;
+void php_wxDisplayChangedEvent_destruction_handler(zend_resource*);
+
+class wxDisplayChangedEvent_php: public wxDisplayChangedEvent{
+    public:
+
+    wxDisplayChangedEvent_php():wxDisplayChangedEvent(){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxDisplayChangedEvent{
+    wxDisplayChangedEvent_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxDisplayChangedEvent;
+
+void php_wxDisplayChangedEvent_free(void *object);
+zend_object* php_wxDisplayChangedEvent_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxDisplayChangedEvent_functions[] = {
+    PHP_ME(php_wxDisplayChangedEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxDisplayChangedEvent * php_wxDisplayChangedEvent_fetch_object(zend_object *obj) {
+    return (zo_wxDisplayChangedEvent *)(
+        (char *)(obj) - XtOffsetOf(zo_wxDisplayChangedEvent, zo)
+    );
+}
+
+#define Z_wxDisplayChangedEvent_P(zv) \
+    php_wxDisplayChangedEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxNotifyEvent_entry;
 extern zend_object_handlers wxphp_wxNotifyEvent_object_handlers;
 void php_wxNotifyEvent_destruction_handler(zend_resource*);
@@ -3194,8 +3348,6 @@ void php_wxTimerEvent_destruction_handler(zend_resource*);
 class wxTimerEvent_php: public wxTimerEvent{
     public:
 
-    wxTimerEvent_php():wxTimerEvent(){}
-    wxTimerEvent_php(wxTimer& timer):wxTimerEvent(timer){}
     
     
 
@@ -3218,7 +3370,6 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTimerEvent_functions[] = {
     PHP_ME(php_wxTimerEvent, GetInterval, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimerEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

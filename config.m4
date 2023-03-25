@@ -1,5 +1,5 @@
 PHP_ARG_WITH(wxwidgets,for wxWidgets support,
-[  --with-wxwidgets[=DIR]    Enable wxWidgets extension (requires wxWidgets >= 3.0.0).])
+[  --with-wxwidgets[=DIR]    Enable wxWidgets extension (requires wxWidgets >= 3.1.4).])
 
 PHP_ARG_WITH(wxwidgets-version,set wxWidgets version,
 [  --with-wxwidgets[=VERSION]
@@ -24,7 +24,7 @@ PHP_ARG_ENABLE(wxphp-references-management, whether to enable references managem
 if test "$PHP_WXWIDGETS" != "no"; then
 
     dnl Set the wxWidgets version to download and compile
-    PHP_WX_VERSION="3.0.5"
+    PHP_WX_VERSION="3.1.4"
 
     if test "$PHP_WXWIDGETS_VERSION" != "no"; then
         PHP_WX_VERSION=$PHP_WXWIDGETS_VERSION
@@ -46,13 +46,13 @@ if test "$PHP_WXWIDGETS" != "no"; then
 
     dnl Check for the installation path of wx-config
     if test "$PHP_WXWIDGETS" != "yes"; then
-        AC_MSG_CHECKING([for wx-config existance and wxWidgets version >= 3.0.x])
+        AC_MSG_CHECKING([for wx-config existance and wxWidgets version >= 3.1.x])
         for directory in "$PHP_WXWIDGETS" "$PHP_WXWIDGETS/bin" /usr /usr/bin /usr/local /usr/local/bin; do
             dnl search for know command names (prefered first)
-            for cmd in wx-config-3.0 wx-config; do
+            for cmd in wx-config-3.1 wx-config; do
                 if test -e "$directory/$cmd"; then
                     wxwidgets_version=`$directory/$cmd --version`
-                    version_check=`echo $wxwidgets_version | grep "3.0" && echo $wxwidgets_version | grep "0.[0-9]"`
+                    version_check=`echo $wxwidgets_version | grep "3.1" && echo $wxwidgets_version | grep "0.[0-9]"`
                     if test -n "$version_check"; then
                         WXCONFIG_PATH="$directory/$cmd"
                         AC_MSG_RESULT([version $wxwidgets_version found])
@@ -156,7 +156,7 @@ if test "$PHP_WXWIDGETS" != "no"; then
 
         if test ! -e "Makefile"; then
             if test "$PHP_WXWIDGETS_MACOSX" == "no"; then
-                CFLAGS="$WX_FLAGS" CXXFLAGS="$WX_FLAGS"  \
+                CFLAGS="$WX_FLAGS" CXXFLAGS="$WX_FLAGS" \
                 ../configure --prefix=$WX_BUILD_DIR --disable-shared \
                 --enable-monolithic --with-{gtk=3,sdl}
             else
@@ -237,6 +237,7 @@ if test "$PHP_WXWIDGETS" != "no"; then
     if test "$PHP_WXWIDGETS_MACOSX" == "no"; then
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
             PHP_WXWIDGETS_OTHER_LDFLAGS=`pkg-config --libs sdl gstreamer-1.0 gstreamer-video-1.0`
+            PHP_WXWIDGETS_OTHER_LDFLAGS="$PHP_WXWIDGETS_OTHER_LDFLAGS -L./wxWidgets-build/lib"
         fi
     else
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
@@ -259,7 +260,7 @@ if test "$PHP_WXWIDGETS" != "no"; then
 
         dnl Append wxscintilla and gstreamer if static build
         if test "$PHP_WXWIDGETS_STATIC" != "no"; then
-            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.0 $WEBKIT_LIB $PHP_WXWIDGETS_OTHER_LDFLAGS"
+            PHP_WXWIDGETS_LDFLAGS="$PHP_WXWIDGETS_LIBS -lwxscintilla-3.1 $WEBKIT_LIB $PHP_WXWIDGETS_OTHER_LDFLAGS"
             LDFLAGS="$LDFLAGS $PHP_WXWIDGETS_LDFLAGS"
         fi
     else
@@ -283,5 +284,5 @@ if test "$PHP_WXWIDGETS" != "no"; then
     PHP_ADD_LIBRARY(stdc++, 1, WXWIDGETS_SHARED_LIBADD)
 
     dnl PHP_NEW_EXTENSION(extname, sources [, shared [, sapi_class [, extra-cflags [, cxx [, zend_ext]]]]])
-    PHP_NEW_EXTENSION(wxwidgets, src/app.cpp src/references.cpp src/appmanagement.cpp src/aui.cpp src/bookctrl.cpp src/cfg.cpp src/cmndlg.cpp src/containers.cpp src/ctrl.cpp src/data.cpp src/dc.cpp src/dnd.cpp src/docview.cpp src/dvc.cpp src/events.cpp src/file.cpp src/gdi.cpp src/grid.cpp src/help.cpp src/html.cpp src/logging.cpp src/managedwnd.cpp src/media.cpp src/menus.cpp src/misc.cpp src/miscwnd.cpp src/net.cpp src/pickers.cpp src/printing.cpp src/ribbon.cpp src/richtext.cpp src/rtti.cpp src/stc.cpp src/streams.cpp src/threading.cpp src/validator.cpp src/vfs.cpp src/winlayout.cpp src/xml.cpp src/xrc.cpp src/others.cpp src/functions.cpp wxwidgets.cpp, $ext_shared,,,1)
+    PHP_NEW_EXTENSION(wxwidgets, src/app.cpp src/references.cpp src/appmanagement.cpp src/cfg.cpp src/bookctrl.cpp src/dnd.cpp src/cmndlg.cpp src/containers.cpp src/ctrl.cpp src/data.cpp src/dc.cpp src/docview.cpp src/events.cpp src/file.cpp src/gdi.cpp src/grid.cpp src/html.cpp src/help.cpp src/logging.cpp src/managedwnd.cpp src/menus.cpp src/misc.cpp src/miscwnd.cpp src/media.cpp src/net.cpp src/pickers.cpp src/printing.cpp src/ribbon.cpp src/richtext.cpp src/rtti.cpp src/stc.cpp src/streams.cpp src/threading.cpp src/validator.cpp src/vfs.cpp src/aui.cpp src/winlayout.cpp src/xml.cpp src/xrc.cpp src/dvc.cpp src/others.cpp src/functions.cpp wxwidgets.cpp, $ext_shared,,,1)
 fi

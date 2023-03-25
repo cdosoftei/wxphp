@@ -12,29 +12,27 @@
 
 #include "php_wxwidgets.h"
 #include "appmanagement.h"
-#include "aui.h"
-#include "bookctrl.h"
 #include "cfg.h"
+#include "bookctrl.h"
+#include "dnd.h"
 #include "cmndlg.h"
 #include "containers.h"
 #include "ctrl.h"
 #include "data.h"
 #include "dc.h"
-#include "dnd.h"
 #include "docview.h"
-#include "dvc.h"
 #include "events.h"
 #include "file.h"
 #include "gdi.h"
 #include "grid.h"
-#include "help.h"
 #include "html.h"
+#include "help.h"
 #include "logging.h"
 #include "managedwnd.h"
-#include "media.h"
 #include "menus.h"
 #include "misc.h"
 #include "miscwnd.h"
+#include "media.h"
 #include "net.h"
 #include "pickers.h"
 #include "printing.h"
@@ -46,9 +44,11 @@
 #include "threading.h"
 #include "validator.h"
 #include "vfs.h"
+#include "aui.h"
 #include "winlayout.h"
 #include "xml.h"
 #include "xrc.h"
+#include "dvc.h"
 #include "others.h"
 
 
@@ -17797,113 +17797,6 @@ PHP_METHOD(php_wxStyledTextCtrl, GetIndentationGuides)
 }
 /* }}} */
 
-/* {{{ proto bool wxStyledTextCtrl::GetKeysUnicode()
-   Are keys always interpreted as Unicode? */
-PHP_METHOD(php_wxStyledTextCtrl, GetKeysUnicode)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxStyledTextCtrl::GetKeysUnicode\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxStyledTextCtrl* current_object;
-    wxphp_object_type current_object_type;
-    wxStyledTextCtrl_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxStyledTextCtrl_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxStyledTextCtrl::GetKeysUnicode call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXSTYLEDTEXTCTRL_TYPE){
-                references = &((wxStyledTextCtrl_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 0)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '' ()\n");
-        #endif
-
-        overload0_called = true;
-        already_called = true;
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxStyledTextCtrl::GetKeysUnicode())\n\n");
-                #endif
-
-                RETVAL_BOOL(((wxStyledTextCtrl_php*)native_object)->GetKeysUnicode());
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxStyledTextCtrl::GetKeysUnicode\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto int wxStyledTextCtrl::GetLastChild(int line, int level)
    Find the last child line of a header line. */
 PHP_METHOD(php_wxStyledTextCtrl, GetLastChild)
@@ -24557,220 +24450,6 @@ PHP_METHOD(php_wxStyledTextCtrl, GetStyleAt)
             E_ERROR,
             "Wrong type or count of parameters passed to: "
             "wxStyledTextCtrl::GetStyleAt\n"
-        );
-    }
-}
-/* }}} */
-
-/* {{{ proto int wxStyledTextCtrl::GetStyleBits()
-   Retrieve number of bits in style bytes used to hold the lexical state. */
-PHP_METHOD(php_wxStyledTextCtrl, GetStyleBits)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxStyledTextCtrl::GetStyleBits\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxStyledTextCtrl* current_object;
-    wxphp_object_type current_object_type;
-    wxStyledTextCtrl_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxStyledTextCtrl_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxStyledTextCtrl::GetStyleBits call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXSTYLEDTEXTCTRL_TYPE){
-                references = &((wxStyledTextCtrl_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 0)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '' ()\n");
-        #endif
-
-        overload0_called = true;
-        already_called = true;
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::GetStyleBits())\n\n");
-                #endif
-
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->GetStyleBits());
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxStyledTextCtrl::GetStyleBits\n"
-        );
-    }
-}
-/* }}} */
-
-/* {{{ proto int wxStyledTextCtrl::GetStyleBitsNeeded()
-   Retrieve the number of bits the current lexer needs for styling. */
-PHP_METHOD(php_wxStyledTextCtrl, GetStyleBitsNeeded)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxStyledTextCtrl::GetStyleBitsNeeded\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxStyledTextCtrl* current_object;
-    wxphp_object_type current_object_type;
-    wxStyledTextCtrl_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxStyledTextCtrl_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxStyledTextCtrl::GetStyleBitsNeeded call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXSTYLEDTEXTCTRL_TYPE){
-                references = &((wxStyledTextCtrl_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 0)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '' ()\n");
-        #endif
-
-        overload0_called = true;
-        already_called = true;
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::GetStyleBitsNeeded())\n\n");
-                #endif
-
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->GetStyleBitsNeeded());
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxStyledTextCtrl::GetStyleBitsNeeded\n"
         );
     }
 }
@@ -43667,118 +43346,6 @@ PHP_METHOD(php_wxStyledTextCtrl, SetKeyWords)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetKeysUnicode(bool keysUnicode)
-   Always interpret keyboard input as Unicode. */
-PHP_METHOD(php_wxStyledTextCtrl, SetKeysUnicode)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxStyledTextCtrl::SetKeysUnicode\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxStyledTextCtrl* current_object;
-    wxphp_object_type current_object_type;
-    wxStyledTextCtrl_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxStyledTextCtrl_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxStyledTextCtrl::SetKeysUnicode call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXSTYLEDTEXTCTRL_TYPE){
-                references = &((wxStyledTextCtrl_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    bool keysUnicode0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'b' (&keysUnicode0)\n");
-        #endif
-
-        char parse_parameters_string[] = "b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &keysUnicode0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetKeysUnicode(keysUnicode0)\n\n");
-                #endif
-
-                ((wxStyledTextCtrl_php*)native_object)->SetKeysUnicode(keysUnicode0);
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxStyledTextCtrl::SetKeysUnicode\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto  wxStyledTextCtrl::SetLastKeydownProcessed(bool val) */
 PHP_METHOD(php_wxStyledTextCtrl, SetLastKeydownProcessed)
 {
@@ -49311,118 +48878,6 @@ PHP_METHOD(php_wxStyledTextCtrl, SetStatus)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetStyleBits(int bits)
-   Divide each styling byte into lexical class bits (default: 5) and indicator bits (default: 3). */
-PHP_METHOD(php_wxStyledTextCtrl, SetStyleBits)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxStyledTextCtrl::SetStyleBits\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxStyledTextCtrl* current_object;
-    wxphp_object_type current_object_type;
-    wxStyledTextCtrl_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxStyledTextCtrl_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxStyledTextCtrl::SetStyleBits call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXSTYLEDTEXTCTRL_TYPE){
-                references = &((wxStyledTextCtrl_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    long bits0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&bits0)\n");
-        #endif
-
-        char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bits0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetStyleBits((int) bits0)\n\n");
-                #endif
-
-                ((wxStyledTextCtrl_php*)native_object)->SetStyleBits((int) bits0);
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxStyledTextCtrl::SetStyleBits\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto  wxStyledTextCtrl::SetStyling(int length, int style)
    Change style from current styling position for length characters to a style and move the current styling position to after this newly styled segment. */
 PHP_METHOD(php_wxStyledTextCtrl, SetStyling)
@@ -53181,8 +52636,8 @@ PHP_METHOD(php_wxStyledTextCtrl, StartRecord)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::StartStyling(int pos, int mask)
-   Set the current styling position to pos and the styling mask to mask. */
+/* {{{ proto  wxStyledTextCtrl::StartStyling(int start)
+   Set the current styling position to start. */
 PHP_METHOD(php_wxStyledTextCtrl, StartStyling)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -53239,22 +52694,21 @@ PHP_METHOD(php_wxStyledTextCtrl, StartStyling)
     #endif
 
     //Parameters for overload 0
-    long pos0;
-    long mask0;
+    long start0;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 2)
+    if(!already_called && arguments_received == 1)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&pos0, &mask0)\n");
+        php_printf("Parsing parameters with 'l' (&start0)\n");
         #endif
 
-        char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0, &mask0 ) == SUCCESS)
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &start0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -53266,13 +52720,13 @@ PHP_METHOD(php_wxStyledTextCtrl, StartStyling)
     {
         switch(arguments_received)
         {
-            case 2:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::StartStyling((int) pos0, (int) mask0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::StartStyling((int) start0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->StartStyling((int) pos0, (int) mask0);
+                ((wxStyledTextCtrl_php*)native_object)->StartStyling((int) start0);
 
 
                 return;
@@ -57021,8 +56475,8 @@ PHP_METHOD(php_wxStyledTextCtrl, UpperCase)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::UsePopUp(bool allowPopUp)
-   Set whether a pop up menu is displayed automatically when the user presses the wrong mouse button. */
+/* {{{ proto  wxStyledTextCtrl::UsePopUp(int popUpMode)
+   Set whether a pop up menu is displayed automatically when the user presses the wrong mouse button on certain areas. */
 PHP_METHOD(php_wxStyledTextCtrl, UsePopUp)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -57079,7 +56533,7 @@ PHP_METHOD(php_wxStyledTextCtrl, UsePopUp)
     #endif
 
     //Parameters for overload 0
-    bool allowPopUp0;
+    long popUpMode0;
     bool overload0_called = false;
 
     
@@ -57089,11 +56543,11 @@ PHP_METHOD(php_wxStyledTextCtrl, UsePopUp)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'b' (&allowPopUp0)\n");
+        php_printf("Parsing parameters with 'l' (&popUpMode0)\n");
         #endif
 
-        char parse_parameters_string[] = "b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &allowPopUp0 ) == SUCCESS)
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &popUpMode0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -57108,10 +56562,10 @@ PHP_METHOD(php_wxStyledTextCtrl, UsePopUp)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::UsePopUp(allowPopUp0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::UsePopUp((int) popUpMode0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->UsePopUp(allowPopUp0);
+                ((wxStyledTextCtrl_php*)native_object)->UsePopUp((int) popUpMode0);
 
 
                 return;

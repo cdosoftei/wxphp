@@ -24,7 +24,7 @@
  * Define Extension Properties
  */
 #define PHP_WXWIDGETS_EXTNAME        "wxWidgets"
-#define PHP_WXWIDGETS_VERSION        "3.0.5.1"
+#define PHP_WXWIDGETS_VERSION        "3.1.4"
 
 /**
  * Define php compatible library version string

@@ -23,29 +23,27 @@
 #endif
 
 #include "appmanagement.h"
-#include "aui.h"
-#include "bookctrl.h"
 #include "cfg.h"
+#include "bookctrl.h"
+#include "dnd.h"
 #include "cmndlg.h"
 #include "containers.h"
 #include "ctrl.h"
 #include "data.h"
 #include "dc.h"
-#include "dnd.h"
 #include "docview.h"
-#include "dvc.h"
 #include "events.h"
 #include "file.h"
 #include "gdi.h"
 #include "grid.h"
-#include "help.h"
 #include "html.h"
+#include "help.h"
 #include "logging.h"
 #include "managedwnd.h"
-#include "media.h"
 #include "menus.h"
 #include "misc.h"
 #include "miscwnd.h"
+#include "media.h"
 #include "net.h"
 #include "pickers.h"
 #include "printing.h"
@@ -57,9 +55,11 @@
 #include "threading.h"
 #include "validator.h"
 #include "vfs.h"
+#include "aui.h"
 #include "winlayout.h"
 #include "xml.h"
 #include "xrc.h"
+#include "dvc.h"
 #include "others.h"
 
 /**
@@ -651,6 +651,74 @@ PHP_FUNCTION(php_wxWakeUpIdle)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxWakeUpIdle()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxYield()
+   Calls wxAppConsole::Yield if there is an existing application object. */
+PHP_FUNCTION(php_wxYield)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxYield\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(::wxYield())\n\n");
+                #endif
+
+                RETVAL_BOOL(wxYield());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxYield()\n"
         );
     }
 }
@@ -1363,6 +1431,95 @@ PHP_FUNCTION(php_wxSysErrorCode)
 }
 /* }}} */
 
+/* {{{ proto string wxSysErrorMsgStr(int errCode)
+   Returns the error message corresponding to the given system error code. */
+PHP_FUNCTION(php_wxSysErrorMsgStr)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxSysErrorMsgStr\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    long errCode0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|l' (&errCode0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &errCode0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxSysErrorMsgStr().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = wxSysErrorMsgStr();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxSysErrorMsgStr((unsigned long) errCode0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = wxSysErrorMsgStr((unsigned long) errCode0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxSysErrorMsgStr()\n"
+        );
+    }
+}
+/* }}} */
+
 /* {{{ proto bool wxIsMainThread()
    Returns true if this thread is the main one. */
 PHP_FUNCTION(php_wxIsMainThread)
@@ -1594,6 +1751,614 @@ PHP_FUNCTION(php_wxAboutBox)
     ;
 
     wxAboutBox(*info);
+}
+/* }}} */
+
+/* {{{ proto int wxStringSortAscending(string s1, string s2)
+   Comparison function comparing strings in alphabetical order. */
+PHP_FUNCTION(php_wxStringSortAscending)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxStringSortAscending\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxStringSortAscending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxStringSortAscending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxStringSortAscending()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxStringSortDescending(string s1, string s2)
+   Comparison function comparing strings in reverse alphabetical order. */
+PHP_FUNCTION(php_wxStringSortDescending)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxStringSortDescending\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxStringSortDescending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxStringSortDescending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxStringSortDescending()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDictionaryStringSortAscending(string s1, string s2)
+   Comparison function comparing strings in dictionary order. */
+PHP_FUNCTION(php_wxDictionaryStringSortAscending)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxDictionaryStringSortAscending\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxDictionaryStringSortAscending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxDictionaryStringSortAscending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxDictionaryStringSortAscending()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxDictionaryStringSortDescending(string s1, string s2)
+   Comparison function comparing strings in reverse dictionary order. */
+PHP_FUNCTION(php_wxDictionaryStringSortDescending)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxDictionaryStringSortDescending\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxDictionaryStringSortDescending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxDictionaryStringSortDescending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxDictionaryStringSortDescending()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxNaturalStringSortAscending(string s1, string s2)
+   Comparison function comparing strings in natural order. */
+PHP_FUNCTION(php_wxNaturalStringSortAscending)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxNaturalStringSortAscending\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxNaturalStringSortAscending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxNaturalStringSortAscending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxNaturalStringSortAscending()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxNaturalStringSortDescending(string s1, string s2)
+   Comparison function comparing strings in reverse natural order. */
+PHP_FUNCTION(php_wxNaturalStringSortDescending)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxNaturalStringSortDescending\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxNaturalStringSortDescending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxNaturalStringSortDescending(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxNaturalStringSortDescending()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxCmpNatural(string s1, string s2)
+   This function compares strings using case-insensitive collation and additionally, numbers within strings are recognised and compared numerically, rather than alphabetically. */
+PHP_FUNCTION(php_wxCmpNatural)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxCmpNatural\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxCmpNatural(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxCmpNatural(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxCmpNatural()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxCmpNaturalGeneric(string s1, string s2)
+   This is wxWidgets' own implementation of the natural sort comparison function. */
+PHP_FUNCTION(php_wxCmpNaturalGeneric)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxCmpNaturalGeneric\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s10;
+    size_t s1_len0;
+    char* s20;
+    size_t s2_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'ss' (&s10, &s1_len0, &s20, &s2_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s10, &s1_len0, &s20, &s2_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxCmpNaturalGeneric(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxCmpNaturalGeneric(wxString(s10, wxConvUTF8), wxString(s20, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxCmpNaturalGeneric()\n"
+        );
+    }
 }
 /* }}} */
 
@@ -5106,7 +5871,7 @@ PHP_FUNCTION(php_wxFileSelector)
 /* }}} */
 
 /* {{{ proto string wxFileSelectorEx(string message, string default_path, string default_filename, int &indexDefaultExtension, string wildcard, int flags, wxWindow &parent, int x, int y)
-   An extended version of wxFileSelector. */
+   An extended version of wxFileSelector() */
 PHP_FUNCTION(php_wxFileSelectorEx)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5377,7 +6142,7 @@ PHP_FUNCTION(php_wxFileSelectorEx)
 /* }}} */
 
 /* {{{ proto string wxLoadFileSelector(string what, string extension, string default_name, wxWindow &parent)
-   Ask for filename to load. */
+   Shows a file dialog asking the user for a file name for opening a file. */
 PHP_FUNCTION(php_wxLoadFileSelector)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5504,7 +6269,7 @@ PHP_FUNCTION(php_wxLoadFileSelector)
 /* }}} */
 
 /* {{{ proto string wxSaveFileSelector(string what, string extension, string default_name, wxWindow &parent)
-   Ask for filename to save. */
+   Shows a file dialog asking the user for a file name for saving a file. */
 PHP_FUNCTION(php_wxSaveFileSelector)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5898,8 +6663,8 @@ PHP_FUNCTION(php_wxDirExists)
 }
 /* }}} */
 
-/* {{{ proto bool wxRenameFile(string file1, string file2, bool overwrite)
-   Renames file1 to file2, returning true if successful. */
+/* {{{ proto bool wxRenameFile(string oldpath, string newpath, bool overwrite)
+   Renames oldpath to newpath, returning true if successful. */
 PHP_FUNCTION(php_wxRenameFile)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5917,10 +6682,10 @@ PHP_FUNCTION(php_wxRenameFile)
     bool return_is_user_initialized = false;
 
     //Parameters for overload 0
-    char* file10;
-    size_t file1_len0;
-    char* file20;
-    size_t file2_len0;
+    char* oldpath0;
+    size_t oldpath_len0;
+    char* newpath0;
+    size_t newpath_len0;
     bool overwrite0;
     bool overload0_called = false;
 
@@ -5931,11 +6696,11 @@ PHP_FUNCTION(php_wxRenameFile)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ss|b' (&file10, &file1_len0, &file20, &file2_len0, &overwrite0)\n");
+        php_printf("Parsing parameters with 'ss|b' (&oldpath0, &oldpath_len0, &newpath0, &newpath_len0, &overwrite0)\n");
         #endif
 
         char parse_parameters_string[] = "ss|b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &file10, &file1_len0, &file20, &file2_len0, &overwrite0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &oldpath0, &oldpath_len0, &newpath0, &newpath_len0, &overwrite0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -5950,10 +6715,10 @@ PHP_FUNCTION(php_wxRenameFile)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(::wxRenameFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_BOOL(::wxRenameFile(wxString(oldpath0, wxConvUTF8), wxString(newpath0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxRenameFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8)));
+                RETVAL_BOOL(wxRenameFile(wxString(oldpath0, wxConvUTF8), wxString(newpath0, wxConvUTF8)));
 
 
                 return;
@@ -5962,10 +6727,10 @@ PHP_FUNCTION(php_wxRenameFile)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(::wxRenameFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8), overwrite0))\n\n");
+                php_printf("Executing RETURN_BOOL(::wxRenameFile(wxString(oldpath0, wxConvUTF8), wxString(newpath0, wxConvUTF8), overwrite0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxRenameFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8), overwrite0));
+                RETVAL_BOOL(wxRenameFile(wxString(oldpath0, wxConvUTF8), wxString(newpath0, wxConvUTF8), overwrite0));
 
 
                 return;
@@ -5987,8 +6752,8 @@ PHP_FUNCTION(php_wxRenameFile)
 }
 /* }}} */
 
-/* {{{ proto bool wxCopyFile(string file1, string file2, bool overwrite)
-   Copies file1 to file2, returning true if successful. */
+/* {{{ proto bool wxCopyFile(string src, string dest, bool overwrite)
+   Copies src to dest, returning true if successful. */
 PHP_FUNCTION(php_wxCopyFile)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6006,10 +6771,10 @@ PHP_FUNCTION(php_wxCopyFile)
     bool return_is_user_initialized = false;
 
     //Parameters for overload 0
-    char* file10;
-    size_t file1_len0;
-    char* file20;
-    size_t file2_len0;
+    char* src0;
+    size_t src_len0;
+    char* dest0;
+    size_t dest_len0;
     bool overwrite0;
     bool overload0_called = false;
 
@@ -6020,11 +6785,11 @@ PHP_FUNCTION(php_wxCopyFile)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ss|b' (&file10, &file1_len0, &file20, &file2_len0, &overwrite0)\n");
+        php_printf("Parsing parameters with 'ss|b' (&src0, &src_len0, &dest0, &dest_len0, &overwrite0)\n");
         #endif
 
         char parse_parameters_string[] = "ss|b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &file10, &file1_len0, &file20, &file2_len0, &overwrite0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &src0, &src_len0, &dest0, &dest_len0, &overwrite0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -6039,10 +6804,10 @@ PHP_FUNCTION(php_wxCopyFile)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(::wxCopyFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_BOOL(::wxCopyFile(wxString(src0, wxConvUTF8), wxString(dest0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxCopyFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8)));
+                RETVAL_BOOL(wxCopyFile(wxString(src0, wxConvUTF8), wxString(dest0, wxConvUTF8)));
 
 
                 return;
@@ -6051,10 +6816,10 @@ PHP_FUNCTION(php_wxCopyFile)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(::wxCopyFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8), overwrite0))\n\n");
+                php_printf("Executing RETURN_BOOL(::wxCopyFile(wxString(src0, wxConvUTF8), wxString(dest0, wxConvUTF8), overwrite0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxCopyFile(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8), overwrite0));
+                RETVAL_BOOL(wxCopyFile(wxString(src0, wxConvUTF8), wxString(dest0, wxConvUTF8), overwrite0));
 
 
                 return;
@@ -6595,8 +7360,8 @@ PHP_FUNCTION(php_wxSetWorkingDirectory)
 }
 /* }}} */
 
-/* {{{ proto bool wxConcatFiles(string file1, string file2, string file3)
-   Concatenates file1 and file2 to file3, returning true if successful. */
+/* {{{ proto bool wxConcatFiles(string src1, string src2, string dest)
+   Concatenates src1 and src2 to dest, returning true if successful. */
 PHP_FUNCTION(php_wxConcatFiles)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6614,12 +7379,12 @@ PHP_FUNCTION(php_wxConcatFiles)
     bool return_is_user_initialized = false;
 
     //Parameters for overload 0
-    char* file10;
-    size_t file1_len0;
-    char* file20;
-    size_t file2_len0;
-    char* file30;
-    size_t file3_len0;
+    char* src10;
+    size_t src1_len0;
+    char* src20;
+    size_t src2_len0;
+    char* dest0;
+    size_t dest_len0;
     bool overload0_called = false;
 
     
@@ -6629,11 +7394,11 @@ PHP_FUNCTION(php_wxConcatFiles)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sss' (&file10, &file1_len0, &file20, &file2_len0, &file30, &file3_len0)\n");
+        php_printf("Parsing parameters with 'sss' (&src10, &src1_len0, &src20, &src2_len0, &dest0, &dest_len0)\n");
         #endif
 
         char parse_parameters_string[] = "sss";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &file10, &file1_len0, &file20, &file2_len0, &file30, &file3_len0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &src10, &src1_len0, &src20, &src2_len0, &dest0, &dest_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -6648,10 +7413,10 @@ PHP_FUNCTION(php_wxConcatFiles)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(::wxConcatFiles(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8), wxString(file30, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_BOOL(::wxConcatFiles(wxString(src10, wxConvUTF8), wxString(src20, wxConvUTF8), wxString(dest0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxConcatFiles(wxString(file10, wxConvUTF8), wxString(file20, wxConvUTF8), wxString(file30, wxConvUTF8)));
+                RETVAL_BOOL(wxConcatFiles(wxString(src10, wxConvUTF8), wxString(src20, wxConvUTF8), wxString(dest0, wxConvUTF8)));
 
 
                 return;
@@ -8189,6 +8954,81 @@ PHP_FUNCTION(php_wxEntryCleanup)
 }
 /* }}} */
 
+/* {{{ proto wxVersionInfo wxGetLibLZMAVersionInfo()
+   Return the version of liblzma library used by LZMA stream classes. */
+PHP_FUNCTION(php_wxGetLibLZMAVersionInfo)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxGetLibLZMAVersionInfo\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing ::wxGetLibLZMAVersionInfo() to return new object\n\n");
+                #endif
+
+                wxVersionInfo value_to_return0;
+                value_to_return0 = wxGetLibLZMAVersionInfo();
+                void* ptr = safe_emalloc(1, sizeof(wxVersionInfo_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxVersionInfo));
+                object_init_ex(return_value, php_wxVersionInfo_entry);
+                ((wxVersionInfo_php*)ptr)->phpObj = *return_value;
+                zo_wxVersionInfo* zo0 = Z_wxVersionInfo_P(return_value);
+                zo0->native_object = (wxVersionInfo_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxGetLibLZMAVersionInfo()\n"
+        );
+    }
+}
+/* }}} */
+
 /* {{{ proto int wxFinite(float x)
    Returns a non-zero value if x is neither infinite nor NaN (not a number), returns 0 otherwise. */
 PHP_FUNCTION(php_wxFinite)
@@ -8262,6 +9102,80 @@ PHP_FUNCTION(php_wxFinite)
 }
 /* }}} */
 
+/* {{{ proto int wxGCD(int u, int v)
+   Returns the greatest common divisor of the two given numbers. */
+PHP_FUNCTION(php_wxGCD)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxGCD\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    long u0;
+    long v0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'll' (&u0, &v0)\n");
+        #endif
+
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &u0, &v0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxGCD((unsigned int) u0, (unsigned int) v0))\n\n");
+                #endif
+
+                RETVAL_LONG(wxGCD((unsigned int) u0, (unsigned int) v0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxGCD()\n"
+        );
+    }
+}
+/* }}} */
+
 /* {{{ proto bool wxIsNaN(float x)
    Returns a non-zero value if x is NaN (not a number), returns 0 otherwise. */
 PHP_FUNCTION(php_wxIsNaN)
@@ -8330,6 +9244,225 @@ PHP_FUNCTION(php_wxIsNaN)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxIsNaN()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxDegToRad(float deg)
+   Convert degrees to radians. */
+PHP_FUNCTION(php_wxDegToRad)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxDegToRad\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    double deg0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'd' (&deg0)\n");
+        #endif
+
+        char parse_parameters_string[] = "d";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &deg0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxDegToRad(deg0))\n\n");
+                #endif
+
+                RETVAL_DOUBLE(wxDegToRad(deg0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxDegToRad()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto float wxRadToDeg(float rad)
+   Convert radians to degrees. */
+PHP_FUNCTION(php_wxRadToDeg)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxRadToDeg\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    double rad0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'd' (&rad0)\n");
+        #endif
+
+        char parse_parameters_string[] = "d";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &rad0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxRadToDeg(rad0))\n\n");
+                #endif
+
+                RETVAL_DOUBLE(wxRadToDeg(rad0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxRadToDeg()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxCTZ(int x)
+   Count the number of trailing zeros. */
+PHP_FUNCTION(php_wxCTZ)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxCTZ\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    long x0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&x0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &x0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxCTZ((wxUint32) x0))\n\n");
+                #endif
+
+                RETVAL_LONG(wxCTZ((wxUint32) x0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxCTZ()\n"
         );
     }
 }
@@ -9275,6 +10408,75 @@ PHP_FUNCTION(php_wxGetTopLevelParent)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxGetTopLevelParent()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxPGGetDefaultImageWildcard() */
+PHP_FUNCTION(php_wxPGGetDefaultImageWildcard)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxPGGetDefaultImageWildcard\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxPGGetDefaultImageWildcard().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = wxPGGetDefaultImageWildcard();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxPGGetDefaultImageWildcard()\n"
         );
     }
 }
@@ -10585,7 +11787,7 @@ PHP_FUNCTION(php_wxStringTokenize)
 }
 /* }}} */
 
-/* {{{ proto string wxGetTranslation(string string, string domain)
+/* {{{ proto string wxGetTranslation(string string, string domain, string context)
    This function returns the translation of string in the current locale(). */
 PHP_FUNCTION(php_wxGetTranslation)
 {
@@ -10608,6 +11810,8 @@ PHP_FUNCTION(php_wxGetTranslation)
     size_t string_len0;
     char* domain0;
     size_t domain_len0;
+    char* context0;
+    size_t context_len0;
     bool overload0_called = false;
 
     //Parameters for overload 1
@@ -10618,20 +11822,22 @@ PHP_FUNCTION(php_wxGetTranslation)
     long n1;
     char* domain1;
     size_t domain_len1;
+    char* context1;
+    size_t context_len1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    if(!already_called && arguments_received >= 1  && arguments_received <= 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's|s' (&string0, &string_len0, &domain0, &domain_len0)\n");
+        php_printf("Parsing parameters with 's|ss' (&string0, &string_len0, &domain0, &domain_len0, &context0, &context_len0)\n");
         #endif
 
-        char parse_parameters_string[] = "s|s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &string0, &string_len0, &domain0, &domain_len0 ) == SUCCESS)
+        char parse_parameters_string[] = "s|ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &string0, &string_len0, &domain0, &domain_len0, &context0, &context_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -10640,15 +11846,15 @@ PHP_FUNCTION(php_wxGetTranslation)
 
     //Overload 1
     overload1:
-    if(!already_called && arguments_received >= 3  && arguments_received <= 4)
+    if(!already_called && arguments_received >= 3  && arguments_received <= 5)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ssl|s' (&string1, &string_len1, &plural1, &plural_len1, &n1, &domain1, &domain_len1)\n");
+        php_printf("Parsing parameters with 'ssl|ss' (&string1, &string_len1, &plural1, &plural_len1, &n1, &domain1, &domain_len1, &context1, &context_len1)\n");
         #endif
 
-        char parse_parameters_string[] = "ssl|s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &string1, &string_len1, &plural1, &plural_len1, &n1, &domain1, &domain_len1 ) == SUCCESS)
+        char parse_parameters_string[] = "ssl|ss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &string1, &string_len1, &plural1, &plural_len1, &n1, &domain1, &domain_len1, &context1, &context_len1 ) == SUCCESS)
         {
             overload1_called = true;
             already_called = true;
@@ -10688,6 +11894,20 @@ PHP_FUNCTION(php_wxGetTranslation)
                 return;
                 break;
             }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxGetTranslation(wxString(string0, wxConvUTF8), wxString(domain0, wxConvUTF8), wxString(context0, wxConvUTF8)).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return3;
+                value_to_return3 = wxGetTranslation(wxString(string0, wxConvUTF8), wxString(domain0, wxConvUTF8), wxString(context0, wxConvUTF8));
+                RETVAL_STRING(value_to_return3.ToUTF8().data());
+
+
+                return;
+                break;
+            }
         }
     }
 
@@ -10718,6 +11938,20 @@ PHP_FUNCTION(php_wxGetTranslation)
                 wxString value_to_return4;
                 value_to_return4 = wxGetTranslation(wxString(string1, wxConvUTF8), wxString(plural1, wxConvUTF8), (unsigned) n1, wxString(domain1, wxConvUTF8));
                 RETVAL_STRING(value_to_return4.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+            case 5:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxGetTranslation(wxString(string1, wxConvUTF8), wxString(plural1, wxConvUTF8), (unsigned) n1, wxString(domain1, wxConvUTF8), wxString(context1, wxConvUTF8)).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return5;
+                value_to_return5 = wxGetTranslation(wxString(string1, wxConvUTF8), wxString(plural1, wxConvUTF8), (unsigned) n1, wxString(domain1, wxConvUTF8), wxString(context1, wxConvUTF8));
+                RETVAL_STRING(value_to_return5.ToUTF8().data());
 
 
                 return;
@@ -12178,10 +13412,10 @@ PHP_FUNCTION(php_wxRegisterId)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing ::wxRegisterId((int) id0)\n\n");
+                php_printf("Executing ::wxRegisterId((wxWindowID) id0)\n\n");
                 #endif
 
-                wxRegisterId((int) id0);
+                wxRegisterId((wxWindowID) id0);
 
 
                 return;
@@ -12768,7 +14002,7 @@ PHP_FUNCTION(php_wxGetOsDescription)
 }
 /* }}} */
 
-/* {{{ proto wxOperatingSystemId wxGetOsVersion(int &major, int &minor)
+/* {{{ proto wxOperatingSystemId wxGetOsVersion(int &major, int &minor, int &micro)
    Gets the version and the operating system ID for currently running OS. */
 PHP_FUNCTION(php_wxGetOsVersion)
 {
@@ -12791,26 +14025,28 @@ PHP_FUNCTION(php_wxGetOsVersion)
     zval major0_ref;
     long* minor0;
     zval minor0_ref;
+    long* micro0;
+    zval micro0_ref;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
+    if(!already_called && arguments_received >= 0  && arguments_received <= 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|ll' (major0, minor0)\n");
+        php_printf("Parsing parameters with '|lll' (major0, minor0, micro0)\n");
         #endif
 
-        char parse_parameters_string[] = "|ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, major0, minor0 ) == SUCCESS)
+        char parse_parameters_string[] = "|lll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, major0, minor0, micro0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
 
-            char parse_references_string[] = "|zz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, major0_ref, minor0_ref );
+            char parse_references_string[] = "|zzz";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, major0_ref, minor0_ref, micro0_ref );
         }
     }
 
@@ -12873,6 +14109,36 @@ PHP_FUNCTION(php_wxGetOsVersion)
                 return;
                 break;
             }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxGetOsVersion((int*) major0, (int*) minor0, (int*) micro0))\n\n");
+                #endif
+
+                RETVAL_LONG(wxGetOsVersion((int*) major0, (int*) minor0, (int*) micro0));
+
+                size_t elements_returned0_0 = sizeof(major0)/sizeof(*major0);
+                array_init(&major0_ref);
+                for(size_t i=0; i<elements_returned0_0; i++)
+                {
+                    add_next_index_long(&major0_ref, major0[i]);
+                }
+                size_t elements_returned0_1 = sizeof(minor0)/sizeof(*minor0);
+                array_init(&minor0_ref);
+                for(size_t i=0; i<elements_returned0_1; i++)
+                {
+                    add_next_index_long(&minor0_ref, minor0[i]);
+                }
+                size_t elements_returned0_2 = sizeof(micro0)/sizeof(*micro0);
+                array_init(&micro0_ref);
+                for(size_t i=0; i<elements_returned0_2; i++)
+                {
+                    add_next_index_long(&micro0_ref, micro0[i]);
+                }
+
+                return;
+                break;
+            }
         }
     }
 
@@ -12884,6 +14150,105 @@ PHP_FUNCTION(php_wxGetOsVersion)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxGetOsVersion()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto bool wxCheckOsVersion(int majorVsn, int minorVsn, int microVsn)
+   Returns true if the version of the operating system on which the program is running under is the same or later than the given version. */
+PHP_FUNCTION(php_wxCheckOsVersion)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxCheckOsVersion\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    long majorVsn0;
+    long minorVsn0;
+    long microVsn0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|ll' (&majorVsn0, &minorVsn0, &microVsn0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &majorVsn0, &minorVsn0, &microVsn0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(::wxCheckOsVersion((int) majorVsn0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxCheckOsVersion((int) majorVsn0));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(::wxCheckOsVersion((int) majorVsn0, (int) minorVsn0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxCheckOsVersion((int) majorVsn0, (int) minorVsn0));
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(::wxCheckOsVersion((int) majorVsn0, (int) minorVsn0, (int) microVsn0))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxCheckOsVersion((int) majorVsn0, (int) minorVsn0, (int) microVsn0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxCheckOsVersion()\n"
         );
     }
 }
@@ -13676,6 +15041,247 @@ PHP_FUNCTION(php_wxSleep)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxSleep()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxDecToHex(int dec)
+   Convert decimal integer to 2-character hexadecimal string. */
+PHP_FUNCTION(php_wxDecToHex)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxDecToHex\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    long dec0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    long dec1;
+    char* ch11;
+    size_t ch1_len1;
+    zval ch11_ref;
+    char* ch21;
+    size_t ch2_len1;
+    zval ch21_ref;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&dec0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dec0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'lss' (&dec1, &ch11, &ch1_len1, &ch21, &ch2_len1)\n");
+        #endif
+
+        char parse_parameters_string[] = "lss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dec1, &ch11, &ch1_len1, &ch21, &ch2_len1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+
+            char parse_references_string[] = "zzz";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, ch11_ref, ch21_ref );
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxDecToHex((unsigned char) dec0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = wxDecToHex((unsigned char) dec0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing ::wxDecToHex((unsigned char) dec1, ch11, ch21)\n\n");
+                #endif
+
+                wxDecToHex((unsigned char) dec1, ch11, ch21);
+
+                ZVAL_STRING(&ch11_ref, ch11);
+                ZVAL_STRING(&ch21_ref, ch21);
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxDecToHex()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto int wxHexToDec(string buf)
+   Convert 2-character hexadecimal string to decimal integer. */
+PHP_FUNCTION(php_wxHexToDec)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxHexToDec\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* buf0;
+    size_t buf_len0;
+    bool overload0_called = false;
+
+    //Parameters for overload 1
+    char* buf1;
+    size_t buf_len1;
+    bool overload1_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&buf0, &buf_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &buf0, &buf_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&buf1, &buf_len1)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &buf1, &buf_len1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxHexToDec(wxString(buf0, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_LONG(wxHexToDec(wxString(buf0, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(::wxHexToDec(buf1))\n\n");
+                #endif
+
+                RETVAL_LONG(wxHexToDec(buf1));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxHexToDec()\n"
         );
     }
 }

@@ -502,61 +502,6 @@ static inline zo_wxAuiTabArt * php_wxAuiTabArt_fetch_object(zend_object *obj) {
 
 #define Z_wxAuiTabArt_P(zv) \
     php_wxAuiTabArt_fetch_object(Z_OBJ_P(zv))
-extern zend_class_entry* php_wxAuiDockArt_entry;
-extern zend_object_handlers wxphp_wxAuiDockArt_object_handlers;
-void php_wxAuiDockArt_destruction_handler(zend_resource*);
-
-class wxAuiDockArt_php: public wxAuiDockArt{
-    public:
-
-    wxAuiDockArt_php():wxAuiDockArt(){}
-    
-    void SetMetric(int id, int new_val);
-    void SetFont(int id, const wxFont& font);
-    int GetMetric(int id);
-    void SetColour(int id, const wxColour& colour);
-    wxFont GetFont(int id);
-    wxColour GetColour(int id);
-    void DrawSash(wxDC& dc, wxWindow* window, int orientation, const wxRect& rect);
-    void DrawPaneButton(wxDC& dc, wxWindow* window, int button, int button_state, const wxRect& rect, wxAuiPaneInfo& pane);
-    void DrawGripper(wxDC& dc, wxWindow* window, const wxRect& rect, wxAuiPaneInfo& pane);
-    void DrawCaption(wxDC& dc, wxWindow* window, const wxString& text, const wxRect& rect, wxAuiPaneInfo& pane);
-    void DrawBorder(wxDC& dc, wxWindow* window, const wxRect& rect, wxAuiPaneInfo& pane);
-    void DrawBackground(wxDC& dc, wxWindow* window, int orientation, const wxRect& rect);
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxAuiDockArt{
-    wxAuiDockArt_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxAuiDockArt;
-
-void php_wxAuiDockArt_free(void *object);
-zend_object* php_wxAuiDockArt_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxAuiDockArt_functions[] = {
-    PHP_ME(php_wxAuiDockArt, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxAuiDockArt * php_wxAuiDockArt_fetch_object(zend_object *obj) {
-    return (zo_wxAuiDockArt *)(
-        (char *)(obj) - XtOffsetOf(zo_wxAuiDockArt, zo)
-    );
-}
-
-#define Z_wxAuiDockArt_P(zv) \
-    php_wxAuiDockArt_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxAuiManager_entry;
 extern zend_object_handlers wxphp_wxAuiManager_object_handlers;
 void php_wxAuiManager_destruction_handler(zend_resource*);
@@ -594,7 +539,6 @@ static zend_function_entry php_wxAuiManager_functions[] = {
     PHP_ME(php_wxAuiManager, SetManagedWindow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, SetDockSizeConstraint, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, SetFlags, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManager, SetArtProvider, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, SavePerspective, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, SavePaneInfo, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, LoadPerspective, arginfo_null, ZEND_ACC_PUBLIC)
@@ -606,7 +550,6 @@ static zend_function_entry php_wxAuiManager_functions[] = {
     PHP_ME(php_wxAuiManager, GetManagedWindow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, GetFlags, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, GetDockSizeConstraint, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiManager, GetArtProvider, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, DetachPane, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiManager, AddPane, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END

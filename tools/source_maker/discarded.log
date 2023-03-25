@@ -131,6 +131,8 @@ wxArrayInt&	bool wxDC::GetPartialTextExtents(const wxString& text, wxArrayInt& w
 wxAffineMatrix2D	wxAffineMatrix2D wxDC::GetTransformMatrix()
 const wxAffineMatrix2D&	bool wxDC::SetTransformMatrix(const wxAffineMatrix2D& matrix)
 wxChar	wxChar wxKeyEvent::GetUnicodeKey()
+wxAuiDockArt*	void wxAuiManager::SetArtProvider(wxAuiDockArt* art_provider)
+wxAuiDockArt*	wxAuiDockArt* wxAuiManager::GetArtProvider()
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetLineRaw(int line)
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetSelectedTextRaw()
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetTextRangeRaw(int startPos, int endPos)

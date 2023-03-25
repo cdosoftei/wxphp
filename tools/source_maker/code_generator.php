@@ -122,6 +122,9 @@ if(file_exists("./../../json/classes.json"))
     unset($defIni['wxWebViewHistoryItem']);
     unset($defIni['wxWebViewHandler']);
     unset($defIni['wxWebViewArchiveHandler']);
+
+    // 3.1.5
+    unset($defIni['wxAuiDockArt']);
 }
 
 //Load class properties parsed by the json_generator
@@ -759,15 +762,12 @@ foreach($defGlobals as $variable_name => $variable_type)
         continue;
     }
 
-    //Since wxART_ global variables are defined as wxString but what they are really is a char[]
-    /*
     if("".strpos($variable_name,"wxART_")."" != "")
     {
         $classes .= "    char _wxchar_{$variable_name}[] = $variable_name;\n";
         $classes .= "    REGISTER_STRING_CONSTANT(\"$variable_name\", _wxchar_$variable_name, CONST_CS | CONST_PERSISTENT);\n";
         continue;
     }
-    */
 
     //To prevent wx/datetime.h(1810): assert "IsValid()" failed in GetTicks(): invalid wxDateTime
     if($variable_name == "wxDefaultDateTime")

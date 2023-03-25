@@ -84,8 +84,6 @@ class mainFrame extends wxFrame
             "<?php\n\n\$myvar = 1 + 2;\n\nprint 'Hello World';\n\n?>\n"
         );
 
-        $this->scite->SetStyleBits(7);
-
         $this->scite->SetLexer(wxSTC_LEX_PHPSCRIPT);
 
         $this->scite->StyleSetForeground(
@@ -142,6 +140,8 @@ class mainFrame extends wxFrame
             wxEVT_COMMAND_MENU_SELECTED,
             array($this, "onAbout")
         );
+
+
     }
 }
 

@@ -63,6 +63,8 @@ PHP_FUNCTION(php_wxSysErrorCode);
 
 PHP_FUNCTION(php_wxSysErrorMsgStr);
 
+PHP_FUNCTION(php_wxASCII_STR);
+
 PHP_FUNCTION(php_wxIsMainThread);
 
 PHP_FUNCTION(php_wxMutexGuiEnter);
@@ -207,8 +209,6 @@ PHP_FUNCTION(php_wxRadToDeg);
 
 PHP_FUNCTION(php_wxCTZ);
 
-PHP_FUNCTION(php_wxRound);
-
 PHP_FUNCTION(php_wxIsSameDouble);
 
 PHP_FUNCTION(php_wxIsNullDouble);
@@ -312,6 +312,8 @@ PHP_FUNCTION(php_wxCheckOsVersion);
 PHP_FUNCTION(php_wxIsPlatform64Bit);
 
 PHP_FUNCTION(php_wxIsPlatformLittleEndian);
+
+PHP_FUNCTION(php_wxGetCpuArchitectureName);
 
 PHP_FUNCTION(php_wxGetProcessId);
 

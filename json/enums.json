@@ -167,7 +167,8 @@
                 "wxGridSelectCells",
                 "wxGridSelectRows",
                 "wxGridSelectColumns",
-                "wxGridSelectRowsOrColumns"
+                "wxGridSelectRowsOrColumns",
+                "wxGridSelectNone"
             ],
             "CellSpan": [
                 "CellSpan_Inside",
@@ -337,6 +338,27 @@
                 "read",
                 "write",
                 "read_write"
+            ]
+        },
+        "wxWebAuthChallenge": {
+            "Source": [
+                "Source_Server",
+                "Source_Proxy"
+            ]
+        },
+        "wxWebRequest": {
+            "State": [
+                "State_Idle",
+                "State_Unauthorized",
+                "State_Active",
+                "State_Completed",
+                "State_Failed",
+                "State_Cancelled"
+            ],
+            "Storage": [
+                "Storage_Memory",
+                "Storage_File",
+                "Storage_None"
             ]
         }
     },
@@ -1312,6 +1334,7 @@
             "wxDF_LOCALE",
             "wxDF_PRIVATE",
             "wxDF_HTML",
+            "wxDF_PNG",
             "wxDF_MAX"
         ],
         "wxKeyCode": [
@@ -1733,6 +1756,11 @@
             "wxFILE_KIND_TERMINAL",
             "wxFILE_KIND_PIPE"
         ],
+        "wxFileHistoryMenuPathStyle": [
+            "wxFH_PATH_SHOW_IF_DIFFERENT",
+            "wxFH_PATH_SHOW_NEVER",
+            "wxFH_PATH_SHOW_ALWAYS"
+        ],
         "wxPathFormat": [
             "wxPATH_NATIVE",
             "wxPATH_UNIX",
@@ -1947,6 +1975,10 @@
             "wxIMAGE_QUALITY_NORMAL",
             "wxIMAGE_QUALITY_HIGH"
         ],
+        "wxImageAlphaBlendMode": [
+            "wxIMAGE_ALPHA_BLEND_OVER",
+            "wxIMAGE_ALPHA_BLEND_COMPOSE"
+        ],
         "wxImagePNGType": [
             "wxPNG_TYPE_COLOUR",
             "wxPNG_TYPE_GREY",
@@ -2088,6 +2120,7 @@
             "wxLANGUAGE_ENGLISH_CARIBBEAN",
             "wxLANGUAGE_ENGLISH_DENMARK",
             "wxLANGUAGE_ENGLISH_EIRE",
+            "wxLANGUAGE_ENGLISH_ISRAEL",
             "wxLANGUAGE_ENGLISH_JAMAICA",
             "wxLANGUAGE_ENGLISH_NEW_ZEALAND",
             "wxLANGUAGE_ENGLISH_PHILIPPINES",
@@ -2365,6 +2398,11 @@
             "wxPENSTYLE_FIRST_HATCH",
             "wxPENSTYLE_LAST_HATCH"
         ],
+        "wxPenQuality": [
+            "wxPEN_QUALITY_DEFAULT",
+            "wxPEN_QUALITY_LOW",
+            "wxPEN_QUALITY_HIGH"
+        ],
         "wxPenJoin": [
             "wxJOIN_INVALID",
             "wxJOIN_BEVEL",
@@ -2425,6 +2463,12 @@
             "wxPORT_MAC",
             "wxPORT_COCOA",
             "wxPORT_QT"
+        ],
+        "wxBitness": [
+            "wxBITNESS_INVALID",
+            "wxBITNESS_32",
+            "wxBITNESS_64",
+            "wxBITNESS_MAX"
         ],
         "wxArchitecture": [
             "wxARCH_INVALID",
@@ -2645,6 +2689,8 @@
             "wxRIBBON_ART_TAB_BORDER_COLOUR",
             "wxRIBBON_ART_PANEL_BORDER_COLOUR",
             "wxRIBBON_ART_PANEL_BORDER_GRADIENT_COLOUR",
+            "wxRIBBON_ART_PANEL_HOVER_BORDER_COLOUR",
+            "wxRIBBON_ART_PANEL_HOVER_BORDER_GRADIENT_COLOUR",
             "wxRIBBON_ART_PANEL_MINIMISED_BORDER_COLOUR",
             "wxRIBBON_ART_PANEL_MINIMISED_BORDER_GRADIENT_COLOUR",
             "wxRIBBON_ART_PANEL_LABEL_BACKGROUND_COLOUR",
@@ -3307,6 +3353,10 @@
             "wxWEBVIEW_NAV_ACTION_NONE",
             "wxWEBVIEW_NAV_ACTION_USER",
             "wxWEBVIEW_NAV_ACTION_OTHER"
+        ],
+        "wxWebViewUserScriptInjectionTime": [
+            "wxWEBVIEW_INJECT_AT_DOCUMENT_START",
+            "wxWEBVIEW_INJECT_AT_DOCUMENT_END"
         ],
         "wxWebViewIE_EmulationLevel": [
             "wxWEBVIEWIE_EMU_DEFAULT",

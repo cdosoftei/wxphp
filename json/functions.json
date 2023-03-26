@@ -247,6 +247,28 @@
         },
         {
             "return_type": "wxPersistentObject*",
+            "brief_description": "Overload allowing persistence adapter creation for wxComboBox objects.",
+            "parameters_type": [
+                "wxComboBox*"
+            ],
+            "parameters_is_array": [
+                false
+            ],
+            "parameters_extra": [
+                false
+            ],
+            "parameters_name": [
+                "combobox"
+            ],
+            "parameters_required": [
+                true
+            ],
+            "parameters_default_value": [
+                null
+            ]
+        },
+        {
+            "return_type": "wxPersistentObject*",
             "brief_description": "Overload allowing persistence adapter creation for wxDataViewCtrl objects.",
             "parameters_type": [
                 "wxDataViewCtrl*"
@@ -524,7 +546,7 @@
     ],
     "wxSafeShowMessage": [
         {
-            "return_type": "void",
+            "return_type": "bool",
             "brief_description": "This function shows a message to the user in a safe way and should be safe to call even before the application has been initialized or if it is currently in some other strange state (for example, about to crash).",
             "parameters_type": [
                 "const wxString&",
@@ -1444,6 +1466,30 @@
             ],
             "parameters_name": [
                 "val"
+            ],
+            "parameters_required": [
+                true
+            ],
+            "parameters_default_value": [
+                null
+            ]
+        }
+    ],
+    "wxASCII_STR": [
+        {
+            "return_type": "wxString",
+            "brief_description": "Convenience macro for explicitly constructing wxString from ASCII strings.",
+            "parameters_type": [
+                "const char*"
+            ],
+            "parameters_is_array": [
+                false
+            ],
+            "parameters_extra": [
+                false
+            ],
+            "parameters_name": [
+                "s"
             ],
             "parameters_required": [
                 true
@@ -3308,7 +3354,7 @@
     ],
     "wxDELETE": [
         {
-            "return_type": "",
+            "return_type": "void",
             "brief_description": "A function which deletes and nulls the pointer.",
             "parameters_type": [
                 "T*&"
@@ -3332,7 +3378,7 @@
     ],
     "wxDELETEA": [
         {
-            "return_type": "",
+            "return_type": "void",
             "brief_description": "A function which deletes and nulls the pointer.",
             "parameters_type": [
                 "T*&"
@@ -3356,7 +3402,7 @@
     ],
     "wxSwap": [
         {
-            "return_type": "",
+            "return_type": "void",
             "brief_description": "Swaps the contents of two variables.",
             "parameters_type": [
                 "T&",
@@ -5102,9 +5148,9 @@
     "wxRound": [
         {
             "return_type": "int",
-            "brief_description": "Small wrapper around round().",
+            "brief_description": "Small wrapper around std::lround().",
             "parameters_type": [
-                "double"
+                "T"
             ],
             "parameters_is_array": [
                 false
@@ -7615,6 +7661,18 @@
             "parameters_default_value": []
         }
     ],
+    "wxGetCpuArchitectureName": [
+        {
+            "return_type": "wxString",
+            "brief_description": "Returns the CPU architecture name.",
+            "parameters_type": [],
+            "parameters_is_array": [],
+            "parameters_extra": [],
+            "parameters_name": [],
+            "parameters_required": [],
+            "parameters_default_value": []
+        }
+    ],
     "wxGetLinuxDistributionInfo": [
         {
             "return_type": "wxLinuxDistributionInfo",
@@ -8269,6 +8327,36 @@
                 true
             ],
             "parameters_default_value": [
+                null
+            ]
+        }
+    ],
+    "wxVectorContains": [
+        {
+            "return_type": "bool",
+            "brief_description": "Returns true if the vector contains the given value.",
+            "parameters_type": [
+                "const wxVector< T >&",
+                "const T&"
+            ],
+            "parameters_is_array": [
+                false,
+                false
+            ],
+            "parameters_extra": [
+                false,
+                false
+            ],
+            "parameters_name": [
+                "v",
+                "value"
+            ],
+            "parameters_required": [
+                true,
+                true
+            ],
+            "parameters_default_value": [
+                null,
                 null
             ]
         }

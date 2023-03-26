@@ -78,6 +78,9 @@ if(file_exists("./../../json/includes.json"))
     // Disable WebView
     unset($defIncludes['wx/webview.h']);
     unset($defIncludes['wx/html/webkit.h']);
+
+    // 3.1.5
+    unset($defIncludes['wx/persist/combobox.h']);
 }
 
 //Load functions parsed by the json_generator
@@ -130,7 +133,7 @@ if(file_exists("./../../json/classes.json"))
 //Load class properties parsed by the json_generator
 if(file_exists("./../../json/class_variables.json"))
 {
-    $defClassProperties = unserialize_json(
+    $deClassProperties = unserialize_json(
 		file_get_contents("./../../json/class_variables.json")
 	);
 

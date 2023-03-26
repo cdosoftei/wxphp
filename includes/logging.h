@@ -282,23 +282,6 @@ class wxLogGui_php: public wxLogGui{
     wxLogGui_php():wxLogGui(){}
     
     
-    void InitProperties(){
-        properties = new void*[6];
-
-        properties[0] = &m_aMessages;
-        properties[1] = &m_aSeverity;
-        properties[2] = &m_aTimes;
-        properties[3] = &m_bErrors;
-        properties[4] = &m_bWarnings;
-        properties[5] = &m_bHasMessages;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -320,7 +303,6 @@ END_EXTERN_C()
 static zend_function_entry php_wxLogGui_functions[] = {
     PHP_ME(php_wxLogGui, Flush, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxLogGui, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxLogGui, __get, wxphp_logging_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

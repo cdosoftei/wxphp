@@ -506,18 +506,6 @@ class wxComboPopup_php: public wxComboPopup{
     wxWindow* GetControl();
     bool Create(wxWindow* parent);
     
-    void InitProperties(){
-        properties = new void*[1];
-
-        properties[0] = &m_combo;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -548,7 +536,6 @@ static zend_function_entry php_wxComboPopup_functions[] = {
     PHP_ME(php_wxComboPopup, FindItem, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxComboPopup, Dismiss, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxComboPopup, DestroyPopup, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxComboPopup, __get, wxphp_ctrl_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

@@ -419,18 +419,6 @@ class wxEvent_php: public wxEvent{
     
     wxEvent* Clone() const;
     
-    void InitProperties(){
-        properties = new void*[1];
-
-        properties[0] = &m_propagationLevel;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -466,7 +454,6 @@ static zend_function_entry php_wxEvent_functions[] = {
     PHP_ME(php_wxEvent, Skip, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvent, StopPropagation, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxEvent, __get, wxphp_events_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

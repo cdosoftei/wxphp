@@ -1804,6 +1804,13 @@
             "protected": false,
             "public": true
         },
+        "timestampMS": {
+            "type": "wxLongLong_t",
+            "static": false,
+            "mutable": false,
+            "protected": false,
+            "public": true
+        },
         "timestamp": {
             "type": "time_t",
             "static": false,
@@ -1903,6 +1910,15 @@
         },
         "m_spinWrap": {
             "type": "bool",
+            "static": false,
+            "mutable": false,
+            "protected": true,
+            "public": false
+        }
+    },
+    "wxNumValidator": {
+        "m_value": {
+            "type": "ValueType *const",
             "static": false,
             "mutable": false,
             "protected": true,

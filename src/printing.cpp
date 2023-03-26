@@ -222,7 +222,6 @@ PHP_METHOD(php_wxPrinterDC, GetPaperRect)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 
@@ -5816,7 +5815,6 @@ PHP_METHOD(php_wxPrintout, GetLogicalPageMarginsRect)
                 memcpy(ptr, (void*) &value_to_return1, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo1 = Z_wxRect_P(return_value);
                 zo1->native_object = (wxRect_php*) ptr;
 
@@ -5936,7 +5934,6 @@ PHP_METHOD(php_wxPrintout, GetLogicalPageRect)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 
@@ -6055,7 +6052,6 @@ PHP_METHOD(php_wxPrintout, GetLogicalPaperRect)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 
@@ -6860,7 +6856,6 @@ PHP_METHOD(php_wxPrintout, GetPaperRectPixels)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 

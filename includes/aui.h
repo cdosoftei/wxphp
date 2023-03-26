@@ -576,34 +576,6 @@ class wxAuiPaneInfo_php: public wxAuiPaneInfo{
     wxAuiPaneInfo_php():wxAuiPaneInfo(){}
     
     
-    void InitProperties(){
-        properties = new void*[17];
-
-        properties[0] = &name;
-        properties[1] = &caption;
-        properties[2] = &icon;
-        properties[3] = &window;
-        properties[4] = &frame;
-        properties[5] = &state;
-        properties[6] = &dock_direction;
-        properties[7] = &dock_layer;
-        properties[8] = &dock_row;
-        properties[9] = &dock_pos;
-        properties[10] = &best_size;
-        properties[11] = &min_size;
-        properties[12] = &max_size;
-        properties[13] = &floating_pos;
-        properties[14] = &floating_size;
-        properties[15] = &dock_proportion;
-        properties[16] = &rect;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -695,7 +667,6 @@ static zend_function_entry php_wxAuiPaneInfo_functions[] = {
     PHP_ME(php_wxAuiPaneInfo, BottomDockable, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiPaneInfo, Bottom, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxAuiPaneInfo, BestSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiPaneInfo, __get, wxphp_aui_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

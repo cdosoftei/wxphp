@@ -13960,7 +13960,6 @@ PHP_METHOD(php_wxSizer, GetPosition)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -23379,7 +23378,6 @@ PHP_METHOD(php_wxSizerItem, GetPosition)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -23720,7 +23718,6 @@ PHP_METHOD(php_wxSizerItem, GetRect)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 

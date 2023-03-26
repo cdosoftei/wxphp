@@ -7919,7 +7919,6 @@ void php_wxPoint2DDouble_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -8246,7 +8245,6 @@ PHP_METHOD(php_wxPoint2DDouble, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxPoint2DDouble_P(getThis());
 
@@ -8269,79 +8267,6 @@ PHP_METHOD(php_wxPoint2DDouble, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxPoint2DDouble, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxPoint2DDouble::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxPoint2DDouble* current_object;
-    wxPoint2DDouble_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxPoint2DDouble_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxPoint2DDouble::wxPoint2DDouble call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("m_x", name) == 0)
-    {
-        RETVAL_DOUBLE(*((wxDouble*) native_object->properties[0]));
-    }
-    else if(strcmp("m_y", name) == 0)
-    {
-        RETVAL_DOUBLE(*((wxDouble*) native_object->properties[1]));
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 /* {{{ proto  wxPoint2DDouble::SetVectorLength(float length) */
 PHP_METHOD(php_wxPoint2DDouble, SetVectorLength)
 {
@@ -9653,7 +9578,6 @@ void php_wxPoint2DInt_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -10982,7 +10906,6 @@ PHP_METHOD(php_wxPoint2DInt, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxPoint2DInt_P(getThis());
 
@@ -11005,79 +10928,6 @@ PHP_METHOD(php_wxPoint2DInt, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxPoint2DInt, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxPoint2DInt::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxPoint2DInt* current_object;
-    wxPoint2DInt_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxPoint2DInt_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxPoint2DInt::wxPoint2DInt call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("m_x", name) == 0)
-    {
-        RETVAL_LONG(*((wxInt32*) native_object->properties[0]));
-    }
-    else if(strcmp("m_y", name) == 0)
-    {
-        RETVAL_LONG(*((wxInt32*) native_object->properties[1]));
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 /* {{{ proto  wxPoint2DInt::GetFloor(int x, int y) */
 PHP_METHOD(php_wxPoint2DInt, GetFloor)
 {
@@ -11522,7 +11372,6 @@ void php_wxLayoutConstraints_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -11741,7 +11590,6 @@ PHP_METHOD(php_wxLayoutConstraints, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxLayoutConstraints_P(getThis());
 
@@ -11764,95 +11612,6 @@ PHP_METHOD(php_wxLayoutConstraints, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxLayoutConstraints, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxLayoutConstraints::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxLayoutConstraints* current_object;
-    wxLayoutConstraints_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxLayoutConstraints_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxLayoutConstraints::wxLayoutConstraints call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("left", name) == 0)
-    {
-    }
-    else if(strcmp("top", name) == 0)
-    {
-    }
-    else if(strcmp("right", name) == 0)
-    {
-    }
-    else if(strcmp("bottom", name) == 0)
-    {
-    }
-    else if(strcmp("width", name) == 0)
-    {
-    }
-    else if(strcmp("height", name) == 0)
-    {
-    }
-    else if(strcmp("centreX", name) == 0)
-    {
-    }
-    else if(strcmp("centreY", name) == 0)
-    {
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 /* {{{ proto bool wxLayoutConstraints::SatisfyConstraints(wxWindow &win, int &noChanges) */
 PHP_METHOD(php_wxLayoutConstraints, SatisfyConstraints)
 {

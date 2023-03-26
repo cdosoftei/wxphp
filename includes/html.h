@@ -715,18 +715,6 @@ class wxHtmlTagHandler_php: public wxHtmlTagHandler{
     wxString GetSupportedTags();
     bool HandleTag(const wxHtmlTag& tag);
     
-    void InitProperties(){
-        properties = new void*[1];
-
-        properties[0] = &m_Parser;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -747,7 +735,6 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxHtmlTagHandler_functions[] = {
     PHP_ME(php_wxHtmlTagHandler, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxHtmlTagHandler, __get, wxphp_html_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -1186,18 +1173,6 @@ class wxHtmlWinTagHandler_php: public wxHtmlWinTagHandler{
 
     
     
-    void InitProperties(){
-        properties = new void*[1];
-
-        properties[0] = &m_WParser;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;

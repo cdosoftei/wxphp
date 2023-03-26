@@ -3317,7 +3317,6 @@ PHP_METHOD(php_wxCaret, GetPosition)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 

@@ -848,19 +848,6 @@ class wxPoint2DDouble_php: public wxPoint2DDouble{
     wxPoint2DDouble_php(const wxPoint& pt):wxPoint2DDouble(pt){}
     
     
-    void InitProperties(){
-        properties = new void*[2];
-
-        properties[0] = &m_x;
-        properties[1] = &m_y;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -892,7 +879,6 @@ static zend_function_entry php_wxPoint2DDouble_functions[] = {
     PHP_ME(php_wxPoint2DDouble, GetCrossProduct, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPoint2DDouble, GetFloor, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPoint2DDouble, GetRounded, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPoint2DDouble, __get, wxphp_others_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -919,19 +905,6 @@ class wxPoint2DInt_php: public wxPoint2DInt{
     wxPoint2DInt_php(const wxPoint& pt):wxPoint2DInt(pt){}
     
     
-    void InitProperties(){
-        properties = new void*[2];
-
-        properties[0] = &m_x;
-        properties[1] = &m_y;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -963,7 +936,6 @@ static zend_function_entry php_wxPoint2DInt_functions[] = {
     PHP_ME(php_wxPoint2DInt, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_ME(php_wxPoint2DInt, GetFloor, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPoint2DInt, GetRounded, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPoint2DInt, __get, wxphp_others_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -1319,25 +1291,6 @@ class wxLayoutConstraints_php: public wxLayoutConstraints{
     wxLayoutConstraints_php():wxLayoutConstraints(){}
     
     
-    void InitProperties(){
-        properties = new void*[8];
-
-        properties[0] = &left;
-        properties[1] = &top;
-        properties[2] = &right;
-        properties[3] = &bottom;
-        properties[4] = &width;
-        properties[5] = &height;
-        properties[6] = &centreX;
-        properties[7] = &centreY;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -1360,7 +1313,6 @@ static zend_function_entry php_wxLayoutConstraints_functions[] = {
     PHP_ME(php_wxLayoutConstraints, AreSatisfied, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxLayoutConstraints, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_ME(php_wxLayoutConstraints, SatisfyConstraints, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLayoutConstraints, __get, wxphp_others_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

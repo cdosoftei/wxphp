@@ -84,7 +84,7 @@ class myFrame extends wxFrame
 {
 	function __construct()
 	{	
-		parent::__construct( null ,null, "wxPHP Classes Selector, v0.2", new wxPoint(0, 0), new wxSize(600,400));
+		parent::__construct( null ,wxID_ANY, "wxPHP Classes Selector, v0.2", new wxPoint(0, 0), new wxSize(600,400));
 		$this->SetIcon(new wxIcon("sample.xpm", wxBITMAP_TYPE_XPM));
 		
 		$this->sz = new wxBoxSizer(wxHORIZONTAL);
@@ -278,7 +278,7 @@ class myFrame extends wxFrame
 				}
 				
 				//Skip non methods like _implements
-				if($method_name{0}=="_")
+				if($method_name[0]=="_")
 					continue;
 				
 					
@@ -394,7 +394,7 @@ class myFrame extends wxFrame
 		$methods_count = 0;
 		foreach($cls[$selClass] as $method_name=>$method_definitions)
 		{
-			if($method_name{0} == "_")
+			if($method_name[0] == "_")
 				continue;
 				
 			foreach($method_definitions as $method_definition)

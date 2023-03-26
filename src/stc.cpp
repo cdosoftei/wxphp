@@ -36150,7 +36150,6 @@ PHP_METHOD(php_wxStyledTextCtrl, PointFromPosition)
                 memcpy(ptr, (void*) &value_to_return1, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo1 = Z_wxPoint_P(return_value);
                 zo1->native_object = (wxPoint_php*) ptr;
 

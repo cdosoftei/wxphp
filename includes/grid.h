@@ -897,19 +897,6 @@ class wxGridSizesInfo_php: public wxGridSizesInfo{
     wxGridSizesInfo_php():wxGridSizesInfo(){}
     
     
-    void InitProperties(){
-        properties = new void*[2];
-
-        properties[0] = &m_sizeDefault;
-        properties[1] = &m_customSizes;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -931,7 +918,6 @@ END_EXTERN_C()
 static zend_function_entry php_wxGridSizesInfo_functions[] = {
     PHP_ME(php_wxGridSizesInfo, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_ME(php_wxGridSizesInfo, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGridSizesInfo, __get, wxphp_grid_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

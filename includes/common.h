@@ -138,6 +138,7 @@
 #include <wx/control.h>
 #include <wx/ctrlsub.h>
 #include <wx/convauto.h>
+#include <wx/creddlg.h>
 #include <wx/strconv.h>
 #include <wx/cursor.h>
 #include <wx/custombgwin.h>
@@ -409,6 +410,7 @@
 #include <wx/vidmode.h>
 #include <wx/vlbox.h>
 #include <wx/weakref.h>
+#include <wx/webrequest.h>
 #include <wx/webviewarchivehandler.h>
 #include <wx/webviewfshandler.h>
 #include <wx/windowptr.h>

@@ -437,21 +437,6 @@ class wxVideoMode_php: public wxVideoMode{
     wxVideoMode_php(int width=0, int height=0, int depth=0, int freq=0):wxVideoMode(width, height, depth, freq){}
     
     
-    void InitProperties(){
-        properties = new void*[4];
-
-        properties[0] = &w;
-        properties[1] = &h;
-        properties[2] = &bpp;
-        properties[3] = &refresh;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -477,7 +462,6 @@ static zend_function_entry php_wxVideoMode_functions[] = {
     PHP_ME(php_wxVideoMode, GetWidth, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxVideoMode, GetHeight, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxVideoMode, GetDepth, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxVideoMode, __get, wxphp_cfg_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

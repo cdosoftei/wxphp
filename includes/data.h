@@ -34,21 +34,6 @@ class wxRect_php: public wxRect{
     wxRect_php(const wxSize& size):wxRect(size){}
     
     
-    void InitProperties(){
-        properties = new void*[4];
-
-        properties[0] = &height;
-        properties[1] = &width;
-        properties[2] = &x;
-        properties[3] = &y;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -98,7 +83,6 @@ static zend_function_entry php_wxRect_functions[] = {
     PHP_ME(php_wxRect, GetBottomRight, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxRect, GetHeight, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxRect, GetLeft, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRect, __get, wxphp_data_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -422,19 +406,6 @@ class wxRealPoint_php: public wxRealPoint{
     wxRealPoint_php(const wxPoint& pt):wxRealPoint(pt){}
     
     
-    void InitProperties(){
-        properties = new void*[2];
-
-        properties[0] = &x;
-        properties[1] = &y;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -455,7 +426,6 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRealPoint_functions[] = {
     PHP_ME(php_wxRealPoint, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxRealPoint, __get, wxphp_data_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -481,19 +451,6 @@ class wxPoint_php: public wxPoint{
     wxPoint_php(const wxRealPoint& pt):wxPoint(pt){}
     
     
-    void InitProperties(){
-        properties = new void*[2];
-
-        properties[0] = &x;
-        properties[1] = &y;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -515,7 +472,6 @@ END_EXTERN_C()
 static zend_function_entry php_wxPoint_functions[] = {
     PHP_ME(php_wxPoint, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_ME(php_wxPoint, IsFullySpecified, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPoint, __get, wxphp_data_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

@@ -77,18 +77,6 @@ class wxObject_php: public wxObject{
     wxObject_php():wxObject(){}
     
     
-    void InitProperties(){
-        properties = new void*[1];
-
-        properties[0] = &m_refData;
-        
-    }
-
-    void UninitProperties(){
-        delete[] properties;
-    }
-
-    void** properties;
 
     zval phpObj;
     wxPHPObjectReferences references;
@@ -115,7 +103,6 @@ static zend_function_entry php_wxObject_functions[] = {
     PHP_ME(php_wxObject, Ref, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, GetClassInfo, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, IsKindOf, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxObject, __get, wxphp_rtti_get_args, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

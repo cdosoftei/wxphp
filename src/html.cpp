@@ -13245,7 +13245,6 @@ void php_wxHtmlTagHandler_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -13530,7 +13529,6 @@ PHP_METHOD(php_wxHtmlTagHandler, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxHtmlTagHandler_P(getThis());
 
@@ -13553,74 +13551,6 @@ PHP_METHOD(php_wxHtmlTagHandler, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxHtmlTagHandler, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxHtmlTagHandler::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxHtmlTagHandler* current_object;
-    wxHtmlTagHandler_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxHtmlTagHandler_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxHtmlTagHandler::wxHtmlTagHandler call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("m_Parser", name) == 0)
-    {
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 BEGIN_EXTERN_C()
 void php_wxHtmlTag_free(void *object)
 {
@@ -19501,7 +19431,6 @@ PHP_METHOD(php_wxHtmlCellEvent, GetPoint)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -24349,7 +24278,6 @@ void php_wxHtmlWinTagHandler_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }

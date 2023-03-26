@@ -79,7 +79,6 @@ void php_wxRect_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -449,7 +448,6 @@ PHP_METHOD(php_wxRect, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxRect_P(getThis());
 
@@ -472,87 +470,6 @@ PHP_METHOD(php_wxRect, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxRect, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxRect::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxRect* current_object;
-    wxRect_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxRect_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxRect::wxRect call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("height", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[0]));
-    }
-    else if(strcmp("width", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[1]));
-    }
-    else if(strcmp("x", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[2]));
-    }
-    else if(strcmp("y", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[3]));
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 /* {{{ proto  wxRect::SetX(int x)
    Sets the x position. */
 PHP_METHOD(php_wxRect, SetX)
@@ -1846,7 +1763,6 @@ PHP_METHOD(php_wxRect, Intersect)
                 memcpy(ptr, (void*) &value_to_return1, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo1 = Z_wxRect_P(return_value);
                 zo1->native_object = (wxRect_php*) ptr;
 
@@ -2090,7 +2006,6 @@ PHP_METHOD(php_wxRect, Inflate)
                 memcpy(ptr, (void*) &value_to_return2, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo2 = Z_wxRect_P(return_value);
                 zo2->native_object = (wxRect_php*) ptr;
 
@@ -2644,7 +2559,6 @@ PHP_METHOD(php_wxRect, GetTopRight)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -2759,7 +2673,6 @@ PHP_METHOD(php_wxRect, GetTopLeft)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -3202,7 +3115,6 @@ PHP_METHOD(php_wxRect, GetPosition)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -3341,7 +3253,6 @@ PHP_METHOD(php_wxRect, CenterIn)
                 memcpy(ptr, (void*) &value_to_return1, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo1 = Z_wxRect_P(return_value);
                 zo1->native_object = (wxRect_php*) ptr;
 
@@ -3362,7 +3273,6 @@ PHP_METHOD(php_wxRect, CenterIn)
                 memcpy(ptr, (void*) &value_to_return2, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo2 = Z_wxRect_P(return_value);
                 zo2->native_object = (wxRect_php*) ptr;
 
@@ -3502,7 +3412,6 @@ PHP_METHOD(php_wxRect, CentreIn)
                 memcpy(ptr, (void*) &value_to_return1, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo1 = Z_wxRect_P(return_value);
                 zo1->native_object = (wxRect_php*) ptr;
 
@@ -3523,7 +3432,6 @@ PHP_METHOD(php_wxRect, CentreIn)
                 memcpy(ptr, (void*) &value_to_return2, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo2 = Z_wxRect_P(return_value);
                 zo2->native_object = (wxRect_php*) ptr;
 
@@ -4076,7 +3984,6 @@ PHP_METHOD(php_wxRect, Deflate)
                 memcpy(ptr, (void*) &value_to_return2, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo2 = Z_wxRect_P(return_value);
                 zo2->native_object = (wxRect_php*) ptr;
 
@@ -4298,7 +4205,6 @@ PHP_METHOD(php_wxRect, GetBottomLeft)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -4413,7 +4319,6 @@ PHP_METHOD(php_wxRect, GetBottomRight)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -10258,7 +10163,6 @@ PHP_METHOD(php_wxPageSetupDialogData, GetMarginBottomRight)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -10373,7 +10277,6 @@ PHP_METHOD(php_wxPageSetupDialogData, GetMarginTopLeft)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -10488,7 +10391,6 @@ PHP_METHOD(php_wxPageSetupDialogData, GetMinMarginBottomRight)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -10603,7 +10505,6 @@ PHP_METHOD(php_wxPageSetupDialogData, GetMinMarginTopLeft)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -15107,7 +15008,6 @@ void php_wxRealPoint_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -15319,7 +15219,6 @@ PHP_METHOD(php_wxRealPoint, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxRealPoint_P(getThis());
 
@@ -15342,79 +15241,6 @@ PHP_METHOD(php_wxRealPoint, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxRealPoint, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxRealPoint::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxRealPoint* current_object;
-    wxRealPoint_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxRealPoint_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxRealPoint::wxRealPoint call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("x", name) == 0)
-    {
-        RETVAL_DOUBLE(*((double*) native_object->properties[0]));
-    }
-    else if(strcmp("y", name) == 0)
-    {
-        RETVAL_DOUBLE(*((double*) native_object->properties[1]));
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 BEGIN_EXTERN_C()
 void php_wxPoint_free(void *object)
 {
@@ -15442,7 +15268,6 @@ void php_wxPoint_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -15654,7 +15479,6 @@ PHP_METHOD(php_wxPoint, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxPoint_P(getThis());
 
@@ -15677,79 +15501,6 @@ PHP_METHOD(php_wxPoint, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxPoint, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxPoint::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxPoint* current_object;
-    wxPoint_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxPoint_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxPoint::wxPoint call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("x", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[0]));
-    }
-    else if(strcmp("y", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[1]));
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 /* {{{ proto bool wxPoint::IsFullySpecified()
    Returns true if neither of the point components is equal to wxDefaultCoord. */
 PHP_METHOD(php_wxPoint, IsFullySpecified)
@@ -22608,7 +22359,6 @@ PHP_METHOD(php_wxRegion, GetBox)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 

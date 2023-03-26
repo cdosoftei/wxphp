@@ -4807,7 +4807,6 @@ PHP_METHOD(php_wxDisplay, GetClientArea)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 
@@ -5030,7 +5029,6 @@ PHP_METHOD(php_wxDisplay, GetCurrentMode)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxVideoMode));
                 object_init_ex(return_value, php_wxVideoMode_entry);
                 ((wxVideoMode_php*)ptr)->phpObj = *return_value;
-                ((wxVideoMode_php*)ptr)->InitProperties();
                 zo_wxVideoMode* zo0 = Z_wxVideoMode_P(return_value);
                 zo0->native_object = (wxVideoMode_php*) ptr;
 
@@ -5407,7 +5405,6 @@ PHP_METHOD(php_wxDisplay, GetGeometry)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 
@@ -15182,7 +15179,6 @@ void php_wxVideoMode_free(void *object)
             php_printf("Deleting pointer with delete\n");
             #endif
 
-            custom_object->native_object->UninitProperties();
             delete custom_object->native_object;
             custom_object->native_object = NULL;
         }
@@ -15348,7 +15344,6 @@ PHP_METHOD(php_wxVideoMode, __construct)
     {
         native_object->phpObj = *getThis();
 
-        native_object->InitProperties();
 
         current_object = Z_wxVideoMode_P(getThis());
 
@@ -15371,87 +15366,6 @@ PHP_METHOD(php_wxVideoMode, __construct)
 }
 /* }}} */
 
-PHP_METHOD(php_wxVideoMode, __get)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxVideoMode::__get\n");
-    php_printf("===========================================\n");
-    #endif
-
-    int arguments_received = ZEND_NUM_ARGS();
-    zo_wxVideoMode* current_object;
-    wxVideoMode_php* native_object;
-
-    char* name;
-    size_t name_len;
-
-    //Get native object of the php object that called the method
-    if (getThis() != NULL)
-    {
-        current_object = Z_wxVideoMode_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxVideoMode::wxVideoMode call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-        }
-    }
-    else
-    {
-        zend_error(E_ERROR, "Could not process __get call as static\n");
-    }
-
-    char parse_parameters_string[] = "s";
-
-    if(
-        zend_parse_parameters_ex(
-            ZEND_PARSE_PARAMS_QUIET,
-            arguments_received,
-            parse_parameters_string,
-            &name,
-            &name_len
-        ) == FAILURE
-    )
-    {
-        RETVAL_NULL();
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Property to get: %s\n", name);
-    php_printf("===========================================\n\n");
-    #endif
-
-    if(false){}
-    else if(strcmp("w", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[0]));
-    }
-    else if(strcmp("h", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[1]));
-    }
-    else if(strcmp("bpp", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[2]));
-    }
-    else if(strcmp("refresh", name) == 0)
-    {
-        RETVAL_LONG(*((int*) native_object->properties[3]));
-    }
-    else
-    {
-        RETVAL_NULL();
-    }
-}
 /* {{{ proto bool wxVideoMode::Matches(wxVideoMode other)
    Returns true if this mode matches the other one in the sense that all non zero fields of the other mode have the same value in this one (except for refresh which is allowed to have a greater value). */
 PHP_METHOD(php_wxVideoMode, Matches)

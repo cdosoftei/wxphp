@@ -71,6 +71,7 @@
         "wxDataObjectComposite",
         "wxDataObjectSimple",
         "wxBitmapDataObject",
+        "wxImageDataObject",
         "wxURLDataObject",
         "wxTextDataObject",
         "wxFileDataObject",
@@ -89,6 +90,7 @@
         "wxPrintDialogData",
         "wxColourDialog",
         "wxColourData",
+        "wxCredentialEntryDialog",
         "wxDialog",
         "wxDirDialog",
         "wxFindReplaceData",
@@ -188,7 +190,8 @@
         "wxTreeListCtrl",
         "wxVListBox",
         "wxWebView",
-        "wxWebViewIE"
+        "wxWebViewIE",
+        "wxWebViewEdge"
     ],
     "group_class_data": [
         "wxScopedCharTypeBuffer",
@@ -313,6 +316,7 @@
         "wxWindowCreateEvent",
         "wxPaintEvent",
         "wxMaximizeEvent",
+        "wxFullScreenEvent",
         "wxUpdateUIEvent",
         "wxClipboardTextEvent",
         "wxMouseEvent",
@@ -650,6 +654,8 @@
     ],
     "group_class_net": [
         "wxProtocolLog",
+        "wxWebCredentials",
+        "wxWebResponse",
         "wxDialUpManager",
         "wxFTP",
         "wxHTTP",
@@ -668,7 +674,10 @@
         "wxSocketBase",
         "wxDatagramSocket",
         "wxURI",
-        "wxURL"
+        "wxURL",
+        "wxWebRequest",
+        "wxWebSession",
+        "wxWebRequestEvent"
     ],
     "group_class_gl": [
         "wxGLAttribsBase",
@@ -892,6 +901,7 @@
         "wxWebViewHandler",
         "wxWebView",
         "wxWebViewIE",
+        "wxWebViewEdge",
         "wxWebViewEvent",
         "wxWebViewArchiveHandler",
         "wxWebViewFSHandler"

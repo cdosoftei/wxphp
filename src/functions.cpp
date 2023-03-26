@@ -1287,7 +1287,7 @@ PHP_FUNCTION(php_wxToString)
 }
 /* }}} */
 
-/* {{{ proto  wxSafeShowMessage(string title, string text)
+/* {{{ proto bool wxSafeShowMessage(string title, string text)
    This function shows a message to the user in a safe way and should be safe to call even before the application has been initialized or if it is currently in some other strange state (for example, about to crash). */
 PHP_FUNCTION(php_wxSafeShowMessage)
 {
@@ -1338,10 +1338,10 @@ PHP_FUNCTION(php_wxSafeShowMessage)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing ::wxSafeShowMessage(wxString(title0, wxConvUTF8), wxString(text0, wxConvUTF8))\n\n");
+                php_printf("Executing RETURN_BOOL(::wxSafeShowMessage(wxString(title0, wxConvUTF8), wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                wxSafeShowMessage(wxString(title0, wxConvUTF8), wxString(text0, wxConvUTF8));
+                RETVAL_BOOL(wxSafeShowMessage(wxString(title0, wxConvUTF8), wxString(text0, wxConvUTF8)));
 
 
                 return;
@@ -1515,6 +1515,82 @@ PHP_FUNCTION(php_wxSysErrorMsgStr)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxSysErrorMsgStr()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxASCII_STR(string s)
+   Convenience macro for explicitly constructing wxString from ASCII strings. */
+PHP_FUNCTION(php_wxASCII_STR)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxASCII_STR\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    char* s0;
+    size_t s_len0;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&s0, &s_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &s0, &s_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxASCII_STR(s0).fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return1;
+                value_to_return1 = wxASCII_STR(s0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxASCII_STR()\n"
         );
     }
 }
@@ -8446,7 +8522,6 @@ PHP_FUNCTION(php_wxGetClientDisplayRect)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxRect));
                 object_init_ex(return_value, php_wxRect_entry);
                 ((wxRect_php*)ptr)->phpObj = *return_value;
-                ((wxRect_php*)ptr)->InitProperties();
                 zo_wxRect* zo0 = Z_wxRect_P(return_value);
                 zo0->native_object = (wxRect_php*) ptr;
 
@@ -9463,79 +9538,6 @@ PHP_FUNCTION(php_wxCTZ)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxCTZ()\n"
-        );
-    }
-}
-/* }}} */
-
-/* {{{ proto int wxRound(float x)
-   Small wrapper around round(). */
-PHP_FUNCTION(php_wxRound)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking function wxRound\n");
-    php_printf("===========================================\n");
-    #endif
-
-    void* argument_native_object = NULL;
-
-    //Variables used thru the code
-    int arguments_received = ZEND_NUM_ARGS();
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    bool return_is_user_initialized = false;
-
-    //Parameters for overload 0
-    double x0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'd' (&x0)\n");
-        #endif
-
-        char parse_parameters_string[] = "d";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &x0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(::wxRound(x0))\n\n");
-                #endif
-
-                RETVAL_LONG(wxRound(x0));
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to "
-            "wxRound()\n"
         );
     }
 }
@@ -12975,7 +12977,6 @@ PHP_FUNCTION(php_wxGetMousePosition)
                 memcpy(ptr, (void*) &value_to_return0, sizeof(wxPoint));
                 object_init_ex(return_value, php_wxPoint_entry);
                 ((wxPoint_php*)ptr)->phpObj = *return_value;
-                ((wxPoint_php*)ptr)->InitProperties();
                 zo_wxPoint* zo0 = Z_wxPoint_P(return_value);
                 zo0->native_object = (wxPoint_php*) ptr;
 
@@ -14385,6 +14386,76 @@ PHP_FUNCTION(php_wxIsPlatformLittleEndian)
             E_ERROR,
             "Wrong type or count of parameters passed to "
             "wxIsPlatformLittleEndian()\n"
+        );
+    }
+}
+/* }}} */
+
+/* {{{ proto string wxGetCpuArchitectureName()
+   Returns the CPU architecture name. */
+PHP_FUNCTION(php_wxGetCpuArchitectureName)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking function wxGetCpuArchitectureName\n");
+    php_printf("===========================================\n");
+    #endif
+
+    void* argument_native_object = NULL;
+
+    //Variables used thru the code
+    int arguments_received = ZEND_NUM_ARGS();
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    bool return_is_user_initialized = false;
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_STRING(::wxGetCpuArchitectureName().fn_str(), 1)\n\n");
+                #endif
+
+                wxString value_to_return0;
+                value_to_return0 = wxGetCpuArchitectureName();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to "
+            "wxGetCpuArchitectureName()\n"
         );
     }
 }

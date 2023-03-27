@@ -73,8 +73,6 @@ class wxDataViewModel_php: public wxDataViewModel{
     public:
 
     
-    unsigned int GetColumnCount() const;
-    wxString GetColumnType(unsigned int col) const;
     wxDataViewItem GetParent(const wxDataViewItem& item) const;
     void GetValue(wxVariant& variant, const wxDataViewItem& item, unsigned int col) const;
     bool IsContainer(const wxDataViewItem& item) const;
@@ -883,8 +881,6 @@ static zend_function_entry php_wxDataViewListStore_functions[] = {
     PHP_ME(php_wxDataViewListStore, AppendColumn, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDataViewListStore, DeleteAllItems, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDataViewListStore, DeleteItem, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataViewListStore, GetColumnCount, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDataViewListStore, GetColumnType, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDataViewListStore, GetValueByRow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDataViewListStore, InsertColumn, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDataViewListStore, PrependColumn, arginfo_null, ZEND_ACC_PUBLIC)

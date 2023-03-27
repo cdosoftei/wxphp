@@ -12602,7 +12602,7 @@ PHP_METHOD(php_wxMenuItem, IsEnabled)
 }
 /* }}} */
 
-/* {{{ proto  wxMenuItem::SetBitmap(wxBitmapBundle bundle)
+/* {{{ proto  wxMenuItem::SetBitmap(wxBitmapBundle bmp)
    Sets the bitmap for the menu item. */
 PHP_METHOD(php_wxMenuItem, SetBitmap)
 {
@@ -12660,7 +12660,7 @@ PHP_METHOD(php_wxMenuItem, SetBitmap)
     #endif
 
     //Parameters for overload 0
-    zval* bundle0;
+    zval* bmp0;
     wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
@@ -12671,26 +12671,26 @@ PHP_METHOD(php_wxMenuItem, SetBitmap)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bundle0, php_wxBitmapBundle_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bmp0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bundle0, php_wxBitmapBundle_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bmp0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
-                if(Z_TYPE_P(bundle0) == IS_OBJECT)
+                if(Z_TYPE_P(bmp0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bundle0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmapBundle_P(bundle0)->native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bmp0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bmp0)->native_object;
                     object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
-                        zend_error(E_ERROR, "Parameter 'bundle' could not be retreived correctly.");
+                        zend_error(E_ERROR, "Parameter 'bmp' could not be retreived correctly.");
                     }
                 }
-                else if(Z_TYPE_P(bundle0) != IS_NULL)
+                else if(Z_TYPE_P(bmp0) != IS_NULL)
                 {
-                    zend_error(E_ERROR, "Parameter 'bundle' not null, could not be retreived correctly.");
+                    zend_error(E_ERROR, "Parameter 'bmp' not null, could not be retreived correctly.");
                 }
             }
 
@@ -12712,7 +12712,7 @@ PHP_METHOD(php_wxMenuItem, SetBitmap)
 
                 ((wxMenuItem_php*)native_object)->SetBitmap(*(wxBitmapBundle*) object_pointer0_0);
 
-                references->AddReference(bundle0, "wxMenuItem::SetBitmap at call 3 with 1 argument(s)");
+                references->AddReference(bmp0, "wxMenuItem::SetBitmap at call 3 with 1 argument(s)");
 
                 return;
                 break;

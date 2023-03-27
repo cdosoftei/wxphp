@@ -31312,7 +31312,7 @@ PHP_METHOD(php_wxVersionInfo, GetCopyright)
 }
 /* }}} */
 
-/* {{{ proto  wxVersionInfo::wxVersionInfo(string name, int major, int minor, int micro, string description, string copyright)
+/* {{{ proto  wxVersionInfo::wxVersionInfo(string name, int major, int minor, int micro, int revision, string description, string copyright)
    Constructor. */
 PHP_METHOD(php_wxVersionInfo, __construct)
 {
@@ -31338,6 +31338,7 @@ PHP_METHOD(php_wxVersionInfo, __construct)
     long major0;
     long minor0;
     long micro0;
+    long revision0;
     char* description0;
     size_t description_len0;
     char* copyright0;
@@ -31347,15 +31348,15 @@ PHP_METHOD(php_wxVersionInfo, __construct)
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 6)
+    if(!already_called && arguments_received >= 0  && arguments_received <= 7)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|slllss' (&name0, &name_len0, &major0, &minor0, &micro0, &description0, &description_len0, &copyright0, &copyright_len0)\n");
+        php_printf("Parsing parameters with '|sllllss' (&name0, &name_len0, &major0, &minor0, &micro0, &revision0, &description0, &description_len0, &copyright0, &copyright_len0)\n");
         #endif
 
-        char parse_parameters_string[] = "|slllss";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &name0, &name_len0, &major0, &minor0, &micro0, &description0, &description_len0, &copyright0, &copyright_len0 ) == SUCCESS)
+        char parse_parameters_string[] = "|sllllss";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &name0, &name_len0, &major0, &minor0, &micro0, &revision0, &description0, &description_len0, &copyright0, &copyright_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -31425,10 +31426,10 @@ PHP_METHOD(php_wxVersionInfo, __construct)
             case 5:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, wxString(description0, wxConvUTF8))\n");
+                php_printf("Executing __construct(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, (int) revision0)\n");
                 #endif
 
-                native_object = new wxVersionInfo_php(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, wxString(description0, wxConvUTF8));
+                native_object = new wxVersionInfo_php(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, (int) revision0);
 
                 native_object->references.Initialize();
                 break;
@@ -31436,10 +31437,21 @@ PHP_METHOD(php_wxVersionInfo, __construct)
             case 6:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, wxString(description0, wxConvUTF8), wxString(copyright0, wxConvUTF8))\n");
+                php_printf("Executing __construct(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, (int) revision0, wxString(description0, wxConvUTF8))\n");
                 #endif
 
-                native_object = new wxVersionInfo_php(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, wxString(description0, wxConvUTF8), wxString(copyright0, wxConvUTF8));
+                native_object = new wxVersionInfo_php(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, (int) revision0, wxString(description0, wxConvUTF8));
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 7:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, (int) revision0, wxString(description0, wxConvUTF8), wxString(copyright0, wxConvUTF8))\n");
+                #endif
+
+                native_object = new wxVersionInfo_php(wxString(name0, wxConvUTF8), (int) major0, (int) minor0, (int) micro0, (int) revision0, wxString(description0, wxConvUTF8), wxString(copyright0, wxConvUTF8));
 
                 native_object->references.Initialize();
                 break;

@@ -301,6 +301,7 @@ wxToolBarBase*	void wxToolBarToolBase::Attach(wxToolBarBase* tbar)
 wxToolBarBase*	wxToolBarBase* wxToolBarToolBase::GetToolBar()
 wxToolBarBase*	 wxToolBarToolBase::wxToolBarToolBase(wxToolBarBase* tbar=NULL, int toolid=wxID_SEPARATOR, const wxString& label=wxEmptyString, const wxBitmapBundle& bmpNormal=wxNullBitmap, const wxBitmapBundle& bmpDisabled=wxNullBitmap, wxItemKind kind=wxITEM_NORMAL, wxObject* clientData=NULL, const wxString& shortHelpString=wxEmptyString, const wxString& longHelpString=wxEmptyString)
 wxToolBarBase*	 wxToolBarToolBase::wxToolBarToolBase(wxToolBarBase* tbar, wxControl* control, const wxString& label)
+const char*const*	 wxBitmapBundle::wxBitmapBundle(const char*const* xpm)
 const wxVector< wxBitmap >&	wxBitmapBundle wxBitmapBundle::FromBitmaps(const wxVector< wxBitmap >& bitmaps)
 
 

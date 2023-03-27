@@ -1947,7 +1947,8 @@
             "wxCOMPOSITION_DEST_OUT",
             "wxCOMPOSITION_DEST_ATOP",
             "wxCOMPOSITION_XOR",
-            "wxCOMPOSITION_ADD"
+            "wxCOMPOSITION_ADD",
+            "wxCOMPOSITION_DIFF"
         ],
         "wxGradientType": [
             "wxGRADIENT_NONE",

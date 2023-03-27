@@ -993,7 +993,7 @@ void php_wxVersionInfo_destruction_handler(zend_resource*);
 class wxVersionInfo_php: public wxVersionInfo{
     public:
 
-    wxVersionInfo_php(const wxString& name=wxString(), int major=0, int minor=0, int micro=0, const wxString& description=wxString(), const wxString& copyright=wxString()):wxVersionInfo(name, major, minor, micro, description, copyright){}
+    wxVersionInfo_php(const wxString& name=wxString(), int major=0, int minor=0, int micro=0, int revision=0, const wxString& description=wxString(), const wxString& copyright=wxString()):wxVersionInfo(name, major, minor, micro, revision, description, copyright){}
     
     
 

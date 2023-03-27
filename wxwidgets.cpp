@@ -1820,17 +1820,17 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxObject_entry->create_object = php_wxObject_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxObject)
 
-    char PHP_wxLog_name[] = "wxLog";
-    INIT_CLASS_ENTRY(ce, PHP_wxLog_name, php_wxLog_functions);
-    php_wxLog_entry = zend_register_internal_class(&ce);
-    php_wxLog_entry->create_object = php_wxLog_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxLog)
-
     char PHP_wxTextEntry_name[] = "wxTextEntry";
     INIT_CLASS_ENTRY(ce, PHP_wxTextEntry_name, php_wxTextEntry_functions);
     php_wxTextEntry_entry = zend_register_internal_class(&ce);
     php_wxTextEntry_entry->create_object = php_wxTextEntry_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxTextEntry)
+
+    char PHP_wxLog_name[] = "wxLog";
+    INIT_CLASS_ENTRY(ce, PHP_wxLog_name, php_wxLog_functions);
+    php_wxLog_entry = zend_register_internal_class(&ce);
+    php_wxLog_entry->create_object = php_wxLog_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxLog)
 
     char PHP_wxDataObject_name[] = "wxDataObject";
     INIT_CLASS_ENTRY(ce, PHP_wxDataObject_name, php_wxDataObject_functions);
@@ -2774,12 +2774,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxBookCtrlEvent_entry->create_object = php_wxBookCtrlEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxBookCtrlEvent)
 
-    char PHP_wxTextCtrl_name[] = "wxTextCtrl";
-    INIT_CLASS_ENTRY(ce, PHP_wxTextCtrl_name, php_wxTextCtrl_functions);
-    php_wxTextCtrl_entry = zend_register_internal_class(&ce);
-    php_wxTextCtrl_entry->create_object = php_wxTextCtrl_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextCtrl)
-
     char PHP_wxTextEntryDialog_name[] = "wxTextEntryDialog";
     INIT_CLASS_ENTRY(ce, PHP_wxTextEntryDialog_name, php_wxTextEntryDialog_functions);
     php_wxTextEntryDialog_entry = zend_register_internal_class_ex(&ce, php_wxDialog_entry);
@@ -3206,6 +3200,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxBitmapButton_entry->create_object = php_wxBitmapButton_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxBitmapButton)
 
+    char PHP_wxTextCtrl_name[] = "wxTextCtrl";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextCtrl_name, php_wxTextCtrl_functions);
+    php_wxTextCtrl_entry = zend_register_internal_class(&ce);
+    php_wxTextCtrl_entry->create_object = php_wxTextCtrl_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextCtrl)
+
     char PHP_wxBitmapComboBox_name[] = "wxBitmapComboBox";
     INIT_CLASS_ENTRY(ce, PHP_wxBitmapComboBox_name, php_wxBitmapComboBox_functions);
     php_wxBitmapComboBox_entry = zend_register_internal_class_ex(&ce, php_wxComboBox_entry);
@@ -3430,7 +3430,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxSearchCtrl_name[] = "wxSearchCtrl";
     INIT_CLASS_ENTRY(ce, PHP_wxSearchCtrl_name, php_wxSearchCtrl_functions);
-    php_wxSearchCtrl_entry = zend_register_internal_class_ex(&ce, php_wxTextCtrl_entry);
+    php_wxSearchCtrl_entry = zend_register_internal_class(&ce);
     php_wxSearchCtrl_entry->create_object = php_wxSearchCtrl_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxSearchCtrl)
 

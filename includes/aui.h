@@ -20,51 +20,6 @@ ZEND_BEGIN_ARG_INFO_EX(wxphp_aui_get_args, 0, 0, 1)
     ZEND_ARG_INFO(0, name)
 ZEND_END_ARG_INFO()
 
-extern zend_class_entry* php_wxAuiToolBarEvent_entry;
-extern zend_object_handlers wxphp_wxAuiToolBarEvent_object_handlers;
-void php_wxAuiToolBarEvent_destruction_handler(zend_resource*);
-
-class wxAuiToolBarEvent_php: public wxAuiToolBarEvent{
-    public:
-
-    
-    
-
-    zval phpObj;
-    wxPHPObjectReferences references;
-};
-
-BEGIN_EXTERN_C()
-typedef struct _zo_wxAuiToolBarEvent{
-    wxAuiToolBarEvent_php* native_object;
-    wxphp_object_type object_type;
-    int is_user_initialized;
-    zend_object zo;
-} zo_wxAuiToolBarEvent;
-
-void php_wxAuiToolBarEvent_free(void *object);
-zend_object* php_wxAuiToolBarEvent_new(zend_class_entry *class_type);
-END_EXTERN_C()
-
-#ifdef WXPHP_INCLUDE_METHOD_TABLES
-static zend_function_entry php_wxAuiToolBarEvent_functions[] = {
-    PHP_ME(php_wxAuiToolBarEvent, GetClickPoint, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiToolBarEvent, GetItemRect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiToolBarEvent, GetToolId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAuiToolBarEvent, IsDropDownClicked, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_FE_END
-};
-#endif
-
-
-static inline zo_wxAuiToolBarEvent * php_wxAuiToolBarEvent_fetch_object(zend_object *obj) {
-    return (zo_wxAuiToolBarEvent *)(
-        (char *)(obj) - XtOffsetOf(zo_wxAuiToolBarEvent, zo)
-    );
-}
-
-#define Z_wxAuiToolBarEvent_P(zv) \
-    php_wxAuiToolBarEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxAuiToolBarItem_entry;
 extern zend_object_handlers wxphp_wxAuiToolBarItem_object_handlers;
 void php_wxAuiToolBarItem_destruction_handler(zend_resource*);

@@ -7097,21 +7097,35 @@ PHP_METHOD(php_wxBitmap, __construct)
     bool overload4_called = false;
 
     //Parameters for overload 5
-    char* name5;
-    size_t name_len5;
-    long type5;
+    long width5;
+    long height5;
+    zval* dc5;
+    wxDC* object_pointer5_2 = 0;
     bool overload5_called = false;
 
     //Parameters for overload 6
-    zval* img6;
-    wxImage* object_pointer6_0 = 0;
-    long depth6;
+    char* name6;
+    size_t name_len6;
+    long type6;
     bool overload6_called = false;
 
     //Parameters for overload 7
-    zval* cursor7;
-    wxCursor* object_pointer7_0 = 0;
+    zval* img7;
+    wxImage* object_pointer7_0 = 0;
+    long depth7;
     bool overload7_called = false;
+
+    //Parameters for overload 8
+    zval* img8;
+    wxImage* object_pointer8_0 = 0;
+    zval* dc8;
+    wxDC* object_pointer8_1 = 0;
+    bool overload8_called = false;
+
+    //Parameters for overload 9
+    zval* cursor9;
+    wxCursor* object_pointer9_0 = 0;
+    bool overload9_called = false;
 
     
     //Overload 0
@@ -7231,16 +7245,33 @@ PHP_METHOD(php_wxBitmap, __construct)
 
     //Overload 5
     overload5:
-    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    if(!already_called && arguments_received == 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's|l' (&name5, &name_len5, &type5)\n");
+        php_printf("Parsing parameters with 'llo' (&width5, &height5, &dc5)\n");
         #endif
 
-        char parse_parameters_string[] = "s|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &name5, &name_len5, &type5 ) == SUCCESS)
+        char parse_parameters_string[] = "llo";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &width5, &height5, &dc5 ) == SUCCESS)
         {
+            if(arguments_received >= 3){
+                if(Z_TYPE_P(dc5) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDC_P(dc5)->object_type;
+                    argument_native_object = (void*) Z_wxDC_P(dc5)->native_object;
+                    object_pointer5_2 = (wxDC*) argument_native_object;
+                    if (!object_pointer5_2 || (argument_type != PHP_WXDC_TYPE && argument_type != PHP_WXWINDOWDC_TYPE && argument_type != PHP_WXCLIENTDC_TYPE && argument_type != PHP_WXPAINTDC_TYPE && argument_type != PHP_WXSCREENDC_TYPE && argument_type != PHP_WXPOSTSCRIPTDC_TYPE && argument_type != PHP_WXPRINTERDC_TYPE && argument_type != PHP_WXMEMORYDC_TYPE && argument_type != PHP_WXBUFFEREDDC_TYPE && argument_type != PHP_WXBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXAUTOBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXMIRRORDC_TYPE))
+                    {
+                        goto overload6;
+                    }
+                }
+                else if(Z_TYPE_P(dc5) != IS_NULL)
+                {
+                    goto overload6;
+                }
+            }
+
             overload5_called = true;
             already_called = true;
         }
@@ -7252,29 +7283,12 @@ PHP_METHOD(php_wxBitmap, __construct)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O|l' (&img6, php_wxImage_entry, &depth6)\n");
+        php_printf("Parsing parameters with 's|l' (&name6, &name_len6, &type6)\n");
         #endif
 
-        char parse_parameters_string[] = "O|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &img6, php_wxImage_entry, &depth6 ) == SUCCESS)
+        char parse_parameters_string[] = "s|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &name6, &name_len6, &type6 ) == SUCCESS)
         {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(img6) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxImage_P(img6)->object_type;
-                    argument_native_object = (void*) Z_wxImage_P(img6)->native_object;
-                    object_pointer6_0 = (wxImage*) argument_native_object;
-                    if (!object_pointer6_0 )
-                    {
-                        goto overload7;
-                    }
-                }
-                else if(Z_TYPE_P(img6) != IS_NULL)
-                {
-                    goto overload7;
-                }
-            }
-
             overload6_called = true;
             already_called = true;
         }
@@ -7282,34 +7296,119 @@ PHP_METHOD(php_wxBitmap, __construct)
 
     //Overload 7
     overload7:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O|l' (&img7, php_wxImage_entry, &depth7)\n");
+        #endif
+
+        char parse_parameters_string[] = "O|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &img7, php_wxImage_entry, &depth7 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(img7) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxImage_P(img7)->object_type;
+                    argument_native_object = (void*) Z_wxImage_P(img7)->native_object;
+                    object_pointer7_0 = (wxImage*) argument_native_object;
+                    if (!object_pointer7_0 )
+                    {
+                        goto overload8;
+                    }
+                }
+                else if(Z_TYPE_P(img7) != IS_NULL)
+                {
+                    goto overload8;
+                }
+            }
+
+            overload7_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 8
+    overload8:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'Oo' (&img8, php_wxImage_entry, &dc8)\n");
+        #endif
+
+        char parse_parameters_string[] = "Oo";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &img8, php_wxImage_entry, &dc8 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(img8) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxImage_P(img8)->object_type;
+                    argument_native_object = (void*) Z_wxImage_P(img8)->native_object;
+                    object_pointer8_0 = (wxImage*) argument_native_object;
+                    if (!object_pointer8_0 )
+                    {
+                        goto overload9;
+                    }
+                }
+                else if(Z_TYPE_P(img8) != IS_NULL)
+                {
+                    goto overload9;
+                }
+            }
+
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(dc8) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxDC_P(dc8)->object_type;
+                    argument_native_object = (void*) Z_wxDC_P(dc8)->native_object;
+                    object_pointer8_1 = (wxDC*) argument_native_object;
+                    if (!object_pointer8_1 || (argument_type != PHP_WXDC_TYPE && argument_type != PHP_WXWINDOWDC_TYPE && argument_type != PHP_WXCLIENTDC_TYPE && argument_type != PHP_WXPAINTDC_TYPE && argument_type != PHP_WXSCREENDC_TYPE && argument_type != PHP_WXPOSTSCRIPTDC_TYPE && argument_type != PHP_WXPRINTERDC_TYPE && argument_type != PHP_WXMEMORYDC_TYPE && argument_type != PHP_WXBUFFEREDDC_TYPE && argument_type != PHP_WXBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXAUTOBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXMIRRORDC_TYPE))
+                    {
+                        goto overload9;
+                    }
+                }
+                else if(Z_TYPE_P(dc8) != IS_NULL)
+                {
+                    goto overload9;
+                }
+            }
+
+            overload8_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 9
+    overload9:
     if(!already_called && arguments_received == 1)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&cursor7, php_wxCursor_entry)\n");
+        php_printf("Parsing parameters with 'O' (&cursor9, php_wxCursor_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &cursor7, php_wxCursor_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &cursor9, php_wxCursor_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
-                if(Z_TYPE_P(cursor7) == IS_OBJECT)
+                if(Z_TYPE_P(cursor9) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxCursor_P(cursor7)->object_type;
-                    argument_native_object = (void*) Z_wxCursor_P(cursor7)->native_object;
-                    object_pointer7_0 = (wxCursor*) argument_native_object;
-                    if (!object_pointer7_0 )
+                    wxphp_object_type argument_type = Z_wxCursor_P(cursor9)->object_type;
+                    argument_native_object = (void*) Z_wxCursor_P(cursor9)->native_object;
+                    object_pointer9_0 = (wxCursor*) argument_native_object;
+                    if (!object_pointer9_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'cursor' could not be retreived correctly.");
                     }
                 }
-                else if(Z_TYPE_P(cursor7) != IS_NULL)
+                else if(Z_TYPE_P(cursor9) != IS_NULL)
                 {
                     zend_error(E_ERROR, "Parameter 'cursor' not null, could not be retreived correctly.");
                 }
             }
 
-            overload7_called = true;
+            overload9_called = true;
             already_called = true;
         }
     }
@@ -7445,26 +7544,16 @@ PHP_METHOD(php_wxBitmap, __construct)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(wxString(name5, wxConvUTF8))\n");
+                php_printf("Executing __construct((int) width5, (int) height5, *(wxDC*) object_pointer5_2)\n");
                 #endif
 
-                native_object = new wxBitmap_php(wxString(name5, wxConvUTF8));
+                native_object = new wxBitmap_php((int) width5, (int) height5, *(wxDC*) object_pointer5_2);
 
                 native_object->references.Initialize();
-                break;
-            }
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(wxString(name5, wxConvUTF8), (wxBitmapType) type5)\n");
-                #endif
-
-                native_object = new wxBitmap_php(wxString(name5, wxConvUTF8), (wxBitmapType) type5);
-
-                native_object->references.Initialize();
+                ((wxBitmap_php*) native_object)->references.AddReference(dc5, "wxBitmap::wxBitmap at call 4 with 3 argument(s)");
                 break;
             }
         }
@@ -7477,25 +7566,23 @@ PHP_METHOD(php_wxBitmap, __construct)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxImage*) object_pointer6_0)\n");
+                php_printf("Executing __construct(wxString(name6, wxConvUTF8))\n");
                 #endif
 
-                native_object = new wxBitmap_php(*(wxImage*) object_pointer6_0);
+                native_object = new wxBitmap_php(wxString(name6, wxConvUTF8));
 
                 native_object->references.Initialize();
-                ((wxBitmap_php*) native_object)->references.AddReference(img6, "wxBitmap::wxBitmap at call 4 with 1 argument(s)");
                 break;
             }
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxImage*) object_pointer6_0, (int) depth6)\n");
+                php_printf("Executing __construct(wxString(name6, wxConvUTF8), (wxBitmapType) type6)\n");
                 #endif
 
-                native_object = new wxBitmap_php(*(wxImage*) object_pointer6_0, (int) depth6);
+                native_object = new wxBitmap_php(wxString(name6, wxConvUTF8), (wxBitmapType) type6);
 
                 native_object->references.Initialize();
-                ((wxBitmap_php*) native_object)->references.AddReference(img6, "wxBitmap::wxBitmap at call 4 with 2 argument(s)");
                 break;
             }
         }
@@ -7508,13 +7595,64 @@ PHP_METHOD(php_wxBitmap, __construct)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxCursor*) object_pointer7_0)\n");
+                php_printf("Executing __construct(*(wxImage*) object_pointer7_0)\n");
                 #endif
 
-                native_object = new wxBitmap_php(*(wxCursor*) object_pointer7_0);
+                native_object = new wxBitmap_php(*(wxImage*) object_pointer7_0);
 
                 native_object->references.Initialize();
-                ((wxBitmap_php*) native_object)->references.AddReference(cursor7, "wxBitmap::wxBitmap at call 4 with 1 argument(s)");
+                ((wxBitmap_php*) native_object)->references.AddReference(img7, "wxBitmap::wxBitmap at call 4 with 1 argument(s)");
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxImage*) object_pointer7_0, (int) depth7)\n");
+                #endif
+
+                native_object = new wxBitmap_php(*(wxImage*) object_pointer7_0, (int) depth7);
+
+                native_object->references.Initialize();
+                ((wxBitmap_php*) native_object)->references.AddReference(img7, "wxBitmap::wxBitmap at call 4 with 2 argument(s)");
+                break;
+            }
+        }
+    }
+
+    if(overload8_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxImage*) object_pointer8_0, *(wxDC*) object_pointer8_1)\n");
+                #endif
+
+                native_object = new wxBitmap_php(*(wxImage*) object_pointer8_0, *(wxDC*) object_pointer8_1);
+
+                native_object->references.Initialize();
+                ((wxBitmap_php*) native_object)->references.AddReference(img8, "wxBitmap::wxBitmap at call 4 with 2 argument(s)");
+                ((wxBitmap_php*) native_object)->references.AddReference(dc8, "wxBitmap::wxBitmap at call 4 with 2 argument(s)");
+                break;
+            }
+        }
+    }
+
+    if(overload9_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxCursor*) object_pointer9_0)\n");
+                #endif
+
+                native_object = new wxBitmap_php(*(wxCursor*) object_pointer9_0);
+
+                native_object->references.Initialize();
+                ((wxBitmap_php*) native_object)->references.AddReference(cursor9, "wxBitmap::wxBitmap at call 4 with 1 argument(s)");
                 break;
             }
         }

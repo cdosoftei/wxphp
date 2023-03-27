@@ -1,5 +1,5 @@
 PHP_ARG_WITH(wxwidgets,for wxWidgets support,
-[  --with-wxwidgets[=DIR]    Enable wxWidgets extension (requires wxWidgets >= 3.1.6).])
+[  --with-wxwidgets[=DIR]    Enable wxWidgets extension (requires wxWidgets >= 3.1.7).])
 
 PHP_ARG_WITH(wxwidgets-version,set wxWidgets version,
 [  --with-wxwidgets[=VERSION]
@@ -24,7 +24,7 @@ PHP_ARG_ENABLE(wxphp-references-management, whether to enable references managem
 if test "$PHP_WXWIDGETS" != "no"; then
 
     dnl Set the wxWidgets version to download and compile
-    PHP_WX_VERSION="3.1.6"
+    PHP_WX_VERSION="3.1.7"
 
     if test "$PHP_WXWIDGETS_VERSION" != "no"; then
         PHP_WX_VERSION=$PHP_WXWIDGETS_VERSION

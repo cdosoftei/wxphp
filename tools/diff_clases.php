@@ -75,7 +75,11 @@ function propDiff($label, $orig, $new): bool {
             echo "{$label}[{$k}] has been removed\n";
           }
         } else {
-          propDiff("{$label}::{$k}", $v, $new->{$k});
+          if (isset($new->{$k})) {
+            propDiff("{$label}::{$k}", $v, $new->{$k});
+          } else {
+            echo "{$label}::{$k} has been removed\n";
+          }
         }
       }
 

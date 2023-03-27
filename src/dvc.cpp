@@ -12059,7 +12059,7 @@ PHP_METHOD(php_wxDataViewColumn, __construct)
 
     //Parameters for overload 1
     zval* bitmap1;
-    wxBitmap* object_pointer1_0 = 0;
+    wxBitmapBundle* object_pointer1_0 = 0;
     zval* renderer1;
     wxDataViewRenderer* object_pointer1_1 = 0;
     long model_column1;
@@ -12109,18 +12109,18 @@ PHP_METHOD(php_wxDataViewColumn, __construct)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'Ozl|lll' (&bitmap1, php_wxBitmap_entry, &renderer1, &model_column1, &width1, &align1, &flags1)\n");
+        php_printf("Parsing parameters with 'Ozl|lll' (&bitmap1, php_wxBitmapBundle_entry, &renderer1, &model_column1, &width1, &align1, &flags1)\n");
         #endif
 
         char parse_parameters_string[] = "Ozl|lll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap1, php_wxBitmap_entry, &renderer1, &model_column1, &width1, &align1, &flags1 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap1, php_wxBitmapBundle_entry, &renderer1, &model_column1, &width1, &align1, &flags1 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bitmap1) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bitmap1)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bitmap1)->native_object;
-                    object_pointer1_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap1)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap1)->native_object;
+                    object_pointer1_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer1_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bitmap' could not be retreived correctly.");
@@ -12217,10 +12217,10 @@ PHP_METHOD(php_wxDataViewColumn, __construct)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1)\n");
+                php_printf("Executing __construct(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1)\n");
                 #endif
 
-                native_object = new wxDataViewColumn_php(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1);
+                native_object = new wxDataViewColumn_php(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1);
 
                 native_object->references.Initialize();
                 ((wxDataViewColumn_php*) native_object)->references.AddReference(bitmap1, "wxDataViewColumn::wxDataViewColumn at call 4 with 3 argument(s)");
@@ -12230,10 +12230,10 @@ PHP_METHOD(php_wxDataViewColumn, __construct)
             case 4:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1)\n");
+                php_printf("Executing __construct(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1)\n");
                 #endif
 
-                native_object = new wxDataViewColumn_php(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1);
+                native_object = new wxDataViewColumn_php(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1);
 
                 native_object->references.Initialize();
                 ((wxDataViewColumn_php*) native_object)->references.AddReference(bitmap1, "wxDataViewColumn::wxDataViewColumn at call 4 with 4 argument(s)");
@@ -12243,10 +12243,10 @@ PHP_METHOD(php_wxDataViewColumn, __construct)
             case 5:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1)\n");
+                php_printf("Executing __construct(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1)\n");
                 #endif
 
-                native_object = new wxDataViewColumn_php(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1);
+                native_object = new wxDataViewColumn_php(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1);
 
                 native_object->references.Initialize();
                 ((wxDataViewColumn_php*) native_object)->references.AddReference(bitmap1, "wxDataViewColumn::wxDataViewColumn at call 4 with 5 argument(s)");
@@ -12256,10 +12256,10 @@ PHP_METHOD(php_wxDataViewColumn, __construct)
             case 6:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1, (int) flags1)\n");
+                php_printf("Executing __construct(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1, (int) flags1)\n");
                 #endif
 
-                native_object = new wxDataViewColumn_php(*(wxBitmap*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1, (int) flags1);
+                native_object = new wxDataViewColumn_php(*(wxBitmapBundle*) object_pointer1_0, (wxDataViewRenderer*) object_pointer1_1, (unsigned int) model_column1, (int) width1, (wxAlignment) align1, (int) flags1);
 
                 native_object->references.Initialize();
                 ((wxDataViewColumn_php*) native_object)->references.AddReference(bitmap1, "wxDataViewColumn::wxDataViewColumn at call 4 with 6 argument(s)");

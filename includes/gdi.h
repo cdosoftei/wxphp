@@ -291,8 +291,10 @@ class wxBitmap_php: public wxBitmap{
     wxBitmap_php(const char bits[], int width, int height, int depth=1):wxBitmap(bits, width, height, depth){}
     wxBitmap_php(int width, int height, int depth=wxBITMAP_SCREEN_DEPTH):wxBitmap(width, height, depth){}
     wxBitmap_php(const wxSize& sz, int depth=wxBITMAP_SCREEN_DEPTH):wxBitmap(sz, depth){}
+    wxBitmap_php(int width, int height, const wxDC& dc):wxBitmap(width, height, dc){}
     wxBitmap_php(const wxString& name, wxBitmapType type=wxBITMAP_DEFAULT_TYPE):wxBitmap(name, type){}
     wxBitmap_php(const wxImage& img, int depth=wxBITMAP_SCREEN_DEPTH):wxBitmap(img, depth){}
+    wxBitmap_php(const wxImage& img, const wxDC& dc):wxBitmap(img, dc){}
     wxBitmap_php(const wxCursor& cursor):wxBitmap(cursor){}
     
     

@@ -76,6 +76,7 @@ static zend_function_entry php_wxDC_functions[] = {
     PHP_ME(php_wxDC, DrawRectangle, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDC, DrawRotatedText, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDC, DrawRoundedRectangle, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDC, DrawSpline, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDC, DrawText, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDC, EndDoc, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxDC, EndPage, arginfo_null, ZEND_ACC_PUBLIC)

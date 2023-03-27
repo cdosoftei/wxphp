@@ -8414,6 +8414,214 @@ PHP_METHOD(php_wxDC, DrawRoundedRectangle)
 }
 /* }}} */
 
+/* {{{ proto  wxDC::DrawSpline(int x1, int y1, int x2, int y2, int x3, int y3)
+   This is an overloaded member function, provided for convenience. It differs from the above function only in what argument(s) it accepts. */
+PHP_METHOD(php_wxDC, DrawSpline)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxDC::DrawSpline\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxDC* current_object;
+    wxphp_object_type current_object_type;
+    wxDC_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxDC_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxDC::DrawSpline call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXDC_TYPE){
+                references = &((wxDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXWINDOWDC_TYPE) && (!reference_type_found)){
+                references = &((wxWindowDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXCLIENTDC_TYPE) && (!reference_type_found)){
+                references = &((wxClientDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXPAINTDC_TYPE) && (!reference_type_found)){
+                references = &((wxPaintDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXSCREENDC_TYPE) && (!reference_type_found)){
+                references = &((wxScreenDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXPOSTSCRIPTDC_TYPE) && (!reference_type_found)){
+                references = &((wxPostScriptDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXPRINTERDC_TYPE) && (!reference_type_found)){
+                references = &((wxPrinterDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXMEMORYDC_TYPE) && (!reference_type_found)){
+                references = &((wxMemoryDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXBUFFEREDDC_TYPE) && (!reference_type_found)){
+                references = &((wxBufferedDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE) && (!reference_type_found)){
+                references = &((wxBufferedPaintDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE) && (!reference_type_found)){
+                references = &((wxAutoBufferedPaintDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXMIRRORDC_TYPE) && (!reference_type_found)){
+                references = &((wxMirrorDC_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    long x10;
+    long y10;
+    long x20;
+    long y20;
+    long x30;
+    long y30;
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 6)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'llllll' (&x10, &y10, &x20, &y20, &x30, &y30)\n");
+        #endif
+
+        char parse_parameters_string[] = "llllll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &x10, &y10, &x20, &y20, &x30, &y30 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 6:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxDC::DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30)\n\n");
+                #endif
+
+                if(current_object_type == PHP_WXWINDOWDC_TYPE)
+                {
+                    ((wxWindowDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXCLIENTDC_TYPE)
+                {
+                    ((wxClientDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXPAINTDC_TYPE)
+                {
+                    ((wxPaintDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXSCREENDC_TYPE)
+                {
+                    ((wxScreenDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
+                {
+                    ((wxPostScriptDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXPRINTERDC_TYPE)
+                {
+                    ((wxPrinterDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXMEMORYDC_TYPE)
+                {
+                    ((wxMemoryDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
+                {
+                    ((wxBufferedDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
+                {
+                    ((wxBufferedPaintDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
+                {
+                    ((wxAutoBufferedPaintDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXMIRRORDC_TYPE)
+                {
+                    ((wxMirrorDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+                else if(current_object_type == PHP_WXDC_TYPE)
+                {
+                    ((wxDC_php*)native_object)->DrawSpline((wxCoord) x10, (wxCoord) y10, (wxCoord) x20, (wxCoord) y20, (wxCoord) x30, (wxCoord) y30);
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxDC::DrawSpline\n"
+        );
+    }
+}
+/* }}} */
+
 /* {{{ proto  wxDC::DrawText(string text, int x, int y)
    Draws a text string at the specified point, using the current text font, and the current text foreground and background colours. */
 PHP_METHOD(php_wxDC, DrawText)

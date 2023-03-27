@@ -339,7 +339,7 @@ va_list	void wxVLogStatus(const char* formatString, va_list argPtr)
 va_list	void wxVLogSysError(const char* formatString, va_list argPtr)
 const wxChar	wxArrayString wxSplit(const wxString& str, const wxChar sep, const wxChar escape='\\')
 const wxChar	wxString wxJoin(const wxArrayString& arr, const wxChar sep, const wxChar escape='\\')
-wxAtomicInt&	void wxAtomicInc(wxAtomicInt& value)
+wxAtomicInt&	wxInt32 wxAtomicInc(wxAtomicInt& value)
 wxAtomicInt&	wxInt32 wxAtomicDec(wxAtomicInt& value)
 const wxMemoryBuffer&	wxString wxBase64Encode(const wxMemoryBuffer& buf)
 wxMemoryBuffer	wxMemoryBuffer wxBase64Decode(const char* src, size_t srcLen=wxNO_LEN, wxBase64DecodeMode mode=wxBase64DecodeMode_Strict, size_t* posErr=NULL)
@@ -580,7 +580,6 @@ Not Crossplatform Methods
 wxIcon::wxIcon
 wxImageList::Add
 wxImageList::Replace
-wxMenuItem::GetBitmap
 wxTextCtrl::PositionToCoords
 wxSlider::SetTickFreq
 wxSlider::SetTick

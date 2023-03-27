@@ -812,7 +812,7 @@ class wxDataViewColumn_php: public wxDataViewColumn{
     public:
 
     wxDataViewColumn_php(const wxString& title, wxDataViewRenderer* renderer, unsigned int model_column, int width=wxDVC_DEFAULT_WIDTH, wxAlignment align=wxALIGN_CENTER, int flags=wxDATAVIEW_COL_RESIZABLE):wxDataViewColumn(title, renderer, model_column, width, align, flags){}
-    wxDataViewColumn_php(const wxBitmap& bitmap, wxDataViewRenderer* renderer, unsigned int model_column, int width=wxDVC_DEFAULT_WIDTH, wxAlignment align=wxALIGN_CENTER, int flags=wxDATAVIEW_COL_RESIZABLE):wxDataViewColumn(bitmap, renderer, model_column, width, align, flags){}
+    wxDataViewColumn_php(const wxBitmapBundle& bitmap, wxDataViewRenderer* renderer, unsigned int model_column, int width=wxDVC_DEFAULT_WIDTH, wxAlignment align=wxALIGN_CENTER, int flags=wxDATAVIEW_COL_RESIZABLE):wxDataViewColumn(bitmap, renderer, model_column, width, align, flags){}
     
     
 

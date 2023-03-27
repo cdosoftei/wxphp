@@ -1590,22 +1590,6 @@
             "public": false
         }
     },
-    "wxImageFileProperty": {
-        "m_pBitmap": {
-            "type": "wxBitmap *",
-            "static": false,
-            "mutable": false,
-            "protected": true,
-            "public": false
-        },
-        "m_pImage": {
-            "type": "wxImage *",
-            "static": false,
-            "mutable": false,
-            "protected": true,
-            "public": false
-        }
-    },
     "wxLanguageInfo": {
         "WinLang": {
             "type": "wxUint32",

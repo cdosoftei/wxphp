@@ -81,7 +81,7 @@ class wxBitmapButton_php: public wxBitmapButton{
     public:
 
     wxBitmapButton_php():wxBitmapButton(){}
-    wxBitmapButton_php(wxWindow* parent, wxWindowID id, const wxBitmap& bitmap, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxValidator& validator=wxDefaultValidator, const wxString& name=wxButtonNameStr):wxBitmapButton(parent, id, bitmap, pos, size, style, validator, name){}
+    wxBitmapButton_php(wxWindow* parent, wxWindowID id, const wxBitmapBundle& bitmap, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxValidator& validator=wxDefaultValidator, const wxString& name=wxButtonNameStr):wxBitmapButton(parent, id, bitmap, pos, size, style, validator, name){}
     
     
 
@@ -4034,7 +4034,7 @@ class wxStaticBitmap_php: public wxStaticBitmap{
     public:
 
     wxStaticBitmap_php():wxStaticBitmap(){}
-    wxStaticBitmap_php(wxWindow* parent, wxWindowID id, const wxBitmap& label, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxString& name=wxStaticBitmapNameStr):wxStaticBitmap(parent, id, label, pos, size, style, name){}
+    wxStaticBitmap_php(wxWindow* parent, wxWindowID id, const wxBitmapBundle& label, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxString& name=wxStaticBitmapNameStr):wxStaticBitmap(parent, id, label, pos, size, style, name){}
     
     
 

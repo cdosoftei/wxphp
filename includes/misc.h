@@ -337,7 +337,7 @@ class wxWindowDisabler_php: public wxWindowDisabler{
     public:
 
     wxWindowDisabler_php(bool disable=true):wxWindowDisabler(disable){}
-    wxWindowDisabler_php(wxWindow* winToSkip):wxWindowDisabler(winToSkip){}
+    wxWindowDisabler_php(wxWindow* winToSkip, wxWindow* winToSkip2=NULL):wxWindowDisabler(winToSkip, winToSkip2){}
     
     
 

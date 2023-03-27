@@ -1932,7 +1932,7 @@
     ],
     "wxAtomicInc": [
         {
-            "return_type": "void",
+            "return_type": "wxInt32",
             "brief_description": "This function increments value in an atomic manner.",
             "parameters_type": [
                 "wxAtomicInt&"

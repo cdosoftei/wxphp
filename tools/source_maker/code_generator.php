@@ -81,6 +81,9 @@ if(file_exists("./../../json/includes.json"))
 
     // 3.1.5
     unset($defIncludes['wx/persist/combobox.h']);
+
+    // 3.1.7
+    unset($defIncludes['wx/filedlgcustomize.h']);
 }
 
 //Load functions parsed by the json_generator

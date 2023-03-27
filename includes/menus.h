@@ -212,6 +212,7 @@ static zend_function_entry php_wxMenuItem_functions[] = {
     PHP_ME(php_wxMenuItem, IsSeparator, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxMenuItem, Check, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxMenuItem, Enable, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMenuItem, GetBitmap, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxMenuItem, GetHelp, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxMenuItem, GetId, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxMenuItem, GetItemLabel, arginfo_null, ZEND_ACC_PUBLIC)

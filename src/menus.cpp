@@ -11249,6 +11249,121 @@ PHP_METHOD(php_wxMenuItem, Enable)
 }
 /* }}} */
 
+/* {{{ proto wxBitmap wxMenuItem::GetBitmap()
+   Returns the checked or unchecked bitmap. */
+PHP_METHOD(php_wxMenuItem, GetBitmap)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking wxMenuItem::GetBitmap\n");
+    php_printf("===========================================\n");
+    #endif
+
+    zo_wxMenuItem* current_object;
+    wxphp_object_type current_object_type;
+    wxMenuItem_php* native_object;
+    void* argument_native_object = NULL;
+
+    //Other variables used thru the code
+    zval dummy;
+    ZVAL_NULL(&dummy);
+    bool already_called = false;
+    wxPHPObjectReferences* references;
+    int arguments_received = ZEND_NUM_ARGS();
+    bool return_is_user_initialized = false;
+
+    //Get native object of the php object that called the method
+    if(getThis() != NULL)
+    {
+        current_object = Z_wxMenuItem_P(getThis());
+
+        if(current_object->native_object == NULL)
+        {
+            zend_error(
+                E_ERROR,
+                "Failed to get the native object for "
+                "wxMenuItem::GetBitmap call\n"
+            );
+
+            return;
+        }
+        else
+        {
+            native_object = current_object->native_object;
+            current_object_type = current_object->object_type;
+
+            bool reference_type_found = false;
+
+            if(current_object_type == PHP_WXMENUITEM_TYPE){
+                references = &((wxMenuItem_php*)native_object)->references;
+                reference_type_found = true;
+            }
+        }
+    }
+    #ifdef USE_WXPHP_DEBUG
+    else
+    {
+        php_printf("Processing the method call as static\n");
+    }
+    #endif
+
+    //Parameters for overload 0
+    bool overload0_called = false;
+
+    
+    //Overload 0
+    overload0:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload0_called = true;
+        already_called = true;
+    }
+
+    
+    if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxMenuItem::GetBitmap() to return new object\n\n");
+                #endif
+
+                wxBitmap value_to_return0;
+                value_to_return0 = ((wxMenuItem_php*)native_object)->GetBitmap();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                object_init_ex(return_value, php_wxBitmap_entry);
+                ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                zo0->native_object = (wxBitmap_php*) ptr;
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    
+    //In case wrong type/count of parameters was passed
+    if(!already_called)
+    {
+        zend_error(
+            E_ERROR,
+            "Wrong type or count of parameters passed to: "
+            "wxMenuItem::GetBitmap\n"
+        );
+    }
+}
+/* }}} */
+
 /* {{{ proto string wxMenuItem::GetHelp()
    Returns the help string associated with the menu item. */
 PHP_METHOD(php_wxMenuItem, GetHelp)

@@ -714,6 +714,8 @@ zend_class_entry* php_wxSettableHeaderColumn_entry;
 zend_object_handlers wxphp_wxSettableHeaderColumn_object_handlers;
 zend_class_entry* php_wxSetCursorEvent_entry;
 zend_object_handlers wxphp_wxSetCursorEvent_object_handlers;
+zend_class_entry* php_wxIconizeEvent_entry;
+zend_object_handlers wxphp_wxIconizeEvent_object_handlers;
 zend_class_entry* php_wxIdleEvent_entry;
 zend_object_handlers wxphp_wxIdleEvent_object_handlers;
 zend_class_entry* php_wxPen_entry;
@@ -752,6 +754,8 @@ zend_class_entry* php_wxSashLayoutWindow_entry;
 zend_object_handlers wxphp_wxSashLayoutWindow_object_handlers;
 zend_class_entry* php_wxSemaphore_entry;
 zend_object_handlers wxphp_wxSemaphore_object_handlers;
+zend_class_entry* php_wxShowEvent_entry;
+zend_object_handlers wxphp_wxShowEvent_object_handlers;
 zend_class_entry* php_wxAuiToolBarArt_entry;
 zend_object_handlers wxphp_wxAuiToolBarArt_object_handlers;
 zend_class_entry* php_wxBrush_entry;
@@ -952,6 +956,8 @@ zend_class_entry* php_wxCalculateLayoutEvent_entry;
 zend_object_handlers wxphp_wxCalculateLayoutEvent_object_handlers;
 zend_class_entry* php_wxContextMenuEvent_entry;
 zend_object_handlers wxphp_wxContextMenuEvent_object_handlers;
+zend_class_entry* php_wxDropFilesEvent_entry;
+zend_object_handlers wxphp_wxDropFilesEvent_object_handlers;
 zend_class_entry* php_wxQueryLayoutInfoEvent_entry;
 zend_object_handlers wxphp_wxQueryLayoutInfoEvent_object_handlers;
 zend_class_entry* php_wxToolbook_entry;
@@ -1008,6 +1014,10 @@ zend_class_entry* php_wxMediaEvent_entry;
 zend_object_handlers wxphp_wxMediaEvent_object_handlers;
 zend_class_entry* php_wxScrolled_entry;
 zend_object_handlers wxphp_wxScrolled_object_handlers;
+zend_class_entry* php_wxBitmapBundle_entry;
+zend_object_handlers wxphp_wxBitmapBundle_object_handlers;
+zend_class_entry* php_wxBitmapBundleImpl_entry;
+zend_object_handlers wxphp_wxBitmapBundleImpl_object_handlers;
 
 
 /**
@@ -1326,7 +1336,6 @@ static zend_function_entry php_wxWidgets_functions[] = {
     PHP_FALIAS(wxGetDisplaySizeMM, php_wxGetDisplaySizeMM, arginfo_null)
     PHP_FALIAS(wxInitAllImageHandlers, php_wxInitAllImageHandlers, arginfo_null)
     PHP_FALIAS(wxEntryCleanup, php_wxEntryCleanup, arginfo_null)
-    PHP_FALIAS(wxGetLibLZMAVersionInfo, php_wxGetLibLZMAVersionInfo, arginfo_null)
     PHP_FALIAS(wxFinite, php_wxFinite, arginfo_null)
     PHP_FALIAS(wxGCD, php_wxGCD, arginfo_null)
     PHP_FALIAS(wxIsNaN, php_wxIsNaN, arginfo_null)
@@ -1335,12 +1344,15 @@ static zend_function_entry php_wxWidgets_functions[] = {
     PHP_FALIAS(wxCTZ, php_wxCTZ, arginfo_null)
     PHP_FALIAS(wxIsSameDouble, php_wxIsSameDouble, arginfo_null)
     PHP_FALIAS(wxIsNullDouble, php_wxIsNullDouble, arginfo_null)
+    PHP_FALIAS(wxMulDivInt32, php_wxMulDivInt32, arginfo_null)
     PHP_FALIAS(wxMessageBox, php_wxMessageBox, arginfo_null)
     PHP_FALIAS(wxGetNumberFromUser, php_wxGetNumberFromUser, arginfo_null)
     PHP_FALIAS(wxCreateDynamicObject, php_wxCreateDynamicObject, arginfo_null)
     PHP_FALIAS(wxFindWindowAtPointer, php_wxFindWindowAtPointer, arginfo_null)
     PHP_FALIAS(wxGetActiveWindow, php_wxGetActiveWindow, arginfo_null)
     PHP_FALIAS(wxGetTopLevelParent, php_wxGetTopLevelParent, arginfo_null)
+    PHP_FALIAS(wxDumpWindow, php_wxDumpWindow, arginfo_null)
+    PHP_FALIAS(wxIsRunningUnderWine, php_wxIsRunningUnderWine, arginfo_null)
     PHP_FALIAS(wxPGGetDefaultImageWildcard, php_wxPGGetDefaultImageWildcard, arginfo_null)
     PHP_FALIAS(wxRichTextHasStyle, php_wxRichTextHasStyle, arginfo_null)
     PHP_FALIAS(wxRichTextCombineBitlists, php_wxRichTextCombineBitlists, arginfo_null)
@@ -1356,6 +1368,7 @@ static zend_function_entry php_wxWidgets_functions[] = {
     PHP_FALIAS(wxGetUTCTime, php_wxGetUTCTime, arginfo_null)
     PHP_FALIAS(wxStringTokenize, php_wxStringTokenize, arginfo_null)
     PHP_FALIAS(wxGetTranslation, php_wxGetTranslation, arginfo_null)
+    PHP_FALIAS(wxGetUIDateFormat, php_wxGetUIDateFormat, arginfo_null)
     PHP_FALIAS(wxBeginBusyCursor, php_wxBeginBusyCursor, arginfo_null)
     PHP_FALIAS(wxEndBusyCursor, php_wxEndBusyCursor, arginfo_null)
     PHP_FALIAS(wxIsBusy, php_wxIsBusy, arginfo_null)
@@ -1365,6 +1378,7 @@ static zend_function_entry php_wxWidgets_functions[] = {
     PHP_FALIAS(wxGetenv, php_wxGetenv, arginfo_null)
     PHP_FALIAS(wxSetEnv, php_wxSetEnv, arginfo_null)
     PHP_FALIAS(wxUnsetEnv, php_wxUnsetEnv, arginfo_null)
+    PHP_FALIAS(wxSecureZeroMemory, php_wxSecureZeroMemory, arginfo_null)
     PHP_FALIAS(wxGetBatteryState, php_wxGetBatteryState, arginfo_null)
     PHP_FALIAS(wxGetPowerType, php_wxGetPowerType, arginfo_null)
     PHP_FALIAS(wxGetKeyState, php_wxGetKeyState, arginfo_null)
@@ -1386,6 +1400,7 @@ static zend_function_entry php_wxWidgets_functions[] = {
     PHP_FALIAS(wxIsPlatform64Bit, php_wxIsPlatform64Bit, arginfo_null)
     PHP_FALIAS(wxIsPlatformLittleEndian, php_wxIsPlatformLittleEndian, arginfo_null)
     PHP_FALIAS(wxGetCpuArchitectureName, php_wxGetCpuArchitectureName, arginfo_null)
+    PHP_FALIAS(wxGetNativeCpuArchitectureName, php_wxGetNativeCpuArchitectureName, arginfo_null)
     PHP_FALIAS(wxGetProcessId, php_wxGetProcessId, arginfo_null)
     PHP_FALIAS(wxKill, php_wxKill, arginfo_null)
     PHP_FALIAS(wxShell, php_wxShell, arginfo_null)
@@ -1817,23 +1832,17 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxTextEntry_entry->create_object = php_wxTextEntry_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxTextEntry)
 
-    char PHP_wxDropTarget_name[] = "wxDropTarget";
-    INIT_CLASS_ENTRY(ce, PHP_wxDropTarget_name, php_wxDropTarget_functions);
-    php_wxDropTarget_entry = zend_register_internal_class(&ce);
-    php_wxDropTarget_entry->create_object = php_wxDropTarget_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxDropTarget)
-
-    char PHP_wxGridCornerHeaderRenderer_name[] = "wxGridCornerHeaderRenderer";
-    INIT_CLASS_ENTRY(ce, PHP_wxGridCornerHeaderRenderer_name, php_wxGridCornerHeaderRenderer_functions);
-    php_wxGridCornerHeaderRenderer_entry = zend_register_internal_class(&ce);
-    php_wxGridCornerHeaderRenderer_entry->create_object = php_wxGridCornerHeaderRenderer_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCornerHeaderRenderer)
-
     char PHP_wxDataObject_name[] = "wxDataObject";
     INIT_CLASS_ENTRY(ce, PHP_wxDataObject_name, php_wxDataObject_functions);
     php_wxDataObject_entry = zend_register_internal_class(&ce);
     php_wxDataObject_entry->create_object = php_wxDataObject_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxDataObject)
+
+    char PHP_wxDropTarget_name[] = "wxDropTarget";
+    INIT_CLASS_ENTRY(ce, PHP_wxDropTarget_name, php_wxDropTarget_functions);
+    php_wxDropTarget_entry = zend_register_internal_class(&ce);
+    php_wxDropTarget_entry->create_object = php_wxDropTarget_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxDropTarget)
 
     char PHP_wxKeyboardState_name[] = "wxKeyboardState";
     INIT_CLASS_ENTRY(ce, PHP_wxKeyboardState_name, php_wxKeyboardState_functions);
@@ -1870,6 +1879,24 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxGridCellRenderer_entry = zend_register_internal_class(&ce);
     php_wxGridCellRenderer_entry->create_object = php_wxGridCellRenderer_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCellRenderer)
+
+    char PHP_wxGridHeaderLabelsRenderer_name[] = "wxGridHeaderLabelsRenderer";
+    INIT_CLASS_ENTRY(ce, PHP_wxGridHeaderLabelsRenderer_name, php_wxGridHeaderLabelsRenderer_functions);
+    php_wxGridHeaderLabelsRenderer_entry = zend_register_internal_class(&ce);
+    php_wxGridHeaderLabelsRenderer_entry->create_object = php_wxGridHeaderLabelsRenderer_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridHeaderLabelsRenderer)
+
+    char PHP_wxGridCornerHeaderRenderer_name[] = "wxGridCornerHeaderRenderer";
+    INIT_CLASS_ENTRY(ce, PHP_wxGridCornerHeaderRenderer_name, php_wxGridCornerHeaderRenderer_functions);
+    php_wxGridCornerHeaderRenderer_entry = zend_register_internal_class(&ce);
+    php_wxGridCornerHeaderRenderer_entry->create_object = php_wxGridCornerHeaderRenderer_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCornerHeaderRenderer)
+
+    char PHP_wxRefCounter_name[] = "wxRefCounter";
+    INIT_CLASS_ENTRY(ce, PHP_wxRefCounter_name, php_wxRefCounter_functions);
+    php_wxRefCounter_entry = zend_register_internal_class(&ce);
+    php_wxRefCounter_entry->create_object = php_wxRefCounter_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxRefCounter)
 
     char PHP_wxHeaderColumn_name[] = "wxHeaderColumn";
     INIT_CLASS_ENTRY(ce, PHP_wxHeaderColumn_name, php_wxHeaderColumn_functions);
@@ -1943,6 +1970,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxRect_entry->create_object = php_wxRect_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxRect)
 
+    char PHP_wxWithImages_name[] = "wxWithImages";
+    INIT_CLASS_ENTRY(ce, PHP_wxWithImages_name, php_wxWithImages_functions);
+    php_wxWithImages_entry = zend_register_internal_class(&ce);
+    php_wxWithImages_entry->create_object = php_wxWithImages_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxWithImages)
+
     char PHP_wxTreeItemId_name[] = "wxTreeItemId";
     INIT_CLASS_ENTRY(ce, PHP_wxTreeItemId_name, php_wxTreeItemId_functions);
     php_wxTreeItemId_entry = zend_register_internal_class(&ce);
@@ -1966,12 +1999,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxAuiToolBarArt_entry = zend_register_internal_class(&ce);
     php_wxAuiToolBarArt_entry->create_object = php_wxAuiToolBarArt_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxAuiToolBarArt)
-
-    char PHP_wxWithImages_name[] = "wxWithImages";
-    INIT_CLASS_ENTRY(ce, PHP_wxWithImages_name, php_wxWithImages_functions);
-    php_wxWithImages_entry = zend_register_internal_class(&ce);
-    php_wxWithImages_entry->create_object = php_wxWithImages_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxWithImages)
 
     char PHP_wxAcceleratorEntry_name[] = "wxAcceleratorEntry";
     INIT_CLASS_ENTRY(ce, PHP_wxAcceleratorEntry_name, php_wxAcceleratorEntry_functions);
@@ -2153,6 +2180,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxAuiTabArt_entry->create_object = php_wxAuiTabArt_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxAuiTabArt)
 
+    char PHP_wxGrid_name[] = "wxGrid";
+    INIT_CLASS_ENTRY(ce, PHP_wxGrid_name, php_wxGrid_functions);
+    php_wxGrid_entry = zend_register_internal_class(&ce);
+    php_wxGrid_entry->create_object = php_wxGrid_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxGrid)
+
     char PHP_wxGridCellAttr_name[] = "wxGridCellAttr";
     INIT_CLASS_ENTRY(ce, PHP_wxGridCellAttr_name, php_wxGridCellAttr_functions);
     php_wxGridCellAttr_entry = zend_register_internal_class(&ce);
@@ -2164,6 +2197,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxGridCellAttrProvider_entry = zend_register_internal_class(&ce);
     php_wxGridCellAttrProvider_entry->create_object = php_wxGridCellAttrProvider_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCellAttrProvider)
+
+    char PHP_wxGridCellDateTimeRenderer_name[] = "wxGridCellDateTimeRenderer";
+    INIT_CLASS_ENTRY(ce, PHP_wxGridCellDateTimeRenderer_name, php_wxGridCellDateTimeRenderer_functions);
+    php_wxGridCellDateTimeRenderer_entry = zend_register_internal_class(&ce);
+    php_wxGridCellDateTimeRenderer_entry->create_object = php_wxGridCellDateTimeRenderer_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCellDateTimeRenderer)
 
     char PHP_wxGridSizesInfo_name[] = "wxGridSizesInfo";
     INIT_CLASS_ENTRY(ce, PHP_wxGridSizesInfo_name, php_wxGridSizesInfo_functions);
@@ -2188,12 +2227,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxDataViewItem_entry = zend_register_internal_class(&ce);
     php_wxDataViewItem_entry->create_object = php_wxDataViewItem_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxDataViewItem)
-
-    char PHP_wxRefCounter_name[] = "wxRefCounter";
-    INIT_CLASS_ENTRY(ce, PHP_wxRefCounter_name, php_wxRefCounter_functions);
-    php_wxRefCounter_entry = zend_register_internal_class(&ce);
-    php_wxRefCounter_entry->create_object = php_wxRefCounter_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxRefCounter)
 
     char PHP_wxDataViewModelNotifier_name[] = "wxDataViewModelNotifier";
     INIT_CLASS_ENTRY(ce, PHP_wxDataViewModelNotifier_name, php_wxDataViewModelNotifier_functions);
@@ -2477,9 +2510,15 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxURI_entry->create_object = php_wxURI_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxURI)
 
+    char PHP_wxBitmapBundle_name[] = "wxBitmapBundle";
+    INIT_CLASS_ENTRY(ce, PHP_wxBitmapBundle_name, php_wxBitmapBundle_functions);
+    php_wxBitmapBundle_entry = zend_register_internal_class(&ce);
+    php_wxBitmapBundle_entry->create_object = php_wxBitmapBundle_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxBitmapBundle)
+
     char PHP_wxEvtHandler_name[] = "wxEvtHandler";
     INIT_CLASS_ENTRY(ce, PHP_wxEvtHandler_name, php_wxEvtHandler_functions);
-    php_wxEvtHandler_entry = zend_register_internal_class_ex(&ce, php_wxObject_entry);
+    php_wxEvtHandler_entry = zend_register_internal_class(&ce);
     php_wxEvtHandler_entry->create_object = php_wxEvtHandler_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxEvtHandler)
 
@@ -2573,11 +2612,11 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxPanel_entry->create_object = php_wxPanel_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxPanel)
 
-    char PHP_wxGridCellStringRenderer_name[] = "wxGridCellStringRenderer";
-    INIT_CLASS_ENTRY(ce, PHP_wxGridCellStringRenderer_name, php_wxGridCellStringRenderer_functions);
-    php_wxGridCellStringRenderer_entry = zend_register_internal_class_ex(&ce, php_wxGridCellRenderer_entry);
-    php_wxGridCellStringRenderer_entry->create_object = php_wxGridCellStringRenderer_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCellStringRenderer)
+    char PHP_wxItemContainer_name[] = "wxItemContainer";
+    INIT_CLASS_ENTRY(ce, PHP_wxItemContainer_name, php_wxItemContainer_functions);
+    php_wxItemContainer_entry = zend_register_internal_class_ex(&ce, php_wxItemContainerImmutable_entry);
+    php_wxItemContainer_entry->create_object = php_wxItemContainer_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxItemContainer)
 
     char PHP_wxSizer_name[] = "wxSizer";
     INIT_CLASS_ENTRY(ce, PHP_wxSizer_name, php_wxSizer_functions);
@@ -2585,17 +2624,17 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxSizer_entry->create_object = php_wxSizer_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxSizer)
 
-    char PHP_wxItemContainer_name[] = "wxItemContainer";
-    INIT_CLASS_ENTRY(ce, PHP_wxItemContainer_name, php_wxItemContainer_functions);
-    php_wxItemContainer_entry = zend_register_internal_class_ex(&ce, php_wxItemContainerImmutable_entry);
-    php_wxItemContainer_entry->create_object = php_wxItemContainer_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxItemContainer)
-
     char PHP_wxPickerBase_name[] = "wxPickerBase";
     INIT_CLASS_ENTRY(ce, PHP_wxPickerBase_name, php_wxPickerBase_functions);
     php_wxPickerBase_entry = zend_register_internal_class_ex(&ce, php_wxControl_entry);
     php_wxPickerBase_entry->create_object = php_wxPickerBase_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxPickerBase)
+
+    char PHP_wxGridCellStringRenderer_name[] = "wxGridCellStringRenderer";
+    INIT_CLASS_ENTRY(ce, PHP_wxGridCellStringRenderer_name, php_wxGridCellStringRenderer_functions);
+    php_wxGridCellStringRenderer_entry = zend_register_internal_class_ex(&ce, php_wxGridCellRenderer_entry);
+    php_wxGridCellStringRenderer_entry->create_object = php_wxGridCellStringRenderer_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCellStringRenderer)
 
     char PHP_wxDataObjectSimple_name[] = "wxDataObjectSimple";
     INIT_CLASS_ENTRY(ce, PHP_wxDataObjectSimple_name, php_wxDataObjectSimple_functions);
@@ -2603,23 +2642,11 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxDataObjectSimple_entry->create_object = php_wxDataObjectSimple_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxDataObjectSimple)
 
-    char PHP_wxScrolledWindow_name[] = "wxScrolledWindow";
-    INIT_CLASS_ENTRY(ce, PHP_wxScrolledWindow_name, php_wxScrolledWindow_functions);
-    php_wxScrolledWindow_entry = zend_register_internal_class(&ce);
-    php_wxScrolledWindow_entry->create_object = php_wxScrolledWindow_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxScrolledWindow)
-
     char PHP_wxBoxSizer_name[] = "wxBoxSizer";
     INIT_CLASS_ENTRY(ce, PHP_wxBoxSizer_name, php_wxBoxSizer_functions);
     php_wxBoxSizer_entry = zend_register_internal_class_ex(&ce, php_wxSizer_entry);
     php_wxBoxSizer_entry->create_object = php_wxBoxSizer_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxBoxSizer)
-
-    char PHP_wxControlWithItems_name[] = "wxControlWithItems";
-    INIT_CLASS_ENTRY(ce, PHP_wxControlWithItems_name, php_wxControlWithItems_functions);
-    php_wxControlWithItems_entry = zend_register_internal_class(&ce);
-    php_wxControlWithItems_entry->create_object = php_wxControlWithItems_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxControlWithItems)
 
     char PHP_wxHtmlCell_name[] = "wxHtmlCell";
     INIT_CLASS_ENTRY(ce, PHP_wxHtmlCell_name, php_wxHtmlCell_functions);
@@ -2645,6 +2672,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxMemoryDC_entry->create_object = php_wxMemoryDC_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxMemoryDC)
 
+    char PHP_wxScrolledWindow_name[] = "wxScrolledWindow";
+    INIT_CLASS_ENTRY(ce, PHP_wxScrolledWindow_name, php_wxScrolledWindow_functions);
+    php_wxScrolledWindow_entry = zend_register_internal_class(&ce);
+    php_wxScrolledWindow_entry->create_object = php_wxScrolledWindow_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxScrolledWindow)
+
     char PHP_wxAnyButton_name[] = "wxAnyButton";
     INIT_CLASS_ENTRY(ce, PHP_wxAnyButton_name, php_wxAnyButton_functions);
     php_wxAnyButton_entry = zend_register_internal_class_ex(&ce, php_wxControl_entry);
@@ -2659,7 +2692,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxListBox_name[] = "wxListBox";
     INIT_CLASS_ENTRY(ce, PHP_wxListBox_name, php_wxListBox_functions);
-    php_wxListBox_entry = zend_register_internal_class_ex(&ce, php_wxControlWithItems_entry);
+    php_wxListBox_entry = zend_register_internal_class(&ce);
     php_wxListBox_entry->create_object = php_wxListBox_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxListBox)
 
@@ -2686,12 +2719,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxOutputStream_entry = zend_register_internal_class_ex(&ce, php_wxStreamBase_entry);
     php_wxOutputStream_entry->create_object = php_wxOutputStream_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxOutputStream)
-
-    char PHP_wxGridHeaderLabelsRenderer_name[] = "wxGridHeaderLabelsRenderer";
-    INIT_CLASS_ENTRY(ce, PHP_wxGridHeaderLabelsRenderer_name, php_wxGridHeaderLabelsRenderer_functions);
-    php_wxGridHeaderLabelsRenderer_entry = zend_register_internal_class_ex(&ce, php_wxGridCornerHeaderRenderer_entry);
-    php_wxGridHeaderLabelsRenderer_entry->create_object = php_wxGridHeaderLabelsRenderer_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridHeaderLabelsRenderer)
 
     char PHP_wxDataViewCtrl_name[] = "wxDataViewCtrl";
     INIT_CLASS_ENTRY(ce, PHP_wxDataViewCtrl_name, php_wxDataViewCtrl_functions);
@@ -2891,6 +2918,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxBufferedPaintDC_entry->create_object = php_wxBufferedPaintDC_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxBufferedPaintDC)
 
+    char PHP_wxClientDC_name[] = "wxClientDC";
+    INIT_CLASS_ENTRY(ce, PHP_wxClientDC_name, php_wxClientDC_functions);
+    php_wxClientDC_entry = zend_register_internal_class_ex(&ce, php_wxWindowDC_entry);
+    php_wxClientDC_entry->create_object = php_wxClientDC_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxClientDC)
+
     char PHP_wxFFileInputStream_name[] = "wxFFileInputStream";
     INIT_CLASS_ENTRY(ce, PHP_wxFFileInputStream_name, php_wxFFileInputStream_functions);
     php_wxFFileInputStream_entry = zend_register_internal_class_ex(&ce, php_wxInputStream_entry);
@@ -2920,12 +2953,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxLogInterposer_entry = zend_register_internal_class_ex(&ce, php_wxLogChain_entry);
     php_wxLogInterposer_entry->create_object = php_wxLogInterposer_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxLogInterposer)
-
-    char PHP_wxTextDataObject_name[] = "wxTextDataObject";
-    INIT_CLASS_ENTRY(ce, PHP_wxTextDataObject_name, php_wxTextDataObject_functions);
-    php_wxTextDataObject_entry = zend_register_internal_class_ex(&ce, php_wxDataObjectSimple_entry);
-    php_wxTextDataObject_entry->create_object = php_wxTextDataObject_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextDataObject)
 
     char PHP_wxStatusBar_name[] = "wxStatusBar";
     INIT_CLASS_ENTRY(ce, PHP_wxStatusBar_name, php_wxStatusBar_functions);
@@ -2971,7 +2998,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxTreeCtrl_name[] = "wxTreeCtrl";
     INIT_CLASS_ENTRY(ce, PHP_wxTreeCtrl_name, php_wxTreeCtrl_functions);
-    php_wxTreeCtrl_entry = zend_register_internal_class_ex(&ce, php_wxControl_entry);
+    php_wxTreeCtrl_entry = zend_register_internal_class(&ce);
     php_wxTreeCtrl_entry->create_object = php_wxTreeCtrl_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxTreeCtrl)
 
@@ -2998,6 +3025,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxFont_entry = zend_register_internal_class_ex(&ce, php_wxGDIObject_entry);
     php_wxFont_entry->create_object = php_wxFont_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxFont)
+
+    char PHP_wxControlWithItems_name[] = "wxControlWithItems";
+    INIT_CLASS_ENTRY(ce, PHP_wxControlWithItems_name, php_wxControlWithItems_functions);
+    php_wxControlWithItems_entry = zend_register_internal_class(&ce);
+    php_wxControlWithItems_entry->create_object = php_wxControlWithItems_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxControlWithItems)
 
     char PHP_wxMenuBar_name[] = "wxMenuBar";
     INIT_CLASS_ENTRY(ce, PHP_wxMenuBar_name, php_wxMenuBar_functions);
@@ -3085,7 +3118,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxAnimation_name[] = "wxAnimation";
     INIT_CLASS_ENTRY(ce, PHP_wxAnimation_name, php_wxAnimation_functions);
-    php_wxAnimation_entry = zend_register_internal_class_ex(&ce, php_wxGDIObject_entry);
+    php_wxAnimation_entry = zend_register_internal_class_ex(&ce, php_wxObject_entry);
     php_wxAnimation_entry->create_object = php_wxAnimation_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxAnimation)
 
@@ -3199,7 +3232,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxChoice_name[] = "wxChoice";
     INIT_CLASS_ENTRY(ce, PHP_wxChoice_name, php_wxChoice_functions);
-    php_wxChoice_entry = zend_register_internal_class_ex(&ce, php_wxControlWithItems_entry);
+    php_wxChoice_entry = zend_register_internal_class(&ce);
     php_wxChoice_entry->create_object = php_wxChoice_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxChoice)
 
@@ -3295,7 +3328,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxHtmlWindow_name[] = "wxHtmlWindow";
     INIT_CLASS_ENTRY(ce, PHP_wxHtmlWindow_name, php_wxHtmlWindow_functions);
-    php_wxHtmlWindow_entry = zend_register_internal_class_ex(&ce, php_wxScrolledWindow_entry);
+    php_wxHtmlWindow_entry = zend_register_internal_class(&ce);
     php_wxHtmlWindow_entry->create_object = php_wxHtmlWindow_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxHtmlWindow)
 
@@ -3661,7 +3694,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxProgressDialog_name[] = "wxProgressDialog";
     INIT_CLASS_ENTRY(ce, PHP_wxProgressDialog_name, php_wxProgressDialog_functions);
-    php_wxProgressDialog_entry = zend_register_internal_class(&ce);
+    php_wxProgressDialog_entry = zend_register_internal_class_ex(&ce, php_wxGenericProgressDialog_entry);
     php_wxProgressDialog_entry->create_object = php_wxProgressDialog_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxProgressDialog)
 
@@ -3773,23 +3806,11 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxCalendarEvent_entry->create_object = php_wxCalendarEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxCalendarEvent)
 
-    char PHP_wxGrid_name[] = "wxGrid";
-    INIT_CLASS_ENTRY(ce, PHP_wxGrid_name, php_wxGrid_functions);
-    php_wxGrid_entry = zend_register_internal_class_ex(&ce, php_wxScrolledWindow_entry);
-    php_wxGrid_entry->create_object = php_wxGrid_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxGrid)
-
     char PHP_wxGridCellBoolEditor_name[] = "wxGridCellBoolEditor";
     INIT_CLASS_ENTRY(ce, PHP_wxGridCellBoolEditor_name, php_wxGridCellBoolEditor_functions);
     php_wxGridCellBoolEditor_entry = zend_register_internal_class_ex(&ce, php_wxGridCellEditor_entry);
     php_wxGridCellBoolEditor_entry->create_object = php_wxGridCellBoolEditor_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCellBoolEditor)
-
-    char PHP_wxGridCellDateTimeRenderer_name[] = "wxGridCellDateTimeRenderer";
-    INIT_CLASS_ENTRY(ce, PHP_wxGridCellDateTimeRenderer_name, php_wxGridCellDateTimeRenderer_functions);
-    php_wxGridCellDateTimeRenderer_entry = zend_register_internal_class_ex(&ce, php_wxGridCellStringRenderer_entry);
-    php_wxGridCellDateTimeRenderer_entry->create_object = php_wxGridCellDateTimeRenderer_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxGridCellDateTimeRenderer)
 
     char PHP_wxGridCellBoolRenderer_name[] = "wxGridCellBoolRenderer";
     INIT_CLASS_ENTRY(ce, PHP_wxGridCellBoolRenderer_name, php_wxGridCellBoolRenderer_functions);
@@ -4067,6 +4088,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxSetCursorEvent_entry->create_object = php_wxSetCursorEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxSetCursorEvent)
 
+    char PHP_wxIconizeEvent_name[] = "wxIconizeEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxIconizeEvent_name, php_wxIconizeEvent_functions);
+    php_wxIconizeEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
+    php_wxIconizeEvent_entry->create_object = php_wxIconizeEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxIconizeEvent)
+
     char PHP_wxIdleEvent_name[] = "wxIdleEvent";
     INIT_CLASS_ENTRY(ce, PHP_wxIdleEvent_name, php_wxIdleEvent_functions);
     php_wxIdleEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
@@ -4144,6 +4171,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxSashLayoutWindow_entry = zend_register_internal_class_ex(&ce, php_wxSashWindow_entry);
     php_wxSashLayoutWindow_entry->create_object = php_wxSashLayoutWindow_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxSashLayoutWindow)
+
+    char PHP_wxShowEvent_name[] = "wxShowEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxShowEvent_name, php_wxShowEvent_functions);
+    php_wxShowEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
+    php_wxShowEvent_entry->create_object = php_wxShowEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxShowEvent)
 
     char PHP_wxBrush_name[] = "wxBrush";
     INIT_CLASS_ENTRY(ce, PHP_wxBrush_name, php_wxBrush_functions);
@@ -4249,7 +4282,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxHtmlHelpDialog_name[] = "wxHtmlHelpDialog";
     INIT_CLASS_ENTRY(ce, PHP_wxHtmlHelpDialog_name, php_wxHtmlHelpDialog_functions);
-    php_wxHtmlHelpDialog_entry = zend_register_internal_class_ex(&ce, php_wxFrame_entry);
+    php_wxHtmlHelpDialog_entry = zend_register_internal_class_ex(&ce, php_wxDialog_entry);
     php_wxHtmlHelpDialog_entry->create_object = php_wxHtmlHelpDialog_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxHtmlHelpDialog)
 
@@ -4295,12 +4328,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxAutoBufferedPaintDC_entry->create_object = php_wxAutoBufferedPaintDC_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxAutoBufferedPaintDC)
 
-    char PHP_wxClientDC_name[] = "wxClientDC";
-    INIT_CLASS_ENTRY(ce, PHP_wxClientDC_name, php_wxClientDC_functions);
-    php_wxClientDC_entry = zend_register_internal_class_ex(&ce, php_wxWindowDC_entry);
-    php_wxClientDC_entry->create_object = php_wxClientDC_new;
-    wxPHP_PREPARE_OBJECT_HANDLERS(wxClientDC)
-
     char PHP_wxPaintEvent_name[] = "wxPaintEvent";
     INIT_CLASS_ENTRY(ce, PHP_wxPaintEvent_name, php_wxPaintEvent_functions);
     php_wxPaintEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
@@ -4309,7 +4336,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxPaintDC_name[] = "wxPaintDC";
     INIT_CLASS_ENTRY(ce, PHP_wxPaintDC_name, php_wxPaintDC_functions);
-    php_wxPaintDC_entry = zend_register_internal_class_ex(&ce, php_wxWindowDC_entry);
+    php_wxPaintDC_entry = zend_register_internal_class_ex(&ce, php_wxClientDC_entry);
     php_wxPaintDC_entry->create_object = php_wxPaintDC_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxPaintDC)
 
@@ -4445,6 +4472,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxLogTextCtrl_entry->create_object = php_wxLogTextCtrl_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxLogTextCtrl)
 
+    char PHP_wxTextDataObject_name[] = "wxTextDataObject";
+    INIT_CLASS_ENTRY(ce, PHP_wxTextDataObject_name, php_wxTextDataObject_functions);
+    php_wxTextDataObject_entry = zend_register_internal_class_ex(&ce, php_wxDataObjectSimple_entry);
+    php_wxTextDataObject_entry->create_object = php_wxTextDataObject_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxTextDataObject)
+
     char PHP_wxFileDataObject_name[] = "wxFileDataObject";
     INIT_CLASS_ENTRY(ce, PHP_wxFileDataObject_name, php_wxFileDataObject_functions);
     php_wxFileDataObject_entry = zend_register_internal_class_ex(&ce, php_wxDataObjectSimple_entry);
@@ -4459,7 +4492,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
 
     char PHP_wxURLDataObject_name[] = "wxURLDataObject";
     INIT_CLASS_ENTRY(ce, PHP_wxURLDataObject_name, php_wxURLDataObject_functions);
-    php_wxURLDataObject_entry = zend_register_internal_class_ex(&ce, php_wxTextDataObject_entry);
+    php_wxURLDataObject_entry = zend_register_internal_class_ex(&ce, php_wxDataObject_entry);
     php_wxURLDataObject_entry->create_object = php_wxURLDataObject_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxURLDataObject)
 
@@ -4492,6 +4525,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxContextMenuEvent_entry = zend_register_internal_class_ex(&ce, php_wxCommandEvent_entry);
     php_wxContextMenuEvent_entry->create_object = php_wxContextMenuEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxContextMenuEvent)
+
+    char PHP_wxDropFilesEvent_name[] = "wxDropFilesEvent";
+    INIT_CLASS_ENTRY(ce, PHP_wxDropFilesEvent_name, php_wxDropFilesEvent_functions);
+    php_wxDropFilesEvent_entry = zend_register_internal_class_ex(&ce, php_wxEvent_entry);
+    php_wxDropFilesEvent_entry->create_object = php_wxDropFilesEvent_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxDropFilesEvent)
 
     char PHP_wxQueryLayoutInfoEvent_name[] = "wxQueryLayoutInfoEvent";
     INIT_CLASS_ENTRY(ce, PHP_wxQueryLayoutInfoEvent_name, php_wxQueryLayoutInfoEvent_functions);
@@ -4601,6 +4640,12 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     php_wxMediaEvent_entry->create_object = php_wxMediaEvent_new;
     wxPHP_PREPARE_OBJECT_HANDLERS(wxMediaEvent)
 
+    char PHP_wxBitmapBundleImpl_name[] = "wxBitmapBundleImpl";
+    INIT_CLASS_ENTRY(ce, PHP_wxBitmapBundleImpl_name, php_wxBitmapBundleImpl_functions);
+    php_wxBitmapBundleImpl_entry = zend_register_internal_class_ex(&ce, php_wxRefCounter_entry);
+    php_wxBitmapBundleImpl_entry->create_object = php_wxBitmapBundleImpl_new;
+    wxPHP_PREPARE_OBJECT_HANDLERS(wxBitmapBundleImpl)
+
 
     //Variables found on consts.json
 
@@ -4685,8 +4730,24 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("WXK_HELP", WXK_HELP, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("WXK_HOME", WXK_HOME, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("WXK_INSERT", WXK_INSERT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_0", WXK_LAUNCH_0, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_1", WXK_LAUNCH_1, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_2", WXK_LAUNCH_2, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_3", WXK_LAUNCH_3, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_4", WXK_LAUNCH_4, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_5", WXK_LAUNCH_5, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_6", WXK_LAUNCH_6, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_7", WXK_LAUNCH_7, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_8", WXK_LAUNCH_8, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_9", WXK_LAUNCH_9, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_A", WXK_LAUNCH_A, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("WXK_LAUNCH_APP1", WXK_LAUNCH_APP1, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("WXK_LAUNCH_APP2", WXK_LAUNCH_APP2, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_B", WXK_LAUNCH_B, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_C", WXK_LAUNCH_C, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_D", WXK_LAUNCH_D, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_E", WXK_LAUNCH_E, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("WXK_LAUNCH_F", WXK_LAUNCH_F, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("WXK_LAUNCH_MAIL", WXK_LAUNCH_MAIL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("WXK_LBUTTON", WXK_LBUTTON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("WXK_LEFT", WXK_LEFT, CONST_CS | CONST_PERSISTENT);
@@ -5209,6 +5270,8 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxCONFIG_USE_NO_ESCAPE_CHARACTERS", wxCONFIG_USE_NO_ESCAPE_CHARACTERS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxCONFIG_USE_RELATIVE_PATH", wxCONFIG_USE_RELATIVE_PATH, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxCONFIG_USE_SUBDIR", wxCONFIG_USE_SUBDIR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxCONTENT_PROTECTION_ENABLED", wxCONTENT_PROTECTION_ENABLED, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxCONTENT_PROTECTION_NONE", wxCONTENT_PROTECTION_NONE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxCONTROL_CELL", wxCONTROL_CELL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxCONTROL_CHECKABLE", wxCONTROL_CHECKABLE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxCONTROL_CHECKED", wxCONTROL_CHECKED, CONST_CS | CONST_PERSISTENT);
@@ -5232,6 +5295,8 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxCentre", wxCentre, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxCentreX", wxCentreX, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxCentreY", wxCentreY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxCompare_CaseInsensitive", wxCompare_CaseInsensitive, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxCompare_CaseSensitive", wxCompare_CaseSensitive, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxDATAVIEW_CELL_ACTIVATABLE", wxDATAVIEW_CELL_ACTIVATABLE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxDATAVIEW_CELL_EDITABLE", wxDATAVIEW_CELL_EDITABLE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxDATAVIEW_CELL_FOCUSED", wxDATAVIEW_CELL_FOCUSED, CONST_CS | CONST_PERSISTENT);
@@ -6295,242 +6360,900 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxLANDSCAPE", wxLANDSCAPE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ABKHAZIAN", wxLANGUAGE_ABKHAZIAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_AFAR", wxLANGUAGE_AFAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AFAR_DJIBOUTI", wxLANGUAGE_AFAR_DJIBOUTI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AFAR_ERITREA", wxLANGUAGE_AFAR_ERITREA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AFAR_ETHIOPIA", wxLANGUAGE_AFAR_ETHIOPIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_AFRIKAANS", wxLANGUAGE_AFRIKAANS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AFRIKAANS_NAMIBIA", wxLANGUAGE_AFRIKAANS_NAMIBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AFRIKAANS_SOUTH_AFRICA", wxLANGUAGE_AFRIKAANS_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AGHEM", wxLANGUAGE_AGHEM, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AGHEM_CAMEROON", wxLANGUAGE_AGHEM_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AKAN", wxLANGUAGE_AKAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AKAN_GHANA", wxLANGUAGE_AKAN_GHANA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ALBANIAN", wxLANGUAGE_ALBANIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ALBANIAN_ALBANIA", wxLANGUAGE_ALBANIAN_ALBANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ALBANIAN_KOSOVO", wxLANGUAGE_ALBANIAN_KOSOVO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ALBANIAN_NORTH_MACEDONIA", wxLANGUAGE_ALBANIAN_NORTH_MACEDONIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ALSATIAN_FRANCE", wxLANGUAGE_ALSATIAN_FRANCE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_AMHARIC", wxLANGUAGE_AMHARIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AMHARIC_ETHIOPIA", wxLANGUAGE_AMHARIC_ETHIOPIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC", wxLANGUAGE_ARABIC, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_ALGERIA", wxLANGUAGE_ARABIC_ALGERIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_BAHRAIN", wxLANGUAGE_ARABIC_BAHRAIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_CHAD", wxLANGUAGE_ARABIC_CHAD, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_COMOROS", wxLANGUAGE_ARABIC_COMOROS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_DJIBOUTI", wxLANGUAGE_ARABIC_DJIBOUTI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_EGYPT", wxLANGUAGE_ARABIC_EGYPT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_ERITREA", wxLANGUAGE_ARABIC_ERITREA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_IRAQ", wxLANGUAGE_ARABIC_IRAQ, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_ISRAEL", wxLANGUAGE_ARABIC_ISRAEL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_JORDAN", wxLANGUAGE_ARABIC_JORDAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_KUWAIT", wxLANGUAGE_ARABIC_KUWAIT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_LEBANON", wxLANGUAGE_ARABIC_LEBANON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_LIBYA", wxLANGUAGE_ARABIC_LIBYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_MAURITANIA", wxLANGUAGE_ARABIC_MAURITANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_MOROCCO", wxLANGUAGE_ARABIC_MOROCCO, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_OMAN", wxLANGUAGE_ARABIC_OMAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_PALESTINIAN_AUTHORITY", wxLANGUAGE_ARABIC_PALESTINIAN_AUTHORITY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_QATAR", wxLANGUAGE_ARABIC_QATAR, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_SAUDI_ARABIA", wxLANGUAGE_ARABIC_SAUDI_ARABIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_SOMALIA", wxLANGUAGE_ARABIC_SOMALIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_SOUTH_SUDAN", wxLANGUAGE_ARABIC_SOUTH_SUDAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_SUDAN", wxLANGUAGE_ARABIC_SUDAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_SYRIA", wxLANGUAGE_ARABIC_SYRIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_TUNISIA", wxLANGUAGE_ARABIC_TUNISIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_UAE", wxLANGUAGE_ARABIC_UAE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_WORLD", wxLANGUAGE_ARABIC_WORLD, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARABIC_YEMEN", wxLANGUAGE_ARABIC_YEMEN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ARMENIAN", wxLANGUAGE_ARMENIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ARMENIAN_ARMENIA", wxLANGUAGE_ARMENIAN_ARMENIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ASSAMESE", wxLANGUAGE_ASSAMESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ASSAMESE_INDIA", wxLANGUAGE_ASSAMESE_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ASTURIAN", wxLANGUAGE_ASTURIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ASTURIAN_SPAIN", wxLANGUAGE_ASTURIAN_SPAIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ASU", wxLANGUAGE_ASU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ASU_TANZANIA", wxLANGUAGE_ASU_TANZANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_AYMARA", wxLANGUAGE_AYMARA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERBAIJANI", wxLANGUAGE_AZERBAIJANI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERBAIJANI_CYRILLIC", wxLANGUAGE_AZERBAIJANI_CYRILLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERBAIJANI_CYRILLIC_AZERBAIJAN", wxLANGUAGE_AZERBAIJANI_CYRILLIC_AZERBAIJAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERBAIJANI_LATIN", wxLANGUAGE_AZERBAIJANI_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERBAIJANI_LATIN_AZERBAIJAN", wxLANGUAGE_AZERBAIJANI_LATIN_AZERBAIJAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERI", wxLANGUAGE_AZERI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERI_CYRILLIC", wxLANGUAGE_AZERI_CYRILLIC, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_AZERI_LATIN", wxLANGUAGE_AZERI_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BAFIA", wxLANGUAGE_BAFIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BAFIA_CAMEROON", wxLANGUAGE_BAFIA_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BAMANANKAN", wxLANGUAGE_BAMANANKAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BAMANANKAN_LATIN", wxLANGUAGE_BAMANANKAN_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BAMANANKAN_LATIN_MALI", wxLANGUAGE_BAMANANKAN_LATIN_MALI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BANGLA", wxLANGUAGE_BANGLA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BANGLA_BANGLADESH", wxLANGUAGE_BANGLA_BANGLADESH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BANGLA_INDIA", wxLANGUAGE_BANGLA_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BASAA", wxLANGUAGE_BASAA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BASAA_CAMEROON", wxLANGUAGE_BASAA_CAMEROON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BASHKIR", wxLANGUAGE_BASHKIR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BASHKIR_RUSSIA", wxLANGUAGE_BASHKIR_RUSSIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BASQUE", wxLANGUAGE_BASQUE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BASQUE_SPAIN", wxLANGUAGE_BASQUE_SPAIN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BELARUSIAN", wxLANGUAGE_BELARUSIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BELARUSIAN_BELARUS", wxLANGUAGE_BELARUSIAN_BELARUS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BEMBA", wxLANGUAGE_BEMBA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BEMBA_ZAMBIA", wxLANGUAGE_BEMBA_ZAMBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BENA", wxLANGUAGE_BENA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BENA_TANZANIA", wxLANGUAGE_BENA_TANZANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BENGALI", wxLANGUAGE_BENGALI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BENGALI_BANGLADESH", wxLANGUAGE_BENGALI_BANGLADESH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BENGALI_INDIA", wxLANGUAGE_BENGALI_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BHUTANI", wxLANGUAGE_BHUTANI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BIHARI", wxLANGUAGE_BIHARI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BISLAMA", wxLANGUAGE_BISLAMA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BLIN", wxLANGUAGE_BLIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BLIN_ERITREA", wxLANGUAGE_BLIN_ERITREA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BODO", wxLANGUAGE_BODO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BODO_INDIA", wxLANGUAGE_BODO_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BOSNIAN", wxLANGUAGE_BOSNIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BOSNIAN_CYRILLIC", wxLANGUAGE_BOSNIAN_CYRILLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BOSNIAN_CYRILLIC_BOSNIA_AND_HERZEGOVINA", wxLANGUAGE_BOSNIAN_CYRILLIC_BOSNIA_AND_HERZEGOVINA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BOSNIAN_LATIN", wxLANGUAGE_BOSNIAN_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BOSNIAN_LATIN_BOSNIA_AND_HERZEGOVINA", wxLANGUAGE_BOSNIAN_LATIN_BOSNIA_AND_HERZEGOVINA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BRETON", wxLANGUAGE_BRETON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BRETON_FRANCE", wxLANGUAGE_BRETON_FRANCE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BULGARIAN", wxLANGUAGE_BULGARIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BULGARIAN_BULGARIA", wxLANGUAGE_BULGARIAN_BULGARIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_BURMESE", wxLANGUAGE_BURMESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_BURMESE_MYANMAR", wxLANGUAGE_BURMESE_MYANMAR, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CAMBODIAN", wxLANGUAGE_CAMBODIAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CATALAN", wxLANGUAGE_CATALAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CATALAN_ANDORRA", wxLANGUAGE_CATALAN_ANDORRA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CATALAN_FRANCE", wxLANGUAGE_CATALAN_FRANCE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CATALAN_ITALY", wxLANGUAGE_CATALAN_ITALY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CATALAN_SPAIN", wxLANGUAGE_CATALAN_SPAIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CEBUANO", wxLANGUAGE_CEBUANO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CEBUANO_LATIN", wxLANGUAGE_CEBUANO_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CEBUANO_LATIN_PHILIPPINES", wxLANGUAGE_CEBUANO_LATIN_PHILIPPINES, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_ARABIC", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_ARABIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_ARABIC_MOROCCO", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_ARABIC_MOROCCO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_LATIN", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_LATIN_ALGERIA", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_LATIN_ALGERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_LATIN_MOROCCO", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_LATIN_MOROCCO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_TIFINAGH", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_TIFINAGH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_TIFINAGH_MOROCCO", wxLANGUAGE_CENTRAL_ATLAS_TAMAZIGHT_TIFINAGH_MOROCCO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_KURDISH", wxLANGUAGE_CENTRAL_KURDISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CENTRAL_KURDISH_IRAQ", wxLANGUAGE_CENTRAL_KURDISH_IRAQ, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHAKMA", wxLANGUAGE_CHAKMA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHAKMA_CHAKMA", wxLANGUAGE_CHAKMA_CHAKMA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHAKMA_CHAKMA_BANGLADESH", wxLANGUAGE_CHAKMA_CHAKMA_BANGLADESH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHAKMA_CHAKMA_INDIA", wxLANGUAGE_CHAKMA_CHAKMA_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHECHEN", wxLANGUAGE_CHECHEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHECHEN_RUSSIA", wxLANGUAGE_CHECHEN_RUSSIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHEROKEE", wxLANGUAGE_CHEROKEE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHEROKEE_CHEROKEE", wxLANGUAGE_CHEROKEE_CHEROKEE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHEROKEE_US", wxLANGUAGE_CHEROKEE_US, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHIGA", wxLANGUAGE_CHIGA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHIGA_UGANDA", wxLANGUAGE_CHIGA_UGANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE", wxLANGUAGE_CHINESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_CHINA", wxLANGUAGE_CHINESE_CHINA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_HONGKONG", wxLANGUAGE_CHINESE_HONGKONG, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_MACAO", wxLANGUAGE_CHINESE_MACAO, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_MACAU", wxLANGUAGE_CHINESE_MACAU, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_SIMPLIFIED", wxLANGUAGE_CHINESE_SIMPLIFIED, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_SIMPLIFIED_EXPLICIT", wxLANGUAGE_CHINESE_SIMPLIFIED_EXPLICIT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_SIMPLIFIED_HONGKONG", wxLANGUAGE_CHINESE_SIMPLIFIED_HONGKONG, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_SIMPLIFIED_MACAO", wxLANGUAGE_CHINESE_SIMPLIFIED_MACAO, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_SINGAPORE", wxLANGUAGE_CHINESE_SINGAPORE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_TAIWAN", wxLANGUAGE_CHINESE_TAIWAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_TRADITIONAL", wxLANGUAGE_CHINESE_TRADITIONAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHINESE_TRADITIONAL_EXPLICIT", wxLANGUAGE_CHINESE_TRADITIONAL_EXPLICIT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHURCH_SLAVIC", wxLANGUAGE_CHURCH_SLAVIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CHURCH_SLAVIC_RUSSIA", wxLANGUAGE_CHURCH_SLAVIC_RUSSIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_COLOGNIAN", wxLANGUAGE_COLOGNIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_COLOGNIAN_GERMANY", wxLANGUAGE_COLOGNIAN_GERMANY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CORNISH", wxLANGUAGE_CORNISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CORNISH_UK", wxLANGUAGE_CORNISH_UK, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CORSICAN", wxLANGUAGE_CORSICAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CORSICAN_FRANCE", wxLANGUAGE_CORSICAN_FRANCE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CROATIAN", wxLANGUAGE_CROATIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CROATIAN_BOSNIA_AND_HERZEGOVINA", wxLANGUAGE_CROATIAN_BOSNIA_AND_HERZEGOVINA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CROATIAN_CROATIA", wxLANGUAGE_CROATIAN_CROATIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_CZECH", wxLANGUAGE_CZECH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_CZECH_CZECHIA", wxLANGUAGE_CZECH_CZECHIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_DANISH", wxLANGUAGE_DANISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DANISH_DENMARK", wxLANGUAGE_DANISH_DENMARK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DANISH_GREENLAND", wxLANGUAGE_DANISH_GREENLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DARI", wxLANGUAGE_DARI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DARI_AFGHANISTAN", wxLANGUAGE_DARI_AFGHANISTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_DEFAULT", wxLANGUAGE_DEFAULT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DIVEHI", wxLANGUAGE_DIVEHI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DIVEHI_MALDIVES", wxLANGUAGE_DIVEHI_MALDIVES, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUALA", wxLANGUAGE_DUALA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUALA_CAMEROON", wxLANGUAGE_DUALA_CAMEROON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH", wxLANGUAGE_DUTCH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH_ARUBA", wxLANGUAGE_DUTCH_ARUBA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH_BELGIAN", wxLANGUAGE_DUTCH_BELGIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH_BONAIRE_SINT_EUSTATIUS_AND_SABA", wxLANGUAGE_DUTCH_BONAIRE_SINT_EUSTATIUS_AND_SABA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH_CURACAO", wxLANGUAGE_DUTCH_CURACAO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH_NETHERLANDS", wxLANGUAGE_DUTCH_NETHERLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH_SINT_MAARTEN", wxLANGUAGE_DUTCH_SINT_MAARTEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DUTCH_SURINAME", wxLANGUAGE_DUTCH_SURINAME, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DZONGKHA", wxLANGUAGE_DZONGKHA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_DZONGKHA_BHUTAN", wxLANGUAGE_DZONGKHA_BHUTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EDO", wxLANGUAGE_EDO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EDO_NIGERIA", wxLANGUAGE_EDO_NIGERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EMBU", wxLANGUAGE_EMBU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EMBU_KENYA", wxLANGUAGE_EMBU_KENYA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH", wxLANGUAGE_ENGLISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_AMERICAN_SAMOA", wxLANGUAGE_ENGLISH_AMERICAN_SAMOA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ANGUILLA", wxLANGUAGE_ENGLISH_ANGUILLA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ANTIGUA_AND_BARBUDA", wxLANGUAGE_ENGLISH_ANTIGUA_AND_BARBUDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_AUSTRALIA", wxLANGUAGE_ENGLISH_AUSTRALIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_AUSTRIA", wxLANGUAGE_ENGLISH_AUSTRIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BAHAMAS", wxLANGUAGE_ENGLISH_BAHAMAS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BARBADOS", wxLANGUAGE_ENGLISH_BARBADOS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BELGIUM", wxLANGUAGE_ENGLISH_BELGIUM, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BELIZE", wxLANGUAGE_ENGLISH_BELIZE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BERMUDA", wxLANGUAGE_ENGLISH_BERMUDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BOTSWANA", wxLANGUAGE_ENGLISH_BOTSWANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BRITISH_INDIAN_OCEAN_TERRITORY", wxLANGUAGE_ENGLISH_BRITISH_INDIAN_OCEAN_TERRITORY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BRITISH_VIRGIN_ISLANDS", wxLANGUAGE_ENGLISH_BRITISH_VIRGIN_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_BURUNDI", wxLANGUAGE_ENGLISH_BURUNDI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_CAMEROON", wxLANGUAGE_ENGLISH_CAMEROON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_CANADA", wxLANGUAGE_ENGLISH_CANADA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_CARIBBEAN", wxLANGUAGE_ENGLISH_CARIBBEAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_CARIBBEAN_CB", wxLANGUAGE_ENGLISH_CARIBBEAN_CB, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_CAYMAN_ISLANDS", wxLANGUAGE_ENGLISH_CAYMAN_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_CHRISTMAS_ISLAND", wxLANGUAGE_ENGLISH_CHRISTMAS_ISLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_COCOS_KEELING_ISLANDS", wxLANGUAGE_ENGLISH_COCOS_KEELING_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_COOK_ISLANDS", wxLANGUAGE_ENGLISH_COOK_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_CYPRUS", wxLANGUAGE_ENGLISH_CYPRUS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_DENMARK", wxLANGUAGE_ENGLISH_DENMARK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_DOMINICA", wxLANGUAGE_ENGLISH_DOMINICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_EIRE", wxLANGUAGE_ENGLISH_EIRE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ERITREA", wxLANGUAGE_ENGLISH_ERITREA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ESWATINI", wxLANGUAGE_ENGLISH_ESWATINI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_EUROPE", wxLANGUAGE_ENGLISH_EUROPE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_FALKLAND_ISLANDS", wxLANGUAGE_ENGLISH_FALKLAND_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_FIJI", wxLANGUAGE_ENGLISH_FIJI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_FINLAND", wxLANGUAGE_ENGLISH_FINLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GAMBIA", wxLANGUAGE_ENGLISH_GAMBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GERMANY", wxLANGUAGE_ENGLISH_GERMANY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GHANA", wxLANGUAGE_ENGLISH_GHANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GIBRALTAR", wxLANGUAGE_ENGLISH_GIBRALTAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GRENADA", wxLANGUAGE_ENGLISH_GRENADA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GUAM", wxLANGUAGE_ENGLISH_GUAM, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GUERNSEY", wxLANGUAGE_ENGLISH_GUERNSEY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_GUYANA", wxLANGUAGE_ENGLISH_GUYANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_HONG_KONG_SAR", wxLANGUAGE_ENGLISH_HONG_KONG_SAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_INDIA", wxLANGUAGE_ENGLISH_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_INDONESIA", wxLANGUAGE_ENGLISH_INDONESIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ISLE_OF_MAN", wxLANGUAGE_ENGLISH_ISLE_OF_MAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ISRAEL", wxLANGUAGE_ENGLISH_ISRAEL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_JAMAICA", wxLANGUAGE_ENGLISH_JAMAICA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_JERSEY", wxLANGUAGE_ENGLISH_JERSEY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_KENYA", wxLANGUAGE_ENGLISH_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_KIRIBATI", wxLANGUAGE_ENGLISH_KIRIBATI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_LESOTHO", wxLANGUAGE_ENGLISH_LESOTHO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_LIBERIA", wxLANGUAGE_ENGLISH_LIBERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MACAO_SAR", wxLANGUAGE_ENGLISH_MACAO_SAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MADAGASCAR", wxLANGUAGE_ENGLISH_MADAGASCAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MALAWI", wxLANGUAGE_ENGLISH_MALAWI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MALAYSIA", wxLANGUAGE_ENGLISH_MALAYSIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MALTA", wxLANGUAGE_ENGLISH_MALTA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MARSHALL_ISLANDS", wxLANGUAGE_ENGLISH_MARSHALL_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MAURITIUS", wxLANGUAGE_ENGLISH_MAURITIUS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MICRONESIA", wxLANGUAGE_ENGLISH_MICRONESIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_MONTSERRAT", wxLANGUAGE_ENGLISH_MONTSERRAT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NAMIBIA", wxLANGUAGE_ENGLISH_NAMIBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NAURU", wxLANGUAGE_ENGLISH_NAURU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NETHERLANDS", wxLANGUAGE_ENGLISH_NETHERLANDS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NEW_ZEALAND", wxLANGUAGE_ENGLISH_NEW_ZEALAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NIGERIA", wxLANGUAGE_ENGLISH_NIGERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NIUE", wxLANGUAGE_ENGLISH_NIUE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NORFOLK_ISLAND", wxLANGUAGE_ENGLISH_NORFOLK_ISLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_NORTHERN_MARIANA_ISLANDS", wxLANGUAGE_ENGLISH_NORTHERN_MARIANA_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_PAKISTAN", wxLANGUAGE_ENGLISH_PAKISTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_PALAU", wxLANGUAGE_ENGLISH_PALAU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_PAPUA_NEW_GUINEA", wxLANGUAGE_ENGLISH_PAPUA_NEW_GUINEA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_PHILIPPINES", wxLANGUAGE_ENGLISH_PHILIPPINES, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_PITCAIRN_ISLANDS", wxLANGUAGE_ENGLISH_PITCAIRN_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_PUERTO_RICO", wxLANGUAGE_ENGLISH_PUERTO_RICO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_RWANDA", wxLANGUAGE_ENGLISH_RWANDA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SAMOA", wxLANGUAGE_ENGLISH_SAMOA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SEYCHELLES", wxLANGUAGE_ENGLISH_SEYCHELLES, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SIERRA_LEONE", wxLANGUAGE_ENGLISH_SIERRA_LEONE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SINGAPORE", wxLANGUAGE_ENGLISH_SINGAPORE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SINT_MAARTEN", wxLANGUAGE_ENGLISH_SINT_MAARTEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SLOVENIA", wxLANGUAGE_ENGLISH_SLOVENIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SOLOMON_ISLANDS", wxLANGUAGE_ENGLISH_SOLOMON_ISLANDS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SOUTH_AFRICA", wxLANGUAGE_ENGLISH_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SOUTH_SUDAN", wxLANGUAGE_ENGLISH_SOUTH_SUDAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ST_HELENA_ASCENSION_TRISTAN_DA_CUNHA", wxLANGUAGE_ENGLISH_ST_HELENA_ASCENSION_TRISTAN_DA_CUNHA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ST_KITTS_AND_NEVIS", wxLANGUAGE_ENGLISH_ST_KITTS_AND_NEVIS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ST_LUCIA", wxLANGUAGE_ENGLISH_ST_LUCIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ST_VINCENT_AND_GRENADINES", wxLANGUAGE_ENGLISH_ST_VINCENT_AND_GRENADINES, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SUDAN", wxLANGUAGE_ENGLISH_SUDAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SWEDEN", wxLANGUAGE_ENGLISH_SWEDEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_SWITZERLAND", wxLANGUAGE_ENGLISH_SWITZERLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_TANZANIA", wxLANGUAGE_ENGLISH_TANZANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_TOKELAU", wxLANGUAGE_ENGLISH_TOKELAU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_TONGA", wxLANGUAGE_ENGLISH_TONGA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_TRINIDAD", wxLANGUAGE_ENGLISH_TRINIDAD, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_TURKS_AND_CAICOS_ISLANDS", wxLANGUAGE_ENGLISH_TURKS_AND_CAICOS_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_TUVALU", wxLANGUAGE_ENGLISH_TUVALU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_UGANDA", wxLANGUAGE_ENGLISH_UGANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_UK", wxLANGUAGE_ENGLISH_UK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_UNITED_ARAB_EMIRATES", wxLANGUAGE_ENGLISH_UNITED_ARAB_EMIRATES, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_US", wxLANGUAGE_ENGLISH_US, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_US_OUTLYING_ISLANDS", wxLANGUAGE_ENGLISH_US_OUTLYING_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_US_VIRGIN_ISLANDS", wxLANGUAGE_ENGLISH_US_VIRGIN_ISLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_VANUATU", wxLANGUAGE_ENGLISH_VANUATU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_WORLD", wxLANGUAGE_ENGLISH_WORLD, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ZAMBIA", wxLANGUAGE_ENGLISH_ZAMBIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ENGLISH_ZIMBABWE", wxLANGUAGE_ENGLISH_ZIMBABWE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ESPERANTO", wxLANGUAGE_ESPERANTO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ESPERANTO_WORLD", wxLANGUAGE_ESPERANTO_WORLD, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ESTONIAN", wxLANGUAGE_ESTONIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ESTONIAN_ESTONIA", wxLANGUAGE_ESTONIAN_ESTONIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EWE", wxLANGUAGE_EWE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EWE_GHANA", wxLANGUAGE_EWE_GHANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EWE_TOGO", wxLANGUAGE_EWE_TOGO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EWONDO", wxLANGUAGE_EWONDO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_EWONDO_CAMEROON", wxLANGUAGE_EWONDO_CAMEROON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FAEROESE", wxLANGUAGE_FAEROESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FAEROESE_DENMARK", wxLANGUAGE_FAEROESE_DENMARK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FAEROESE_FAROE_ISLANDS", wxLANGUAGE_FAEROESE_FAROE_ISLANDS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FARSI", wxLANGUAGE_FARSI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FIJI", wxLANGUAGE_FIJI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FILIPINO", wxLANGUAGE_FILIPINO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FILIPINO_PHILIPPINES", wxLANGUAGE_FILIPINO_PHILIPPINES, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FINNISH", wxLANGUAGE_FINNISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FINNISH_FINLAND", wxLANGUAGE_FINNISH_FINLAND, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH", wxLANGUAGE_FRENCH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_ALGERIA", wxLANGUAGE_FRENCH_ALGERIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_BELGIAN", wxLANGUAGE_FRENCH_BELGIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_BENIN", wxLANGUAGE_FRENCH_BENIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_BURKINA_FASO", wxLANGUAGE_FRENCH_BURKINA_FASO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_BURUNDI", wxLANGUAGE_FRENCH_BURUNDI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_CAMEROON", wxLANGUAGE_FRENCH_CAMEROON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_CANADIAN", wxLANGUAGE_FRENCH_CANADIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_CARIBBEAN", wxLANGUAGE_FRENCH_CARIBBEAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_CENTRAL_AFRICAN_REPUBLIC", wxLANGUAGE_FRENCH_CENTRAL_AFRICAN_REPUBLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_CHAD", wxLANGUAGE_FRENCH_CHAD, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_COMOROS", wxLANGUAGE_FRENCH_COMOROS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_CONGO", wxLANGUAGE_FRENCH_CONGO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_CONGO_DRC", wxLANGUAGE_FRENCH_CONGO_DRC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_COTE_DIVOIRE", wxLANGUAGE_FRENCH_COTE_DIVOIRE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_DJIBOUTI", wxLANGUAGE_FRENCH_DJIBOUTI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_EQUATORIAL_GUINEA", wxLANGUAGE_FRENCH_EQUATORIAL_GUINEA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_FRANCE", wxLANGUAGE_FRENCH_FRANCE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_FRENCH_GUIANA", wxLANGUAGE_FRENCH_FRENCH_GUIANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_FRENCH_POLYNESIA", wxLANGUAGE_FRENCH_FRENCH_POLYNESIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_GABON", wxLANGUAGE_FRENCH_GABON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_GUADELOUPE", wxLANGUAGE_FRENCH_GUADELOUPE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_GUINEA", wxLANGUAGE_FRENCH_GUINEA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_HAITI", wxLANGUAGE_FRENCH_HAITI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_LUXEMBOURG", wxLANGUAGE_FRENCH_LUXEMBOURG, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MADAGASCAR", wxLANGUAGE_FRENCH_MADAGASCAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MALI", wxLANGUAGE_FRENCH_MALI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MARTINIQUE", wxLANGUAGE_FRENCH_MARTINIQUE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MAURITANIA", wxLANGUAGE_FRENCH_MAURITANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MAURITIUS", wxLANGUAGE_FRENCH_MAURITIUS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MAYOTTE", wxLANGUAGE_FRENCH_MAYOTTE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MONACO", wxLANGUAGE_FRENCH_MONACO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_MOROCCO", wxLANGUAGE_FRENCH_MOROCCO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_NEW_CALEDONIA", wxLANGUAGE_FRENCH_NEW_CALEDONIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_NIGER", wxLANGUAGE_FRENCH_NIGER, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_REUNION", wxLANGUAGE_FRENCH_REUNION, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_RWANDA", wxLANGUAGE_FRENCH_RWANDA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_SENEGAL", wxLANGUAGE_FRENCH_SENEGAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_SEYCHELLES", wxLANGUAGE_FRENCH_SEYCHELLES, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_ST_BARTHELEMY", wxLANGUAGE_FRENCH_ST_BARTHELEMY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_ST_MARTIN", wxLANGUAGE_FRENCH_ST_MARTIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_ST_PIERRE_AND_MIQUELON", wxLANGUAGE_FRENCH_ST_PIERRE_AND_MIQUELON, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_SWISS", wxLANGUAGE_FRENCH_SWISS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_SYRIA", wxLANGUAGE_FRENCH_SYRIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_TOGO", wxLANGUAGE_FRENCH_TOGO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_TUNISIA", wxLANGUAGE_FRENCH_TUNISIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_VANUATU", wxLANGUAGE_FRENCH_VANUATU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRENCH_WALLIS_AND_FUTUNA", wxLANGUAGE_FRENCH_WALLIS_AND_FUTUNA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_FRISIAN", wxLANGUAGE_FRISIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRISIAN_NETHERLANDS", wxLANGUAGE_FRISIAN_NETHERLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRIULIAN", wxLANGUAGE_FRIULIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FRIULIAN_ITALY", wxLANGUAGE_FRIULIAN_ITALY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH", wxLANGUAGE_FULAH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN", wxLANGUAGE_FULAH_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_BURKINA_FASO", wxLANGUAGE_FULAH_LATIN_BURKINA_FASO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_CAMEROON", wxLANGUAGE_FULAH_LATIN_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_GAMBIA", wxLANGUAGE_FULAH_LATIN_GAMBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_GHANA", wxLANGUAGE_FULAH_LATIN_GHANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_GUINEA", wxLANGUAGE_FULAH_LATIN_GUINEA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_GUINEA_BISSAU", wxLANGUAGE_FULAH_LATIN_GUINEA_BISSAU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_LIBERIA", wxLANGUAGE_FULAH_LATIN_LIBERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_MAURITANIA", wxLANGUAGE_FULAH_LATIN_MAURITANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_NIGER", wxLANGUAGE_FULAH_LATIN_NIGER, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_NIGERIA", wxLANGUAGE_FULAH_LATIN_NIGERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_SENEGAL", wxLANGUAGE_FULAH_LATIN_SENEGAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_FULAH_LATIN_SIERRA_LEONE", wxLANGUAGE_FULAH_LATIN_SIERRA_LEONE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GALICIAN", wxLANGUAGE_GALICIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GALICIAN_SPAIN", wxLANGUAGE_GALICIAN_SPAIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GANDA", wxLANGUAGE_GANDA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GANDA_UGANDA", wxLANGUAGE_GANDA_UGANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GEORGIAN", wxLANGUAGE_GEORGIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GEORGIAN_GEORGIA", wxLANGUAGE_GEORGIAN_GEORGIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN", wxLANGUAGE_GERMAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN_AUSTRIAN", wxLANGUAGE_GERMAN_AUSTRIAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN_BELGIUM", wxLANGUAGE_GERMAN_BELGIUM, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN_GERMANY", wxLANGUAGE_GERMAN_GERMANY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN_ITALY", wxLANGUAGE_GERMAN_ITALY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN_LIECHTENSTEIN", wxLANGUAGE_GERMAN_LIECHTENSTEIN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN_LUXEMBOURG", wxLANGUAGE_GERMAN_LUXEMBOURG, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GERMAN_SWISS", wxLANGUAGE_GERMAN_SWISS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GREEK", wxLANGUAGE_GREEK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GREEK_CYPRUS", wxLANGUAGE_GREEK_CYPRUS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GREEK_GREECE", wxLANGUAGE_GREEK_GREECE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GREENLANDIC", wxLANGUAGE_GREENLANDIC, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GUARANI", wxLANGUAGE_GUARANI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GUARANI_PARAGUAY", wxLANGUAGE_GUARANI_PARAGUAY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_GUJARATI", wxLANGUAGE_GUJARATI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GUJARATI_INDIA", wxLANGUAGE_GUJARATI_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GUSII", wxLANGUAGE_GUSII, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_GUSII_KENYA", wxLANGUAGE_GUSII_KENYA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_HAUSA", wxLANGUAGE_HAUSA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HAUSA_LATIN", wxLANGUAGE_HAUSA_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HAUSA_LATIN_GHANA", wxLANGUAGE_HAUSA_LATIN_GHANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HAUSA_LATIN_NIGER", wxLANGUAGE_HAUSA_LATIN_NIGER, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HAUSA_LATIN_NIGERIA", wxLANGUAGE_HAUSA_LATIN_NIGERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HAWAIIAN", wxLANGUAGE_HAWAIIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HAWAIIAN_US", wxLANGUAGE_HAWAIIAN_US, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_HEBREW", wxLANGUAGE_HEBREW, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HEBREW_ISRAEL", wxLANGUAGE_HEBREW_ISRAEL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_HINDI", wxLANGUAGE_HINDI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HINDI_INDIA", wxLANGUAGE_HINDI_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_HUNGARIAN", wxLANGUAGE_HUNGARIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_HUNGARIAN_HUNGARY", wxLANGUAGE_HUNGARIAN_HUNGARY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_IBIBIO", wxLANGUAGE_IBIBIO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_IBIBIO_NIGERIA", wxLANGUAGE_IBIBIO_NIGERIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ICELANDIC", wxLANGUAGE_ICELANDIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ICELANDIC_ICELAND", wxLANGUAGE_ICELANDIC_ICELAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_IGBO", wxLANGUAGE_IGBO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_IGBO_NIGERIA", wxLANGUAGE_IGBO_NIGERIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_INDONESIAN", wxLANGUAGE_INDONESIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_INDONESIAN_INDONESIA", wxLANGUAGE_INDONESIAN_INDONESIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_INTERLINGUA", wxLANGUAGE_INTERLINGUA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_INTERLINGUA_WORLD", wxLANGUAGE_INTERLINGUA_WORLD, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_INTERLINGUE", wxLANGUAGE_INTERLINGUE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_INUKTITUT", wxLANGUAGE_INUKTITUT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_INUKTITUT_LATIN", wxLANGUAGE_INUKTITUT_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_INUKTITUT_LATIN_CANADA", wxLANGUAGE_INUKTITUT_LATIN_CANADA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_INUKTITUT_SYLLABICS", wxLANGUAGE_INUKTITUT_SYLLABICS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_INUKTITUT_SYLLABICS_CANADA", wxLANGUAGE_INUKTITUT_SYLLABICS_CANADA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_INUPIAK", wxLANGUAGE_INUPIAK, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_IRISH", wxLANGUAGE_IRISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_IRISH_IRELAND", wxLANGUAGE_IRISH_IRELAND, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ITALIAN", wxLANGUAGE_ITALIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ITALIAN_ITALY", wxLANGUAGE_ITALIAN_ITALY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ITALIAN_SAN_MARINO", wxLANGUAGE_ITALIAN_SAN_MARINO, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ITALIAN_SWISS", wxLANGUAGE_ITALIAN_SWISS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ITALIAN_VATICAN_CITY", wxLANGUAGE_ITALIAN_VATICAN_CITY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_JAPANESE", wxLANGUAGE_JAPANESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_JAPANESE_JAPAN", wxLANGUAGE_JAPANESE_JAPAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_JAVANESE", wxLANGUAGE_JAVANESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_JAVANESE_INDONESIA", wxLANGUAGE_JAVANESE_INDONESIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_JAVANESE_JAVANESE", wxLANGUAGE_JAVANESE_JAVANESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_JAVANESE_JAVANESE_INDONESIA", wxLANGUAGE_JAVANESE_JAVANESE_INDONESIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_JOLA_FONYI", wxLANGUAGE_JOLA_FONYI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_JOLA_FONYI_SENEGAL", wxLANGUAGE_JOLA_FONYI_SENEGAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KABUVERDIANU", wxLANGUAGE_KABUVERDIANU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KABUVERDIANU_CABO_VERDE", wxLANGUAGE_KABUVERDIANU_CABO_VERDE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KABYLE", wxLANGUAGE_KABYLE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KABYLE_ALGERIA", wxLANGUAGE_KABYLE_ALGERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KAKO", wxLANGUAGE_KAKO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KAKO_CAMEROON", wxLANGUAGE_KAKO_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KALAALLISUT", wxLANGUAGE_KALAALLISUT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KALENJIN", wxLANGUAGE_KALENJIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KALENJIN_KENYA", wxLANGUAGE_KALENJIN_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KAMBA", wxLANGUAGE_KAMBA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KAMBA_KENYA", wxLANGUAGE_KAMBA_KENYA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KANNADA", wxLANGUAGE_KANNADA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KANNADA_INDIA", wxLANGUAGE_KANNADA_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KANURI", wxLANGUAGE_KANURI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KANURI_LATIN", wxLANGUAGE_KANURI_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KANURI_NIGERIA", wxLANGUAGE_KANURI_NIGERIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KASHMIRI", wxLANGUAGE_KASHMIRI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KASHMIRI_DEVANAGARI", wxLANGUAGE_KASHMIRI_DEVANAGARI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KASHMIRI_DEVANAGARI_INDIA", wxLANGUAGE_KASHMIRI_DEVANAGARI_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KASHMIRI_INDIA", wxLANGUAGE_KASHMIRI_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KASHMIRI_PERSO_ARABIC", wxLANGUAGE_KASHMIRI_PERSO_ARABIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KASHMIRI_PERSO_ARABIC_INDIA", wxLANGUAGE_KASHMIRI_PERSO_ARABIC_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KAZAKH", wxLANGUAGE_KAZAKH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KAZAKH_KAZAKHSTAN", wxLANGUAGE_KAZAKH_KAZAKHSTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KERNEWEK", wxLANGUAGE_KERNEWEK, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KHMER", wxLANGUAGE_KHMER, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KHMER_CAMBODIA", wxLANGUAGE_KHMER_CAMBODIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KICHE", wxLANGUAGE_KICHE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KICHE_GUATEMALA", wxLANGUAGE_KICHE_GUATEMALA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KICHE_LATIN", wxLANGUAGE_KICHE_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KIKUYU", wxLANGUAGE_KIKUYU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KIKUYU_KENYA", wxLANGUAGE_KIKUYU_KENYA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KINYARWANDA", wxLANGUAGE_KINYARWANDA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KINYARWANDA_RWANDA", wxLANGUAGE_KINYARWANDA_RWANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KIRGHIZ", wxLANGUAGE_KIRGHIZ, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KIRGHIZ_KYRGYZSTAN", wxLANGUAGE_KIRGHIZ_KYRGYZSTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KIRUNDI", wxLANGUAGE_KIRUNDI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KIRUNDI_BURUNDI", wxLANGUAGE_KIRUNDI_BURUNDI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KONKANI", wxLANGUAGE_KONKANI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KONKANI_INDIA", wxLANGUAGE_KONKANI_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KOREAN", wxLANGUAGE_KOREAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KOREAN_KOREA", wxLANGUAGE_KOREAN_KOREA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KOREAN_NORTH_KOREA", wxLANGUAGE_KOREAN_NORTH_KOREA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KOYRABORO_SENNI", wxLANGUAGE_KOYRABORO_SENNI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KOYRABORO_SENNI_MALI", wxLANGUAGE_KOYRABORO_SENNI_MALI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KOYRA_CHIINI", wxLANGUAGE_KOYRA_CHIINI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KOYRA_CHIINI_MALI", wxLANGUAGE_KOYRA_CHIINI_MALI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_KURDISH", wxLANGUAGE_KURDISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KURDISH_PERSO_ARABIC_IRAN", wxLANGUAGE_KURDISH_PERSO_ARABIC_IRAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KWASIO", wxLANGUAGE_KWASIO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_KWASIO_CAMEROON", wxLANGUAGE_KWASIO_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LAKOTA", wxLANGUAGE_LAKOTA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LAKOTA_US", wxLANGUAGE_LAKOTA_US, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LANGI", wxLANGUAGE_LANGI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LANGI_TANZANIA", wxLANGUAGE_LANGI_TANZANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_LAOTHIAN", wxLANGUAGE_LAOTHIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LAOTHIAN_LAOS", wxLANGUAGE_LAOTHIAN_LAOS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_LATIN", wxLANGUAGE_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LATIN_WORLD", wxLANGUAGE_LATIN_WORLD, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_LATVIAN", wxLANGUAGE_LATVIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LATVIAN_LATVIA", wxLANGUAGE_LATVIAN_LATVIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_LINGALA", wxLANGUAGE_LINGALA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LINGALA_ANGOLA", wxLANGUAGE_LINGALA_ANGOLA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LINGALA_CENTRAL_AFRICAN_REPUBLIC", wxLANGUAGE_LINGALA_CENTRAL_AFRICAN_REPUBLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LINGALA_CONGO", wxLANGUAGE_LINGALA_CONGO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LINGALA_CONGO_DRC", wxLANGUAGE_LINGALA_CONGO_DRC, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_LITHUANIAN", wxLANGUAGE_LITHUANIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LITHUANIAN_LITHUANIA", wxLANGUAGE_LITHUANIAN_LITHUANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LOWER_SORBIAN", wxLANGUAGE_LOWER_SORBIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LOWER_SORBIAN_GERMANY", wxLANGUAGE_LOWER_SORBIAN_GERMANY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LOW_GERMAN", wxLANGUAGE_LOW_GERMAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LOW_GERMAN_GERMANY", wxLANGUAGE_LOW_GERMAN_GERMANY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LOW_GERMAN_NETHERLANDS", wxLANGUAGE_LOW_GERMAN_NETHERLANDS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUBA_KATANGA", wxLANGUAGE_LUBA_KATANGA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUBA_KATANGA_CONGO_DRC", wxLANGUAGE_LUBA_KATANGA_CONGO_DRC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUO", wxLANGUAGE_LUO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUO_KENYA", wxLANGUAGE_LUO_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUXEMBOURGISH", wxLANGUAGE_LUXEMBOURGISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUXEMBOURGISH_LUXEMBOURG", wxLANGUAGE_LUXEMBOURGISH_LUXEMBOURG, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUYIA", wxLANGUAGE_LUYIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_LUYIA_KENYA", wxLANGUAGE_LUYIA_KENYA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MACEDONIAN", wxLANGUAGE_MACEDONIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MACEDONIAN_NORTH_MACEDONIA", wxLANGUAGE_MACEDONIAN_NORTH_MACEDONIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MACHAME", wxLANGUAGE_MACHAME, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MACHAME_TANZANIA", wxLANGUAGE_MACHAME_TANZANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAKHUWA_MEETTO", wxLANGUAGE_MAKHUWA_MEETTO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAKHUWA_MEETTO_MOZAMBIQUE", wxLANGUAGE_MAKHUWA_MEETTO_MOZAMBIQUE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAKONDE", wxLANGUAGE_MAKONDE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAKONDE_TANZANIA", wxLANGUAGE_MAKONDE_TANZANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAGASY", wxLANGUAGE_MALAGASY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAGASY_MADAGASCAR", wxLANGUAGE_MALAGASY_MADAGASCAR, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAY", wxLANGUAGE_MALAY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAYALAM", wxLANGUAGE_MALAYALAM, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAYALAM_INDIA", wxLANGUAGE_MALAYALAM_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAY_BRUNEI", wxLANGUAGE_MALAY_BRUNEI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAY_BRUNEI_DARUSSALAM", wxLANGUAGE_MALAY_BRUNEI_DARUSSALAM, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAY_MALAYSIA", wxLANGUAGE_MALAY_MALAYSIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MALAY_SINGAPORE", wxLANGUAGE_MALAY_SINGAPORE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MALTESE", wxLANGUAGE_MALTESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MALTESE_MALTA", wxLANGUAGE_MALTESE_MALTA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MANIPURI", wxLANGUAGE_MANIPURI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MANIPURI_INDIA", wxLANGUAGE_MANIPURI_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MANX", wxLANGUAGE_MANX, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MANX_ISLE_OF_MAN", wxLANGUAGE_MANX_ISLE_OF_MAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MAORI", wxLANGUAGE_MAORI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAORI_NEW_ZEALAND", wxLANGUAGE_MAORI_NEW_ZEALAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAPUCHE", wxLANGUAGE_MAPUCHE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAPUCHE_CHILE", wxLANGUAGE_MAPUCHE_CHILE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MARATHI", wxLANGUAGE_MARATHI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MARATHI_INDIA", wxLANGUAGE_MARATHI_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MASAI", wxLANGUAGE_MASAI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MASAI_KENYA", wxLANGUAGE_MASAI_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MASAI_TANZANIA", wxLANGUAGE_MASAI_TANZANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAZANDERANI", wxLANGUAGE_MAZANDERANI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MAZANDERANI_IRAN", wxLANGUAGE_MAZANDERANI_IRAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MERU", wxLANGUAGE_MERU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MERU_KENYA", wxLANGUAGE_MERU_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_META", wxLANGUAGE_META, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_META_CAMEROON", wxLANGUAGE_META_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MOHAWK", wxLANGUAGE_MOHAWK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MOHAWK_CANADA", wxLANGUAGE_MOHAWK_CANADA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MOLDAVIAN", wxLANGUAGE_MOLDAVIAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_MONGOLIAN", wxLANGUAGE_MONGOLIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MONGOLIAN_CYRILLIC", wxLANGUAGE_MONGOLIAN_CYRILLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MONGOLIAN_MONGOLIA", wxLANGUAGE_MONGOLIAN_MONGOLIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MONGOLIAN_TRADITIONAL", wxLANGUAGE_MONGOLIAN_TRADITIONAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MONGOLIAN_TRADITIONAL_CHINA", wxLANGUAGE_MONGOLIAN_TRADITIONAL_CHINA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MONGOLIAN_TRADITIONAL_MONGOLIA", wxLANGUAGE_MONGOLIAN_TRADITIONAL_MONGOLIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MORISYEN", wxLANGUAGE_MORISYEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MORISYEN_MAURITIUS", wxLANGUAGE_MORISYEN_MAURITIUS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MUNDANG", wxLANGUAGE_MUNDANG, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_MUNDANG_CAMEROON", wxLANGUAGE_MUNDANG_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NAMA", wxLANGUAGE_NAMA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NAMA_NAMIBIA", wxLANGUAGE_NAMA_NAMIBIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_NAURU", wxLANGUAGE_NAURU, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_NEPALI", wxLANGUAGE_NEPALI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_NEPALI_INDIA", wxLANGUAGE_NEPALI_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NEPALI_NEPAL", wxLANGUAGE_NEPALI_NEPAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NGIEMBOON", wxLANGUAGE_NGIEMBOON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NGIEMBOON_CAMEROON", wxLANGUAGE_NGIEMBOON_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NGOMBA", wxLANGUAGE_NGOMBA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NGOMBA_CAMEROON", wxLANGUAGE_NGOMBA_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NKO", wxLANGUAGE_NKO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NKO_GUINEA", wxLANGUAGE_NKO_GUINEA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORTHERN_LURI", wxLANGUAGE_NORTHERN_LURI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORTHERN_LURI_IRAN", wxLANGUAGE_NORTHERN_LURI_IRAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORTHERN_LURI_IRAQ", wxLANGUAGE_NORTHERN_LURI_IRAQ, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORTH_NDEBELE", wxLANGUAGE_NORTH_NDEBELE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORTH_NDEBELE_ZIMBABWE", wxLANGUAGE_NORTH_NDEBELE_ZIMBABWE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORWEGIAN", wxLANGUAGE_NORWEGIAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_NORWEGIAN_BOKMAL", wxLANGUAGE_NORWEGIAN_BOKMAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORWEGIAN_BOKMAL_NORWAY", wxLANGUAGE_NORWEGIAN_BOKMAL_NORWAY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORWEGIAN_BOKMAL_SVALBARD_AND_JAN_MAYEN", wxLANGUAGE_NORWEGIAN_BOKMAL_SVALBARD_AND_JAN_MAYEN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_NORWEGIAN_NYNORSK", wxLANGUAGE_NORWEGIAN_NYNORSK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NORWEGIAN_NYNORSK_NORWAY", wxLANGUAGE_NORWEGIAN_NYNORSK_NORWAY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NUER", wxLANGUAGE_NUER, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NUER_SOUTH_SUDAN", wxLANGUAGE_NUER_SOUTH_SUDAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NYANKOLE", wxLANGUAGE_NYANKOLE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_NYANKOLE_UGANDA", wxLANGUAGE_NYANKOLE_UGANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_OCCITAN", wxLANGUAGE_OCCITAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_OCCITAN_FRANCE", wxLANGUAGE_OCCITAN_FRANCE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ODIA", wxLANGUAGE_ODIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ODIA_INDIA", wxLANGUAGE_ODIA_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ORIYA", wxLANGUAGE_ORIYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ORIYA_INDIA", wxLANGUAGE_ORIYA_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_OROMO", wxLANGUAGE_OROMO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_OROMO_ETHIOPIA", wxLANGUAGE_OROMO_ETHIOPIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_OROMO_KENYA", wxLANGUAGE_OROMO_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_OSSETIC", wxLANGUAGE_OSSETIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_OSSETIC_GEORGIA", wxLANGUAGE_OSSETIC_GEORGIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_OSSETIC_RUSSIA", wxLANGUAGE_OSSETIC_RUSSIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PAPIAMENTO", wxLANGUAGE_PAPIAMENTO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PAPIAMENTO_CARIBBEAN", wxLANGUAGE_PAPIAMENTO_CARIBBEAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_PASHTO", wxLANGUAGE_PASHTO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PASHTO_AFGHANISTAN", wxLANGUAGE_PASHTO_AFGHANISTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PASHTO_PAKISTAN", wxLANGUAGE_PASHTO_PAKISTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PERSIAN_IRAN", wxLANGUAGE_PERSIAN_IRAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_POLISH", wxLANGUAGE_POLISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_POLISH_POLAND", wxLANGUAGE_POLISH_POLAND, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE", wxLANGUAGE_PORTUGUESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_ANGOLA", wxLANGUAGE_PORTUGUESE_ANGOLA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_BRAZILIAN", wxLANGUAGE_PORTUGUESE_BRAZILIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_CABO_VERDE", wxLANGUAGE_PORTUGUESE_CABO_VERDE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_EQUATORIAL_GUINEA", wxLANGUAGE_PORTUGUESE_EQUATORIAL_GUINEA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_GUINEA_BISSAU", wxLANGUAGE_PORTUGUESE_GUINEA_BISSAU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_LUXEMBOURG", wxLANGUAGE_PORTUGUESE_LUXEMBOURG, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_MACAO_SAR", wxLANGUAGE_PORTUGUESE_MACAO_SAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_MOZAMBIQUE", wxLANGUAGE_PORTUGUESE_MOZAMBIQUE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_PORTUGAL", wxLANGUAGE_PORTUGUESE_PORTUGAL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_SAO_TOME_AND_PRINCIPE", wxLANGUAGE_PORTUGUESE_SAO_TOME_AND_PRINCIPE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_SWITZERLAND", wxLANGUAGE_PORTUGUESE_SWITZERLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PORTUGUESE_TIMOR_LESTE", wxLANGUAGE_PORTUGUESE_TIMOR_LESTE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PRUSSIAN", wxLANGUAGE_PRUSSIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PRUSSIAN_WORLD", wxLANGUAGE_PRUSSIAN_WORLD, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_PUNJABI", wxLANGUAGE_PUNJABI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PUNJABI_ARABIC", wxLANGUAGE_PUNJABI_ARABIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PUNJABI_GURMUKHI", wxLANGUAGE_PUNJABI_GURMUKHI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PUNJABI_INDIA", wxLANGUAGE_PUNJABI_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_PUNJABI_PAKISTAN", wxLANGUAGE_PUNJABI_PAKISTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_QUECHUA", wxLANGUAGE_QUECHUA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_QUECHUA_BOLIVIA", wxLANGUAGE_QUECHUA_BOLIVIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_QUECHUA_ECUADOR", wxLANGUAGE_QUECHUA_ECUADOR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_QUECHUA_MACRO", wxLANGUAGE_QUECHUA_MACRO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_QUECHUA_PERU", wxLANGUAGE_QUECHUA_PERU, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_RHAETO_ROMANCE", wxLANGUAGE_RHAETO_ROMANCE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RHAETO_ROMANCE_SWITZERLAND", wxLANGUAGE_RHAETO_ROMANCE_SWITZERLAND, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ROMANIAN", wxLANGUAGE_ROMANIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ROMANIAN_MOLDOVA", wxLANGUAGE_ROMANIAN_MOLDOVA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ROMANIAN_ROMANIA", wxLANGUAGE_ROMANIAN_ROMANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ROMBO", wxLANGUAGE_ROMBO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ROMBO_TANZANIA", wxLANGUAGE_ROMBO_TANZANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_RUSSIAN", wxLANGUAGE_RUSSIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RUSSIAN_BELARUS", wxLANGUAGE_RUSSIAN_BELARUS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RUSSIAN_KAZAKHSTAN", wxLANGUAGE_RUSSIAN_KAZAKHSTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RUSSIAN_KYRGYZSTAN", wxLANGUAGE_RUSSIAN_KYRGYZSTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RUSSIAN_MOLDOVA", wxLANGUAGE_RUSSIAN_MOLDOVA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RUSSIAN_RUSSIA", wxLANGUAGE_RUSSIAN_RUSSIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_RUSSIAN_UKRAINE", wxLANGUAGE_RUSSIAN_UKRAINE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RWA", wxLANGUAGE_RWA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_RWA_TANZANIA", wxLANGUAGE_RWA_TANZANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAHO", wxLANGUAGE_SAHO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAHO_ERITREA", wxLANGUAGE_SAHO_ERITREA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAKHA", wxLANGUAGE_SAKHA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAKHA_RUSSIA", wxLANGUAGE_SAKHA_RUSSIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMBURU", wxLANGUAGE_SAMBURU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMBURU_KENYA", wxLANGUAGE_SAMBURU_KENYA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI", wxLANGUAGE_SAMI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_FINLAND", wxLANGUAGE_SAMI_FINLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_INARI", wxLANGUAGE_SAMI_INARI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_INARI_FINLAND", wxLANGUAGE_SAMI_INARI_FINLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_LULE", wxLANGUAGE_SAMI_LULE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_LULE_NORWAY", wxLANGUAGE_SAMI_LULE_NORWAY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_LULE_SWEDEN", wxLANGUAGE_SAMI_LULE_SWEDEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_NORWAY", wxLANGUAGE_SAMI_NORWAY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_SKOLT", wxLANGUAGE_SAMI_SKOLT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_SKOLT_FINLAND", wxLANGUAGE_SAMI_SKOLT_FINLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_SOUTHERN", wxLANGUAGE_SAMI_SOUTHERN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_SOUTHERN_NORWAY", wxLANGUAGE_SAMI_SOUTHERN_NORWAY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_SOUTHERN_SWEDEN", wxLANGUAGE_SAMI_SOUTHERN_SWEDEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMI_SWEDEN", wxLANGUAGE_SAMI_SWEDEN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SAMOAN", wxLANGUAGE_SAMOAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SANGHO", wxLANGUAGE_SANGHO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SANGHO_CENTRAL_AFRICAN_REPUBLIC", wxLANGUAGE_SANGHO_CENTRAL_AFRICAN_REPUBLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SANGU", wxLANGUAGE_SANGU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SANGU_TANZANIA", wxLANGUAGE_SANGU_TANZANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SANSKRIT", wxLANGUAGE_SANSKRIT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SANSKRIT_INDIA", wxLANGUAGE_SANSKRIT_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SCOTS_GAELIC", wxLANGUAGE_SCOTS_GAELIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SCOTS_GAELIC_UK", wxLANGUAGE_SCOTS_GAELIC_UK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SENA", wxLANGUAGE_SENA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SENA_MOZAMBIQUE", wxLANGUAGE_SENA_MOZAMBIQUE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN", wxLANGUAGE_SERBIAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_CYRILLIC", wxLANGUAGE_SERBIAN_CYRILLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_CYRILLIC_BOSNIA_AND_HERZEGOVINA", wxLANGUAGE_SERBIAN_CYRILLIC_BOSNIA_AND_HERZEGOVINA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_CYRILLIC_KOSOVO", wxLANGUAGE_SERBIAN_CYRILLIC_KOSOVO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_CYRILLIC_MONTENEGRO", wxLANGUAGE_SERBIAN_CYRILLIC_MONTENEGRO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_CYRILLIC_SERBIA", wxLANGUAGE_SERBIAN_CYRILLIC_SERBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_CYRILLIC_YU", wxLANGUAGE_SERBIAN_CYRILLIC_YU, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_LATIN", wxLANGUAGE_SERBIAN_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_LATIN_BOSNIA_AND_HERZEGOVINA", wxLANGUAGE_SERBIAN_LATIN_BOSNIA_AND_HERZEGOVINA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_LATIN_KOSOVO", wxLANGUAGE_SERBIAN_LATIN_KOSOVO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_LATIN_MONTENEGRO", wxLANGUAGE_SERBIAN_LATIN_MONTENEGRO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_LATIN_SERBIA", wxLANGUAGE_SERBIAN_LATIN_SERBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_LATIN_YU", wxLANGUAGE_SERBIAN_LATIN_YU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_SERBIA", wxLANGUAGE_SERBIAN_SERBIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBIAN_YU", wxLANGUAGE_SERBIAN_YU, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SERBO_CROATIAN", wxLANGUAGE_SERBO_CROATIAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SESOTHO", wxLANGUAGE_SESOTHO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SESOTHO_LESOTHO", wxLANGUAGE_SESOTHO_LESOTHO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SESOTHO_SA_LEBOA", wxLANGUAGE_SESOTHO_SA_LEBOA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SESOTHO_SA_LEBOA_SOUTH_AFRICA", wxLANGUAGE_SESOTHO_SA_LEBOA_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SESOTHO_SOUTH_AFRICA", wxLANGUAGE_SESOTHO_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SETSWANA", wxLANGUAGE_SETSWANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SETSWANA_BOTSWANA", wxLANGUAGE_SETSWANA_BOTSWANA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SETSWANA_SOUTH_AFRICA", wxLANGUAGE_SETSWANA_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SHAMBALA", wxLANGUAGE_SHAMBALA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SHAMBALA_TANZANIA", wxLANGUAGE_SHAMBALA_TANZANIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SHONA", wxLANGUAGE_SHONA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SHONA_LATIN", wxLANGUAGE_SHONA_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SHONA_LATIN_ZIMBABWE", wxLANGUAGE_SHONA_LATIN_ZIMBABWE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SINDHI", wxLANGUAGE_SINDHI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SINDHI_ARABIC", wxLANGUAGE_SINDHI_ARABIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SINDHI_DEVANAGARI", wxLANGUAGE_SINDHI_DEVANAGARI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SINDHI_DEVANAGARI_INDIA", wxLANGUAGE_SINDHI_DEVANAGARI_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SINDHI_PAKISTAN", wxLANGUAGE_SINDHI_PAKISTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SINHALESE", wxLANGUAGE_SINHALESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SINHALESE_SRI_LANKA", wxLANGUAGE_SINHALESE_SRI_LANKA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SISWATI", wxLANGUAGE_SISWATI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SISWATI_ESWATINI", wxLANGUAGE_SISWATI_ESWATINI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SISWATI_SOUTH_AFRICA", wxLANGUAGE_SISWATI_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SLOVAK", wxLANGUAGE_SLOVAK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SLOVAK_SLOVAKIA", wxLANGUAGE_SLOVAK_SLOVAKIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SLOVENIAN", wxLANGUAGE_SLOVENIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SLOVENIAN_SLOVENIA", wxLANGUAGE_SLOVENIAN_SLOVENIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOGA", wxLANGUAGE_SOGA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOGA_UGANDA", wxLANGUAGE_SOGA_UGANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SOMALI", wxLANGUAGE_SOMALI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOMALI_DJIBOUTI", wxLANGUAGE_SOMALI_DJIBOUTI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOMALI_ETHIOPIA", wxLANGUAGE_SOMALI_ETHIOPIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOMALI_KENYA", wxLANGUAGE_SOMALI_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOMALI_SOMALIA", wxLANGUAGE_SOMALI_SOMALIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOUTH_NDEBELE", wxLANGUAGE_SOUTH_NDEBELE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SOUTH_NDEBELE_SOUTH_AFRICA", wxLANGUAGE_SOUTH_NDEBELE_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH", wxLANGUAGE_SPANISH, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_ARGENTINA", wxLANGUAGE_SPANISH_ARGENTINA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_BELIZE", wxLANGUAGE_SPANISH_BELIZE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_BOLIVIA", wxLANGUAGE_SPANISH_BOLIVIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_BRAZIL", wxLANGUAGE_SPANISH_BRAZIL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_CHILE", wxLANGUAGE_SPANISH_CHILE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_COLOMBIA", wxLANGUAGE_SPANISH_COLOMBIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_COSTA_RICA", wxLANGUAGE_SPANISH_COSTA_RICA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_CUBA", wxLANGUAGE_SPANISH_CUBA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_DOMINICAN_REPUBLIC", wxLANGUAGE_SPANISH_DOMINICAN_REPUBLIC, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_ECUADOR", wxLANGUAGE_SPANISH_ECUADOR, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_EL_SALVADOR", wxLANGUAGE_SPANISH_EL_SALVADOR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_EQUATORIAL_GUINEA", wxLANGUAGE_SPANISH_EQUATORIAL_GUINEA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_GUATEMALA", wxLANGUAGE_SPANISH_GUATEMALA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_HONDURAS", wxLANGUAGE_SPANISH_HONDURAS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_LATIN_AMERICA", wxLANGUAGE_SPANISH_LATIN_AMERICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_MEXICAN", wxLANGUAGE_SPANISH_MEXICAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_MODERN", wxLANGUAGE_SPANISH_MODERN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_NICARAGUA", wxLANGUAGE_SPANISH_NICARAGUA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_PANAMA", wxLANGUAGE_SPANISH_PANAMA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_PARAGUAY", wxLANGUAGE_SPANISH_PARAGUAY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_PERU", wxLANGUAGE_SPANISH_PERU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_PHILIPPINES", wxLANGUAGE_SPANISH_PHILIPPINES, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_PUERTO_RICO", wxLANGUAGE_SPANISH_PUERTO_RICO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_SPAIN", wxLANGUAGE_SPANISH_SPAIN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_URUGUAY", wxLANGUAGE_SPANISH_URUGUAY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_US", wxLANGUAGE_SPANISH_US, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SPANISH_VENEZUELA", wxLANGUAGE_SPANISH_VENEZUELA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_STANDARD_MOROCCAN_TAMAZIGHT", wxLANGUAGE_STANDARD_MOROCCAN_TAMAZIGHT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_STANDARD_MOROCCAN_TAMAZIGHT_TIFINAGH", wxLANGUAGE_STANDARD_MOROCCAN_TAMAZIGHT_TIFINAGH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_STANDARD_MOROCCAN_TAMAZIGHT_TIFINAGH_MOROCCO", wxLANGUAGE_STANDARD_MOROCCAN_TAMAZIGHT_TIFINAGH_MOROCCO, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SUNDANESE", wxLANGUAGE_SUNDANESE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SWAHILI", wxLANGUAGE_SWAHILI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWAHILI_CONGO_DRC", wxLANGUAGE_SWAHILI_CONGO_DRC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWAHILI_KENYA", wxLANGUAGE_SWAHILI_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWAHILI_TANZANIA", wxLANGUAGE_SWAHILI_TANZANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWAHILI_UGANDA", wxLANGUAGE_SWAHILI_UGANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SWEDISH", wxLANGUAGE_SWEDISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWEDISH_ALAND_ISLANDS", wxLANGUAGE_SWEDISH_ALAND_ISLANDS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_SWEDISH_FINLAND", wxLANGUAGE_SWEDISH_FINLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWEDISH_SWEDEN", wxLANGUAGE_SWEDISH_SWEDEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWISS_GERMAN", wxLANGUAGE_SWISS_GERMAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWISS_GERMAN_LIECHTENSTEIN", wxLANGUAGE_SWISS_GERMAN_LIECHTENSTEIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SWISS_GERMAN_SWITZERLAND", wxLANGUAGE_SWISS_GERMAN_SWITZERLAND, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SYRIAC", wxLANGUAGE_SYRIAC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_SYRIAC_SYRIA", wxLANGUAGE_SYRIAC_SYRIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TACHELHIT", wxLANGUAGE_TACHELHIT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TACHELHIT_LATIN", wxLANGUAGE_TACHELHIT_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TACHELHIT_LATIN_MOROCCO", wxLANGUAGE_TACHELHIT_LATIN_MOROCCO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TACHELHIT_TIFINAGH", wxLANGUAGE_TACHELHIT_TIFINAGH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TACHELHIT_TIFINAGH_MOROCCO", wxLANGUAGE_TACHELHIT_TIFINAGH_MOROCCO, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TAGALOG", wxLANGUAGE_TAGALOG, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAITA", wxLANGUAGE_TAITA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAITA_KENYA", wxLANGUAGE_TAITA_KENYA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TAJIK", wxLANGUAGE_TAJIK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAJIK_CYRILLIC", wxLANGUAGE_TAJIK_CYRILLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAJIK_CYRILLIC_TAJIKISTAN", wxLANGUAGE_TAJIK_CYRILLIC_TAJIKISTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TAMIL", wxLANGUAGE_TAMIL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAMIL_INDIA", wxLANGUAGE_TAMIL_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAMIL_MALAYSIA", wxLANGUAGE_TAMIL_MALAYSIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAMIL_SINGAPORE", wxLANGUAGE_TAMIL_SINGAPORE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TAMIL_SRI_LANKA", wxLANGUAGE_TAMIL_SRI_LANKA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TASAWAQ", wxLANGUAGE_TASAWAQ, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TASAWAQ_NIGER", wxLANGUAGE_TASAWAQ_NIGER, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TATAR", wxLANGUAGE_TATAR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TATAR_RUSSIA", wxLANGUAGE_TATAR_RUSSIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TELUGU", wxLANGUAGE_TELUGU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TELUGU_INDIA", wxLANGUAGE_TELUGU_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TESO", wxLANGUAGE_TESO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TESO_KENYA", wxLANGUAGE_TESO_KENYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TESO_UGANDA", wxLANGUAGE_TESO_UGANDA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_THAI", wxLANGUAGE_THAI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_THAI_THAILAND", wxLANGUAGE_THAI_THAILAND, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TIBETAN", wxLANGUAGE_TIBETAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TIBETAN_CHINA", wxLANGUAGE_TIBETAN_CHINA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TIBETAN_INDIA", wxLANGUAGE_TIBETAN_INDIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TIGRE", wxLANGUAGE_TIGRE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TIGRE_ERITREA", wxLANGUAGE_TIGRE_ERITREA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TIGRINYA", wxLANGUAGE_TIGRINYA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TIGRINYA_ERITREA", wxLANGUAGE_TIGRINYA_ERITREA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TIGRINYA_ETHIOPIA", wxLANGUAGE_TIGRINYA_ETHIOPIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TONGA", wxLANGUAGE_TONGA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TONGA_TONGA", wxLANGUAGE_TONGA_TONGA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TSONGA", wxLANGUAGE_TSONGA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TSONGA_SOUTH_AFRICA", wxLANGUAGE_TSONGA_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TURKISH", wxLANGUAGE_TURKISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TURKISH_CYPRUS", wxLANGUAGE_TURKISH_CYPRUS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TURKISH_TURKEY", wxLANGUAGE_TURKISH_TURKEY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TURKMEN", wxLANGUAGE_TURKMEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_TURKMEN_TURKMENISTAN", wxLANGUAGE_TURKMEN_TURKMENISTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_TWI", wxLANGUAGE_TWI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_UIGHUR", wxLANGUAGE_UIGHUR, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UIGHUR_CHINA", wxLANGUAGE_UIGHUR_CHINA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_UKRAINIAN", wxLANGUAGE_UKRAINIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UKRAINIAN_UKRAINE", wxLANGUAGE_UKRAINIAN_UKRAINE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_UNKNOWN", wxLANGUAGE_UNKNOWN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UPPER_SORBIAN", wxLANGUAGE_UPPER_SORBIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UPPER_SORBIAN_GERMANY", wxLANGUAGE_UPPER_SORBIAN_GERMANY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_URDU", wxLANGUAGE_URDU, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_URDU_INDIA", wxLANGUAGE_URDU_INDIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_URDU_PAKISTAN", wxLANGUAGE_URDU_PAKISTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_USER_DEFINED", wxLANGUAGE_USER_DEFINED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_UZBEK", wxLANGUAGE_UZBEK, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_UZBEK_CYRILLIC", wxLANGUAGE_UZBEK_CYRILLIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UZBEK_CYRILLIC_UZBEKISTAN", wxLANGUAGE_UZBEK_CYRILLIC_UZBEKISTAN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_UZBEK_LATIN", wxLANGUAGE_UZBEK_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UZBEK_LATIN_UZBEKISTAN", wxLANGUAGE_UZBEK_LATIN_UZBEKISTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UZBEK_PERSO_ARABIC", wxLANGUAGE_UZBEK_PERSO_ARABIC, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_UZBEK_PERSO_ARABIC_AFGHANISTAN", wxLANGUAGE_UZBEK_PERSO_ARABIC_AFGHANISTAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VAI", wxLANGUAGE_VAI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VAI_LATIN", wxLANGUAGE_VAI_LATIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VAI_LATIN_LIBERIA", wxLANGUAGE_VAI_LATIN_LIBERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VAI_VAI", wxLANGUAGE_VAI_VAI, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VAI_VAI_LIBERIA", wxLANGUAGE_VAI_VAI_LIBERIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_VALENCIAN", wxLANGUAGE_VALENCIAN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VENDA", wxLANGUAGE_VENDA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VENDA_SOUTH_AFRICA", wxLANGUAGE_VENDA_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_VIETNAMESE", wxLANGUAGE_VIETNAMESE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VIETNAMESE_VIETNAM", wxLANGUAGE_VIETNAMESE_VIETNAM, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_VOLAPUK", wxLANGUAGE_VOLAPUK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VOLAPUK_WORLD", wxLANGUAGE_VOLAPUK_WORLD, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VUNJO", wxLANGUAGE_VUNJO, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_VUNJO_TANZANIA", wxLANGUAGE_VUNJO_TANZANIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_WALSER", wxLANGUAGE_WALSER, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_WALSER_SWITZERLAND", wxLANGUAGE_WALSER_SWITZERLAND, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_WELSH", wxLANGUAGE_WELSH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_WELSH_UK", wxLANGUAGE_WELSH_UK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_WOLAYTTA", wxLANGUAGE_WOLAYTTA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_WOLAYTTA_ETHIOPIA", wxLANGUAGE_WOLAYTTA_ETHIOPIA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_WOLOF", wxLANGUAGE_WOLOF, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_WOLOF_SENEGAL", wxLANGUAGE_WOLOF_SENEGAL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_XHOSA", wxLANGUAGE_XHOSA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_XHOSA_SOUTH_AFRICA", wxLANGUAGE_XHOSA_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_YANGBEN", wxLANGUAGE_YANGBEN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_YANGBEN_CAMEROON", wxLANGUAGE_YANGBEN_CAMEROON, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_YI", wxLANGUAGE_YI, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_YIDDISH", wxLANGUAGE_YIDDISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_YIDDISH_WORLD", wxLANGUAGE_YIDDISH_WORLD, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_YI_CHINA", wxLANGUAGE_YI_CHINA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_YORUBA", wxLANGUAGE_YORUBA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_YORUBA_BENIN", wxLANGUAGE_YORUBA_BENIN, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_YORUBA_NIGERIA", wxLANGUAGE_YORUBA_NIGERIA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ZARMA", wxLANGUAGE_ZARMA, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ZARMA_NIGER", wxLANGUAGE_ZARMA_NIGER, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ZHUANG", wxLANGUAGE_ZHUANG, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLANGUAGE_ZULU", wxLANGUAGE_ZULU, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLANGUAGE_ZULU_SOUTH_AFRICA", wxLANGUAGE_ZULU_SOUTH_AFRICA, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLAYOUT_BOTTOM", wxLAYOUT_BOTTOM, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLAYOUT_HORIZONTAL", wxLAYOUT_HORIZONTAL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLAYOUT_LEFT", wxLAYOUT_LEFT, CONST_CS | CONST_PERSISTENT);
@@ -6622,9 +7345,20 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxLOCALE_DATE_TIME_FMT", wxLOCALE_DATE_TIME_FMT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOCALE_DECIMAL_POINT", wxLOCALE_DECIMAL_POINT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOCALE_DONT_LOAD_DEFAULT", wxLOCALE_DONT_LOAD_DEFAULT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_FORM_ENGLISH", wxLOCALE_FORM_ENGLISH, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_FORM_NATIVE", wxLOCALE_FORM_NATIVE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOCALE_LOAD_DEFAULT", wxLOCALE_LOAD_DEFAULT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOCALE_LONG_DATE_FMT", wxLOCALE_LONG_DATE_FMT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_NAME_COUNTRY", wxLOCALE_NAME_COUNTRY, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_NAME_LANGUAGE", wxLOCALE_NAME_LANGUAGE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_NAME_LOCALE", wxLOCALE_NAME_LOCALE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOCALE_SHORT_DATE_FMT", wxLOCALE_SHORT_DATE_FMT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_TAGTYPE_BCP47", wxLOCALE_TAGTYPE_BCP47, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_TAGTYPE_DEFAULT", wxLOCALE_TAGTYPE_DEFAULT, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_TAGTYPE_MACOS", wxLOCALE_TAGTYPE_MACOS, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_TAGTYPE_POSIX", wxLOCALE_TAGTYPE_POSIX, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_TAGTYPE_SYSTEM", wxLOCALE_TAGTYPE_SYSTEM, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxLOCALE_TAGTYPE_WINDOWS", wxLOCALE_TAGTYPE_WINDOWS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOCALE_THOUSANDS_SEP", wxLOCALE_THOUSANDS_SEP, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOCALE_TIME_FMT", wxLOCALE_TIME_FMT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxLOG_Debug", wxLOG_Debug, CONST_CS | CONST_PERSISTENT);
@@ -6646,6 +7380,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxMAXIMIZE", 0x2000, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxMAXIMIZE_BOX", 0x0200, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxMB_DOCKABLE", wxMB_DOCKABLE, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxMC_NO_AUTORESIZE", 0x0001, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxMEDIACTRLPLAYERCONTROLS_DEFAULT", wxMEDIACTRLPLAYERCONTROLS_DEFAULT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxMEDIACTRLPLAYERCONTROLS_NONE", wxMEDIACTRLPLAYERCONTROLS_NONE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxMEDIACTRLPLAYERCONTROLS_STEP", wxMEDIACTRLPLAYERCONTROLS_STEP, CONST_CS | CONST_PERSISTENT);
@@ -6872,7 +7607,6 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxPATH_MAX", wxPATH_MAX, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxPATH_NATIVE", wxPATH_NATIVE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxPATH_NORM_ABSOLUTE", wxPATH_NORM_ABSOLUTE, CONST_CS | CONST_PERSISTENT);
-    REGISTER_LONG_CONSTANT("wxPATH_NORM_ALL", wxPATH_NORM_ALL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxPATH_NORM_CASE", wxPATH_NORM_CASE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxPATH_NORM_DOTS", wxPATH_NORM_DOTS, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxPATH_NORM_ENV_VARS", wxPATH_NORM_ENV_VARS, CONST_CS | CONST_PERSISTENT);
@@ -7141,6 +7875,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxRE_NEWLINE", wxRE_NEWLINE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxRE_NOSUB", wxRE_NOSUB, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxRE_NOTBOL", wxRE_NOTBOL, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxRE_NOTEMPTY", wxRE_NOTEMPTY, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxRE_NOTEOL", wxRE_NOTEOL, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxRE_READONLY", 0x0010, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxRIBBON_ART_BUTTON_BAR_ACTIVE_BACKGROUND_COLOUR", wxRIBBON_ART_BUTTON_BAR_ACTIVE_BACKGROUND_COLOUR, CONST_CS | CONST_PERSISTENT);
@@ -10524,6 +11259,8 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_STRING_CONSTANT("wxART_FULL_SCREEN", _wxchar_wxART_FULL_SCREEN, CONST_CS | CONST_PERSISTENT);
     char _wxchar_wxART_EDIT[] = wxART_EDIT;
     REGISTER_STRING_CONSTANT("wxART_EDIT", _wxchar_wxART_EDIT, CONST_CS | CONST_PERSISTENT);
+    char _wxchar_wxART_WX_LOGO[] = wxART_WX_LOGO;
+    REGISTER_STRING_CONSTANT("wxART_WX_LOGO", _wxchar_wxART_WX_LOGO, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_AUITOOLBAR_TOOL_DROPDOWN", wxEVT_AUITOOLBAR_TOOL_DROPDOWN, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_AUITOOLBAR_OVERFLOW_CLICK", wxEVT_AUITOOLBAR_OVERFLOW_CLICK, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_AUITOOLBAR_RIGHT_CLICK", wxEVT_AUITOOLBAR_RIGHT_CLICK, CONST_CS | CONST_PERSISTENT);
@@ -10675,6 +11412,9 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_STRING_CONSTANT("wxMessageBoxCaptionStr", (char*) wxMessageBoxCaptionStr, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_NOTEBOOK_PAGE_CHANGED", wxEVT_NOTEBOOK_PAGE_CHANGED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_NOTEBOOK_PAGE_CHANGING", wxEVT_NOTEBOOK_PAGE_CHANGING, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxEVT_NOTIFICATION_MESSAGE_CLICK", wxEVT_NOTIFICATION_MESSAGE_CLICK, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxEVT_NOTIFICATION_MESSAGE_DISMISSED", wxEVT_NOTIFICATION_MESSAGE_DISMISSED, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxEVT_NOTIFICATION_MESSAGE_ACTION", wxEVT_NOTIFICATION_MESSAGE_ACTION, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_RIBBONPANEL_EXTBUTTON_ACTIVATED", wxEVT_RIBBONPANEL_EXTBUTTON_ACTIVATED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_TREEBOOK_PAGE_CHANGED", wxEVT_TREEBOOK_PAGE_CHANGED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_TREEBOOK_PAGE_CHANGING", wxEVT_TREEBOOK_PAGE_CHANGING, CONST_CS | CONST_PERSISTENT);
@@ -10698,6 +11438,7 @@ PHP_MINIT_FUNCTION(php_wxWidgets)
     REGISTER_LONG_CONSTANT("wxEVT_SPINCTRLDOUBLE", wxEVT_SPINCTRLDOUBLE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_SPLITTER_SASH_POS_CHANGED", wxEVT_SPLITTER_SASH_POS_CHANGED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_SPLITTER_SASH_POS_CHANGING", wxEVT_SPLITTER_SASH_POS_CHANGING, CONST_CS | CONST_PERSISTENT);
+    REGISTER_LONG_CONSTANT("wxEVT_SPLITTER_SASH_POS_RESIZE", wxEVT_SPLITTER_SASH_POS_RESIZE, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_SPLITTER_DOUBLECLICKED", wxEVT_SPLITTER_DOUBLECLICKED, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_SPLITTER_UNSPLIT", wxEVT_SPLITTER_UNSPLIT, CONST_CS | CONST_PERSISTENT);
     REGISTER_LONG_CONSTANT("wxEVT_SEARCH_CANCEL", wxEVT_SEARCH_CANCEL, CONST_CS | CONST_PERSISTENT);

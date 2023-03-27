@@ -809,119 +809,6 @@ zend_object* php_wxGridCellDateTimeRenderer_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto  wxGridCellDateTimeRenderer::SetParameters(string params)
-   Sets the strptime()-like format string which will be used to parse the date/time. */
-PHP_METHOD(php_wxGridCellDateTimeRenderer, SetParameters)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxGridCellDateTimeRenderer::SetParameters\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxGridCellDateTimeRenderer* current_object;
-    wxphp_object_type current_object_type;
-    wxGridCellDateTimeRenderer_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxGridCellDateTimeRenderer_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxGridCellDateTimeRenderer::SetParameters call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXGRIDCELLDATETIMERENDERER_TYPE){
-                references = &((wxGridCellDateTimeRenderer_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    char* params0;
-    size_t params_len0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's' (&params0, &params_len0)\n");
-        #endif
-
-        char parse_parameters_string[] = "s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &params0, &params_len0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGridCellDateTimeRenderer::SetParameters(wxString(params0, wxConvUTF8))\n\n");
-                #endif
-
-                ((wxGridCellDateTimeRenderer_php*)native_object)->SetParameters(wxString(params0, wxConvUTF8));
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxGridCellDateTimeRenderer::SetParameters\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto  wxGridCellDateTimeRenderer::wxGridCellDateTimeRenderer(string outformat, string informat)
    Date/time renderer constructor. */
 PHP_METHOD(php_wxGridCellDateTimeRenderer, __construct)
@@ -2674,7 +2561,7 @@ zend_object* php_wxGridCellEditor_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto  wxGridCellEditor::PaintBackground(wxDC &dc, wxRect rectCell, wxGridCellAttr &attr)
+/* {{{ proto  wxGridCellEditor::PaintBackground(wxDC &dc, wxRect rectCell, wxGridCellAttr attr)
    Draws the part of the cell not occupied by the control: the base class version just fills it with background colour from the attribute. */
 PHP_METHOD(php_wxGridCellEditor, PaintBackground)
 {
@@ -5442,7 +5329,7 @@ PHP_METHOD(php_wxGridCellChoiceEditor, SetParameters)
 }
 /* }}} */
 
-/* {{{ proto  wxGridCellChoiceEditor::wxGridCellChoiceEditor(array choices, bool allowOthers)
+/* {{{ proto  wxGridCellChoiceEditor::wxGridCellChoiceEditor(int count, string choices, bool allowOthers)
    Choice cell renderer ctor. */
 PHP_METHOD(php_wxGridCellChoiceEditor, __construct)
 {
@@ -5463,24 +5350,47 @@ PHP_METHOD(php_wxGridCellChoiceEditor, __construct)
 
 
     //Parameters for overload 0
+    long count0;
     zval* choices0;
     bool allowOthers0;
     bool overload0_called = false;
 
+    //Parameters for overload 1
+    zval* choices1;
+    bool allowOthers1;
+    bool overload1_called = false;
+
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received >= 0  && arguments_received <= 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '|lab' (&count0, &choices0, &allowOthers0)\n");
+        #endif
+
+        char parse_parameters_string[] = "|lab";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &count0, &choices0, &allowOthers0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received >= 1  && arguments_received <= 2)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'a|b' (&choices0, &allowOthers0)\n");
+        php_printf("Parsing parameters with 'a|b' (&choices1, &allowOthers1)\n");
         #endif
 
         char parse_parameters_string[] = "a|b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &choices0, &allowOthers0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &choices1, &allowOthers1 ) == SUCCESS)
         {
-            overload0_called = true;
+            overload1_called = true;
             already_called = true;
         }
     }
@@ -5488,59 +5398,150 @@ PHP_METHOD(php_wxGridCellChoiceEditor, __construct)
     
     if(overload0_called)
     {
-        wxArrayString strings_array0_0;
-        bool strings_continue0_0 = true;
+        int array_count0_1 = 1;
+        HashTable* arr_hash0_1;
+        if(arguments_received > 1)
+        {
+            arr_hash0_1 = Z_ARRVAL_P(choices0);
+            array_count0_1 = zend_hash_num_elements(arr_hash0_1);
+        }
+        wxString* strings_array0_1 = new wxString[array_count0_1];
+        bool strings_continue0_1 = true;
 
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
-                int array_index0_0 = 0;
-                zval* temp_array_value0_0 = 0;
-                while(strings_continue0_0)
-                {
-                    if((temp_array_value0_0 = zend_hash_index_find(HASH_OF(choices0), array_index0_0)) != NULL)
-                    {
-                        convert_to_string(temp_array_value0_0);
-                        strings_array0_0.Add(wxString(Z_STRVAL_P(temp_array_value0_0), wxConvUTF8));
-                        array_index0_0++;
-                    }
-                    else
-                    {
-                        strings_continue0_0 = false;
-                    }
-                }
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(strings_array0_0)\n");
+                php_printf("Executing __construct()\n");
                 #endif
 
-                native_object = new wxGridCellChoiceEditor_php(strings_array0_0);
+                native_object = new wxGridCellChoiceEditor_php();
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((size_t) count0)\n");
+                #endif
+
+                native_object = new wxGridCellChoiceEditor_php((size_t) count0);
 
                 native_object->references.Initialize();
                 break;
             }
             case 2:
             {
-                int array_index0_0 = 0;
-                zval* temp_array_value0_0 = 0;
-                while(strings_continue0_0)
+                int array_index0_1 = 0;
+                zval* temp_array_value0_1 = 0;
+                while(strings_continue0_1)
                 {
-                    if((temp_array_value0_0 = zend_hash_index_find(HASH_OF(choices0), array_index0_0)) != NULL)
+                    if((temp_array_value0_1 = zend_hash_index_find(HASH_OF(choices0), array_index0_1)) != NULL)
                     {
-                        convert_to_string(temp_array_value0_0);
-                        strings_array0_0.Add(wxString(Z_STRVAL_P(temp_array_value0_0), wxConvUTF8));
-                        array_index0_0++;
+                        convert_to_string(temp_array_value0_1);
+                        strings_array0_1[array_index0_1] = wxString(Z_STRVAL_P(temp_array_value0_1), wxConvUTF8);
+                        array_index0_1++;
                     }
                     else
                     {
-                        strings_continue0_0 = false;
+                        strings_continue0_1 = false;
                     }
                 }
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(strings_array0_0, allowOthers0)\n");
+                php_printf("Executing __construct((size_t) count0, strings_array0_1)\n");
                 #endif
 
-                native_object = new wxGridCellChoiceEditor_php(strings_array0_0, allowOthers0);
+                native_object = new wxGridCellChoiceEditor_php((size_t) count0, strings_array0_1);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 3:
+            {
+                int array_index0_1 = 0;
+                zval* temp_array_value0_1 = 0;
+                while(strings_continue0_1)
+                {
+                    if((temp_array_value0_1 = zend_hash_index_find(HASH_OF(choices0), array_index0_1)) != NULL)
+                    {
+                        convert_to_string(temp_array_value0_1);
+                        strings_array0_1[array_index0_1] = wxString(Z_STRVAL_P(temp_array_value0_1), wxConvUTF8);
+                        array_index0_1++;
+                    }
+                    else
+                    {
+                        strings_continue0_1 = false;
+                    }
+                }
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((size_t) count0, strings_array0_1, allowOthers0)\n");
+                #endif
+
+                native_object = new wxGridCellChoiceEditor_php((size_t) count0, strings_array0_1, allowOthers0);
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        wxArrayString strings_array1_0;
+        bool strings_continue1_0 = true;
+
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                int array_index1_0 = 0;
+                zval* temp_array_value1_0 = 0;
+                while(strings_continue1_0)
+                {
+                    if((temp_array_value1_0 = zend_hash_index_find(HASH_OF(choices1), array_index1_0)) != NULL)
+                    {
+                        convert_to_string(temp_array_value1_0);
+                        strings_array1_0.Add(wxString(Z_STRVAL_P(temp_array_value1_0), wxConvUTF8));
+                        array_index1_0++;
+                    }
+                    else
+                    {
+                        strings_continue1_0 = false;
+                    }
+                }
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(strings_array1_0)\n");
+                #endif
+
+                native_object = new wxGridCellChoiceEditor_php(strings_array1_0);
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 2:
+            {
+                int array_index1_0 = 0;
+                zval* temp_array_value1_0 = 0;
+                while(strings_continue1_0)
+                {
+                    if((temp_array_value1_0 = zend_hash_index_find(HASH_OF(choices1), array_index1_0)) != NULL)
+                    {
+                        convert_to_string(temp_array_value1_0);
+                        strings_array1_0.Add(wxString(Z_STRVAL_P(temp_array_value1_0), wxConvUTF8));
+                        array_index1_0++;
+                    }
+                    else
+                    {
+                        strings_continue1_0 = false;
+                    }
+                }
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(strings_array1_0, allowOthers1)\n");
+                #endif
+
+                native_object = new wxGridCellChoiceEditor_php(strings_array1_0, allowOthers1);
 
                 native_object->references.Initialize();
                 break;
@@ -9501,7 +9502,7 @@ PHP_METHOD(php_wxGridCellAttr, SetRenderer)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_0 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -14929,12 +14930,41 @@ void php_wxGrid_free(void *object)
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
-        "Obviate delete call for wxGrid on %s at line %i\n",
+        "Calling php_wxGrid_free on %s at line %i\n",
         zend_get_executed_filename(),
         zend_get_executed_lineno()
     );
-    php_printf("===========================================\n\n");
+    php_printf("===========================================\n");
     #endif
+
+    if(custom_object->native_object != NULL)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Pointer not null\n");
+        php_printf("Pointer address %x\n", (unsigned int)(size_t)custom_object->native_object);
+        #endif
+
+        if(custom_object->is_user_initialized)
+        {
+            #ifdef USE_WXPHP_DEBUG
+            php_printf("Deleting pointer with delete\n");
+            #endif
+
+            delete custom_object->native_object;
+            custom_object->native_object = NULL;
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Deletion of wxGrid done\n");
+        php_printf("===========================================\n\n");
+        #endif
+    }
+    else
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Not user space initialized\n");
+        #endif
+    }
 
     zend_object_std_dtor(&custom_object->zo);
     efree(custom_object);
@@ -16396,164 +16426,6 @@ PHP_METHOD(php_wxGrid, BeginBatch)
 }
 /* }}} */
 
-/* {{{ proto wxRect wxGrid::BlockToDeviceRect(wxGridCellCoords topLeft, wxGridCellCoords bottomRight)
-   Convert grid cell coordinates to grid window pixel coordinates. */
-PHP_METHOD(php_wxGrid, BlockToDeviceRect)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxGrid::BlockToDeviceRect\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxGrid* current_object;
-    wxphp_object_type current_object_type;
-    wxGrid_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxGrid_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxGrid::BlockToDeviceRect call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXGRID_TYPE){
-                references = &((wxGrid_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    zval* topLeft0;
-    wxGridCellCoords* object_pointer0_0 = 0;
-    zval* bottomRight0;
-    wxGridCellCoords* object_pointer0_1 = 0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'OO' (&topLeft0, php_wxGridCellCoords_entry, &bottomRight0, php_wxGridCellCoords_entry)\n");
-        #endif
-
-        char parse_parameters_string[] = "OO";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &topLeft0, php_wxGridCellCoords_entry, &bottomRight0, php_wxGridCellCoords_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(topLeft0) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxGridCellCoords_P(topLeft0)->object_type;
-                    argument_native_object = (void*) Z_wxGridCellCoords_P(topLeft0)->native_object;
-                    object_pointer0_0 = (wxGridCellCoords*) argument_native_object;
-                    if (!object_pointer0_0 )
-                    {
-                        zend_error(E_ERROR, "Parameter 'topLeft' could not be retreived correctly.");
-                    }
-                }
-                else if(Z_TYPE_P(topLeft0) != IS_NULL)
-                {
-                    zend_error(E_ERROR, "Parameter 'topLeft' not null, could not be retreived correctly.");
-                }
-            }
-
-            if(arguments_received >= 2){
-                if(Z_TYPE_P(bottomRight0) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxGridCellCoords_P(bottomRight0)->object_type;
-                    argument_native_object = (void*) Z_wxGridCellCoords_P(bottomRight0)->native_object;
-                    object_pointer0_1 = (wxGridCellCoords*) argument_native_object;
-                    if (!object_pointer0_1 )
-                    {
-                        zend_error(E_ERROR, "Parameter 'bottomRight' could not be retreived correctly.");
-                    }
-                }
-                else if(Z_TYPE_P(bottomRight0) != IS_NULL)
-                {
-                    zend_error(E_ERROR, "Parameter 'bottomRight' not null, could not be retreived correctly.");
-                }
-            }
-
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::BlockToDeviceRect(*(wxGridCellCoords*) object_pointer0_0, *(wxGridCellCoords*) object_pointer0_1) to return new object\n\n");
-                #endif
-
-                wxRect value_to_return2;
-                value_to_return2 = ((wxGrid_php*)native_object)->BlockToDeviceRect(*(wxGridCellCoords*) object_pointer0_0, *(wxGridCellCoords*) object_pointer0_1);
-                void* ptr = safe_emalloc(1, sizeof(wxRect_php), 0);
-                memcpy(ptr, (void*) &value_to_return2, sizeof(wxRect));
-                object_init_ex(return_value, php_wxRect_entry);
-                ((wxRect_php*)ptr)->phpObj = *return_value;
-                zo_wxRect* zo2 = Z_wxRect_P(return_value);
-                zo2->native_object = (wxRect_php*) ptr;
-
-                references->AddReference(topLeft0, "wxGrid::BlockToDeviceRect at call 3 with 2 argument(s)");
-                references->AddReference(bottomRight0, "wxGrid::BlockToDeviceRect at call 3 with 2 argument(s)");
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxGrid::BlockToDeviceRect\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto bool wxGrid::CanDragCell()
    Return true if the dragging of cells is enabled or false otherwise. */
 PHP_METHOD(php_wxGrid, CanDragCell)
@@ -17919,7 +17791,7 @@ PHP_METHOD(php_wxGrid, Create)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }
@@ -19495,7 +19367,7 @@ PHP_METHOD(php_wxGrid, EnableDragCell)
 }
 /* }}} */
 
-/* {{{ proto  wxGrid::EnableDragColMove(bool enable)
+/* {{{ proto bool wxGrid::EnableDragColMove(bool enable)
    Enables or disables column moving by dragging with the mouse. */
 PHP_METHOD(php_wxGrid, EnableDragColMove)
 {
@@ -19582,10 +19454,10 @@ PHP_METHOD(php_wxGrid, EnableDragColMove)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::EnableDragColMove()\n\n");
+                php_printf("Executing RETURN_BOOL(wxGrid::EnableDragColMove())\n\n");
                 #endif
 
-                ((wxGrid_php*)native_object)->EnableDragColMove();
+                RETVAL_BOOL(((wxGrid_php*)native_object)->EnableDragColMove());
 
 
                 return;
@@ -19594,10 +19466,10 @@ PHP_METHOD(php_wxGrid, EnableDragColMove)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::EnableDragColMove(enable0)\n\n");
+                php_printf("Executing RETURN_BOOL(wxGrid::EnableDragColMove(enable0))\n\n");
                 #endif
 
-                ((wxGrid_php*)native_object)->EnableDragColMove(enable0);
+                RETVAL_BOOL(((wxGrid_php*)native_object)->EnableDragColMove(enable0));
 
 
                 return;
@@ -31996,7 +31868,7 @@ PHP_METHOD(php_wxGrid, RegisterDataType)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_1 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_1 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
+                    if (!object_pointer0_1 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -33454,7 +33326,7 @@ PHP_METHOD(php_wxGrid, SetCellRenderer)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_2 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
+                    if (!object_pointer0_2 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -36412,7 +36284,7 @@ PHP_METHOD(php_wxGrid, SetDefaultRenderer)
                     wxphp_object_type argument_type = Z_wxGridCellRenderer_P(renderer0)->object_type;
                     argument_native_object = (void*) Z_wxGridCellRenderer_P(renderer0)->native_object;
                     object_pointer0_0 = (wxGridCellRenderer*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLDATETIMERENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXGRIDCELLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLBOOLRENDERER_TYPE && argument_type != PHP_WXGRIDCELLSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLAUTOWRAPSTRINGRENDERER_TYPE && argument_type != PHP_WXGRIDCELLENUMRENDERER_TYPE && argument_type != PHP_WXGRIDCELLFLOATRENDERER_TYPE && argument_type != PHP_WXGRIDCELLNUMBERRENDERER_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'renderer' could not be retreived correctly.");
                     }
@@ -39469,7 +39341,7 @@ PHP_METHOD(php_wxGrid, SetUseNativeColLabels)
 /* }}} */
 
 /* {{{ proto  wxGrid::ShowCellEditControl()
-   Displays the in-place cell edit control for the current cell. */
+   Displays the active in-place cell edit control for the current cell after it was hidden. */
 PHP_METHOD(php_wxGrid, ShowCellEditControl)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -39906,7 +39778,7 @@ PHP_METHOD(php_wxGrid, UnsetSortingColumn)
 }
 /* }}} */
 
-/* {{{ proto  wxGrid::UseNativeColHeader(bool native)
+/* {{{ proto bool wxGrid::UseNativeColHeader(bool native)
    Enable the use of native header window for column labels. */
 PHP_METHOD(php_wxGrid, UseNativeColHeader)
 {
@@ -39993,10 +39865,10 @@ PHP_METHOD(php_wxGrid, UseNativeColHeader)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::UseNativeColHeader()\n\n");
+                php_printf("Executing RETURN_BOOL(wxGrid::UseNativeColHeader())\n\n");
                 #endif
 
-                ((wxGrid_php*)native_object)->UseNativeColHeader();
+                RETVAL_BOOL(((wxGrid_php*)native_object)->UseNativeColHeader());
 
 
                 return;
@@ -40005,10 +39877,10 @@ PHP_METHOD(php_wxGrid, UseNativeColHeader)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::UseNativeColHeader(native0)\n\n");
+                php_printf("Executing RETURN_BOOL(wxGrid::UseNativeColHeader(native0))\n\n");
                 #endif
 
-                ((wxGrid_php*)native_object)->UseNativeColHeader(native0);
+                RETVAL_BOOL(((wxGrid_php*)native_object)->UseNativeColHeader(native0));
 
 
                 return;
@@ -40025,131 +39897,6 @@ PHP_METHOD(php_wxGrid, UseNativeColHeader)
             E_ERROR,
             "Wrong type or count of parameters passed to: "
             "wxGrid::UseNativeColHeader\n"
-        );
-    }
-}
-/* }}} */
-
-/* {{{ proto int wxGrid::XToCol(int x, bool clipToMinMax)
-   Returns the column at the given pixel position. */
-PHP_METHOD(php_wxGrid, XToCol)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxGrid::XToCol\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxGrid* current_object;
-    wxphp_object_type current_object_type;
-    wxGrid_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxGrid_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxGrid::XToCol call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXGRID_TYPE){
-                references = &((wxGrid_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    long x0;
-    bool clipToMinMax0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l|b' (&x0, &clipToMinMax0)\n");
-        #endif
-
-        char parse_parameters_string[] = "l|b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &x0, &clipToMinMax0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxGrid::XToCol((int) x0))\n\n");
-                #endif
-
-                RETVAL_LONG(((wxGrid_php*)native_object)->XToCol((int) x0));
-
-
-                return;
-                break;
-            }
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxGrid::XToCol((int) x0, clipToMinMax0))\n\n");
-                #endif
-
-                RETVAL_LONG(((wxGrid_php*)native_object)->XToCol((int) x0, clipToMinMax0));
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxGrid::XToCol\n"
         );
     }
 }
@@ -40267,192 +40014,6 @@ PHP_METHOD(php_wxGrid, XToEdgeOfCol)
 }
 /* }}} */
 
-/* {{{ proto wxGridCellCoords wxGrid::XYToCell(int x, int y)
-   Translates logical pixel coordinates to the grid cell coordinates. */
-PHP_METHOD(php_wxGrid, XYToCell)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxGrid::XYToCell\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxGrid* current_object;
-    wxphp_object_type current_object_type;
-    wxGrid_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxGrid_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxGrid::XYToCell call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXGRID_TYPE){
-                references = &((wxGrid_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    long x0;
-    long y0;
-    bool overload0_called = false;
-
-    //Parameters for overload 1
-    zval* pos1;
-    wxPoint* object_pointer1_0 = 0;
-    bool overload1_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received == 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&x0, &y0)\n");
-        #endif
-
-        char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &x0, &y0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&pos1, php_wxPoint_entry)\n");
-        #endif
-
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos1, php_wxPoint_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(pos1) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxPoint_P(pos1)->object_type;
-                    argument_native_object = (void*) Z_wxPoint_P(pos1)->native_object;
-                    object_pointer1_0 = (wxPoint*) argument_native_object;
-                    if (!object_pointer1_0 )
-                    {
-                        zend_error(E_ERROR, "Parameter 'pos' could not be retreived correctly.");
-                    }
-                }
-                else if(Z_TYPE_P(pos1) != IS_NULL)
-                {
-                    zend_error(E_ERROR, "Parameter 'pos' not null, could not be retreived correctly.");
-                }
-            }
-
-            overload1_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::XYToCell((int) x0, (int) y0) to return new object\n\n");
-                #endif
-
-                wxGridCellCoords value_to_return2;
-                value_to_return2 = ((wxGrid_php*)native_object)->XYToCell((int) x0, (int) y0);
-                void* ptr = safe_emalloc(1, sizeof(wxGridCellCoords_php), 0);
-                memcpy(ptr, (void*) &value_to_return2, sizeof(wxGridCellCoords));
-                object_init_ex(return_value, php_wxGridCellCoords_entry);
-                ((wxGridCellCoords_php*)ptr)->phpObj = *return_value;
-                zo_wxGridCellCoords* zo2 = Z_wxGridCellCoords_P(return_value);
-                zo2->native_object = (wxGridCellCoords_php*) ptr;
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    if(overload1_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxGrid::XYToCell(*(wxPoint*) object_pointer1_0) to return new object\n\n");
-                #endif
-
-                wxGridCellCoords value_to_return1;
-                value_to_return1 = ((wxGrid_php*)native_object)->XYToCell(*(wxPoint*) object_pointer1_0);
-                void* ptr = safe_emalloc(1, sizeof(wxGridCellCoords_php), 0);
-                memcpy(ptr, (void*) &value_to_return1, sizeof(wxGridCellCoords));
-                object_init_ex(return_value, php_wxGridCellCoords_entry);
-                ((wxGridCellCoords_php*)ptr)->phpObj = *return_value;
-                zo_wxGridCellCoords* zo1 = Z_wxGridCellCoords_P(return_value);
-                zo1->native_object = (wxGridCellCoords_php*) ptr;
-
-                references->AddReference(pos1, "wxGrid::XYToCell at call 3 with 1 argument(s)");
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxGrid::XYToCell\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto int wxGrid::YToEdgeOfRow(int y)
    Returns the row whose bottom edge is close to the given logical y position. */
 PHP_METHOD(php_wxGrid, YToEdgeOfRow)
@@ -40565,131 +40126,6 @@ PHP_METHOD(php_wxGrid, YToEdgeOfRow)
 }
 /* }}} */
 
-/* {{{ proto int wxGrid::YToRow(int y, bool clipToMinMax)
-   Returns the grid row that corresponds to the logical y coordinate. */
-PHP_METHOD(php_wxGrid, YToRow)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxGrid::YToRow\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxGrid* current_object;
-    wxphp_object_type current_object_type;
-    wxGrid_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxGrid_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxGrid::YToRow call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXGRID_TYPE){
-                references = &((wxGrid_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    long y0;
-    bool clipToMinMax0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l|b' (&y0, &clipToMinMax0)\n");
-        #endif
-
-        char parse_parameters_string[] = "l|b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &y0, &clipToMinMax0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxGrid::YToRow((int) y0))\n\n");
-                #endif
-
-                RETVAL_LONG(((wxGrid_php*)native_object)->YToRow((int) y0));
-
-
-                return;
-                break;
-            }
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxGrid::YToRow((int) y0, clipToMinMax0))\n\n");
-                #endif
-
-                RETVAL_LONG(((wxGrid_php*)native_object)->YToRow((int) y0, clipToMinMax0));
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxGrid::YToRow\n"
-        );
-    }
-}
-/* }}} */
-
 /* {{{ proto  wxGrid::wxGrid()
    Default constructor. */
 PHP_METHOD(php_wxGrid, __construct)
@@ -40758,7 +40194,7 @@ PHP_METHOD(php_wxGrid, __construct)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent1)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent1)->native_object;
                     object_pointer1_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer1_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer1_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }

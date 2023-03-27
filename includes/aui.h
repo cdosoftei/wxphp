@@ -72,8 +72,8 @@ void php_wxAuiToolBarItem_destruction_handler(zend_resource*);
 class wxAuiToolBarItem_php: public wxAuiToolBarItem{
     public:
 
-    wxAuiToolBarItem_php(const wxAuiToolBarItem& c):wxAuiToolBarItem(c){}
     wxAuiToolBarItem_php():wxAuiToolBarItem(){}
+    wxAuiToolBarItem_php(const wxAuiToolBarItem& c):wxAuiToolBarItem(c){}
     
     
 
@@ -382,8 +382,8 @@ void php_wxAuiNotebook_destruction_handler(zend_resource*);
 class wxAuiNotebook_php: public wxAuiNotebook{
     public:
 
-    wxAuiNotebook_php(wxWindow* parent, wxWindowID id=wxID_ANY, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxAUI_NB_DEFAULT_STYLE):wxAuiNotebook(parent, id, pos, size, style){}
     wxAuiNotebook_php():wxAuiNotebook(){}
+    wxAuiNotebook_php(wxWindow* parent, wxWindowID id=wxID_ANY, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxAUI_NB_DEFAULT_STYLE):wxAuiNotebook(parent, id, pos, size, style){}
     
     
 
@@ -457,14 +457,14 @@ class wxAuiTabArt_php: public wxAuiTabArt{
     public:
 
     
-    void SetSizingInfo(const wxSize& tab_ctrl_size, size_t tab_count);
+    void SetSizingInfo(const wxSize& tab_ctrl_size, size_t tab_count, wxWindow* wnd=NULL);
     void SetSelectedFont(const wxFont& font);
     void SetNormalFont(const wxFont& font);
     void SetMeasuringFont(const wxFont& font);
     void SetFlags(unsigned int flags);
     void SetColour(const wxColour& colour);
     void SetActiveColour(const wxColour& colour);
-    wxSize GetTabSize(wxDC& dc, wxWindow* wnd, const wxString& caption, const wxBitmap& bitmap, bool active, int close_button_state, int* x_extent);
+    wxSize GetTabSize(wxDC& dc, wxWindow* wnd, const wxString& caption, const wxBitmapBundle& bitmap, bool active, int close_button_state, int* x_extent);
     int GetIndentSize();
     void DrawButton(wxDC& dc, wxWindow* wnd, const wxRect& in_rect, int bitmap_id, int button_state, int orientation, wxRect* out_rect);
     void DrawBackground(wxDC& dc, wxWindow* wnd, const wxRect& rect);
@@ -572,8 +572,8 @@ void php_wxAuiPaneInfo_destruction_handler(zend_resource*);
 class wxAuiPaneInfo_php: public wxAuiPaneInfo{
     public:
 
-    wxAuiPaneInfo_php(const wxAuiPaneInfo& c):wxAuiPaneInfo(c){}
     wxAuiPaneInfo_php():wxAuiPaneInfo(){}
+    wxAuiPaneInfo_php(const wxAuiPaneInfo& c):wxAuiPaneInfo(c){}
     
     
 

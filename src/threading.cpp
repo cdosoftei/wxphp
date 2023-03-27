@@ -1871,105 +1871,6 @@ zend_object* php_wxThread_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto  wxThread::wxThread(wxThreadKind kind)
-   This constructor creates a new detached (default) or joinable C++ thread object. */
-PHP_METHOD(php_wxThread, __construct)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxThread::__construct\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxThread* current_object;
-    wxThread_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    int arguments_received = ZEND_NUM_ARGS();
-
-
-    //Parameters for overload 0
-    long kind0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|l' (&kind0)\n");
-        #endif
-
-        char parse_parameters_string[] = "|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &kind0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct()\n");
-                #endif
-
-                native_object = new wxThread_php();
-
-                native_object->references.Initialize();
-                break;
-            }
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct((wxThreadKind) kind0)\n");
-                #endif
-
-                native_object = new wxThread_php((wxThreadKind) kind0);
-
-                native_object->references.Initialize();
-                break;
-            }
-        }
-    }
-
-    
-    if(already_called)
-    {
-        native_object->phpObj = *getThis();
-
-
-        current_object = Z_wxThread_P(getThis());
-
-        current_object->native_object = native_object;
-
-        current_object->is_user_initialized = 1;
-    }
-    else
-    {
-        zend_error(
-            E_ERROR,
-            "Abstract class or wrong type/count of parameters "
-            "passed to: wxThread::__construct\n"
-        );
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-        php_printf("===========================================\n\n");
-    #endif
-}
-/* }}} */
-
 /* {{{ proto  wxThread::Yield()
    Give the rest of the thread's time-slice to the system allowing the other threads to run. */
 PHP_METHOD(php_wxThread, YieldMethod)
@@ -2290,7 +2191,10 @@ PHP_METHOD(php_wxThread, TestDestroy)
                 php_printf("Executing RETURN_BOOL(wxThread::TestDestroy())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxThread_php*)native_object)->TestDestroy());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_BOOL(((wxThread_php*)native_object)->TestDestroy());
+                }
 
 
                 return;
@@ -2402,7 +2306,10 @@ PHP_METHOD(php_wxThread, SetPriority)
                 php_printf("Executing wxThread::SetPriority((unsigned int) priority0)\n\n");
                 #endif
 
-                ((wxThread_php*)native_object)->SetPriority((unsigned int) priority0);
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    ((wxThread_php*)native_object)->SetPriority((unsigned int) priority0);
+                }
 
 
                 return;
@@ -2843,7 +2750,10 @@ PHP_METHOD(php_wxThread, GetKind)
                 php_printf("Executing RETURN_LONG(wxThread::GetKind())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->GetKind());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->GetKind());
+                }
 
 
                 return;
@@ -2950,7 +2860,10 @@ PHP_METHOD(php_wxThread, GetPriority)
                 php_printf("Executing RETURN_LONG(wxThread::GetPriority())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->GetPriority());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->GetPriority());
+                }
 
 
                 return;
@@ -3057,7 +2970,10 @@ PHP_METHOD(php_wxThread, IsAlive)
                 php_printf("Executing RETURN_BOOL(wxThread::IsAlive())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxThread_php*)native_object)->IsAlive());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_BOOL(((wxThread_php*)native_object)->IsAlive());
+                }
 
 
                 return;
@@ -3164,7 +3080,10 @@ PHP_METHOD(php_wxThread, IsDetached)
                 php_printf("Executing RETURN_BOOL(wxThread::IsDetached())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxThread_php*)native_object)->IsDetached());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_BOOL(((wxThread_php*)native_object)->IsDetached());
+                }
 
 
                 return;
@@ -3379,7 +3298,10 @@ PHP_METHOD(php_wxThread, IsPaused)
                 php_printf("Executing RETURN_BOOL(wxThread::IsPaused())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxThread_php*)native_object)->IsPaused());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_BOOL(((wxThread_php*)native_object)->IsPaused());
+                }
 
 
                 return;
@@ -3486,7 +3408,10 @@ PHP_METHOD(php_wxThread, IsRunning)
                 php_printf("Executing RETURN_BOOL(wxThread::IsRunning())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxThread_php*)native_object)->IsRunning());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_BOOL(((wxThread_php*)native_object)->IsRunning());
+                }
 
 
                 return;
@@ -3593,7 +3518,10 @@ PHP_METHOD(php_wxThread, Kill)
                 php_printf("Executing RETURN_LONG(wxThread::Kill())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->Kill());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->Kill());
+                }
 
 
                 return;
@@ -3700,7 +3628,10 @@ PHP_METHOD(php_wxThread, Pause)
                 php_printf("Executing RETURN_LONG(wxThread::Pause())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->Pause());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->Pause());
+                }
 
 
                 return;
@@ -3807,7 +3738,10 @@ PHP_METHOD(php_wxThread, Resume)
                 php_printf("Executing RETURN_LONG(wxThread::Resume())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->Resume());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->Resume());
+                }
 
 
                 return;
@@ -3914,7 +3848,10 @@ PHP_METHOD(php_wxThread, Run)
                 php_printf("Executing RETURN_LONG(wxThread::Run())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->Run());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->Run());
+                }
 
 
                 return;
@@ -4026,7 +3963,10 @@ PHP_METHOD(php_wxThread, Create)
                 php_printf("Executing RETURN_LONG(wxThread::Create())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->Create());
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->Create());
+                }
 
 
                 return;
@@ -4038,7 +3978,10 @@ PHP_METHOD(php_wxThread, Create)
                 php_printf("Executing RETURN_LONG(wxThread::Create((unsigned int) stackSize0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxThread_php*)native_object)->Create((unsigned int) stackSize0));
+                if(current_object_type == PHP_WXTHREAD_TYPE)
+                {
+                    RETVAL_LONG(((wxThread_php*)native_object)->Create((unsigned int) stackSize0));
+                }
 
 
                 return;
@@ -4055,352 +3998,6 @@ PHP_METHOD(php_wxThread, Create)
             E_ERROR,
             "Wrong type or count of parameters passed to: "
             "wxThread::Create\n"
-        );
-    }
-}
-/* }}} */
-
-/* {{{ proto wxThreadError wxThread::Delete(void rc, wxThreadWait waitMode)
-   Calling Delete() gracefully terminates a detached thread, either when the thread calls TestDestroy() or when it finishes processing. */
-PHP_METHOD(php_wxThread, Delete)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxThread::Delete\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxThread* current_object;
-    wxphp_object_type current_object_type;
-    wxThread_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxThread_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxThread::Delete call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXTHREAD_TYPE){
-                references = &((wxThread_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    char* rc0;
-    size_t rc_len0;
-    zval rc0_ref;
-    long waitMode0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|sl' (&rc0, &rc_len0, &waitMode0)\n");
-        #endif
-
-        char parse_parameters_string[] = "|sl";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &rc0, &rc_len0, &waitMode0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-
-            char parse_references_string[] = "|zz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, rc0_ref, dummy );
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxThread::Delete())\n\n");
-                #endif
-
-                RETVAL_LONG(((wxThread_php*)native_object)->Delete());
-
-
-                return;
-                break;
-            }
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxThread::Delete((void**) 0))\n\n");
-                #endif
-
-                RETVAL_LONG(((wxThread_php*)native_object)->Delete((void**) 0));
-
-
-                return;
-                break;
-            }
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxThread::Delete((void**) 0, (wxThreadWait) waitMode0))\n\n");
-                #endif
-
-                RETVAL_LONG(((wxThread_php*)native_object)->Delete((void**) 0, (wxThreadWait) waitMode0));
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxThread::Delete\n"
-        );
-    }
-}
-/* }}} */
-
-/* {{{ proto void wxThread::Entry()
-   This is the entry point of the thread. */
-void* wxThread_php::Entry()
-{
-    static zend_function* cached_function = NULL;
-    static bool is_php_user_space_implemented = true;
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking virtual wxThread::Entry\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zval* params[1];
-    zval arguments[1];
-
-    zval function_return_value;
-    zval function_name;
-    ZVAL_STRING(&function_name, "Entry");
-    char* temp_string;
-    void* return_object;
-    int function_called;
-
-    //Parameters for conversion
-    
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Trying to call user defined method '%s'", "Entry");
-
-    if (this->phpObj.value.obj->ce == NULL) {
-    php_printf(" on NULL!\n");
-    } else {
-    php_printf(" on %s\n", ZSTR_VAL(this->phpObj.value.obj->ce->name));
-    }
-    #endif
-
-    if(is_php_user_space_implemented)
-    {
-        function_called = wxphp_call_method(
-            (zval*)&this->phpObj,
-            NULL,
-            &cached_function,
-            "Entry",
-            5,
-            &function_return_value,
-            0,
-            params
-        );
-    }
-    else
-    {
-        function_called = FAILURE;
-    }
-
-    
-
-    if(function_called == FAILURE)
-    {
-        is_php_user_space_implemented = false;
-
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Invocation of user defined method failed\n");
-        #endif
-
-        wxMessageBox(
-            "Failed to call virtual method "
-                "'wxThread::Entry'!",
-            "Error",
-            wxOK|wxICON_ERROR
-        );
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Returning userspace value.\n");
-    #endif
-
-    return (void*) Z_STRVAL(function_return_value);
-
-}
-/* }}} */
-
-/* {{{ proto void wxThread::Wait(wxThreadWait flags)
-   Waits for a joinable thread to terminate and returns the value the thread returned from Entry() or "(ExitCode)-1" on error. */
-PHP_METHOD(php_wxThread, Wait)
-{
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking wxThread::Wait\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zo_wxThread* current_object;
-    wxphp_object_type current_object_type;
-    wxThread_php* native_object;
-    void* argument_native_object = NULL;
-
-    //Other variables used thru the code
-    zval dummy;
-    ZVAL_NULL(&dummy);
-    bool already_called = false;
-    wxPHPObjectReferences* references;
-    int arguments_received = ZEND_NUM_ARGS();
-    bool return_is_user_initialized = false;
-
-    //Get native object of the php object that called the method
-    if(getThis() != NULL)
-    {
-        current_object = Z_wxThread_P(getThis());
-
-        if(current_object->native_object == NULL)
-        {
-            zend_error(
-                E_ERROR,
-                "Failed to get the native object for "
-                "wxThread::Wait call\n"
-            );
-
-            return;
-        }
-        else
-        {
-            native_object = current_object->native_object;
-            current_object_type = current_object->object_type;
-
-            bool reference_type_found = false;
-
-            if(current_object_type == PHP_WXTHREAD_TYPE){
-                references = &((wxThread_php*)native_object)->references;
-                reference_type_found = true;
-            }
-        }
-    }
-    #ifdef USE_WXPHP_DEBUG
-    else
-    {
-        php_printf("Processing the method call as static\n");
-    }
-    #endif
-
-    //Parameters for overload 0
-    long flags0;
-    bool overload0_called = false;
-
-    
-    //Overload 0
-    overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|l' (&flags0)\n");
-        #endif
-
-        char parse_parameters_string[] = "|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    
-    if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxThread::Wait()\n\n");
-                #endif
-
-                RETVAL_STRING((char*) ((wxThread_php*)native_object)->Wait());
-
-
-                return;
-                break;
-            }
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxThread::Wait((wxThreadWait) flags0)\n\n");
-                #endif
-
-                RETVAL_STRING((char*) ((wxThread_php*)native_object)->Wait((wxThreadWait) flags0));
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    
-    //In case wrong type/count of parameters was passed
-    if(!already_called)
-    {
-        zend_error(
-            E_ERROR,
-            "Wrong type or count of parameters passed to: "
-            "wxThread::Wait\n"
         );
     }
 }

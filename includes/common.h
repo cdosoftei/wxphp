@@ -94,6 +94,7 @@
 #include <wx/dcbuffer.h>
 #include <wx/bannerwindow.h>
 #include <wx/bitmap.h>
+#include <wx/bmpbndl.h>
 #include <wx/bmpbuttn.h>
 #include <wx/bmpcbox.h>
 #include <wx/dataobj.h>
@@ -245,6 +246,7 @@
 #include <wx/listbook.h>
 #include <wx/listbox.h>
 #include <wx/listctrl.h>
+#include <wx/uilocale.h>
 #include <wx/log.h>
 #include <wx/longlong.h>
 #include <wx/lzmastream.h>

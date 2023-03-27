@@ -79,8 +79,9 @@ void php_wxCaret_destruction_handler(zend_resource*);
 class wxCaret_php: public wxCaret{
     public:
 
-    wxCaret_php():wxCaret(){}
     wxCaret_php(wxWindow* window, int width, int height):wxCaret(window, width, height){}
+    wxCaret_php(wxWindow* window, const wxSize& size):wxCaret(window, size){}
+    wxCaret_php():wxCaret(){}
     
     
 

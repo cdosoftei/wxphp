@@ -179,56 +179,56 @@
             "public": false
         },
         "m_inactiveCloseBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_inactivePinBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_inactiveMaximizeBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_inactiveRestoreBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeCloseBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activePinBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeMaximizeBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeRestoreBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
@@ -405,56 +405,56 @@
             "public": false
         },
         "m_activeCloseBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledCloseBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeLeftBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledLeftBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeRightBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledRightBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeWindowListBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledWindowListBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
@@ -642,7 +642,7 @@
             "public": true
         },
         "bitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": false,
@@ -679,7 +679,7 @@
             "public": true
         },
         "icon": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": false,
@@ -842,56 +842,56 @@
             "public": false
         },
         "m_activeCloseBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledCloseBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeLeftBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledLeftBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeRightBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledRightBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_activeWindowListBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
             "public": false
         },
         "m_disabledWindowListBmp": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
@@ -986,14 +986,14 @@
             "public": true
         },
         "bitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": false,
             "public": true
         },
         "disBitmap": {
-            "type": "wxBitmap",
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": false,
@@ -1628,6 +1628,13 @@
             "protected": false,
             "public": true
         },
+        "LocaleTag": {
+            "type": "wxString",
+            "static": false,
+            "mutable": false,
+            "protected": false,
+            "public": true
+        },
         "CanonicalName": {
             "type": "wxString",
             "static": false,
@@ -1635,7 +1642,21 @@
             "protected": false,
             "public": true
         },
+        "CanonicalRef": {
+            "type": "wxString",
+            "static": false,
+            "mutable": false,
+            "protected": false,
+            "public": true
+        },
         "Description": {
+            "type": "wxString",
+            "static": false,
+            "mutable": false,
+            "protected": false,
+            "public": true
+        },
+        "DescriptionNative": {
             "type": "wxString",
             "static": false,
             "mutable": false,
@@ -1857,13 +1878,6 @@
         }
     },
     "wxMultiChoiceProperty": {
-        "m_valueAsStrings": {
-            "type": "wxArrayString",
-            "static": false,
-            "mutable": false,
-            "protected": true,
-            "public": false
-        },
         "m_display": {
             "type": "wxString",
             "static": false,
@@ -2002,8 +2016,8 @@
             "protected": true,
             "public": false
         },
-        "m_bitmap": {
-            "type": "wxBitmap",
+        "m_bitmapBundle": {
+            "type": "wxBitmapBundle",
             "static": false,
             "mutable": false,
             "protected": true,
@@ -3270,7 +3284,7 @@
     },
     "wxRichTextParagraph": {
         "m_cachedLines": {
-            "type": "wxRichTextLineList",
+            "type": "wxRichTextLineVector",
             "static": false,
             "mutable": false,
             "protected": true,

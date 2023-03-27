@@ -43,4 +43,4 @@ unset($defFunctions['wxFileNameFromPath']);
 unset($defFunctions['wxGetTempFileName']);
 unset($defFunctions['wxStrtok']);
 unset($defFunctions['wxGetEnv']);
-?>
+unset($defFunctions['wxGetLibLZMAVersionInfo']);

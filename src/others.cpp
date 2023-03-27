@@ -169,7 +169,7 @@ PHP_METHOD(php_wxScrolledWindow, __construct)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent1)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent1)->native_object;
                     object_pointer1_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer1_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer1_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }
@@ -1499,10 +1499,6 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
                 references = &((wxPreviewFrame_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXHTMLHELPDIALOG_TYPE) && (!reference_type_found)){
-                references = &((wxHtmlHelpDialog_php*)native_object)->references;
-                reference_type_found = true;
-            }
             if((current_object_type == PHP_WXHTMLHELPFRAME_TYPE) && (!reference_type_found)){
                 references = &((wxHtmlHelpFrame_php*)native_object)->references;
                 reference_type_found = true;
@@ -1543,10 +1539,6 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
                 references = &((wxWizard_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXPROGRESSDIALOG_TYPE) && (!reference_type_found)){
-                references = &((wxProgressDialog_php*)native_object)->references;
-                reference_type_found = true;
-            }
             if((current_object_type == PHP_WXCOLOURDIALOG_TYPE) && (!reference_type_found)){
                 references = &((wxColourDialog_php*)native_object)->references;
                 reference_type_found = true;
@@ -1563,8 +1555,16 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
                 references = &((wxSingleChoiceDialog_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXHTMLHELPDIALOG_TYPE) && (!reference_type_found)){
+                references = &((wxHtmlHelpDialog_php*)native_object)->references;
+                reference_type_found = true;
+            }
             if((current_object_type == PHP_WXGENERICPROGRESSDIALOG_TYPE) && (!reference_type_found)){
                 references = &((wxGenericProgressDialog_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXPROGRESSDIALOG_TYPE) && (!reference_type_found)){
+                references = &((wxProgressDialog_php*)native_object)->references;
                 reference_type_found = true;
             }
             if((current_object_type == PHP_WXPOPUPWINDOW_TYPE) && (!reference_type_found)){
@@ -1663,10 +1663,6 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
                 {
                     RETVAL_BOOL(((wxPreviewFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
-                else if(current_object_type == PHP_WXHTMLHELPDIALOG_TYPE)
-                {
-                    RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
-                }
                 else if(current_object_type == PHP_WXHTMLHELPFRAME_TYPE)
                 {
                     RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
@@ -1707,10 +1703,6 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
                 {
                     RETVAL_BOOL(((wxWizard_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
-                else if(current_object_type == PHP_WXPROGRESSDIALOG_TYPE)
-                {
-                    RETVAL_BOOL(((wxProgressDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
-                }
                 else if(current_object_type == PHP_WXCOLOURDIALOG_TYPE)
                 {
                     RETVAL_BOOL(((wxColourDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
@@ -1727,9 +1719,17 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
                 {
                     RETVAL_BOOL(((wxSingleChoiceDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
+                else if(current_object_type == PHP_WXHTMLHELPDIALOG_TYPE)
+                {
+                    RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                }
                 else if(current_object_type == PHP_WXGENERICPROGRESSDIALOG_TYPE)
                 {
                     RETVAL_BOOL(((wxGenericProgressDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                }
+                else if(current_object_type == PHP_WXPROGRESSDIALOG_TYPE)
+                {
+                    RETVAL_BOOL(((wxProgressDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXPOPUPWINDOW_TYPE)
                 {
@@ -2029,7 +2029,7 @@ PHP_METHOD(php_wxAnyButton, GetBitmap)
 /* }}} */
 
 /* {{{ proto wxBitmap wxAnyButton::GetBitmapCurrent()
-   Returns the bitmap used when the mouse is over the button, which may be invalid. */
+   Returns the bitmap used when the mouse is over the button. */
 PHP_METHOD(php_wxAnyButton, GetBitmapCurrent)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2160,7 +2160,7 @@ PHP_METHOD(php_wxAnyButton, GetBitmapCurrent)
 /* }}} */
 
 /* {{{ proto wxBitmap wxAnyButton::GetBitmapDisabled()
-   Returns the bitmap for the disabled state, which may be invalid. */
+   Returns the bitmap used for the disabled state. */
 PHP_METHOD(php_wxAnyButton, GetBitmapDisabled)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2291,7 +2291,7 @@ PHP_METHOD(php_wxAnyButton, GetBitmapDisabled)
 /* }}} */
 
 /* {{{ proto wxBitmap wxAnyButton::GetBitmapFocus()
-   Returns the bitmap for the focused state, which may be invalid. */
+   Returns the bitmap used for the focused state. */
 PHP_METHOD(php_wxAnyButton, GetBitmapFocus)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2683,7 +2683,7 @@ PHP_METHOD(php_wxAnyButton, GetBitmapMargins)
 /* }}} */
 
 /* {{{ proto wxBitmap wxAnyButton::GetBitmapPressed()
-   Returns the bitmap for the pressed state, which may be invalid. */
+   Returns the bitmap used when the button is pressed. */
 PHP_METHOD(php_wxAnyButton, GetBitmapPressed)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2813,7 +2813,7 @@ PHP_METHOD(php_wxAnyButton, GetBitmapPressed)
 }
 /* }}} */
 
-/* {{{ proto  wxAnyButton::SetBitmap(wxBitmap bitmap, wxDirection dir)
+/* {{{ proto  wxAnyButton::SetBitmap(wxBitmapBundle bitmap, wxDirection dir)
    Sets the bitmap to display in the button. */
 PHP_METHOD(php_wxAnyButton, SetBitmap)
 {
@@ -2888,7 +2888,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmap)
 
     //Parameters for overload 0
     zval* bitmap0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     long dir0;
     bool overload0_called = false;
 
@@ -2899,18 +2899,18 @@ PHP_METHOD(php_wxAnyButton, SetBitmap)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O|l' (&bitmap0, php_wxBitmap_entry, &dir0)\n");
+        php_printf("Parsing parameters with 'O|l' (&bitmap0, php_wxBitmapBundle_entry, &dir0)\n");
         #endif
 
         char parse_parameters_string[] = "O|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmap_entry, &dir0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmapBundle_entry, &dir0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bitmap0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bitmap0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bitmap0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bitmap' could not be retreived correctly.");
@@ -2935,10 +2935,10 @@ PHP_METHOD(php_wxAnyButton, SetBitmap)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmap(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmap(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmap(*(wxBitmap*) object_pointer0_0);
+                ((wxAnyButton_php*)native_object)->SetBitmap(*(wxBitmapBundle*) object_pointer0_0);
 
                 references->AddReference(bitmap0, "wxAnyButton::SetBitmap at call 3 with 1 argument(s)");
 
@@ -2948,10 +2948,10 @@ PHP_METHOD(php_wxAnyButton, SetBitmap)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmap(*(wxBitmap*) object_pointer0_0, (wxDirection) dir0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmap(*(wxBitmapBundle*) object_pointer0_0, (wxDirection) dir0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmap(*(wxBitmap*) object_pointer0_0, (wxDirection) dir0);
+                ((wxAnyButton_php*)native_object)->SetBitmap(*(wxBitmapBundle*) object_pointer0_0, (wxDirection) dir0);
 
                 references->AddReference(bitmap0, "wxAnyButton::SetBitmap at call 3 with 2 argument(s)");
 
@@ -2974,7 +2974,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmap)
 }
 /* }}} */
 
-/* {{{ proto  wxAnyButton::SetBitmapCurrent(wxBitmap bitmap)
+/* {{{ proto  wxAnyButton::SetBitmapCurrent(wxBitmapBundle bitmap)
    Sets the bitmap to be shown when the mouse is over the button. */
 PHP_METHOD(php_wxAnyButton, SetBitmapCurrent)
 {
@@ -3049,7 +3049,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapCurrent)
 
     //Parameters for overload 0
     zval* bitmap0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     
@@ -3059,18 +3059,18 @@ PHP_METHOD(php_wxAnyButton, SetBitmapCurrent)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmap_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmap_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bitmap0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bitmap0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bitmap0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bitmap' could not be retreived correctly.");
@@ -3095,10 +3095,10 @@ PHP_METHOD(php_wxAnyButton, SetBitmapCurrent)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmapCurrent(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmapCurrent(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmapCurrent(*(wxBitmap*) object_pointer0_0);
+                ((wxAnyButton_php*)native_object)->SetBitmapCurrent(*(wxBitmapBundle*) object_pointer0_0);
 
                 references->AddReference(bitmap0, "wxAnyButton::SetBitmapCurrent at call 3 with 1 argument(s)");
 
@@ -3121,7 +3121,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapCurrent)
 }
 /* }}} */
 
-/* {{{ proto  wxAnyButton::SetBitmapDisabled(wxBitmap bitmap)
+/* {{{ proto  wxAnyButton::SetBitmapDisabled(wxBitmapBundle bitmap)
    Sets the bitmap for the disabled button appearance. */
 PHP_METHOD(php_wxAnyButton, SetBitmapDisabled)
 {
@@ -3196,7 +3196,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapDisabled)
 
     //Parameters for overload 0
     zval* bitmap0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     
@@ -3206,18 +3206,18 @@ PHP_METHOD(php_wxAnyButton, SetBitmapDisabled)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmap_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmap_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bitmap0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bitmap0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bitmap0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bitmap' could not be retreived correctly.");
@@ -3242,10 +3242,10 @@ PHP_METHOD(php_wxAnyButton, SetBitmapDisabled)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmapDisabled(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmapDisabled(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmapDisabled(*(wxBitmap*) object_pointer0_0);
+                ((wxAnyButton_php*)native_object)->SetBitmapDisabled(*(wxBitmapBundle*) object_pointer0_0);
 
                 references->AddReference(bitmap0, "wxAnyButton::SetBitmapDisabled at call 3 with 1 argument(s)");
 
@@ -3268,7 +3268,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapDisabled)
 }
 /* }}} */
 
-/* {{{ proto  wxAnyButton::SetBitmapFocus(wxBitmap bitmap)
+/* {{{ proto  wxAnyButton::SetBitmapFocus(wxBitmapBundle bitmap)
    Sets the bitmap for the button appearance when it has the keyboard focus. */
 PHP_METHOD(php_wxAnyButton, SetBitmapFocus)
 {
@@ -3343,7 +3343,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapFocus)
 
     //Parameters for overload 0
     zval* bitmap0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     
@@ -3353,18 +3353,18 @@ PHP_METHOD(php_wxAnyButton, SetBitmapFocus)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmap_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmap_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bitmap0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bitmap0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bitmap0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bitmap' could not be retreived correctly.");
@@ -3389,10 +3389,10 @@ PHP_METHOD(php_wxAnyButton, SetBitmapFocus)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmapFocus(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmapFocus(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmapFocus(*(wxBitmap*) object_pointer0_0);
+                ((wxAnyButton_php*)native_object)->SetBitmapFocus(*(wxBitmapBundle*) object_pointer0_0);
 
                 references->AddReference(bitmap0, "wxAnyButton::SetBitmapFocus at call 3 with 1 argument(s)");
 
@@ -3415,7 +3415,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapFocus)
 }
 /* }}} */
 
-/* {{{ proto  wxAnyButton::SetBitmapLabel(wxBitmap bitmap)
+/* {{{ proto  wxAnyButton::SetBitmapLabel(wxBitmapBundle bitmap)
    Sets the bitmap label for the button. */
 PHP_METHOD(php_wxAnyButton, SetBitmapLabel)
 {
@@ -3490,7 +3490,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapLabel)
 
     //Parameters for overload 0
     zval* bitmap0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     
@@ -3500,18 +3500,18 @@ PHP_METHOD(php_wxAnyButton, SetBitmapLabel)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmap_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmap_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bitmap0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bitmap0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bitmap0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bitmap' could not be retreived correctly.");
@@ -3536,10 +3536,10 @@ PHP_METHOD(php_wxAnyButton, SetBitmapLabel)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmapLabel(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmapLabel(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmapLabel(*(wxBitmap*) object_pointer0_0);
+                ((wxAnyButton_php*)native_object)->SetBitmapLabel(*(wxBitmapBundle*) object_pointer0_0);
 
                 references->AddReference(bitmap0, "wxAnyButton::SetBitmapLabel at call 3 with 1 argument(s)");
 
@@ -3562,7 +3562,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapLabel)
 }
 /* }}} */
 
-/* {{{ proto  wxAnyButton::SetBitmapMargins(wxSize sz)
+/* {{{ proto  wxAnyButton::SetBitmapMargins(int x, int y)
    Set the margins between the bitmap and the text of the button. */
 PHP_METHOD(php_wxAnyButton, SetBitmapMargins)
 {
@@ -3636,45 +3636,28 @@ PHP_METHOD(php_wxAnyButton, SetBitmapMargins)
     #endif
 
     //Parameters for overload 0
-    zval* sz0;
-    wxSize* object_pointer0_0 = 0;
+    long x0;
+    long y0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    long x1;
-    long y1;
+    zval* sz1;
+    wxSize* object_pointer1_0 = 0;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 1)
+    if(!already_called && arguments_received == 2)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&sz0, php_wxSize_entry)\n");
+        php_printf("Parsing parameters with 'll' (&x0, &y0)\n");
         #endif
 
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &sz0, php_wxSize_entry ) == SUCCESS)
+        char parse_parameters_string[] = "ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &x0, &y0 ) == SUCCESS)
         {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(sz0) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxSize_P(sz0)->object_type;
-                    argument_native_object = (void*) Z_wxSize_P(sz0)->native_object;
-                    object_pointer0_0 = (wxSize*) argument_native_object;
-                    if (!object_pointer0_0 )
-                    {
-                        goto overload1;
-                    }
-                }
-                else if(Z_TYPE_P(sz0) != IS_NULL)
-                {
-                    goto overload1;
-                }
-            }
-
             overload0_called = true;
             already_called = true;
         }
@@ -3682,16 +3665,33 @@ PHP_METHOD(php_wxAnyButton, SetBitmapMargins)
 
     //Overload 1
     overload1:
-    if(!already_called && arguments_received == 2)
+    if(!already_called && arguments_received == 1)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&x1, &y1)\n");
+        php_printf("Parsing parameters with 'O' (&sz1, php_wxSize_entry)\n");
         #endif
 
-        char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &x1, &y1 ) == SUCCESS)
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &sz1, php_wxSize_entry ) == SUCCESS)
         {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(sz1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxSize_P(sz1)->object_type;
+                    argument_native_object = (void*) Z_wxSize_P(sz1)->native_object;
+                    object_pointer1_0 = (wxSize*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'sz' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(sz1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'sz' not null, could not be retreived correctly.");
+                }
+            }
+
             overload1_called = true;
             already_called = true;
         }
@@ -3702,15 +3702,14 @@ PHP_METHOD(php_wxAnyButton, SetBitmapMargins)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmapMargins(*(wxSize*) object_pointer0_0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmapMargins((wxCoord) x0, (wxCoord) y0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmapMargins(*(wxSize*) object_pointer0_0);
+                ((wxAnyButton_php*)native_object)->SetBitmapMargins((wxCoord) x0, (wxCoord) y0);
 
-                references->AddReference(sz0, "wxAnyButton::SetBitmapMargins at call 3 with 1 argument(s)");
 
                 return;
                 break;
@@ -3722,14 +3721,15 @@ PHP_METHOD(php_wxAnyButton, SetBitmapMargins)
     {
         switch(arguments_received)
         {
-            case 2:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmapMargins((wxCoord) x1, (wxCoord) y1)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmapMargins(*(wxSize*) object_pointer1_0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmapMargins((wxCoord) x1, (wxCoord) y1);
+                ((wxAnyButton_php*)native_object)->SetBitmapMargins(*(wxSize*) object_pointer1_0);
 
+                references->AddReference(sz1, "wxAnyButton::SetBitmapMargins at call 3 with 1 argument(s)");
 
                 return;
                 break;
@@ -3878,7 +3878,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapPosition)
 }
 /* }}} */
 
-/* {{{ proto  wxAnyButton::SetBitmapPressed(wxBitmap bitmap)
+/* {{{ proto  wxAnyButton::SetBitmapPressed(wxBitmapBundle bitmap)
    Sets the bitmap for the selected (depressed) button appearance. */
 PHP_METHOD(php_wxAnyButton, SetBitmapPressed)
 {
@@ -3953,7 +3953,7 @@ PHP_METHOD(php_wxAnyButton, SetBitmapPressed)
 
     //Parameters for overload 0
     zval* bitmap0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     
@@ -3963,18 +3963,18 @@ PHP_METHOD(php_wxAnyButton, SetBitmapPressed)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmap_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bitmap0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmap_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bitmap0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bitmap0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bitmap0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bitmap0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bitmap' could not be retreived correctly.");
@@ -3999,10 +3999,10 @@ PHP_METHOD(php_wxAnyButton, SetBitmapPressed)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnyButton::SetBitmapPressed(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxAnyButton::SetBitmapPressed(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
-                ((wxAnyButton_php*)native_object)->SetBitmapPressed(*(wxBitmap*) object_pointer0_0);
+                ((wxAnyButton_php*)native_object)->SetBitmapPressed(*(wxBitmapBundle*) object_pointer0_0);
 
                 references->AddReference(bitmap0, "wxAnyButton::SetBitmapPressed at call 3 with 1 argument(s)");
 
@@ -4234,6 +4234,10 @@ PHP_METHOD(php_wxWithImages, SetImageList)
                 references = &((wxWithImages_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTREECTRL_TYPE) && (!reference_type_found)){
+                references = &((wxTreeCtrl_php*)native_object)->references;
+                reference_type_found = true;
+            }
             if((current_object_type == PHP_WXBOOKCTRLBASE_TYPE) && (!reference_type_found)){
                 references = &((wxBookCtrlBase_php*)native_object)->references;
                 reference_type_found = true;
@@ -4393,6 +4397,10 @@ PHP_METHOD(php_wxWithImages, GetImageList)
                 references = &((wxWithImages_php*)native_object)->references;
                 reference_type_found = true;
             }
+            if((current_object_type == PHP_WXTREECTRL_TYPE) && (!reference_type_found)){
+                references = &((wxTreeCtrl_php*)native_object)->references;
+                reference_type_found = true;
+            }
             if((current_object_type == PHP_WXBOOKCTRLBASE_TYPE) && (!reference_type_found)){
                 references = &((wxBookCtrlBase_php*)native_object)->references;
                 reference_type_found = true;
@@ -4549,6 +4557,10 @@ PHP_METHOD(php_wxWithImages, AssignImageList)
 
             if(current_object_type == PHP_WXWITHIMAGES_TYPE){
                 references = &((wxWithImages_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXTREECTRL_TYPE) && (!reference_type_found)){
+                references = &((wxTreeCtrl_php*)native_object)->references;
                 reference_type_found = true;
             }
             if((current_object_type == PHP_WXBOOKCTRLBASE_TYPE) && (!reference_type_found)){
@@ -4741,7 +4753,7 @@ zend_object* php_wxAnimation_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto int wxAnimation::GetDelay(int i)
+/* {{{ proto int wxAnimation::GetDelay(int frame)
    Returns the delay for the i-th frame in milliseconds. */
 PHP_METHOD(php_wxAnimation, GetDelay)
 {
@@ -4799,7 +4811,7 @@ PHP_METHOD(php_wxAnimation, GetDelay)
     #endif
 
     //Parameters for overload 0
-    long i0;
+    long frame0;
     bool overload0_called = false;
 
     
@@ -4809,11 +4821,11 @@ PHP_METHOD(php_wxAnimation, GetDelay)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&i0)\n");
+        php_printf("Parsing parameters with 'l' (&frame0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &i0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &frame0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -4828,10 +4840,10 @@ PHP_METHOD(php_wxAnimation, GetDelay)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxAnimation::GetDelay((unsigned int) i0))\n\n");
+                php_printf("Executing RETURN_LONG(wxAnimation::GetDelay((unsigned int) frame0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxAnimation_php*)native_object)->GetDelay((unsigned int) i0));
+                RETVAL_LONG(((wxAnimation_php*)native_object)->GetDelay((unsigned int) frame0));
 
 
                 return;
@@ -4853,7 +4865,7 @@ PHP_METHOD(php_wxAnimation, GetDelay)
 }
 /* }}} */
 
-/* {{{ proto wxImage wxAnimation::GetFrame(int i)
+/* {{{ proto wxImage wxAnimation::GetFrame(int frame)
    Returns the i-th frame as a wxImage. */
 PHP_METHOD(php_wxAnimation, GetFrame)
 {
@@ -4911,7 +4923,7 @@ PHP_METHOD(php_wxAnimation, GetFrame)
     #endif
 
     //Parameters for overload 0
-    long i0;
+    long frame0;
     bool overload0_called = false;
 
     
@@ -4921,11 +4933,11 @@ PHP_METHOD(php_wxAnimation, GetFrame)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&i0)\n");
+        php_printf("Parsing parameters with 'l' (&frame0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &i0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &frame0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -4940,11 +4952,11 @@ PHP_METHOD(php_wxAnimation, GetFrame)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxAnimation::GetFrame((unsigned int) i0) to return new object\n\n");
+                php_printf("Executing wxAnimation::GetFrame((unsigned int) frame0) to return new object\n\n");
                 #endif
 
                 wxImage value_to_return1;
-                value_to_return1 = ((wxAnimation_php*)native_object)->GetFrame((unsigned int) i0);
+                value_to_return1 = ((wxAnimation_php*)native_object)->GetFrame((unsigned int) frame0);
                 ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
                 void* ptr = safe_emalloc(1, sizeof(wxImage_php), 0);
                 memcpy(ptr, (void*) &value_to_return1, sizeof(wxImage));
@@ -5427,8 +5439,8 @@ PHP_METHOD(php_wxAnimation, LoadFile)
 }
 /* }}} */
 
-/* {{{ proto  wxAnimation::wxAnimation(wxAnimation anim)
-   Copy ctor. */
+/* {{{ proto  wxAnimation::wxAnimation()
+   Constructs a new empty animation object. */
 PHP_METHOD(php_wxAnimation, __construct)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5448,8 +5460,6 @@ PHP_METHOD(php_wxAnimation, __construct)
 
 
     //Parameters for overload 0
-    zval* anim0;
-    wxAnimation* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     //Parameters for overload 1
@@ -5458,39 +5468,23 @@ PHP_METHOD(php_wxAnimation, __construct)
     long type1;
     bool overload1_called = false;
 
+    //Parameters for overload 2
+    zval* other2;
+    wxAnimation* object_pointer2_0 = 0;
+    bool overload2_called = false;
+
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 1)
+    if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&anim0, php_wxAnimation_entry)\n");
+        php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &anim0, php_wxAnimation_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(anim0) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxAnimation_P(anim0)->object_type;
-                    argument_native_object = (void*) Z_wxAnimation_P(anim0)->native_object;
-                    object_pointer0_0 = (wxAnimation*) argument_native_object;
-                    if (!object_pointer0_0 )
-                    {
-                        goto overload1;
-                    }
-                }
-                else if(Z_TYPE_P(anim0) != IS_NULL)
-                {
-                    goto overload1;
-                }
-            }
-
-            overload0_called = true;
-            already_called = true;
-        }
+        overload0_called = true;
+        already_called = true;
     }
 
     //Overload 1
@@ -5510,21 +5504,54 @@ PHP_METHOD(php_wxAnimation, __construct)
         }
     }
 
+    //Overload 2
+    overload2:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&other2, php_wxAnimation_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &other2, php_wxAnimation_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(other2) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxAnimation_P(other2)->object_type;
+                    argument_native_object = (void*) Z_wxAnimation_P(other2)->native_object;
+                    object_pointer2_0 = (wxAnimation*) argument_native_object;
+                    if (!object_pointer2_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'other' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(other2) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'other' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload2_called = true;
+            already_called = true;
+        }
+    }
+
     
     if(overload0_called)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxAnimation*) object_pointer0_0)\n");
+                php_printf("Executing __construct()\n");
                 #endif
 
-                native_object = new wxAnimation_php(*(wxAnimation*) object_pointer0_0);
+                native_object = new wxAnimation_php();
 
                 native_object->references.Initialize();
-                ((wxAnimation_php*) native_object)->references.AddReference(anim0, "wxAnimation::wxAnimation at call 4 with 1 argument(s)");
                 break;
             }
         }
@@ -5554,6 +5581,25 @@ PHP_METHOD(php_wxAnimation, __construct)
                 native_object = new wxAnimation_php(wxString(name1, wxConvUTF8), (wxAnimationType) type1);
 
                 native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload2_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxAnimation*) object_pointer2_0)\n");
+                #endif
+
+                native_object = new wxAnimation_php(*(wxAnimation*) object_pointer2_0);
+
+                native_object->references.Initialize();
+                ((wxAnimation_php*) native_object)->references.AddReference(other2, "wxAnimation::wxAnimation at call 4 with 1 argument(s)");
                 break;
             }
         }
@@ -11248,7 +11294,7 @@ PHP_METHOD(php_wxProgressDialog, __construct)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent0)->native_object;
                     object_pointer0_3 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_3 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_3 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }
@@ -11694,7 +11740,7 @@ PHP_METHOD(php_wxLayoutConstraints, SatisfyConstraints)
                     wxphp_object_type argument_type = Z_wxWindow_P(win0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(win0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'win' could not be retreived correctly.");
                     }
@@ -11970,7 +12016,7 @@ PHP_METHOD(php_wxGridCellAttrProvider, GetAttr)
 /* }}} */
 
 /* {{{ proto wxGridColumnHeaderRenderer wxGridCellAttrProvider::GetColumnHeaderRenderer(int col)
-   Getting header renderers. */
+   Return the renderer used for drawing column headers. */
 PHP_METHOD(php_wxGridCellAttrProvider, GetColumnHeaderRenderer)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -12361,7 +12407,7 @@ PHP_METHOD(php_wxGridCellAttrProvider, GetRowHeaderRenderer)
 /* }}} */
 
 /* {{{ proto  wxGridCellAttrProvider::SetAttr(wxGridCellAttr &attr, int row, int col)
-   Setting attributes. */
+   Set attribute for the specified cell. */
 PHP_METHOD(php_wxGridCellAttrProvider, SetAttr)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -13250,101 +13296,6 @@ zend_object* php_wxGridCornerHeaderRenderer_new(zend_class_entry *class_type)
     return &custom_object->zo;
 }
 END_EXTERN_C()
-
-/* {{{ proto  wxGridCornerHeaderRenderer::DrawBorder(wxGrid grid, wxDC &dc, wxRect &rect)
-   Called by the grid to draw the corner window border. */
-void wxGridCornerHeaderRenderer_php::DrawBorder(const wxGrid& grid, wxDC& dc, wxRect& rect)const
-{
-    static zend_function* cached_function = NULL;
-    static bool is_php_user_space_implemented = true;
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Invoking virtual wxGridCornerHeaderRenderer::DrawBorder\n");
-    php_printf("===========================================\n");
-    #endif
-
-    zval* params[3];
-    zval arguments[3];
-
-    zval function_return_value;
-    zval function_name;
-    ZVAL_STRING(&function_name, "DrawBorder");
-    char* temp_string;
-    void* return_object;
-    int function_called;
-
-    //Parameters for conversion
-    object_init_ex(&arguments[0], php_wxGrid_entry);
-    Z_wxGrid_P(&arguments[0])->native_object = (wxGrid_php*) &grid;
-    object_init_ex(&arguments[1], php_wxDC_entry);
-    Z_wxDC_P(&arguments[1])->native_object = (wxDC_php*) &dc;
-    object_init_ex(&arguments[2], php_wxRect_entry);
-    Z_wxRect_P(&arguments[2])->native_object = (wxRect_php*) &rect;
-    
-    for(int i=0; i<3; i++)
-    {
-        params[i] = &arguments[i];
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Trying to call user defined method '%s'", "DrawBorder");
-
-    if (this->phpObj.value.obj->ce == NULL) {
-    php_printf(" on NULL!\n");
-    } else {
-    php_printf(" on %s\n", ZSTR_VAL(this->phpObj.value.obj->ce->name));
-    }
-    #endif
-
-    if(is_php_user_space_implemented)
-    {
-        function_called = wxphp_call_method(
-            (zval*)&this->phpObj,
-            NULL,
-            &cached_function,
-            "DrawBorder",
-            10,
-            &function_return_value,
-            3,
-            params
-        );
-    }
-    else
-    {
-        function_called = FAILURE;
-    }
-
-    
-    //Delete already used parameters from memory
-    for(int i=0; i<3; i++)
-    {
-        zval_ptr_dtor(&arguments[i]);
-    }
-
-    if(function_called == FAILURE)
-    {
-        is_php_user_space_implemented = false;
-
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Invocation of user defined method failed\n");
-        #endif
-
-        wxMessageBox(
-            "Failed to call virtual method "
-                "'wxGridCornerHeaderRenderer::DrawBorder'!",
-            "Error",
-            wxOK|wxICON_ERROR
-        );
-    }
-
-    #ifdef USE_WXPHP_DEBUG
-    php_printf("Returning userspace value.\n");
-    #endif
-
-    return;
-
-}
-/* }}} */
 
 BEGIN_EXTERN_C()
 void php_wxGridCornerHeaderRendererDefault_free(void *object)
@@ -14509,7 +14460,7 @@ PHP_METHOD(php_wxPaletteChangedEvent, SetChangedWindow)
                     wxphp_object_type argument_type = Z_wxWindow_P(win0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(win0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'win' could not be retreived correctly.");
                     }
@@ -15329,6 +15280,10 @@ PHP_METHOD(php_wxFileTypeInfo, __construct)
     size_t mimeType_len1;
     bool overload1_called = false;
 
+    //Parameters for overload 2
+    zval* sArray2;
+    bool overload2_called = false;
+
     
     //Overload 0
     overload0:
@@ -15356,6 +15311,23 @@ PHP_METHOD(php_wxFileTypeInfo, __construct)
         if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mimeType1, &mimeType_len1 ) == SUCCESS)
         {
             overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 2
+    overload2:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'a' (&sArray2)\n");
+        #endif
+
+        char parse_parameters_string[] = "a";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &sArray2 ) == SUCCESS)
+        {
+            overload2_called = true;
             already_called = true;
         }
     }
@@ -15390,6 +15362,42 @@ PHP_METHOD(php_wxFileTypeInfo, __construct)
                 #endif
 
                 native_object = new wxFileTypeInfo_php(wxString(mimeType1, wxConvUTF8));
+
+                native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload2_called)
+    {
+        wxArrayString strings_array2_0;
+        bool strings_continue2_0 = true;
+
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                int array_index2_0 = 0;
+                zval* temp_array_value2_0 = 0;
+                while(strings_continue2_0)
+                {
+                    if((temp_array_value2_0 = zend_hash_index_find(HASH_OF(sArray2), array_index2_0)) != NULL)
+                    {
+                        convert_to_string(temp_array_value2_0);
+                        strings_array2_0.Add(wxString(Z_STRVAL_P(temp_array_value2_0), wxConvUTF8));
+                        array_index2_0++;
+                    }
+                    else
+                    {
+                        strings_continue2_0 = false;
+                    }
+                }
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(strings_array2_0)\n");
+                #endif
+
+                native_object = new wxFileTypeInfo_php(strings_array2_0);
 
                 native_object->references.Initialize();
                 break;
@@ -16297,32 +16305,20 @@ PHP_METHOD(php_wxToolBarToolBase, GetBitmap)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxToolBarToolBase::GetBitmap() to return object reference\n\n");
+                php_printf("Executing wxToolBarToolBase::GetBitmap() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
+                wxBitmap value_to_return0;
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    value_to_return0 = (wxBitmap_php*) &((wxToolBarToolBase_php*)native_object)->GetBitmap();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxToolBarToolBase::GetBitmap at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxToolBarToolBase_php*)native_object)->GetBitmap();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                    object_init_ex(return_value, php_wxBitmap_entry);
+                    ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                    zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                    zo0->native_object = (wxBitmap_php*) ptr;
                 }
 
 
@@ -16690,32 +16686,20 @@ PHP_METHOD(php_wxToolBarToolBase, GetDisabledBitmap)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxToolBarToolBase::GetDisabledBitmap() to return object reference\n\n");
+                php_printf("Executing wxToolBarToolBase::GetDisabledBitmap() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
+                wxBitmap value_to_return0;
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    value_to_return0 = (wxBitmap_php*) &((wxToolBarToolBase_php*)native_object)->GetDisabledBitmap();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxToolBarToolBase::GetDisabledBitmap at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxToolBarToolBase_php*)native_object)->GetDisabledBitmap();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                    object_init_ex(return_value, php_wxBitmap_entry);
+                    ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                    zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                    zo0->native_object = (wxBitmap_php*) ptr;
                 }
 
 
@@ -17391,32 +17375,20 @@ PHP_METHOD(php_wxToolBarToolBase, GetNormalBitmap)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxToolBarToolBase::GetNormalBitmap() to return object reference\n\n");
+                php_printf("Executing wxToolBarToolBase::GetNormalBitmap() to return new object\n\n");
                 #endif
 
-                wxBitmap_php* value_to_return0;
+                wxBitmap value_to_return0;
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    value_to_return0 = (wxBitmap_php*) &((wxToolBarToolBase_php*)native_object)->GetNormalBitmap();
-
-                }
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxBitmap_entry);
-                    Z_wxBitmap_P(return_value)->native_object = (wxBitmap_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxToolBarToolBase::GetNormalBitmap at call 6 with 0 argument(s)");
+                    value_to_return0 = ((wxToolBarToolBase_php*)native_object)->GetNormalBitmap();
+                    ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                    void* ptr = safe_emalloc(1, sizeof(wxBitmap_php), 0);
+                    memcpy(ptr, (void*) &value_to_return0, sizeof(wxBitmap));
+                    object_init_ex(return_value, php_wxBitmap_entry);
+                    ((wxBitmap_php*)ptr)->phpObj = *return_value;
+                    zo_wxBitmap* zo0 = Z_wxBitmap_P(return_value);
+                    zo0->native_object = (wxBitmap_php*) ptr;
                 }
 
 
@@ -18894,7 +18866,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetLongHelp)
 }
 /* }}} */
 
-/* {{{ proto  wxToolBarToolBase::SetNormalBitmap(wxBitmap bmp) */
+/* {{{ proto  wxToolBarToolBase::SetNormalBitmap(wxBitmapBundle bmp) */
 PHP_METHOD(php_wxToolBarToolBase, SetNormalBitmap)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -18952,7 +18924,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetNormalBitmap)
 
     //Parameters for overload 0
     zval* bmp0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     
@@ -18962,18 +18934,18 @@ PHP_METHOD(php_wxToolBarToolBase, SetNormalBitmap)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bmp0, php_wxBitmap_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bmp0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bmp0, php_wxBitmap_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bmp0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bmp0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bmp0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bmp0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bmp0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bmp0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bmp' could not be retreived correctly.");
@@ -18998,12 +18970,12 @@ PHP_METHOD(php_wxToolBarToolBase, SetNormalBitmap)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxToolBarToolBase::SetNormalBitmap(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxToolBarToolBase::SetNormalBitmap(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    ((wxToolBarToolBase_php*)native_object)->SetNormalBitmap(*(wxBitmap*) object_pointer0_0);
+                    ((wxToolBarToolBase_php*)native_object)->SetNormalBitmap(*(wxBitmapBundle*) object_pointer0_0);
                 }
 
                 references->AddReference(bmp0, "wxToolBarToolBase::SetNormalBitmap at call 3 with 1 argument(s)");
@@ -19256,7 +19228,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetToggle)
 }
 /* }}} */
 
-/* {{{ proto  wxToolBarToolBase::Toggle() */
+/* {{{ proto bool wxToolBarToolBase::Toggle(bool toggle) */
 PHP_METHOD(php_wxToolBarToolBase, Toggle)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -19313,11 +19285,32 @@ PHP_METHOD(php_wxToolBarToolBase, Toggle)
     #endif
 
     //Parameters for overload 0
+    bool toggle0;
     bool overload0_called = false;
+
+    //Parameters for overload 1
+    bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'b' (&toggle0)\n");
+        #endif
+
+        char parse_parameters_string[] = "b";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &toggle0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -19325,12 +19318,34 @@ PHP_METHOD(php_wxToolBarToolBase, Toggle)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
     }
 
     
     if(overload0_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxToolBarToolBase::Toggle(toggle0))\n\n");
+                #endif
+
+                if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
+                {
+                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->Toggle(toggle0));
+                }
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
     {
         switch(arguments_received)
         {
@@ -19365,7 +19380,7 @@ PHP_METHOD(php_wxToolBarToolBase, Toggle)
 }
 /* }}} */
 
-/* {{{ proto  wxToolBarToolBase::SetDisabledBitmap(wxBitmap bmp) */
+/* {{{ proto  wxToolBarToolBase::SetDisabledBitmap(wxBitmapBundle bmp) */
 PHP_METHOD(php_wxToolBarToolBase, SetDisabledBitmap)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -19423,7 +19438,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetDisabledBitmap)
 
     //Parameters for overload 0
     zval* bmp0;
-    wxBitmap* object_pointer0_0 = 0;
+    wxBitmapBundle* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     
@@ -19433,18 +19448,18 @@ PHP_METHOD(php_wxToolBarToolBase, SetDisabledBitmap)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&bmp0, php_wxBitmap_entry)\n");
+        php_printf("Parsing parameters with 'O' (&bmp0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bmp0, php_wxBitmap_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &bmp0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(bmp0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxBitmap_P(bmp0)->object_type;
-                    argument_native_object = (void*) Z_wxBitmap_P(bmp0)->native_object;
-                    object_pointer0_0 = (wxBitmap*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bmp0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bmp0)->native_object;
+                    object_pointer0_0 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_0 )
                     {
                         zend_error(E_ERROR, "Parameter 'bmp' could not be retreived correctly.");
@@ -19469,12 +19484,12 @@ PHP_METHOD(php_wxToolBarToolBase, SetDisabledBitmap)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxToolBarToolBase::SetDisabledBitmap(*(wxBitmap*) object_pointer0_0)\n\n");
+                php_printf("Executing wxToolBarToolBase::SetDisabledBitmap(*(wxBitmapBundle*) object_pointer0_0)\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    ((wxToolBarToolBase_php*)native_object)->SetDisabledBitmap(*(wxBitmap*) object_pointer0_0);
+                    ((wxToolBarToolBase_php*)native_object)->SetDisabledBitmap(*(wxBitmapBundle*) object_pointer0_0);
                 }
 
                 references->AddReference(bmp0, "wxToolBarToolBase::SetDisabledBitmap at call 3 with 1 argument(s)");
@@ -19578,7 +19593,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetClientData)
                     wxphp_object_type argument_type = Z_wxObject_P(clientData0)->object_type;
                     argument_native_object = (void*) Z_wxObject_P(clientData0)->native_object;
                     object_pointer0_0 = (wxObject*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXOBJECT_TYPE && argument_type != PHP_WXEVTHANDLER_TYPE && argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE && argument_type != PHP_WXVALIDATOR_TYPE && argument_type != PHP_WXTEXTVALIDATOR_TYPE && argument_type != PHP_WXGENERICVALIDATOR_TYPE && argument_type != PHP_WXMENU_TYPE && argument_type != PHP_WXAUIMANAGER_TYPE && argument_type != PHP_WXMOUSEEVENTSMANAGER_TYPE && argument_type != PHP_WXTIMER_TYPE && argument_type != PHP_WXEVENTBLOCKER_TYPE && argument_type != PHP_WXPROCESS_TYPE && argument_type != PHP_WXFILESYSTEMWATCHER_TYPE && argument_type != PHP_WXTASKBARICON_TYPE && argument_type != PHP_WXNOTIFICATIONMESSAGE_TYPE && argument_type != PHP_WXBITMAPHANDLER_TYPE && argument_type != PHP_WXIMAGE_TYPE && argument_type != PHP_WXSIZER_TYPE && argument_type != PHP_WXBOXSIZER_TYPE && argument_type != PHP_WXSTATICBOXSIZER_TYPE && argument_type != PHP_WXWRAPSIZER_TYPE && argument_type != PHP_WXSTDDIALOGBUTTONSIZER_TYPE && argument_type != PHP_WXGRIDSIZER_TYPE && argument_type != PHP_WXFLEXGRIDSIZER_TYPE && argument_type != PHP_WXGRIDBAGSIZER_TYPE && argument_type != PHP_WXSIZERITEM_TYPE && argument_type != PHP_WXGBSIZERITEM_TYPE && argument_type != PHP_WXIMAGELIST_TYPE && argument_type != PHP_WXDC_TYPE && argument_type != PHP_WXWINDOWDC_TYPE && argument_type != PHP_WXCLIENTDC_TYPE && argument_type != PHP_WXPAINTDC_TYPE && argument_type != PHP_WXSCREENDC_TYPE && argument_type != PHP_WXPOSTSCRIPTDC_TYPE && argument_type != PHP_WXPRINTERDC_TYPE && argument_type != PHP_WXMEMORYDC_TYPE && argument_type != PHP_WXBUFFEREDDC_TYPE && argument_type != PHP_WXBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXAUTOBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXMIRRORDC_TYPE && argument_type != PHP_WXCOLOUR_TYPE && argument_type != PHP_WXMENUITEM_TYPE && argument_type != PHP_WXEVENT_TYPE && argument_type != PHP_WXMENUEVENT_TYPE && argument_type != PHP_WXKEYEVENT_TYPE && argument_type != PHP_WXCOMMANDEVENT_TYPE && argument_type != PHP_WXNOTIFYEVENT_TYPE && argument_type != PHP_WXTREEEVENT_TYPE && argument_type != PHP_WXBOOKCTRLEVENT_TYPE && argument_type != PHP_WXAUINOTEBOOKEVENT_TYPE && argument_type != PHP_WXAUITOOLBAREVENT_TYPE && argument_type != PHP_WXLISTEVENT_TYPE && argument_type != PHP_WXSPINEVENT_TYPE && argument_type != PHP_WXSPLITTEREVENT_TYPE && argument_type != PHP_WXSPINDOUBLEEVENT_TYPE && argument_type != PHP_WXGRIDSIZEEVENT_TYPE && argument_type != PHP_WXWIZARDEVENT_TYPE && argument_type != PHP_WXGRIDEVENT_TYPE && argument_type != PHP_WXGRIDRANGESELECTEVENT_TYPE && argument_type != PHP_WXDATAVIEWEVENT_TYPE && argument_type != PHP_WXHEADERCTRLEVENT_TYPE && argument_type != PHP_WXRIBBONBAREVENT_TYPE && argument_type != PHP_WXMEDIAEVENT_TYPE && argument_type != PHP_WXSTYLEDTEXTEVENT_TYPE && argument_type != PHP_WXCHILDFOCUSEVENT_TYPE && argument_type != PHP_WXHTMLCELLEVENT_TYPE && argument_type != PHP_WXHTMLLINKEVENT_TYPE && argument_type != PHP_WXHYPERLINKEVENT_TYPE && argument_type != PHP_WXCOLOURPICKEREVENT_TYPE && argument_type != PHP_WXFONTPICKEREVENT_TYPE && argument_type != PHP_WXSCROLLEVENT_TYPE && argument_type != PHP_WXWINDOWMODALDIALOGEVENT_TYPE && argument_type != PHP_WXDATEEVENT_TYPE && argument_type != PHP_WXCALENDAREVENT_TYPE && argument_type != PHP_WXWINDOWCREATEEVENT_TYPE && argument_type != PHP_WXWINDOWDESTROYEVENT_TYPE && argument_type != PHP_WXUPDATEUIEVENT_TYPE && argument_type != PHP_WXHELPEVENT_TYPE && argument_type != PHP_WXGRIDEDITORCREATEDEVENT_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANEEVENT_TYPE && argument_type != PHP_WXCLIPBOARDTEXTEVENT_TYPE && argument_type != PHP_WXFILECTRLEVENT_TYPE && argument_type != PHP_WXSASHEVENT_TYPE && argument_type != PHP_WXFILEDIRPICKEREVENT_TYPE && argument_type != PHP_WXCONTEXTMENUEVENT_TYPE && argument_type != PHP_WXRIBBONBUTTONBAREVENT_TYPE && argument_type != PHP_WXRIBBONGALLERYEVENT_TYPE && argument_type != PHP_WXCLOSEEVENT_TYPE && argument_type != PHP_WXACTIVATEEVENT_TYPE && argument_type != PHP_WXAUIMANAGEREVENT_TYPE && argument_type != PHP_WXSIZEEVENT_TYPE && argument_type != PHP_WXMOUSEEVENT_TYPE && argument_type != PHP_WXMOVEEVENT_TYPE && argument_type != PHP_WXTIMEREVENT_TYPE && argument_type != PHP_WXTHREADEVENT_TYPE && argument_type != PHP_WXSCROLLWINEVENT_TYPE && argument_type != PHP_WXSYSCOLOURCHANGEDEVENT_TYPE && argument_type != PHP_WXPROCESSEVENT_TYPE && argument_type != PHP_WXERASEEVENT_TYPE && argument_type != PHP_WXSETCURSOREVENT_TYPE && argument_type != PHP_WXIDLEEVENT_TYPE && argument_type != PHP_WXPAINTEVENT_TYPE && argument_type != PHP_WXPALETTECHANGEDEVENT_TYPE && argument_type != PHP_WXINITDIALOGEVENT_TYPE && argument_type != PHP_WXMAXIMIZEEVENT_TYPE && argument_type != PHP_WXNAVIGATIONKEYEVENT_TYPE && argument_type != PHP_WXFOCUSEVENT_TYPE && argument_type != PHP_WXFILESYSTEMWATCHEREVENT_TYPE && argument_type != PHP_WXDISPLAYCHANGEDEVENT_TYPE && argument_type != PHP_WXCALCULATELAYOUTEVENT_TYPE && argument_type != PHP_WXQUERYLAYOUTINFOEVENT_TYPE && argument_type != PHP_WXTASKBARICONEVENT_TYPE && argument_type != PHP_WXACCELERATORTABLE_TYPE && argument_type != PHP_WXGDIOBJECT_TYPE && argument_type != PHP_WXBITMAP_TYPE && argument_type != PHP_WXPALETTE_TYPE && argument_type != PHP_WXICON_TYPE && argument_type != PHP_WXFONT_TYPE && argument_type != PHP_WXANIMATION_TYPE && argument_type != PHP_WXICONBUNDLE_TYPE && argument_type != PHP_WXCURSOR_TYPE && argument_type != PHP_WXREGION_TYPE && argument_type != PHP_WXPEN_TYPE && argument_type != PHP_WXBRUSH_TYPE && argument_type != PHP_WXARTPROVIDER_TYPE && argument_type != PHP_WXHTMLCELL_TYPE && argument_type != PHP_WXHTMLCONTAINERCELL_TYPE && argument_type != PHP_WXHTMLCOLOURCELL_TYPE && argument_type != PHP_WXHTMLWIDGETCELL_TYPE && argument_type != PHP_WXHTMLEASYPRINTING_TYPE && argument_type != PHP_WXHTMLLINKINFO_TYPE && argument_type != PHP_WXFINDREPLACEDATA_TYPE && argument_type != PHP_WXSOUND_TYPE && argument_type != PHP_WXFILESYSTEM_TYPE && argument_type != PHP_WXFILESYSTEMHANDLER_TYPE && argument_type != PHP_WXMASK_TYPE && argument_type != PHP_WXTOOLTIP_TYPE && argument_type != PHP_WXGRAPHICSRENDERER_TYPE && argument_type != PHP_WXLAYOUTCONSTRAINTS_TYPE && argument_type != PHP_WXFSFILE_TYPE && argument_type != PHP_WXCOLOURDATA_TYPE && argument_type != PHP_WXFONTDATA_TYPE && argument_type != PHP_WXGRIDTABLEBASE_TYPE && argument_type != PHP_WXDATAVIEWRENDERER_TYPE && argument_type != PHP_WXDATAVIEWBITMAPRENDERER_TYPE && argument_type != PHP_WXDATAVIEWCHOICERENDERER_TYPE && argument_type != PHP_WXDATAVIEWCUSTOMRENDERER_TYPE && argument_type != PHP_WXDATAVIEWSPINRENDERER_TYPE && argument_type != PHP_WXDATAVIEWDATERENDERER_TYPE && argument_type != PHP_WXDATAVIEWICONTEXTRENDERER_TYPE && argument_type != PHP_WXDATAVIEWPROGRESSRENDERER_TYPE && argument_type != PHP_WXDATAVIEWTEXTRENDERER_TYPE && argument_type != PHP_WXDATAVIEWTOGGLERENDERER_TYPE && argument_type != PHP_WXDATAVIEWICONTEXT_TYPE && argument_type != PHP_WXVARIANT_TYPE && argument_type != PHP_WXCLIPBOARD_TYPE && argument_type != PHP_WXCONFIGBASE_TYPE && argument_type != PHP_WXFILECONFIG_TYPE && argument_type != PHP_WXXMLRESOURCE_TYPE && argument_type != PHP_WXPAGESETUPDIALOG_TYPE && argument_type != PHP_WXPAGESETUPDIALOGDATA_TYPE && argument_type != PHP_WXPRINTDIALOG_TYPE && argument_type != PHP_WXPRINTDIALOGDATA_TYPE && argument_type != PHP_WXPRINTDATA_TYPE && argument_type != PHP_WXPRINTPREVIEW_TYPE && argument_type != PHP_WXPRINTER_TYPE && argument_type != PHP_WXPRINTOUT_TYPE && argument_type != PHP_WXHTMLPRINTOUT_TYPE && argument_type != PHP_WXHTMLDCRENDERER_TYPE && argument_type != PHP_WXHTMLFILTER_TYPE && argument_type != PHP_WXHTMLHELPDATA_TYPE && argument_type != PHP_WXHTMLTAGHANDLER_TYPE && argument_type != PHP_WXHTMLWINTAGHANDLER_TYPE && argument_type != PHP_WXMODULE_TYPE && argument_type != PHP_WXHTMLTAGSMODULE_TYPE && argument_type != PHP_WXIMAGEHANDLER_TYPE && argument_type != PHP_WXXMLRESOURCEHANDLER_TYPE && argument_type != PHP_WXXMLDOCUMENT_TYPE && argument_type != PHP_WXLAYOUTALGORITHM_TYPE && argument_type != PHP_WXFILEHISTORY_TYPE && argument_type != PHP_WXTOOLBARTOOLBASE_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXOBJECT_TYPE && argument_type != PHP_WXEVTHANDLER_TYPE && argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE && argument_type != PHP_WXVALIDATOR_TYPE && argument_type != PHP_WXTEXTVALIDATOR_TYPE && argument_type != PHP_WXGENERICVALIDATOR_TYPE && argument_type != PHP_WXMENU_TYPE && argument_type != PHP_WXAUIMANAGER_TYPE && argument_type != PHP_WXMOUSEEVENTSMANAGER_TYPE && argument_type != PHP_WXTIMER_TYPE && argument_type != PHP_WXEVENTBLOCKER_TYPE && argument_type != PHP_WXPROCESS_TYPE && argument_type != PHP_WXFILESYSTEMWATCHER_TYPE && argument_type != PHP_WXTASKBARICON_TYPE && argument_type != PHP_WXNOTIFICATIONMESSAGE_TYPE && argument_type != PHP_WXBITMAPHANDLER_TYPE && argument_type != PHP_WXIMAGE_TYPE && argument_type != PHP_WXSIZER_TYPE && argument_type != PHP_WXBOXSIZER_TYPE && argument_type != PHP_WXSTATICBOXSIZER_TYPE && argument_type != PHP_WXWRAPSIZER_TYPE && argument_type != PHP_WXSTDDIALOGBUTTONSIZER_TYPE && argument_type != PHP_WXGRIDSIZER_TYPE && argument_type != PHP_WXFLEXGRIDSIZER_TYPE && argument_type != PHP_WXGRIDBAGSIZER_TYPE && argument_type != PHP_WXSIZERITEM_TYPE && argument_type != PHP_WXGBSIZERITEM_TYPE && argument_type != PHP_WXIMAGELIST_TYPE && argument_type != PHP_WXDC_TYPE && argument_type != PHP_WXWINDOWDC_TYPE && argument_type != PHP_WXCLIENTDC_TYPE && argument_type != PHP_WXPAINTDC_TYPE && argument_type != PHP_WXSCREENDC_TYPE && argument_type != PHP_WXPOSTSCRIPTDC_TYPE && argument_type != PHP_WXPRINTERDC_TYPE && argument_type != PHP_WXMEMORYDC_TYPE && argument_type != PHP_WXBUFFEREDDC_TYPE && argument_type != PHP_WXBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXAUTOBUFFEREDPAINTDC_TYPE && argument_type != PHP_WXMIRRORDC_TYPE && argument_type != PHP_WXCOLOUR_TYPE && argument_type != PHP_WXMENUITEM_TYPE && argument_type != PHP_WXEVENT_TYPE && argument_type != PHP_WXMENUEVENT_TYPE && argument_type != PHP_WXKEYEVENT_TYPE && argument_type != PHP_WXCOMMANDEVENT_TYPE && argument_type != PHP_WXNOTIFYEVENT_TYPE && argument_type != PHP_WXTREEEVENT_TYPE && argument_type != PHP_WXBOOKCTRLEVENT_TYPE && argument_type != PHP_WXAUINOTEBOOKEVENT_TYPE && argument_type != PHP_WXAUITOOLBAREVENT_TYPE && argument_type != PHP_WXLISTEVENT_TYPE && argument_type != PHP_WXSPINEVENT_TYPE && argument_type != PHP_WXSPLITTEREVENT_TYPE && argument_type != PHP_WXSPINDOUBLEEVENT_TYPE && argument_type != PHP_WXGRIDSIZEEVENT_TYPE && argument_type != PHP_WXWIZARDEVENT_TYPE && argument_type != PHP_WXGRIDEVENT_TYPE && argument_type != PHP_WXGRIDRANGESELECTEVENT_TYPE && argument_type != PHP_WXDATAVIEWEVENT_TYPE && argument_type != PHP_WXHEADERCTRLEVENT_TYPE && argument_type != PHP_WXRIBBONBAREVENT_TYPE && argument_type != PHP_WXMEDIAEVENT_TYPE && argument_type != PHP_WXSTYLEDTEXTEVENT_TYPE && argument_type != PHP_WXCHILDFOCUSEVENT_TYPE && argument_type != PHP_WXHTMLCELLEVENT_TYPE && argument_type != PHP_WXHTMLLINKEVENT_TYPE && argument_type != PHP_WXHYPERLINKEVENT_TYPE && argument_type != PHP_WXCOLOURPICKEREVENT_TYPE && argument_type != PHP_WXFONTPICKEREVENT_TYPE && argument_type != PHP_WXSCROLLEVENT_TYPE && argument_type != PHP_WXWINDOWMODALDIALOGEVENT_TYPE && argument_type != PHP_WXDATEEVENT_TYPE && argument_type != PHP_WXCALENDAREVENT_TYPE && argument_type != PHP_WXWINDOWCREATEEVENT_TYPE && argument_type != PHP_WXWINDOWDESTROYEVENT_TYPE && argument_type != PHP_WXUPDATEUIEVENT_TYPE && argument_type != PHP_WXHELPEVENT_TYPE && argument_type != PHP_WXGRIDEDITORCREATEDEVENT_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANEEVENT_TYPE && argument_type != PHP_WXCLIPBOARDTEXTEVENT_TYPE && argument_type != PHP_WXFILECTRLEVENT_TYPE && argument_type != PHP_WXSASHEVENT_TYPE && argument_type != PHP_WXFILEDIRPICKEREVENT_TYPE && argument_type != PHP_WXCONTEXTMENUEVENT_TYPE && argument_type != PHP_WXRIBBONBUTTONBAREVENT_TYPE && argument_type != PHP_WXRIBBONGALLERYEVENT_TYPE && argument_type != PHP_WXCLOSEEVENT_TYPE && argument_type != PHP_WXACTIVATEEVENT_TYPE && argument_type != PHP_WXAUIMANAGEREVENT_TYPE && argument_type != PHP_WXSIZEEVENT_TYPE && argument_type != PHP_WXMOUSEEVENT_TYPE && argument_type != PHP_WXMOVEEVENT_TYPE && argument_type != PHP_WXTIMEREVENT_TYPE && argument_type != PHP_WXTHREADEVENT_TYPE && argument_type != PHP_WXSCROLLWINEVENT_TYPE && argument_type != PHP_WXSYSCOLOURCHANGEDEVENT_TYPE && argument_type != PHP_WXPROCESSEVENT_TYPE && argument_type != PHP_WXERASEEVENT_TYPE && argument_type != PHP_WXSETCURSOREVENT_TYPE && argument_type != PHP_WXICONIZEEVENT_TYPE && argument_type != PHP_WXIDLEEVENT_TYPE && argument_type != PHP_WXSHOWEVENT_TYPE && argument_type != PHP_WXPAINTEVENT_TYPE && argument_type != PHP_WXPALETTECHANGEDEVENT_TYPE && argument_type != PHP_WXINITDIALOGEVENT_TYPE && argument_type != PHP_WXMAXIMIZEEVENT_TYPE && argument_type != PHP_WXNAVIGATIONKEYEVENT_TYPE && argument_type != PHP_WXFOCUSEVENT_TYPE && argument_type != PHP_WXFILESYSTEMWATCHEREVENT_TYPE && argument_type != PHP_WXDISPLAYCHANGEDEVENT_TYPE && argument_type != PHP_WXCALCULATELAYOUTEVENT_TYPE && argument_type != PHP_WXDROPFILESEVENT_TYPE && argument_type != PHP_WXQUERYLAYOUTINFOEVENT_TYPE && argument_type != PHP_WXTASKBARICONEVENT_TYPE && argument_type != PHP_WXACCELERATORTABLE_TYPE && argument_type != PHP_WXGDIOBJECT_TYPE && argument_type != PHP_WXBITMAP_TYPE && argument_type != PHP_WXPALETTE_TYPE && argument_type != PHP_WXICON_TYPE && argument_type != PHP_WXFONT_TYPE && argument_type != PHP_WXICONBUNDLE_TYPE && argument_type != PHP_WXCURSOR_TYPE && argument_type != PHP_WXREGION_TYPE && argument_type != PHP_WXPEN_TYPE && argument_type != PHP_WXBRUSH_TYPE && argument_type != PHP_WXANIMATION_TYPE && argument_type != PHP_WXARTPROVIDER_TYPE && argument_type != PHP_WXHTMLCELL_TYPE && argument_type != PHP_WXHTMLCONTAINERCELL_TYPE && argument_type != PHP_WXHTMLCOLOURCELL_TYPE && argument_type != PHP_WXHTMLWIDGETCELL_TYPE && argument_type != PHP_WXHTMLEASYPRINTING_TYPE && argument_type != PHP_WXHTMLLINKINFO_TYPE && argument_type != PHP_WXFINDREPLACEDATA_TYPE && argument_type != PHP_WXSOUND_TYPE && argument_type != PHP_WXFILESYSTEM_TYPE && argument_type != PHP_WXFILESYSTEMHANDLER_TYPE && argument_type != PHP_WXMASK_TYPE && argument_type != PHP_WXTOOLTIP_TYPE && argument_type != PHP_WXGRAPHICSRENDERER_TYPE && argument_type != PHP_WXLAYOUTCONSTRAINTS_TYPE && argument_type != PHP_WXFSFILE_TYPE && argument_type != PHP_WXCOLOURDATA_TYPE && argument_type != PHP_WXFONTDATA_TYPE && argument_type != PHP_WXGRIDTABLEBASE_TYPE && argument_type != PHP_WXDATAVIEWRENDERER_TYPE && argument_type != PHP_WXDATAVIEWBITMAPRENDERER_TYPE && argument_type != PHP_WXDATAVIEWCHOICERENDERER_TYPE && argument_type != PHP_WXDATAVIEWCUSTOMRENDERER_TYPE && argument_type != PHP_WXDATAVIEWSPINRENDERER_TYPE && argument_type != PHP_WXDATAVIEWDATERENDERER_TYPE && argument_type != PHP_WXDATAVIEWICONTEXTRENDERER_TYPE && argument_type != PHP_WXDATAVIEWPROGRESSRENDERER_TYPE && argument_type != PHP_WXDATAVIEWTEXTRENDERER_TYPE && argument_type != PHP_WXDATAVIEWTOGGLERENDERER_TYPE && argument_type != PHP_WXDATAVIEWICONTEXT_TYPE && argument_type != PHP_WXVARIANT_TYPE && argument_type != PHP_WXCLIPBOARD_TYPE && argument_type != PHP_WXCONFIGBASE_TYPE && argument_type != PHP_WXFILECONFIG_TYPE && argument_type != PHP_WXXMLRESOURCE_TYPE && argument_type != PHP_WXPAGESETUPDIALOG_TYPE && argument_type != PHP_WXPAGESETUPDIALOGDATA_TYPE && argument_type != PHP_WXPRINTDIALOG_TYPE && argument_type != PHP_WXPRINTDIALOGDATA_TYPE && argument_type != PHP_WXPRINTDATA_TYPE && argument_type != PHP_WXPRINTPREVIEW_TYPE && argument_type != PHP_WXPRINTER_TYPE && argument_type != PHP_WXPRINTOUT_TYPE && argument_type != PHP_WXHTMLPRINTOUT_TYPE && argument_type != PHP_WXHTMLDCRENDERER_TYPE && argument_type != PHP_WXHTMLFILTER_TYPE && argument_type != PHP_WXHTMLHELPDATA_TYPE && argument_type != PHP_WXHTMLTAGHANDLER_TYPE && argument_type != PHP_WXHTMLWINTAGHANDLER_TYPE && argument_type != PHP_WXMODULE_TYPE && argument_type != PHP_WXHTMLTAGSMODULE_TYPE && argument_type != PHP_WXIMAGEHANDLER_TYPE && argument_type != PHP_WXXMLRESOURCEHANDLER_TYPE && argument_type != PHP_WXXMLDOCUMENT_TYPE && argument_type != PHP_WXLAYOUTALGORITHM_TYPE && argument_type != PHP_WXFILEHISTORY_TYPE && argument_type != PHP_WXTOOLBARTOOLBASE_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'clientData' could not be retreived correctly.");
                     }

@@ -47,6 +47,7 @@
     "wxObjectRefData": "wxRefCounter",
     "wxPGPropArg": "const wxPGPropArgCls &",
     "wxTextAttrDimensionFlags": "unsigned short",
+    "wxRichTextLineVector": "wxVector< wxRichTextLine * >",
     "wxScrolledWindow": "wxScrolled< wxPanel >",
     "wxScrolledCanvas": "wxScrolled< wxWindow >",
     "wxSOCKET_T": "int",

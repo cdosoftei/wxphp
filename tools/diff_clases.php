@@ -19,6 +19,11 @@ foreach ($selected as $class => $props) {
   foreach ($props as $prop => $val) {
     if (!isset($all->{$class}->{$prop})) {
       echo "Property {$class}::{$prop} has been removed\n";
+
+      if ($patch) {
+        unset($selected->{$class}->{$prop});
+      }
+
       continue;
     }
 
@@ -73,6 +78,8 @@ function propDiff($label, $orig, $new): bool {
           propDiff("{$label}::{$k}", $v, $new->{$k});
         }
       }
+
+      return true;
     } else {
       return false;
     }

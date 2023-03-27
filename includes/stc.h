@@ -28,6 +28,7 @@ class wxStyledTextCtrl_php: public wxStyledTextCtrl{
     public:
 
     wxStyledTextCtrl_php(wxWindow* parent, wxWindowID id=wxID_ANY, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxString& name=wxSTCNameStr):wxStyledTextCtrl(parent, id, pos, size, style, name){}
+    wxStyledTextCtrl_php():wxStyledTextCtrl(){}
     
     
 
@@ -56,7 +57,6 @@ static zend_function_entry php_wxStyledTextCtrl_functions[] = {
     PHP_ME(php_wxObject, GetClassInfo, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, IsKindOf, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, Connect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxEvtHandler, Disconnect, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddFilter, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddPendingEvent, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, DeletePendingEvents, arginfo_null, ZEND_ACC_PUBLIC)

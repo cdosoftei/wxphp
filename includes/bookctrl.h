@@ -107,7 +107,6 @@ static zend_function_entry php_wxBookCtrlBase_functions[] = {
     PHP_ME(php_wxObject, GetClassInfo, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, IsKindOf, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, Connect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxEvtHandler, Disconnect, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddFilter, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddPendingEvent, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, DeletePendingEvents, arginfo_null, ZEND_ACC_PUBLIC)
@@ -462,8 +461,8 @@ void php_wxListbook_destruction_handler(zend_resource*);
 class wxListbook_php: public wxListbook{
     public:
 
-    wxListbook_php(wxWindow* parent, wxWindowID id, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxString& name=wxEmptyString):wxListbook(parent, id, pos, size, style, name){}
     wxListbook_php():wxListbook(){}
+    wxListbook_php(wxWindow* parent, wxWindowID id, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxString& name=wxEmptyString):wxListbook(parent, id, pos, size, style, name){}
     
     
 
@@ -587,7 +586,6 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxToolbook_functions[] = {
     PHP_ME(php_wxToolbook, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxToolbook, GetToolBar, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

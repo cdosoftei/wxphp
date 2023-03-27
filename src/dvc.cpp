@@ -939,7 +939,7 @@ PHP_METHOD(php_wxDataViewModel, ChangeValue)
 /* }}} */
 
 /* {{{ proto bool wxDataViewModel::Cleared()
-   Called to inform the model that all data has been cleared. */
+   Called to inform the model that all of its data has been changed. */
 PHP_METHOD(php_wxDataViewModel, Cleared)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -1089,7 +1089,7 @@ PHP_METHOD(php_wxDataViewModel, Cleared)
 /* }}} */
 
 /* {{{ proto int wxDataViewModel::Compare(wxDataViewItem item1, wxDataViewItem item2, int column, bool ascending)
-   The compare function to be used by control. */
+   The compare function to be used by the control. */
 PHP_METHOD(php_wxDataViewModel, Compare)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2344,7 +2344,7 @@ PHP_METHOD(php_wxDataViewModel, HasValue)
 /* }}} */
 
 /* {{{ proto bool wxDataViewModel::IsContainer(wxDataViewItem item)
-   Override this to indicate of item is a container, i.e. if it can have child items. */
+   Override this to indicate if item is a container, i.e. if it can have child items. */
 bool wxDataViewModel_php::IsContainer(const wxDataViewItem& item)const
 {
     static zend_function* cached_function = NULL;
@@ -10420,7 +10420,7 @@ PHP_METHOD(php_wxDataViewCustomRenderer, CreateEditorCtrl)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }
@@ -10852,7 +10852,7 @@ PHP_METHOD(php_wxDataViewCustomRenderer, GetValueFromEditorCtrl)
                     wxphp_object_type argument_type = Z_wxWindow_P(editor0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(editor0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'editor' could not be retreived correctly.");
                     }
@@ -13713,7 +13713,7 @@ zend_object* php_wxDataViewTreeStore_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto wxDataViewItem wxDataViewTreeStore::AppendContainer(wxDataViewItem parent, string text, wxIcon icon, wxIcon expanded, wxClientData &data)
+/* {{{ proto wxDataViewItem wxDataViewTreeStore::AppendContainer(wxDataViewItem parent, string text, wxBitmapBundle icon, wxBitmapBundle expanded, wxClientData &data)
    Append a container. */
 PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
 {
@@ -13776,9 +13776,9 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
     char* text0;
     size_t text_len0;
     zval* icon0;
-    wxIcon* object_pointer0_2 = 0;
+    wxBitmapBundle* object_pointer0_2 = 0;
     zval* expanded0;
-    wxIcon* object_pointer0_3 = 0;
+    wxBitmapBundle* object_pointer0_3 = 0;
     zval* data0;
     wxClientData* object_pointer0_4 = 0;
     bool overload0_called = false;
@@ -13790,11 +13790,11 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'Os|OOz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &expanded0, php_wxIcon_entry, &data0)\n");
+        php_printf("Parsing parameters with 'Os|OOz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &expanded0, php_wxBitmapBundle_entry, &data0)\n");
         #endif
 
         char parse_parameters_string[] = "Os|OOz";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &expanded0, php_wxIcon_entry, &data0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &expanded0, php_wxBitmapBundle_entry, &data0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(parent0) == IS_OBJECT)
@@ -13816,9 +13816,9 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
             if(arguments_received >= 3){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_2 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_2 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_2 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -13833,9 +13833,9 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
             if(arguments_received >= 4){
                 if(Z_TYPE_P(expanded0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(expanded0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(expanded0)->native_object;
-                    object_pointer0_3 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(expanded0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(expanded0)->native_object;
+                    object_pointer0_3 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_3 )
                     {
                         zend_error(E_ERROR, "Parameter 'expanded' could not be retreived correctly.");
@@ -13897,11 +13897,11 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return3;
-                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2);
+                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return3, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -13918,11 +13918,11 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
             case 4:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return4;
-                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3);
+                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return4, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -13940,11 +13940,11 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
             case 5:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3, (wxClientData*) object_pointer0_4) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3, (wxClientData*) object_pointer0_4) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return5;
-                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3, (wxClientData*) object_pointer0_4);
+                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->AppendContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3, (wxClientData*) object_pointer0_4);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return5, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -13976,7 +13976,7 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendContainer)
 }
 /* }}} */
 
-/* {{{ proto wxDataViewItem wxDataViewTreeStore::AppendItem(wxDataViewItem parent, string text, wxIcon icon, wxClientData &data)
+/* {{{ proto wxDataViewItem wxDataViewTreeStore::AppendItem(wxDataViewItem parent, string text, wxBitmapBundle icon, wxClientData &data)
    Append an item. */
 PHP_METHOD(php_wxDataViewTreeStore, AppendItem)
 {
@@ -14039,7 +14039,7 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendItem)
     char* text0;
     size_t text_len0;
     zval* icon0;
-    wxIcon* object_pointer0_2 = 0;
+    wxBitmapBundle* object_pointer0_2 = 0;
     zval* data0;
     wxClientData* object_pointer0_3 = 0;
     bool overload0_called = false;
@@ -14051,11 +14051,11 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendItem)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'Os|Oz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &data0)\n");
+        php_printf("Parsing parameters with 'Os|Oz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &data0)\n");
         #endif
 
         char parse_parameters_string[] = "Os|Oz";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &data0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &data0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(parent0) == IS_OBJECT)
@@ -14077,9 +14077,9 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendItem)
             if(arguments_received >= 3){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_2 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_2 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_2 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -14141,11 +14141,11 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendItem)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return3;
-                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2);
+                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return3, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -14162,11 +14162,11 @@ PHP_METHOD(php_wxDataViewTreeStore, AppendItem)
             case 4:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, (wxClientData*) object_pointer0_3) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, (wxClientData*) object_pointer0_3) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return4;
-                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, (wxClientData*) object_pointer0_3);
+                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->AppendItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, (wxClientData*) object_pointer0_3);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return4, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -14956,30 +14956,18 @@ PHP_METHOD(php_wxDataViewTreeStore, GetItemExpandedIcon)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0) to return object reference\n\n");
+                php_printf("Executing wxDataViewTreeStore::GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0) to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return1;
-                value_to_return1 = (wxIcon_php*) &((wxDataViewTreeStore_php*)native_object)->GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0);
-
-                if(value_to_return1->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return1->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
-                        zval_add_ref(&value_to_return1->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return1;
-                }
-
-                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewTreeStore::GetItemExpandedIcon at call 6 with 1 argument(s)");
-                }
+                wxIcon value_to_return1;
+                value_to_return1 = ((wxDataViewTreeStore_php*)native_object)->GetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0);
+                ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo1 = Z_wxIcon_P(return_value);
+                zo1->native_object = (wxIcon_php*) ptr;
 
                 references->AddReference(item0, "wxDataViewTreeStore::GetItemExpandedIcon at call 3 with 1 argument(s)");
 
@@ -15107,30 +15095,18 @@ PHP_METHOD(php_wxDataViewTreeStore, GetItemIcon)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::GetItemIcon(*(wxDataViewItem*) object_pointer0_0) to return object reference\n\n");
+                php_printf("Executing wxDataViewTreeStore::GetItemIcon(*(wxDataViewItem*) object_pointer0_0) to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return1;
-                value_to_return1 = (wxIcon_php*) &((wxDataViewTreeStore_php*)native_object)->GetItemIcon(*(wxDataViewItem*) object_pointer0_0);
-
-                if(value_to_return1->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return1->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return1->phpObj);
-                        zval_add_ref(&value_to_return1->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return1;
-                }
-
-                if((void*)value_to_return1 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewTreeStore::GetItemIcon at call 6 with 1 argument(s)");
-                }
+                wxIcon value_to_return1;
+                value_to_return1 = ((wxDataViewTreeStore_php*)native_object)->GetItemIcon(*(wxDataViewItem*) object_pointer0_0);
+                ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return1, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo1 = Z_wxIcon_P(return_value);
+                zo1->native_object = (wxIcon_php*) ptr;
 
                 references->AddReference(item0, "wxDataViewTreeStore::GetItemIcon at call 3 with 1 argument(s)");
 
@@ -15425,7 +15401,7 @@ PHP_METHOD(php_wxDataViewTreeStore, GetNthChild)
 }
 /* }}} */
 
-/* {{{ proto wxDataViewItem wxDataViewTreeStore::InsertContainer(wxDataViewItem parent, wxDataViewItem previous, string text, wxIcon icon, wxIcon expanded, wxClientData &data)
+/* {{{ proto wxDataViewItem wxDataViewTreeStore::InsertContainer(wxDataViewItem parent, wxDataViewItem previous, string text, wxBitmapBundle icon, wxBitmapBundle expanded, wxClientData &data)
    Inserts a container after previous. */
 PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
 {
@@ -15490,9 +15466,9 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
     char* text0;
     size_t text_len0;
     zval* icon0;
-    wxIcon* object_pointer0_3 = 0;
+    wxBitmapBundle* object_pointer0_3 = 0;
     zval* expanded0;
-    wxIcon* object_pointer0_4 = 0;
+    wxBitmapBundle* object_pointer0_4 = 0;
     zval* data0;
     wxClientData* object_pointer0_5 = 0;
     bool overload0_called = false;
@@ -15504,11 +15480,11 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'OOs|OOz' (&parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &expanded0, php_wxIcon_entry, &data0)\n");
+        php_printf("Parsing parameters with 'OOs|OOz' (&parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &expanded0, php_wxBitmapBundle_entry, &data0)\n");
         #endif
 
         char parse_parameters_string[] = "OOs|OOz";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &expanded0, php_wxIcon_entry, &data0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &expanded0, php_wxBitmapBundle_entry, &data0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(parent0) == IS_OBJECT)
@@ -15547,9 +15523,9 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
             if(arguments_received >= 4){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_3 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_3 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_3 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -15564,9 +15540,9 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
             if(arguments_received >= 5){
                 if(Z_TYPE_P(expanded0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(expanded0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(expanded0)->native_object;
-                    object_pointer0_4 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(expanded0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(expanded0)->native_object;
+                    object_pointer0_4 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_4 )
                     {
                         zend_error(E_ERROR, "Parameter 'expanded' could not be retreived correctly.");
@@ -15629,11 +15605,11 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
             case 4:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return4;
-                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3);
+                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return4, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -15651,11 +15627,11 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
             case 5:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3, *(wxIcon*) object_pointer0_4) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3, *(wxBitmapBundle*) object_pointer0_4) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return5;
-                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3, *(wxIcon*) object_pointer0_4);
+                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3, *(wxBitmapBundle*) object_pointer0_4);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return5, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -15674,11 +15650,11 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
             case 6:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3, *(wxIcon*) object_pointer0_4, (wxClientData*) object_pointer0_5) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3, *(wxBitmapBundle*) object_pointer0_4, (wxClientData*) object_pointer0_5) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return6;
-                value_to_return6 = ((wxDataViewTreeStore_php*)native_object)->InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3, *(wxIcon*) object_pointer0_4, (wxClientData*) object_pointer0_5);
+                value_to_return6 = ((wxDataViewTreeStore_php*)native_object)->InsertContainer(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3, *(wxBitmapBundle*) object_pointer0_4, (wxClientData*) object_pointer0_5);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return6, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -15711,7 +15687,7 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertContainer)
 }
 /* }}} */
 
-/* {{{ proto wxDataViewItem wxDataViewTreeStore::InsertItem(wxDataViewItem parent, wxDataViewItem previous, string text, wxIcon icon, wxClientData &data)
+/* {{{ proto wxDataViewItem wxDataViewTreeStore::InsertItem(wxDataViewItem parent, wxDataViewItem previous, string text, wxBitmapBundle icon, wxClientData &data)
    Inserts an item after previous. */
 PHP_METHOD(php_wxDataViewTreeStore, InsertItem)
 {
@@ -15776,7 +15752,7 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertItem)
     char* text0;
     size_t text_len0;
     zval* icon0;
-    wxIcon* object_pointer0_3 = 0;
+    wxBitmapBundle* object_pointer0_3 = 0;
     zval* data0;
     wxClientData* object_pointer0_4 = 0;
     bool overload0_called = false;
@@ -15788,11 +15764,11 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertItem)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'OOs|Oz' (&parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &data0)\n");
+        php_printf("Parsing parameters with 'OOs|Oz' (&parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &data0)\n");
         #endif
 
         char parse_parameters_string[] = "OOs|Oz";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &data0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &previous0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &data0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(parent0) == IS_OBJECT)
@@ -15831,9 +15807,9 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertItem)
             if(arguments_received >= 4){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_3 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_3 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_3 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -15896,11 +15872,11 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertItem)
             case 4:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return4;
-                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3);
+                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return4, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -15918,11 +15894,11 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertItem)
             case 5:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3, (wxClientData*) object_pointer0_4) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3, (wxClientData*) object_pointer0_4) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return5;
-                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_3, (wxClientData*) object_pointer0_4);
+                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->InsertItem(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_3, (wxClientData*) object_pointer0_4);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return5, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -15954,7 +15930,7 @@ PHP_METHOD(php_wxDataViewTreeStore, InsertItem)
 }
 /* }}} */
 
-/* {{{ proto wxDataViewItem wxDataViewTreeStore::PrependContainer(wxDataViewItem parent, string text, wxIcon icon, wxIcon expanded, wxClientData &data)
+/* {{{ proto wxDataViewItem wxDataViewTreeStore::PrependContainer(wxDataViewItem parent, string text, wxBitmapBundle icon, wxBitmapBundle expanded, wxClientData &data)
    Inserts a container before the first child item or parent. */
 PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
 {
@@ -16017,9 +15993,9 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
     char* text0;
     size_t text_len0;
     zval* icon0;
-    wxIcon* object_pointer0_2 = 0;
+    wxBitmapBundle* object_pointer0_2 = 0;
     zval* expanded0;
-    wxIcon* object_pointer0_3 = 0;
+    wxBitmapBundle* object_pointer0_3 = 0;
     zval* data0;
     wxClientData* object_pointer0_4 = 0;
     bool overload0_called = false;
@@ -16031,11 +16007,11 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'Os|OOz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &expanded0, php_wxIcon_entry, &data0)\n");
+        php_printf("Parsing parameters with 'Os|OOz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &expanded0, php_wxBitmapBundle_entry, &data0)\n");
         #endif
 
         char parse_parameters_string[] = "Os|OOz";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &expanded0, php_wxIcon_entry, &data0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &expanded0, php_wxBitmapBundle_entry, &data0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(parent0) == IS_OBJECT)
@@ -16057,9 +16033,9 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
             if(arguments_received >= 3){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_2 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_2 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_2 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -16074,9 +16050,9 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
             if(arguments_received >= 4){
                 if(Z_TYPE_P(expanded0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(expanded0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(expanded0)->native_object;
-                    object_pointer0_3 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(expanded0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(expanded0)->native_object;
+                    object_pointer0_3 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_3 )
                     {
                         zend_error(E_ERROR, "Parameter 'expanded' could not be retreived correctly.");
@@ -16138,11 +16114,11 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return3;
-                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2);
+                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return3, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -16159,11 +16135,11 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
             case 4:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return4;
-                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3);
+                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return4, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -16181,11 +16157,11 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
             case 5:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3, (wxClientData*) object_pointer0_4) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3, (wxClientData*) object_pointer0_4) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return5;
-                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, *(wxIcon*) object_pointer0_3, (wxClientData*) object_pointer0_4);
+                value_to_return5 = ((wxDataViewTreeStore_php*)native_object)->PrependContainer(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, *(wxBitmapBundle*) object_pointer0_3, (wxClientData*) object_pointer0_4);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return5, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -16217,7 +16193,7 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependContainer)
 }
 /* }}} */
 
-/* {{{ proto wxDataViewItem wxDataViewTreeStore::PrependItem(wxDataViewItem parent, string text, wxIcon icon, wxClientData &data)
+/* {{{ proto wxDataViewItem wxDataViewTreeStore::PrependItem(wxDataViewItem parent, string text, wxBitmapBundle icon, wxClientData &data)
    Inserts an item before the first child item or parent. */
 PHP_METHOD(php_wxDataViewTreeStore, PrependItem)
 {
@@ -16280,7 +16256,7 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependItem)
     char* text0;
     size_t text_len0;
     zval* icon0;
-    wxIcon* object_pointer0_2 = 0;
+    wxBitmapBundle* object_pointer0_2 = 0;
     zval* data0;
     wxClientData* object_pointer0_3 = 0;
     bool overload0_called = false;
@@ -16292,11 +16268,11 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependItem)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'Os|Oz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &data0)\n");
+        php_printf("Parsing parameters with 'Os|Oz' (&parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &data0)\n");
         #endif
 
         char parse_parameters_string[] = "Os|Oz";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxIcon_entry, &data0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &parent0, php_wxDataViewItem_entry, &text0, &text_len0, &icon0, php_wxBitmapBundle_entry, &data0 ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(parent0) == IS_OBJECT)
@@ -16318,9 +16294,9 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependItem)
             if(arguments_received >= 3){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_2 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_2 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_2 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -16382,11 +16358,11 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependItem)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return3;
-                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2);
+                value_to_return3 = ((wxDataViewTreeStore_php*)native_object)->PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return3, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -16403,11 +16379,11 @@ PHP_METHOD(php_wxDataViewTreeStore, PrependItem)
             case 4:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, (wxClientData*) object_pointer0_3) to return new object\n\n");
+                php_printf("Executing wxDataViewTreeStore::PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, (wxClientData*) object_pointer0_3) to return new object\n\n");
                 #endif
 
                 wxDataViewItem value_to_return4;
-                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_2, (wxClientData*) object_pointer0_3);
+                value_to_return4 = ((wxDataViewTreeStore_php*)native_object)->PrependItem(*(wxDataViewItem*) object_pointer0_0, wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_2, (wxClientData*) object_pointer0_3);
                 void* ptr = safe_emalloc(1, sizeof(wxDataViewItem_php), 0);
                 memcpy(ptr, (void*) &value_to_return4, sizeof(wxDataViewItem));
                 object_init_ex(return_value, php_wxDataViewItem_entry);
@@ -16589,7 +16565,7 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemData)
 }
 /* }}} */
 
-/* {{{ proto  wxDataViewTreeStore::SetItemExpandedIcon(wxDataViewItem item, wxIcon icon)
+/* {{{ proto  wxDataViewTreeStore::SetItemExpandedIcon(wxDataViewItem item, wxBitmapBundle icon)
    Sets the expanded icon for the item. */
 PHP_METHOD(php_wxDataViewTreeStore, SetItemExpandedIcon)
 {
@@ -16650,7 +16626,7 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemExpandedIcon)
     zval* item0;
     wxDataViewItem* object_pointer0_0 = 0;
     zval* icon0;
-    wxIcon* object_pointer0_1 = 0;
+    wxBitmapBundle* object_pointer0_1 = 0;
     bool overload0_called = false;
 
     
@@ -16660,11 +16636,11 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemExpandedIcon)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'OO' (&item0, php_wxDataViewItem_entry, &icon0, php_wxIcon_entry)\n");
+        php_printf("Parsing parameters with 'OO' (&item0, php_wxDataViewItem_entry, &icon0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "OO";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &item0, php_wxDataViewItem_entry, &icon0, php_wxIcon_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &item0, php_wxDataViewItem_entry, &icon0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(item0) == IS_OBJECT)
@@ -16686,9 +16662,9 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemExpandedIcon)
             if(arguments_received >= 2){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_1 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_1 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_1 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -16713,10 +16689,10 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemExpandedIcon)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::SetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0, *(wxIcon*) object_pointer0_1)\n\n");
+                php_printf("Executing wxDataViewTreeStore::SetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0, *(wxBitmapBundle*) object_pointer0_1)\n\n");
                 #endif
 
-                ((wxDataViewTreeStore_php*)native_object)->SetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0, *(wxIcon*) object_pointer0_1);
+                ((wxDataViewTreeStore_php*)native_object)->SetItemExpandedIcon(*(wxDataViewItem*) object_pointer0_0, *(wxBitmapBundle*) object_pointer0_1);
 
                 references->AddReference(item0, "wxDataViewTreeStore::SetItemExpandedIcon at call 3 with 2 argument(s)");
                 references->AddReference(icon0, "wxDataViewTreeStore::SetItemExpandedIcon at call 3 with 2 argument(s)");
@@ -16740,7 +16716,7 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemExpandedIcon)
 }
 /* }}} */
 
-/* {{{ proto  wxDataViewTreeStore::SetItemIcon(wxDataViewItem item, wxIcon icon)
+/* {{{ proto  wxDataViewTreeStore::SetItemIcon(wxDataViewItem item, wxBitmapBundle icon)
    Sets the icon for the item. */
 PHP_METHOD(php_wxDataViewTreeStore, SetItemIcon)
 {
@@ -16801,7 +16777,7 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemIcon)
     zval* item0;
     wxDataViewItem* object_pointer0_0 = 0;
     zval* icon0;
-    wxIcon* object_pointer0_1 = 0;
+    wxBitmapBundle* object_pointer0_1 = 0;
     bool overload0_called = false;
 
     
@@ -16811,11 +16787,11 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemIcon)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'OO' (&item0, php_wxDataViewItem_entry, &icon0, php_wxIcon_entry)\n");
+        php_printf("Parsing parameters with 'OO' (&item0, php_wxDataViewItem_entry, &icon0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "OO";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &item0, php_wxDataViewItem_entry, &icon0, php_wxIcon_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &item0, php_wxDataViewItem_entry, &icon0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 1){
                 if(Z_TYPE_P(item0) == IS_OBJECT)
@@ -16837,9 +16813,9 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemIcon)
             if(arguments_received >= 2){
                 if(Z_TYPE_P(icon0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_1 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(icon0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(icon0)->native_object;
+                    object_pointer0_1 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_1 )
                     {
                         zend_error(E_ERROR, "Parameter 'icon' could not be retreived correctly.");
@@ -16864,10 +16840,10 @@ PHP_METHOD(php_wxDataViewTreeStore, SetItemIcon)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewTreeStore::SetItemIcon(*(wxDataViewItem*) object_pointer0_0, *(wxIcon*) object_pointer0_1)\n\n");
+                php_printf("Executing wxDataViewTreeStore::SetItemIcon(*(wxDataViewItem*) object_pointer0_0, *(wxBitmapBundle*) object_pointer0_1)\n\n");
                 #endif
 
-                ((wxDataViewTreeStore_php*)native_object)->SetItemIcon(*(wxDataViewItem*) object_pointer0_0, *(wxIcon*) object_pointer0_1);
+                ((wxDataViewTreeStore_php*)native_object)->SetItemIcon(*(wxDataViewItem*) object_pointer0_0, *(wxBitmapBundle*) object_pointer0_1);
 
                 references->AddReference(item0, "wxDataViewTreeStore::SetItemIcon at call 3 with 2 argument(s)");
                 references->AddReference(icon0, "wxDataViewTreeStore::SetItemIcon at call 3 with 2 argument(s)");
@@ -17135,30 +17111,18 @@ PHP_METHOD(php_wxDataViewIconText, GetIcon)
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxDataViewIconText::GetIcon() to return object reference\n\n");
+                php_printf("Executing wxDataViewIconText::GetIcon() to return new object\n\n");
                 #endif
 
-                wxIcon_php* value_to_return0;
-                value_to_return0 = (wxIcon_php*) &((wxDataViewIconText_php*)native_object)->GetIcon();
-
-                if(value_to_return0->references.IsUserInitialized()){
-                    if(!Z_ISNULL(value_to_return0->phpObj)){
-                        ZVAL_COPY_VALUE(return_value, &value_to_return0->phpObj);
-                        zval_add_ref(&value_to_return0->phpObj);
-                        return_is_user_initialized = true;
-                    }
-                    else{
-                        zend_error(E_ERROR, "Could not retreive original zval.");
-                    }
-                }
-                else{
-                    object_init_ex(return_value,php_wxIcon_entry);
-                    Z_wxIcon_P(return_value)->native_object = (wxIcon_php*) value_to_return0;
-                }
-
-                if((void*)value_to_return0 != (void*)native_object && return_is_user_initialized){ //Prevent adding references to it self
-                    references->AddReference(return_value, "wxDataViewIconText::GetIcon at call 6 with 0 argument(s)");
-                }
+                wxIcon value_to_return0;
+                value_to_return0 = ((wxDataViewIconText_php*)native_object)->GetIcon();
+                ((wxRefCounter *) value_to_return0.GetRefData())->IncRef();
+                void* ptr = safe_emalloc(1, sizeof(wxIcon_php), 0);
+                memcpy(ptr, (void*) &value_to_return0, sizeof(wxIcon));
+                object_init_ex(return_value, php_wxIcon_entry);
+                ((wxIcon_php*)ptr)->phpObj = *return_value;
+                zo_wxIcon* zo0 = Z_wxIcon_P(return_value);
+                zo0->native_object = (wxIcon_php*) ptr;
 
 
                 return;
@@ -17533,7 +17497,7 @@ PHP_METHOD(php_wxDataViewIconText, SetText)
 }
 /* }}} */
 
-/* {{{ proto  wxDataViewIconText::wxDataViewIconText(string text, wxIcon icon)
+/* {{{ proto  wxDataViewIconText::wxDataViewIconText(string text, wxBitmapBundle bitmap)
    Constructor. */
 PHP_METHOD(php_wxDataViewIconText, __construct)
 {
@@ -17556,8 +17520,8 @@ PHP_METHOD(php_wxDataViewIconText, __construct)
     //Parameters for overload 0
     char* text0;
     size_t text_len0;
-    zval* icon0;
-    wxIcon* object_pointer0_1 = 0;
+    zval* bitmap0;
+    wxBitmapBundle* object_pointer0_1 = 0;
     bool overload0_called = false;
 
     //Parameters for overload 1
@@ -17572,24 +17536,24 @@ PHP_METHOD(php_wxDataViewIconText, __construct)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|sO' (&text0, &text_len0, &icon0, php_wxIcon_entry)\n");
+        php_printf("Parsing parameters with '|sO' (&text0, &text_len0, &bitmap0, php_wxBitmapBundle_entry)\n");
         #endif
 
         char parse_parameters_string[] = "|sO";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &text0, &text_len0, &icon0, php_wxIcon_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &text0, &text_len0, &bitmap0, php_wxBitmapBundle_entry ) == SUCCESS)
         {
             if(arguments_received >= 2){
-                if(Z_TYPE_P(icon0) == IS_OBJECT)
+                if(Z_TYPE_P(bitmap0) == IS_OBJECT)
                 {
-                    wxphp_object_type argument_type = Z_wxIcon_P(icon0)->object_type;
-                    argument_native_object = (void*) Z_wxIcon_P(icon0)->native_object;
-                    object_pointer0_1 = (wxIcon*) argument_native_object;
+                    wxphp_object_type argument_type = Z_wxBitmapBundle_P(bitmap0)->object_type;
+                    argument_native_object = (void*) Z_wxBitmapBundle_P(bitmap0)->native_object;
+                    object_pointer0_1 = (wxBitmapBundle*) argument_native_object;
                     if (!object_pointer0_1 )
                     {
                         goto overload1;
                     }
                 }
-                else if(Z_TYPE_P(icon0) != IS_NULL)
+                else if(Z_TYPE_P(bitmap0) != IS_NULL)
                 {
                     goto overload1;
                 }
@@ -17664,13 +17628,13 @@ PHP_METHOD(php_wxDataViewIconText, __construct)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_1)\n");
+                php_printf("Executing __construct(wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_1)\n");
                 #endif
 
-                native_object = new wxDataViewIconText_php(wxString(text0, wxConvUTF8), *(wxIcon*) object_pointer0_1);
+                native_object = new wxDataViewIconText_php(wxString(text0, wxConvUTF8), *(wxBitmapBundle*) object_pointer0_1);
 
                 native_object->references.Initialize();
-                ((wxDataViewIconText_php*) native_object)->references.AddReference(icon0, "wxDataViewIconText::wxDataViewIconText at call 4 with 2 argument(s)");
+                ((wxDataViewIconText_php*) native_object)->references.AddReference(bitmap0, "wxDataViewIconText::wxDataViewIconText at call 4 with 2 argument(s)");
                 break;
             }
         }

@@ -108,7 +108,6 @@ static zend_function_entry php_wxGridBagSizer_functions[] = {
     PHP_ME(php_wxGridBagSizer, GetEmptyCellSize, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridBagSizer, GetItemPosition, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridBagSizer, GetItemSpan, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGridBagSizer, RecalcSizes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridBagSizer, SetEmptyCellSize, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridBagSizer, SetItemPosition, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridBagSizer, SetItemSpan, arginfo_null, ZEND_ACC_PUBLIC)
@@ -282,7 +281,6 @@ class wxSizer_php: public wxSizer{
 
     wxSizer_php():wxSizer(){}
     
-    void RecalcSizes();
     wxSize CalcMin();
     
 
@@ -384,7 +382,6 @@ static zend_function_entry php_wxStdDialogButtonSizer_functions[] = {
     PHP_ME(php_wxStdDialogButtonSizer, AddButton, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStdDialogButtonSizer, CalcMin, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStdDialogButtonSizer, Realize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStdDialogButtonSizer, RecalcSizes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStdDialogButtonSizer, SetAffirmativeButton, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStdDialogButtonSizer, SetCancelButton, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStdDialogButtonSizer, SetNegativeButton, arginfo_null, ZEND_ACC_PUBLIC)
@@ -581,7 +578,6 @@ static zend_function_entry php_wxFlexGridSizer_functions[] = {
     PHP_ME(php_wxFlexGridSizer, GetNonFlexibleGrowMode, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFlexGridSizer, IsColGrowable, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFlexGridSizer, IsRowGrowable, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFlexGridSizer, RecalcSizes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFlexGridSizer, RemoveGrowableCol, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFlexGridSizer, RemoveGrowableRow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFlexGridSizer, SetFlexibleDirection, arginfo_null, ZEND_ACC_PUBLIC)
@@ -639,7 +635,6 @@ static zend_function_entry php_wxGridSizer_functions[] = {
     PHP_ME(php_wxGridSizer, GetHGap, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridSizer, GetRows, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridSizer, GetVGap, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGridSizer, RecalcSizes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridSizer, SetCols, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridSizer, SetHGap, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridSizer, SetRows, arginfo_null, ZEND_ACC_PUBLIC)
@@ -690,7 +685,6 @@ END_EXTERN_C()
 static zend_function_entry php_wxStaticBoxSizer_functions[] = {
     PHP_ME(php_wxStaticBoxSizer, CalcMin, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStaticBoxSizer, GetStaticBox, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStaticBoxSizer, RecalcSizes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStaticBoxSizer, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
@@ -735,7 +729,6 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxBoxSizer_functions[] = {
     PHP_ME(php_wxBoxSizer, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxBoxSizer, RecalcSizes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBoxSizer, GetOrientation, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBoxSizer, CalcMin, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxBoxSizer, AddSpacer, arginfo_null, ZEND_ACC_PUBLIC)
@@ -783,7 +776,6 @@ END_EXTERN_C()
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWrapSizer_functions[] = {
     PHP_ME(php_wxWrapSizer, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxWrapSizer, RecalcSizes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxWrapSizer, InformFirstDirection, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxWrapSizer, CalcMin, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END

@@ -101,7 +101,9 @@ void php_wxDisplay_destruction_handler(zend_resource*);
 class wxDisplay_php: public wxDisplay{
     public:
 
-    wxDisplay_php(unsigned int index=0):wxDisplay(index){}
+    wxDisplay_php():wxDisplay(){}
+    wxDisplay_php(unsigned int index):wxDisplay(index){}
+    wxDisplay_php(const wxWindow* window):wxDisplay(window){}
     
     
 
@@ -272,7 +274,7 @@ class wxPlatformInfo_php: public wxPlatformInfo{
     public:
 
     wxPlatformInfo_php():wxPlatformInfo(){}
-    wxPlatformInfo_php(wxPortId pid, int tkMajor=-1, int tkMinor=-1, wxOperatingSystemId id=wxOS_UNKNOWN, int osMajor=-1, int osMinor=-1, wxArchitecture arch=wxARCH_INVALID, wxEndianness endian=wxENDIAN_INVALID):wxPlatformInfo(pid, tkMajor, tkMinor, id, osMajor, osMinor, arch, endian){}
+    wxPlatformInfo_php(wxPortId pid, int tkMajor=-1, int tkMinor=-1, wxOperatingSystemId id=wxOS_UNKNOWN, int osMajor=-1, int osMinor=-1, wxBitness bitness=wxBITNESS_INVALID, wxEndianness endian=wxENDIAN_INVALID):wxPlatformInfo(pid, tkMajor, tkMinor, id, osMajor, osMinor, bitness, endian){}
     
     
 
@@ -299,18 +301,18 @@ static zend_function_entry php_wxPlatformInfo_functions[] = {
     PHP_ME(php_wxPlatformInfo, CheckToolkitVersion, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, Get, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, GetDesktopEnvironment, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetEndianness, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetEndiannessName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetEndianness, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetEndiannessName, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, GetOSMajorVersion, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, GetOSMinorVersion, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, GetOperatingSystemDescription, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, GetOperatingSystemDirectory, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetOperatingSystemFamilyName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetOperatingSystemId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetOperatingSystemIdName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetPortId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetPortIdName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPlatformInfo, GetPortIdShortName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetOperatingSystemFamilyName, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetOperatingSystemId, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetOperatingSystemIdName, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetPortId, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetPortIdName, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPlatformInfo, GetPortIdShortName, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, GetToolkitMajorVersion, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, GetToolkitMinorVersion, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPlatformInfo, IsOk, arginfo_null, ZEND_ACC_PUBLIC)

@@ -27,6 +27,7 @@ void php_wxGenericValidator_destruction_handler(zend_resource*);
 class wxGenericValidator_php: public wxGenericValidator{
     public:
 
+    wxGenericValidator_php(const wxGenericValidator& validator):wxGenericValidator(validator){}
     wxGenericValidator_php(bool* valPtr):wxGenericValidator(valPtr){}
     wxGenericValidator_php(wxString* valPtr):wxGenericValidator(valPtr){}
     wxGenericValidator_php(int* valPtr):wxGenericValidator(valPtr){}
@@ -129,9 +130,9 @@ void php_wxTextValidator_destruction_handler(zend_resource*);
 class wxTextValidator_php: public wxTextValidator{
     public:
 
+    wxTextValidator_php(const wxTextValidator& validator):wxTextValidator(validator){}
     wxTextValidator_php(long style=wxFILTER_NONE, wxString* valPtr=NULL):wxTextValidator(style, valPtr){}
     
-    wxString IsValid(const wxString& val) const;
     
 
     zval phpObj;
@@ -157,6 +158,7 @@ static zend_function_entry php_wxTextValidator_functions[] = {
     PHP_ME(php_wxTextValidator, GetIncludes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxTextValidator, GetStyle, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxTextValidator, HasFlag, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextValidator, IsValid, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxTextValidator, SetCharExcludes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxTextValidator, SetCharIncludes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxTextValidator, SetExcludes, arginfo_null, ZEND_ACC_PUBLIC)

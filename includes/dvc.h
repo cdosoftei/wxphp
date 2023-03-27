@@ -460,7 +460,7 @@ void php_wxDataViewTextRenderer_destruction_handler(zend_resource*);
 class wxDataViewTextRenderer_php: public wxDataViewTextRenderer{
     public:
 
-    wxDataViewTextRenderer_php(const wxString& varianttype="string", wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewTextRenderer(varianttype, mode, align){}
+    wxDataViewTextRenderer_php(const wxString& varianttype=GetDefaultType(), wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewTextRenderer(varianttype, mode, align){}
     
     
 
@@ -503,7 +503,7 @@ void php_wxDataViewIconTextRenderer_destruction_handler(zend_resource*);
 class wxDataViewIconTextRenderer_php: public wxDataViewIconTextRenderer{
     public:
 
-    wxDataViewIconTextRenderer_php(const wxString& varianttype="wxDataViewIconText", wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewIconTextRenderer(varianttype, mode, align){}
+    wxDataViewIconTextRenderer_php(const wxString& varianttype=GetDefaultType(), wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewIconTextRenderer(varianttype, mode, align){}
     
     
 
@@ -546,7 +546,7 @@ void php_wxDataViewProgressRenderer_destruction_handler(zend_resource*);
 class wxDataViewProgressRenderer_php: public wxDataViewProgressRenderer{
     public:
 
-    wxDataViewProgressRenderer_php(const wxString& label=wxEmptyString, const wxString& varianttype="long", wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewProgressRenderer(label, varianttype, mode, align){}
+    wxDataViewProgressRenderer_php(const wxString& label=wxEmptyString, const wxString& varianttype=GetDefaultType(), wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewProgressRenderer(label, varianttype, mode, align){}
     
     
 
@@ -632,7 +632,7 @@ void php_wxDataViewToggleRenderer_destruction_handler(zend_resource*);
 class wxDataViewToggleRenderer_php: public wxDataViewToggleRenderer{
     public:
 
-    wxDataViewToggleRenderer_php(const wxString& varianttype="bool", wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewToggleRenderer(varianttype, mode, align){}
+    wxDataViewToggleRenderer_php(const wxString& varianttype=GetDefaultType(), wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewToggleRenderer(varianttype, mode, align){}
     
     
 
@@ -675,7 +675,7 @@ void php_wxDataViewDateRenderer_destruction_handler(zend_resource*);
 class wxDataViewDateRenderer_php: public wxDataViewDateRenderer{
     public:
 
-    wxDataViewDateRenderer_php(const wxString& varianttype="datetime", wxDataViewCellMode mode=wxDATAVIEW_CELL_ACTIVATABLE, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewDateRenderer(varianttype, mode, align){}
+    wxDataViewDateRenderer_php(const wxString& varianttype=GetDefaultType(), wxDataViewCellMode mode=wxDATAVIEW_CELL_ACTIVATABLE, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewDateRenderer(varianttype, mode, align){}
     
     
 
@@ -768,7 +768,7 @@ void php_wxDataViewBitmapRenderer_destruction_handler(zend_resource*);
 class wxDataViewBitmapRenderer_php: public wxDataViewBitmapRenderer{
     public:
 
-    wxDataViewBitmapRenderer_php(const wxString& varianttype="wxBitmap", wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewBitmapRenderer(varianttype, mode, align){}
+    wxDataViewBitmapRenderer_php(const wxString& varianttype=GetDefaultType(), wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT, int align=wxDVR_DEFAULT_ALIGNMENT):wxDataViewBitmapRenderer(varianttype, mode, align){}
     
     
 
@@ -971,7 +971,7 @@ void php_wxDataViewIconText_destruction_handler(zend_resource*);
 class wxDataViewIconText_php: public wxDataViewIconText{
     public:
 
-    wxDataViewIconText_php(const wxString& text=wxEmptyString, const wxIcon& icon=wxNullIcon):wxDataViewIconText(text, icon){}
+    wxDataViewIconText_php(const wxString& text=wxEmptyString, const wxBitmapBundle& bitmap=wxBitmapBundle()):wxDataViewIconText(text, bitmap){}
     wxDataViewIconText_php(const wxDataViewIconText& other):wxDataViewIconText(other){}
     
     

@@ -195,8 +195,6 @@ PHP_FUNCTION(php_wxInitAllImageHandlers);
 
 PHP_FUNCTION(php_wxEntryCleanup);
 
-PHP_FUNCTION(php_wxGetLibLZMAVersionInfo);
-
 PHP_FUNCTION(php_wxFinite);
 
 PHP_FUNCTION(php_wxGCD);
@@ -213,6 +211,8 @@ PHP_FUNCTION(php_wxIsSameDouble);
 
 PHP_FUNCTION(php_wxIsNullDouble);
 
+PHP_FUNCTION(php_wxMulDivInt32);
+
 PHP_FUNCTION(php_wxMessageBox);
 
 PHP_FUNCTION(php_wxGetNumberFromUser);
@@ -224,6 +224,10 @@ PHP_FUNCTION(php_wxFindWindowAtPointer);
 PHP_FUNCTION(php_wxGetActiveWindow);
 
 PHP_FUNCTION(php_wxGetTopLevelParent);
+
+PHP_FUNCTION(php_wxDumpWindow);
+
+PHP_FUNCTION(php_wxIsRunningUnderWine);
 
 PHP_FUNCTION(php_wxPGGetDefaultImageWildcard);
 
@@ -255,6 +259,8 @@ PHP_FUNCTION(php_wxStringTokenize);
 
 PHP_FUNCTION(php_wxGetTranslation);
 
+PHP_FUNCTION(php_wxGetUIDateFormat);
+
 PHP_FUNCTION(php_wxBeginBusyCursor);
 
 PHP_FUNCTION(php_wxEndBusyCursor);
@@ -272,6 +278,8 @@ PHP_FUNCTION(php_wxGetenv);
 PHP_FUNCTION(php_wxSetEnv);
 
 PHP_FUNCTION(php_wxUnsetEnv);
+
+PHP_FUNCTION(php_wxSecureZeroMemory);
 
 PHP_FUNCTION(php_wxGetBatteryState);
 
@@ -314,6 +322,8 @@ PHP_FUNCTION(php_wxIsPlatform64Bit);
 PHP_FUNCTION(php_wxIsPlatformLittleEndian);
 
 PHP_FUNCTION(php_wxGetCpuArchitectureName);
+
+PHP_FUNCTION(php_wxGetNativeCpuArchitectureName);
 
 PHP_FUNCTION(php_wxGetProcessId);
 

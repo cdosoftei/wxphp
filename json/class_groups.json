@@ -403,6 +403,8 @@
         "wxTextFile"
     ],
     "group_class_gdi": [
+        "wxBitmapBundle",
+        "wxBitmapBundleImpl",
         "wxFontMetrics",
         "wxGraphicsGradientStop",
         "wxGraphicsGradientStops",

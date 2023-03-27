@@ -131,8 +131,7 @@ zend_object* php_wxFFile_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto  wxFFile::wxFFile(string filename, string mode)
-   Opens a file with the given mode. */
+/* {{{ proto  wxFFile::wxFFile() */
 PHP_METHOD(php_wxFFile, __construct)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -152,35 +151,18 @@ PHP_METHOD(php_wxFFile, __construct)
 
 
     //Parameters for overload 0
-    char* filename0;
-    size_t filename_len0;
-    char* mode0;
-    size_t mode_len0;
     bool overload0_called = false;
 
     //Parameters for overload 1
+    char* filename1;
+    size_t filename_len1;
+    char* mode1;
+    size_t mode_len1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's|s' (&filename0, &filename_len0, &mode0, &mode_len0)\n");
-        #endif
-
-        char parse_parameters_string[] = "s|s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &filename0, &filename_len0, &mode0, &mode_len0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    //Overload 1
-    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -188,8 +170,25 @@ PHP_METHOD(php_wxFFile, __construct)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload1_called = true;
+        overload0_called = true;
         already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's|s' (&filename1, &filename_len1, &mode1, &mode_len1)\n");
+        #endif
+
+        char parse_parameters_string[] = "s|s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &filename1, &filename_len1, &mode1, &mode_len1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
     }
 
     
@@ -197,24 +196,13 @@ PHP_METHOD(php_wxFFile, __construct)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(wxString(filename0, wxConvUTF8))\n");
+                php_printf("Executing __construct()\n");
                 #endif
 
-                native_object = new wxFFile_php(wxString(filename0, wxConvUTF8));
-
-                native_object->references.Initialize();
-                break;
-            }
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(wxString(filename0, wxConvUTF8), wxString(mode0, wxConvUTF8))\n");
-                #endif
-
-                native_object = new wxFFile_php(wxString(filename0, wxConvUTF8), wxString(mode0, wxConvUTF8));
+                native_object = new wxFFile_php();
 
                 native_object->references.Initialize();
                 break;
@@ -226,13 +214,24 @@ PHP_METHOD(php_wxFFile, __construct)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct()\n");
+                php_printf("Executing __construct(wxString(filename1, wxConvUTF8))\n");
                 #endif
 
-                native_object = new wxFFile_php();
+                native_object = new wxFFile_php(wxString(filename1, wxConvUTF8));
+
+                native_object->references.Initialize();
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(wxString(filename1, wxConvUTF8), wxString(mode1, wxConvUTF8))\n");
+                #endif
+
+                native_object = new wxFFile_php(wxString(filename1, wxConvUTF8), wxString(mode1, wxConvUTF8));
 
                 native_object->references.Initialize();
                 break;
@@ -5716,8 +5715,8 @@ PHP_METHOD(php_wxFileName, Assign)
 }
 /* }}} */
 
-/* {{{ proto  wxFileName::wxFileName(wxFileName filename)
-   Copy constructor. */
+/* {{{ proto  wxFileName::wxFileName()
+   Default constructor. */
 PHP_METHOD(php_wxFileName, __construct)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5737,11 +5736,11 @@ PHP_METHOD(php_wxFileName, __construct)
 
 
     //Parameters for overload 0
-    zval* filename0;
-    wxFileName* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     //Parameters for overload 1
+    zval* filename1;
+    wxFileName* object_pointer1_0 = 0;
     bool overload1_called = false;
 
     //Parameters for overload 2
@@ -5783,40 +5782,6 @@ PHP_METHOD(php_wxFileName, __construct)
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&filename0, php_wxFileName_entry)\n");
-        #endif
-
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &filename0, php_wxFileName_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(filename0) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxFileName_P(filename0)->object_type;
-                    argument_native_object = (void*) Z_wxFileName_P(filename0)->native_object;
-                    object_pointer0_0 = (wxFileName*) argument_native_object;
-                    if (!object_pointer0_0 )
-                    {
-                        goto overload1;
-                    }
-                }
-                else if(Z_TYPE_P(filename0) != IS_NULL)
-                {
-                    goto overload1;
-                }
-            }
-
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    //Overload 1
-    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -5824,8 +5789,42 @@ PHP_METHOD(php_wxFileName, __construct)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload1_called = true;
+        overload0_called = true;
         already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'O' (&filename1, php_wxFileName_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &filename1, php_wxFileName_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(filename1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxFileName_P(filename1)->object_type;
+                    argument_native_object = (void*) Z_wxFileName_P(filename1)->native_object;
+                    object_pointer1_0 = (wxFileName*) argument_native_object;
+                    if (!object_pointer1_0 )
+                    {
+                        goto overload2;
+                    }
+                }
+                else if(Z_TYPE_P(filename1) != IS_NULL)
+                {
+                    goto overload2;
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
     }
 
     //Overload 2
@@ -5901,25 +5900,6 @@ PHP_METHOD(php_wxFileName, __construct)
     {
         switch(arguments_received)
         {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxFileName*) object_pointer0_0)\n");
-                #endif
-
-                native_object = new wxFileName_php(*(wxFileName*) object_pointer0_0);
-
-                native_object->references.Initialize();
-                ((wxFileName_php*) native_object)->references.AddReference(filename0, "wxFileName::wxFileName at call 4 with 1 argument(s)");
-                break;
-            }
-        }
-    }
-
-    if(overload1_called)
-    {
-        switch(arguments_received)
-        {
             case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
@@ -5929,6 +5909,25 @@ PHP_METHOD(php_wxFileName, __construct)
                 native_object = new wxFileName_php();
 
                 native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct(*(wxFileName*) object_pointer1_0)\n");
+                #endif
+
+                native_object = new wxFileName_php(*(wxFileName*) object_pointer1_0);
+
+                native_object->references.Initialize();
+                ((wxFileName_php*) native_object)->references.AddReference(filename1, "wxFileName::wxFileName at call 4 with 1 argument(s)");
                 break;
             }
         }
@@ -6445,7 +6444,7 @@ PHP_METHOD(php_wxFileName, SplitVolume)
 }
 /* }}} */
 
-/* {{{ proto  wxFileName::SplitPath(string fullpath, string &path, string &name, string &ext, wxPathFormat format)
+/* {{{ proto  wxFileName::SplitPath(string fullpath, string &volume, string &path, string &name, string &ext, bool &hasExt, wxPathFormat format)
    This function splits a full file name into components: the volume (with the first version) path (including the volume in the second version), the base name and the extension. */
 PHP_METHOD(php_wxFileName, SplitPath)
 {
@@ -6505,6 +6504,9 @@ PHP_METHOD(php_wxFileName, SplitPath)
     //Parameters for overload 0
     char* fullpath0;
     size_t fullpath_len0;
+    char* volume0;
+    size_t volume_len0;
+    zval volume0_ref;
     char* path0;
     size_t path_len0;
     zval path0_ref;
@@ -6514,6 +6516,8 @@ PHP_METHOD(php_wxFileName, SplitPath)
     char* ext0;
     size_t ext_len0;
     zval ext0_ref;
+    bool* hasExt0;
+    zval hasExt0_ref;
     long format0;
     bool overload0_called = false;
 
@@ -6538,9 +6542,6 @@ PHP_METHOD(php_wxFileName, SplitPath)
     //Parameters for overload 2
     char* fullpath2;
     size_t fullpath_len2;
-    char* volume2;
-    size_t volume_len2;
-    zval volume2_ref;
     char* path2;
     size_t path_len2;
     zval path2_ref;
@@ -6550,29 +6551,27 @@ PHP_METHOD(php_wxFileName, SplitPath)
     char* ext2;
     size_t ext_len2;
     zval ext2_ref;
-    bool* hasExt2;
-    zval hasExt2_ref;
     long format2;
     bool overload2_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 4  && arguments_received <= 5)
+    if(!already_called && arguments_received >= 5  && arguments_received <= 7)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ssss|l' (&fullpath0, &fullpath_len0, &path0, &path_len0, &name0, &name_len0, &ext0, &ext_len0, &format0)\n");
+        php_printf("Parsing parameters with 'sssss|bl' (&fullpath0, &fullpath_len0, &volume0, &volume_len0, &path0, &path_len0, &name0, &name_len0, &ext0, &ext_len0, hasExt0, &format0)\n");
         #endif
 
-        char parse_parameters_string[] = "ssss|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &fullpath0, &fullpath_len0, &path0, &path_len0, &name0, &name_len0, &ext0, &ext_len0, &format0 ) == SUCCESS)
+        char parse_parameters_string[] = "sssss|bl";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &fullpath0, &fullpath_len0, &volume0, &volume_len0, &path0, &path_len0, &name0, &name_len0, &ext0, &ext_len0, hasExt0, &format0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
 
-            char parse_references_string[] = "zzzz|z";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, path0_ref, name0_ref, ext0_ref, dummy );
+            char parse_references_string[] = "zzzzz|zz";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, volume0_ref, path0_ref, name0_ref, ext0_ref, hasExt0_ref, dummy );
         }
     }
 
@@ -6598,21 +6597,21 @@ PHP_METHOD(php_wxFileName, SplitPath)
 
     //Overload 2
     overload2:
-    if(!already_called && arguments_received >= 5  && arguments_received <= 7)
+    if(!already_called && arguments_received >= 4  && arguments_received <= 5)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sssss|bl' (&fullpath2, &fullpath_len2, &volume2, &volume_len2, &path2, &path_len2, &name2, &name_len2, &ext2, &ext_len2, hasExt2, &format2)\n");
+        php_printf("Parsing parameters with 'ssss|l' (&fullpath2, &fullpath_len2, &path2, &path_len2, &name2, &name_len2, &ext2, &ext_len2, &format2)\n");
         #endif
 
-        char parse_parameters_string[] = "sssss|bl";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &fullpath2, &fullpath_len2, &volume2, &volume_len2, &path2, &path_len2, &name2, &name_len2, &ext2, &ext_len2, hasExt2, &format2 ) == SUCCESS)
+        char parse_parameters_string[] = "ssss|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &fullpath2, &fullpath_len2, &path2, &path_len2, &name2, &name_len2, &ext2, &ext_len2, &format2 ) == SUCCESS)
         {
             overload2_called = true;
             already_called = true;
 
-            char parse_references_string[] = "zzzzz|zz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, volume2_ref, path2_ref, name2_ref, ext2_ref, hasExt2_ref, dummy );
+            char parse_references_string[] = "zzzz|z";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, path2_ref, name2_ref, ext2_ref, dummy );
         }
     }
 
@@ -6621,40 +6620,77 @@ PHP_METHOD(php_wxFileName, SplitPath)
     {
         switch(arguments_received)
         {
-            case 4:
+            case 5:
             {
-                wxString string_arg0_1 = wxString(path0, wxConvUTF8);
-                wxString string_arg0_2 = wxString(name0, wxConvUTF8);
-                wxString string_arg0_3 = wxString(ext0, wxConvUTF8);
+                wxString string_arg0_1 = wxString(volume0, wxConvUTF8);
+                wxString string_arg0_2 = wxString(path0, wxConvUTF8);
+                wxString string_arg0_3 = wxString(name0, wxConvUTF8);
+                wxString string_arg0_4 = wxString(ext0, wxConvUTF8);
                 #ifdef USE_WXPHP_DEBUG
                 php_printf("Static ");
-                php_printf("Executing wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3)\n\n");
+                php_printf("Executing wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, &string_arg0_4)\n\n");
                 #endif
 
-                wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3);
+                wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, &string_arg0_4);
 
-                ZVAL_STRING(&path0_ref, string_arg0_1.ToUTF8().data());
-                ZVAL_STRING(&name0_ref, string_arg0_2.ToUTF8().data());
-                ZVAL_STRING(&ext0_ref, string_arg0_3.ToUTF8().data());
+                ZVAL_STRING(&volume0_ref, string_arg0_1.ToUTF8().data());
+                ZVAL_STRING(&path0_ref, string_arg0_2.ToUTF8().data());
+                ZVAL_STRING(&name0_ref, string_arg0_3.ToUTF8().data());
+                ZVAL_STRING(&ext0_ref, string_arg0_4.ToUTF8().data());
 
                 return;
                 break;
             }
-            case 5:
+            case 6:
             {
-                wxString string_arg0_1 = wxString(path0, wxConvUTF8);
-                wxString string_arg0_2 = wxString(name0, wxConvUTF8);
-                wxString string_arg0_3 = wxString(ext0, wxConvUTF8);
+                wxString string_arg0_1 = wxString(volume0, wxConvUTF8);
+                wxString string_arg0_2 = wxString(path0, wxConvUTF8);
+                wxString string_arg0_3 = wxString(name0, wxConvUTF8);
+                wxString string_arg0_4 = wxString(ext0, wxConvUTF8);
                 #ifdef USE_WXPHP_DEBUG
                 php_printf("Static ");
-                php_printf("Executing wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, (wxPathFormat) format0)\n\n");
+                php_printf("Executing wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, &string_arg0_4, hasExt0)\n\n");
                 #endif
 
-                wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, (wxPathFormat) format0);
+                wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, &string_arg0_4, hasExt0);
 
-                ZVAL_STRING(&path0_ref, string_arg0_1.ToUTF8().data());
-                ZVAL_STRING(&name0_ref, string_arg0_2.ToUTF8().data());
-                ZVAL_STRING(&ext0_ref, string_arg0_3.ToUTF8().data());
+                ZVAL_STRING(&volume0_ref, string_arg0_1.ToUTF8().data());
+                ZVAL_STRING(&path0_ref, string_arg0_2.ToUTF8().data());
+                ZVAL_STRING(&name0_ref, string_arg0_3.ToUTF8().data());
+                ZVAL_STRING(&ext0_ref, string_arg0_4.ToUTF8().data());
+                size_t elements_returned0_5 = sizeof(hasExt0)/sizeof(*hasExt0);
+                array_init(&hasExt0_ref);
+                for(size_t i=0; i<elements_returned0_5; i++)
+                {
+                    add_next_index_long(&hasExt0_ref, hasExt0[i]);
+                }
+
+                return;
+                break;
+            }
+            case 7:
+            {
+                wxString string_arg0_1 = wxString(volume0, wxConvUTF8);
+                wxString string_arg0_2 = wxString(path0, wxConvUTF8);
+                wxString string_arg0_3 = wxString(name0, wxConvUTF8);
+                wxString string_arg0_4 = wxString(ext0, wxConvUTF8);
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, &string_arg0_4, hasExt0, (wxPathFormat) format0)\n\n");
+                #endif
+
+                wxFileName::SplitPath(wxString(fullpath0, wxConvUTF8), &string_arg0_1, &string_arg0_2, &string_arg0_3, &string_arg0_4, hasExt0, (wxPathFormat) format0);
+
+                ZVAL_STRING(&volume0_ref, string_arg0_1.ToUTF8().data());
+                ZVAL_STRING(&path0_ref, string_arg0_2.ToUTF8().data());
+                ZVAL_STRING(&name0_ref, string_arg0_3.ToUTF8().data());
+                ZVAL_STRING(&ext0_ref, string_arg0_4.ToUTF8().data());
+                size_t elements_returned0_5 = sizeof(hasExt0)/sizeof(*hasExt0);
+                array_init(&hasExt0_ref);
+                for(size_t i=0; i<elements_returned0_5; i++)
+                {
+                    add_next_index_long(&hasExt0_ref, hasExt0[i]);
+                }
 
                 return;
                 break;
@@ -6694,77 +6730,40 @@ PHP_METHOD(php_wxFileName, SplitPath)
     {
         switch(arguments_received)
         {
+            case 4:
+            {
+                wxString string_arg2_1 = wxString(path2, wxConvUTF8);
+                wxString string_arg2_2 = wxString(name2, wxConvUTF8);
+                wxString string_arg2_3 = wxString(ext2, wxConvUTF8);
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3)\n\n");
+                #endif
+
+                wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3);
+
+                ZVAL_STRING(&path2_ref, string_arg2_1.ToUTF8().data());
+                ZVAL_STRING(&name2_ref, string_arg2_2.ToUTF8().data());
+                ZVAL_STRING(&ext2_ref, string_arg2_3.ToUTF8().data());
+
+                return;
+                break;
+            }
             case 5:
             {
-                wxString string_arg2_1 = wxString(volume2, wxConvUTF8);
-                wxString string_arg2_2 = wxString(path2, wxConvUTF8);
-                wxString string_arg2_3 = wxString(name2, wxConvUTF8);
-                wxString string_arg2_4 = wxString(ext2, wxConvUTF8);
+                wxString string_arg2_1 = wxString(path2, wxConvUTF8);
+                wxString string_arg2_2 = wxString(name2, wxConvUTF8);
+                wxString string_arg2_3 = wxString(ext2, wxConvUTF8);
                 #ifdef USE_WXPHP_DEBUG
                 php_printf("Static ");
-                php_printf("Executing wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, &string_arg2_4)\n\n");
+                php_printf("Executing wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, (wxPathFormat) format2)\n\n");
                 #endif
 
-                wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, &string_arg2_4);
+                wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, (wxPathFormat) format2);
 
-                ZVAL_STRING(&volume2_ref, string_arg2_1.ToUTF8().data());
-                ZVAL_STRING(&path2_ref, string_arg2_2.ToUTF8().data());
-                ZVAL_STRING(&name2_ref, string_arg2_3.ToUTF8().data());
-                ZVAL_STRING(&ext2_ref, string_arg2_4.ToUTF8().data());
-
-                return;
-                break;
-            }
-            case 6:
-            {
-                wxString string_arg2_1 = wxString(volume2, wxConvUTF8);
-                wxString string_arg2_2 = wxString(path2, wxConvUTF8);
-                wxString string_arg2_3 = wxString(name2, wxConvUTF8);
-                wxString string_arg2_4 = wxString(ext2, wxConvUTF8);
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, &string_arg2_4, hasExt2)\n\n");
-                #endif
-
-                wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, &string_arg2_4, hasExt2);
-
-                ZVAL_STRING(&volume2_ref, string_arg2_1.ToUTF8().data());
-                ZVAL_STRING(&path2_ref, string_arg2_2.ToUTF8().data());
-                ZVAL_STRING(&name2_ref, string_arg2_3.ToUTF8().data());
-                ZVAL_STRING(&ext2_ref, string_arg2_4.ToUTF8().data());
-                size_t elements_returned2_5 = sizeof(hasExt2)/sizeof(*hasExt2);
-                array_init(&hasExt2_ref);
-                for(size_t i=0; i<elements_returned2_5; i++)
-                {
-                    add_next_index_long(&hasExt2_ref, hasExt2[i]);
-                }
-
-                return;
-                break;
-            }
-            case 7:
-            {
-                wxString string_arg2_1 = wxString(volume2, wxConvUTF8);
-                wxString string_arg2_2 = wxString(path2, wxConvUTF8);
-                wxString string_arg2_3 = wxString(name2, wxConvUTF8);
-                wxString string_arg2_4 = wxString(ext2, wxConvUTF8);
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, &string_arg2_4, hasExt2, (wxPathFormat) format2)\n\n");
-                #endif
-
-                wxFileName::SplitPath(wxString(fullpath2, wxConvUTF8), &string_arg2_1, &string_arg2_2, &string_arg2_3, &string_arg2_4, hasExt2, (wxPathFormat) format2);
-
-                ZVAL_STRING(&volume2_ref, string_arg2_1.ToUTF8().data());
-                ZVAL_STRING(&path2_ref, string_arg2_2.ToUTF8().data());
-                ZVAL_STRING(&name2_ref, string_arg2_3.ToUTF8().data());
-                ZVAL_STRING(&ext2_ref, string_arg2_4.ToUTF8().data());
-                size_t elements_returned2_5 = sizeof(hasExt2)/sizeof(*hasExt2);
-                array_init(&hasExt2_ref);
-                for(size_t i=0; i<elements_returned2_5; i++)
-                {
-                    add_next_index_long(&hasExt2_ref, hasExt2[i]);
-                }
+                ZVAL_STRING(&path2_ref, string_arg2_1.ToUTF8().data());
+                ZVAL_STRING(&name2_ref, string_arg2_2.ToUTF8().data());
+                ZVAL_STRING(&ext2_ref, string_arg2_3.ToUTF8().data());
 
                 return;
                 break;
@@ -7662,7 +7661,7 @@ PHP_METHOD(php_wxFileName, SetEmptyExt)
 }
 /* }}} */
 
-/* {{{ proto bool wxFileName::SetCwd(string cwd)
+/* {{{ proto bool wxFileName::SetCwd()
    Changes the current working directory. */
 PHP_METHOD(php_wxFileName, SetCwd)
 {
@@ -7720,33 +7719,16 @@ PHP_METHOD(php_wxFileName, SetCwd)
     #endif
 
     //Parameters for overload 0
-    char* cwd0;
-    size_t cwd_len0;
     bool overload0_called = false;
 
     //Parameters for overload 1
+    char* cwd1;
+    size_t cwd_len1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's' (&cwd0, &cwd_len0)\n");
-        #endif
-
-        char parse_parameters_string[] = "s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &cwd0, &cwd_len0 ) == SUCCESS)
-        {
-            overload0_called = true;
-            already_called = true;
-        }
-    }
-
-    //Overload 1
-    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -7754,8 +7736,25 @@ PHP_METHOD(php_wxFileName, SetCwd)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload1_called = true;
+        overload0_called = true;
         already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&cwd1, &cwd_len1)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &cwd1, &cwd_len1 ) == SUCCESS)
+        {
+            overload1_called = true;
+            already_called = true;
+        }
     }
 
     
@@ -7763,14 +7762,13 @@ PHP_METHOD(php_wxFileName, SetCwd)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_BOOL(wxFileName::SetCwd(wxString(cwd0, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_BOOL(wxFileName::SetCwd())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxFileName::SetCwd(wxString(cwd0, wxConvUTF8)));
+                RETVAL_BOOL(((wxFileName_php*)native_object)->SetCwd());
 
 
                 return;
@@ -7783,13 +7781,14 @@ PHP_METHOD(php_wxFileName, SetCwd)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxFileName::SetCwd())\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxFileName::SetCwd(wxString(cwd1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFileName_php*)native_object)->SetCwd());
+                RETVAL_BOOL(wxFileName::SetCwd(wxString(cwd1, wxConvUTF8)));
 
 
                 return;
@@ -7956,7 +7955,7 @@ PHP_METHOD(php_wxFileName, SameAs)
 }
 /* }}} */
 
-/* {{{ proto bool wxFileName::Rmdir(string dir, int flags)
+/* {{{ proto bool wxFileName::Rmdir(int flags)
    Deletes the specified directory from the file system. */
 PHP_METHOD(php_wxFileName, Rmdir)
 {
@@ -8014,27 +8013,27 @@ PHP_METHOD(php_wxFileName, Rmdir)
     #endif
 
     //Parameters for overload 0
-    char* dir0;
-    size_t dir_len0;
     long flags0;
     bool overload0_called = false;
 
     //Parameters for overload 1
+    char* dir1;
+    size_t dir_len1;
     long flags1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's|l' (&dir0, &dir_len0, &flags0)\n");
+        php_printf("Parsing parameters with '|l' (&flags0)\n");
         #endif
 
-        char parse_parameters_string[] = "s|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dir0, &dir_len0, &flags0 ) == SUCCESS)
+        char parse_parameters_string[] = "|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -8043,15 +8042,15 @@ PHP_METHOD(php_wxFileName, Rmdir)
 
     //Overload 1
     overload1:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|l' (&flags1)\n");
+        php_printf("Parsing parameters with 's|l' (&dir1, &dir_len1, &flags1)\n");
         #endif
 
-        char parse_parameters_string[] = "|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags1 ) == SUCCESS)
+        char parse_parameters_string[] = "s|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &dir1, &dir_len1, &flags1 ) == SUCCESS)
         {
             overload1_called = true;
             already_called = true;
@@ -8060,39 +8059,6 @@ PHP_METHOD(php_wxFileName, Rmdir)
 
     
     if(overload0_called)
-    {
-        switch(arguments_received)
-        {
-            case 1:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_BOOL(wxFileName::Rmdir(wxString(dir0, wxConvUTF8)))\n\n");
-                #endif
-
-                RETVAL_BOOL(wxFileName::Rmdir(wxString(dir0, wxConvUTF8)));
-
-
-                return;
-                break;
-            }
-            case 2:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_BOOL(wxFileName::Rmdir(wxString(dir0, wxConvUTF8), (int) flags0))\n\n");
-                #endif
-
-                RETVAL_BOOL(wxFileName::Rmdir(wxString(dir0, wxConvUTF8), (int) flags0));
-
-
-                return;
-                break;
-            }
-        }
-    }
-
-    if(overload1_called)
     {
         switch(arguments_received)
         {
@@ -8111,10 +8077,43 @@ PHP_METHOD(php_wxFileName, Rmdir)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxFileName::Rmdir((int) flags1))\n\n");
+                php_printf("Executing RETURN_BOOL(wxFileName::Rmdir((int) flags0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFileName_php*)native_object)->Rmdir((int) flags1));
+                RETVAL_BOOL(((wxFileName_php*)native_object)->Rmdir((int) flags0));
+
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxFileName::Rmdir(wxString(dir1, wxConvUTF8)))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxFileName::Rmdir(wxString(dir1, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Static ");
+                php_printf("Executing RETURN_BOOL(wxFileName::Rmdir(wxString(dir1, wxConvUTF8), (int) flags1))\n\n");
+                #endif
+
+                RETVAL_BOOL(wxFileName::Rmdir(wxString(dir1, wxConvUTF8), (int) flags1));
 
 
                 return;
@@ -12539,7 +12538,7 @@ PHP_METHOD(php_wxFileName, GetShortPath)
 /* }}} */
 
 /* {{{ proto string wxFileName::GetTempDir()
-   Returns the directory used for temporary files. */
+   Returns the directory used for temporary files, for current user. */
 PHP_METHOD(php_wxFileName, GetTempDir)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -12779,7 +12778,7 @@ PHP_METHOD(php_wxFileName, GetVolumeSeparator)
 /* }}} */
 
 /* {{{ proto string wxFileName::GetVolume()
-   Returns the string containing the volume for this file name, empty if it doesn't have one or if the file system doesn't support volumes at all (for example, Unix). */
+   Returns the string containing the volume for this file name. */
 PHP_METHOD(php_wxFileName, GetVolume)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -15219,14 +15218,14 @@ PHP_METHOD(php_wxFileName, Normalize)
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 3)
+    if(!already_called && arguments_received >= 1  && arguments_received <= 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|lsl' (&flags0, &cwd0, &cwd_len0, &format0)\n");
+        php_printf("Parsing parameters with 'l|sl' (&flags0, &cwd0, &cwd_len0, &format0)\n");
         #endif
 
-        char parse_parameters_string[] = "|lsl";
+        char parse_parameters_string[] = "l|sl";
         if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0, &cwd0, &cwd_len0, &format0 ) == SUCCESS)
         {
             overload0_called = true;
@@ -15239,18 +15238,6 @@ PHP_METHOD(php_wxFileName, Normalize)
     {
         switch(arguments_received)
         {
-            case 0:
-            {
-                #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxFileName::Normalize())\n\n");
-                #endif
-
-                RETVAL_BOOL(((wxFileName_php*)native_object)->Normalize());
-
-
-                return;
-                break;
-            }
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
@@ -17133,7 +17120,7 @@ PHP_METHOD(php_wxFileSystemWatcher, SetOwner)
                     wxphp_object_type argument_type = Z_wxEvtHandler_P(handler0)->object_type;
                     argument_native_object = (void*) Z_wxEvtHandler_P(handler0)->native_object;
                     object_pointer0_0 = (wxEvtHandler*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXEVTHANDLER_TYPE && argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE && argument_type != PHP_WXVALIDATOR_TYPE && argument_type != PHP_WXTEXTVALIDATOR_TYPE && argument_type != PHP_WXGENERICVALIDATOR_TYPE && argument_type != PHP_WXMENU_TYPE && argument_type != PHP_WXAUIMANAGER_TYPE && argument_type != PHP_WXMOUSEEVENTSMANAGER_TYPE && argument_type != PHP_WXTIMER_TYPE && argument_type != PHP_WXEVENTBLOCKER_TYPE && argument_type != PHP_WXPROCESS_TYPE && argument_type != PHP_WXFILESYSTEMWATCHER_TYPE && argument_type != PHP_WXTASKBARICON_TYPE && argument_type != PHP_WXNOTIFICATIONMESSAGE_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXEVTHANDLER_TYPE && argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE && argument_type != PHP_WXVALIDATOR_TYPE && argument_type != PHP_WXTEXTVALIDATOR_TYPE && argument_type != PHP_WXGENERICVALIDATOR_TYPE && argument_type != PHP_WXMENU_TYPE && argument_type != PHP_WXAUIMANAGER_TYPE && argument_type != PHP_WXMOUSEEVENTSMANAGER_TYPE && argument_type != PHP_WXTIMER_TYPE && argument_type != PHP_WXEVENTBLOCKER_TYPE && argument_type != PHP_WXPROCESS_TYPE && argument_type != PHP_WXFILESYSTEMWATCHER_TYPE && argument_type != PHP_WXTASKBARICON_TYPE && argument_type != PHP_WXNOTIFICATIONMESSAGE_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'handler' could not be retreived correctly.");
                     }
@@ -17806,7 +17793,7 @@ PHP_METHOD(php_wxStandardPaths, GetDataDir)
 /* }}} */
 
 /* {{{ proto string wxStandardPaths::GetDocumentsDir()
-   Return the directory containing the current user's documents. */
+   Same as calling GetUserDir() with Dir_Documents parameter. */
 PHP_METHOD(php_wxStandardPaths, GetDocumentsDir)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -18366,7 +18353,7 @@ PHP_METHOD(php_wxStandardPaths, GetResourcesDir)
 /* }}} */
 
 /* {{{ proto string wxStandardPaths::GetTempDir()
-   Return the directory for storing temporary files. */
+   Return the directory for storing temporary files, for the current user. */
 PHP_METHOD(php_wxStandardPaths, GetTempDir)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -18478,7 +18465,7 @@ PHP_METHOD(php_wxStandardPaths, GetTempDir)
 /* }}} */
 
 /* {{{ proto string wxStandardPaths::GetUserConfigDir()
-   Return the directory for the user config files: */
+   Return the directory for the user config files. */
 PHP_METHOD(php_wxStandardPaths, GetUserConfigDir)
 {
     #ifdef USE_WXPHP_DEBUG

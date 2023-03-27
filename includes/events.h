@@ -224,6 +224,7 @@ void php_wxColourPickerEvent_destruction_handler(zend_resource*);
 class wxColourPickerEvent_php: public wxColourPickerEvent{
     public:
 
+    wxColourPickerEvent_php():wxColourPickerEvent(){}
     wxColourPickerEvent_php(wxObject* generator, int id, const wxColour& colour):wxColourPickerEvent(generator, id, colour){}
     
     
@@ -314,7 +315,10 @@ void php_wxDataViewEvent_destruction_handler(zend_resource*);
 class wxDataViewEvent_php: public wxDataViewEvent{
     public:
 
+    wxDataViewEvent_php():wxDataViewEvent(){}
     wxDataViewEvent_php(wxEventType evtType, wxDataViewCtrl* dvc, wxDataViewColumn* column, const wxDataViewItem& item=wxDataViewItem()):wxDataViewEvent(evtType, dvc, column, item){}
+    wxDataViewEvent_php(wxEventType evtType, wxDataViewCtrl* dvc, const wxDataViewItem& item):wxDataViewEvent(evtType, dvc, item){}
+    wxDataViewEvent_php(const wxDataViewEvent& event):wxDataViewEvent(event){}
     
     
 
@@ -543,9 +547,14 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxEvtHandler_functions[] = {
+    PHP_ME(php_wxObject, UnShare, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, UnRef, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, IsSameAs, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, Ref, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, GetClassInfo, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, IsKindOf, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_ME(php_wxEvtHandler, Connect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxEvtHandler, Disconnect, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddFilter, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddPendingEvent, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, DeletePendingEvents, arginfo_null, ZEND_ACC_PUBLIC)
@@ -605,18 +614,6 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxKeyEvent_functions[] = {
-    PHP_ME(php_wxKeyboardState, AltDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, ControlDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, GetModifiers, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, HasModifiers, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, MetaDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, RawControlDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, SetAltDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, SetControlDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, SetMetaDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, SetRawControlDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, SetShiftDown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxKeyboardState, ShiftDown, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, UnShare, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, UnRef, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, IsSameAs, arginfo_null, ZEND_ACC_PUBLIC)
@@ -638,6 +635,18 @@ static zend_function_entry php_wxKeyEvent_functions[] = {
     PHP_ME(php_wxEvent, ShouldPropagate, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvent, Skip, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvent, StopPropagation, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, AltDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, ControlDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, GetModifiers, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, HasModifiers, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, MetaDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, RawControlDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, SetAltDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, SetControlDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, SetMetaDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, SetRawControlDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, SetShiftDown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxKeyboardState, ShiftDown, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxKeyEvent, DoAllowNextEvent, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxKeyEvent, GetKeyCode, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxKeyEvent, GetPosition, arginfo_null, ZEND_ACC_PUBLIC)
@@ -1160,6 +1169,51 @@ static inline zo_wxMouseEvent * php_wxMouseEvent_fetch_object(zend_object *obj) 
 
 #define Z_wxMouseEvent_P(zv) \
     php_wxMouseEvent_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxDropFilesEvent_entry;
+extern zend_object_handlers wxphp_wxDropFilesEvent_object_handlers;
+void php_wxDropFilesEvent_destruction_handler(zend_resource*);
+
+class wxDropFilesEvent_php: public wxDropFilesEvent{
+    public:
+
+    wxDropFilesEvent_php(wxEventType id=0, int noFiles=0, wxString* files=NULL):wxDropFilesEvent(id, noFiles, files){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxDropFilesEvent{
+    wxDropFilesEvent_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxDropFilesEvent;
+
+void php_wxDropFilesEvent_free(void *object);
+zend_object* php_wxDropFilesEvent_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxDropFilesEvent_functions[] = {
+    PHP_ME(php_wxDropFilesEvent, GetNumberOfFiles, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDropFilesEvent, GetPosition, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDropFilesEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxDropFilesEvent * php_wxDropFilesEvent_fetch_object(zend_object *obj) {
+    return (zo_wxDropFilesEvent *)(
+        (char *)(obj) - XtOffsetOf(zo_wxDropFilesEvent, zo)
+    );
+}
+
+#define Z_wxDropFilesEvent_P(zv) \
+    php_wxDropFilesEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxActivateEvent_entry;
 extern zend_object_handlers wxphp_wxActivateEvent_object_handlers;
 void php_wxActivateEvent_destruction_handler(zend_resource*);
@@ -1758,6 +1812,7 @@ class wxNavigationKeyEvent_php: public wxNavigationKeyEvent{
     public:
 
     wxNavigationKeyEvent_php():wxNavigationKeyEvent(){}
+    wxNavigationKeyEvent_php(const wxNavigationKeyEvent& event):wxNavigationKeyEvent(event){}
     
     
 
@@ -1896,6 +1951,95 @@ static inline zo_wxMenuEvent * php_wxMenuEvent_fetch_object(zend_object *obj) {
 
 #define Z_wxMenuEvent_P(zv) \
     php_wxMenuEvent_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxShowEvent_entry;
+extern zend_object_handlers wxphp_wxShowEvent_object_handlers;
+void php_wxShowEvent_destruction_handler(zend_resource*);
+
+class wxShowEvent_php: public wxShowEvent{
+    public:
+
+    wxShowEvent_php(int winid=0, bool show=false):wxShowEvent(winid, show){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxShowEvent{
+    wxShowEvent_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxShowEvent;
+
+void php_wxShowEvent_free(void *object);
+zend_object* php_wxShowEvent_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxShowEvent_functions[] = {
+    PHP_ME(php_wxShowEvent, IsShown, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxShowEvent, SetShow, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxShowEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxShowEvent * php_wxShowEvent_fetch_object(zend_object *obj) {
+    return (zo_wxShowEvent *)(
+        (char *)(obj) - XtOffsetOf(zo_wxShowEvent, zo)
+    );
+}
+
+#define Z_wxShowEvent_P(zv) \
+    php_wxShowEvent_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxIconizeEvent_entry;
+extern zend_object_handlers wxphp_wxIconizeEvent_object_handlers;
+void php_wxIconizeEvent_destruction_handler(zend_resource*);
+
+class wxIconizeEvent_php: public wxIconizeEvent{
+    public:
+
+    wxIconizeEvent_php(int id=0, bool iconized=true):wxIconizeEvent(id, iconized){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxIconizeEvent{
+    wxIconizeEvent_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxIconizeEvent;
+
+void php_wxIconizeEvent_free(void *object);
+zend_object* php_wxIconizeEvent_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxIconizeEvent_functions[] = {
+    PHP_ME(php_wxIconizeEvent, IsIconized, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxIconizeEvent, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxIconizeEvent * php_wxIconizeEvent_fetch_object(zend_object *obj) {
+    return (zo_wxIconizeEvent *)(
+        (char *)(obj) - XtOffsetOf(zo_wxIconizeEvent, zo)
+    );
+}
+
+#define Z_wxIconizeEvent_P(zv) \
+    php_wxIconizeEvent_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxMoveEvent_entry;
 extern zend_object_handlers wxphp_wxMoveEvent_object_handlers;
 void php_wxMoveEvent_destruction_handler(zend_resource*);
@@ -2095,6 +2239,7 @@ void php_wxFileDirPickerEvent_destruction_handler(zend_resource*);
 class wxFileDirPickerEvent_php: public wxFileDirPickerEvent{
     public:
 
+    wxFileDirPickerEvent_php():wxFileDirPickerEvent(){}
     wxFileDirPickerEvent_php(wxEventType type, wxObject* generator, int id, const wxString& path):wxFileDirPickerEvent(type, generator, id, path){}
     
     
@@ -3113,8 +3258,8 @@ void php_wxSpinDoubleEvent_destruction_handler(zend_resource*);
 class wxSpinDoubleEvent_php: public wxSpinDoubleEvent{
     public:
 
-    wxSpinDoubleEvent_php(const wxSpinDoubleEvent& event):wxSpinDoubleEvent(event){}
     wxSpinDoubleEvent_php(wxEventType commandType=wxEVT_NULL, int winid=0, double value=0):wxSpinDoubleEvent(commandType, winid, value){}
+    wxSpinDoubleEvent_php(const wxSpinDoubleEvent& event):wxSpinDoubleEvent(event){}
     
     
 
@@ -3234,7 +3379,6 @@ static zend_function_entry php_wxStyledTextEvent_functions[] = {
     PHP_ME(php_wxStyledTextEvent, SetY, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetX, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetWParam, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStyledTextEvent, SetText, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetPosition, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetModifiers, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetModificationType, arginfo_null, ZEND_ACC_PUBLIC)
@@ -3245,7 +3389,6 @@ static zend_function_entry php_wxStyledTextEvent_functions[] = {
     PHP_ME(php_wxStyledTextEvent, SetLine, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetAlt, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetControl, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStyledTextEvent, GetDragText, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetFoldLevelNow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetFoldLevelPrev, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetKey, arginfo_null, ZEND_ACC_PUBLIC)
@@ -3260,12 +3403,10 @@ static zend_function_entry php_wxStyledTextEvent_functions[] = {
     PHP_ME(php_wxStyledTextEvent, GetModifiers, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetPosition, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetShift, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStyledTextEvent, GetText, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetWParam, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetX, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, GetY, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetDragResult, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStyledTextEvent, SetDragText, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetFoldLevelNow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetFoldLevelPrev, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxStyledTextEvent, SetKey, arginfo_null, ZEND_ACC_PUBLIC)

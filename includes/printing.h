@@ -206,6 +206,7 @@ class wxPrintPreview_php: public wxPrintPreview{
     public:
 
     wxPrintPreview_php(wxPrintout* printout, wxPrintout* printoutForPrinting=NULL, wxPrintDialogData* data=NULL):wxPrintPreview(printout, printoutForPrinting, data){}
+    wxPrintPreview_php(wxPrintout* printout, wxPrintout* printoutForPrinting, wxPrintData* data):wxPrintPreview(printout, printoutForPrinting, data){}
     
     
 
@@ -292,7 +293,6 @@ static zend_function_entry php_wxPrinter_functions[] = {
     PHP_ME(php_wxPrinter, PrintMethod, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPrinter, PrintDialog, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPrinter, ReportError, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinter, Setup, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxPrinter, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };

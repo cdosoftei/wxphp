@@ -411,8 +411,8 @@ void php_wxFFileInputStream_destruction_handler(zend_resource*);
 class wxFFileInputStream_php: public wxFFileInputStream{
     public:
 
-    wxFFileInputStream_php(wxFFile& file):wxFFileInputStream(file){}
     wxFFileInputStream_php(const wxString& filename, const wxString& mode="rb"):wxFFileInputStream(filename, mode){}
+    wxFFileInputStream_php(wxFFile& file):wxFFileInputStream(file){}
     
     
 

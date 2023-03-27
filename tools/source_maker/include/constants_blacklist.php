@@ -206,3 +206,4 @@ unset($defConsts['wxTASKBAR_JUMP_LIST_SEPARATOR']);
 unset($defConsts['wxTASKBAR_JUMP_LIST_TASK']);
 unset($defConsts['wxEVT_STC_KEY']);
 unset($defConsts['wxEVT_STC_URIDROPPED']);
+unset($defConsts['wxPATH_NORM_ALL']);

@@ -27,8 +27,8 @@ void php_wxFFile_destruction_handler(zend_resource*);
 class wxFFile_php: public wxFFile{
     public:
 
-    wxFFile_php(const wxString& filename, const wxString& mode="r"):wxFFile(filename, mode){}
     wxFFile_php():wxFFile(){}
+    wxFFile_php(const wxString& filename, const wxString& mode="r"):wxFFile(filename, mode){}
     
     
 
@@ -197,8 +197,8 @@ void php_wxFileName_destruction_handler(zend_resource*);
 class wxFileName_php: public wxFileName{
     public:
 
-    wxFileName_php(const wxFileName& filename):wxFileName(filename){}
     wxFileName_php():wxFileName(){}
+    wxFileName_php(const wxFileName& filename):wxFileName(filename){}
     wxFileName_php(const wxString& fullpath, wxPathFormat format=wxPATH_NATIVE):wxFileName(fullpath, format){}
     wxFileName_php(const wxString& path, const wxString& name, wxPathFormat format=wxPATH_NATIVE):wxFileName(path, name, format){}
     wxFileName_php(const wxString& path, const wxString& name, const wxString& ext, wxPathFormat format=wxPATH_NATIVE):wxFileName(path, name, ext, format){}
@@ -239,9 +239,9 @@ static zend_function_entry php_wxFileName_functions[] = {
     PHP_ME(php_wxFileName, SetFullName, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileName, SetExt, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileName, SetEmptyExt, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileName, SetCwd, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileName, SetCwd, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileName, SameAs, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileName, Rmdir, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileName, Rmdir, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileName, ReplaceHomeDir, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileName, ReplaceEnvVariable, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileName, RemoveLastDir, arginfo_null, ZEND_ACC_PUBLIC)

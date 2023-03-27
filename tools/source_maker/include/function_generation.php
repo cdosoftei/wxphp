@@ -1344,6 +1344,10 @@ function function_return($method_definitions, $method_name, $class_name=null, $i
                             case "const_none": //const object
                                 $parameters_string .= "*(".$argument_parameter_type."*) object_pointer{$declaration_index}_{$parameter_index}" . ", ";
                                 break;
+
+                            case "const_none_array":
+                                die("Unhandled const_none_array parameters\n");
+                                break;
                         }
                         break;
                 }

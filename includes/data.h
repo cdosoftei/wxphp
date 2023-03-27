@@ -103,8 +103,8 @@ void php_wxAcceleratorEntry_destruction_handler(zend_resource*);
 class wxAcceleratorEntry_php: public wxAcceleratorEntry{
     public:
 
-    wxAcceleratorEntry_php(const wxAcceleratorEntry& entry):wxAcceleratorEntry(entry){}
     wxAcceleratorEntry_php(int flags=0, int keyCode=0, int cmd=0, wxMenuItem* item=NULL):wxAcceleratorEntry(flags, keyCode, cmd, item){}
+    wxAcceleratorEntry_php(const wxAcceleratorEntry& entry):wxAcceleratorEntry(entry){}
     
     
 
@@ -199,8 +199,8 @@ void php_wxCalendarDateAttr_destruction_handler(zend_resource*);
 class wxCalendarDateAttr_php: public wxCalendarDateAttr{
     public:
 
-    wxCalendarDateAttr_php(wxCalendarDateBorder border, const wxColour& colBorder=wxNullColour):wxCalendarDateAttr(border, colBorder){}
     wxCalendarDateAttr_php(const wxColour& colText=wxNullColour, const wxColour& colBack=wxNullColour, const wxColour& colBorder=wxNullColour, const wxFont& font=wxNullFont, wxCalendarDateBorder border=wxCAL_BORDER_NONE):wxCalendarDateAttr(colText, colBack, colBorder, font, border){}
+    wxCalendarDateAttr_php(wxCalendarDateBorder border, const wxColour& colBorder=wxNullColour):wxCalendarDateAttr(border, colBorder){}
     
     
 
@@ -263,6 +263,7 @@ class wxPageSetupDialogData_php: public wxPageSetupDialogData{
     public:
 
     wxPageSetupDialogData_php():wxPageSetupDialogData(){}
+    wxPageSetupDialogData_php(const wxPageSetupDialogData& data):wxPageSetupDialogData(data){}
     wxPageSetupDialogData_php(const wxPrintData& printData):wxPageSetupDialogData(printData){}
     
     
@@ -336,6 +337,7 @@ class wxPrintData_php: public wxPrintData{
     public:
 
     wxPrintData_php():wxPrintData(){}
+    wxPrintData_php(const wxPrintData& data):wxPrintData(data){}
     
     
 
@@ -614,7 +616,6 @@ void php_wxFileType_destruction_handler(zend_resource*);
 class wxFileType_php: public wxFileType{
     public:
 
-    wxFileType_php(const wxFileTypeInfo& ftInfo):wxFileType(ftInfo){}
     
     
 
@@ -641,7 +642,6 @@ static zend_function_entry php_wxFileType_functions[] = {
     PHP_ME(php_wxFileType, GetMimeType, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileType, GetMimeTypes, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxFileType, GetOpenCommand, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileType, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -863,6 +863,9 @@ void php_wxVariant_destruction_handler(zend_resource*);
 class wxVariant_php: public wxVariant{
     public:
 
+    wxVariant_php():wxVariant(){}
+    wxVariant_php(wxVariantData* data, const wxString& name=wxEmptyString):wxVariant(data, name){}
+    wxVariant_php(const wxVariant& variant):wxVariant(variant){}
     wxVariant_php(const wxString& value, const wxString& name=wxEmptyString):wxVariant(value, name){}
     wxVariant_php(long value, const wxString& name=wxEmptyString):wxVariant(value, name){}
     wxVariant_php(bool value, const wxString& name=wxEmptyString):wxVariant(value, name){}
@@ -871,7 +874,6 @@ class wxVariant_php: public wxVariant{
     wxVariant_php(wxObject* value, const wxString& name=wxEmptyString):wxVariant(value, name){}
     wxVariant_php(const wxDateTime& val, const wxString& name=wxEmptyString):wxVariant(val, name){}
     wxVariant_php(const wxArrayString& val, const wxString& name=wxEmptyString):wxVariant(val, name){}
-    wxVariant_php(const wxVariant& variant):wxVariant(variant){}
     
     
 

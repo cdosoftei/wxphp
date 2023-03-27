@@ -131,7 +131,7 @@ zend_object* php_wxTextAttr_new(zend_class_entry *class_type)
 }
 END_EXTERN_C()
 
-/* {{{ proto  wxTextAttr::wxTextAttr(wxTextAttr attr)
+/* {{{ proto  wxTextAttr::wxTextAttr()
    Constructors. */
 PHP_METHOD(php_wxTextAttr, __construct)
 {
@@ -152,8 +152,6 @@ PHP_METHOD(php_wxTextAttr, __construct)
 
 
     //Parameters for overload 0
-    zval* attr0;
-    wxTextAttr* object_pointer0_0 = 0;
     bool overload0_called = false;
 
     //Parameters for overload 1
@@ -167,41 +165,22 @@ PHP_METHOD(php_wxTextAttr, __construct)
     bool overload1_called = false;
 
     //Parameters for overload 2
+    zval* attr2;
+    wxTextAttr* object_pointer2_0 = 0;
     bool overload2_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 1)
+    if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'O' (&attr0, php_wxTextAttr_entry)\n");
+        php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        char parse_parameters_string[] = "O";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr0, php_wxTextAttr_entry ) == SUCCESS)
-        {
-            if(arguments_received >= 1){
-                if(Z_TYPE_P(attr0) == IS_OBJECT)
-                {
-                    wxphp_object_type argument_type = Z_wxTextAttr_P(attr0)->object_type;
-                    argument_native_object = (void*) Z_wxTextAttr_P(attr0)->native_object;
-                    object_pointer0_0 = (wxTextAttr*) argument_native_object;
-                    if (!object_pointer0_0 )
-                    {
-                        goto overload1;
-                    }
-                }
-                else if(Z_TYPE_P(attr0) != IS_NULL)
-                {
-                    goto overload1;
-                }
-            }
-
-            overload0_called = true;
-            already_called = true;
-        }
+        overload0_called = true;
+        already_called = true;
     }
 
     //Overload 1
@@ -274,15 +253,36 @@ PHP_METHOD(php_wxTextAttr, __construct)
 
     //Overload 2
     overload2:
-    if(!already_called && arguments_received == 0)
+    if(!already_called && arguments_received == 1)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '' ()\n");
+        php_printf("Parsing parameters with 'O' (&attr2, php_wxTextAttr_entry)\n");
         #endif
 
-        overload2_called = true;
-        already_called = true;
+        char parse_parameters_string[] = "O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &attr2, php_wxTextAttr_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(attr2) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxTextAttr_P(attr2)->object_type;
+                    argument_native_object = (void*) Z_wxTextAttr_P(attr2)->native_object;
+                    object_pointer2_0 = (wxTextAttr*) argument_native_object;
+                    if (!object_pointer2_0 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'attr' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(attr2) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'attr' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload2_called = true;
+            already_called = true;
+        }
     }
 
     
@@ -290,16 +290,15 @@ PHP_METHOD(php_wxTextAttr, __construct)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct(*(wxTextAttr*) object_pointer0_0)\n");
+                php_printf("Executing __construct()\n");
                 #endif
 
-                native_object = new wxTextAttr_php(*(wxTextAttr*) object_pointer0_0);
+                native_object = new wxTextAttr_php();
 
                 native_object->references.Initialize();
-                ((wxTextAttr_php*) native_object)->references.AddReference(attr0, "wxTextAttr::wxTextAttr at call 4 with 1 argument(s)");
                 break;
             }
         }
@@ -369,15 +368,16 @@ PHP_METHOD(php_wxTextAttr, __construct)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct()\n");
+                php_printf("Executing __construct(*(wxTextAttr*) object_pointer2_0)\n");
                 #endif
 
-                native_object = new wxTextAttr_php();
+                native_object = new wxTextAttr_php(*(wxTextAttr*) object_pointer2_0);
 
                 native_object->references.Initialize();
+                ((wxTextAttr_php*) native_object)->references.AddReference(attr2, "wxTextAttr::wxTextAttr at call 4 with 1 argument(s)");
                 break;
             }
         }
@@ -2047,7 +2047,7 @@ PHP_METHOD(php_wxTextAttr, SetFontWeight)
 /* }}} */
 
 /* {{{ proto  wxTextAttr::SetFontUnderlined(bool underlined)
-   Sets the font underlining. */
+   Sets the font underlining (solid line, text colour). */
 PHP_METHOD(php_wxTextAttr, SetFontUnderlined)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2107,6 +2107,12 @@ PHP_METHOD(php_wxTextAttr, SetFontUnderlined)
     bool underlined0;
     bool overload0_called = false;
 
+    //Parameters for overload 1
+    long type1;
+    zval* colour1;
+    wxColour* object_pointer1_1 = 0;
+    bool overload1_called = false;
+
     
     //Overload 0
     overload0:
@@ -2125,6 +2131,40 @@ PHP_METHOD(php_wxTextAttr, SetFontUnderlined)
         }
     }
 
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l|O' (&type1, &colour1, php_wxColour_entry)\n");
+        #endif
+
+        char parse_parameters_string[] = "l|O";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &type1, &colour1, php_wxColour_entry ) == SUCCESS)
+        {
+            if(arguments_received >= 2){
+                if(Z_TYPE_P(colour1) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxColour_P(colour1)->object_type;
+                    argument_native_object = (void*) Z_wxColour_P(colour1)->native_object;
+                    object_pointer1_1 = (wxColour*) argument_native_object;
+                    if (!object_pointer1_1 )
+                    {
+                        zend_error(E_ERROR, "Parameter 'colour' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(colour1) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'colour' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
     
     if(overload0_called)
     {
@@ -2138,6 +2178,38 @@ PHP_METHOD(php_wxTextAttr, SetFontUnderlined)
 
                 ((wxTextAttr_php*)native_object)->SetFontUnderlined(underlined0);
 
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttr::SetFontUnderlined((wxTextAttrUnderlineType) type1)\n\n");
+                #endif
+
+                ((wxTextAttr_php*)native_object)->SetFontUnderlined((wxTextAttrUnderlineType) type1);
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxTextAttr::SetFontUnderlined((wxTextAttrUnderlineType) type1, *(wxColour*) object_pointer1_1)\n\n");
+                #endif
+
+                ((wxTextAttr_php*)native_object)->SetFontUnderlined((wxTextAttrUnderlineType) type1, *(wxColour*) object_pointer1_1);
+
+                references->AddReference(colour1, "wxTextAttr::SetFontUnderlined at call 3 with 2 argument(s)");
 
                 return;
                 break;

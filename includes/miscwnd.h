@@ -473,8 +473,8 @@ void php_wxStatusBar_destruction_handler(zend_resource*);
 class wxStatusBar_php: public wxStatusBar{
     public:
 
-    wxStatusBar_php(wxWindow* parent, wxWindowID id=wxID_ANY, long style=wxSTB_DEFAULT_STYLE, const wxString& name=wxStatusBarNameStr):wxStatusBar(parent, id, style, name){}
     wxStatusBar_php():wxStatusBar(){}
+    wxStatusBar_php(wxWindow* parent, wxWindowID id=wxID_ANY, long style=wxSTB_DEFAULT_STYLE, const wxString& name=wxStatusBarNameStr):wxStatusBar(parent, id, style, name){}
     
     
 
@@ -649,7 +649,6 @@ static zend_function_entry php_wxHScrolledWindow_functions[] = {
     PHP_ME(php_wxObject, GetClassInfo, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxObject, IsKindOf, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, Connect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxEvtHandler, Disconnect, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddFilter, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, AddPendingEvent, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxEvtHandler, DeletePendingEvents, arginfo_null, ZEND_ACC_PUBLIC)
@@ -895,8 +894,8 @@ void php_wxWindow_destruction_handler(zend_resource*);
 class wxWindow_php: public wxWindow{
     public:
 
-    wxWindow_php(wxWindow* parent, wxWindowID id, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxString& name=wxPanelNameStr):wxWindow(parent, id, pos, size, style, name){}
     wxWindow_php():wxWindow(){}
+    wxWindow_php(wxWindow* parent, wxWindowID id, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=0, const wxString& name=wxPanelNameStr):wxWindow(parent, id, pos, size, style, name){}
     
     void AddPendingEvent(const wxEvent& event);
     void OnInternalIdle();
@@ -1152,7 +1151,8 @@ void php_wxWizardPage_destruction_handler(zend_resource*);
 class wxWizardPage_php: public wxWizardPage{
     public:
 
-    wxWizardPage_php(wxWizard* parent, const wxBitmap& bitmap=wxNullBitmap):wxWizardPage(parent, bitmap){}
+    wxWizardPage_php():wxWizardPage(){}
+    wxWizardPage_php(wxWizard* parent, const wxBitmapBundle& bitmap=wxBitmapBundle()):wxWizardPage(parent, bitmap){}
     
     wxWizardPage* GetPrev() const;
     wxWizardPage* GetNext() const;
@@ -1198,7 +1198,8 @@ void php_wxWizardPageSimple_destruction_handler(zend_resource*);
 class wxWizardPageSimple_php: public wxWizardPageSimple{
     public:
 
-    wxWizardPageSimple_php(wxWizard* parent, wxWizardPage* prev=NULL, wxWizardPage* next=NULL, const wxBitmap& bitmap=wxNullBitmap):wxWizardPageSimple(parent, prev, next, bitmap){}
+    wxWizardPageSimple_php():wxWizardPageSimple(){}
+    wxWizardPageSimple_php(wxWizard* parent, wxWizardPage* prev=NULL, wxWizardPage* next=NULL, const wxBitmapBundle& bitmap=wxBitmapBundle()):wxWizardPageSimple(parent, prev, next, bitmap){}
     
     
 
@@ -1220,7 +1221,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWizardPageSimple_functions[] = {
-    PHP_ME(php_wxWizardPageSimple, Chain, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizardPageSimple, Chain, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxWizardPageSimple, SetPrev, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxWizardPageSimple, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_ME(php_wxWizardPageSimple, SetNext, arginfo_null, ZEND_ACC_PUBLIC)

@@ -73,8 +73,8 @@ void php_wxObject_destruction_handler(zend_resource*);
 class wxObject_php: public wxObject{
     public:
 
-    wxObject_php(const wxObject& other):wxObject(other){}
     wxObject_php():wxObject(){}
+    wxObject_php(const wxObject& other):wxObject(other){}
     
     
 

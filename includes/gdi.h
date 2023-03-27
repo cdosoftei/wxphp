@@ -20,6 +20,116 @@ ZEND_BEGIN_ARG_INFO_EX(wxphp_gdi_get_args, 0, 0, 1)
     ZEND_ARG_INFO(0, name)
 ZEND_END_ARG_INFO()
 
+extern zend_class_entry* php_wxBitmapBundle_entry;
+extern zend_object_handlers wxphp_wxBitmapBundle_object_handlers;
+void php_wxBitmapBundle_destruction_handler(zend_resource*);
+
+class wxBitmapBundle_php: public wxBitmapBundle{
+    public:
+
+    wxBitmapBundle_php():wxBitmapBundle(){}
+    wxBitmapBundle_php(const wxBitmap& bitmap):wxBitmapBundle(bitmap){}
+    wxBitmapBundle_php(const wxIcon& icon):wxBitmapBundle(icon){}
+    wxBitmapBundle_php(const wxImage& image):wxBitmapBundle(image){}
+    wxBitmapBundle_php(const wxBitmapBundle& other):wxBitmapBundle(other){}
+    
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxBitmapBundle{
+    wxBitmapBundle_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxBitmapBundle;
+
+void php_wxBitmapBundle_free(void *object);
+zend_object* php_wxBitmapBundle_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxBitmapBundle_functions[] = {
+    PHP_ME(php_wxBitmapBundle, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxBitmapBundle, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetDefaultSize, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetPreferredBitmapSizeAtScale, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetPreferredBitmapSizeFor, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetPreferredLogicalSizeFor, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetBitmap, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetBitmapFor, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetIcon, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, GetIconFor, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, IsSameAs, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromBitmaps, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromBitmap, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromImage, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromImpl, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromResources, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromFiles, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromSVG, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromSVGFile, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxBitmapBundle, FromSVGResource, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxBitmapBundle * php_wxBitmapBundle_fetch_object(zend_object *obj) {
+    return (zo_wxBitmapBundle *)(
+        (char *)(obj) - XtOffsetOf(zo_wxBitmapBundle, zo)
+    );
+}
+
+#define Z_wxBitmapBundle_P(zv) \
+    php_wxBitmapBundle_fetch_object(Z_OBJ_P(zv))
+extern zend_class_entry* php_wxBitmapBundleImpl_entry;
+extern zend_object_handlers wxphp_wxBitmapBundleImpl_object_handlers;
+void php_wxBitmapBundleImpl_destruction_handler(zend_resource*);
+
+class wxBitmapBundleImpl_php: public wxBitmapBundleImpl{
+    public:
+
+    
+    wxSize GetDefaultSize() const;
+    wxSize GetPreferredBitmapSizeAtScale(double scale) const;
+    wxBitmap GetBitmap(const wxSize& size);
+    
+
+    zval phpObj;
+    wxPHPObjectReferences references;
+};
+
+BEGIN_EXTERN_C()
+typedef struct _zo_wxBitmapBundleImpl{
+    wxBitmapBundleImpl_php* native_object;
+    wxphp_object_type object_type;
+    int is_user_initialized;
+    zend_object zo;
+} zo_wxBitmapBundleImpl;
+
+void php_wxBitmapBundleImpl_free(void *object);
+zend_object* php_wxBitmapBundleImpl_new(zend_class_entry *class_type);
+END_EXTERN_C()
+
+#ifdef WXPHP_INCLUDE_METHOD_TABLES
+static zend_function_entry php_wxBitmapBundleImpl_functions[] = {
+    PHP_FE_END
+};
+#endif
+
+
+static inline zo_wxBitmapBundleImpl * php_wxBitmapBundleImpl_fetch_object(zend_object *obj) {
+    return (zo_wxBitmapBundleImpl *)(
+        (char *)(obj) - XtOffsetOf(zo_wxBitmapBundleImpl, zo)
+    );
+}
+
+#define Z_wxBitmapBundleImpl_P(zv) \
+    php_wxBitmapBundleImpl_fetch_object(Z_OBJ_P(zv))
 extern zend_class_entry* php_wxGraphicsGradientStop_entry;
 extern zend_object_handlers wxphp_wxGraphicsGradientStop_object_handlers;
 void php_wxGraphicsGradientStop_destruction_handler(zend_resource*);
@@ -178,10 +288,12 @@ class wxBitmap_php: public wxBitmap{
 
     wxBitmap_php():wxBitmap(){}
     wxBitmap_php(const wxBitmap& bitmap):wxBitmap(bitmap){}
+    wxBitmap_php(const char bits[], int width, int height, int depth=1):wxBitmap(bits, width, height, depth){}
     wxBitmap_php(int width, int height, int depth=wxBITMAP_SCREEN_DEPTH):wxBitmap(width, height, depth){}
     wxBitmap_php(const wxSize& sz, int depth=wxBITMAP_SCREEN_DEPTH):wxBitmap(sz, depth){}
     wxBitmap_php(const wxString& name, wxBitmapType type=wxBITMAP_DEFAULT_TYPE):wxBitmap(name, type){}
     wxBitmap_php(const wxImage& img, int depth=wxBITMAP_SCREEN_DEPTH):wxBitmap(img, depth){}
+    wxBitmap_php(const wxCursor& cursor):wxBitmap(cursor){}
     
     
 
@@ -296,6 +408,7 @@ class wxBrush_php: public wxBrush{
     wxBrush_php():wxBrush(){}
     wxBrush_php(const wxColour& colour, wxBrushStyle style=wxBRUSHSTYLE_SOLID):wxBrush(colour, style){}
     wxBrush_php(const wxBitmap& stippleBitmap):wxBrush(stippleBitmap){}
+    wxBrush_php(const wxBrush& brush):wxBrush(brush){}
     
     
 
@@ -348,11 +461,11 @@ void php_wxColour_destruction_handler(zend_resource*);
 class wxColour_php: public wxColour{
     public:
 
+    wxColour_php():wxColour(){}
     wxColour_php(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha=wxALPHA_OPAQUE):wxColour(red, green, blue, alpha){}
     wxColour_php(const wxString& colourName):wxColour(colourName){}
     wxColour_php(unsigned long colRGB):wxColour(colRGB){}
     wxColour_php(const wxColour& colour):wxColour(colour){}
-    wxColour_php():wxColour(){}
     
     
 
@@ -405,9 +518,10 @@ class wxCursor_php: public wxCursor{
     public:
 
     wxCursor_php():wxCursor(){}
+    wxCursor_php(const wxString& cursorName, wxBitmapType type=wxCURSOR_DEFAULT_TYPE, int hotSpotX=0, int hotSpotY=0):wxCursor(cursorName, type, hotSpotX, hotSpotY){}
+    wxCursor_php(wxStockCursor cursorId):wxCursor(cursorId){}
     wxCursor_php(const wxImage& image):wxCursor(image){}
     wxCursor_php(const wxCursor& cursor):wxCursor(cursor){}
-    wxCursor_php(const wxString& cursorName, wxBitmapType type=wxCURSOR_DEFAULT_TYPE, int hotSpotX=0, int hotSpotY=0):wxCursor(cursorName, type, hotSpotX, hotSpotY){}
     
     
 
@@ -909,9 +1023,9 @@ void php_wxIcon_destruction_handler(zend_resource*);
 class wxIcon_php: public wxIcon{
     public:
 
-    wxIcon_php(const wxString& name, wxBitmapType type=wxICON_DEFAULT_TYPE, int desiredWidth=-1, int desiredHeight=-1):wxIcon(name, type, desiredWidth, desiredHeight){}
-    wxIcon_php(const wxIcon& icon):wxIcon(icon){}
     wxIcon_php():wxIcon(){}
+    wxIcon_php(const wxIcon& icon):wxIcon(icon){}
+    wxIcon_php(const wxString& name, wxBitmapType type=wxICON_DEFAULT_TYPE, int desiredWidth=-1, int desiredHeight=-1):wxIcon(name, type, desiredWidth, desiredHeight){}
     
     
 
@@ -962,9 +1076,9 @@ class wxIconBundle_php: public wxIconBundle{
 
     wxIconBundle_php():wxIconBundle(){}
     wxIconBundle_php(const wxString& file, wxBitmapType type=wxBITMAP_TYPE_ANY):wxIconBundle(file, type){}
+    wxIconBundle_php(wxInputStream& stream, wxBitmapType type=wxBITMAP_TYPE_ANY):wxIconBundle(stream, type){}
     wxIconBundle_php(const wxIcon& icon):wxIconBundle(icon){}
     wxIconBundle_php(const wxIconBundle& ic):wxIconBundle(ic){}
-    wxIconBundle_php(wxInputStream& stream, wxBitmapType type=wxBITMAP_TYPE_ANY):wxIconBundle(stream, type){}
     
     
 
@@ -1067,17 +1181,17 @@ void php_wxImage_destruction_handler(zend_resource*);
 class wxImage_php: public wxImage{
     public:
 
-    wxImage_php(int width, int height, bool clear=true):wxImage(width, height, clear){}
     wxImage_php():wxImage(){}
+    wxImage_php(int width, int height, bool clear=true):wxImage(width, height, clear){}
     wxImage_php(const wxSize& sz, bool clear=true):wxImage(sz, clear){}
+    wxImage_php(int width, int height, unsigned char* data, bool static_data=false):wxImage(width, height, data, static_data){}
+    wxImage_php(const wxSize& sz, unsigned char* data, bool static_data=false):wxImage(sz, data, static_data){}
+    wxImage_php(int width, int height, unsigned char* data, unsigned char* alpha, bool static_data=false):wxImage(width, height, data, alpha, static_data){}
+    wxImage_php(const wxSize& sz, unsigned char* data, unsigned char* alpha, bool static_data=false):wxImage(sz, data, alpha, static_data){}
     wxImage_php(const wxString& name, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1):wxImage(name, type, index){}
     wxImage_php(const wxString& name, const wxString& mimetype, int index=-1):wxImage(name, mimetype, index){}
     wxImage_php(wxInputStream& stream, wxBitmapType type=wxBITMAP_TYPE_ANY, int index=-1):wxImage(stream, type, index){}
     wxImage_php(wxInputStream& stream, const wxString& mimetype, int index=-1):wxImage(stream, mimetype, index){}
-    wxImage_php(const wxSize& sz, unsigned char* data, unsigned char* alpha, bool static_data=false):wxImage(sz, data, alpha, static_data){}
-    wxImage_php(int width, int height, unsigned char* data, unsigned char* alpha, bool static_data=false):wxImage(width, height, data, alpha, static_data){}
-    wxImage_php(const wxSize& sz, unsigned char* data, bool static_data=false):wxImage(sz, data, static_data){}
-    wxImage_php(int width, int height, unsigned char* data, bool static_data=false):wxImage(width, height, data, static_data){}
     
     
 
@@ -1294,6 +1408,7 @@ class wxPen_php: public wxPen{
 
     wxPen_php():wxPen(){}
     wxPen_php(const wxColour& colour, int width=1, wxPenStyle style=wxPENSTYLE_SOLID):wxPen(colour, width, style){}
+    wxPen_php(const wxPen& pen):wxPen(pen){}
     
     
 
@@ -1409,7 +1524,7 @@ class wxRendererNative_php: public wxRendererNative{
     void DrawSplitterSash(wxWindow* win, wxDC& dc, const wxSize& size, wxCoord position, wxOrientation orient, int flags=0);
     void DrawTextCtrl(wxWindow* win, wxDC& dc, const wxRect& rect, int flags=0);
     void DrawTreeItemButton(wxWindow* win, wxDC& dc, const wxRect& rect, int flags=0);
-    wxSize GetCheckBoxSize(wxWindow* win);
+    wxSize GetCheckBoxSize(wxWindow* win, int flags=0);
     int GetHeaderButtonHeight(wxWindow* win);
     int GetHeaderButtonMargin(wxWindow* win);
     

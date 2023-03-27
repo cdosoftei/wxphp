@@ -212,7 +212,7 @@ PHP_METHOD(php_wxClipboard, AddData)
                     wxphp_object_type argument_type = Z_wxDataObject_P(data0)->object_type;
                     argument_native_object = (void*) Z_wxDataObject_P(data0)->native_object;
                     object_pointer0_0 = (wxDataObject*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'data' could not be retreived correctly.");
                     }
@@ -664,7 +664,7 @@ PHP_METHOD(php_wxClipboard, GetData)
                     wxphp_object_type argument_type = Z_wxDataObject_P(data0)->object_type;
                     argument_native_object = (void*) Z_wxDataObject_P(data0)->native_object;
                     object_pointer0_0 = (wxDataObject*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'data' could not be retreived correctly.");
                     }
@@ -1247,7 +1247,7 @@ PHP_METHOD(php_wxClipboard, SetData)
                     wxphp_object_type argument_type = Z_wxDataObject_P(data0)->object_type;
                     argument_native_object = (void*) Z_wxDataObject_P(data0)->native_object;
                     object_pointer0_0 = (wxDataObject*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'data' could not be retreived correctly.");
                     }
@@ -2869,10 +2869,6 @@ PHP_METHOD(php_wxDataObject, IsSupported)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
             if((current_object_type == PHP_WXFILEDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxFileDataObject_php*)native_object)->references;
                 reference_type_found = true;
@@ -2883,6 +2879,10 @@ PHP_METHOD(php_wxDataObject, IsSupported)
             }
             if((current_object_type == PHP_WXCUSTOMDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxCustomDataObject_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
+                references = &((wxURLDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -3042,10 +3042,6 @@ PHP_METHOD(php_wxDataObject, SetData)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
             if((current_object_type == PHP_WXFILEDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxFileDataObject_php*)native_object)->references;
                 reference_type_found = true;
@@ -3056,6 +3052,10 @@ PHP_METHOD(php_wxDataObject, SetData)
             }
             if((current_object_type == PHP_WXCUSTOMDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxCustomDataObject_php*)native_object)->references;
+                reference_type_found = true;
+            }
+            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
+                references = &((wxURLDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -3124,7 +3124,7 @@ PHP_METHOD(php_wxDataObject, SetData)
 
     //Overload 1
     overload1:
-    if(!already_called && arguments_received == 2 && (current_object_type == PHP_WXDATAOBJECTSIMPLE_TYPE || current_object_type == PHP_WXTEXTDATAOBJECT_TYPE || current_object_type == PHP_WXURLDATAOBJECT_TYPE || current_object_type == PHP_WXFILEDATAOBJECT_TYPE || current_object_type == PHP_WXBITMAPDATAOBJECT_TYPE || current_object_type == PHP_WXCUSTOMDATAOBJECT_TYPE))
+    if(!already_called && arguments_received == 2 && (current_object_type == PHP_WXDATAOBJECTSIMPLE_TYPE || current_object_type == PHP_WXTEXTDATAOBJECT_TYPE || current_object_type == PHP_WXFILEDATAOBJECT_TYPE || current_object_type == PHP_WXBITMAPDATAOBJECT_TYPE || current_object_type == PHP_WXCUSTOMDATAOBJECT_TYPE))
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
@@ -4279,7 +4279,7 @@ PHP_METHOD(php_wxDataObjectComposite, Add)
                     wxphp_object_type argument_type = Z_wxDataObjectSimple_P(dataObject0)->object_type;
                     argument_native_object = (void*) Z_wxDataObjectSimple_P(dataObject0)->native_object;
                     object_pointer0_0 = (wxDataObjectSimple*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'dataObject' could not be retreived correctly.");
                     }
@@ -4833,10 +4833,6 @@ PHP_METHOD(php_wxDataObjectSimple, GetDataHere)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
             if((current_object_type == PHP_WXFILEDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxFileDataObject_php*)native_object)->references;
                 reference_type_found = true;
@@ -4971,10 +4967,6 @@ PHP_METHOD(php_wxDataObjectSimple, GetDataSize)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
             if((current_object_type == PHP_WXFILEDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxFileDataObject_php*)native_object)->references;
                 reference_type_found = true;
@@ -5096,10 +5088,6 @@ PHP_METHOD(php_wxDataObjectSimple, GetFormat)
             }
             if((current_object_type == PHP_WXTEXTDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxTextDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
             if((current_object_type == PHP_WXFILEDATAOBJECT_TYPE) && (!reference_type_found)){
@@ -5245,10 +5233,6 @@ PHP_METHOD(php_wxDataObjectSimple, SetData)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
             if((current_object_type == PHP_WXFILEDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxFileDataObject_php*)native_object)->references;
                 reference_type_found = true;
@@ -5377,10 +5361,6 @@ PHP_METHOD(php_wxDataObjectSimple, SetFormat)
             }
             if((current_object_type == PHP_WXTEXTDATAOBJECT_TYPE) && (!reference_type_found)){
                 references = &((wxTextDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
             if((current_object_type == PHP_WXFILEDATAOBJECT_TYPE) && (!reference_type_found)){
@@ -6483,10 +6463,6 @@ PHP_METHOD(php_wxTextDataObject, GetFormat)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -6614,10 +6590,6 @@ PHP_METHOD(php_wxTextDataObject, GetText)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -6727,10 +6699,6 @@ PHP_METHOD(php_wxTextDataObject, GetTextLength)
                 references = &((wxTextDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
         }
     }
     #ifdef USE_WXPHP_DEBUG
@@ -6836,10 +6804,6 @@ PHP_METHOD(php_wxTextDataObject, GetFormatCount)
 
             if(current_object_type == PHP_WXTEXTDATAOBJECT_TYPE){
                 references = &((wxTextDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -6964,10 +6928,6 @@ PHP_METHOD(php_wxTextDataObject, GetAllFormats)
 
             if(current_object_type == PHP_WXTEXTDATAOBJECT_TYPE){
                 references = &((wxTextDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -7113,10 +7073,6 @@ PHP_METHOD(php_wxTextDataObject, SetText)
 
             if(current_object_type == PHP_WXTEXTDATAOBJECT_TYPE){
                 references = &((wxTextDataObject_php*)native_object)->references;
-                reference_type_found = true;
-            }
-            if((current_object_type == PHP_WXURLDATAOBJECT_TYPE) && (!reference_type_found)){
-                references = &((wxURLDataObject_php*)native_object)->references;
                 reference_type_found = true;
             }
         }
@@ -7823,7 +7779,7 @@ PHP_METHOD(php_wxDropTarget, __construct)
                     wxphp_object_type argument_type = Z_wxDataObject_P(data0)->object_type;
                     argument_native_object = (void*) Z_wxDataObject_P(data0)->native_object;
                     object_pointer0_0 = (wxDataObject*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'data' could not be retreived correctly.");
                     }
@@ -7986,7 +7942,7 @@ PHP_METHOD(php_wxDropTarget, SetDataObject)
                     wxphp_object_type argument_type = Z_wxDataObject_P(data0)->object_type;
                     argument_native_object = (void*) Z_wxDataObject_P(data0)->native_object;
                     object_pointer0_0 = (wxDataObject*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXDATAOBJECT_TYPE && argument_type != PHP_WXDATAOBJECTCOMPOSITE_TYPE && argument_type != PHP_WXDATAOBJECTSIMPLE_TYPE && argument_type != PHP_WXTEXTDATAOBJECT_TYPE && argument_type != PHP_WXFILEDATAOBJECT_TYPE && argument_type != PHP_WXBITMAPDATAOBJECT_TYPE && argument_type != PHP_WXCUSTOMDATAOBJECT_TYPE && argument_type != PHP_WXURLDATAOBJECT_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'data' could not be retreived correctly.");
                     }

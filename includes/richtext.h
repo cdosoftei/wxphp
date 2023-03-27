@@ -27,9 +27,9 @@ void php_wxTextAttr_destruction_handler(zend_resource*);
 class wxTextAttr_php: public wxTextAttr{
     public:
 
-    wxTextAttr_php(const wxTextAttr& attr):wxTextAttr(attr){}
-    wxTextAttr_php(const wxColour& colText, const wxColour& colBack=wxNullColour, const wxFont& font=wxNullFont, wxTextAttrAlignment alignment=wxTEXT_ALIGNMENT_DEFAULT):wxTextAttr(colText, colBack, font, alignment){}
     wxTextAttr_php():wxTextAttr(){}
+    wxTextAttr_php(const wxColour& colText, const wxColour& colBack=wxNullColour, const wxFont& font=wxNullFont, wxTextAttrAlignment alignment=wxTEXT_ALIGNMENT_DEFAULT):wxTextAttr(colText, colBack, font, alignment){}
+    wxTextAttr_php(const wxTextAttr& attr):wxTextAttr(attr){}
     
     
 

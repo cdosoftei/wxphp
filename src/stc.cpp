@@ -135,6 +135,9 @@ PHP_METHOD(php_wxStyledTextCtrl, __construct)
     size_t name_len0;
     bool overload0_called = false;
 
+    //Parameters for overload 1
+    bool overload1_called = false;
+
     
     //Overload 0
     overload0:
@@ -154,14 +157,14 @@ PHP_METHOD(php_wxStyledTextCtrl, __construct)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
-                        zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
+                        goto overload1;
                     }
                 }
                 else if(Z_TYPE_P(parent0) != IS_NULL)
                 {
-                    zend_error(E_ERROR, "Parameter 'parent' not null, could not be retreived correctly.");
+                    goto overload1;
                 }
             }
 
@@ -173,12 +176,12 @@ PHP_METHOD(php_wxStyledTextCtrl, __construct)
                     object_pointer0_2 = (wxPoint*) argument_native_object;
                     if (!object_pointer0_2 )
                     {
-                        zend_error(E_ERROR, "Parameter 'pos' could not be retreived correctly.");
+                        goto overload1;
                     }
                 }
                 else if(Z_TYPE_P(pos0) != IS_NULL)
                 {
-                    zend_error(E_ERROR, "Parameter 'pos' not null, could not be retreived correctly.");
+                    goto overload1;
                 }
             }
 
@@ -190,18 +193,31 @@ PHP_METHOD(php_wxStyledTextCtrl, __construct)
                     object_pointer0_3 = (wxSize*) argument_native_object;
                     if (!object_pointer0_3 )
                     {
-                        zend_error(E_ERROR, "Parameter 'size' could not be retreived correctly.");
+                        goto overload1;
                     }
                 }
                 else if(Z_TYPE_P(size0) != IS_NULL)
                 {
-                    zend_error(E_ERROR, "Parameter 'size' not null, could not be retreived correctly.");
+                    goto overload1;
                 }
             }
 
             overload0_called = true;
             already_called = true;
         }
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 0)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with '' ()\n");
+        #endif
+
+        overload1_called = true;
+        already_called = true;
     }
 
     
@@ -286,6 +302,24 @@ PHP_METHOD(php_wxStyledTextCtrl, __construct)
                 ((wxStyledTextCtrl_php*) native_object)->references.AddReference(parent0, "wxStyledTextCtrl::wxStyledTextCtrl at call 2 with 6 argument(s)");
                 ((wxStyledTextCtrl_php*) native_object)->references.AddReference(pos0, "wxStyledTextCtrl::wxStyledTextCtrl at call 4 with 6 argument(s)");
                 ((wxStyledTextCtrl_php*) native_object)->references.AddReference(size0, "wxStyledTextCtrl::wxStyledTextCtrl at call 4 with 6 argument(s)");
+                break;
+            }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
+            case 0:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct()\n");
+                #endif
+
+                native_object = new wxStyledTextCtrl_php();
+
+                native_object->references.Initialize();
                 break;
             }
         }
@@ -1533,7 +1567,7 @@ PHP_METHOD(php_wxStyledTextCtrl, AddSelection)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::WrapCount(int line)
+/* {{{ proto int wxStyledTextCtrl::WrapCount(int docLine)
    The number of display lines needed to wrap a document line. */
 PHP_METHOD(php_wxStyledTextCtrl, WrapCount)
 {
@@ -1591,7 +1625,7 @@ PHP_METHOD(php_wxStyledTextCtrl, WrapCount)
     #endif
 
     //Parameters for overload 0
-    long line0;
+    long docLine0;
     bool overload0_called = false;
 
     
@@ -1601,11 +1635,11 @@ PHP_METHOD(php_wxStyledTextCtrl, WrapCount)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&line0)\n");
+        php_printf("Parsing parameters with 'l' (&docLine0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &line0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &docLine0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -1620,10 +1654,10 @@ PHP_METHOD(php_wxStyledTextCtrl, WrapCount)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::WrapCount((int) line0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::WrapCount((int) docLine0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->WrapCount((int) line0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->WrapCount((int) docLine0));
 
 
                 return;
@@ -4932,7 +4966,7 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompPosStart)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::AutoCompSelect(string text)
+/* {{{ proto  wxStyledTextCtrl::AutoCompSelect(string select)
    Select the item in the auto-completion list that starts with a string. */
 PHP_METHOD(php_wxStyledTextCtrl, AutoCompSelect)
 {
@@ -4990,8 +5024,8 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompSelect)
     #endif
 
     //Parameters for overload 0
-    char* text0;
-    size_t text_len0;
+    char* select0;
+    size_t select_len0;
     bool overload0_called = false;
 
     
@@ -5001,11 +5035,11 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompSelect)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's' (&text0, &text_len0)\n");
+        php_printf("Parsing parameters with 's' (&select0, &select_len0)\n");
         #endif
 
         char parse_parameters_string[] = "s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &text0, &text_len0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &select0, &select_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -5020,10 +5054,10 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompSelect)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::AutoCompSelect(wxString(text0, wxConvUTF8))\n\n");
+                php_printf("Executing wxStyledTextCtrl::AutoCompSelect(wxString(select0, wxConvUTF8))\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->AutoCompSelect(wxString(text0, wxConvUTF8));
+                ((wxStyledTextCtrl_php*)native_object)->AutoCompSelect(wxString(select0, wxConvUTF8));
 
 
                 return;
@@ -6166,8 +6200,8 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompSetTypeSeparator)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::AutoCompShow(int lenEntered, string itemList)
-   Display a auto-completion list. */
+/* {{{ proto  wxStyledTextCtrl::AutoCompShow(int lengthEntered, string itemList)
+   Display an auto-completion list. */
 PHP_METHOD(php_wxStyledTextCtrl, AutoCompShow)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6224,7 +6258,7 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompShow)
     #endif
 
     //Parameters for overload 0
-    long lenEntered0;
+    long lengthEntered0;
     char* itemList0;
     size_t itemList_len0;
     bool overload0_called = false;
@@ -6236,11 +6270,11 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompShow)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ls' (&lenEntered0, &itemList0, &itemList_len0)\n");
+        php_printf("Parsing parameters with 'ls' (&lengthEntered0, &itemList0, &itemList_len0)\n");
         #endif
 
         char parse_parameters_string[] = "ls";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &lenEntered0, &itemList0, &itemList_len0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &lengthEntered0, &itemList0, &itemList_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -6255,10 +6289,10 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompShow)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::AutoCompShow((int) lenEntered0, wxString(itemList0, wxConvUTF8))\n\n");
+                php_printf("Executing wxStyledTextCtrl::AutoCompShow((int) lengthEntered0, wxString(itemList0, wxConvUTF8))\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->AutoCompShow((int) lenEntered0, wxString(itemList0, wxConvUTF8));
+                ((wxStyledTextCtrl_php*)native_object)->AutoCompShow((int) lengthEntered0, wxString(itemList0, wxConvUTF8));
 
 
                 return;
@@ -6719,7 +6753,7 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceBadLight)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::BraceHighlight(int pos1, int pos2)
+/* {{{ proto  wxStyledTextCtrl::BraceHighlight(int posA, int posB)
    Highlight the characters at two positions. */
 PHP_METHOD(php_wxStyledTextCtrl, BraceHighlight)
 {
@@ -6777,8 +6811,8 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceHighlight)
     #endif
 
     //Parameters for overload 0
-    long pos10;
-    long pos20;
+    long posA0;
+    long posB0;
     bool overload0_called = false;
 
     
@@ -6788,11 +6822,11 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceHighlight)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&pos10, &pos20)\n");
+        php_printf("Parsing parameters with 'll' (&posA0, &posB0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos10, &pos20 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &posA0, &posB0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -6807,10 +6841,10 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceHighlight)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::BraceHighlight((int) pos10, (int) pos20)\n\n");
+                php_printf("Executing wxStyledTextCtrl::BraceHighlight((int) posA0, (int) posB0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->BraceHighlight((int) pos10, (int) pos20);
+                ((wxStyledTextCtrl_php*)native_object)->BraceHighlight((int) posA0, (int) posB0);
 
 
                 return;
@@ -6832,8 +6866,8 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceHighlight)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::BraceMatch(int pos)
-   Find the position of a matching brace or INVALID_POSITION if no match. */
+/* {{{ proto int wxStyledTextCtrl::BraceMatch(int pos, int maxReStyle)
+   Find the position of a matching brace or wxSTC_INVALID_POSITION if no match. */
 PHP_METHOD(php_wxStyledTextCtrl, BraceMatch)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6891,20 +6925,21 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceMatch)
 
     //Parameters for overload 0
     long pos0;
+    long maxReStyle0;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 1)
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l|l' (&pos0, &maxReStyle0)\n");
         #endif
 
-        char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        char parse_parameters_string[] = "l|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0, &maxReStyle0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -6923,6 +6958,18 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceMatch)
                 #endif
 
                 RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->BraceMatch((int) pos0));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::BraceMatch((int) pos0, (int) maxReStyle0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->BraceMatch((int) pos0, (int) maxReStyle0));
 
 
                 return;
@@ -7658,7 +7705,7 @@ PHP_METHOD(php_wxStyledTextCtrl, CallTipSetForegroundHighlight)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::CallTipSetHighlight(int start, int end)
+/* {{{ proto  wxStyledTextCtrl::CallTipSetHighlight(int highlightStart, int highlightEnd)
    Highlight a segment of the definition. */
 PHP_METHOD(php_wxStyledTextCtrl, CallTipSetHighlight)
 {
@@ -7716,8 +7763,8 @@ PHP_METHOD(php_wxStyledTextCtrl, CallTipSetHighlight)
     #endif
 
     //Parameters for overload 0
-    long start0;
-    long end0;
+    long highlightStart0;
+    long highlightEnd0;
     bool overload0_called = false;
 
     
@@ -7727,11 +7774,11 @@ PHP_METHOD(php_wxStyledTextCtrl, CallTipSetHighlight)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&start0, &end0)\n");
+        php_printf("Parsing parameters with 'll' (&highlightStart0, &highlightEnd0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &start0, &end0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &highlightStart0, &highlightEnd0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -7746,10 +7793,10 @@ PHP_METHOD(php_wxStyledTextCtrl, CallTipSetHighlight)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::CallTipSetHighlight((int) start0, (int) end0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::CallTipSetHighlight((int) highlightStart0, (int) highlightEnd0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->CallTipSetHighlight((int) start0, (int) end0);
+                ((wxStyledTextCtrl_php*)native_object)->CallTipSetHighlight((int) highlightStart0, (int) highlightEnd0);
 
 
                 return;
@@ -7886,7 +7933,7 @@ PHP_METHOD(php_wxStyledTextCtrl, CallTipShow)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::CallTipUseStyle(int tabSize)
-   Enable use of STYLE_CALLTIP and set call tip tab size in pixels. */
+   Enable use of wxSTC_STYLE_CALLTIP and set call tip tab size in pixels. */
 PHP_METHOD(php_wxStyledTextCtrl, CallTipUseStyle)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -9936,7 +9983,7 @@ PHP_METHOD(php_wxStyledTextCtrl, ClearSelections)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::CmdKeyAssign(int key, int modifiers, int cmd)
-   When key+modifier combination km is pressed perform msg. */
+   When key+modifier combination keyDefinition is pressed perform sciCommand. */
 PHP_METHOD(php_wxStyledTextCtrl, CmdKeyAssign)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -10050,7 +10097,7 @@ PHP_METHOD(php_wxStyledTextCtrl, CmdKeyAssign)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::CmdKeyClear(int key, int modifiers)
-   When key+modifier combination km is pressed do nothing. */
+   When key+modifier combination keyDefinition is pressed do nothing. */
 PHP_METHOD(php_wxStyledTextCtrl, CmdKeyClear)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -11136,7 +11183,7 @@ PHP_METHOD(php_wxStyledTextCtrl, Create)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }
@@ -12263,7 +12310,7 @@ PHP_METHOD(php_wxStyledTextCtrl, DoDropText)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::DocLineFromVisible(int lineDisplay)
+/* {{{ proto int wxStyledTextCtrl::DocLineFromVisible(int displayLine)
    Find the document line of a display line taking hidden lines into account. */
 PHP_METHOD(php_wxStyledTextCtrl, DocLineFromVisible)
 {
@@ -12321,7 +12368,7 @@ PHP_METHOD(php_wxStyledTextCtrl, DocLineFromVisible)
     #endif
 
     //Parameters for overload 0
-    long lineDisplay0;
+    long displayLine0;
     bool overload0_called = false;
 
     
@@ -12331,11 +12378,11 @@ PHP_METHOD(php_wxStyledTextCtrl, DocLineFromVisible)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&lineDisplay0)\n");
+        php_printf("Parsing parameters with 'l' (&displayLine0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &lineDisplay0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &displayLine0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -12350,10 +12397,10 @@ PHP_METHOD(php_wxStyledTextCtrl, DocLineFromVisible)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::DocLineFromVisible((int) lineDisplay0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::DocLineFromVisible((int) displayLine0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->DocLineFromVisible((int) lineDisplay0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->DocLineFromVisible((int) displayLine0));
 
 
                 return;
@@ -13568,7 +13615,7 @@ PHP_METHOD(php_wxStyledTextCtrl, FindColumn)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::FindText(int minPos, int maxPos, string text, int flags)
+/* {{{ proto int wxStyledTextCtrl::FindText(int minPos, int maxPos, string text, int flags, int &findEnd)
    Find some text in the document. */
 PHP_METHOD(php_wxStyledTextCtrl, FindText)
 {
@@ -13631,23 +13678,28 @@ PHP_METHOD(php_wxStyledTextCtrl, FindText)
     char* text0;
     size_t text_len0;
     long flags0;
+    long* findEnd0;
+    zval findEnd0_ref;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 3  && arguments_received <= 4)
+    if(!already_called && arguments_received >= 3  && arguments_received <= 5)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'lls|l' (&minPos0, &maxPos0, &text0, &text_len0, &flags0)\n");
+        php_printf("Parsing parameters with 'lls|ll' (&minPos0, &maxPos0, &text0, &text_len0, &flags0, findEnd0)\n");
         #endif
 
-        char parse_parameters_string[] = "lls|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &minPos0, &maxPos0, &text0, &text_len0, &flags0 ) == SUCCESS)
+        char parse_parameters_string[] = "lls|ll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &minPos0, &maxPos0, &text0, &text_len0, &flags0, findEnd0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
+
+            char parse_references_string[] = "zzz|zz";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, dummy, dummy, dummy, findEnd0_ref );
         }
     }
 
@@ -13676,6 +13728,24 @@ PHP_METHOD(php_wxStyledTextCtrl, FindText)
 
                 RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->FindText((int) minPos0, (int) maxPos0, wxString(text0, wxConvUTF8), (int) flags0));
 
+
+                return;
+                break;
+            }
+            case 5:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::FindText((int) minPos0, (int) maxPos0, wxString(text0, wxConvUTF8), (int) flags0, (int*) findEnd0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->FindText((int) minPos0, (int) maxPos0, wxString(text0, wxConvUTF8), (int) flags0, (int*) findEnd0));
+
+                size_t elements_returned0_4 = sizeof(findEnd0)/sizeof(*findEnd0);
+                array_init(&findEnd0_ref);
+                for(size_t i=0; i<elements_returned0_4; i++)
+                {
+                    add_next_index_long(&findEnd0_ref, findEnd0[i]);
+                }
 
                 return;
                 break;
@@ -16170,7 +16240,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetCurrentPos)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::GetEOLMode()
-   Retrieve the current end of line mode - one of CRLF, CR, or LF. */
+   Retrieve the current end of line mode - one of wxSTC_EOL_CRLF, wxSTC_EOL_CR, or wxSTC_EOL_LF. */
 PHP_METHOD(php_wxStyledTextCtrl, GetEOLMode)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -18338,7 +18408,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLexer)
 }
 /* }}} */
 
-/* {{{ proto wxVersionInfo wxStyledTextCtrl::GetLibraryVersionInfo() */
+/* {{{ proto wxVersionInfo wxStyledTextCtrl::GetLibraryVersionInfo()
+   Returns the version of the Scintilla library used by this control. */
 PHP_METHOD(php_wxStyledTextCtrl, GetLibraryVersionInfo)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -19010,7 +19081,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineIndentation)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::GetLineSelEndPosition(int line)
-   Retrieve the position of the end of the selection at the given line (INVALID_POSITION if no selection on this line). */
+   Retrieve the position of the end of the selection at the given line (wxSTC_INVALID_POSITION if no selection on this line). */
 PHP_METHOD(php_wxStyledTextCtrl, GetLineSelEndPosition)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -19122,7 +19193,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineSelEndPosition)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::GetLineSelStartPosition(int line)
-   Retrieve the position of the start of the selection at the given line (INVALID_POSITION if no selection on this line). */
+   Retrieve the position of the start of the selection at the given line (wxSTC_INVALID_POSITION if no selection on this line). */
 PHP_METHOD(php_wxStyledTextCtrl, GetLineSelStartPosition)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -21516,7 +21587,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetPrintWrapMode)
 /* }}} */
 
 /* {{{ proto string wxStyledTextCtrl::GetProperty(string key)
-   Retrieve a 'property' value previously set with SetProperty. */
+   Retrieve a "property" value previously set with SetProperty. */
 PHP_METHOD(php_wxStyledTextCtrl, GetProperty)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -21631,7 +21702,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetProperty)
 /* }}} */
 
 /* {{{ proto string wxStyledTextCtrl::GetPropertyExpanded(string key)
-   Retrieve a 'property' value previously set with SetProperty, with '$()' variable replacement on returned buffer. */
+   Retrieve a "property" value previously set with SetProperty, with "$()" variable replacement on returned buffer. */
 PHP_METHOD(php_wxStyledTextCtrl, GetPropertyExpanded)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -21745,8 +21816,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetPropertyExpanded)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetPropertyInt(string key)
-   Retrieve a 'property' value previously set with SetProperty, interpreted as an int AFTER any '$()' variable replacement. */
+/* {{{ proto int wxStyledTextCtrl::GetPropertyInt(string key, int defaultValue)
+   Retrieve a "property" value previously set with SetProperty, interpreted as an int AFTER any "$()" variable replacement. */
 PHP_METHOD(php_wxStyledTextCtrl, GetPropertyInt)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -21805,20 +21876,21 @@ PHP_METHOD(php_wxStyledTextCtrl, GetPropertyInt)
     //Parameters for overload 0
     char* key0;
     size_t key_len0;
+    long defaultValue0;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 1)
+    if(!already_called && arguments_received >= 1  && arguments_received <= 2)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's' (&key0, &key_len0)\n");
+        php_printf("Parsing parameters with 's|l' (&key0, &key_len0, &defaultValue0)\n");
         #endif
 
-        char parse_parameters_string[] = "s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key0, &key_len0 ) == SUCCESS)
+        char parse_parameters_string[] = "s|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key0, &key_len0, &defaultValue0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -21837,6 +21909,18 @@ PHP_METHOD(php_wxStyledTextCtrl, GetPropertyInt)
                 #endif
 
                 RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->GetPropertyInt(wxString(key0, wxConvUTF8)));
+
+
+                return;
+                break;
+            }
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::GetPropertyInt(wxString(key0, wxConvUTF8), (int) defaultValue0))\n\n");
+                #endif
+
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->GetPropertyInt(wxString(key0, wxConvUTF8), (int) defaultValue0));
 
 
                 return;
@@ -21965,7 +22049,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetReadOnly)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionAnchor() */
+/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionAnchor()
+   Return the anchor position of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetRectangularSelectionAnchor)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -22071,7 +22156,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetRectangularSelectionAnchor)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace() */
+/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace()
+   Return the virtual space of the anchor of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetRectangularSelectionAnchorVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -22177,7 +22263,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetRectangularSelectionAnchorVirtualSpace)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionCaret() */
+/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionCaret()
+   Return the caret position of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetRectangularSelectionCaret)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -22283,7 +22370,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetRectangularSelectionCaret)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace() */
+/* {{{ proto int wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace()
+   Return the virtual space of the caret of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetRectangularSelectionCaretVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -23354,7 +23442,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetSelectionMode)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetSelectionNAnchor(int selection) */
+/* {{{ proto int wxStyledTextCtrl::GetSelectionNAnchor(int selection)
+   Return the anchor position of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetSelectionNAnchor)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -23465,7 +23554,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetSelectionNAnchor)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int selection) */
+/* {{{ proto int wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace(int selection)
+   Return the virtual space of the anchor of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetSelectionNAnchorVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -23576,7 +23666,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetSelectionNAnchorVirtualSpace)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetSelectionNCaret(int selection) */
+/* {{{ proto int wxStyledTextCtrl::GetSelectionNCaret(int selection)
+   Return the caret position of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetSelectionNCaret)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -23687,7 +23778,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetSelectionNCaret)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int selection) */
+/* {{{ proto int wxStyledTextCtrl::GetSelectionNCaretVirtualSpace(int selection)
+   Return the virtual space of the caret of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, GetSelectionNCaretVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -25857,7 +25949,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetViewEOL)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::GetViewWhiteSpace()
-   Are white space characters currently visible? Returns one of SCWS_* constants. */
+   Are white space characters currently visible? Returns one of wxSTC_WS_* constants. */
 PHP_METHOD(php_wxStyledTextCtrl, GetViewWhiteSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -25963,7 +26055,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetViewWhiteSpace)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetVirtualSpaceOptions() */
+/* {{{ proto int wxStyledTextCtrl::GetVirtualSpaceOptions()
+   Return options for virtual space behaviour. */
 PHP_METHOD(php_wxStyledTextCtrl, GetVirtualSpaceOptions)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -26391,7 +26484,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetWrapMode)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::GetWrapStartIndent()
-   Retrive the start indent for wrapped lines. */
+   Retrieve the start indent for wrapped lines. */
 PHP_METHOD(php_wxStyledTextCtrl, GetWrapStartIndent)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -26498,7 +26591,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetWrapStartIndent)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::GetWrapVisualFlags()
-   Retrive the display mode of visual flags for wrapped lines. */
+   Retrieve the display mode of visual flags for wrapped lines. */
 PHP_METHOD(php_wxStyledTextCtrl, GetWrapVisualFlags)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -26605,7 +26698,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetWrapVisualFlags)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::GetWrapVisualFlagsLocation()
-   Retrive the location of visual flags for wrapped lines. */
+   Retrieve the location of visual flags for wrapped lines. */
 PHP_METHOD(php_wxStyledTextCtrl, GetWrapVisualFlagsLocation)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -26711,7 +26804,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetWrapVisualFlagsLocation)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetXOffset() */
+/* {{{ proto int wxStyledTextCtrl::GetXOffset()
+   Get the xOffset (ie, horizontal scroll position). */
 PHP_METHOD(php_wxStyledTextCtrl, GetXOffset)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -27036,7 +27130,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GotoLine)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::GotoPos(int pos)
+/* {{{ proto  wxStyledTextCtrl::GotoPos(int caret)
    Set caret to a position and ensure it is visible. */
 PHP_METHOD(php_wxStyledTextCtrl, GotoPos)
 {
@@ -27094,7 +27188,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GotoPos)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long caret0;
     bool overload0_called = false;
 
     
@@ -27104,11 +27198,11 @@ PHP_METHOD(php_wxStyledTextCtrl, GotoPos)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&caret0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &caret0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -27123,10 +27217,10 @@ PHP_METHOD(php_wxStyledTextCtrl, GotoPos)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::GotoPos((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::GotoPos((int) caret0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->GotoPos((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->GotoPos((int) caret0);
 
 
                 return;
@@ -27261,7 +27355,7 @@ PHP_METHOD(php_wxStyledTextCtrl, HideLines)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::HideSelection(bool normal)
+/* {{{ proto  wxStyledTextCtrl::HideSelection(bool hide)
    Draw the selection in normal style or with selection highlighted. */
 PHP_METHOD(php_wxStyledTextCtrl, HideSelection)
 {
@@ -27319,7 +27413,7 @@ PHP_METHOD(php_wxStyledTextCtrl, HideSelection)
     #endif
 
     //Parameters for overload 0
-    bool normal0;
+    bool hide0;
     bool overload0_called = false;
 
     
@@ -27329,11 +27423,11 @@ PHP_METHOD(php_wxStyledTextCtrl, HideSelection)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'b' (&normal0)\n");
+        php_printf("Parsing parameters with 'b' (&hide0)\n");
         #endif
 
         char parse_parameters_string[] = "b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &normal0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &hide0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -27348,10 +27442,10 @@ PHP_METHOD(php_wxStyledTextCtrl, HideSelection)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::HideSelection(normal0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::HideSelection(hide0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->HideSelection(normal0);
+                ((wxStyledTextCtrl_php*)native_object)->HideSelection(hide0);
 
 
                 return;
@@ -27909,7 +28003,7 @@ PHP_METHOD(php_wxStyledTextCtrl, HomeRectExtend)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::HomeWrap()
-   These are like their namesakes Home(Extend)?, LineEnd(Extend)?, VCHome(Extend)? except they behave differently when word-wrap is enabled: They go first to the start / end of the display line, like (Home|LineEnd)Display The difference is that, the cursor is already at the point, it goes on to the start or end of the document line, as appropriate for (Home|LineEnd|VCHome)(Extend)?. */
+   Like Home but when word-wrap is enabled goes first to start of display line HomeDisplay, then to start of document line Home. */
 PHP_METHOD(php_wxStyledTextCtrl, HomeWrap)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -28015,7 +28109,8 @@ PHP_METHOD(php_wxStyledTextCtrl, HomeWrap)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::HomeWrapExtend() */
+/* {{{ proto  wxStyledTextCtrl::HomeWrapExtend()
+   Like HomeExtend but when word-wrap is enabled extends first to start of display line HomeDisplayExtend, then to start of document line HomeExtend. */
 PHP_METHOD(php_wxStyledTextCtrl, HomeWrapExtend)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -28233,7 +28328,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetAlpha)
 }
 /* }}} */
 
-/* {{{ proto wxColour wxStyledTextCtrl::IndicatorGetForeground(int indic)
+/* {{{ proto wxColour wxStyledTextCtrl::IndicatorGetForeground(int indicator)
    Retrieve the foreground colour of an indicator. */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetForeground)
 {
@@ -28291,7 +28386,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetForeground)
     #endif
 
     //Parameters for overload 0
-    long indic0;
+    long indicator0;
     bool overload0_called = false;
 
     
@@ -28301,11 +28396,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetForeground)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&indic0)\n");
+        php_printf("Parsing parameters with 'l' (&indicator0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indic0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -28320,11 +28415,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetForeground)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::IndicatorGetForeground((int) indic0) to return new object\n\n");
+                php_printf("Executing wxStyledTextCtrl::IndicatorGetForeground((int) indicator0) to return new object\n\n");
                 #endif
 
                 wxColour value_to_return1;
-                value_to_return1 = ((wxStyledTextCtrl_php*)native_object)->IndicatorGetForeground((int) indic0);
+                value_to_return1 = ((wxStyledTextCtrl_php*)native_object)->IndicatorGetForeground((int) indicator0);
                 ((wxRefCounter *) value_to_return1.GetRefData())->IncRef();
                 void* ptr = safe_emalloc(1, sizeof(wxColour_php), 0);
                 memcpy(ptr, (void*) &value_to_return1, sizeof(wxColour));
@@ -28353,7 +28448,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetForeground)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::IndicatorGetStyle(int indic)
+/* {{{ proto int wxStyledTextCtrl::IndicatorGetStyle(int indicator)
    Retrieve the style of an indicator. */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetStyle)
 {
@@ -28411,7 +28506,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetStyle)
     #endif
 
     //Parameters for overload 0
-    long indic0;
+    long indicator0;
     bool overload0_called = false;
 
     
@@ -28421,11 +28516,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetStyle)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&indic0)\n");
+        php_printf("Parsing parameters with 'l' (&indicator0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indic0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -28440,10 +28535,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetStyle)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorGetStyle((int) indic0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorGetStyle((int) indicator0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorGetStyle((int) indic0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorGetStyle((int) indicator0));
 
 
                 return;
@@ -28578,7 +28673,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetAlpha)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::IndicatorSetForeground(int indic, wxColour fore)
+/* {{{ proto  wxStyledTextCtrl::IndicatorSetForeground(int indicator, wxColour fore)
    Set the foreground colour of an indicator. */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetForeground)
 {
@@ -28636,7 +28731,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetForeground)
     #endif
 
     //Parameters for overload 0
-    long indic0;
+    long indicator0;
     zval* fore0;
     wxColour* object_pointer0_1 = 0;
     bool overload0_called = false;
@@ -28648,11 +28743,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetForeground)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'lO' (&indic0, &fore0, php_wxColour_entry)\n");
+        php_printf("Parsing parameters with 'lO' (&indicator0, &fore0, php_wxColour_entry)\n");
         #endif
 
         char parse_parameters_string[] = "lO";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indic0, &fore0, php_wxColour_entry ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &fore0, php_wxColour_entry ) == SUCCESS)
         {
             if(arguments_received >= 2){
                 if(Z_TYPE_P(fore0) == IS_OBJECT)
@@ -28684,10 +28779,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetForeground)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::IndicatorSetForeground((int) indic0, *(wxColour*) object_pointer0_1)\n\n");
+                php_printf("Executing wxStyledTextCtrl::IndicatorSetForeground((int) indicator0, *(wxColour*) object_pointer0_1)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->IndicatorSetForeground((int) indic0, *(wxColour*) object_pointer0_1);
+                ((wxStyledTextCtrl_php*)native_object)->IndicatorSetForeground((int) indicator0, *(wxColour*) object_pointer0_1);
 
                 references->AddReference(fore0, "wxStyledTextCtrl::IndicatorSetForeground at call 3 with 2 argument(s)");
 
@@ -28710,7 +28805,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetForeground)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::IndicatorSetStyle(int indic, int style)
+/* {{{ proto  wxStyledTextCtrl::IndicatorSetStyle(int indicator, int indicatorStyle)
    Set an indicator to plain, squiggle or TT. */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetStyle)
 {
@@ -28768,8 +28863,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetStyle)
     #endif
 
     //Parameters for overload 0
-    long indic0;
-    long style0;
+    long indicator0;
+    long indicatorStyle0;
     bool overload0_called = false;
 
     
@@ -28779,11 +28874,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetStyle)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&indic0, &style0)\n");
+        php_printf("Parsing parameters with 'll' (&indicator0, &indicatorStyle0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indic0, &style0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &indicatorStyle0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -28798,10 +28893,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetStyle)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::IndicatorSetStyle((int) indic0, (int) style0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::IndicatorSetStyle((int) indicator0, (int) indicatorStyle0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->IndicatorSetStyle((int) indic0, (int) style0);
+                ((wxStyledTextCtrl_php*)native_object)->IndicatorSetStyle((int) indicator0, (int) indicatorStyle0);
 
 
                 return;
@@ -30335,7 +30430,8 @@ PHP_METHOD(php_wxStyledTextCtrl, LineEndRectExtend)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::LineEndWrap() */
+/* {{{ proto  wxStyledTextCtrl::LineEndWrap()
+   Like LineEnd but when word-wrap is enabled goes first to end of display line LineEndDisplay, then to start of document line LineEnd. */
 PHP_METHOD(php_wxStyledTextCtrl, LineEndWrap)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -30441,7 +30537,8 @@ PHP_METHOD(php_wxStyledTextCtrl, LineEndWrap)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::LineEndWrapExtend() */
+/* {{{ proto  wxStyledTextCtrl::LineEndWrapExtend()
+   Like LineEndExtend but when word-wrap is enabled extends first to end of display line LineEndDisplayExtend, then to start of document line LineEndExtend. */
 PHP_METHOD(php_wxStyledTextCtrl, LineEndWrapExtend)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -33079,7 +33176,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerAdd)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::MarkerAddSet(int line, int set)
+/* {{{ proto  wxStyledTextCtrl::MarkerAddSet(int line, int markerSet)
    Add a set of markers to a line. */
 PHP_METHOD(php_wxStyledTextCtrl, MarkerAddSet)
 {
@@ -33138,7 +33235,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerAddSet)
 
     //Parameters for overload 0
     long line0;
-    long set0;
+    long markerSet0;
     bool overload0_called = false;
 
     
@@ -33148,11 +33245,11 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerAddSet)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&line0, &set0)\n");
+        php_printf("Parsing parameters with 'll' (&line0, &markerSet0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &line0, &set0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &line0, &markerSet0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -33167,10 +33264,10 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerAddSet)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::MarkerAddSet((int) line0, (int) set0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::MarkerAddSet((int) line0, (int) markerSet0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->MarkerAddSet((int) line0, (int) set0);
+                ((wxStyledTextCtrl_php*)native_object)->MarkerAddSet((int) line0, (int) markerSet0);
 
 
                 return;
@@ -33371,7 +33468,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerDefine)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::MarkerDefineBitmap(int markerNumber, wxBitmap bmp)
-   Define a marker from a bitmap. */
+   Define a marker with a wxBitmap. */
 PHP_METHOD(php_wxStyledTextCtrl, MarkerDefineBitmap)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -33727,7 +33824,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerDeleteAll)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::MarkerDeleteHandle(int handle)
+/* {{{ proto  wxStyledTextCtrl::MarkerDeleteHandle(int markerHandle)
    Delete a marker. */
 PHP_METHOD(php_wxStyledTextCtrl, MarkerDeleteHandle)
 {
@@ -33785,7 +33882,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerDeleteHandle)
     #endif
 
     //Parameters for overload 0
-    long handle0;
+    long markerHandle0;
     bool overload0_called = false;
 
     
@@ -33795,11 +33892,11 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerDeleteHandle)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&handle0)\n");
+        php_printf("Parsing parameters with 'l' (&markerHandle0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &handle0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &markerHandle0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -33814,10 +33911,10 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerDeleteHandle)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::MarkerDeleteHandle((int) handle0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::MarkerDeleteHandle((int) markerHandle0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->MarkerDeleteHandle((int) handle0);
+                ((wxStyledTextCtrl_php*)native_object)->MarkerDeleteHandle((int) markerHandle0);
 
 
                 return;
@@ -33951,7 +34048,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerGet)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::MarkerLineFromHandle(int handle)
+/* {{{ proto int wxStyledTextCtrl::MarkerLineFromHandle(int markerHandle)
    Retrieve the line number at which a particular marker is located. */
 PHP_METHOD(php_wxStyledTextCtrl, MarkerLineFromHandle)
 {
@@ -34009,7 +34106,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerLineFromHandle)
     #endif
 
     //Parameters for overload 0
-    long handle0;
+    long markerHandle0;
     bool overload0_called = false;
 
     
@@ -34019,11 +34116,11 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerLineFromHandle)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&handle0)\n");
+        php_printf("Parsing parameters with 'l' (&markerHandle0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &handle0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &markerHandle0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -34038,10 +34135,10 @@ PHP_METHOD(php_wxStyledTextCtrl, MarkerLineFromHandle)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::MarkerLineFromHandle((int) handle0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::MarkerLineFromHandle((int) markerHandle0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->MarkerLineFromHandle((int) handle0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->MarkerLineFromHandle((int) markerHandle0));
 
 
                 return;
@@ -35523,7 +35620,7 @@ PHP_METHOD(php_wxStyledTextCtrl, PageUpRectExtend)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::ParaDown()
-   Move caret between paragraphs (delimited by empty lines). */
+   Move caret down one paragraph (delimited by empty lines). */
 PHP_METHOD(php_wxStyledTextCtrl, ParaDown)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -35629,7 +35726,8 @@ PHP_METHOD(php_wxStyledTextCtrl, ParaDown)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::ParaDownExtend() */
+/* {{{ proto  wxStyledTextCtrl::ParaDownExtend()
+   Extend selection down one paragraph (delimited by empty lines). */
 PHP_METHOD(php_wxStyledTextCtrl, ParaDownExtend)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -35735,7 +35833,8 @@ PHP_METHOD(php_wxStyledTextCtrl, ParaDownExtend)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::ParaUp() */
+/* {{{ proto  wxStyledTextCtrl::ParaUp()
+   Move caret up one paragraph (delimited by empty lines). */
 PHP_METHOD(php_wxStyledTextCtrl, ParaUp)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -35841,7 +35940,8 @@ PHP_METHOD(php_wxStyledTextCtrl, ParaUp)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::ParaUpExtend() */
+/* {{{ proto  wxStyledTextCtrl::ParaUpExtend()
+   Extend selection up one paragraph (delimited by empty lines). */
 PHP_METHOD(php_wxStyledTextCtrl, ParaUpExtend)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -36640,7 +36740,7 @@ PHP_METHOD(php_wxStyledTextCtrl, PositionFromPoint)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::PositionFromPointClose(int x, int y)
-   Find the position from a point within the window but return INVALID_POSITION if not close to text. */
+   Find the position from a point within the window but return wxSTC_INVALID_POSITION if not close to text. */
 PHP_METHOD(php_wxStyledTextCtrl, PositionFromPointClose)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -37881,7 +37981,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchInTarget)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::SearchNext(int flags, string text)
+/* {{{ proto int wxStyledTextCtrl::SearchNext(int searchFlags, string text)
    Find some text starting at the search anchor. */
 PHP_METHOD(php_wxStyledTextCtrl, SearchNext)
 {
@@ -37939,7 +38039,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchNext)
     #endif
 
     //Parameters for overload 0
-    long flags0;
+    long searchFlags0;
     char* text0;
     size_t text_len0;
     bool overload0_called = false;
@@ -37951,11 +38051,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchNext)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ls' (&flags0, &text0, &text_len0)\n");
+        php_printf("Parsing parameters with 'ls' (&searchFlags0, &text0, &text_len0)\n");
         #endif
 
         char parse_parameters_string[] = "ls";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0, &text0, &text_len0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &searchFlags0, &text0, &text_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -37970,10 +38070,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchNext)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::SearchNext((int) flags0, wxString(text0, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::SearchNext((int) searchFlags0, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->SearchNext((int) flags0, wxString(text0, wxConvUTF8)));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->SearchNext((int) searchFlags0, wxString(text0, wxConvUTF8)));
 
 
                 return;
@@ -37995,7 +38095,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchNext)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::SearchPrev(int flags, string text)
+/* {{{ proto int wxStyledTextCtrl::SearchPrev(int searchFlags, string text)
    Find some text starting at the search anchor and moving backwards. */
 PHP_METHOD(php_wxStyledTextCtrl, SearchPrev)
 {
@@ -38053,7 +38153,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchPrev)
     #endif
 
     //Parameters for overload 0
-    long flags0;
+    long searchFlags0;
     char* text0;
     size_t text_len0;
     bool overload0_called = false;
@@ -38065,11 +38165,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchPrev)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ls' (&flags0, &text0, &text_len0)\n");
+        php_printf("Parsing parameters with 'ls' (&searchFlags0, &text0, &text_len0)\n");
         #endif
 
         char parse_parameters_string[] = "ls";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0, &text0, &text_len0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &searchFlags0, &text0, &text_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -38084,10 +38184,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SearchPrev)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::SearchPrev((int) flags0, wxString(text0, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::SearchPrev((int) searchFlags0, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->SearchPrev((int) flags0, wxString(text0, wxConvUTF8)));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->SearchPrev((int) searchFlags0, wxString(text0, wxConvUTF8)));
 
 
                 return;
@@ -38673,7 +38773,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAdditionalCaretsBlink)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetAdditionalCaretsVisible(bool additionalCaretsBlink)
+/* {{{ proto  wxStyledTextCtrl::SetAdditionalCaretsVisible(bool additionalCaretsVisible)
    Set whether additional carets are visible. */
 PHP_METHOD(php_wxStyledTextCtrl, SetAdditionalCaretsVisible)
 {
@@ -38731,7 +38831,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAdditionalCaretsVisible)
     #endif
 
     //Parameters for overload 0
-    bool additionalCaretsBlink0;
+    bool additionalCaretsVisible0;
     bool overload0_called = false;
 
     
@@ -38741,11 +38841,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAdditionalCaretsVisible)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'b' (&additionalCaretsBlink0)\n");
+        php_printf("Parsing parameters with 'b' (&additionalCaretsVisible0)\n");
         #endif
 
         char parse_parameters_string[] = "b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &additionalCaretsBlink0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &additionalCaretsVisible0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -38760,10 +38860,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAdditionalCaretsVisible)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetAdditionalCaretsVisible(additionalCaretsBlink0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetAdditionalCaretsVisible(additionalCaretsVisible0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetAdditionalCaretsVisible(additionalCaretsBlink0);
+                ((wxStyledTextCtrl_php*)native_object)->SetAdditionalCaretsVisible(additionalCaretsVisible0);
 
 
                 return;
@@ -39271,7 +39371,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAdditionalSelectionTyping)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetAnchor(int posAnchor)
+/* {{{ proto  wxStyledTextCtrl::SetAnchor(int anchor)
    Set the selection anchor to a position. */
 PHP_METHOD(php_wxStyledTextCtrl, SetAnchor)
 {
@@ -39329,7 +39429,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAnchor)
     #endif
 
     //Parameters for overload 0
-    long posAnchor0;
+    long anchor0;
     bool overload0_called = false;
 
     
@@ -39339,11 +39439,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAnchor)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&posAnchor0)\n");
+        php_printf("Parsing parameters with 'l' (&anchor0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &posAnchor0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &anchor0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -39358,10 +39458,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetAnchor)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetAnchor((int) posAnchor0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetAnchor((int) anchor0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetAnchor((int) posAnchor0);
+                ((wxStyledTextCtrl_php*)native_object)->SetAnchor((int) anchor0);
 
 
                 return;
@@ -40648,7 +40748,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetControlCharSymbol)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetCurrentPos(int pos)
+/* {{{ proto  wxStyledTextCtrl::SetCurrentPos(int caret)
    Sets the position of the caret. */
 PHP_METHOD(php_wxStyledTextCtrl, SetCurrentPos)
 {
@@ -40706,7 +40806,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetCurrentPos)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long caret0;
     bool overload0_called = false;
 
     
@@ -40716,11 +40816,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetCurrentPos)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&caret0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &caret0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -40735,10 +40835,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetCurrentPos)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetCurrentPos((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetCurrentPos((int) caret0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetCurrentPos((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetCurrentPos((int) caret0);
 
 
                 return;
@@ -41115,8 +41215,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEdgeColumn)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetEdgeMode(int mode)
-   The edge may be displayed by a line (EDGE_LINE) or by highlighting text that goes beyond it (EDGE_BACKGROUND) or not displayed at all (EDGE_NONE). */
+/* {{{ proto  wxStyledTextCtrl::SetEdgeMode(int edgeMode)
+   The edge may be displayed by a line (wxSTC_EDGE_LINE/wxSTC_EDGE_MULTILINE) or by highlighting text that goes beyond it (wxSTC_EDGE_BACKGROUND) or not displayed at all (wxSTC_EDGE_NONE). */
 PHP_METHOD(php_wxStyledTextCtrl, SetEdgeMode)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -41173,7 +41273,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEdgeMode)
     #endif
 
     //Parameters for overload 0
-    long mode0;
+    long edgeMode0;
     bool overload0_called = false;
 
     
@@ -41183,11 +41283,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEdgeMode)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        php_printf("Parsing parameters with 'l' (&edgeMode0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &edgeMode0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -41202,10 +41302,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEdgeMode)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetEdgeMode((int) mode0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetEdgeMode((int) edgeMode0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetEdgeMode((int) mode0);
+                ((wxStyledTextCtrl_php*)native_object)->SetEdgeMode((int) edgeMode0);
 
 
                 return;
@@ -41563,7 +41663,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetExtraDescent)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetFirstVisibleLine(int lineDisplay)
+/* {{{ proto  wxStyledTextCtrl::SetFirstVisibleLine(int displayLine)
    Scroll so that a display line is at the top of the display. */
 PHP_METHOD(php_wxStyledTextCtrl, SetFirstVisibleLine)
 {
@@ -41621,7 +41721,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetFirstVisibleLine)
     #endif
 
     //Parameters for overload 0
-    long lineDisplay0;
+    long displayLine0;
     bool overload0_called = false;
 
     
@@ -41631,11 +41731,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetFirstVisibleLine)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&lineDisplay0)\n");
+        php_printf("Parsing parameters with 'l' (&displayLine0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &lineDisplay0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &displayLine0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -41650,10 +41750,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetFirstVisibleLine)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetFirstVisibleLine((int) lineDisplay0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetFirstVisibleLine((int) displayLine0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetFirstVisibleLine((int) lineDisplay0);
+                ((wxStyledTextCtrl_php*)native_object)->SetFirstVisibleLine((int) displayLine0);
 
 
                 return;
@@ -42014,7 +42114,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetFoldLevel)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::SetFoldMarginColour(bool useSetting, wxColour back)
-   Set the colours used as a chequerboard pattern in the fold margin. */
+   Set one of the colours used as a chequerboard pattern in the fold margin. */
 PHP_METHOD(php_wxStyledTextCtrl, SetFoldMarginColour)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -42145,7 +42245,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetFoldMarginColour)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetFoldMarginHiColour(bool useSetting, wxColour fore) */
+/* {{{ proto  wxStyledTextCtrl::SetFoldMarginHiColour(bool useSetting, wxColour fore)
+   Set the other colour used as a chequerboard pattern in the fold margin. */
 PHP_METHOD(php_wxStyledTextCtrl, SetFoldMarginHiColour)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -42277,7 +42378,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetFoldMarginHiColour)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::SetHScrollBar(wxScrollBar &bar)
-   Set the horizontal scrollbar to use instead of the ont that's built-in. */
+   Set the horizontal scrollbar to use instead of the one that's built-in. */
 PHP_METHOD(php_wxStyledTextCtrl, SetHScrollBar)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -43231,7 +43332,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetIndentationGuides)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetKeyWords(int keywordSet, string keyWords)
+/* {{{ proto  wxStyledTextCtrl::SetKeyWords(int keyWordSet, string keyWords)
    Set up the key words used by the lexer. */
 PHP_METHOD(php_wxStyledTextCtrl, SetKeyWords)
 {
@@ -43289,7 +43390,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetKeyWords)
     #endif
 
     //Parameters for overload 0
-    long keywordSet0;
+    long keyWordSet0;
     char* keyWords0;
     size_t keyWords_len0;
     bool overload0_called = false;
@@ -43301,11 +43402,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetKeyWords)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'ls' (&keywordSet0, &keyWords0, &keyWords_len0)\n");
+        php_printf("Parsing parameters with 'ls' (&keyWordSet0, &keyWords0, &keyWords_len0)\n");
         #endif
 
         char parse_parameters_string[] = "ls";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &keywordSet0, &keyWords0, &keyWords_len0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &keyWordSet0, &keyWords0, &keyWords_len0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -43320,10 +43421,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetKeyWords)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetKeyWords((int) keywordSet0, wxString(keyWords0, wxConvUTF8))\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetKeyWords((int) keyWordSet0, wxString(keyWords0, wxConvUTF8))\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetKeyWords((int) keywordSet0, wxString(keyWords0, wxConvUTF8));
+                ((wxStyledTextCtrl_php*)native_object)->SetKeyWords((int) keyWordSet0, wxString(keyWords0, wxConvUTF8));
 
 
                 return;
@@ -43345,7 +43446,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetKeyWords)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetLastKeydownProcessed(bool val) */
+/* {{{ proto  wxStyledTextCtrl::SetLastKeydownProcessed(bool val)
+   Returns the line number of the line with the caret. */
 PHP_METHOD(php_wxStyledTextCtrl, SetLastKeydownProcessed)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -43456,7 +43558,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLastKeydownProcessed)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetLayoutCache(int mode)
+/* {{{ proto  wxStyledTextCtrl::SetLayoutCache(int cacheMode)
    Sets the degree of caching of layout information. */
 PHP_METHOD(php_wxStyledTextCtrl, SetLayoutCache)
 {
@@ -43514,7 +43616,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLayoutCache)
     #endif
 
     //Parameters for overload 0
-    long mode0;
+    long cacheMode0;
     bool overload0_called = false;
 
     
@@ -43524,11 +43626,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLayoutCache)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        php_printf("Parsing parameters with 'l' (&cacheMode0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &cacheMode0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -43543,10 +43645,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLayoutCache)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetLayoutCache((int) mode0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetLayoutCache((int) cacheMode0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetLayoutCache((int) mode0);
+                ((wxStyledTextCtrl_php*)native_object)->SetLayoutCache((int) cacheMode0);
 
 
                 return;
@@ -43793,7 +43895,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLexerLanguage)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetLineIndentation(int line, int indentSize)
+/* {{{ proto  wxStyledTextCtrl::SetLineIndentation(int line, int indentation)
    Change the indentation of a line to a number of columns. */
 PHP_METHOD(php_wxStyledTextCtrl, SetLineIndentation)
 {
@@ -43852,7 +43954,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLineIndentation)
 
     //Parameters for overload 0
     long line0;
-    long indentSize0;
+    long indentation0;
     bool overload0_called = false;
 
     
@@ -43862,11 +43964,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLineIndentation)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&line0, &indentSize0)\n");
+        php_printf("Parsing parameters with 'll' (&line0, &indentation0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &line0, &indentSize0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &line0, &indentation0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -43881,10 +43983,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetLineIndentation)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetLineIndentation((int) line0, (int) indentSize0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetLineIndentation((int) line0, (int) indentation0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetLineIndentation((int) line0, (int) indentSize0);
+                ((wxStyledTextCtrl_php*)native_object)->SetLineIndentation((int) line0, (int) indentation0);
 
 
                 return;
@@ -44920,7 +45022,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetMargins)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetModEventMask(int mask)
+/* {{{ proto  wxStyledTextCtrl::SetModEventMask(int eventMask)
    Set which document modification events are sent to the container. */
 PHP_METHOD(php_wxStyledTextCtrl, SetModEventMask)
 {
@@ -44978,7 +45080,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetModEventMask)
     #endif
 
     //Parameters for overload 0
-    long mask0;
+    long eventMask0;
     bool overload0_called = false;
 
     
@@ -44988,11 +45090,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetModEventMask)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&mask0)\n");
+        php_printf("Parsing parameters with 'l' (&eventMask0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mask0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &eventMask0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -45007,10 +45109,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetModEventMask)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetModEventMask((int) mask0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetModEventMask((int) eventMask0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetModEventMask((int) mask0);
+                ((wxStyledTextCtrl_php*)native_object)->SetModEventMask((int) eventMask0);
 
 
                 return;
@@ -45368,7 +45470,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetMultipleSelection)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetOvertype(bool overtype)
+/* {{{ proto  wxStyledTextCtrl::SetOvertype(bool overType)
    Set to overtype (true) or insert mode. */
 PHP_METHOD(php_wxStyledTextCtrl, SetOvertype)
 {
@@ -45426,7 +45528,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetOvertype)
     #endif
 
     //Parameters for overload 0
-    bool overtype0;
+    bool overType0;
     bool overload0_called = false;
 
     
@@ -45436,11 +45538,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetOvertype)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'b' (&overtype0)\n");
+        php_printf("Parsing parameters with 'b' (&overType0)\n");
         #endif
 
         char parse_parameters_string[] = "b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &overtype0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &overType0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -45455,10 +45557,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetOvertype)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetOvertype(overtype0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetOvertype(overType0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetOvertype(overtype0);
+                ((wxStyledTextCtrl_php*)native_object)->SetOvertype(overType0);
 
 
                 return;
@@ -45816,8 +45918,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetPrintMagnification)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetPrintWrapMode(int mode)
-   Set printing to line wrapped (SC_WRAP_WORD) or not line wrapped (SC_WRAP_NONE). */
+/* {{{ proto  wxStyledTextCtrl::SetPrintWrapMode(int wrapMode)
+   Set printing to line wrapped (wxSTC_WRAP_WORD) or not line wrapped (wxSTC_WRAP_NONE). */
 PHP_METHOD(php_wxStyledTextCtrl, SetPrintWrapMode)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -45874,7 +45976,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetPrintWrapMode)
     #endif
 
     //Parameters for overload 0
-    long mode0;
+    long wrapMode0;
     bool overload0_called = false;
 
     
@@ -45884,11 +45986,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetPrintWrapMode)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        php_printf("Parsing parameters with 'l' (&wrapMode0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &wrapMode0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -45903,10 +46005,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetPrintWrapMode)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetPrintWrapMode((int) mode0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetPrintWrapMode((int) wrapMode0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetPrintWrapMode((int) mode0);
+                ((wxStyledTextCtrl_php*)native_object)->SetPrintWrapMode((int) wrapMode0);
 
 
                 return;
@@ -46155,7 +46257,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetReadOnly)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionAnchor(int posAnchor) */
+/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionAnchor(int anchor)
+   Set the anchor position of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionAnchor)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -46212,7 +46315,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionAnchor)
     #endif
 
     //Parameters for overload 0
-    long posAnchor0;
+    long anchor0;
     bool overload0_called = false;
 
     
@@ -46222,11 +46325,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionAnchor)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&posAnchor0)\n");
+        php_printf("Parsing parameters with 'l' (&anchor0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &posAnchor0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &anchor0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -46241,10 +46344,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionAnchor)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetRectangularSelectionAnchor((int) posAnchor0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetRectangularSelectionAnchor((int) anchor0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetRectangularSelectionAnchor((int) posAnchor0);
+                ((wxStyledTextCtrl_php*)native_object)->SetRectangularSelectionAnchor((int) anchor0);
 
 
                 return;
@@ -46266,7 +46369,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionAnchor)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int space) */
+/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace(int space)
+   Set the virtual space of the anchor of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionAnchorVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -46377,7 +46481,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionAnchorVirtualSpace)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionCaret(int pos) */
+/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionCaret(int caret)
+   Set the caret position of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionCaret)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -46434,7 +46539,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionCaret)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long caret0;
     bool overload0_called = false;
 
     
@@ -46444,11 +46549,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionCaret)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&caret0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &caret0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -46463,10 +46568,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionCaret)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetRectangularSelectionCaret((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetRectangularSelectionCaret((int) caret0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetRectangularSelectionCaret((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetRectangularSelectionCaret((int) caret0);
 
 
                 return;
@@ -46488,7 +46593,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionCaret)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int space) */
+/* {{{ proto  wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace(int space)
+   Set the virtual space of the caret of the rectangular selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionCaretVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -46712,7 +46818,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetRectangularSelectionModifier)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::SetSTCCursor(int cursorType)
-   Sets the cursor to one of the SC_CURSOR* values. */
+   Sets the cursor to one of the wxSTC_CURSOR* values. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSTCCursor)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -47154,7 +47260,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetScrollWidth)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSearchFlags(int flags)
+/* {{{ proto  wxStyledTextCtrl::SetSearchFlags(int searchFlags)
    Set the search flags used by SearchInTarget. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSearchFlags)
 {
@@ -47212,7 +47318,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSearchFlags)
     #endif
 
     //Parameters for overload 0
-    long flags0;
+    long searchFlags0;
     bool overload0_called = false;
 
     
@@ -47222,11 +47328,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSearchFlags)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&flags0)\n");
+        php_printf("Parsing parameters with 'l' (&searchFlags0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &flags0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &searchFlags0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -47241,10 +47347,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSearchFlags)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSearchFlags((int) flags0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSearchFlags((int) searchFlags0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSearchFlags((int) flags0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSearchFlags((int) searchFlags0);
 
 
                 return;
@@ -47755,8 +47861,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelection)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionEnd(int pos)
-   Sets the position that ends the selection - this becomes the currentPosition. */
+/* {{{ proto  wxStyledTextCtrl::SetSelectionEnd(int caret)
+   Sets the position that ends the selection - this becomes the caret. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionEnd)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -47813,7 +47919,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionEnd)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long caret0;
     bool overload0_called = false;
 
     
@@ -47823,11 +47929,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionEnd)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&caret0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &caret0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -47842,10 +47948,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionEnd)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSelectionEnd((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSelectionEnd((int) caret0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSelectionEnd((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSelectionEnd((int) caret0);
 
 
                 return;
@@ -47867,8 +47973,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionEnd)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionMode(int mode)
-   Set the selection mode to stream (SC_SEL_STREAM) or rectangular (SC_SEL_RECTANGLE/SC_SEL_THIN) or by lines (SC_SEL_LINES). */
+/* {{{ proto  wxStyledTextCtrl::SetSelectionMode(int selectionMode)
+   Set the selection mode to stream (wxSTC_SEL_STREAM) or rectangular (wxSTC_SEL_RECTANGLE/wxSTC_SEL_THIN) or by lines (wxSTC_SEL_LINES). */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionMode)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -47925,7 +48031,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionMode)
     #endif
 
     //Parameters for overload 0
-    long mode0;
+    long selectionMode0;
     bool overload0_called = false;
 
     
@@ -47935,11 +48041,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionMode)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        php_printf("Parsing parameters with 'l' (&selectionMode0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selectionMode0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -47954,10 +48060,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionMode)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSelectionMode((int) mode0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSelectionMode((int) selectionMode0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSelectionMode((int) mode0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSelectionMode((int) selectionMode0);
 
 
                 return;
@@ -47979,7 +48085,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionMode)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionNAnchor(int selection, int posAnchor) */
+/* {{{ proto  wxStyledTextCtrl::SetSelectionNAnchor(int selection, int anchor)
+   Set the anchor position of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNAnchor)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -48037,7 +48144,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNAnchor)
 
     //Parameters for overload 0
     long selection0;
-    long posAnchor0;
+    long anchor0;
     bool overload0_called = false;
 
     
@@ -48047,11 +48154,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNAnchor)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&selection0, &posAnchor0)\n");
+        php_printf("Parsing parameters with 'll' (&selection0, &anchor0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &posAnchor0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &anchor0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -48066,10 +48173,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNAnchor)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSelectionNAnchor((int) selection0, (int) posAnchor0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSelectionNAnchor((int) selection0, (int) anchor0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNAnchor((int) selection0, (int) posAnchor0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNAnchor((int) selection0, (int) anchor0);
 
 
                 return;
@@ -48091,7 +48198,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNAnchor)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int selection, int space) */
+/* {{{ proto  wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace(int selection, int space)
+   Set the virtual space of the anchor of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNAnchorVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -48203,7 +48311,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNAnchorVirtualSpace)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionNCaret(int selection, int pos) */
+/* {{{ proto  wxStyledTextCtrl::SetSelectionNCaret(int selection, int caret)
+   Set the caret position of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNCaret)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -48261,7 +48370,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNCaret)
 
     //Parameters for overload 0
     long selection0;
-    long pos0;
+    long caret0;
     bool overload0_called = false;
 
     
@@ -48271,11 +48380,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNCaret)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&selection0, &pos0)\n");
+        php_printf("Parsing parameters with 'll' (&selection0, &caret0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &caret0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -48290,10 +48399,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNCaret)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSelectionNCaret((int) selection0, (int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSelectionNCaret((int) selection0, (int) caret0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNCaret((int) selection0, (int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNCaret((int) selection0, (int) caret0);
 
 
                 return;
@@ -48315,7 +48424,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNCaret)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int selection, int space) */
+/* {{{ proto  wxStyledTextCtrl::SetSelectionNCaretVirtualSpace(int selection, int space)
+   Set the virtual space of the caret of the nth selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNCaretVirtualSpace)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -48427,7 +48537,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNCaretVirtualSpace)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionNEnd(int selection, int pos)
+/* {{{ proto  wxStyledTextCtrl::SetSelectionNEnd(int selection, int caret)
    Sets the position that ends the selection - this becomes the currentPosition. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNEnd)
 {
@@ -48486,7 +48596,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNEnd)
 
     //Parameters for overload 0
     long selection0;
-    long pos0;
+    long caret0;
     bool overload0_called = false;
 
     
@@ -48496,11 +48606,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNEnd)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&selection0, &pos0)\n");
+        php_printf("Parsing parameters with 'll' (&selection0, &caret0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &caret0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -48515,10 +48625,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNEnd)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSelectionNEnd((int) selection0, (int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSelectionNEnd((int) selection0, (int) caret0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNEnd((int) selection0, (int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNEnd((int) selection0, (int) caret0);
 
 
                 return;
@@ -48540,7 +48650,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNEnd)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionNStart(int selection, int pos)
+/* {{{ proto  wxStyledTextCtrl::SetSelectionNStart(int selection, int anchor)
    Sets the position that starts the selection - this becomes the anchor. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNStart)
 {
@@ -48599,7 +48709,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNStart)
 
     //Parameters for overload 0
     long selection0;
-    long pos0;
+    long anchor0;
     bool overload0_called = false;
 
     
@@ -48609,11 +48719,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNStart)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&selection0, &pos0)\n");
+        php_printf("Parsing parameters with 'll' (&selection0, &anchor0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &selection0, &anchor0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -48628,10 +48738,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNStart)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSelectionNStart((int) selection0, (int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSelectionNStart((int) selection0, (int) anchor0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNStart((int) selection0, (int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSelectionNStart((int) selection0, (int) anchor0);
 
 
                 return;
@@ -48653,7 +48763,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionNStart)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetSelectionStart(int pos)
+/* {{{ proto  wxStyledTextCtrl::SetSelectionStart(int anchor)
    Sets the position that starts the selection - this becomes the anchor. */
 PHP_METHOD(php_wxStyledTextCtrl, SetSelectionStart)
 {
@@ -48711,7 +48821,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionStart)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long anchor0;
     bool overload0_called = false;
 
     
@@ -48721,11 +48831,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionStart)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&anchor0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &anchor0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -48740,10 +48850,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionStart)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetSelectionStart((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetSelectionStart((int) anchor0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetSelectionStart((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetSelectionStart((int) anchor0);
 
 
                 return;
@@ -48765,7 +48875,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetSelectionStart)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetStatus(int statusCode)
+/* {{{ proto  wxStyledTextCtrl::SetStatus(int status)
    Change error status - 0 = OK. */
 PHP_METHOD(php_wxStyledTextCtrl, SetStatus)
 {
@@ -48823,7 +48933,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetStatus)
     #endif
 
     //Parameters for overload 0
-    long statusCode0;
+    long status0;
     bool overload0_called = false;
 
     
@@ -48833,11 +48943,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetStatus)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&statusCode0)\n");
+        php_printf("Parsing parameters with 'l' (&status0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &statusCode0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &status0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -48852,10 +48962,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetStatus)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetStatus((int) statusCode0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetStatus((int) status0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetStatus((int) statusCode0);
+                ((wxStyledTextCtrl_php*)native_object)->SetStatus((int) status0);
 
 
                 return;
@@ -49214,7 +49324,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTabWidth)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetTargetEnd(int pos)
+/* {{{ proto  wxStyledTextCtrl::SetTargetEnd(int end)
    Sets the position that ends the target which is used for updating the document without affecting the scroll position. */
 PHP_METHOD(php_wxStyledTextCtrl, SetTargetEnd)
 {
@@ -49272,7 +49382,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTargetEnd)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long end0;
     bool overload0_called = false;
 
     
@@ -49282,11 +49392,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTargetEnd)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&end0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &end0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -49301,10 +49411,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTargetEnd)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetTargetEnd((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetTargetEnd((int) end0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetTargetEnd((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetTargetEnd((int) end0);
 
 
                 return;
@@ -49326,7 +49436,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTargetEnd)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetTargetStart(int pos)
+/* {{{ proto  wxStyledTextCtrl::SetTargetStart(int start)
    Sets the position that starts the target which is used for updating the document without affecting the scroll position. */
 PHP_METHOD(php_wxStyledTextCtrl, SetTargetStart)
 {
@@ -49384,7 +49494,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTargetStart)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long start0;
     bool overload0_called = false;
 
     
@@ -49394,11 +49504,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTargetStart)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&start0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &start0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -49413,10 +49523,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetTargetStart)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetTargetStart((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetTargetStart((int) start0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetTargetStart((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetTargetStart((int) start0);
 
 
                 return;
@@ -49888,7 +49998,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUndoCollection)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetUseHorizontalScrollBar(bool show)
+/* {{{ proto  wxStyledTextCtrl::SetUseHorizontalScrollBar(bool visible)
    Show or hide the horizontal scroll bar. */
 PHP_METHOD(php_wxStyledTextCtrl, SetUseHorizontalScrollBar)
 {
@@ -49946,7 +50056,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseHorizontalScrollBar)
     #endif
 
     //Parameters for overload 0
-    bool show0;
+    bool visible0;
     bool overload0_called = false;
 
     
@@ -49956,11 +50066,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseHorizontalScrollBar)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'b' (&show0)\n");
+        php_printf("Parsing parameters with 'b' (&visible0)\n");
         #endif
 
         char parse_parameters_string[] = "b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &show0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &visible0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -49975,10 +50085,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseHorizontalScrollBar)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetUseHorizontalScrollBar(show0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetUseHorizontalScrollBar(visible0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetUseHorizontalScrollBar(show0);
+                ((wxStyledTextCtrl_php*)native_object)->SetUseHorizontalScrollBar(visible0);
 
 
                 return;
@@ -50112,7 +50222,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseTabs)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetUseVerticalScrollBar(bool show)
+/* {{{ proto  wxStyledTextCtrl::SetUseVerticalScrollBar(bool visible)
    Show or hide the vertical scroll bar. */
 PHP_METHOD(php_wxStyledTextCtrl, SetUseVerticalScrollBar)
 {
@@ -50170,7 +50280,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseVerticalScrollBar)
     #endif
 
     //Parameters for overload 0
-    bool show0;
+    bool visible0;
     bool overload0_called = false;
 
     
@@ -50180,11 +50290,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseVerticalScrollBar)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'b' (&show0)\n");
+        php_printf("Parsing parameters with 'b' (&visible0)\n");
         #endif
 
         char parse_parameters_string[] = "b";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &show0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &visible0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -50199,10 +50309,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseVerticalScrollBar)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetUseVerticalScrollBar(show0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetUseVerticalScrollBar(visible0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetUseVerticalScrollBar(show0);
+                ((wxStyledTextCtrl_php*)native_object)->SetUseVerticalScrollBar(visible0);
 
 
                 return;
@@ -50225,7 +50335,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetUseVerticalScrollBar)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::SetVScrollBar(wxScrollBar &bar)
-   Set the vertical scrollbar to use instead of the ont that's built-in. */
+   Set the vertical scrollbar to use instead of the one that's built-in. */
 PHP_METHOD(php_wxStyledTextCtrl, SetVScrollBar)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -50579,7 +50689,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetViewWhiteSpace)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetVirtualSpaceOptions(int virtualSpaceOptions) */
+/* {{{ proto  wxStyledTextCtrl::SetVirtualSpaceOptions(int virtualSpaceOptions)
+   Set options for virtual space behaviour. */
 PHP_METHOD(php_wxStyledTextCtrl, SetVirtualSpaceOptions)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -51405,7 +51516,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWordChars)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetWrapIndentMode(int mode)
+/* {{{ proto  wxStyledTextCtrl::SetWrapIndentMode(int wrapIndentMode)
    Sets how wrapped sublines are placed. */
 PHP_METHOD(php_wxStyledTextCtrl, SetWrapIndentMode)
 {
@@ -51463,7 +51574,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWrapIndentMode)
     #endif
 
     //Parameters for overload 0
-    long mode0;
+    long wrapIndentMode0;
     bool overload0_called = false;
 
     
@@ -51473,11 +51584,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWrapIndentMode)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        php_printf("Parsing parameters with 'l' (&wrapIndentMode0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &wrapIndentMode0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -51492,10 +51603,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWrapIndentMode)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetWrapIndentMode((int) mode0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetWrapIndentMode((int) wrapIndentMode0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetWrapIndentMode((int) mode0);
+                ((wxStyledTextCtrl_php*)native_object)->SetWrapIndentMode((int) wrapIndentMode0);
 
 
                 return;
@@ -51517,7 +51628,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWrapIndentMode)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetWrapMode(int mode)
+/* {{{ proto  wxStyledTextCtrl::SetWrapMode(int wrapMode)
    Sets whether text is word wrapped. */
 PHP_METHOD(php_wxStyledTextCtrl, SetWrapMode)
 {
@@ -51575,7 +51686,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWrapMode)
     #endif
 
     //Parameters for overload 0
-    long mode0;
+    long wrapMode0;
     bool overload0_called = false;
 
     
@@ -51585,11 +51696,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWrapMode)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&mode0)\n");
+        php_printf("Parsing parameters with 'l' (&wrapMode0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &mode0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &wrapMode0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -51604,10 +51715,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetWrapMode)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetWrapMode((int) mode0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetWrapMode((int) wrapMode0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetWrapMode((int) mode0);
+                ((wxStyledTextCtrl_php*)native_object)->SetWrapMode((int) wrapMode0);
 
 
                 return;
@@ -52078,8 +52189,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetXCaretPolicy)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetXOffset(int newOffset)
-   Get and Set the xOffset (ie, horizontal scroll position). */
+/* {{{ proto  wxStyledTextCtrl::SetXOffset(int xOffset)
+   Set the xOffset (ie, horizontal scroll position). */
 PHP_METHOD(php_wxStyledTextCtrl, SetXOffset)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -52136,7 +52247,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetXOffset)
     #endif
 
     //Parameters for overload 0
-    long newOffset0;
+    long xOffset0;
     bool overload0_called = false;
 
     
@@ -52146,11 +52257,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetXOffset)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&newOffset0)\n");
+        php_printf("Parsing parameters with 'l' (&xOffset0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &newOffset0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &xOffset0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -52165,10 +52276,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetXOffset)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetXOffset((int) newOffset0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetXOffset((int) xOffset0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetXOffset((int) newOffset0);
+                ((wxStyledTextCtrl_php*)native_object)->SetXOffset((int) xOffset0);
 
 
                 return;
@@ -52303,7 +52414,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetYCaretPolicy)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetZoom(int zoom)
+/* {{{ proto  wxStyledTextCtrl::SetZoom(int zoomInPoints)
    Set the zoom level. */
 PHP_METHOD(php_wxStyledTextCtrl, SetZoom)
 {
@@ -52361,7 +52472,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetZoom)
     #endif
 
     //Parameters for overload 0
-    long zoom0;
+    long zoomInPoints0;
     bool overload0_called = false;
 
     
@@ -52371,11 +52482,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetZoom)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&zoom0)\n");
+        php_printf("Parsing parameters with 'l' (&zoomInPoints0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &zoom0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &zoomInPoints0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -52390,10 +52501,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetZoom)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetZoom((int) zoom0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetZoom((int) zoomInPoints0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetZoom((int) zoom0);
+                ((wxStyledTextCtrl_php*)native_object)->SetZoom((int) zoomInPoints0);
 
 
                 return;
@@ -53741,7 +53852,7 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetBold)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::StyleSetCase(int style, int caseForce)
+/* {{{ proto  wxStyledTextCtrl::StyleSetCase(int style, int caseVisible)
    Set a style to be mixed case, or to force upper or lower case. */
 PHP_METHOD(php_wxStyledTextCtrl, StyleSetCase)
 {
@@ -53800,7 +53911,7 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetCase)
 
     //Parameters for overload 0
     long style0;
-    long caseForce0;
+    long caseVisible0;
     bool overload0_called = false;
 
     
@@ -53810,11 +53921,11 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetCase)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&style0, &caseForce0)\n");
+        php_printf("Parsing parameters with 'll' (&style0, &caseVisible0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0, &caseForce0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0, &caseVisible0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -53829,10 +53940,10 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetCase)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::StyleSetCase((int) style0, (int) caseForce0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::StyleSetCase((int) style0, (int) caseVisible0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->StyleSetCase((int) style0, (int) caseForce0);
+                ((wxStyledTextCtrl_php*)native_object)->StyleSetCase((int) style0, (int) caseVisible0);
 
 
                 return;
@@ -54080,7 +54191,7 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetCharacterSet)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::StyleSetEOLFilled(int style, bool filled)
+/* {{{ proto  wxStyledTextCtrl::StyleSetEOLFilled(int style, bool eolFilled)
    Set a style to have its end of line filled or not. */
 PHP_METHOD(php_wxStyledTextCtrl, StyleSetEOLFilled)
 {
@@ -54139,7 +54250,7 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetEOLFilled)
 
     //Parameters for overload 0
     long style0;
-    bool filled0;
+    bool eolFilled0;
     bool overload0_called = false;
 
     
@@ -54149,11 +54260,11 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetEOLFilled)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'lb' (&style0, &filled0)\n");
+        php_printf("Parsing parameters with 'lb' (&style0, &eolFilled0)\n");
         #endif
 
         char parse_parameters_string[] = "lb";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0, &filled0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0, &eolFilled0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -54168,10 +54279,10 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetEOLFilled)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::StyleSetEOLFilled((int) style0, filled0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::StyleSetEOLFilled((int) style0, eolFilled0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->StyleSetEOLFilled((int) style0, filled0);
+                ((wxStyledTextCtrl_php*)native_object)->StyleSetEOLFilled((int) style0, eolFilled0);
 
 
                 return;
@@ -57021,7 +57132,8 @@ PHP_METHOD(php_wxStyledTextCtrl, VCHomeRectExtend)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::VCHomeWrap() */
+/* {{{ proto  wxStyledTextCtrl::VCHomeWrap()
+   Like VCHome but when word-wrap is enabled goes first to start of display line VCHomeDisplay, then behaves like VCHome. */
 PHP_METHOD(php_wxStyledTextCtrl, VCHomeWrap)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -57127,7 +57239,8 @@ PHP_METHOD(php_wxStyledTextCtrl, VCHomeWrap)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::VCHomeWrapExtend() */
+/* {{{ proto  wxStyledTextCtrl::VCHomeWrapExtend()
+   Like VCHomeExtend but when word-wrap is enabled extends first to start of display line VCHomeDisplayExtend, then behaves like VCHomeExtend. */
 PHP_METHOD(php_wxStyledTextCtrl, VCHomeWrapExtend)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -57233,7 +57346,7 @@ PHP_METHOD(php_wxStyledTextCtrl, VCHomeWrapExtend)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::VisibleFromDocLine(int line)
+/* {{{ proto int wxStyledTextCtrl::VisibleFromDocLine(int docLine)
    Find the display line of a document line taking hidden lines into account. */
 PHP_METHOD(php_wxStyledTextCtrl, VisibleFromDocLine)
 {
@@ -57291,7 +57404,7 @@ PHP_METHOD(php_wxStyledTextCtrl, VisibleFromDocLine)
     #endif
 
     //Parameters for overload 0
-    long line0;
+    long docLine0;
     bool overload0_called = false;
 
     
@@ -57301,11 +57414,11 @@ PHP_METHOD(php_wxStyledTextCtrl, VisibleFromDocLine)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&line0)\n");
+        php_printf("Parsing parameters with 'l' (&docLine0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &line0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &docLine0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -57320,10 +57433,10 @@ PHP_METHOD(php_wxStyledTextCtrl, VisibleFromDocLine)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::VisibleFromDocLine((int) line0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::VisibleFromDocLine((int) docLine0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->VisibleFromDocLine((int) line0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->VisibleFromDocLine((int) docLine0));
 
 
                 return;
@@ -59102,7 +59215,7 @@ PHP_METHOD(php_wxStyledTextCtrl, ScrollToStart)
 /* }}} */
 
 /* {{{ proto  wxStyledTextCtrl::MarkerEnableHighlight(bool enabled)
-   Enable/disable highlight for current folding bloc (smallest one that contains the caret) */
+   Enable/disable highlight for current folding block (smallest one that contains the caret) */
 PHP_METHOD(php_wxStyledTextCtrl, MarkerEnableHighlight)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -59683,7 +59796,7 @@ PHP_METHOD(php_wxStyledTextCtrl, AutoCompSetCaseInsensitiveBehaviour)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::BraceBadLightIndicator(bool useBraceBadLightIndicator, int indicator)
+/* {{{ proto  wxStyledTextCtrl::BraceBadLightIndicator(bool useSetting, int indicator)
    Use specified indicator to highlight non matching brace instead of changing its style. */
 PHP_METHOD(php_wxStyledTextCtrl, BraceBadLightIndicator)
 {
@@ -59741,7 +59854,7 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceBadLightIndicator)
     #endif
 
     //Parameters for overload 0
-    bool useBraceBadLightIndicator0;
+    bool useSetting0;
     long indicator0;
     bool overload0_called = false;
 
@@ -59752,11 +59865,11 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceBadLightIndicator)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'bl' (&useBraceBadLightIndicator0, &indicator0)\n");
+        php_printf("Parsing parameters with 'bl' (&useSetting0, &indicator0)\n");
         #endif
 
         char parse_parameters_string[] = "bl";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &useBraceBadLightIndicator0, &indicator0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &useSetting0, &indicator0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -59771,10 +59884,10 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceBadLightIndicator)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::BraceBadLightIndicator(useBraceBadLightIndicator0, (int) indicator0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::BraceBadLightIndicator(useSetting0, (int) indicator0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->BraceBadLightIndicator(useBraceBadLightIndicator0, (int) indicator0);
+                ((wxStyledTextCtrl_php*)native_object)->BraceBadLightIndicator(useSetting0, (int) indicator0);
 
 
                 return;
@@ -59796,7 +59909,7 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceBadLightIndicator)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::BraceHighlightIndicator(bool useBraceHighlightIndicator, int indicator)
+/* {{{ proto  wxStyledTextCtrl::BraceHighlightIndicator(bool useSetting, int indicator)
    Use specified indicator to highlight matching braces instead of changing their style. */
 PHP_METHOD(php_wxStyledTextCtrl, BraceHighlightIndicator)
 {
@@ -59854,7 +59967,7 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceHighlightIndicator)
     #endif
 
     //Parameters for overload 0
-    bool useBraceHighlightIndicator0;
+    bool useSetting0;
     long indicator0;
     bool overload0_called = false;
 
@@ -59865,11 +59978,11 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceHighlightIndicator)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'bl' (&useBraceHighlightIndicator0, &indicator0)\n");
+        php_printf("Parsing parameters with 'bl' (&useSetting0, &indicator0)\n");
         #endif
 
         char parse_parameters_string[] = "bl";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &useBraceHighlightIndicator0, &indicator0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &useSetting0, &indicator0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -59884,10 +59997,10 @@ PHP_METHOD(php_wxStyledTextCtrl, BraceHighlightIndicator)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::BraceHighlightIndicator(useBraceHighlightIndicator0, (int) indicator0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::BraceHighlightIndicator(useSetting0, (int) indicator0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->BraceHighlightIndicator(useBraceHighlightIndicator0, (int) indicator0);
+                ((wxStyledTextCtrl_php*)native_object)->BraceHighlightIndicator(useSetting0, (int) indicator0);
 
 
                 return;
@@ -60246,7 +60359,7 @@ PHP_METHOD(php_wxStyledTextCtrl, ContractedFoldNext)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::CountCharacters(int startPos, int endPos)
+/* {{{ proto int wxStyledTextCtrl::CountCharacters(int start, int end)
    Count characters between two positions. */
 PHP_METHOD(php_wxStyledTextCtrl, CountCharacters)
 {
@@ -60304,8 +60417,8 @@ PHP_METHOD(php_wxStyledTextCtrl, CountCharacters)
     #endif
 
     //Parameters for overload 0
-    long startPos0;
-    long endPos0;
+    long start0;
+    long end0;
     bool overload0_called = false;
 
     
@@ -60315,11 +60428,11 @@ PHP_METHOD(php_wxStyledTextCtrl, CountCharacters)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&startPos0, &endPos0)\n");
+        php_printf("Parsing parameters with 'll' (&start0, &end0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &startPos0, &endPos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &start0, &end0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -60334,10 +60447,10 @@ PHP_METHOD(php_wxStyledTextCtrl, CountCharacters)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::CountCharacters((int) startPos0, (int) endPos0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::CountCharacters((int) start0, (int) end0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->CountCharacters((int) startPos0, (int) endPos0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->CountCharacters((int) start0, (int) end0));
 
 
                 return;
@@ -60466,7 +60579,7 @@ PHP_METHOD(php_wxStyledTextCtrl, DelWordRightEnd)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::DeleteRange(int pos, int deleteLength)
+/* {{{ proto  wxStyledTextCtrl::DeleteRange(int start, int lengthDelete)
    Delete a range of text in the document. */
 PHP_METHOD(php_wxStyledTextCtrl, DeleteRange)
 {
@@ -60524,8 +60637,8 @@ PHP_METHOD(php_wxStyledTextCtrl, DeleteRange)
     #endif
 
     //Parameters for overload 0
-    long pos0;
-    long deleteLength0;
+    long start0;
+    long lengthDelete0;
     bool overload0_called = false;
 
     
@@ -60535,11 +60648,11 @@ PHP_METHOD(php_wxStyledTextCtrl, DeleteRange)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&pos0, &deleteLength0)\n");
+        php_printf("Parsing parameters with 'll' (&start0, &lengthDelete0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0, &deleteLength0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &start0, &lengthDelete0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -60554,10 +60667,10 @@ PHP_METHOD(php_wxStyledTextCtrl, DeleteRange)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::DeleteRange((int) pos0, (int) deleteLength0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::DeleteRange((int) start0, (int) lengthDelete0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->DeleteRange((int) pos0, (int) deleteLength0);
+                ((wxStyledTextCtrl_php*)native_object)->DeleteRange((int) start0, (int) lengthDelete0);
 
 
                 return;
@@ -60580,8 +60693,7 @@ PHP_METHOD(php_wxStyledTextCtrl, DeleteRange)
 /* }}} */
 
 /* {{{ proto string wxStyledTextCtrl::DescribeKeyWordSets()
-   Retrieve a '
-' separated list of descriptions of the keyword sets understood by the current lexer. */
+   Retrieve a '\n' separated list of descriptions of the keyword sets understood by the current lexer. */
 PHP_METHOD(php_wxStyledTextCtrl, DescribeKeyWordSets)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -60804,7 +60916,8 @@ PHP_METHOD(php_wxStyledTextCtrl, DescribeProperty)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::DiscardEdits() */
+/* {{{ proto  wxStyledTextCtrl::DiscardEdits()
+   Resets the internal modified flag as if the current changes had been saved. */
 PHP_METHOD(php_wxStyledTextCtrl, DiscardEdits)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -62241,7 +62354,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetInsertionPoint)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetLineLength(int n) */
+/* {{{ proto int wxStyledTextCtrl::GetLineLength(int lineNo)
+   Gets the length of the specified line, not including any trailing newline character(s). */
 PHP_METHOD(php_wxStyledTextCtrl, GetLineLength)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -62298,7 +62412,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineLength)
     #endif
 
     //Parameters for overload 0
-    long n0;
+    long lineNo0;
     bool overload0_called = false;
 
     
@@ -62308,11 +62422,11 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineLength)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&n0)\n");
+        php_printf("Parsing parameters with 'l' (&lineNo0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &n0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &lineNo0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -62327,10 +62441,10 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineLength)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::GetLineLength((long) n0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::GetLineLength((long) lineNo0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->GetLineLength((long) n0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->GetLineLength((long) lineNo0));
 
 
                 return;
@@ -62352,7 +62466,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineLength)
 }
 /* }}} */
 
-/* {{{ proto string wxStyledTextCtrl::GetLineText(int n) */
+/* {{{ proto string wxStyledTextCtrl::GetLineText(int lineNo)
+   Returns the contents of a given line in the text control, not including any trailing newline character(s). */
 PHP_METHOD(php_wxStyledTextCtrl, GetLineText)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -62409,7 +62524,7 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineText)
     #endif
 
     //Parameters for overload 0
-    long n0;
+    long lineNo0;
     bool overload0_called = false;
 
     
@@ -62419,11 +62534,11 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineText)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&n0)\n");
+        php_printf("Parsing parameters with 'l' (&lineNo0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &n0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &lineNo0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -62438,11 +62553,11 @@ PHP_METHOD(php_wxStyledTextCtrl, GetLineText)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_STRING(wxStyledTextCtrl::GetLineText((long) n0).fn_str(), 1)\n\n");
+                php_printf("Executing RETURN_STRING(wxStyledTextCtrl::GetLineText((long) lineNo0).fn_str(), 1)\n\n");
                 #endif
 
                 wxString value_to_return1;
-                value_to_return1 = ((wxStyledTextCtrl_php*)native_object)->GetLineText((long) n0);
+                value_to_return1 = ((wxStyledTextCtrl_php*)native_object)->GetLineText((long) lineNo0);
                 RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
@@ -62791,7 +62906,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetMultiPaste)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::GetNumberOfLines() */
+/* {{{ proto int wxStyledTextCtrl::GetNumberOfLines()
+   Returns the number of lines in the text control buffer. */
 PHP_METHOD(php_wxStyledTextCtrl, GetNumberOfLines)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -63896,8 +64012,8 @@ PHP_METHOD(php_wxStyledTextCtrl, GetWordChars)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::IndicatorAllOnFor(int position)
-   Are any indicators present at position? */
+/* {{{ proto int wxStyledTextCtrl::IndicatorAllOnFor(int pos)
+   Are any indicators present at pos? */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorAllOnFor)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -63954,7 +64070,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorAllOnFor)
     #endif
 
     //Parameters for overload 0
-    long position0;
+    long pos0;
     bool overload0_called = false;
 
     
@@ -63964,11 +64080,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorAllOnFor)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&position0)\n");
+        php_printf("Parsing parameters with 'l' (&pos0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &position0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -63983,10 +64099,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorAllOnFor)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorAllOnFor((int) position0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorAllOnFor((int) pos0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorAllOnFor((int) position0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorAllOnFor((int) pos0));
 
 
                 return;
@@ -64008,8 +64124,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorAllOnFor)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::IndicatorClearRange(int position, int clearLength)
-   Turn a indicator off over a range. */
+/* {{{ proto  wxStyledTextCtrl::IndicatorClearRange(int start, int lengthClear)
+   Turn an indicator off over a range. */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorClearRange)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -64066,8 +64182,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorClearRange)
     #endif
 
     //Parameters for overload 0
-    long position0;
-    long clearLength0;
+    long start0;
+    long lengthClear0;
     bool overload0_called = false;
 
     
@@ -64077,11 +64193,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorClearRange)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&position0, &clearLength0)\n");
+        php_printf("Parsing parameters with 'll' (&start0, &lengthClear0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &position0, &clearLength0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &start0, &lengthClear0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -64096,10 +64212,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorClearRange)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::IndicatorClearRange((int) position0, (int) clearLength0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::IndicatorClearRange((int) start0, (int) lengthClear0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->IndicatorClearRange((int) position0, (int) clearLength0);
+                ((wxStyledTextCtrl_php*)native_object)->IndicatorClearRange((int) start0, (int) lengthClear0);
 
 
                 return;
@@ -64121,7 +64237,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorClearRange)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::IndicatorEnd(int indicator, int position)
+/* {{{ proto int wxStyledTextCtrl::IndicatorEnd(int indicator, int pos)
    Where does a particular indicator end? */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorEnd)
 {
@@ -64180,7 +64296,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorEnd)
 
     //Parameters for overload 0
     long indicator0;
-    long position0;
+    long pos0;
     bool overload0_called = false;
 
     
@@ -64190,11 +64306,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorEnd)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&indicator0, &position0)\n");
+        php_printf("Parsing parameters with 'll' (&indicator0, &pos0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &position0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &pos0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -64209,10 +64325,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorEnd)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorEnd((int) indicator0, (int) position0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorEnd((int) indicator0, (int) pos0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorEnd((int) indicator0, (int) position0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorEnd((int) indicator0, (int) pos0));
 
 
                 return;
@@ -64234,8 +64350,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorEnd)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::IndicatorFillRange(int position, int fillLength)
-   Turn a indicator on over a range. */
+/* {{{ proto  wxStyledTextCtrl::IndicatorFillRange(int start, int lengthFill)
+   Turn an indicator on over a range. */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorFillRange)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -64292,8 +64408,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorFillRange)
     #endif
 
     //Parameters for overload 0
-    long position0;
-    long fillLength0;
+    long start0;
+    long lengthFill0;
     bool overload0_called = false;
 
     
@@ -64303,11 +64419,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorFillRange)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&position0, &fillLength0)\n");
+        php_printf("Parsing parameters with 'll' (&start0, &lengthFill0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &position0, &fillLength0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &start0, &lengthFill0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -64322,10 +64438,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorFillRange)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::IndicatorFillRange((int) position0, (int) fillLength0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::IndicatorFillRange((int) start0, (int) lengthFill0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->IndicatorFillRange((int) position0, (int) fillLength0);
+                ((wxStyledTextCtrl_php*)native_object)->IndicatorFillRange((int) start0, (int) lengthFill0);
 
 
                 return;
@@ -64459,7 +64575,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetOutlineAlpha)
 }
 /* }}} */
 
-/* {{{ proto bool wxStyledTextCtrl::IndicatorGetUnder(int indic)
+/* {{{ proto bool wxStyledTextCtrl::IndicatorGetUnder(int indicator)
    Retrieve whether indicator drawn under or over text. */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetUnder)
 {
@@ -64517,7 +64633,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetUnder)
     #endif
 
     //Parameters for overload 0
-    long indic0;
+    long indicator0;
     bool overload0_called = false;
 
     
@@ -64527,11 +64643,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetUnder)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&indic0)\n");
+        php_printf("Parsing parameters with 'l' (&indicator0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indic0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -64546,10 +64662,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorGetUnder)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxStyledTextCtrl::IndicatorGetUnder((int) indic0))\n\n");
+                php_printf("Executing RETURN_BOOL(wxStyledTextCtrl::IndicatorGetUnder((int) indicator0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxStyledTextCtrl_php*)native_object)->IndicatorGetUnder((int) indic0));
+                RETVAL_BOOL(((wxStyledTextCtrl_php*)native_object)->IndicatorGetUnder((int) indicator0));
 
 
                 return;
@@ -64684,7 +64800,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetOutlineAlpha)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::IndicatorSetUnder(int indic, bool under)
+/* {{{ proto  wxStyledTextCtrl::IndicatorSetUnder(int indicator, bool under)
    Set an indicator to draw under text or over(default). */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetUnder)
 {
@@ -64742,7 +64858,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetUnder)
     #endif
 
     //Parameters for overload 0
-    long indic0;
+    long indicator0;
     bool under0;
     bool overload0_called = false;
 
@@ -64753,11 +64869,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetUnder)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'lb' (&indic0, &under0)\n");
+        php_printf("Parsing parameters with 'lb' (&indicator0, &under0)\n");
         #endif
 
         char parse_parameters_string[] = "lb";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indic0, &under0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &under0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -64772,10 +64888,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetUnder)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::IndicatorSetUnder((int) indic0, under0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::IndicatorSetUnder((int) indicator0, under0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->IndicatorSetUnder((int) indic0, under0);
+                ((wxStyledTextCtrl_php*)native_object)->IndicatorSetUnder((int) indicator0, under0);
 
 
                 return;
@@ -64797,7 +64913,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorSetUnder)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::IndicatorStart(int indicator, int position)
+/* {{{ proto int wxStyledTextCtrl::IndicatorStart(int indicator, int pos)
    Where does a particular indicator start? */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorStart)
 {
@@ -64856,7 +64972,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorStart)
 
     //Parameters for overload 0
     long indicator0;
-    long position0;
+    long pos0;
     bool overload0_called = false;
 
     
@@ -64866,11 +64982,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorStart)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&indicator0, &position0)\n");
+        php_printf("Parsing parameters with 'll' (&indicator0, &pos0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &position0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &pos0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -64885,10 +65001,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorStart)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorStart((int) indicator0, (int) position0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorStart((int) indicator0, (int) pos0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorStart((int) indicator0, (int) position0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorStart((int) indicator0, (int) pos0));
 
 
                 return;
@@ -64910,8 +65026,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorStart)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::IndicatorValueAt(int indicator, int position)
-   What value does a particular indicator have at at a position? */
+/* {{{ proto int wxStyledTextCtrl::IndicatorValueAt(int indicator, int pos)
+   What value does a particular indicator have at a position? */
 PHP_METHOD(php_wxStyledTextCtrl, IndicatorValueAt)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -64969,7 +65085,7 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorValueAt)
 
     //Parameters for overload 0
     long indicator0;
-    long position0;
+    long pos0;
     bool overload0_called = false;
 
     
@@ -64979,11 +65095,11 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorValueAt)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&indicator0, &position0)\n");
+        php_printf("Parsing parameters with 'll' (&indicator0, &pos0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &position0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &indicator0, &pos0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -64998,10 +65114,10 @@ PHP_METHOD(php_wxStyledTextCtrl, IndicatorValueAt)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorValueAt((int) indicator0, (int) position0))\n\n");
+                php_printf("Executing RETURN_LONG(wxStyledTextCtrl::IndicatorValueAt((int) indicator0, (int) pos0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorValueAt((int) indicator0, (int) position0));
+                RETVAL_LONG(((wxStyledTextCtrl_php*)native_object)->IndicatorValueAt((int) indicator0, (int) pos0));
 
 
                 return;
@@ -65130,7 +65246,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IsEditable)
 }
 /* }}} */
 
-/* {{{ proto bool wxStyledTextCtrl::IsModified() */
+/* {{{ proto bool wxStyledTextCtrl::IsModified()
+   Returns true if the text has been modified by user. */
 PHP_METHOD(php_wxStyledTextCtrl, IsModified)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -65236,7 +65353,8 @@ PHP_METHOD(php_wxStyledTextCtrl, IsModified)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::MarkDirty() */
+/* {{{ proto  wxStyledTextCtrl::MarkDirty()
+   Mark text as modified (dirty). */
 PHP_METHOD(php_wxStyledTextCtrl, MarkDirty)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -65689,8 +65807,7 @@ PHP_METHOD(php_wxStyledTextCtrl, MoveSelectedLinesUp)
 /* }}} */
 
 /* {{{ proto string wxStyledTextCtrl::PropertyNames()
-   Retrieve a '
-' separated list of properties understood by the current lexer. */
+   Retrieve a '\n' separated list of properties understood by the current lexer. */
 PHP_METHOD(php_wxStyledTextCtrl, PropertyNames)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -66834,7 +66951,8 @@ PHP_METHOD(php_wxStyledTextCtrl, WriteText)
 }
 /* }}} */
 
-/* {{{ proto int wxStyledTextCtrl::XYToPosition(int x, int y) */
+/* {{{ proto int wxStyledTextCtrl::XYToPosition(int x, int y)
+   Converts the given zero based column and line number to a position. */
 PHP_METHOD(php_wxStyledTextCtrl, XYToPosition)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -67166,7 +67284,7 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetWeight)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::StyleSetSizeFractional(int style, int caseForce)
+/* {{{ proto  wxStyledTextCtrl::StyleSetSizeFractional(int style, int sizeHundredthPoints)
    Set the size of characters of a style. */
 PHP_METHOD(php_wxStyledTextCtrl, StyleSetSizeFractional)
 {
@@ -67225,7 +67343,7 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetSizeFractional)
 
     //Parameters for overload 0
     long style0;
-    long caseForce0;
+    long sizeHundredthPoints0;
     bool overload0_called = false;
 
     
@@ -67235,11 +67353,11 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetSizeFractional)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&style0, &caseForce0)\n");
+        php_printf("Parsing parameters with 'll' (&style0, &sizeHundredthPoints0)\n");
         #endif
 
         char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0, &caseForce0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &style0, &sizeHundredthPoints0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -67254,10 +67372,10 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleSetSizeFractional)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::StyleSetSizeFractional((int) style0, (int) caseForce0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::StyleSetSizeFractional((int) style0, (int) sizeHundredthPoints0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->StyleSetSizeFractional((int) style0, (int) caseForce0);
+                ((wxStyledTextCtrl_php*)native_object)->StyleSetSizeFractional((int) style0, (int) sizeHundredthPoints0);
 
 
                 return;
@@ -67736,7 +67854,7 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleGetChangeable)
 /* }}} */
 
 /* {{{ proto int wxStyledTextCtrl::StyleGetCharacterSet(int style)
-   Get the character set of the font in a style. */
+   Get the character get of the font in a style. */
 PHP_METHOD(php_wxStyledTextCtrl, StyleGetCharacterSet)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -69097,7 +69215,8 @@ PHP_METHOD(php_wxStyledTextCtrl, StyleGetWeight)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::ShowPosition(int pos) */
+/* {{{ proto  wxStyledTextCtrl::ShowPosition(int pos)
+   Makes the line containing the given position visible. */
 PHP_METHOD(php_wxStyledTextCtrl, ShowPosition)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -69208,7 +69327,8 @@ PHP_METHOD(php_wxStyledTextCtrl, ShowPosition)
 }
 /* }}} */
 
-/* {{{ proto bool wxStyledTextCtrl::SetStyle(int start, int end, wxTextAttr style) */
+/* {{{ proto bool wxStyledTextCtrl::SetStyle(int start, int end, wxTextAttr style)
+   This method is inherited from wxTextAreaBase but is not implemented in wxStyledTextCtrl. */
 PHP_METHOD(php_wxStyledTextCtrl, SetStyle)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -70013,7 +70133,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetInsertionPoint)
 }
 /* }}} */
 
-/* {{{ proto  wxStyledTextCtrl::SetEmptySelection(int pos)
+/* {{{ proto  wxStyledTextCtrl::SetEmptySelection(int caret)
    Set caret to a position, while removing any existing selection. */
 PHP_METHOD(php_wxStyledTextCtrl, SetEmptySelection)
 {
@@ -70071,7 +70191,7 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEmptySelection)
     #endif
 
     //Parameters for overload 0
-    long pos0;
+    long caret0;
     bool overload0_called = false;
 
     
@@ -70081,11 +70201,11 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEmptySelection)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&pos0)\n");
+        php_printf("Parsing parameters with 'l' (&caret0)\n");
         #endif
 
         char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pos0 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &caret0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -70100,10 +70220,10 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEmptySelection)
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing wxStyledTextCtrl::SetEmptySelection((int) pos0)\n\n");
+                php_printf("Executing wxStyledTextCtrl::SetEmptySelection((int) caret0)\n\n");
                 #endif
 
-                ((wxStyledTextCtrl_php*)native_object)->SetEmptySelection((int) pos0);
+                ((wxStyledTextCtrl_php*)native_object)->SetEmptySelection((int) caret0);
 
 
                 return;
@@ -70237,7 +70357,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetEditable)
 }
 /* }}} */
 
-/* {{{ proto bool wxStyledTextCtrl::SetDefaultStyle(wxTextAttr style) */
+/* {{{ proto bool wxStyledTextCtrl::SetDefaultStyle(wxTextAttr style)
+   This method is inherited from wxTextAreaBase but is not implemented in wxStyledTextCtrl. */
 PHP_METHOD(php_wxStyledTextCtrl, SetDefaultStyle)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -70367,7 +70488,8 @@ PHP_METHOD(php_wxStyledTextCtrl, SetDefaultStyle)
 }
 /* }}} */
 
-/* {{{ proto bool wxStyledTextCtrl::GetStyle(int position, wxTextAttr &style) */
+/* {{{ proto bool wxStyledTextCtrl::GetStyle(int position, wxTextAttr &style)
+   This method is inherited from wxTextAreaBase but is not implemented in wxStyledTextCtrl. */
 PHP_METHOD(php_wxStyledTextCtrl, GetStyle)
 {
     #ifdef USE_WXPHP_DEBUG

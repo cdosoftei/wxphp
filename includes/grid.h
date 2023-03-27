@@ -179,7 +179,6 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxGridCellDateTimeRenderer_functions[] = {
-    PHP_ME(php_wxGridCellDateTimeRenderer, SetParameters, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGridCellDateTimeRenderer, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
@@ -524,6 +523,7 @@ void php_wxGridCellChoiceEditor_destruction_handler(zend_resource*);
 class wxGridCellChoiceEditor_php: public wxGridCellChoiceEditor{
     public:
 
+    wxGridCellChoiceEditor_php(size_t count=0, const wxString choices[]=NULL, bool allowOthers=false):wxGridCellChoiceEditor(count, choices, allowOthers){}
     wxGridCellChoiceEditor_php(const wxArrayString& choices, bool allowOthers=false):wxGridCellChoiceEditor(choices, allowOthers){}
     
     
@@ -973,7 +973,6 @@ static zend_function_entry php_wxGrid_functions[] = {
     PHP_ME(php_wxGrid, AutoSizeRowLabelSize, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, AutoSizeRows, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, BeginBatch, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGrid, BlockToDeviceRect, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, CanDragCell, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, CanDragColMove, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, CanDragColSize, arginfo_null, ZEND_ACC_PUBLIC)
@@ -1166,11 +1165,8 @@ static zend_function_entry php_wxGrid_functions[] = {
     PHP_ME(php_wxGrid, ShowRow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, UnsetSortingColumn, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, UseNativeColHeader, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGrid, XToCol, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, XToEdgeOfCol, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGrid, XYToCell, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, YToEdgeOfRow, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGrid, YToRow, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxGrid, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };

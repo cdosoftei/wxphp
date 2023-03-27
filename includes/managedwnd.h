@@ -190,8 +190,8 @@ void php_wxMDIChildFrame_destruction_handler(zend_resource*);
 class wxMDIChildFrame_php: public wxMDIChildFrame{
     public:
 
-    wxMDIChildFrame_php(wxMDIParentFrame* parent, wxWindowID id, const wxString& title, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_FRAME_STYLE, const wxString& name=wxFrameNameStr):wxMDIChildFrame(parent, id, title, pos, size, style, name){}
     wxMDIChildFrame_php():wxMDIChildFrame(){}
+    wxMDIChildFrame_php(wxMDIParentFrame* parent, wxWindowID id, const wxString& title, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_FRAME_STYLE, const wxString& name=wxFrameNameStr):wxMDIChildFrame(parent, id, title, pos, size, style, name){}
     
     
 
@@ -285,6 +285,7 @@ void php_wxPopupWindow_destruction_handler(zend_resource*);
 class wxPopupWindow_php: public wxPopupWindow{
     public:
 
+    wxPopupWindow_php():wxPopupWindow(){}
     wxPopupWindow_php(wxWindow* parent, int flags=wxBORDER_NONE):wxPopupWindow(parent, flags){}
     
     
@@ -330,6 +331,7 @@ void php_wxPopupTransientWindow_destruction_handler(zend_resource*);
 class wxPopupTransientWindow_php: public wxPopupTransientWindow{
     public:
 
+    wxPopupTransientWindow_php():wxPopupTransientWindow(){}
     wxPopupTransientWindow_php(wxWindow* parent, int flags=wxBORDER_NONE):wxPopupTransientWindow(parent, flags){}
     
     
@@ -376,6 +378,7 @@ void php_wxPropertySheetDialog_destruction_handler(zend_resource*);
 class wxPropertySheetDialog_php: public wxPropertySheetDialog{
     public:
 
+    wxPropertySheetDialog_php():wxPropertySheetDialog(){}
     wxPropertySheetDialog_php(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_DIALOG_STYLE, const wxString& name=wxDialogNameStr):wxPropertySheetDialog(parent, id, title, pos, size, style, name){}
     
     

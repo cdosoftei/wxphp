@@ -5223,6 +5223,42 @@
             ]
         }
     ],
+    "wxMulDivInt32": [
+        {
+            "return_type": "int",
+            "brief_description": "Computes the product of a number with a fraction with rounding.",
+            "parameters_type": [
+                "int",
+                "int",
+                "int"
+            ],
+            "parameters_is_array": [
+                false,
+                false,
+                false
+            ],
+            "parameters_extra": [
+                false,
+                false,
+                false
+            ],
+            "parameters_name": [
+                "n",
+                "numerator",
+                "denominator"
+            ],
+            "parameters_required": [
+                true,
+                true,
+                true
+            ],
+            "parameters_default_value": [
+                null,
+                null,
+                null
+            ]
+        }
+    ],
     "wxTrace": [
         {
             "return_type": "void",
@@ -5566,6 +5602,42 @@
             "parameters_default_value": [
                 null
             ]
+        }
+    ],
+    "wxDumpWindow": [
+        {
+            "return_type": "wxString",
+            "brief_description": "Return a string with human-readable platform-specific description of the window useful for diagnostic purposes.",
+            "parameters_type": [
+                "const wxWindow*"
+            ],
+            "parameters_is_array": [
+                false
+            ],
+            "parameters_extra": [
+                false
+            ],
+            "parameters_name": [
+                "window"
+            ],
+            "parameters_required": [
+                true
+            ],
+            "parameters_default_value": [
+                null
+            ]
+        }
+    ],
+    "wxIsRunningUnderWine": [
+        {
+            "return_type": "bool",
+            "brief_description": "Returns true only for MSW programs running under Wine.",
+            "parameters_type": [],
+            "parameters_is_array": [],
+            "parameters_extra": [],
+            "parameters_name": [],
+            "parameters_required": [],
+            "parameters_default_value": []
         }
     ],
     "wxPGGetDefaultImageWildcard": [
@@ -6415,6 +6487,18 @@
             ]
         }
     ],
+    "wxGetUIDateFormat": [
+        {
+            "return_type": "wxString",
+            "brief_description": "Return the format to use for formatting user-visible dates.",
+            "parameters_type": [],
+            "parameters_is_array": [],
+            "parameters_extra": [],
+            "parameters_name": [],
+            "parameters_required": [],
+            "parameters_default_value": []
+        }
+    ],
     "wxBeginBusyCursor": [
         {
             "return_type": "void",
@@ -6769,6 +6853,36 @@
                 true
             ],
             "parameters_default_value": [
+                null
+            ]
+        }
+    ],
+    "wxSecureZeroMemory": [
+        {
+            "return_type": "void",
+            "brief_description": "Fills the memory block with zeros in a way that is guaranteed not to be optimized away by the compiler.",
+            "parameters_type": [
+                "void*",
+                "size_t"
+            ],
+            "parameters_is_array": [
+                false,
+                false
+            ],
+            "parameters_extra": [
+                false,
+                false
+            ],
+            "parameters_name": [
+                "p",
+                "n"
+            ],
+            "parameters_required": [
+                true,
+                true
+            ],
+            "parameters_default_value": [
+                null,
                 null
             ]
         }
@@ -7665,6 +7779,18 @@
         {
             "return_type": "wxString",
             "brief_description": "Returns the CPU architecture name.",
+            "parameters_type": [],
+            "parameters_is_array": [],
+            "parameters_extra": [],
+            "parameters_name": [],
+            "parameters_required": [],
+            "parameters_default_value": []
+        }
+    ],
+    "wxGetNativeCpuArchitectureName": [
+        {
+            "return_type": "wxString",
+            "brief_description": "In some situations the current process and native CPU architecture may be different.",
             "parameters_type": [],
             "parameters_is_array": [],
             "parameters_extra": [],

@@ -21,8 +21,6 @@ wxGrid::GetColRight
 wxGrid::GetRowMinimalHeight
 wxGridCellNumberEditor::HasRange
 wxGridCellNumberEditor::GetString
-wxTextValidator::ContainsExcludedCharacters
-wxTextValidator::ContainsOnlyIncludedCharacters
 wxXmlResource::ReportError
 wxHtmlHelpWindow::CreateContents
 wxHtmlHelpWindow::CreateIndex
@@ -73,16 +71,19 @@ wxLogGui::GetTitle
 
 Virtual Overrides
 
+wxBitmap::Create
+wxBitmap::Create
+wxMenu::FindItem
 wxAuiNotebook::AddPage
 wxSpinCtrl::SetValue
 wxSpinCtrlDouble::SetValue
+wxGenericDirCtrl::GetPath
 wxToolBar::SetMargins
 wxToolBar::AddTool
 wxGrid::GetDefaultEditorForCell
 wxDataViewListCtrl::AppendColumn
 wxDataViewListCtrl::InsertColumn
 wxDataViewListCtrl::PrependColumn
-wxToolBarToolBase::Toggle
 
 
 
@@ -99,6 +100,7 @@ wxDataFormat::operator==
 wxPrintDialogData::operator=
 wxXmlNode::operator=
 wxXmlDocument::operator=
+wxBitmapBundle::operator=
 
 
 
@@ -120,24 +122,41 @@ Methods duplicated on multiple base classes and not all virtual
 
 Methods implementing unknown types
 
+const wxGraphicsPath&	bool wxNonOwnedWindow::SetShape(const wxGraphicsPath& path)
+wxObjectEventFunction	bool wxEvtHandler::Disconnect(wxEventType eventType, wxObjectEventFunction function, wxObject* userData=NULL, wxEvtHandler* eventSink=NULL)
+wxObjectEventFunction	bool wxEvtHandler::Disconnect(int id=wxID_ANY, wxEventType eventType=wxEVT_NULL, wxObjectEventFunction function=NULL, wxObject* userData=NULL, wxEvtHandler* eventSink=NULL)
+wxObjectEventFunction	bool wxEvtHandler::Disconnect(int id, int lastId, wxEventType eventType, wxObjectEventFunction function=NULL, wxObject* userData=NULL, wxEvtHandler* eventSink=NULL)
+const char*const*	 wxBitmap::wxBitmap(const char*const* bits)
+const char*const*	 wxImage::wxImage(const char*const* xpmData)
 wxImage::HSVValue	wxImage::HSVValue wxImage::RGBtoHSV(const wxImage::RGBValue& rgb)
 wxImage::RGBValue	wxImage::RGBValue wxImage::HSVtoRGB(const wxImage::HSVValue& hsv)
 wxList&	wxList& wxImage::GetHandlers()
 wxImageHistogram&	unsigned long wxImage::ComputeHistogram(wxImageHistogram& histogram)
+const char*const*	 wxIcon::wxIcon(const char*const* bits)
+const wxIconLocation&	 wxIcon::wxIcon(const wxIconLocation& loc)
 wxTreeItemIdValue&	wxTreeItemId wxTreeCtrl::GetNextChild(const wxTreeItemId& item, wxTreeItemIdValue& cookie)
 const wxPointList*	void wxDC::DrawLines(const wxPointList* points, wxCoord xoffset=0, wxCoord yoffset=0)
+const wxPointList*	void wxDC::DrawSpline(const wxPointList* points)
 wxFontMetrics	wxFontMetrics wxDC::GetFontMetrics()
 wxArrayInt&	bool wxDC::GetPartialTextExtents(const wxString& text, wxArrayInt& widths)
 wxAffineMatrix2D	wxAffineMatrix2D wxDC::GetTransformMatrix()
 const wxAffineMatrix2D&	bool wxDC::SetTransformMatrix(const wxAffineMatrix2D& matrix)
+const wxFontInfo&	 wxFont::wxFont(const wxFontInfo& fontInfo)
 wxChar	wxChar wxKeyEvent::GetUnicodeKey()
 wxAuiDockArt*	void wxAuiManager::SetArtProvider(wxAuiDockArt* art_provider)
 wxAuiDockArt*	wxAuiDockArt* wxAuiManager::GetArtProvider()
+WXHINSTANCE	 wxIconBundle::wxIconBundle(const wxString& resourceName, WXHINSTANCE module)
+WXHINSTANCE	void wxIconBundle::AddIcon(const wxString& resourceName, WXHINSTANCE module)
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetLineRaw(int line)
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetSelectedTextRaw()
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetTextRangeRaw(int startPos, int endPos)
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetTextRaw()
+const char*const*	void wxStyledTextCtrl::RegisterImage(int type, const char*const* xpmData)
 wxCharBuffer	wxCharBuffer wxStyledTextCtrl::GetCurLineRaw(int* linePos=NULL)
+const std::vector< wxString >&	int wxItemContainer::Append(const std::vector< wxString >& items)
+const std::vector< wxString >&	int wxItemContainer::Insert(const std::vector< wxString >& items)
+const std::vector< wxString >&	void wxItemContainer::Set(const std::vector< wxString >& items)
+wxItemAttr*	wxItemAttr* wxListCtrl::OnGetItemAttr(long item)
 const wxArrayInt&	 wxRearrangeCtrl::wxRearrangeCtrl(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, const wxArrayInt& order, const wxArrayString& items, long style=0, const wxValidator& validator=wxDefaultValidator, const wxString& name=wxRearrangeListNameStr)
 const wxArrayInt&	bool wxRearrangeCtrl::Create(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, const wxArrayInt& order, const wxArrayString& items, long style=0, const wxValidator& validator=wxDefaultValidator, const wxString& name=wxRearrangeListNameStr)
 const wxArrayInt&	bool wxRearrangeDialog::Create(wxWindow* parent, const wxString& message, const wxString& title, const wxArrayInt& order, const wxArrayString& items, const wxPoint& pos=wxDefaultPosition, const wxString& name=wxRearrangeDialogNameStr)
@@ -146,6 +165,7 @@ const wxArrayInt&	bool wxRearrangeList::Create(wxWindow* parent, wxWindowID id, 
 const wxArrayInt&	 wxRearrangeList::wxRearrangeList(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, const wxArrayInt& order, const wxArrayString& items, long style=0, const wxValidator& validator=wxDefaultValidator, const wxString& name=wxRearrangeListNameStr)
 wxHtmlWindowInterface*	wxCursor wxHtmlCell::GetMouseCursor(wxHtmlWindowInterface* window)
 const wchar_t*	int wxHtmlTag::ScanParam(const wxString& par, const wchar_t* format, void* value)
+const char*const*	 wxCursor::wxCursor(const char*const* xpmData)
 wxDirFilterListCtrl*	wxDirFilterListCtrl* wxGenericDirCtrl::GetFilterListCtrl()
 const wxULongLong&	wxString wxFileName::GetHumanReadableSize(const wxULongLong& bytes, const wxString& nullsize=_("Not available"), int precision=1, wxSizeConvention conv=wxSIZE_CONV_TRADITIONAL)
 wxUniChar	wxUniChar wxFileName::GetPathSeparator(wxPathFormat format=wxPATH_NATIVE)
@@ -162,15 +182,23 @@ FILE*	FILE* wxFFile::fp()
 wxThreadIdType	wxThreadIdType wxThread::GetCurrentId()
 wxThreadIdType	wxThreadIdType wxThread::GetId()
 wxThreadIdType	wxThreadIdType wxThread::GetMainId()
+ExitCode*	wxThreadError wxThread::Delete(ExitCode* rc=NULL, wxThreadWait waitMode=wxTHREAD_WAIT_DEFAULT)
+ExitCode	ExitCode wxThread::Entry()
+ExitCode	ExitCode wxThread::Wait(wxThreadWait flags=wxTHREAD_WAIT_DEFAULT)
 ExtraControlCreatorFunction	bool wxFileDialog::SetExtraControlCreator(ExtraControlCreatorFunction creator)
 const wxAuiNotebookPageArray&	int wxAuiTabArt::GetBestTabCtrlSize(wxWindow* , const wxAuiNotebookPageArray& , const wxSize&)
 const wxAuiNotebookPage&	void wxAuiTabArt::DrawTab(wxDC& dc, wxWindow* wnd, const wxAuiNotebookPage& page, const wxRect& rect, int close_button_state, wxRect* out_tab_rect, wxRect* out_button_rect, int* x_extent)
+const wxGridWindow*	wxRect wxGrid::BlockToDeviceRect(const wxGridCellCoords& topLeft, const wxGridCellCoords& bottomRight, const wxGridWindow* gridWindow=NULL)
 wxGridCellCoordsArray	wxGridCellCoordsArray wxGrid::GetSelectedCells()
 wxArrayInt	wxArrayInt wxGrid::GetSelectedCols()
 wxArrayInt	wxArrayInt wxGrid::GetSelectedRows()
 wxGridCellCoordsArray	wxGridCellCoordsArray wxGrid::GetSelectionBlockBottomRight()
 wxGridCellCoordsArray	wxGridCellCoordsArray wxGrid::GetSelectionBlockTopLeft()
 const wxArrayInt&	void wxGrid::SetColumnsOrder(const wxArrayInt& order)
+wxGridWindow*	int wxGrid::XToCol(int x, bool clipToMinMax=false, wxGridWindow* gridWindow=NULL)
+wxGridWindow*	wxGridCellCoords wxGrid::XYToCell(int x, int y, wxGridWindow* gridWindow=NULL)
+wxGridWindow*	wxGridCellCoords wxGrid::XYToCell(const wxPoint& pos, wxGridWindow* gridWindow=NULL)
+wxGridWindow*	int wxGrid::YToRow(int y, bool clipToMinMax=false, wxGridWindow* gridWindow=NULL)
 const wxArrayInt&	 wxGridSizesInfo::wxGridSizesInfo(int defSize, const wxArrayInt& allSizes)
 wxDataViewItemArray&	int wxDataViewCtrl::GetSelections(wxDataViewItemArray& sel)
 const wxDataViewItemArray&	void wxDataViewCtrl::SetSelections(const wxDataViewItemArray& sel)
@@ -194,9 +222,17 @@ wxMBConv*	wxMBConv* wxDataOutputStream::GetConv()
 const wxMBConv&	void wxDataOutputStream::SetConv(const wxMBConv& conv)
 const wxMBConv&	 wxDataOutputStream::wxDataOutputStream(wxOutputStream& stream, const wxMBConv& conv=wxConvUTF8)
 wxChar*	bool wxVariant::Convert(wxChar* value)
+wxLongLong*	bool wxVariant::Convert(wxLongLong* value)
+wxULongLong*	bool wxVariant::Convert(wxULongLong* value)
 wxUniChar	wxUniChar wxVariant::GetChar()
 wxLongLong	wxLongLong wxVariant::GetLongLong()
 wxULongLong	wxULongLong wxVariant::GetULongLong()
+const wxAny&	 wxVariant::wxVariant(const wxAny& any)
+const wxChar*	 wxVariant::wxVariant(const wxChar* value, const wxString& name=wxEmptyString)
+wxChar	 wxVariant::wxVariant(wxChar value, const wxString& name=wxEmptyString)
+wxLongLong	 wxVariant::wxVariant(wxLongLong value, const wxString& name=wxEmptyString)
+wxULongLong	 wxVariant::wxVariant(wxULongLong value, const wxString& name=wxEmptyString)
+const wxVariantList&	 wxVariant::wxVariant(const wxVariantList& value, const wxString& name=wxEmptyString)
 wxAny*	bool wxVariantData::GetAny(wxAny* any)
 istream&	bool wxVariantData::Read(istream& stream)
 ostream&	bool wxVariantData::Write(ostream& stream)
@@ -204,20 +240,26 @@ const wxChar*	const wxChar* wxClassInfo::GetBaseClassName1()
 const wxChar*	const wxChar* wxClassInfo::GetBaseClassName2()
 const wxChar*	const wxChar* wxClassInfo::GetClassName()
 const wxChar*	 wxClassInfo::wxClassInfo(const wxChar* className, const wxClassInfo* baseClass1, const wxClassInfo* baseClass2, int size, wxObjectConstructorFn fn)
+wxLongLong_t*	bool wxConfigBase::Read(const wxString& key, wxLongLong_t* ll)
+wxLongLong_t*	bool wxConfigBase::Read(const wxString& key, wxLongLong_t* ll, wxLongLong_t defaultVal)
 wxMemoryBuffer*	bool wxConfigBase::Read(const wxString& key, wxMemoryBuffer* buf)
+T*	bool wxConfigBase::Read(const wxString& key, T* value)
+T*	bool wxConfigBase::Read(const wxString& key, T* value, const T& defaultVal)
+wxLongLong_t	bool wxConfigBase::Write(const wxString& key, wxLongLong_t value)
 const wxMemoryBuffer&	bool wxConfigBase::Write(const wxString& key, const wxMemoryBuffer& buf)
+T const&	bool wxConfigBase::Write(const wxString& key, T const& buf)
 const wxMBConv&	 wxConfigBase::wxConfigBase(const wxString& appName=wxEmptyString, const wxString& vendorName=wxEmptyString, const wxString& localFilename=wxEmptyString, const wxString& globalFilename=wxEmptyString, long style=0, const wxMBConv& conv=wxConvAuto())
 wxArrayInt	wxArrayInt wxHeaderCtrl::GetColumnsOrder()
 wxArrayInt&	void wxHeaderCtrl::MoveColumnInOrderArray(wxArrayInt& order, unsigned int idx, unsigned int pos)
 const wxArrayInt&	void wxHeaderCtrl::SetColumnsOrder(const wxArrayInt& order)
 const wxArrayInt&	void wxHeaderCtrl::UpdateColumnsOrder(const wxArrayInt& order)
+const wxPenInfo&	 wxPen::wxPen(const wxPenInfo& info)
 wxArrayInt*	 wxGenericValidator::wxGenericValidator(wxArrayInt* valPtr)
 const wxAuiToolBarItemArray&	int wxAuiToolBarArt::ShowDropDown(wxWindow* wnd, const wxAuiToolBarItemArray& items)
 wxLinuxDistributionInfo	wxLinuxDistributionInfo wxPlatformInfo::GetLinuxDistributionInfo()
 wxPrintAbortDialog*	wxPrintAbortDialog* wxPrinter::CreateAbortWindow(wxWindow* parent, wxPrintout* printout)
 wxPrintPreviewBase*	 wxPreviewFrame::wxPreviewFrame(wxPrintPreviewBase* preview, wxWindow* parent, const wxString& title="Print Preview", const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_FRAME_STYLE, const wxString& name=wxFrameNameStr)
 wxPrintPreviewBase*	wxPrintPreviewBase* wxPreviewControlBar::GetPrintPreview()
-wxArrayInt&	int wxHtmlDCRenderer::Render(int x, int y, wxArrayInt& known_pagebreaks, int from=0, int dont_render=false, int to=INT_MAX)
 const wxHtmlBookRecArray&	const wxHtmlBookRecArray& wxHtmlHelpData::GetBookRecArray()
 const wxHtmlHelpDataItems&	const wxHtmlHelpDataItems& wxHtmlHelpData::GetContentsArray()
 const wxHtmlHelpDataItems&	const wxHtmlHelpDataItems& wxHtmlHelpData::GetIndexArray()
@@ -227,18 +269,22 @@ wxHtmlSelection*	void wxHtmlRenderingInfo::SetSelection(wxHtmlSelection* s)
 wxHtmlParser*	void wxHtmlTagHandler::SetParser(wxHtmlParser* parser)
 wxEncodingConverter*	wxEncodingConverter* wxHtmlWinParser::GetEncodingConverter()
 wxHtmlWindowInterface*	 wxHtmlWinParser::wxHtmlWinParser(wxHtmlWindowInterface* wndIface=NULL)
+const wxFontInfo&	wxFont* wxFontList::FindOrCreateFont(const wxFontInfo& fontInfo)
 wxHeaderButtonParams*	int wxRendererNative::DrawHeaderButton(wxWindow* win, wxDC& dc, const wxRect& rect, int flags=0, wxHeaderSortIconType sortArrow=wxHDR_SORT_ICON_NONE, wxHeaderButtonParams* params=NULL)
 wxHeaderButtonParams*	int wxRendererNative::DrawHeaderButtonContents(wxWindow* win, wxDC& dc, const wxRect& rect, int flags=0, wxHeaderSortIconType sortArrow=wxHDR_SORT_ICON_NONE, wxHeaderButtonParams* params=NULL)
 wxSplitterRenderParams	wxSplitterRenderParams wxRendererNative::GetSplitterParams(const wxWindow* win)
 wxRendererVersion	wxRendererVersion wxRendererNative::GetVersion()
+const Functor&	wxCondError wxCondition::Wait(const Functor& predicate)
+const wxBusyInfoFlags&	 wxBusyInfo::wxBusyInfo(const wxBusyInfoFlags& flags)
 const wxChar**	const wxChar** wxFontMapper::GetAllEncodingNames(wxFontEncoding encoding)
 wxNativeEncodingInfo*	bool wxFontMapper::GetAltForEncoding(wxFontEncoding encoding, wxNativeEncodingInfo* info, const wxString& facename=wxEmptyString, bool interactive=true)
 FILE*	 wxFFileInputStream::wxFFileInputStream(FILE* fp)
 FILE*	 wxFFileOutputStream::wxFFileOutputStream(FILE* fp)
 ssize_t	ssize_t wxFile::Read(void* buffer, size_t count)
-const wxMBConv&	bool wxFile::Write(const wxString& s, const wxMBConv& conv=wxConvUTF8)
+const wxMBConv&	bool wxFile::Write(const wxString& s, const wxMBConv& conv=wxConvAuto())
 const wxMBConv&	bool wxFileConfig::Save(wxOutputStream& os, const wxMBConv& conv=wxConvAuto())
 const wxMBConv&	 wxFileConfig::wxFileConfig(const wxString& appName=wxEmptyString, const wxString& vendorName=wxEmptyString, const wxString& localFilename=wxEmptyString, const wxString& globalFilename=wxEmptyString, long style=wxCONFIG_USE_LOCAL_FILE|wxCONFIG_USE_GLOBAL_FILE, const wxMBConv& conv=wxConvAuto())
+const wxMBConv&	 wxFileConfig::wxFileConfig(wxInputStream& is, const wxMBConv& conv=wxConvAuto())
 const wxList&	const wxList& wxFileHistory::GetMenus()
 const MessageParameters&	wxString wxFileType::ExpandCommand(const wxString& command, const MessageParameters& params)
 wxIconLocation*	bool wxFileType::GetIcon(wxIconLocation* iconLoc)
@@ -248,13 +294,14 @@ const MessageParameters&	bool wxFileType::GetPrintCommand(wxString* command, con
 wxLongLong	wxLongLong wxStopWatch::TimeInMicro()
 const wxLogRecordInfo&	void wxLog::DoLogRecord(wxLogLevel level, const wxString& msg, const wxLogRecordInfo& info)
 const wxLogRecordInfo&	void wxLog::LogRecord(wxLogLevel level, const wxString& msg, const wxLogRecordInfo& info)
+wxToolBarBase*	wxToolBarBase* wxToolbook::GetToolBar()
 const wxRibbonPageTabInfo&	void wxRibbonArtProvider::DrawTab(wxDC& dc, wxWindow* wnd, const wxRibbonPageTabInfo& tab)
 const wxRibbonPageTabInfoArray&	int wxRibbonArtProvider::GetTabCtrlHeight(wxDC& dc, wxWindow* wnd, const wxRibbonPageTabInfoArray& pages)
-const wxColor&	void wxRibbonArtProvider::SetColour(int id, const wxColor& colour)
 wxToolBarBase*	void wxToolBarToolBase::Attach(wxToolBarBase* tbar)
 wxToolBarBase*	wxToolBarBase* wxToolBarToolBase::GetToolBar()
-wxToolBarBase*	 wxToolBarToolBase::wxToolBarToolBase(wxToolBarBase* tbar=NULL, int toolid=wxID_SEPARATOR, const wxString& label=wxEmptyString, const wxBitmap& bmpNormal=wxNullBitmap, const wxBitmap& bmpDisabled=wxNullBitmap, wxItemKind kind=wxITEM_NORMAL, wxObject* clientData=NULL, const wxString& shortHelpString=wxEmptyString, const wxString& longHelpString=wxEmptyString)
+wxToolBarBase*	 wxToolBarToolBase::wxToolBarToolBase(wxToolBarBase* tbar=NULL, int toolid=wxID_SEPARATOR, const wxString& label=wxEmptyString, const wxBitmapBundle& bmpNormal=wxNullBitmap, const wxBitmapBundle& bmpDisabled=wxNullBitmap, wxItemKind kind=wxITEM_NORMAL, wxObject* clientData=NULL, const wxString& shortHelpString=wxEmptyString, const wxString& longHelpString=wxEmptyString)
 wxToolBarBase*	 wxToolBarToolBase::wxToolBarToolBase(wxToolBarBase* tbar, wxControl* control, const wxString& label)
+const wxVector< wxBitmap >&	wxBitmapBundle wxBitmapBundle::FromBitmaps(const wxVector< wxBitmap >& bitmaps)
 
 
 
@@ -525,14 +572,12 @@ Not Crossplatform Classes
 
 wxMouseCaptureLostEvent
 wxMouseCaptureChangedEvent
-wxIconizeEvent
-wxShowEvent
-wxDropFilesEvent
 
 
 
 Not Crossplatform Methods
 
+wxIcon::wxIcon
 wxImageList::Add
 wxImageList::Replace
 wxMenuItem::GetBitmap
@@ -547,8 +592,10 @@ wxSlider::GetSelStart
 wxSlider::GetSelEnd
 wxSlider::ClearSel
 wxSlider::ClearTicks
+wxCursor::wxCursor
 wxDialog::IsMainButtonId
 wxSound::IsPlaying
+wxPen::wxPen
 wxStandardPaths::GetInstallPrefix
 wxStandardPaths::SetInstallPrefix
 
@@ -559,6 +606,7 @@ Deprecated Methods
 wxWindow::SetInitialBestSize
 wxWindow::SetPalette
 wxSizer::SetVirtualSizeHints
+wxSizer::Remove
 wxSizerItem::SetWindow
 wxSizerItem::SetSpacer
 wxSizerItem::SetSizer
@@ -571,17 +619,27 @@ wxMenuItem::GetName
 wxMenuItem::GetText
 wxKeyboardState::CmdDown
 wxArtProvider::Insert
+wxStyledTextEvent::SetText
+wxStyledTextEvent::GetDragText
+wxStyledTextEvent::GetText
+wxStyledTextEvent::SetDragText
 wxHtmlTag::GetBeginPos
 wxHtmlTag::GetEndPos1
 wxHtmlTag::GetEndPos2
 wxThreadHelper::Create
 wxToolBar::OnRightClick
+wxGrid::SetCellAlignment
+wxGrid::SetCellTextColour
+wxGrid::SetCellTextColour
 wxGrid::SetCellValue
 wxComboCtrl::ShowPopup
 wxComboCtrl::SetTextIndent
 wxComboCtrl::HidePopup
 wxComboCtrl::GetTextIndent
 wxDataViewCustomRenderer::LeftClick
+wxIconizeEvent::Iconized
+wxShowEvent::GetShow
+wxPrinter::Setup
 
 
 
@@ -652,6 +710,8 @@ wxIMAGE_OPTION_TIFF_COMPRESSION = "wxString("Compression")"
 wxIMAGE_OPTION_TIFF_IMAGEDESCRIPTOR = "wxString("ImageDescriptor")"
 wxIMAGE_OPTION_TIFF_PHOTOMETRIC = "wxString("Photometric")"
 wxIMAGE_OPTION_TIFF_SAMPLESPERPIXEL = "wxString("SamplesPerPixel")"
+wxIMPLEMENT_WXWIN_MAIN = ""
+wxIMPLEMENT_WXWIN_MAIN_CONSOLE = ""
 wxLC_MASK_ALIGN = "(wxLC_ALIGN_TOP | wxLC_ALIGN_LEFT)"
 wxLC_MASK_SORT = "(wxLC_SORT_ASCENDING | wxLC_SORT_DESCENDING)"
 wxLC_MASK_TYPE = "(wxLC_ICON | wxLC_SMALL_ICON | wxLC_LIST | wxLC_REPORT)"

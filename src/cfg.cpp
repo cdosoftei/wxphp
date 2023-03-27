@@ -2522,47 +2522,62 @@ PHP_METHOD(php_wxConfigBase, Read)
     //Parameters for overload 5
     char* key5;
     size_t key_len5;
-    double* d5;
-    zval d5_ref;
+    long* value5;
+    zval value5_ref;
     bool overload5_called = false;
 
     //Parameters for overload 6
     char* key6;
     size_t key_len6;
-    double* d6;
-    zval d6_ref;
-    double defaultVal6;
+    long* value6;
+    zval value6_ref;
+    long defaultVal6;
     bool overload6_called = false;
 
     //Parameters for overload 7
     char* key7;
     size_t key_len7;
-    double* f7;
-    zval f7_ref;
+    double* d7;
+    zval d7_ref;
     bool overload7_called = false;
 
     //Parameters for overload 8
     char* key8;
     size_t key_len8;
-    double* f8;
-    zval f8_ref;
+    double* d8;
+    zval d8_ref;
     double defaultVal8;
     bool overload8_called = false;
 
     //Parameters for overload 9
     char* key9;
     size_t key_len9;
-    bool* b9;
-    zval b9_ref;
+    double* f9;
+    zval f9_ref;
     bool overload9_called = false;
 
     //Parameters for overload 10
     char* key10;
     size_t key_len10;
-    bool* d10;
-    zval d10_ref;
-    bool defaultVal10;
+    double* f10;
+    zval f10_ref;
+    double defaultVal10;
     bool overload10_called = false;
+
+    //Parameters for overload 11
+    char* key11;
+    size_t key_len11;
+    bool* b11;
+    zval b11_ref;
+    bool overload11_called = false;
+
+    //Parameters for overload 12
+    char* key12;
+    size_t key_len12;
+    bool* d12;
+    zval d12_ref;
+    bool defaultVal12;
+    bool overload12_called = false;
 
     
     //Overload 0
@@ -2668,17 +2683,17 @@ PHP_METHOD(php_wxConfigBase, Read)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sd' (&key5, &key_len5, d5)\n");
+        php_printf("Parsing parameters with 'sl' (&key5, &key_len5, value5)\n");
         #endif
 
-        char parse_parameters_string[] = "sd";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key5, &key_len5, d5 ) == SUCCESS)
+        char parse_parameters_string[] = "sl";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key5, &key_len5, value5 ) == SUCCESS)
         {
             overload5_called = true;
             already_called = true;
 
             char parse_references_string[] = "zz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, d5_ref );
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, value5_ref );
         }
     }
 
@@ -2688,17 +2703,17 @@ PHP_METHOD(php_wxConfigBase, Read)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sdd' (&key6, &key_len6, d6, &defaultVal6)\n");
+        php_printf("Parsing parameters with 'sll' (&key6, &key_len6, value6, &defaultVal6)\n");
         #endif
 
-        char parse_parameters_string[] = "sdd";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key6, &key_len6, d6, &defaultVal6 ) == SUCCESS)
+        char parse_parameters_string[] = "sll";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key6, &key_len6, value6, &defaultVal6 ) == SUCCESS)
         {
             overload6_called = true;
             already_called = true;
 
             char parse_references_string[] = "zzz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, d6_ref, dummy );
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, value6_ref, dummy );
         }
     }
 
@@ -2708,17 +2723,17 @@ PHP_METHOD(php_wxConfigBase, Read)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sd' (&key7, &key_len7, f7)\n");
+        php_printf("Parsing parameters with 'sd' (&key7, &key_len7, d7)\n");
         #endif
 
         char parse_parameters_string[] = "sd";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key7, &key_len7, f7 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key7, &key_len7, d7 ) == SUCCESS)
         {
             overload7_called = true;
             already_called = true;
 
             char parse_references_string[] = "zz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, f7_ref );
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, d7_ref );
         }
     }
 
@@ -2728,17 +2743,17 @@ PHP_METHOD(php_wxConfigBase, Read)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sdd' (&key8, &key_len8, f8, &defaultVal8)\n");
+        php_printf("Parsing parameters with 'sdd' (&key8, &key_len8, d8, &defaultVal8)\n");
         #endif
 
         char parse_parameters_string[] = "sdd";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key8, &key_len8, f8, &defaultVal8 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key8, &key_len8, d8, &defaultVal8 ) == SUCCESS)
         {
             overload8_called = true;
             already_called = true;
 
             char parse_references_string[] = "zzz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, f8_ref, dummy );
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, d8_ref, dummy );
         }
     }
 
@@ -2748,17 +2763,17 @@ PHP_METHOD(php_wxConfigBase, Read)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sb' (&key9, &key_len9, b9)\n");
+        php_printf("Parsing parameters with 'sd' (&key9, &key_len9, f9)\n");
         #endif
 
-        char parse_parameters_string[] = "sb";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key9, &key_len9, b9 ) == SUCCESS)
+        char parse_parameters_string[] = "sd";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key9, &key_len9, f9 ) == SUCCESS)
         {
             overload9_called = true;
             already_called = true;
 
             char parse_references_string[] = "zz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, b9_ref );
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, f9_ref );
         }
     }
 
@@ -2768,17 +2783,57 @@ PHP_METHOD(php_wxConfigBase, Read)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'sbb' (&key10, &key_len10, d10, &defaultVal10)\n");
+        php_printf("Parsing parameters with 'sdd' (&key10, &key_len10, f10, &defaultVal10)\n");
         #endif
 
-        char parse_parameters_string[] = "sbb";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key10, &key_len10, d10, &defaultVal10 ) == SUCCESS)
+        char parse_parameters_string[] = "sdd";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key10, &key_len10, f10, &defaultVal10 ) == SUCCESS)
         {
             overload10_called = true;
             already_called = true;
 
             char parse_references_string[] = "zzz";
-            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, d10_ref, dummy );
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, f10_ref, dummy );
+        }
+    }
+
+    //Overload 11
+    overload11:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'sb' (&key11, &key_len11, b11)\n");
+        #endif
+
+        char parse_parameters_string[] = "sb";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key11, &key_len11, b11 ) == SUCCESS)
+        {
+            overload11_called = true;
+            already_called = true;
+
+            char parse_references_string[] = "zz";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, b11_ref );
+        }
+    }
+
+    //Overload 12
+    overload12:
+    if(!already_called && arguments_received == 3)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'sbb' (&key12, &key_len12, d12, &defaultVal12)\n");
+        #endif
+
+        char parse_parameters_string[] = "sbb";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &key12, &key_len12, d12, &defaultVal12 ) == SUCCESS)
+        {
+            overload12_called = true;
+            already_called = true;
+
+            char parse_references_string[] = "zzz";
+            zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_references_string, dummy, d12_ref, dummy );
         }
     }
 
@@ -2938,23 +2993,23 @@ PHP_METHOD(php_wxConfigBase, Read)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key5, wxConvUTF8), d5))\n\n");
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key5, wxConvUTF8), (size_t*) value5))\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key5, wxConvUTF8), d5));
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key5, wxConvUTF8), (size_t*) value5));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key5, wxConvUTF8), d5));
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key5, wxConvUTF8), (size_t*) value5));
                 }
 
-                size_t elements_returned5_1 = sizeof(d5)/sizeof(*d5);
-                array_init(&d5_ref);
+                size_t elements_returned5_1 = sizeof(value5)/sizeof(*value5);
+                array_init(&value5_ref);
                 for(size_t i=0; i<elements_returned5_1; i++)
                 {
-                    add_next_index_long(&d5_ref, d5[i]);
+                    add_next_index_long(&value5_ref, value5[i]);
                 }
 
                 return;
@@ -2970,23 +3025,23 @@ PHP_METHOD(php_wxConfigBase, Read)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key6, wxConvUTF8), d6, defaultVal6))\n\n");
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key6, wxConvUTF8), (size_t*) value6, (size_t) defaultVal6))\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key6, wxConvUTF8), d6, defaultVal6));
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key6, wxConvUTF8), (size_t*) value6, (size_t) defaultVal6));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key6, wxConvUTF8), d6, defaultVal6));
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key6, wxConvUTF8), (size_t*) value6, (size_t) defaultVal6));
                 }
 
-                size_t elements_returned6_1 = sizeof(d6)/sizeof(*d6);
-                array_init(&d6_ref);
+                size_t elements_returned6_1 = sizeof(value6)/sizeof(*value6);
+                array_init(&value6_ref);
                 for(size_t i=0; i<elements_returned6_1; i++)
                 {
-                    add_next_index_long(&d6_ref, d6[i]);
+                    add_next_index_long(&value6_ref, value6[i]);
                 }
 
                 return;
@@ -3002,23 +3057,23 @@ PHP_METHOD(php_wxConfigBase, Read)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key7, wxConvUTF8), f7))\n\n");
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key7, wxConvUTF8), d7))\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key7, wxConvUTF8), f7));
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key7, wxConvUTF8), d7));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key7, wxConvUTF8), f7));
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key7, wxConvUTF8), d7));
                 }
 
-                size_t elements_returned7_1 = sizeof(f7)/sizeof(*f7);
-                array_init(&f7_ref);
+                size_t elements_returned7_1 = sizeof(d7)/sizeof(*d7);
+                array_init(&d7_ref);
                 for(size_t i=0; i<elements_returned7_1; i++)
                 {
-                    add_next_index_long(&f7_ref, f7[i]);
+                    add_next_index_long(&d7_ref, d7[i]);
                 }
 
                 return;
@@ -3034,23 +3089,23 @@ PHP_METHOD(php_wxConfigBase, Read)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key8, wxConvUTF8), f8, defaultVal8))\n\n");
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key8, wxConvUTF8), d8, defaultVal8))\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key8, wxConvUTF8), f8, defaultVal8));
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key8, wxConvUTF8), d8, defaultVal8));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key8, wxConvUTF8), f8, defaultVal8));
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key8, wxConvUTF8), d8, defaultVal8));
                 }
 
-                size_t elements_returned8_1 = sizeof(f8)/sizeof(*f8);
-                array_init(&f8_ref);
+                size_t elements_returned8_1 = sizeof(d8)/sizeof(*d8);
+                array_init(&d8_ref);
                 for(size_t i=0; i<elements_returned8_1; i++)
                 {
-                    add_next_index_long(&f8_ref, f8[i]);
+                    add_next_index_long(&d8_ref, d8[i]);
                 }
 
                 return;
@@ -3066,23 +3121,23 @@ PHP_METHOD(php_wxConfigBase, Read)
             case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key9, wxConvUTF8), b9))\n\n");
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key9, wxConvUTF8), f9))\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key9, wxConvUTF8), b9));
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key9, wxConvUTF8), f9));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key9, wxConvUTF8), b9));
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key9, wxConvUTF8), f9));
                 }
 
-                size_t elements_returned9_1 = sizeof(b9)/sizeof(*b9);
-                array_init(&b9_ref);
+                size_t elements_returned9_1 = sizeof(f9)/sizeof(*f9);
+                array_init(&f9_ref);
                 for(size_t i=0; i<elements_returned9_1; i++)
                 {
-                    add_next_index_long(&b9_ref, b9[i]);
+                    add_next_index_long(&f9_ref, f9[i]);
                 }
 
                 return;
@@ -3098,23 +3153,87 @@ PHP_METHOD(php_wxConfigBase, Read)
             case 3:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key10, wxConvUTF8), d10, defaultVal10))\n\n");
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key10, wxConvUTF8), f10, defaultVal10))\n\n");
                 #endif
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key10, wxConvUTF8), d10, defaultVal10));
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key10, wxConvUTF8), f10, defaultVal10));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key10, wxConvUTF8), d10, defaultVal10));
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key10, wxConvUTF8), f10, defaultVal10));
                 }
 
-                size_t elements_returned10_1 = sizeof(d10)/sizeof(*d10);
-                array_init(&d10_ref);
+                size_t elements_returned10_1 = sizeof(f10)/sizeof(*f10);
+                array_init(&f10_ref);
                 for(size_t i=0; i<elements_returned10_1; i++)
                 {
-                    add_next_index_long(&d10_ref, d10[i]);
+                    add_next_index_long(&f10_ref, f10[i]);
+                }
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload11_called)
+    {
+        switch(arguments_received)
+        {
+            case 2:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key11, wxConvUTF8), b11))\n\n");
+                #endif
+
+                if(current_object_type == PHP_WXFILECONFIG_TYPE)
+                {
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key11, wxConvUTF8), b11));
+                }
+                else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
+                {
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key11, wxConvUTF8), b11));
+                }
+
+                size_t elements_returned11_1 = sizeof(b11)/sizeof(*b11);
+                array_init(&b11_ref);
+                for(size_t i=0; i<elements_returned11_1; i++)
+                {
+                    add_next_index_long(&b11_ref, b11[i]);
+                }
+
+                return;
+                break;
+            }
+        }
+    }
+
+    if(overload12_called)
+    {
+        switch(arguments_received)
+        {
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxConfigBase::Read(wxString(key12, wxConvUTF8), d12, defaultVal12))\n\n");
+                #endif
+
+                if(current_object_type == PHP_WXFILECONFIG_TYPE)
+                {
+                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key12, wxConvUTF8), d12, defaultVal12));
+                }
+                else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
+                {
+                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key12, wxConvUTF8), d12, defaultVal12));
+                }
+
+                size_t elements_returned12_1 = sizeof(d12)/sizeof(*d12);
+                array_init(&d12_ref);
+                for(size_t i=0; i<elements_returned12_1; i++)
+                {
+                    add_next_index_long(&d12_ref, d12[i]);
                 }
 
                 return;
@@ -5264,7 +5383,7 @@ PHP_METHOD(php_wxDisplay, GetFromWindow)
                     wxphp_object_type argument_type = Z_wxWindow_P(win0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(win0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'win' could not be retreived correctly.");
                     }
@@ -5644,8 +5763,8 @@ PHP_METHOD(php_wxDisplay, IsPrimary)
 }
 /* }}} */
 
-/* {{{ proto  wxDisplay::wxDisplay(int index)
-   Constructor, setting up a wxDisplay instance with the specified display. */
+/* {{{ proto  wxDisplay::wxDisplay()
+   Default constructor creating wxDisplay object representing the primary display. */
 PHP_METHOD(php_wxDisplay, __construct)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5665,23 +5784,78 @@ PHP_METHOD(php_wxDisplay, __construct)
 
 
     //Parameters for overload 0
-    long index0;
     bool overload0_called = false;
+
+    //Parameters for overload 1
+    long index1;
+    bool overload1_called = false;
+
+    //Parameters for overload 2
+    zval* window2;
+    wxWindow* object_pointer2_0 = 0;
+    bool overload2_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received >= 0  && arguments_received <= 1)
+    if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with '|l' (&index0)\n");
+        php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        char parse_parameters_string[] = "|l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &index0 ) == SUCCESS)
+        overload0_called = true;
+        already_called = true;
+    }
+
+    //Overload 1
+    overload1:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&index1)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &index1 ) == SUCCESS)
         {
-            overload0_called = true;
+            overload1_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 2
+    overload2:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'z' (&window2)\n");
+        #endif
+
+        char parse_parameters_string[] = "z";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &window2 ) == SUCCESS)
+        {
+            if(arguments_received >= 1){
+                if(Z_TYPE_P(window2) == IS_OBJECT)
+                {
+                    wxphp_object_type argument_type = Z_wxWindow_P(window2)->object_type;
+                    argument_native_object = (void*) Z_wxWindow_P(window2)->native_object;
+                    object_pointer2_0 = (wxWindow*) argument_native_object;
+                    if (!object_pointer2_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    {
+                        zend_error(E_ERROR, "Parameter 'window' could not be retreived correctly.");
+                    }
+                }
+                else if(Z_TYPE_P(window2) != IS_NULL)
+                {
+                    zend_error(E_ERROR, "Parameter 'window' not null, could not be retreived correctly.");
+                }
+            }
+
+            overload2_called = true;
             already_called = true;
         }
     }
@@ -5702,15 +5876,41 @@ PHP_METHOD(php_wxDisplay, __construct)
                 native_object->references.Initialize();
                 break;
             }
+        }
+    }
+
+    if(overload1_called)
+    {
+        switch(arguments_received)
+        {
             case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct((unsigned int) index0)\n");
+                php_printf("Executing __construct((unsigned int) index1)\n");
                 #endif
 
-                native_object = new wxDisplay_php((unsigned int) index0);
+                native_object = new wxDisplay_php((unsigned int) index1);
 
                 native_object->references.Initialize();
+                break;
+            }
+        }
+    }
+
+    if(overload2_called)
+    {
+        switch(arguments_received)
+        {
+            case 1:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing __construct((const wxWindow*) object_pointer2_0)\n");
+                #endif
+
+                native_object = new wxDisplay_php((const wxWindow*) object_pointer2_0);
+
+                native_object->references.Initialize();
+                ((wxDisplay_php*) native_object)->references.AddReference(window2, "wxDisplay::wxDisplay at call 2 with 1 argument(s)");
                 break;
             }
         }
@@ -8274,7 +8474,7 @@ PHP_METHOD(php_wxFileConfig, SetPath)
 /* }}} */
 
 /* {{{ proto  wxFileConfig::SetUmask(int mode)
-   Allows to set the mode to be used for the config file creation. */
+   Allows setting the mode to be used for the config file creation. */
 PHP_METHOD(php_wxFileConfig, SetUmask)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -9917,7 +10117,7 @@ PHP_METHOD(php_wxFontMapper, SetDialogParent)
                     wxphp_object_type argument_type = Z_wxWindow_P(parent0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(parent0)->native_object;
                     object_pointer0_0 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_0 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'parent' could not be retreived correctly.");
                     }
@@ -10272,7 +10472,7 @@ PHP_METHOD(php_wxPlatformInfo, __construct)
     long id1;
     long osMajor1;
     long osMinor1;
-    long arch1;
+    long bitness1;
     long endian1;
     bool overload1_called = false;
 
@@ -10296,11 +10496,11 @@ PHP_METHOD(php_wxPlatformInfo, __construct)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l|lllllll' (&pid1, &tkMajor1, &tkMinor1, &id1, &osMajor1, &osMinor1, &arch1, &endian1)\n");
+        php_printf("Parsing parameters with 'l|lllllll' (&pid1, &tkMajor1, &tkMinor1, &id1, &osMajor1, &osMinor1, &bitness1, &endian1)\n");
         #endif
 
         char parse_parameters_string[] = "l|lllllll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pid1, &tkMajor1, &tkMinor1, &id1, &osMajor1, &osMinor1, &arch1, &endian1 ) == SUCCESS)
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &pid1, &tkMajor1, &tkMinor1, &id1, &osMajor1, &osMinor1, &bitness1, &endian1 ) == SUCCESS)
         {
             overload1_called = true;
             already_called = true;
@@ -10399,10 +10599,10 @@ PHP_METHOD(php_wxPlatformInfo, __construct)
             case 7:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxArchitecture) arch1)\n");
+                php_printf("Executing __construct((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxBitness) bitness1)\n");
                 #endif
 
-                native_object = new wxPlatformInfo_php((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxArchitecture) arch1);
+                native_object = new wxPlatformInfo_php((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxBitness) bitness1);
 
                 native_object->references.Initialize();
                 break;
@@ -10410,10 +10610,10 @@ PHP_METHOD(php_wxPlatformInfo, __construct)
             case 8:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing __construct((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxArchitecture) arch1, (wxEndianness) endian1)\n");
+                php_printf("Executing __construct((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxBitness) bitness1, (wxEndianness) endian1)\n");
                 #endif
 
-                native_object = new wxPlatformInfo_php((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxArchitecture) arch1, (wxEndianness) endian1);
+                native_object = new wxPlatformInfo_php((wxPortId) pid1, (int) tkMajor1, (int) tkMinor1, (wxOperatingSystemId) id1, (int) osMajor1, (int) osMinor1, (wxBitness) bitness1, (wxEndianness) endian1);
 
                 native_object->references.Initialize();
                 break;
@@ -10448,8 +10648,8 @@ PHP_METHOD(php_wxPlatformInfo, __construct)
 }
 /* }}} */
 
-/* {{{ proto bool wxPlatformInfo::CheckOSVersion(int major, int minor)
-   Returns true if the OS version is at least major.minor. */
+/* {{{ proto bool wxPlatformInfo::CheckOSVersion(int major, int minor, int micro)
+   Returns true if the OS version is at least major.minor.micro. */
 PHP_METHOD(php_wxPlatformInfo, CheckOSVersion)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -10508,20 +10708,21 @@ PHP_METHOD(php_wxPlatformInfo, CheckOSVersion)
     //Parameters for overload 0
     long major0;
     long minor0;
+    long micro0;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 2)
+    if(!already_called && arguments_received >= 2  && arguments_received <= 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&major0, &minor0)\n");
+        php_printf("Parsing parameters with 'll|l' (&major0, &minor0, &micro0)\n");
         #endif
 
-        char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0 ) == SUCCESS)
+        char parse_parameters_string[] = "ll|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0, &micro0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -10545,6 +10746,18 @@ PHP_METHOD(php_wxPlatformInfo, CheckOSVersion)
                 return;
                 break;
             }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxPlatformInfo::CheckOSVersion((int) major0, (int) minor0, (int) micro0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckOSVersion((int) major0, (int) minor0, (int) micro0));
+
+
+                return;
+                break;
+            }
         }
     }
 
@@ -10561,8 +10774,8 @@ PHP_METHOD(php_wxPlatformInfo, CheckOSVersion)
 }
 /* }}} */
 
-/* {{{ proto bool wxPlatformInfo::CheckToolkitVersion(int major, int minor)
-   Returns true if the toolkit version is at least major.minor. */
+/* {{{ proto bool wxPlatformInfo::CheckToolkitVersion(int major, int minor, int micro)
+   Returns true if the toolkit version is at least major.minor.micro. */
 PHP_METHOD(php_wxPlatformInfo, CheckToolkitVersion)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -10621,20 +10834,21 @@ PHP_METHOD(php_wxPlatformInfo, CheckToolkitVersion)
     //Parameters for overload 0
     long major0;
     long minor0;
+    long micro0;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 2)
+    if(!already_called && arguments_received >= 2  && arguments_received <= 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&major0, &minor0)\n");
+        php_printf("Parsing parameters with 'll|l' (&major0, &minor0, &micro0)\n");
         #endif
 
-        char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0 ) == SUCCESS)
+        char parse_parameters_string[] = "ll|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0, &micro0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -10653,6 +10867,18 @@ PHP_METHOD(php_wxPlatformInfo, CheckToolkitVersion)
                 #endif
 
                 RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckToolkitVersion((int) major0, (int) minor0));
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing RETURN_BOOL(wxPlatformInfo::CheckToolkitVersion((int) major0, (int) minor0, (int) micro0))\n\n");
+                #endif
+
+                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckToolkitVersion((int) major0, (int) minor0, (int) micro0));
 
 
                 return;
@@ -10907,8 +11133,8 @@ PHP_METHOD(php_wxPlatformInfo, GetDesktopEnvironment)
 }
 /* }}} */
 
-/* {{{ proto wxEndianness wxPlatformInfo::GetEndianness()
-   Returns the endianness ID of this wxPlatformInfo instance. */
+/* {{{ proto wxEndianness wxPlatformInfo::GetEndianness(string end)
+   Converts the given string to a wxEndianness enum value or to wxENDIAN_INVALID if the given string is not a valid endianness string (i.e. */
 PHP_METHOD(php_wxPlatformInfo, GetEndianness)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -10965,16 +11191,33 @@ PHP_METHOD(php_wxPlatformInfo, GetEndianness)
     #endif
 
     //Parameters for overload 0
+    char* end0;
+    size_t end_len0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    char* end1;
-    size_t end_len1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&end0, &end_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &end0, &end_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -10982,25 +11225,8 @@ PHP_METHOD(php_wxPlatformInfo, GetEndianness)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's' (&end1, &end_len1)\n");
-        #endif
-
-        char parse_parameters_string[] = "s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &end1, &end_len1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -11008,13 +11234,14 @@ PHP_METHOD(php_wxPlatformInfo, GetEndianness)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetEndianness())\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetEndianness(wxString(end0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetEndianness());
+                RETVAL_LONG(wxPlatformInfo::GetEndianness(wxString(end0, wxConvUTF8)));
 
 
                 return;
@@ -11027,14 +11254,13 @@ PHP_METHOD(php_wxPlatformInfo, GetEndianness)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetEndianness(wxString(end1, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetEndianness())\n\n");
                 #endif
 
-                RETVAL_LONG(wxPlatformInfo::GetEndianness(wxString(end1, wxConvUTF8)));
+                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetEndianness());
 
 
                 return;
@@ -11056,8 +11282,8 @@ PHP_METHOD(php_wxPlatformInfo, GetEndianness)
 }
 /* }}} */
 
-/* {{{ proto string wxPlatformInfo::GetEndiannessName()
-   Returns the name for the endianness of this wxPlatformInfo instance. */
+/* {{{ proto string wxPlatformInfo::GetEndiannessName(wxEndianness end)
+   Returns name for the given wxEndianness enumeration value. */
 PHP_METHOD(php_wxPlatformInfo, GetEndiannessName)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -11114,15 +11340,32 @@ PHP_METHOD(php_wxPlatformInfo, GetEndiannessName)
     #endif
 
     //Parameters for overload 0
+    long end0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    long end1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&end0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &end0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -11130,25 +11373,8 @@ PHP_METHOD(php_wxPlatformInfo, GetEndiannessName)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&end1)\n");
-        #endif
-
-        char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &end1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -11156,15 +11382,16 @@ PHP_METHOD(php_wxPlatformInfo, GetEndiannessName)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetEndiannessName().fn_str(), 1)\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetEndiannessName((wxEndianness) end0).fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return0;
-                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetEndiannessName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                wxString value_to_return1;
+                value_to_return1 = wxPlatformInfo::GetEndiannessName((wxEndianness) end0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -11177,16 +11404,15 @@ PHP_METHOD(php_wxPlatformInfo, GetEndiannessName)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetEndiannessName((wxEndianness) end1).fn_str(), 1)\n\n");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetEndiannessName().fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return1;
-                value_to_return1 = wxPlatformInfo::GetEndiannessName((wxEndianness) end1);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                wxString value_to_return0;
+                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetEndiannessName();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11641,8 +11867,8 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemDirectory)
 }
 /* }}} */
 
-/* {{{ proto string wxPlatformInfo::GetOperatingSystemFamilyName()
-   Returns the operating system family name of the OS associated with this wxPlatformInfo instance. */
+/* {{{ proto string wxPlatformInfo::GetOperatingSystemFamilyName(wxOperatingSystemId os)
+   Returns the operating system family name for the given wxOperatingSystemId enumeration value: Unix for wxOS_UNIX, OSX for wxOS_MAC_OS, Windows for wxOS_WINDOWS. */
 PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -11699,15 +11925,32 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
     #endif
 
     //Parameters for overload 0
+    long os0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    long os1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&os0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &os0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -11715,25 +11958,8 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&os1)\n");
-        #endif
-
-        char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &os1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -11741,15 +11967,16 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemFamilyName().fn_str(), 1)\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemFamilyName((wxOperatingSystemId) os0).fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return0;
-                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetOperatingSystemFamilyName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                wxString value_to_return1;
+                value_to_return1 = wxPlatformInfo::GetOperatingSystemFamilyName((wxOperatingSystemId) os0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -11762,16 +11989,15 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemFamilyName((wxOperatingSystemId) os1).fn_str(), 1)\n\n");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemFamilyName().fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return1;
-                value_to_return1 = wxPlatformInfo::GetOperatingSystemFamilyName((wxOperatingSystemId) os1);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                wxString value_to_return0;
+                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetOperatingSystemFamilyName();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11793,8 +12019,8 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
 }
 /* }}} */
 
-/* {{{ proto wxOperatingSystemId wxPlatformInfo::GetOperatingSystemId()
-   Returns the operating system ID of this wxPlatformInfo instance. */
+/* {{{ proto wxOperatingSystemId wxPlatformInfo::GetOperatingSystemId(string name)
+   Converts the given string to a wxOperatingSystemId enum value or to wxOS_UNKNOWN if the given string is not a valid operating system name. */
 PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -11851,16 +12077,33 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
     #endif
 
     //Parameters for overload 0
+    char* name0;
+    size_t name_len0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    char* name1;
-    size_t name_len1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&name0, &name_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &name0, &name_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -11868,25 +12111,8 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's' (&name1, &name_len1)\n");
-        #endif
-
-        char parse_parameters_string[] = "s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &name1, &name_len1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -11894,13 +12120,14 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOperatingSystemId())\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOperatingSystemId(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOperatingSystemId());
+                RETVAL_LONG(wxPlatformInfo::GetOperatingSystemId(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -11913,14 +12140,13 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOperatingSystemId(wxString(name1, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOperatingSystemId())\n\n");
                 #endif
 
-                RETVAL_LONG(wxPlatformInfo::GetOperatingSystemId(wxString(name1, wxConvUTF8)));
+                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOperatingSystemId());
 
 
                 return;
@@ -11942,8 +12168,8 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
 }
 /* }}} */
 
-/* {{{ proto string wxPlatformInfo::GetOperatingSystemIdName()
-   Returns the operating system name of the OS associated with this wxPlatformInfo instance. */
+/* {{{ proto string wxPlatformInfo::GetOperatingSystemIdName(wxOperatingSystemId os)
+   Returns the name for the given operating system ID value. */
 PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -12000,15 +12226,32 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
     #endif
 
     //Parameters for overload 0
+    long os0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    long os1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'l' (&os0)\n");
+        #endif
+
+        char parse_parameters_string[] = "l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &os0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -12016,25 +12259,8 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'l' (&os1)\n");
-        #endif
-
-        char parse_parameters_string[] = "l";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &os1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -12042,15 +12268,16 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemIdName().fn_str(), 1)\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemIdName((wxOperatingSystemId) os0).fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return0;
-                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetOperatingSystemIdName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                wxString value_to_return1;
+                value_to_return1 = wxPlatformInfo::GetOperatingSystemIdName((wxOperatingSystemId) os0);
+                RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -12063,16 +12290,15 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemIdName((wxOperatingSystemId) os1).fn_str(), 1)\n\n");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetOperatingSystemIdName().fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return1;
-                value_to_return1 = wxPlatformInfo::GetOperatingSystemIdName((wxOperatingSystemId) os1);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                wxString value_to_return0;
+                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetOperatingSystemIdName();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12094,8 +12320,8 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
 }
 /* }}} */
 
-/* {{{ proto wxPortId wxPlatformInfo::GetPortId()
-   Returns the wxWidgets port ID associated with this wxPlatformInfo instance. */
+/* {{{ proto wxPortId wxPlatformInfo::GetPortId(string portname)
+   Converts the given string to a wxWidgets port ID value or to wxPORT_UNKNOWN if the given string does not match any of the wxWidgets canonical name ports ("wxGTK", "wxMSW", etc) nor any of the short wxWidgets name ports ("gtk", "msw", etc). */
 PHP_METHOD(php_wxPlatformInfo, GetPortId)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -12152,16 +12378,33 @@ PHP_METHOD(php_wxPlatformInfo, GetPortId)
     #endif
 
     //Parameters for overload 0
+    char* portname0;
+    size_t portname_len0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    char* portname1;
-    size_t portname_len1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 1)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 's' (&portname0, &portname_len0)\n");
+        #endif
+
+        char parse_parameters_string[] = "s";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &portname0, &portname_len0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -12169,25 +12412,8 @@ PHP_METHOD(php_wxPlatformInfo, GetPortId)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 1)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 's' (&portname1, &portname_len1)\n");
-        #endif
-
-        char parse_parameters_string[] = "s";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &portname1, &portname_len1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -12195,13 +12421,14 @@ PHP_METHOD(php_wxPlatformInfo, GetPortId)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 1:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetPortId())\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetPortId(wxString(portname0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetPortId());
+                RETVAL_LONG(wxPlatformInfo::GetPortId(wxString(portname0, wxConvUTF8)));
 
 
                 return;
@@ -12214,14 +12441,13 @@ PHP_METHOD(php_wxPlatformInfo, GetPortId)
     {
         switch(arguments_received)
         {
-            case 1:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetPortId(wxString(portname1, wxConvUTF8)))\n\n");
+                php_printf("Executing RETURN_LONG(wxPlatformInfo::GetPortId())\n\n");
                 #endif
 
-                RETVAL_LONG(wxPlatformInfo::GetPortId(wxString(portname1, wxConvUTF8)));
+                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetPortId());
 
 
                 return;
@@ -12243,8 +12469,8 @@ PHP_METHOD(php_wxPlatformInfo, GetPortId)
 }
 /* }}} */
 
-/* {{{ proto string wxPlatformInfo::GetPortIdName()
-   Returns the name of the wxWidgets port ID associated with this wxPlatformInfo instance. */
+/* {{{ proto string wxPlatformInfo::GetPortIdName(wxPortId port, bool usingUniversal)
+   Returns the name of the given wxWidgets port ID value. */
 PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -12301,16 +12527,33 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
     #endif
 
     //Parameters for overload 0
+    long port0;
+    bool usingUniversal0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    long port1;
-    bool usingUniversal1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'lb' (&port0, &usingUniversal0)\n");
+        #endif
+
+        char parse_parameters_string[] = "lb";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &port0, &usingUniversal0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -12318,25 +12561,8 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'lb' (&port1, &usingUniversal1)\n");
-        #endif
-
-        char parse_parameters_string[] = "lb";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &port1, &usingUniversal1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -12344,15 +12570,16 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdName().fn_str(), 1)\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdName((wxPortId) port0, usingUniversal0).fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return0;
-                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetPortIdName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                wxString value_to_return2;
+                value_to_return2 = wxPlatformInfo::GetPortIdName((wxPortId) port0, usingUniversal0);
+                RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -12365,16 +12592,15 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
     {
         switch(arguments_received)
         {
-            case 2:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdName((wxPortId) port1, usingUniversal1).fn_str(), 1)\n\n");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdName().fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return2;
-                value_to_return2 = wxPlatformInfo::GetPortIdName((wxPortId) port1, usingUniversal1);
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                wxString value_to_return0;
+                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetPortIdName();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12396,8 +12622,8 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
 }
 /* }}} */
 
-/* {{{ proto string wxPlatformInfo::GetPortIdShortName()
-   Returns the short name of the wxWidgets port ID associated with this wxPlatformInfo instance. */
+/* {{{ proto string wxPlatformInfo::GetPortIdShortName(wxPortId port, bool usingUniversal)
+   Returns the short name of the given wxWidgets port ID value. */
 PHP_METHOD(php_wxPlatformInfo, GetPortIdShortName)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -12454,16 +12680,33 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdShortName)
     #endif
 
     //Parameters for overload 0
+    long port0;
+    bool usingUniversal0;
     bool overload0_called = false;
 
     //Parameters for overload 1
-    long port1;
-    bool usingUniversal1;
     bool overload1_called = false;
 
     
     //Overload 0
     overload0:
+    if(!already_called && arguments_received == 2)
+    {
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Parameters received %d\n", arguments_received);
+        php_printf("Parsing parameters with 'lb' (&port0, &usingUniversal0)\n");
+        #endif
+
+        char parse_parameters_string[] = "lb";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &port0, &usingUniversal0 ) == SUCCESS)
+        {
+            overload0_called = true;
+            already_called = true;
+        }
+    }
+
+    //Overload 1
+    overload1:
     if(!already_called && arguments_received == 0)
     {
         #ifdef USE_WXPHP_DEBUG
@@ -12471,25 +12714,8 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdShortName)
         php_printf("Parsing parameters with '' ()\n");
         #endif
 
-        overload0_called = true;
+        overload1_called = true;
         already_called = true;
-    }
-
-    //Overload 1
-    overload1:
-    if(!already_called && arguments_received == 2)
-    {
-        #ifdef USE_WXPHP_DEBUG
-        php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'lb' (&port1, &usingUniversal1)\n");
-        #endif
-
-        char parse_parameters_string[] = "lb";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &port1, &usingUniversal1 ) == SUCCESS)
-        {
-            overload1_called = true;
-            already_called = true;
-        }
     }
 
     
@@ -12497,15 +12723,16 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdShortName)
     {
         switch(arguments_received)
         {
-            case 0:
+            case 2:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdShortName().fn_str(), 1)\n\n");
+                php_printf("Static ");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdShortName((wxPortId) port0, usingUniversal0).fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return0;
-                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetPortIdShortName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                wxString value_to_return2;
+                value_to_return2 = wxPlatformInfo::GetPortIdShortName((wxPortId) port0, usingUniversal0);
+                RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -12518,16 +12745,15 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdShortName)
     {
         switch(arguments_received)
         {
-            case 2:
+            case 0:
             {
                 #ifdef USE_WXPHP_DEBUG
-                php_printf("Static ");
-                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdShortName((wxPortId) port1, usingUniversal1).fn_str(), 1)\n\n");
+                php_printf("Executing RETURN_STRING(wxPlatformInfo::GetPortIdShortName().fn_str(), 1)\n\n");
                 #endif
 
-                wxString value_to_return2;
-                value_to_return2 = wxPlatformInfo::GetPortIdShortName((wxPortId) port1, usingUniversal1);
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                wxString value_to_return0;
+                value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetPortIdShortName();
+                RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -13202,7 +13428,7 @@ PHP_METHOD(php_wxPlatformInfo, SetEndianness)
 }
 /* }}} */
 
-/* {{{ proto  wxPlatformInfo::SetOSVersion(int major, int minor)
+/* {{{ proto  wxPlatformInfo::SetOSVersion(int major, int minor, int micro)
    Sets the version of the operating system associated with this wxPlatformInfo instance. */
 PHP_METHOD(php_wxPlatformInfo, SetOSVersion)
 {
@@ -13262,20 +13488,21 @@ PHP_METHOD(php_wxPlatformInfo, SetOSVersion)
     //Parameters for overload 0
     long major0;
     long minor0;
+    long micro0;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 2)
+    if(!already_called && arguments_received >= 2  && arguments_received <= 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&major0, &minor0)\n");
+        php_printf("Parsing parameters with 'll|l' (&major0, &minor0, &micro0)\n");
         #endif
 
-        char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0 ) == SUCCESS)
+        char parse_parameters_string[] = "ll|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0, &micro0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -13294,6 +13521,18 @@ PHP_METHOD(php_wxPlatformInfo, SetOSVersion)
                 #endif
 
                 ((wxPlatformInfo_php*)native_object)->SetOSVersion((int) major0, (int) minor0);
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxPlatformInfo::SetOSVersion((int) major0, (int) minor0, (int) micro0)\n\n");
+                #endif
+
+                ((wxPlatformInfo_php*)native_object)->SetOSVersion((int) major0, (int) minor0, (int) micro0);
 
 
                 return;
@@ -13652,7 +13891,7 @@ PHP_METHOD(php_wxPlatformInfo, SetPortId)
 }
 /* }}} */
 
-/* {{{ proto  wxPlatformInfo::SetToolkitVersion(int major, int minor)
+/* {{{ proto  wxPlatformInfo::SetToolkitVersion(int major, int minor, int micro)
    Sets the version of the toolkit associated with this wxPlatformInfo instance. */
 PHP_METHOD(php_wxPlatformInfo, SetToolkitVersion)
 {
@@ -13712,20 +13951,21 @@ PHP_METHOD(php_wxPlatformInfo, SetToolkitVersion)
     //Parameters for overload 0
     long major0;
     long minor0;
+    long micro0;
     bool overload0_called = false;
 
     
     //Overload 0
     overload0:
-    if(!already_called && arguments_received == 2)
+    if(!already_called && arguments_received >= 2  && arguments_received <= 3)
     {
         #ifdef USE_WXPHP_DEBUG
         php_printf("Parameters received %d\n", arguments_received);
-        php_printf("Parsing parameters with 'll' (&major0, &minor0)\n");
+        php_printf("Parsing parameters with 'll|l' (&major0, &minor0, &micro0)\n");
         #endif
 
-        char parse_parameters_string[] = "ll";
-        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0 ) == SUCCESS)
+        char parse_parameters_string[] = "ll|l";
+        if(zend_parse_parameters_ex(ZEND_PARSE_PARAMS_QUIET, arguments_received, parse_parameters_string, &major0, &minor0, &micro0 ) == SUCCESS)
         {
             overload0_called = true;
             already_called = true;
@@ -13744,6 +13984,18 @@ PHP_METHOD(php_wxPlatformInfo, SetToolkitVersion)
                 #endif
 
                 ((wxPlatformInfo_php*)native_object)->SetToolkitVersion((int) major0, (int) minor0);
+
+
+                return;
+                break;
+            }
+            case 3:
+            {
+                #ifdef USE_WXPHP_DEBUG
+                php_printf("Executing wxPlatformInfo::SetToolkitVersion((int) major0, (int) minor0, (int) micro0)\n\n");
+                #endif
+
+                ((wxPlatformInfo_php*)native_object)->SetToolkitVersion((int) major0, (int) minor0, (int) micro0);
 
 
                 return;
@@ -14172,7 +14424,7 @@ PHP_METHOD(php_wxSystemSettings, GetMetric)
                     wxphp_object_type argument_type = Z_wxWindow_P(win0)->object_type;
                     argument_native_object = (void*) Z_wxWindow_P(win0)->native_object;
                     object_pointer0_1 = (wxWindow*) argument_native_object;
-                    if (!object_pointer0_1 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXGRID_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
+                    if (!object_pointer0_1 || (argument_type != PHP_WXWINDOW_TYPE && argument_type != PHP_WXNONOWNEDWINDOW_TYPE && argument_type != PHP_WXTOPLEVELWINDOW_TYPE && argument_type != PHP_WXFRAME_TYPE && argument_type != PHP_WXSPLASHSCREEN_TYPE && argument_type != PHP_WXMDICHILDFRAME_TYPE && argument_type != PHP_WXMDIPARENTFRAME_TYPE && argument_type != PHP_WXMINIFRAME_TYPE && argument_type != PHP_WXPREVIEWFRAME_TYPE && argument_type != PHP_WXHTMLHELPFRAME_TYPE && argument_type != PHP_WXDIALOG_TYPE && argument_type != PHP_WXTEXTENTRYDIALOG_TYPE && argument_type != PHP_WXPASSWORDENTRYDIALOG_TYPE && argument_type != PHP_WXMESSAGEDIALOG_TYPE && argument_type != PHP_WXFINDREPLACEDIALOG_TYPE && argument_type != PHP_WXDIRDIALOG_TYPE && argument_type != PHP_WXSYMBOLPICKERDIALOG_TYPE && argument_type != PHP_WXPROPERTYSHEETDIALOG_TYPE && argument_type != PHP_WXWIZARD_TYPE && argument_type != PHP_WXCOLOURDIALOG_TYPE && argument_type != PHP_WXFILEDIALOG_TYPE && argument_type != PHP_WXFONTDIALOG_TYPE && argument_type != PHP_WXSINGLECHOICEDIALOG_TYPE && argument_type != PHP_WXHTMLHELPDIALOG_TYPE && argument_type != PHP_WXGENERICPROGRESSDIALOG_TYPE && argument_type != PHP_WXPROGRESSDIALOG_TYPE && argument_type != PHP_WXPOPUPWINDOW_TYPE && argument_type != PHP_WXPOPUPTRANSIENTWINDOW_TYPE && argument_type != PHP_WXCONTROL_TYPE && argument_type != PHP_WXSTATUSBAR_TYPE && argument_type != PHP_WXANYBUTTON_TYPE && argument_type != PHP_WXBUTTON_TYPE && argument_type != PHP_WXBITMAPBUTTON_TYPE && argument_type != PHP_WXTOGGLEBUTTON_TYPE && argument_type != PHP_WXBITMAPTOGGLEBUTTON_TYPE && argument_type != PHP_WXTREECTRL_TYPE && argument_type != PHP_WXLISTBOX_TYPE && argument_type != PHP_WXCHECKLISTBOX_TYPE && argument_type != PHP_WXREARRANGELIST_TYPE && argument_type != PHP_WXCONTROLWITHITEMS_TYPE && argument_type != PHP_WXBOOKCTRLBASE_TYPE && argument_type != PHP_WXAUINOTEBOOK_TYPE && argument_type != PHP_WXLISTBOOK_TYPE && argument_type != PHP_WXCHOICEBOOK_TYPE && argument_type != PHP_WXNOTEBOOK_TYPE && argument_type != PHP_WXTREEBOOK_TYPE && argument_type != PHP_WXTOOLBOOK_TYPE && argument_type != PHP_WXANIMATIONCTRL_TYPE && argument_type != PHP_WXSTYLEDTEXTCTRL_TYPE && argument_type != PHP_WXSCROLLBAR_TYPE && argument_type != PHP_WXSTATICTEXT_TYPE && argument_type != PHP_WXSTATICLINE_TYPE && argument_type != PHP_WXSTATICBOX_TYPE && argument_type != PHP_WXSTATICBITMAP_TYPE && argument_type != PHP_WXCHECKBOX_TYPE && argument_type != PHP_WXTEXTCTRL_TYPE && argument_type != PHP_WXSEARCHCTRL_TYPE && argument_type != PHP_WXCOMBOBOX_TYPE && argument_type != PHP_WXBITMAPCOMBOBOX_TYPE && argument_type != PHP_WXAUITOOLBAR_TYPE && argument_type != PHP_WXCHOICE_TYPE && argument_type != PHP_WXLISTCTRL_TYPE && argument_type != PHP_WXLISTVIEW_TYPE && argument_type != PHP_WXRADIOBOX_TYPE && argument_type != PHP_WXRADIOBUTTON_TYPE && argument_type != PHP_WXSLIDER_TYPE && argument_type != PHP_WXSPINCTRL_TYPE && argument_type != PHP_WXSPINBUTTON_TYPE && argument_type != PHP_WXGAUGE_TYPE && argument_type != PHP_WXHYPERLINKCTRL_TYPE && argument_type != PHP_WXSPINCTRLDOUBLE_TYPE && argument_type != PHP_WXGENERICDIRCTRL_TYPE && argument_type != PHP_WXCALENDARCTRL_TYPE && argument_type != PHP_WXPICKERBASE_TYPE && argument_type != PHP_WXCOLOURPICKERCTRL_TYPE && argument_type != PHP_WXFONTPICKERCTRL_TYPE && argument_type != PHP_WXFILEPICKERCTRL_TYPE && argument_type != PHP_WXDIRPICKERCTRL_TYPE && argument_type != PHP_WXTIMEPICKERCTRL_TYPE && argument_type != PHP_WXTOOLBAR_TYPE && argument_type != PHP_WXDATEPICKERCTRL_TYPE && argument_type != PHP_WXCOLLAPSIBLEPANE_TYPE && argument_type != PHP_WXCOMBOCTRL_TYPE && argument_type != PHP_WXDATAVIEWCTRL_TYPE && argument_type != PHP_WXDATAVIEWLISTCTRL_TYPE && argument_type != PHP_WXDATAVIEWTREECTRL_TYPE && argument_type != PHP_WXHEADERCTRL_TYPE && argument_type != PHP_WXHEADERCTRLSIMPLE_TYPE && argument_type != PHP_WXFILECTRL_TYPE && argument_type != PHP_WXINFOBAR_TYPE && argument_type != PHP_WXRIBBONCONTROL_TYPE && argument_type != PHP_WXRIBBONBAR_TYPE && argument_type != PHP_WXRIBBONBUTTONBAR_TYPE && argument_type != PHP_WXRIBBONGALLERY_TYPE && argument_type != PHP_WXRIBBONPAGE_TYPE && argument_type != PHP_WXRIBBONPANEL_TYPE && argument_type != PHP_WXRIBBONTOOLBAR_TYPE && argument_type != PHP_WXMEDIACTRL_TYPE && argument_type != PHP_WXSPLITTERWINDOW_TYPE && argument_type != PHP_WXPANEL_TYPE && argument_type != PHP_WXSCROLLEDWINDOW_TYPE && argument_type != PHP_WXHTMLWINDOW_TYPE && argument_type != PHP_WXPREVIEWCANVAS_TYPE && argument_type != PHP_WXWIZARDPAGE_TYPE && argument_type != PHP_WXWIZARDPAGESIMPLE_TYPE && argument_type != PHP_WXEDITABLELISTBOX_TYPE && argument_type != PHP_WXHSCROLLEDWINDOW_TYPE && argument_type != PHP_WXPREVIEWCONTROLBAR_TYPE && argument_type != PHP_WXMENUBAR_TYPE && argument_type != PHP_WXBANNERWINDOW_TYPE && argument_type != PHP_WXMDICLIENTWINDOW_TYPE && argument_type != PHP_WXTREELISTCTRL_TYPE && argument_type != PHP_WXSASHWINDOW_TYPE && argument_type != PHP_WXSASHLAYOUTWINDOW_TYPE && argument_type != PHP_WXHTMLHELPWINDOW_TYPE))
                     {
                         zend_error(E_ERROR, "Parameter 'win' could not be retreived correctly.");
                     }

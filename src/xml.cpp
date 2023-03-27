@@ -132,7 +132,7 @@ zend_object* php_wxXmlNode_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 /* {{{ proto  wxXmlNode::AddAttribute(string name, string value)
-   Appends a attribute with given name and value to the list of attributes for this node. */
+   Appends an attribute with given name and value to the list of attributes for this node. */
 PHP_METHOD(php_wxXmlNode, AddAttribute)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -3668,7 +3668,7 @@ PHP_METHOD(php_wxXmlNode, SetType)
 /* }}} */
 
 /* {{{ proto  wxXmlNode::wxXmlNode(wxXmlNode &parent, wxXmlNodeType type, string name, string content, wxXmlAttribute &attrs, wxXmlNode &next, int lineNo)
-   Creates this XML node and eventually insert it into an existing XML tree. */
+   Creates this XML node and inserts it into the XML tree as a child of the specified parent. */
 PHP_METHOD(php_wxXmlNode, __construct)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6664,7 +6664,7 @@ PHP_METHOD(php_wxXmlDocument, SetDocumentNode)
 /* }}} */
 
 /* {{{ proto  wxXmlDocument::SetFileEncoding(string encoding)
-   Sets the enconding of the file which will be used to save the document. */
+   Sets the encoding of the file which will be used to save the document. */
 PHP_METHOD(php_wxXmlDocument, SetFileEncoding)
 {
     #ifdef USE_WXPHP_DEBUG

@@ -184,6 +184,7 @@ class wxPrintDialogData_php: public wxPrintDialogData{
     public:
 
     wxPrintDialogData_php():wxPrintDialogData(){}
+    wxPrintDialogData_php(const wxPrintDialogData& dialogData):wxPrintDialogData(dialogData){}
     wxPrintDialogData_php(const wxPrintData& printData):wxPrintDialogData(printData){}
     
     
@@ -251,7 +252,7 @@ void php_wxColourDialog_destruction_handler(zend_resource*);
 class wxColourDialog_php: public wxColourDialog{
     public:
 
-    wxColourDialog_php(wxWindow* parent, wxColourData* data=NULL):wxColourDialog(parent, data){}
+    wxColourDialog_php(wxWindow* parent, const wxColourData* data=NULL):wxColourDialog(parent, data){}
     
     
 
@@ -348,8 +349,8 @@ void php_wxDialog_destruction_handler(zend_resource*);
 class wxDialog_php: public wxDialog{
     public:
 
-    wxDialog_php(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_DIALOG_STYLE, const wxString& name=wxDialogNameStr):wxDialog(parent, id, title, pos, size, style, name){}
     wxDialog_php():wxDialog(){}
+    wxDialog_php(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos=wxDefaultPosition, const wxSize& size=wxDefaultSize, long style=wxDEFAULT_DIALOG_STYLE, const wxString& name=wxDialogNameStr):wxDialog(parent, id, title, pos, size, style, name){}
     
     
 
@@ -521,8 +522,8 @@ void php_wxFindReplaceDialog_destruction_handler(zend_resource*);
 class wxFindReplaceDialog_php: public wxFindReplaceDialog{
     public:
 
-    wxFindReplaceDialog_php(wxWindow* parent, wxFindReplaceData* data, const wxString& title, int style=0):wxFindReplaceDialog(parent, data, title, style){}
     wxFindReplaceDialog_php():wxFindReplaceDialog(){}
+    wxFindReplaceDialog_php(wxWindow* parent, wxFindReplaceData* data, const wxString& title, int style=0):wxFindReplaceDialog(parent, data, title, style){}
     
     
 
@@ -989,6 +990,7 @@ void php_wxTextEntryDialog_destruction_handler(zend_resource*);
 class wxTextEntryDialog_php: public wxTextEntryDialog{
     public:
 
+    wxTextEntryDialog_php():wxTextEntryDialog(){}
     wxTextEntryDialog_php(wxWindow* parent, const wxString& message, const wxString& caption=wxGetTextFromUserPromptStr, const wxString& value=wxEmptyString, long style=wxTextEntryDialogStyle, const wxPoint& pos=wxDefaultPosition):wxTextEntryDialog(parent, message, caption, value, style, pos){}
     
     
@@ -1036,7 +1038,7 @@ class wxWizard_php: public wxWizard{
     public:
 
     wxWizard_php():wxWizard(){}
-    wxWizard_php(wxWindow* parent, int id=wxID_ANY, const wxString& title=wxEmptyString, const wxBitmap& bitmap=wxNullBitmap, const wxPoint& pos=wxDefaultPosition, long style=wxDEFAULT_DIALOG_STYLE):wxWizard(parent, id, title, bitmap, pos, style){}
+    wxWizard_php(wxWindow* parent, int id=wxID_ANY, const wxString& title=wxEmptyString, const wxBitmapBundle& bitmap=wxBitmapBundle(), const wxPoint& pos=wxDefaultPosition, long style=wxDEFAULT_DIALOG_STYLE):wxWizard(parent, id, title, bitmap, pos, style){}
     
     
 

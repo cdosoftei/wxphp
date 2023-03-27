@@ -95,9 +95,9 @@ void php_wxMenu_destruction_handler(zend_resource*);
 class wxMenu_php: public wxMenu{
     public:
 
+    wxMenu_php():wxMenu(){}
     wxMenu_php(long style):wxMenu(style){}
     wxMenu_php(const wxString& title, long style=0):wxMenu(title, style){}
-    wxMenu_php():wxMenu(){}
     
     
 

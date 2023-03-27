@@ -55,12 +55,13 @@ class wxRibbonArtProvider_php: public wxRibbonArtProvider{
     wxSize GetPanelSize(wxDC& dc, const wxRibbonPanel* wnd, wxSize client_size, wxPoint* client_offset);
     wxSize GetScrollButtonMinimumSize(wxDC& dc, wxWindow* wnd, long style);
     wxSize GetToolSize(wxDC& dc, wxWindow* wnd, wxSize bitmap_size, wxRibbonButtonKind kind, bool is_first, bool is_last, wxRect* dropdown_region);
+    void SetColour(int id, const wxColour& colour);
     void SetColourScheme(const wxColour& primary, const wxColour& secondary, const wxColour& tertiary);
     void SetFlags(long flags);
     void SetFont(int id, const wxFont& font);
     void SetMetric(int id, int new_val);
     void DrawButtonBarButton(wxDC& dc, wxWindow* wnd, const wxRect& rect, wxRibbonButtonKind kind, long state, const wxString& label, const wxBitmap& bitmap_large, const wxBitmap& bitmap_small);
-    bool GetButtonBarButtonSize(wxDC& dc, wxWindow* wnd, wxRibbonButtonKind kind, wxRibbonButtonBarButtonState size, const wxString& label, wxSize bitmap_size_large, wxSize bitmap_size_small, wxSize* button_size, wxRect* normal_region, wxRect* dropdown_region);
+    bool GetButtonBarButtonSize(wxDC& dc, wxWindow* wnd, wxRibbonButtonKind kind, wxRibbonButtonBarButtonState size, const wxString& label, wxCoord text_min_width, wxSize bitmap_size_large, wxSize bitmap_size_small, wxSize* button_size, wxRect* normal_region, wxRect* dropdown_region);
     
 
     zval phpObj;

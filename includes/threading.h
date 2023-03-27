@@ -207,9 +207,7 @@ void php_wxThread_destruction_handler(zend_resource*);
 class wxThread_php: public wxThread{
     public:
 
-    wxThread_php(wxThreadKind kind=wxTHREAD_DETACHED):wxThread(kind){}
     
-    void* Entry();
     
 
     zval phpObj;
@@ -230,7 +228,6 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxThread_functions[] = {
-    PHP_ME(php_wxThread, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_ME(php_wxThread, YieldMethod, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxThread, This, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_ME(php_wxThread, TestDestroy, arginfo_null, ZEND_ACC_PUBLIC)
@@ -250,8 +247,6 @@ static zend_function_entry php_wxThread_functions[] = {
     PHP_ME(php_wxThread, Resume, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxThread, Run, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_ME(php_wxThread, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxThread, Delete, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxThread, Wait, arginfo_null, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

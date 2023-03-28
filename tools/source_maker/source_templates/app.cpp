@@ -97,6 +97,11 @@ bool wxAppWrapper::OnInit()
                 0, NULL
         );
 
+        if (EG(exception)) {
+            zend_error(E_CORE_ERROR, "Uncaught exception in wxApp::OnInit");
+            return false;
+        }
+
         if(function_called == SUCCESS)
         {
             return true;
@@ -137,6 +142,11 @@ int wxAppWrapper::OnExit()
             NULL, &phpObj, &function_name, &function_return_value,
             0, NULL
         );
+
+        if (EG(exception)) {
+            zend_error(E_CORE_ERROR, "Uncaught exception in wxApp::OnExit");
+            return false;
+        }
 
         if(function_called == SUCCESS)
         {

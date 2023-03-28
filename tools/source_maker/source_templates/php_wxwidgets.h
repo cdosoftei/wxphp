@@ -19,12 +19,29 @@
 #define WXPHP_PHP_WXWIDGETS_H_GUARD
 
 #include "common.h"
+#include "zend_exceptions.h"
 
 /**
  * Define Extension Properties
  */
 #define PHP_WXWIDGETS_EXTNAME        "wxWidgets"
-#define PHP_WXWIDGETS_VERSION        "3.1.4"
+#define PHP_WXWIDGETS_VERSION        "3.2.2.1"
+
+#define WXPHP_RETVAL_BOOL(x) WXPHP_RETVAL(RETVAL_BOOL, x);
+#define WXPHP_RETVAL_STRING(x) WXPHP_RETVAL(RETVAL_STRING, x);
+#define WXPHP_RETVAL_LONG(x) WXPHP_RETVAL(RETVAL_LONG, x);
+#define WXPHP_RETVAL_DOUBLE(x) WXPHP_RETVAL(RETVAL_DOUBLE, x);
+
+#define WXPHP_RETVAL(rv, x) { \
+    try { \
+        rv(x); \
+    } catch(std::exception& e) { \
+        std::string msg("wxWidgets exception: "); \
+        msg += e.what(); \
+        zend_throw_exception(zend_ce_exception, msg.c_str(), 0); \
+        RETVAL_NULL(); \
+    } \
+}
 
 /**
  * Define php compatible library version string

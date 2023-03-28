@@ -67,16 +67,18 @@ void <?=$class_name?>_php::onEvent(wxEvent& evnt)
     co->fci.named_params = NULL;
     #endif
 
-    if(zend_call_function(&co->fci, &co->fci_cache) == FAILURE)
-    {
+    zend_result result = zend_call_function(&co->fci, &co->fci_cache);
+    zval_ptr_dtor(&arg[0]);
+
+    if (EG(exception)) {
+        zend_error(E_CORE_ERROR, "Uncaught exception in onEvent handler");
+    } else if(result == FAILURE) {
         wxString errorMessage = "Failed to call method: '";
         errorMessage += ce->GetString().char_str();
         errorMessage += "'";
 
         wxMessageBox(errorMessage, "Error", wxOK|wxICON_ERROR);
     }
-
-    zval_ptr_dtor(&arg[0]);
 }
 
 PHP_METHOD(php_<?=$class_name?>, Connect)

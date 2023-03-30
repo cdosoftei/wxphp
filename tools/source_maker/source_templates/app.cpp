@@ -14,6 +14,7 @@
 
 #include "php_wxwidgets.h"
 #include "app.h"
+#include "appmanagement.h"
 
 /**
  * Set the wxWidgets application handler.
@@ -113,6 +114,69 @@ bool wxAppWrapper::OnInit()
     }
 
     return wxApp::OnInit();
+}
+
+void wxAppWrapper::OnEventLoopEnter(wxEventLoopBase *loop)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking virtual wxApp::OnEventLoopEnter\n");
+    php_printf("===========================================\n");
+    #endif
+
+    if (!loop) {
+        return;
+    }
+
+    zval function_name, retval;
+    ZVAL_STRINGL(&function_name, "OnEventLoopEnter", 16);
+
+    int function_called;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Trying to call user defined method '%s' on wxApp\n",
+        Z_STRVAL(function_name)
+    );
+    #endif
+
+    if(is_php_user_space_implemented)
+    {
+        zval params[1];
+        wxEventLoopBase_php* phpObjLoop = (wxEventLoopBase_php *)loop;
+
+        if (phpObjLoop->references.IsUserInitialized()) {
+            if (!Z_ISNULL(phpObjLoop->phpObj)) {
+                ZVAL_COPY_VALUE(&params[0], &phpObjLoop->phpObj);
+                zval_add_ref(&phpObjLoop->phpObj);
+            } else {
+                zend_error(E_CORE_WARNING, "Could not retreive original wxEventLoopBase zval.");
+                return;
+            }
+        } else {
+            object_init_ex(&params[0], php_wxEventLoopBase_entry);
+            Z_wxEventLoopBase_P(&params[0])->native_object = (wxEventLoopBase_php*) phpObjLoop;
+        }
+
+        function_called = call_user_function(NULL, &phpObj, &function_name, &retval, 1, params);
+        zval_ptr_dtor(&retval);
+
+        if (EG(exception)) {
+            zend_error(E_CORE_ERROR, "Uncaught exception in wxApp::OnEventLoopEnter");
+            zval_ptr_dtor(&params[0]);
+            return;
+        }
+
+        if (function_called == SUCCESS) {
+            return;
+        } else {
+            zval_ptr_dtor(&params[0]);
+            zend_error(E_CORE_WARNING, "Cannot call wxApp::OnEventLoopEnter");
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Invocation of user defined method failed. Calling native method instead.\n");
+        #endif
+    }
 }
 
 int wxAppWrapper::OnExit()

@@ -24,6 +24,7 @@ class wxAppWrapper : public wxApp
 {
     public:
         bool OnInit();
+        void OnEventLoopEnter(wxEventLoopBase *loop);
         int OnExit();
 
         #ifdef __WXMAC__

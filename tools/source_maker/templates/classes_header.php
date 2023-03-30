@@ -34,7 +34,7 @@ typedef struct _zo_<?=$class_name?>
     zend_object zo;
 } zo_<?=$class_name?>;
 
-void php_<?=$class_name?>_free(void *object);
+void php_<?=$class_name?>_free(zend_object *object);
 zend_object* php_<?=$class_name?>_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

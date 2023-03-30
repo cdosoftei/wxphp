@@ -44,6 +44,9 @@ zend_object* php_wxApp_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxApp_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxApp_object_handlers);
+    wxphp_wxApp_object_handlers.offset = XtOffsetOf(zo_wxApp, zo);
+    wxphp_wxApp_object_handlers.free_obj = php_wxApp_free;
     custom_object->zo.handlers = &wxphp_wxApp_object_handlers;
 
     custom_object->native_object = NULL;
@@ -53,7 +56,7 @@ zend_object* php_wxApp_new(zend_class_entry *class_type)
     return &custom_object->zo;
 }
 
-void php_wxApp_free(void *object)
+void php_wxApp_free(zend_object *object)
 {
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -64,9 +67,8 @@ void php_wxApp_free(void *object)
     php_printf("===========================================\n");
     #endif
 
-    zo_wxApp* custom_object = (zo_wxApp*) object;
+    zo_wxApp* custom_object = php_wxApp_fetch_object(object);
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 END_EXTERN_C()
 

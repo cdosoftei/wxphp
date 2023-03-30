@@ -50,7 +50,7 @@ typedef struct _zo_wxApp
     zend_object zo;
 } zo_wxApp;
 
-void php_wxApp_free(void *object);
+void php_wxApp_free(zend_object *object);
 zend_object* php_wxApp_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

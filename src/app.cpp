@@ -684,6 +684,8 @@ PHP_METHOD(php_wxApp, SetInstance)
         RETURN_NULL();
     }
 
+    GC_ADDREF(Z_OBJ_P(objvar));
+
     wxApp::SetInstance(Z_wxApp_P(objvar)->native_object);
 }
 /* }}} */

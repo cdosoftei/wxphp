@@ -47,8 +47,8 @@ trait Pane
         $manager = $this->getManagedWindow()->getAuiManager();
 
         // This sort of works, but the pane sometimes ends up being moved
-        $manager->DetachPane($window);
-        $manager->AddPane($window, $paneInfo);
+        // $manager->DetachPane($window);
+        // $manager->AddPane($window, $paneInfo);
 
         // Now redraw the panes
         $this->getManagedWindow()->getAuiManager()->Update();

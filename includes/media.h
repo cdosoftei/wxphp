@@ -44,7 +44,7 @@ typedef struct _zo_wxMediaCtrl{
     zend_object zo;
 } zo_wxMediaCtrl;
 
-void php_wxMediaCtrl_free(void *object);
+void php_wxMediaCtrl_free(zend_object *object);
 zend_object* php_wxMediaCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -106,7 +106,7 @@ typedef struct _zo_wxSound{
     zend_object zo;
 } zo_wxSound;
 
-void php_wxSound_free(void *object);
+void php_wxSound_free(zend_object *object);
 zend_object* php_wxSound_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

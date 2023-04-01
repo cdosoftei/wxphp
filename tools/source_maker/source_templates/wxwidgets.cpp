@@ -143,6 +143,7 @@ int wxphp_call_method(zval *object_p, zend_class_entry *obj_ce, zend_function **
         fcic.object = object_p ? Z_OBJ_P(object_p) : NULL;
         result = zend_call_function(&fci, &fcic);
     }
+
     if (result == FAILURE) {
         /* error at c-level */
         if (!obj_ce) {
@@ -153,6 +154,11 @@ int wxphp_call_method(zval *object_p, zend_class_entry *obj_ce, zend_function **
             return FAILURE;
         }
     }
+
+    if (EG(exception)) {
+        zend_error(E_CORE_ERROR, "Uncaught exception in wxphp_call_method");
+    }
+
     if (!retval_ptr) {
         if (retval) {
             zval_ptr_dtor(retval);

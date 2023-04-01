@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxFileHistory_free(void *object)
+void php_wxFileHistory_free(zend_object *object)
 {
-    zo_wxFileHistory* custom_object = (zo_wxFileHistory*) object;
+    zo_wxFileHistory* custom_object = php_wxFileHistory_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxFileHistory_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFileHistory_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxFileHistory_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFileHistory_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFileHistory_object_handlers);
+    wxphp_wxFileHistory_object_handlers.offset = XtOffsetOf(zo_wxFileHistory, zo);
+    wxphp_wxFileHistory_object_handlers.free_obj = php_wxFileHistory_free;
     custom_object->zo.handlers = &wxphp_wxFileHistory_object_handlers;
 
     custom_object->native_object = NULL;
@@ -495,7 +497,7 @@ PHP_METHOD(php_wxFileHistory, GetBaseId)
                 php_printf("Executing RETURN_LONG(wxFileHistory::GetBaseId())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFileHistory_php*)native_object)->GetBaseId());
+                WXPHP_RETVAL_LONG(((wxFileHistory_php*)native_object)->GetBaseId());
 
 
                 return;
@@ -602,7 +604,7 @@ PHP_METHOD(php_wxFileHistory, GetCount)
                 php_printf("Executing RETURN_LONG(wxFileHistory::GetCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFileHistory_php*)native_object)->GetCount());
+                WXPHP_RETVAL_LONG(((wxFileHistory_php*)native_object)->GetCount());
 
 
                 return;
@@ -716,7 +718,7 @@ PHP_METHOD(php_wxFileHistory, GetHistoryFile)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxFileHistory_php*)native_object)->GetHistoryFile((size_t) index0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -823,7 +825,7 @@ PHP_METHOD(php_wxFileHistory, GetMaxFiles)
                 php_printf("Executing RETURN_LONG(wxFileHistory::GetMaxFiles())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFileHistory_php*)native_object)->GetMaxFiles());
+                WXPHP_RETVAL_LONG(((wxFileHistory_php*)native_object)->GetMaxFiles());
 
 
                 return;

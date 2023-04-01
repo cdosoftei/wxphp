@@ -43,7 +43,7 @@ typedef struct _zo_wxClipboard{
     zend_object zo;
 } zo_wxClipboard;
 
-void php_wxClipboard_free(void *object);
+void php_wxClipboard_free(zend_object *object);
 zend_object* php_wxClipboard_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -99,7 +99,7 @@ typedef struct _zo_wxDataFormat{
     zend_object zo;
 } zo_wxDataFormat;
 
-void php_wxDataFormat_free(void *object);
+void php_wxDataFormat_free(zend_object *object);
 zend_object* php_wxDataFormat_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -151,7 +151,7 @@ typedef struct _zo_wxDataObject{
     zend_object zo;
 } zo_wxDataObject;
 
-void php_wxDataObject_free(void *object);
+void php_wxDataObject_free(zend_object *object);
 zend_object* php_wxDataObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -196,7 +196,7 @@ typedef struct _zo_wxCustomDataObject{
     zend_object zo;
 } zo_wxCustomDataObject;
 
-void php_wxCustomDataObject_free(void *object);
+void php_wxCustomDataObject_free(zend_object *object);
 zend_object* php_wxCustomDataObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -245,7 +245,7 @@ typedef struct _zo_wxDataObjectComposite{
     zend_object zo;
 } zo_wxDataObjectComposite;
 
-void php_wxDataObjectComposite_free(void *object);
+void php_wxDataObjectComposite_free(zend_object *object);
 zend_object* php_wxDataObjectComposite_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -291,7 +291,7 @@ typedef struct _zo_wxDataObjectSimple{
     zend_object zo;
 } zo_wxDataObjectSimple;
 
-void php_wxDataObjectSimple_free(void *object);
+void php_wxDataObjectSimple_free(zend_object *object);
 zend_object* php_wxDataObjectSimple_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -339,7 +339,7 @@ typedef struct _zo_wxBitmapDataObject{
     zend_object zo;
 } zo_wxBitmapDataObject;
 
-void php_wxBitmapDataObject_free(void *object);
+void php_wxBitmapDataObject_free(zend_object *object);
 zend_object* php_wxBitmapDataObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -384,7 +384,7 @@ typedef struct _zo_wxURLDataObject{
     zend_object zo;
 } zo_wxURLDataObject;
 
-void php_wxURLDataObject_free(void *object);
+void php_wxURLDataObject_free(zend_object *object);
 zend_object* php_wxURLDataObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -429,7 +429,7 @@ typedef struct _zo_wxTextDataObject{
     zend_object zo;
 } zo_wxTextDataObject;
 
-void php_wxTextDataObject_free(void *object);
+void php_wxTextDataObject_free(zend_object *object);
 zend_object* php_wxTextDataObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -478,7 +478,7 @@ typedef struct _zo_wxFileDataObject{
     zend_object zo;
 } zo_wxFileDataObject;
 
-void php_wxFileDataObject_free(void *object);
+void php_wxFileDataObject_free(zend_object *object);
 zend_object* php_wxFileDataObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -528,7 +528,7 @@ typedef struct _zo_wxDropTarget{
     zend_object zo;
 } zo_wxDropTarget;
 
-void php_wxDropTarget_free(void *object);
+void php_wxDropTarget_free(zend_object *object);
 zend_object* php_wxDropTarget_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -575,7 +575,7 @@ typedef struct _zo_wxTextDropTarget{
     zend_object zo;
 } zo_wxTextDropTarget;
 
-void php_wxTextDropTarget_free(void *object);
+void php_wxTextDropTarget_free(zend_object *object);
 zend_object* php_wxTextDropTarget_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -620,7 +620,7 @@ typedef struct _zo_wxFileDropTarget{
     zend_object zo;
 } zo_wxFileDropTarget;
 
-void php_wxFileDropTarget_free(void *object);
+void php_wxFileDropTarget_free(zend_object *object);
 zend_object* php_wxFileDropTarget_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

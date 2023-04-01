@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxClipboard_free(void *object)
+void php_wxClipboard_free(zend_object *object)
 {
-    zo_wxClipboard* custom_object = (zo_wxClipboard*) object;
+    zo_wxClipboard* custom_object = php_wxClipboard_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxClipboard_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxClipboard_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxClipboard_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxClipboard_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxClipboard_object_handlers);
+    wxphp_wxClipboard_object_handlers.offset = XtOffsetOf(zo_wxClipboard, zo);
+    wxphp_wxClipboard_object_handlers.free_obj = php_wxClipboard_free;
     custom_object->zo.handlers = &wxphp_wxClipboard_object_handlers;
 
     custom_object->native_object = NULL;
@@ -239,7 +241,7 @@ PHP_METHOD(php_wxClipboard, AddData)
                 php_printf("Executing RETURN_BOOL(wxClipboard::AddData((wxDataObject*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->AddData((wxDataObject*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->AddData((wxDataObject*) object_pointer0_0));
 
                 references->AddReference(data0, "wxClipboard::AddData at call 1 with 1 argument(s)");
 
@@ -561,7 +563,7 @@ PHP_METHOD(php_wxClipboard, Flush)
                 php_printf("Executing RETURN_BOOL(wxClipboard::Flush())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->Flush());
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->Flush());
 
 
                 return;
@@ -691,7 +693,7 @@ PHP_METHOD(php_wxClipboard, GetData)
                 php_printf("Executing RETURN_BOOL(wxClipboard::GetData(*(wxDataObject*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->GetData(*(wxDataObject*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->GetData(*(wxDataObject*) object_pointer0_0));
 
                 references->AddReference(data0, "wxClipboard::GetData at call 3 with 1 argument(s)");
 
@@ -799,7 +801,7 @@ PHP_METHOD(php_wxClipboard, IsOpened)
                 php_printf("Executing RETURN_BOOL(wxClipboard::IsOpened())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->IsOpened());
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->IsOpened());
 
 
                 return;
@@ -929,7 +931,7 @@ PHP_METHOD(php_wxClipboard, IsSupported)
                 php_printf("Executing RETURN_BOOL(wxClipboard::IsSupported(*(wxDataFormat*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->IsSupported(*(wxDataFormat*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->IsSupported(*(wxDataFormat*) object_pointer0_0));
 
                 references->AddReference(format0, "wxClipboard::IsSupported at call 3 with 1 argument(s)");
 
@@ -1037,7 +1039,7 @@ PHP_METHOD(php_wxClipboard, IsUsingPrimarySelection)
                 php_printf("Executing RETURN_BOOL(wxClipboard::IsUsingPrimarySelection())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->IsUsingPrimarySelection());
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->IsUsingPrimarySelection());
 
 
                 return;
@@ -1144,7 +1146,7 @@ PHP_METHOD(php_wxClipboard, Open)
                 php_printf("Executing RETURN_BOOL(wxClipboard::Open())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->Open());
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->Open());
 
 
                 return;
@@ -1274,7 +1276,7 @@ PHP_METHOD(php_wxClipboard, SetData)
                 php_printf("Executing RETURN_BOOL(wxClipboard::SetData((wxDataObject*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxClipboard_php*)native_object)->SetData((wxDataObject*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxClipboard_php*)native_object)->SetData((wxDataObject*) object_pointer0_0));
 
                 references->AddReference(data0, "wxClipboard::SetData at call 1 with 1 argument(s)");
 
@@ -1632,9 +1634,9 @@ PHP_METHOD(php_wxClipboard, Get)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataFormat_free(void *object)
+void php_wxDataFormat_free(zend_object *object)
 {
-    zo_wxDataFormat* custom_object = (zo_wxDataFormat*) object;
+    zo_wxDataFormat* custom_object = php_wxDataFormat_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1675,7 +1677,6 @@ void php_wxDataFormat_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataFormat_new(zend_class_entry *class_type)
@@ -1700,6 +1701,9 @@ zend_object* php_wxDataFormat_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataFormat_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataFormat_object_handlers);
+    wxphp_wxDataFormat_object_handlers.offset = XtOffsetOf(zo_wxDataFormat, zo);
+    wxphp_wxDataFormat_object_handlers.free_obj = php_wxDataFormat_free;
     custom_object->zo.handlers = &wxphp_wxDataFormat_object_handlers;
 
     custom_object->native_object = NULL;
@@ -1797,7 +1801,7 @@ PHP_METHOD(php_wxDataFormat, GetId)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxDataFormat_php*)native_object)->GetId();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -1904,7 +1908,7 @@ PHP_METHOD(php_wxDataFormat, GetType)
                 php_printf("Executing RETURN_LONG(wxDataFormat::GetType())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataFormat_php*)native_object)->GetType());
+                WXPHP_RETVAL_LONG(((wxDataFormat_php*)native_object)->GetType());
 
 
                 return;
@@ -2291,9 +2295,9 @@ PHP_METHOD(php_wxDataFormat, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataObject_free(void *object)
+void php_wxDataObject_free(zend_object *object)
 {
-    zo_wxDataObject* custom_object = (zo_wxDataObject*) object;
+    zo_wxDataObject* custom_object = php_wxDataObject_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2306,7 +2310,6 @@ void php_wxDataObject_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataObject_new(zend_class_entry *class_type)
@@ -2331,6 +2334,9 @@ zend_object* php_wxDataObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataObject_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataObject_object_handlers);
+    wxphp_wxDataObject_object_handlers.offset = XtOffsetOf(zo_wxDataObject, zo);
+    wxphp_wxDataObject_object_handlers.free_obj = php_wxDataObject_free;
     custom_object->zo.handlers = &wxphp_wxDataObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2946,7 +2952,7 @@ PHP_METHOD(php_wxDataObject, IsSupported)
                 php_printf("Executing RETURN_BOOL(wxDataObject::IsSupported(*(wxDataFormat*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataObject_php*)native_object)->IsSupported(*(wxDataFormat*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxDataObject_php*)native_object)->IsSupported(*(wxDataFormat*) object_pointer0_0));
 
                 references->AddReference(format0, "wxDataObject::IsSupported at call 3 with 1 argument(s)");
 
@@ -2959,7 +2965,7 @@ PHP_METHOD(php_wxDataObject, IsSupported)
                 php_printf("Executing RETURN_BOOL(wxDataObject::IsSupported(*(wxDataFormat*) object_pointer0_0, (wxDataObject::Direction) dir0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataObject_php*)native_object)->IsSupported(*(wxDataFormat*) object_pointer0_0, (wxDataObject::Direction) dir0));
+                WXPHP_RETVAL_BOOL(((wxDataObject_php*)native_object)->IsSupported(*(wxDataFormat*) object_pointer0_0, (wxDataObject::Direction) dir0));
 
                 references->AddReference(format0, "wxDataObject::IsSupported at call 3 with 2 argument(s)");
 
@@ -3167,7 +3173,7 @@ PHP_METHOD(php_wxDataObject, SetData)
                 php_printf("Executing RETURN_BOOL(wxDataObject::SetData(*(wxDataFormat*) object_pointer0_0, (size_t) len0, (const void*) buf0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataObject_php*)native_object)->SetData(*(wxDataFormat*) object_pointer0_0, (size_t) len0, (const void*) buf0));
+                WXPHP_RETVAL_BOOL(((wxDataObject_php*)native_object)->SetData(*(wxDataFormat*) object_pointer0_0, (size_t) len0, (const void*) buf0));
 
                 references->AddReference(format0, "wxDataObject::SetData at call 3 with 3 argument(s)");
 
@@ -3187,7 +3193,7 @@ PHP_METHOD(php_wxDataObject, SetData)
                 php_printf("Executing RETURN_BOOL(wxDataObjectSimple::SetData((size_t) len1, (const void*) buf1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataObjectSimple_php*)native_object)->SetData((size_t) len1, (const void*) buf1));
+                WXPHP_RETVAL_BOOL(((wxDataObjectSimple_php*)native_object)->SetData((size_t) len1, (const void*) buf1));
 
 
                 return;
@@ -3206,7 +3212,7 @@ PHP_METHOD(php_wxDataObject, SetData)
                 php_printf("Executing RETURN_BOOL(wxCustomDataObject::SetData((size_t) size2, (const void*) data2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxCustomDataObject_php*)native_object)->SetData((size_t) size2, (const void*) data2));
+                WXPHP_RETVAL_BOOL(((wxCustomDataObject_php*)native_object)->SetData((size_t) size2, (const void*) data2));
 
 
                 return;
@@ -3312,9 +3318,9 @@ PHP_METHOD(php_wxDataObject, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxCustomDataObject_free(void *object)
+void php_wxCustomDataObject_free(zend_object *object)
 {
-    zo_wxCustomDataObject* custom_object = (zo_wxCustomDataObject*) object;
+    zo_wxCustomDataObject* custom_object = php_wxCustomDataObject_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3327,7 +3333,6 @@ void php_wxCustomDataObject_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxCustomDataObject_new(zend_class_entry *class_type)
@@ -3352,6 +3357,9 @@ zend_object* php_wxCustomDataObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxCustomDataObject_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxCustomDataObject_object_handlers);
+    wxphp_wxCustomDataObject_object_handlers.offset = XtOffsetOf(zo_wxCustomDataObject, zo);
+    wxphp_wxCustomDataObject_object_handlers.free_obj = php_wxCustomDataObject_free;
     custom_object->zo.handlers = &wxphp_wxCustomDataObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -3452,7 +3460,7 @@ PHP_METHOD(php_wxCustomDataObject, Alloc)
                 php_printf("Executing wxCustomDataObject::Alloc((size_t) size0)\n\n");
                 #endif
 
-                RETVAL_STRING((char*) ((wxCustomDataObject_php*)native_object)->Alloc((size_t) size0));
+                WXPHP_RETVAL_STRING((char*) ((wxCustomDataObject_php*)native_object)->Alloc((size_t) size0));
 
 
                 return;
@@ -3666,7 +3674,7 @@ PHP_METHOD(php_wxCustomDataObject, GetData)
                 php_printf("Executing wxCustomDataObject::GetData()\n\n");
                 #endif
 
-                RETVAL_STRING((char*) ((wxCustomDataObject_php*)native_object)->GetData());
+                WXPHP_RETVAL_STRING((char*) ((wxCustomDataObject_php*)native_object)->GetData());
 
 
                 return;
@@ -3773,7 +3781,7 @@ PHP_METHOD(php_wxCustomDataObject, GetSize)
                 php_printf("Executing RETURN_LONG(wxCustomDataObject::GetSize())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxCustomDataObject_php*)native_object)->GetSize());
+                WXPHP_RETVAL_LONG(((wxCustomDataObject_php*)native_object)->GetSize());
 
 
                 return;
@@ -3887,7 +3895,7 @@ PHP_METHOD(php_wxCustomDataObject, SetData)
                 php_printf("Executing RETURN_BOOL(wxCustomDataObject::SetData((size_t) size0, (const void*) data0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxCustomDataObject_php*)native_object)->SetData((size_t) size0, (const void*) data0));
+                WXPHP_RETVAL_BOOL(((wxCustomDataObject_php*)native_object)->SetData((size_t) size0, (const void*) data0));
 
 
                 return;
@@ -4147,9 +4155,9 @@ PHP_METHOD(php_wxCustomDataObject, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataObjectComposite_free(void *object)
+void php_wxDataObjectComposite_free(zend_object *object)
 {
-    zo_wxDataObjectComposite* custom_object = (zo_wxDataObjectComposite*) object;
+    zo_wxDataObjectComposite* custom_object = php_wxDataObjectComposite_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4162,7 +4170,6 @@ void php_wxDataObjectComposite_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataObjectComposite_new(zend_class_entry *class_type)
@@ -4187,6 +4194,9 @@ zend_object* php_wxDataObjectComposite_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataObjectComposite_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataObjectComposite_object_handlers);
+    wxphp_wxDataObjectComposite_object_handlers.offset = XtOffsetOf(zo_wxDataObjectComposite, zo);
+    wxphp_wxDataObjectComposite_object_handlers.free_obj = php_wxDataObjectComposite_free;
     custom_object->zo.handlers = &wxphp_wxDataObjectComposite_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4731,9 +4741,9 @@ PHP_METHOD(php_wxDataObjectComposite, GetObject)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataObjectSimple_free(void *object)
+void php_wxDataObjectSimple_free(zend_object *object)
 {
-    zo_wxDataObjectSimple* custom_object = (zo_wxDataObjectSimple*) object;
+    zo_wxDataObjectSimple* custom_object = php_wxDataObjectSimple_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4746,7 +4756,6 @@ void php_wxDataObjectSimple_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataObjectSimple_new(zend_class_entry *class_type)
@@ -4771,6 +4780,9 @@ zend_object* php_wxDataObjectSimple_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataObjectSimple_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataObjectSimple_object_handlers);
+    wxphp_wxDataObjectSimple_object_handlers.offset = XtOffsetOf(zo_wxDataObjectSimple, zo);
+    wxphp_wxDataObjectSimple_object_handlers.free_obj = php_wxDataObjectSimple_free;
     custom_object->zo.handlers = &wxphp_wxDataObjectSimple_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4892,7 +4904,7 @@ PHP_METHOD(php_wxDataObjectSimple, GetDataHere)
                 php_printf("Executing RETURN_BOOL(wxDataObjectSimple::GetDataHere((void*) buf0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataObjectSimple_php*)native_object)->GetDataHere((void*) buf0));
+                WXPHP_RETVAL_BOOL(((wxDataObjectSimple_php*)native_object)->GetDataHere((void*) buf0));
 
                 ZVAL_STRING(&buf0_ref, (char*) buf0);
 
@@ -5016,7 +5028,7 @@ PHP_METHOD(php_wxDataObjectSimple, GetDataSize)
                 php_printf("Executing RETURN_LONG(wxDataObjectSimple::GetDataSize())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataObjectSimple_php*)native_object)->GetDataSize());
+                WXPHP_RETVAL_LONG(((wxDataObjectSimple_php*)native_object)->GetDataSize());
 
 
                 return;
@@ -5289,7 +5301,7 @@ PHP_METHOD(php_wxDataObjectSimple, SetData)
                 php_printf("Executing RETURN_BOOL(wxDataObjectSimple::SetData((size_t) len0, (const void*) buf0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataObjectSimple_php*)native_object)->SetData((size_t) len0, (const void*) buf0));
+                WXPHP_RETVAL_BOOL(((wxDataObjectSimple_php*)native_object)->SetData((size_t) len0, (const void*) buf0));
 
 
                 return;
@@ -5577,9 +5589,9 @@ PHP_METHOD(php_wxDataObjectSimple, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBitmapDataObject_free(void *object)
+void php_wxBitmapDataObject_free(zend_object *object)
 {
-    zo_wxBitmapDataObject* custom_object = (zo_wxBitmapDataObject*) object;
+    zo_wxBitmapDataObject* custom_object = php_wxBitmapDataObject_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5592,7 +5604,6 @@ void php_wxBitmapDataObject_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBitmapDataObject_new(zend_class_entry *class_type)
@@ -5617,6 +5628,9 @@ zend_object* php_wxBitmapDataObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBitmapDataObject_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBitmapDataObject_object_handlers);
+    wxphp_wxBitmapDataObject_object_handlers.offset = XtOffsetOf(zo_wxBitmapDataObject, zo);
+    wxphp_wxBitmapDataObject_object_handlers.free_obj = php_wxBitmapDataObject_free;
     custom_object->zo.handlers = &wxphp_wxBitmapDataObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5992,9 +6006,9 @@ PHP_METHOD(php_wxBitmapDataObject, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxURLDataObject_free(void *object)
+void php_wxURLDataObject_free(zend_object *object)
 {
-    zo_wxURLDataObject* custom_object = (zo_wxURLDataObject*) object;
+    zo_wxURLDataObject* custom_object = php_wxURLDataObject_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6007,7 +6021,6 @@ void php_wxURLDataObject_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxURLDataObject_new(zend_class_entry *class_type)
@@ -6032,6 +6045,9 @@ zend_object* php_wxURLDataObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxURLDataObject_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxURLDataObject_object_handlers);
+    wxphp_wxURLDataObject_object_handlers.offset = XtOffsetOf(zo_wxURLDataObject, zo);
+    wxphp_wxURLDataObject_object_handlers.free_obj = php_wxURLDataObject_free;
     custom_object->zo.handlers = &wxphp_wxURLDataObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6129,7 +6145,7 @@ PHP_METHOD(php_wxURLDataObject, GetURL)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURLDataObject_php*)native_object)->GetURL();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -6365,9 +6381,9 @@ PHP_METHOD(php_wxURLDataObject, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTextDataObject_free(void *object)
+void php_wxTextDataObject_free(zend_object *object)
 {
-    zo_wxTextDataObject* custom_object = (zo_wxTextDataObject*) object;
+    zo_wxTextDataObject* custom_object = php_wxTextDataObject_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6380,7 +6396,6 @@ void php_wxTextDataObject_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTextDataObject_new(zend_class_entry *class_type)
@@ -6405,6 +6420,9 @@ zend_object* php_wxTextDataObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTextDataObject_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTextDataObject_object_handlers);
+    wxphp_wxTextDataObject_object_handlers.offset = XtOffsetOf(zo_wxTextDataObject, zo);
+    wxphp_wxTextDataObject_object_handlers.free_obj = php_wxTextDataObject_free;
     custom_object->zo.handlers = &wxphp_wxTextDataObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6629,7 +6647,7 @@ PHP_METHOD(php_wxTextDataObject, GetText)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxTextDataObject_php*)native_object)->GetText();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -6736,7 +6754,7 @@ PHP_METHOD(php_wxTextDataObject, GetTextLength)
                 php_printf("Executing RETURN_LONG(wxTextDataObject::GetTextLength())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxTextDataObject_php*)native_object)->GetTextLength());
+                WXPHP_RETVAL_LONG(((wxTextDataObject_php*)native_object)->GetTextLength());
 
 
                 return;
@@ -6848,7 +6866,7 @@ PHP_METHOD(php_wxTextDataObject, GetFormatCount)
                 php_printf("Executing RETURN_LONG(wxTextDataObject::GetFormatCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxTextDataObject_php*)native_object)->GetFormatCount());
+                WXPHP_RETVAL_LONG(((wxTextDataObject_php*)native_object)->GetFormatCount());
 
 
                 return;
@@ -6860,7 +6878,7 @@ PHP_METHOD(php_wxTextDataObject, GetFormatCount)
                 php_printf("Executing RETURN_LONG(wxTextDataObject::GetFormatCount((wxDataObject::Direction) dir0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxTextDataObject_php*)native_object)->GetFormatCount((wxDataObject::Direction) dir0));
+                WXPHP_RETVAL_LONG(((wxTextDataObject_php*)native_object)->GetFormatCount((wxDataObject::Direction) dir0));
 
 
                 return;
@@ -7241,9 +7259,9 @@ PHP_METHOD(php_wxTextDataObject, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileDataObject_free(void *object)
+void php_wxFileDataObject_free(zend_object *object)
 {
-    zo_wxFileDataObject* custom_object = (zo_wxFileDataObject*) object;
+    zo_wxFileDataObject* custom_object = php_wxFileDataObject_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7256,7 +7274,6 @@ void php_wxFileDataObject_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFileDataObject_new(zend_class_entry *class_type)
@@ -7281,6 +7298,9 @@ zend_object* php_wxFileDataObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFileDataObject_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFileDataObject_object_handlers);
+    wxphp_wxFileDataObject_object_handlers.offset = XtOffsetOf(zo_wxFileDataObject, zo);
+    wxphp_wxFileDataObject_object_handlers.free_obj = php_wxFileDataObject_free;
     custom_object->zo.handlers = &wxphp_wxFileDataObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7601,9 +7621,9 @@ PHP_METHOD(php_wxFileDataObject, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDropTarget_free(void *object)
+void php_wxDropTarget_free(zend_object *object)
 {
-    zo_wxDropTarget* custom_object = (zo_wxDropTarget*) object;
+    zo_wxDropTarget* custom_object = php_wxDropTarget_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7616,7 +7636,6 @@ void php_wxDropTarget_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDropTarget_new(zend_class_entry *class_type)
@@ -7641,6 +7660,9 @@ zend_object* php_wxDropTarget_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDropTarget_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDropTarget_object_handlers);
+    wxphp_wxDropTarget_object_handlers.offset = XtOffsetOf(zo_wxDropTarget, zo);
+    wxphp_wxDropTarget_object_handlers.free_obj = php_wxDropTarget_free;
     custom_object->zo.handlers = &wxphp_wxDropTarget_object_handlers;
 
     custom_object->native_object = NULL;
@@ -8277,7 +8299,7 @@ PHP_METHOD(php_wxDropTarget, GetData)
                 php_printf("Executing RETURN_BOOL(wxDropTarget::GetData())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDropTarget_php*)native_object)->GetData());
+                WXPHP_RETVAL_BOOL(((wxDropTarget_php*)native_object)->GetData());
 
 
                 return;
@@ -8487,9 +8509,9 @@ bool wxDropTarget_php::OnDrop(wxCoord x, wxCoord y)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTextDropTarget_free(void *object)
+void php_wxTextDropTarget_free(zend_object *object)
 {
-    zo_wxTextDropTarget* custom_object = (zo_wxTextDropTarget*) object;
+    zo_wxTextDropTarget* custom_object = php_wxTextDropTarget_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8502,7 +8524,6 @@ void php_wxTextDropTarget_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTextDropTarget_new(zend_class_entry *class_type)
@@ -8527,6 +8548,9 @@ zend_object* php_wxTextDropTarget_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTextDropTarget_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTextDropTarget_object_handlers);
+    wxphp_wxTextDropTarget_object_handlers.offset = XtOffsetOf(zo_wxTextDropTarget, zo);
+    wxphp_wxTextDropTarget_object_handlers.free_obj = php_wxTextDropTarget_free;
     custom_object->zo.handlers = &wxphp_wxTextDropTarget_object_handlers;
 
     custom_object->native_object = NULL;
@@ -8808,9 +8832,9 @@ bool wxTextDropTarget_php::OnDrop(wxCoord x, wxCoord y)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileDropTarget_free(void *object)
+void php_wxFileDropTarget_free(zend_object *object)
 {
-    zo_wxFileDropTarget* custom_object = (zo_wxFileDropTarget*) object;
+    zo_wxFileDropTarget* custom_object = php_wxFileDropTarget_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8823,7 +8847,6 @@ void php_wxFileDropTarget_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFileDropTarget_new(zend_class_entry *class_type)
@@ -8848,6 +8871,9 @@ zend_object* php_wxFileDropTarget_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFileDropTarget_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFileDropTarget_object_handlers);
+    wxphp_wxFileDropTarget_object_handlers.offset = XtOffsetOf(zo_wxFileDropTarget, zo);
+    wxphp_wxFileDropTarget_object_handlers.free_obj = php_wxFileDropTarget_free;
     custom_object->zo.handlers = &wxphp_wxFileDropTarget_object_handlers;
 
     custom_object->native_object = NULL;

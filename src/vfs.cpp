@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxFileSystem_free(void *object)
+void php_wxFileSystem_free(zend_object *object)
 {
-    zo_wxFileSystem* custom_object = (zo_wxFileSystem*) object;
+    zo_wxFileSystem* custom_object = php_wxFileSystem_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxFileSystem_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFileSystem_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxFileSystem_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFileSystem_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFileSystem_object_handlers);
+    wxphp_wxFileSystem_object_handlers.offset = XtOffsetOf(zo_wxFileSystem, zo);
+    wxphp_wxFileSystem_object_handlers.free_obj = php_wxFileSystem_free;
     custom_object->zo.handlers = &wxphp_wxFileSystem_object_handlers;
 
     custom_object->native_object = NULL;
@@ -599,7 +601,7 @@ PHP_METHOD(php_wxFileSystem, HasHandlerForPath)
                 php_printf("Executing RETURN_BOOL(wxFileSystem::HasHandlerForPath(wxString(location0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxFileSystem::HasHandlerForPath(wxString(location0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxFileSystem::HasHandlerForPath(wxString(location0, wxConvUTF8)));
 
 
                 return;
@@ -708,7 +710,7 @@ PHP_METHOD(php_wxFileSystem, GetPath)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxFileSystem_php*)native_object)->GetPath();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -817,7 +819,7 @@ PHP_METHOD(php_wxFileSystem, FindNext)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxFileSystem_php*)native_object)->FindNext();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -933,7 +935,7 @@ PHP_METHOD(php_wxFileSystem, FindFirst)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxFileSystem_php*)native_object)->FindFirst(wxString(wildcard0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -947,7 +949,7 @@ PHP_METHOD(php_wxFileSystem, FindFirst)
 
                 wxString value_to_return2;
                 value_to_return2 = ((wxFileSystem_php*)native_object)->FindFirst(wxString(wildcard0, wxConvUTF8), (int) flags0);
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -1069,7 +1071,7 @@ PHP_METHOD(php_wxFileSystem, FindFileInPath)
                 php_printf("Executing RETURN_BOOL(wxFileSystem::FindFileInPath(&string_arg0_0, wxString(path0, wxConvUTF8), wxString(file0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFileSystem_php*)native_object)->FindFileInPath(&string_arg0_0, wxString(path0, wxConvUTF8), wxString(file0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFileSystem_php*)native_object)->FindFileInPath(&string_arg0_0, wxString(path0, wxConvUTF8), wxString(file0, wxConvUTF8)));
 
                 ZVAL_STRING(&pStr0_ref, string_arg0_0.ToUTF8().data());
 
@@ -1203,7 +1205,7 @@ PHP_METHOD(php_wxFileSystem, FileNameToURL)
 
                 wxString value_to_return1;
                 value_to_return1 = wxFileSystem::FileNameToURL(*(wxFileName*) object_pointer0_0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -1483,9 +1485,9 @@ PHP_METHOD(php_wxFileSystem, AddHandler)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileSystemHandler_free(void *object)
+void php_wxFileSystemHandler_free(zend_object *object)
 {
-    zo_wxFileSystemHandler* custom_object = (zo_wxFileSystemHandler*) object;
+    zo_wxFileSystemHandler* custom_object = php_wxFileSystemHandler_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1526,7 +1528,6 @@ void php_wxFileSystemHandler_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFileSystemHandler_new(zend_class_entry *class_type)
@@ -1551,6 +1552,9 @@ zend_object* php_wxFileSystemHandler_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFileSystemHandler_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFileSystemHandler_object_handlers);
+    wxphp_wxFileSystemHandler_object_handlers.offset = XtOffsetOf(zo_wxFileSystemHandler, zo);
+    wxphp_wxFileSystemHandler_object_handlers.free_obj = php_wxFileSystemHandler_free;
     custom_object->zo.handlers = &wxphp_wxFileSystemHandler_object_handlers;
 
     custom_object->native_object = NULL;
@@ -1745,7 +1749,7 @@ PHP_METHOD(php_wxFileSystemHandler, FindFirst)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxFileSystemHandler_php*)native_object)->FindFirst(wxString(wildcard0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -1759,7 +1763,7 @@ PHP_METHOD(php_wxFileSystemHandler, FindFirst)
 
                 wxString value_to_return2;
                 value_to_return2 = ((wxFileSystemHandler_php*)native_object)->FindFirst(wxString(wildcard0, wxConvUTF8), (int) flags0);
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -1868,7 +1872,7 @@ PHP_METHOD(php_wxFileSystemHandler, FindNext)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxFileSystemHandler_php*)native_object)->FindNext();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -1984,7 +1988,7 @@ PHP_METHOD(php_wxFileSystemHandler, GetMimeTypeFromExt)
 
                 wxString value_to_return1;
                 value_to_return1 = wxFileSystemHandler::GetMimeTypeFromExt(wxString(location0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;

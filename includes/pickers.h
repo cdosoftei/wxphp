@@ -44,7 +44,7 @@ typedef struct _zo_wxColourPickerCtrl{
     zend_object zo;
 } zo_wxColourPickerCtrl;
 
-void php_wxColourPickerCtrl_free(void *object);
+void php_wxColourPickerCtrl_free(zend_object *object);
 zend_object* php_wxColourPickerCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -91,7 +91,7 @@ typedef struct _zo_wxDatePickerCtrl{
     zend_object zo;
 } zo_wxDatePickerCtrl;
 
-void php_wxDatePickerCtrl_free(void *object);
+void php_wxDatePickerCtrl_free(zend_object *object);
 zend_object* php_wxDatePickerCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -140,7 +140,7 @@ typedef struct _zo_wxFilePickerCtrl{
     zend_object zo;
 } zo_wxFilePickerCtrl;
 
-void php_wxFilePickerCtrl_free(void *object);
+void php_wxFilePickerCtrl_free(zend_object *object);
 zend_object* php_wxFilePickerCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -189,7 +189,7 @@ typedef struct _zo_wxDirPickerCtrl{
     zend_object zo;
 } zo_wxDirPickerCtrl;
 
-void php_wxDirPickerCtrl_free(void *object);
+void php_wxDirPickerCtrl_free(zend_object *object);
 zend_object* php_wxDirPickerCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -238,7 +238,7 @@ typedef struct _zo_wxFontPickerCtrl{
     zend_object zo;
 } zo_wxFontPickerCtrl;
 
-void php_wxFontPickerCtrl_free(void *object);
+void php_wxFontPickerCtrl_free(zend_object *object);
 zend_object* php_wxFontPickerCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -285,7 +285,7 @@ typedef struct _zo_wxPickerBase{
     zend_object zo;
 } zo_wxPickerBase;
 
-void php_wxPickerBase_free(void *object);
+void php_wxPickerBase_free(zend_object *object);
 zend_object* php_wxPickerBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -341,7 +341,7 @@ typedef struct _zo_wxTimePickerCtrl{
     zend_object zo;
 } zo_wxTimePickerCtrl;
 
-void php_wxTimePickerCtrl_free(void *object);
+void php_wxTimePickerCtrl_free(zend_object *object);
 zend_object* php_wxTimePickerCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

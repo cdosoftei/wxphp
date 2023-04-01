@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxMenuBar_free(void *object)
+void php_wxMenuBar_free(zend_object *object)
 {
-    zo_wxMenuBar* custom_object = (zo_wxMenuBar*) object;
+    zo_wxMenuBar* custom_object = php_wxMenuBar_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -67,7 +67,6 @@ void php_wxMenuBar_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMenuBar_new(zend_class_entry *class_type)
@@ -92,6 +91,9 @@ zend_object* php_wxMenuBar_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMenuBar_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMenuBar_object_handlers);
+    wxphp_wxMenuBar_object_handlers.offset = XtOffsetOf(zo_wxMenuBar, zo);
+    wxphp_wxMenuBar_object_handlers.free_obj = php_wxMenuBar_free;
     custom_object->zo.handlers = &wxphp_wxMenuBar_object_handlers;
 
     custom_object->native_object = NULL;
@@ -311,7 +313,7 @@ PHP_METHOD(php_wxMenuBar, Append)
                 php_printf("Executing RETURN_BOOL(wxMenuBar::Append((wxMenu*) object_pointer0_0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuBar_php*)native_object)->Append((wxMenu*) object_pointer0_0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMenuBar_php*)native_object)->Append((wxMenu*) object_pointer0_0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(menu0, "wxMenuBar::Append at call 1 with 2 argument(s)");
 
@@ -1000,7 +1002,7 @@ PHP_METHOD(php_wxMenuBar, FindMenu)
                 php_printf("Executing RETURN_LONG(wxMenuBar::FindMenu(wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxMenuBar_php*)native_object)->FindMenu(wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(((wxMenuBar_php*)native_object)->FindMenu(wxString(title0, wxConvUTF8)));
 
 
                 return;
@@ -1115,7 +1117,7 @@ PHP_METHOD(php_wxMenuBar, FindMenuItem)
                 php_printf("Executing RETURN_LONG(wxMenuBar::FindMenuItem(wxString(menuString0, wxConvUTF8), wxString(itemString0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxMenuBar_php*)native_object)->FindMenuItem(wxString(menuString0, wxConvUTF8), wxString(itemString0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(((wxMenuBar_php*)native_object)->FindMenuItem(wxString(menuString0, wxConvUTF8), wxString(itemString0, wxConvUTF8)));
 
 
                 return;
@@ -1358,7 +1360,7 @@ PHP_METHOD(php_wxMenuBar, GetHelpString)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxMenuBar_php*)native_object)->GetHelpString((int) id0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -1472,7 +1474,7 @@ PHP_METHOD(php_wxMenuBar, GetLabel)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxMenuBar_php*)native_object)->GetLabel((int) id0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -1714,7 +1716,7 @@ PHP_METHOD(php_wxMenuBar, GetMenuCount)
                 php_printf("Executing RETURN_LONG(wxMenuBar::GetMenuCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxMenuBar_php*)native_object)->GetMenuCount());
+                WXPHP_RETVAL_LONG(((wxMenuBar_php*)native_object)->GetMenuCount());
 
 
                 return;
@@ -1828,7 +1830,7 @@ PHP_METHOD(php_wxMenuBar, GetMenuLabel)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxMenuBar_php*)native_object)->GetMenuLabel((size_t) pos0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -1942,7 +1944,7 @@ PHP_METHOD(php_wxMenuBar, GetMenuLabelText)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxMenuBar_php*)native_object)->GetMenuLabelText((size_t) pos0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -2075,7 +2077,7 @@ PHP_METHOD(php_wxMenuBar, Insert)
                 php_printf("Executing RETURN_BOOL(wxMenuBar::Insert((size_t) pos0, (wxMenu*) object_pointer0_1, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuBar_php*)native_object)->Insert((size_t) pos0, (wxMenu*) object_pointer0_1, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMenuBar_php*)native_object)->Insert((size_t) pos0, (wxMenu*) object_pointer0_1, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(menu0, "wxMenuBar::Insert at call 1 with 3 argument(s)");
 
@@ -2182,7 +2184,7 @@ PHP_METHOD(php_wxMenuBar, IsAttached)
                 php_printf("Executing RETURN_BOOL(wxMenuBar::IsAttached())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuBar_php*)native_object)->IsAttached());
+                WXPHP_RETVAL_BOOL(((wxMenuBar_php*)native_object)->IsAttached());
 
 
                 return;
@@ -2294,7 +2296,7 @@ PHP_METHOD(php_wxMenuBar, IsChecked)
                 php_printf("Executing RETURN_BOOL(wxMenuBar::IsChecked((int) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuBar_php*)native_object)->IsChecked((int) id0));
+                WXPHP_RETVAL_BOOL(((wxMenuBar_php*)native_object)->IsChecked((int) id0));
 
 
                 return;
@@ -2406,7 +2408,7 @@ PHP_METHOD(php_wxMenuBar, IsEnabled)
                 php_printf("Executing RETURN_BOOL(wxMenuBar::IsEnabled((int) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuBar_php*)native_object)->IsEnabled((int) id0));
+                WXPHP_RETVAL_BOOL(((wxMenuBar_php*)native_object)->IsEnabled((int) id0));
 
 
                 return;
@@ -3219,9 +3221,9 @@ PHP_METHOD(php_wxMenuBar, SetMenuLabel)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMenu_free(void *object)
+void php_wxMenu_free(zend_object *object)
 {
-    zo_wxMenu* custom_object = (zo_wxMenu*) object;
+    zo_wxMenu* custom_object = php_wxMenu_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3233,7 +3235,6 @@ void php_wxMenu_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMenu_new(zend_class_entry *class_type)
@@ -3258,6 +3259,9 @@ zend_object* php_wxMenu_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMenu_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMenu_object_handlers);
+    wxphp_wxMenu_object_handlers.offset = XtOffsetOf(zo_wxMenu, zo);
+    wxphp_wxMenu_object_handlers.free_obj = php_wxMenu_free;
     custom_object->zo.handlers = &wxphp_wxMenu_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6789,7 +6793,7 @@ PHP_METHOD(php_wxMenu, Delete)
                 php_printf("Executing RETURN_BOOL(wxMenu::Delete((int) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenu_php*)native_object)->Delete((int) id0));
+                WXPHP_RETVAL_BOOL(((wxMenu_php*)native_object)->Delete((int) id0));
 
 
                 return;
@@ -6808,7 +6812,7 @@ PHP_METHOD(php_wxMenu, Delete)
                 php_printf("Executing RETURN_BOOL(wxMenu::Delete((wxMenuItem*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenu_php*)native_object)->Delete((wxMenuItem*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxMenu_php*)native_object)->Delete((wxMenuItem*) object_pointer1_0));
 
                 references->AddReference(item1, "wxMenu::Delete at call 1 with 1 argument(s)");
 
@@ -6960,7 +6964,7 @@ PHP_METHOD(php_wxMenu, Destroy)
                 php_printf("Executing RETURN_BOOL(wxMenu::Destroy((int) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenu_php*)native_object)->Destroy((int) id0));
+                WXPHP_RETVAL_BOOL(((wxMenu_php*)native_object)->Destroy((int) id0));
 
 
                 return;
@@ -6979,7 +6983,7 @@ PHP_METHOD(php_wxMenu, Destroy)
                 php_printf("Executing RETURN_BOOL(wxMenu::Destroy((wxMenuItem*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenu_php*)native_object)->Destroy((wxMenuItem*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxMenu_php*)native_object)->Destroy((wxMenuItem*) object_pointer1_0));
 
                 references->AddReference(item1, "wxMenu::Destroy at call 1 with 1 argument(s)");
 
@@ -7637,7 +7641,7 @@ PHP_METHOD(php_wxMenu, GetHelpString)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxMenu_php*)native_object)->GetHelpString((int) id0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -7880,7 +7884,7 @@ PHP_METHOD(php_wxMenu, GetLabel)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxMenu_php*)native_object)->GetLabel((int) id0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -7994,7 +7998,7 @@ PHP_METHOD(php_wxMenu, GetLabelText)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxMenu_php*)native_object)->GetLabelText((int) id0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -8101,7 +8105,7 @@ PHP_METHOD(php_wxMenu, GetMenuItemCount)
                 php_printf("Executing RETURN_LONG(wxMenu::GetMenuItemCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxMenu_php*)native_object)->GetMenuItemCount());
+                WXPHP_RETVAL_LONG(((wxMenu_php*)native_object)->GetMenuItemCount());
 
 
                 return;
@@ -8336,7 +8340,7 @@ PHP_METHOD(php_wxMenu, GetStyle)
                 php_printf("Executing RETURN_LONG(wxMenu::GetStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxMenu_php*)native_object)->GetStyle());
+                WXPHP_RETVAL_LONG(((wxMenu_php*)native_object)->GetStyle());
 
 
                 return;
@@ -8445,7 +8449,7 @@ PHP_METHOD(php_wxMenu, GetTitle)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxMenu_php*)native_object)->GetTitle();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -9618,7 +9622,7 @@ PHP_METHOD(php_wxMenu, IsAttached)
                 php_printf("Executing RETURN_BOOL(wxMenu::IsAttached())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenu_php*)native_object)->IsAttached());
+                WXPHP_RETVAL_BOOL(((wxMenu_php*)native_object)->IsAttached());
 
 
                 return;
@@ -9730,7 +9734,7 @@ PHP_METHOD(php_wxMenu, IsChecked)
                 php_printf("Executing RETURN_BOOL(wxMenu::IsChecked((int) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenu_php*)native_object)->IsChecked((int) id0));
+                WXPHP_RETVAL_BOOL(((wxMenu_php*)native_object)->IsChecked((int) id0));
 
 
                 return;
@@ -9842,7 +9846,7 @@ PHP_METHOD(php_wxMenu, IsEnabled)
                 php_printf("Executing RETURN_BOOL(wxMenu::IsEnabled((int) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenu_php*)native_object)->IsEnabled((int) id0));
+                WXPHP_RETVAL_BOOL(((wxMenu_php*)native_object)->IsEnabled((int) id0));
 
 
                 return;
@@ -10046,9 +10050,9 @@ PHP_METHOD(php_wxMenu, FindChildItem)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMenuItem_free(void *object)
+void php_wxMenuItem_free(zend_object *object)
 {
-    zo_wxMenuItem* custom_object = (zo_wxMenuItem*) object;
+    zo_wxMenuItem* custom_object = php_wxMenuItem_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10060,7 +10064,6 @@ void php_wxMenuItem_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMenuItem_new(zend_class_entry *class_type)
@@ -10085,6 +10088,9 @@ zend_object* php_wxMenuItem_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMenuItem_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMenuItem_object_handlers);
+    wxphp_wxMenuItem_object_handlers.offset = XtOffsetOf(zo_wxMenuItem, zo);
+    wxphp_wxMenuItem_object_handlers.free_obj = php_wxMenuItem_free;
     custom_object->zo.handlers = &wxphp_wxMenuItem_object_handlers;
 
     custom_object->native_object = NULL;
@@ -10872,7 +10878,7 @@ PHP_METHOD(php_wxMenuItem, IsSubMenu)
                 php_printf("Executing RETURN_BOOL(wxMenuItem::IsSubMenu())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsSubMenu());
+                WXPHP_RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsSubMenu());
 
 
                 return;
@@ -10979,7 +10985,7 @@ PHP_METHOD(php_wxMenuItem, IsSeparator)
                 php_printf("Executing RETURN_BOOL(wxMenuItem::IsSeparator())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsSeparator());
+                WXPHP_RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsSeparator());
 
 
                 return;
@@ -11451,7 +11457,7 @@ PHP_METHOD(php_wxMenuItem, GetHelp)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxMenuItem_php*)native_object)->GetHelp();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11558,7 +11564,7 @@ PHP_METHOD(php_wxMenuItem, GetId)
                 php_printf("Executing RETURN_LONG(wxMenuItem::GetId())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxMenuItem_php*)native_object)->GetId());
+                WXPHP_RETVAL_LONG(((wxMenuItem_php*)native_object)->GetId());
 
 
                 return;
@@ -11667,7 +11673,7 @@ PHP_METHOD(php_wxMenuItem, GetItemLabel)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxMenuItem_php*)native_object)->GetItemLabel();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11776,7 +11782,7 @@ PHP_METHOD(php_wxMenuItem, GetItemLabelText)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxMenuItem_php*)native_object)->GetItemLabelText();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11883,7 +11889,7 @@ PHP_METHOD(php_wxMenuItem, GetKind)
                 php_printf("Executing RETURN_LONG(wxMenuItem::GetKind())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxMenuItem_php*)native_object)->GetKind());
+                WXPHP_RETVAL_LONG(((wxMenuItem_php*)native_object)->GetKind());
 
 
                 return;
@@ -11999,7 +12005,7 @@ PHP_METHOD(php_wxMenuItem, GetLabelText)
 
                 wxString value_to_return1;
                 value_to_return1 = wxMenuItem::GetLabelText(wxString(text0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -12366,7 +12372,7 @@ PHP_METHOD(php_wxMenuItem, IsCheckable)
                 php_printf("Executing RETURN_BOOL(wxMenuItem::IsCheckable())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsCheckable());
+                WXPHP_RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsCheckable());
 
 
                 return;
@@ -12473,7 +12479,7 @@ PHP_METHOD(php_wxMenuItem, IsChecked)
                 php_printf("Executing RETURN_BOOL(wxMenuItem::IsChecked())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsChecked());
+                WXPHP_RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsChecked());
 
 
                 return;
@@ -12580,7 +12586,7 @@ PHP_METHOD(php_wxMenuItem, IsEnabled)
                 php_printf("Executing RETURN_BOOL(wxMenuItem::IsEnabled())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsEnabled());
+                WXPHP_RETVAL_BOOL(((wxMenuItem_php*)native_object)->IsEnabled());
 
 
                 return;

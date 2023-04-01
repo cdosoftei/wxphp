@@ -43,7 +43,7 @@ typedef struct _zo_wxDataViewChoiceRenderer{
     zend_object zo;
 } zo_wxDataViewChoiceRenderer;
 
-void php_wxDataViewChoiceRenderer_free(void *object);
+void php_wxDataViewChoiceRenderer_free(zend_object *object);
 zend_object* php_wxDataViewChoiceRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -91,7 +91,7 @@ typedef struct _zo_wxDataViewModel{
     zend_object zo;
 } zo_wxDataViewModel;
 
-void php_wxDataViewModel_free(void *object);
+void php_wxDataViewModel_free(zend_object *object);
 zend_object* php_wxDataViewModel_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -151,7 +151,7 @@ typedef struct _zo_wxDataViewListModel{
     zend_object zo;
 } zo_wxDataViewListModel;
 
-void php_wxDataViewListModel_free(void *object);
+void php_wxDataViewListModel_free(zend_object *object);
 zend_object* php_wxDataViewListModel_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -194,7 +194,7 @@ typedef struct _zo_wxDataViewIndexListModel{
     zend_object zo;
 } zo_wxDataViewIndexListModel;
 
-void php_wxDataViewIndexListModel_free(void *object);
+void php_wxDataViewIndexListModel_free(zend_object *object);
 zend_object* php_wxDataViewIndexListModel_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -235,7 +235,7 @@ typedef struct _zo_wxDataViewVirtualListModel{
     zend_object zo;
 } zo_wxDataViewVirtualListModel;
 
-void php_wxDataViewVirtualListModel_free(void *object);
+void php_wxDataViewVirtualListModel_free(zend_object *object);
 zend_object* php_wxDataViewVirtualListModel_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -277,7 +277,7 @@ typedef struct _zo_wxDataViewItemAttr{
     zend_object zo;
 } zo_wxDataViewItemAttr;
 
-void php_wxDataViewItemAttr_free(void *object);
+void php_wxDataViewItemAttr_free(zend_object *object);
 zend_object* php_wxDataViewItemAttr_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -325,7 +325,7 @@ typedef struct _zo_wxDataViewItem{
     zend_object zo;
 } zo_wxDataViewItem;
 
-void php_wxDataViewItem_free(void *object);
+void php_wxDataViewItem_free(zend_object *object);
 zend_object* php_wxDataViewItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -376,7 +376,7 @@ typedef struct _zo_wxDataViewModelNotifier{
     zend_object zo;
 } zo_wxDataViewModelNotifier;
 
-void php_wxDataViewModelNotifier_free(void *object);
+void php_wxDataViewModelNotifier_free(zend_object *object);
 zend_object* php_wxDataViewModelNotifier_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -422,7 +422,7 @@ typedef struct _zo_wxDataViewRenderer{
     zend_object zo;
 } zo_wxDataViewRenderer;
 
-void php_wxDataViewRenderer_free(void *object);
+void php_wxDataViewRenderer_free(zend_object *object);
 zend_object* php_wxDataViewRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -474,7 +474,7 @@ typedef struct _zo_wxDataViewTextRenderer{
     zend_object zo;
 } zo_wxDataViewTextRenderer;
 
-void php_wxDataViewTextRenderer_free(void *object);
+void php_wxDataViewTextRenderer_free(zend_object *object);
 zend_object* php_wxDataViewTextRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -517,7 +517,7 @@ typedef struct _zo_wxDataViewIconTextRenderer{
     zend_object zo;
 } zo_wxDataViewIconTextRenderer;
 
-void php_wxDataViewIconTextRenderer_free(void *object);
+void php_wxDataViewIconTextRenderer_free(zend_object *object);
 zend_object* php_wxDataViewIconTextRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -560,7 +560,7 @@ typedef struct _zo_wxDataViewProgressRenderer{
     zend_object zo;
 } zo_wxDataViewProgressRenderer;
 
-void php_wxDataViewProgressRenderer_free(void *object);
+void php_wxDataViewProgressRenderer_free(zend_object *object);
 zend_object* php_wxDataViewProgressRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -603,7 +603,7 @@ typedef struct _zo_wxDataViewSpinRenderer{
     zend_object zo;
 } zo_wxDataViewSpinRenderer;
 
-void php_wxDataViewSpinRenderer_free(void *object);
+void php_wxDataViewSpinRenderer_free(zend_object *object);
 zend_object* php_wxDataViewSpinRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -646,7 +646,7 @@ typedef struct _zo_wxDataViewToggleRenderer{
     zend_object zo;
 } zo_wxDataViewToggleRenderer;
 
-void php_wxDataViewToggleRenderer_free(void *object);
+void php_wxDataViewToggleRenderer_free(zend_object *object);
 zend_object* php_wxDataViewToggleRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -689,7 +689,7 @@ typedef struct _zo_wxDataViewDateRenderer{
     zend_object zo;
 } zo_wxDataViewDateRenderer;
 
-void php_wxDataViewDateRenderer_free(void *object);
+void php_wxDataViewDateRenderer_free(zend_object *object);
 zend_object* php_wxDataViewDateRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -733,7 +733,7 @@ typedef struct _zo_wxDataViewCustomRenderer{
     zend_object zo;
 } zo_wxDataViewCustomRenderer;
 
-void php_wxDataViewCustomRenderer_free(void *object);
+void php_wxDataViewCustomRenderer_free(zend_object *object);
 zend_object* php_wxDataViewCustomRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -782,7 +782,7 @@ typedef struct _zo_wxDataViewBitmapRenderer{
     zend_object zo;
 } zo_wxDataViewBitmapRenderer;
 
-void php_wxDataViewBitmapRenderer_free(void *object);
+void php_wxDataViewBitmapRenderer_free(zend_object *object);
 zend_object* php_wxDataViewBitmapRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -826,7 +826,7 @@ typedef struct _zo_wxDataViewColumn{
     zend_object zo;
 } zo_wxDataViewColumn;
 
-void php_wxDataViewColumn_free(void *object);
+void php_wxDataViewColumn_free(zend_object *object);
 zend_object* php_wxDataViewColumn_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -872,7 +872,7 @@ typedef struct _zo_wxDataViewListStore{
     zend_object zo;
 } zo_wxDataViewListStore;
 
-void php_wxDataViewListStore_free(void *object);
+void php_wxDataViewListStore_free(zend_object *object);
 zend_object* php_wxDataViewListStore_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -922,7 +922,7 @@ typedef struct _zo_wxDataViewTreeStore{
     zend_object zo;
 } zo_wxDataViewTreeStore;
 
-void php_wxDataViewTreeStore_free(void *object);
+void php_wxDataViewTreeStore_free(zend_object *object);
 zend_object* php_wxDataViewTreeStore_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -984,7 +984,7 @@ typedef struct _zo_wxDataViewIconText{
     zend_object zo;
 } zo_wxDataViewIconText;
 
-void php_wxDataViewIconText_free(void *object);
+void php_wxDataViewIconText_free(zend_object *object);
 zend_object* php_wxDataViewIconText_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

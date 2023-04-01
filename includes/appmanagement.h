@@ -48,7 +48,7 @@ typedef struct _zo_wxEventLoopBase{
     zend_object zo;
 } zo_wxEventLoopBase;
 
-void php_wxEventLoopBase_free(void *object);
+void php_wxEventLoopBase_free(zend_object *object);
 zend_object* php_wxEventLoopBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -102,7 +102,7 @@ typedef struct _zo_wxEventLoopActivator{
     zend_object zo;
 } zo_wxEventLoopActivator;
 
-void php_wxEventLoopActivator_free(void *object);
+void php_wxEventLoopActivator_free(zend_object *object);
 zend_object* php_wxEventLoopActivator_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -147,7 +147,7 @@ typedef struct _zo_wxModule{
     zend_object zo;
 } zo_wxModule;
 
-void php_wxModule_free(void *object);
+void php_wxModule_free(zend_object *object);
 zend_object* php_wxModule_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -192,7 +192,7 @@ typedef struct _zo_wxProcess{
     zend_object zo;
 } zo_wxProcess;
 
-void php_wxProcess_free(void *object);
+void php_wxProcess_free(zend_object *object);
 zend_object* php_wxProcess_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -249,7 +249,7 @@ typedef struct _zo_wxSingleInstanceChecker{
     zend_object zo;
 } zo_wxSingleInstanceChecker;
 
-void php_wxSingleInstanceChecker_free(void *object);
+void php_wxSingleInstanceChecker_free(zend_object *object);
 zend_object* php_wxSingleInstanceChecker_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

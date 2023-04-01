@@ -45,7 +45,7 @@ typedef struct _zo_wxTextAttr{
     zend_object zo;
 } zo_wxTextAttr;
 
-void php_wxTextAttr_free(void *object);
+void php_wxTextAttr_free(zend_object *object);
 zend_object* php_wxTextAttr_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

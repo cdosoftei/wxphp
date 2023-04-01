@@ -44,7 +44,7 @@ typedef struct _zo_wxEventFilter{
     zend_object zo;
 } zo_wxEventFilter;
 
-void php_wxEventFilter_free(void *object);
+void php_wxEventFilter_free(zend_object *object);
 zend_object* php_wxEventFilter_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -87,7 +87,7 @@ typedef struct _zo_wxKeyboardState{
     zend_object zo;
 } zo_wxKeyboardState;
 
-void php_wxKeyboardState_free(void *object);
+void php_wxKeyboardState_free(zend_object *object);
 zend_object* php_wxKeyboardState_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -141,7 +141,7 @@ typedef struct _zo_wxAuiToolBarEvent{
     zend_object zo;
 } zo_wxAuiToolBarEvent;
 
-void php_wxAuiToolBarEvent_free(void *object);
+void php_wxAuiToolBarEvent_free(zend_object *object);
 zend_object* php_wxAuiToolBarEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -187,7 +187,7 @@ typedef struct _zo_wxAuiManagerEvent{
     zend_object zo;
 } zo_wxAuiManagerEvent;
 
-void php_wxAuiManagerEvent_free(void *object);
+void php_wxAuiManagerEvent_free(zend_object *object);
 zend_object* php_wxAuiManagerEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -241,7 +241,7 @@ typedef struct _zo_wxCalendarEvent{
     zend_object zo;
 } zo_wxCalendarEvent;
 
-void php_wxCalendarEvent_free(void *object);
+void php_wxCalendarEvent_free(zend_object *object);
 zend_object* php_wxCalendarEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -286,7 +286,7 @@ typedef struct _zo_wxColourPickerEvent{
     zend_object zo;
 } zo_wxColourPickerEvent;
 
-void php_wxColourPickerEvent_free(void *object);
+void php_wxColourPickerEvent_free(zend_object *object);
 zend_object* php_wxColourPickerEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -331,7 +331,7 @@ typedef struct _zo_wxCollapsiblePaneEvent{
     zend_object zo;
 } zo_wxCollapsiblePaneEvent;
 
-void php_wxCollapsiblePaneEvent_free(void *object);
+void php_wxCollapsiblePaneEvent_free(zend_object *object);
 zend_object* php_wxCollapsiblePaneEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -379,7 +379,7 @@ typedef struct _zo_wxDataViewEvent{
     zend_object zo;
 } zo_wxDataViewEvent;
 
-void php_wxDataViewEvent_free(void *object);
+void php_wxDataViewEvent_free(zend_object *object);
 zend_object* php_wxDataViewEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -436,7 +436,7 @@ typedef struct _zo_wxDateEvent{
     zend_object zo;
 } zo_wxDateEvent;
 
-void php_wxDateEvent_free(void *object);
+void php_wxDateEvent_free(zend_object *object);
 zend_object* php_wxDateEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -481,7 +481,7 @@ typedef struct _zo_wxEvent{
     zend_object zo;
 } zo_wxEvent;
 
-void php_wxEvent_free(void *object);
+void php_wxEvent_free(zend_object *object);
 zend_object* php_wxEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -539,7 +539,7 @@ typedef struct _zo_wxEventBlocker{
     zend_object zo;
 } zo_wxEventBlocker;
 
-void php_wxEventBlocker_free(void *object);
+void php_wxEventBlocker_free(zend_object *object);
 zend_object* php_wxEventBlocker_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -586,7 +586,7 @@ typedef struct _zo_wxEvtHandler{
     zend_object zo;
 } zo_wxEvtHandler;
 
-void php_wxEvtHandler_free(void *object);
+void php_wxEvtHandler_free(zend_object *object);
 zend_object* php_wxEvtHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -653,7 +653,7 @@ typedef struct _zo_wxKeyEvent{
     zend_object zo;
 } zo_wxKeyEvent;
 
-void php_wxKeyEvent_free(void *object);
+void php_wxKeyEvent_free(zend_object *object);
 zend_object* php_wxKeyEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -738,7 +738,7 @@ typedef struct _zo_wxScrollWinEvent{
     zend_object zo;
 } zo_wxScrollWinEvent;
 
-void php_wxScrollWinEvent_free(void *object);
+void php_wxScrollWinEvent_free(zend_object *object);
 zend_object* php_wxScrollWinEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -785,7 +785,7 @@ typedef struct _zo_wxSysColourChangedEvent{
     zend_object zo;
 } zo_wxSysColourChangedEvent;
 
-void php_wxSysColourChangedEvent_free(void *object);
+void php_wxSysColourChangedEvent_free(zend_object *object);
 zend_object* php_wxSysColourChangedEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -828,7 +828,7 @@ typedef struct _zo_wxCommandEvent{
     zend_object zo;
 } zo_wxCommandEvent;
 
-void php_wxCommandEvent_free(void *object);
+void php_wxCommandEvent_free(zend_object *object);
 zend_object* php_wxCommandEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -880,7 +880,7 @@ typedef struct _zo_wxWindowCreateEvent{
     zend_object zo;
 } zo_wxWindowCreateEvent;
 
-void php_wxWindowCreateEvent_free(void *object);
+void php_wxWindowCreateEvent_free(zend_object *object);
 zend_object* php_wxWindowCreateEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -923,7 +923,7 @@ typedef struct _zo_wxPaintEvent{
     zend_object zo;
 } zo_wxPaintEvent;
 
-void php_wxPaintEvent_free(void *object);
+void php_wxPaintEvent_free(zend_object *object);
 zend_object* php_wxPaintEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -965,7 +965,7 @@ typedef struct _zo_wxMaximizeEvent{
     zend_object zo;
 } zo_wxMaximizeEvent;
 
-void php_wxMaximizeEvent_free(void *object);
+void php_wxMaximizeEvent_free(zend_object *object);
 zend_object* php_wxMaximizeEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1008,7 +1008,7 @@ typedef struct _zo_wxUpdateUIEvent{
     zend_object zo;
 } zo_wxUpdateUIEvent;
 
-void php_wxUpdateUIEvent_free(void *object);
+void php_wxUpdateUIEvent_free(zend_object *object);
 zend_object* php_wxUpdateUIEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1069,7 +1069,7 @@ typedef struct _zo_wxClipboardTextEvent{
     zend_object zo;
 } zo_wxClipboardTextEvent;
 
-void php_wxClipboardTextEvent_free(void *object);
+void php_wxClipboardTextEvent_free(zend_object *object);
 zend_object* php_wxClipboardTextEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1112,7 +1112,7 @@ typedef struct _zo_wxMouseEvent{
     zend_object zo;
 } zo_wxMouseEvent;
 
-void php_wxMouseEvent_free(void *object);
+void php_wxMouseEvent_free(zend_object *object);
 zend_object* php_wxMouseEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1237,7 +1237,7 @@ typedef struct _zo_wxDropFilesEvent{
     zend_object zo;
 } zo_wxDropFilesEvent;
 
-void php_wxDropFilesEvent_free(void *object);
+void php_wxDropFilesEvent_free(zend_object *object);
 zend_object* php_wxDropFilesEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1282,7 +1282,7 @@ typedef struct _zo_wxActivateEvent{
     zend_object zo;
 } zo_wxActivateEvent;
 
-void php_wxActivateEvent_free(void *object);
+void php_wxActivateEvent_free(zend_object *object);
 zend_object* php_wxActivateEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1326,7 +1326,7 @@ typedef struct _zo_wxContextMenuEvent{
     zend_object zo;
 } zo_wxContextMenuEvent;
 
-void php_wxContextMenuEvent_free(void *object);
+void php_wxContextMenuEvent_free(zend_object *object);
 zend_object* php_wxContextMenuEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1371,7 +1371,7 @@ typedef struct _zo_wxEraseEvent{
     zend_object zo;
 } zo_wxEraseEvent;
 
-void php_wxEraseEvent_free(void *object);
+void php_wxEraseEvent_free(zend_object *object);
 zend_object* php_wxEraseEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1415,7 +1415,7 @@ typedef struct _zo_wxFocusEvent{
     zend_object zo;
 } zo_wxFocusEvent;
 
-void php_wxFocusEvent_free(void *object);
+void php_wxFocusEvent_free(zend_object *object);
 zend_object* php_wxFocusEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1460,7 +1460,7 @@ typedef struct _zo_wxChildFocusEvent{
     zend_object zo;
 } zo_wxChildFocusEvent;
 
-void php_wxChildFocusEvent_free(void *object);
+void php_wxChildFocusEvent_free(zend_object *object);
 zend_object* php_wxChildFocusEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1504,7 +1504,7 @@ typedef struct _zo_wxDisplayChangedEvent{
     zend_object zo;
 } zo_wxDisplayChangedEvent;
 
-void php_wxDisplayChangedEvent_free(void *object);
+void php_wxDisplayChangedEvent_free(zend_object *object);
 zend_object* php_wxDisplayChangedEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1547,7 +1547,7 @@ typedef struct _zo_wxNotifyEvent{
     zend_object zo;
 } zo_wxNotifyEvent;
 
-void php_wxNotifyEvent_free(void *object);
+void php_wxNotifyEvent_free(zend_object *object);
 zend_object* php_wxNotifyEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1593,7 +1593,7 @@ typedef struct _zo_wxThreadEvent{
     zend_object zo;
 } zo_wxThreadEvent;
 
-void php_wxThreadEvent_free(void *object);
+void php_wxThreadEvent_free(zend_object *object);
 zend_object* php_wxThreadEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1644,7 +1644,7 @@ typedef struct _zo_wxHelpEvent{
     zend_object zo;
 } zo_wxHelpEvent;
 
-void php_wxHelpEvent_free(void *object);
+void php_wxHelpEvent_free(zend_object *object);
 zend_object* php_wxHelpEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1691,7 +1691,7 @@ typedef struct _zo_wxScrollEvent{
     zend_object zo;
 } zo_wxScrollEvent;
 
-void php_wxScrollEvent_free(void *object);
+void php_wxScrollEvent_free(zend_object *object);
 zend_object* php_wxScrollEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1738,7 +1738,7 @@ typedef struct _zo_wxIdleEvent{
     zend_object zo;
 } zo_wxIdleEvent;
 
-void php_wxIdleEvent_free(void *object);
+void php_wxIdleEvent_free(zend_object *object);
 zend_object* php_wxIdleEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1785,7 +1785,7 @@ typedef struct _zo_wxInitDialogEvent{
     zend_object zo;
 } zo_wxInitDialogEvent;
 
-void php_wxInitDialogEvent_free(void *object);
+void php_wxInitDialogEvent_free(zend_object *object);
 zend_object* php_wxInitDialogEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1828,7 +1828,7 @@ typedef struct _zo_wxWindowDestroyEvent{
     zend_object zo;
 } zo_wxWindowDestroyEvent;
 
-void php_wxWindowDestroyEvent_free(void *object);
+void php_wxWindowDestroyEvent_free(zend_object *object);
 zend_object* php_wxWindowDestroyEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1873,7 +1873,7 @@ typedef struct _zo_wxNavigationKeyEvent{
     zend_object zo;
 } zo_wxNavigationKeyEvent;
 
-void php_wxNavigationKeyEvent_free(void *object);
+void php_wxNavigationKeyEvent_free(zend_object *object);
 zend_object* php_wxNavigationKeyEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1925,7 +1925,7 @@ typedef struct _zo_wxCloseEvent{
     zend_object zo;
 } zo_wxCloseEvent;
 
-void php_wxCloseEvent_free(void *object);
+void php_wxCloseEvent_free(zend_object *object);
 zend_object* php_wxCloseEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1973,7 +1973,7 @@ typedef struct _zo_wxMenuEvent{
     zend_object zo;
 } zo_wxMenuEvent;
 
-void php_wxMenuEvent_free(void *object);
+void php_wxMenuEvent_free(zend_object *object);
 zend_object* php_wxMenuEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2019,7 +2019,7 @@ typedef struct _zo_wxShowEvent{
     zend_object zo;
 } zo_wxShowEvent;
 
-void php_wxShowEvent_free(void *object);
+void php_wxShowEvent_free(zend_object *object);
 zend_object* php_wxShowEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2064,7 +2064,7 @@ typedef struct _zo_wxIconizeEvent{
     zend_object zo;
 } zo_wxIconizeEvent;
 
-void php_wxIconizeEvent_free(void *object);
+void php_wxIconizeEvent_free(zend_object *object);
 zend_object* php_wxIconizeEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2108,7 +2108,7 @@ typedef struct _zo_wxMoveEvent{
     zend_object zo;
 } zo_wxMoveEvent;
 
-void php_wxMoveEvent_free(void *object);
+void php_wxMoveEvent_free(zend_object *object);
 zend_object* php_wxMoveEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2155,7 +2155,7 @@ typedef struct _zo_wxSizeEvent{
     zend_object zo;
 } zo_wxSizeEvent;
 
-void php_wxSizeEvent_free(void *object);
+void php_wxSizeEvent_free(zend_object *object);
 zend_object* php_wxSizeEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2202,7 +2202,7 @@ typedef struct _zo_wxSetCursorEvent{
     zend_object zo;
 } zo_wxSetCursorEvent;
 
-void php_wxSetCursorEvent_free(void *object);
+void php_wxSetCursorEvent_free(zend_object *object);
 zend_object* php_wxSetCursorEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2250,7 +2250,7 @@ typedef struct _zo_wxFileCtrlEvent{
     zend_object zo;
 } zo_wxFileCtrlEvent;
 
-void php_wxFileCtrlEvent_free(void *object);
+void php_wxFileCtrlEvent_free(zend_object *object);
 zend_object* php_wxFileCtrlEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2301,7 +2301,7 @@ typedef struct _zo_wxFileDirPickerEvent{
     zend_object zo;
 } zo_wxFileDirPickerEvent;
 
-void php_wxFileDirPickerEvent_free(void *object);
+void php_wxFileDirPickerEvent_free(zend_object *object);
 zend_object* php_wxFileDirPickerEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2346,7 +2346,7 @@ typedef struct _zo_wxFontPickerEvent{
     zend_object zo;
 } zo_wxFontPickerEvent;
 
-void php_wxFontPickerEvent_free(void *object);
+void php_wxFontPickerEvent_free(zend_object *object);
 zend_object* php_wxFontPickerEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2390,7 +2390,7 @@ typedef struct _zo_wxFileSystemWatcherEvent{
     zend_object zo;
 } zo_wxFileSystemWatcherEvent;
 
-void php_wxFileSystemWatcherEvent_free(void *object);
+void php_wxFileSystemWatcherEvent_free(zend_object *object);
 zend_object* php_wxFileSystemWatcherEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2439,7 +2439,7 @@ typedef struct _zo_wxGridEvent{
     zend_object zo;
 } zo_wxGridEvent;
 
-void php_wxGridEvent_free(void *object);
+void php_wxGridEvent_free(zend_object *object);
 zend_object* php_wxGridEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2491,7 +2491,7 @@ typedef struct _zo_wxGridSizeEvent{
     zend_object zo;
 } zo_wxGridSizeEvent;
 
-void php_wxGridSizeEvent_free(void *object);
+void php_wxGridSizeEvent_free(zend_object *object);
 zend_object* php_wxGridSizeEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2541,7 +2541,7 @@ typedef struct _zo_wxGridRangeSelectEvent{
     zend_object zo;
 } zo_wxGridRangeSelectEvent;
 
-void php_wxGridRangeSelectEvent_free(void *object);
+void php_wxGridRangeSelectEvent_free(zend_object *object);
 zend_object* php_wxGridRangeSelectEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2596,7 +2596,7 @@ typedef struct _zo_wxGridEditorCreatedEvent{
     zend_object zo;
 } zo_wxGridEditorCreatedEvent;
 
-void php_wxGridEditorCreatedEvent_free(void *object);
+void php_wxGridEditorCreatedEvent_free(zend_object *object);
 zend_object* php_wxGridEditorCreatedEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2644,7 +2644,7 @@ typedef struct _zo_wxHeaderCtrlEvent{
     zend_object zo;
 } zo_wxHeaderCtrlEvent;
 
-void php_wxHeaderCtrlEvent_free(void *object);
+void php_wxHeaderCtrlEvent_free(zend_object *object);
 zend_object* php_wxHeaderCtrlEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2689,7 +2689,7 @@ typedef struct _zo_wxHtmlLinkEvent{
     zend_object zo;
 } zo_wxHtmlLinkEvent;
 
-void php_wxHtmlLinkEvent_free(void *object);
+void php_wxHtmlLinkEvent_free(zend_object *object);
 zend_object* php_wxHtmlLinkEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2733,7 +2733,7 @@ typedef struct _zo_wxHtmlCellEvent{
     zend_object zo;
 } zo_wxHtmlCellEvent;
 
-void php_wxHtmlCellEvent_free(void *object);
+void php_wxHtmlCellEvent_free(zend_object *object);
 zend_object* php_wxHtmlCellEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2780,7 +2780,7 @@ typedef struct _zo_wxHyperlinkEvent{
     zend_object zo;
 } zo_wxHyperlinkEvent;
 
-void php_wxHyperlinkEvent_free(void *object);
+void php_wxHyperlinkEvent_free(zend_object *object);
 zend_object* php_wxHyperlinkEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2825,7 +2825,7 @@ typedef struct _zo_wxQueryLayoutInfoEvent{
     zend_object zo;
 } zo_wxQueryLayoutInfoEvent;
 
-void php_wxQueryLayoutInfoEvent_free(void *object);
+void php_wxQueryLayoutInfoEvent_free(zend_object *object);
 zend_object* php_wxQueryLayoutInfoEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2878,7 +2878,7 @@ typedef struct _zo_wxCalculateLayoutEvent{
     zend_object zo;
 } zo_wxCalculateLayoutEvent;
 
-void php_wxCalculateLayoutEvent_free(void *object);
+void php_wxCalculateLayoutEvent_free(zend_object *object);
 zend_object* php_wxCalculateLayoutEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2925,7 +2925,7 @@ typedef struct _zo_wxListEvent{
     zend_object zo;
 } zo_wxListEvent;
 
-void php_wxListEvent_free(void *object);
+void php_wxListEvent_free(zend_object *object);
 zend_object* php_wxListEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -2980,7 +2980,7 @@ typedef struct _zo_wxMediaEvent{
     zend_object zo;
 } zo_wxMediaEvent;
 
-void php_wxMediaEvent_free(void *object);
+void php_wxMediaEvent_free(zend_object *object);
 zend_object* php_wxMediaEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3032,7 +3032,7 @@ typedef struct _zo_wxMouseEventsManager{
     zend_object zo;
 } zo_wxMouseEventsManager;
 
-void php_wxMouseEventsManager_free(void *object);
+void php_wxMouseEventsManager_free(zend_object *object);
 zend_object* php_wxMouseEventsManager_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3076,7 +3076,7 @@ typedef struct _zo_wxMouseState{
     zend_object zo;
 } zo_wxMouseState;
 
-void php_wxMouseState_free(void *object);
+void php_wxMouseState_free(zend_object *object);
 zend_object* php_wxMouseState_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3136,7 +3136,7 @@ typedef struct _zo_wxProcessEvent{
     zend_object zo;
 } zo_wxProcessEvent;
 
-void php_wxProcessEvent_free(void *object);
+void php_wxProcessEvent_free(zend_object *object);
 zend_object* php_wxProcessEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3181,7 +3181,7 @@ typedef struct _zo_wxRibbonBarEvent{
     zend_object zo;
 } zo_wxRibbonBarEvent;
 
-void php_wxRibbonBarEvent_free(void *object);
+void php_wxRibbonBarEvent_free(zend_object *object);
 zend_object* php_wxRibbonBarEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3226,7 +3226,7 @@ typedef struct _zo_wxRibbonButtonBarEvent{
     zend_object zo;
 } zo_wxRibbonButtonBarEvent;
 
-void php_wxRibbonButtonBarEvent_free(void *object);
+void php_wxRibbonButtonBarEvent_free(zend_object *object);
 zend_object* php_wxRibbonButtonBarEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3272,7 +3272,7 @@ typedef struct _zo_wxRibbonGalleryEvent{
     zend_object zo;
 } zo_wxRibbonGalleryEvent;
 
-void php_wxRibbonGalleryEvent_free(void *object);
+void php_wxRibbonGalleryEvent_free(zend_object *object);
 zend_object* php_wxRibbonGalleryEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3319,7 +3319,7 @@ typedef struct _zo_wxSashEvent{
     zend_object zo;
 } zo_wxSashEvent;
 
-void php_wxSashEvent_free(void *object);
+void php_wxSashEvent_free(zend_object *object);
 zend_object* php_wxSashEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3365,7 +3365,7 @@ typedef struct _zo_wxSpinEvent{
     zend_object zo;
 } zo_wxSpinEvent;
 
-void php_wxSpinEvent_free(void *object);
+void php_wxSpinEvent_free(zend_object *object);
 zend_object* php_wxSpinEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3411,7 +3411,7 @@ typedef struct _zo_wxSpinDoubleEvent{
     zend_object zo;
 } zo_wxSpinDoubleEvent;
 
-void php_wxSpinDoubleEvent_free(void *object);
+void php_wxSpinDoubleEvent_free(zend_object *object);
 zend_object* php_wxSpinDoubleEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3456,7 +3456,7 @@ typedef struct _zo_wxSplitterEvent{
     zend_object zo;
 } zo_wxSplitterEvent;
 
-void php_wxSplitterEvent_free(void *object);
+void php_wxSplitterEvent_free(zend_object *object);
 zend_object* php_wxSplitterEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3505,7 +3505,7 @@ typedef struct _zo_wxStyledTextEvent{
     zend_object zo;
 } zo_wxStyledTextEvent;
 
-void php_wxStyledTextEvent_free(void *object);
+void php_wxStyledTextEvent_free(zend_object *object);
 zend_object* php_wxStyledTextEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3585,7 +3585,7 @@ typedef struct _zo_wxTaskBarIconEvent{
     zend_object zo;
 } zo_wxTaskBarIconEvent;
 
-void php_wxTaskBarIconEvent_free(void *object);
+void php_wxTaskBarIconEvent_free(zend_object *object);
 zend_object* php_wxTaskBarIconEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3627,7 +3627,7 @@ typedef struct _zo_wxTimerEvent{
     zend_object zo;
 } zo_wxTimerEvent;
 
-void php_wxTimerEvent_free(void *object);
+void php_wxTimerEvent_free(zend_object *object);
 zend_object* php_wxTimerEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3670,7 +3670,7 @@ typedef struct _zo_wxTreeEvent{
     zend_object zo;
 } zo_wxTreeEvent;
 
-void php_wxTreeEvent_free(void *object);
+void php_wxTreeEvent_free(zend_object *object);
 zend_object* php_wxTreeEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -3721,7 +3721,7 @@ typedef struct _zo_wxWizardEvent{
     zend_object zo;
 } zo_wxWizardEvent;
 
-void php_wxWizardEvent_free(void *object);
+void php_wxWizardEvent_free(zend_object *object);
 zend_object* php_wxWizardEvent_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

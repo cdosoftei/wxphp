@@ -99,7 +99,7 @@ class MyFrame1 extends wxFrame {
 
         $this->SetSizeHints(wxDefaultSize, wxDefaultSize);
 
-        $bSizer1 = new wxBoxSizer(wxVERTICAL);
+        // $bSizer1 = new wxBoxSizer(wxVERTICAL);
 
         $this->m_grid1 = new wxGrid(
             $this,
@@ -131,7 +131,7 @@ class MyFrame1 extends wxFrame {
 
         # Cell Defaults
         $this->m_grid1->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-        $bSizer1->Add( $this->m_grid1, 1, wxALL|wxEXPAND, 5 );
+        // $bSizer1->Add( $this->m_grid1, 1, wxALL|wxEXPAND, 5 );
 
         # Set renderer for last column
         $this->attr = new wxGridCellAttr();
@@ -140,12 +140,12 @@ class MyFrame1 extends wxFrame {
         $this->m_grid1->SetColAttr(4, $this->attr);
 
         # Add grid left click event
-        $this->m_grid1->Connect(
+        $this->Connect(
             wxEVT_GRID_CELL_LEFT_CLICK,
             array($this, "OnGridCellLeftClick")
         );
 
-        $this->SetSizer( $bSizer1 );
+        // $this->SetSizer( $bSizer1 );
         $this->Layout();
 
         $this->Centre( wxBOTH );

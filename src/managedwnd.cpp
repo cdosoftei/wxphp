@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxFrame_free(void *object)
+void php_wxFrame_free(zend_object *object)
 {
-    zo_wxFrame* custom_object = (zo_wxFrame*) object;
+    zo_wxFrame* custom_object = php_wxFrame_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -64,7 +64,6 @@ void php_wxFrame_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFrame_new(zend_class_entry *class_type)
@@ -89,6 +88,9 @@ zend_object* php_wxFrame_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFrame_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFrame_object_handlers);
+    wxphp_wxFrame_object_handlers.offset = XtOffsetOf(zo_wxFrame, zo);
+    wxphp_wxFrame_object_handlers.free_obj = php_wxFrame_free;
     custom_object->zo.handlers = &wxphp_wxFrame_object_handlers;
 
     custom_object->native_object = NULL;
@@ -810,7 +812,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxFrame::Create at call 1 with 3 argument(s)");
 
@@ -823,7 +825,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxFrame::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxFrame::Create at call 3 with 4 argument(s)");
@@ -837,7 +839,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
+                WXPHP_RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
 
                 references->AddReference(parent0, "wxFrame::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxFrame::Create at call 3 with 5 argument(s)");
@@ -852,7 +854,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
 
                 references->AddReference(parent0, "wxFrame::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxFrame::Create at call 3 with 6 argument(s)");
@@ -867,7 +869,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxFrame::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos0, "wxFrame::Create at call 3 with 7 argument(s)");
@@ -889,7 +891,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8)));
 
                 references->AddReference(parent1, "wxFrame::Create at call 1 with 3 argument(s)");
 
@@ -902,7 +904,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3));
 
                 references->AddReference(parent1, "wxFrame::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos1, "wxFrame::Create at call 3 with 4 argument(s)");
@@ -916,7 +918,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4));
 
                 references->AddReference(parent1, "wxFrame::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos1, "wxFrame::Create at call 3 with 5 argument(s)");
@@ -931,7 +933,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1));
 
                 references->AddReference(parent1, "wxFrame::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos1, "wxFrame::Create at call 3 with 6 argument(s)");
@@ -946,7 +948,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1, wxString(name1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1, wxString(name1, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1, wxString(name1, wxConvUTF8)));
 
                 references->AddReference(parent1, "wxFrame::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos1, "wxFrame::Create at call 3 with 7 argument(s)");
@@ -968,7 +970,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2));
 
                 references->AddReference(parent2, "wxFrame::Create at call 1 with 2 argument(s)");
 
@@ -981,7 +983,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8)));
 
                 references->AddReference(parent2, "wxFrame::Create at call 1 with 3 argument(s)");
 
@@ -994,7 +996,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2));
 
                 references->AddReference(parent2, "wxFrame::Create at call 1 with 4 argument(s)");
 
@@ -1007,7 +1009,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4));
 
                 references->AddReference(parent2, "wxFrame::Create at call 1 with 5 argument(s)");
                 references->AddReference(config2, "wxFrame::Create at call 1 with 5 argument(s)");
@@ -1021,7 +1023,7 @@ PHP_METHOD(php_wxFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4, wxString(rootpath2, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4, wxString(rootpath2, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4, wxString(rootpath2, wxConvUTF8)));
 
                 references->AddReference(parent2, "wxFrame::Create at call 1 with 6 argument(s)");
                 references->AddReference(config2, "wxFrame::Create at call 1 with 6 argument(s)");
@@ -2165,7 +2167,7 @@ PHP_METHOD(php_wxFrame, GetStatusBarPane)
                 php_printf("Executing RETURN_LONG(wxFrame::GetStatusBarPane())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFrame_php*)native_object)->GetStatusBarPane());
+                WXPHP_RETVAL_LONG(((wxFrame_php*)native_object)->GetStatusBarPane());
 
 
                 return;
@@ -2586,7 +2588,7 @@ PHP_METHOD(php_wxFrame, ProcessCommand)
                 php_printf("Executing RETURN_BOOL(wxFrame::ProcessCommand((int) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFrame_php*)native_object)->ProcessCommand((int) id0));
+                WXPHP_RETVAL_BOOL(((wxFrame_php*)native_object)->ProcessCommand((int) id0));
 
 
                 return;
@@ -3906,9 +3908,9 @@ PHP_METHOD(php_wxFrame, CreateToolBar)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMDIClientWindow_free(void *object)
+void php_wxMDIClientWindow_free(zend_object *object)
 {
-    zo_wxMDIClientWindow* custom_object = (zo_wxMDIClientWindow*) object;
+    zo_wxMDIClientWindow* custom_object = php_wxMDIClientWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3952,7 +3954,6 @@ void php_wxMDIClientWindow_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMDIClientWindow_new(zend_class_entry *class_type)
@@ -3977,6 +3978,9 @@ zend_object* php_wxMDIClientWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMDIClientWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMDIClientWindow_object_handlers);
+    wxphp_wxMDIClientWindow_object_handlers.offset = XtOffsetOf(zo_wxMDIClientWindow, zo);
+    wxphp_wxMDIClientWindow_object_handlers.free_obj = php_wxMDIClientWindow_free;
     custom_object->zo.handlers = &wxphp_wxMDIClientWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4179,7 +4183,7 @@ PHP_METHOD(php_wxMDIClientWindow, CreateClient)
                 php_printf("Executing RETURN_BOOL(wxMDIClientWindow::CreateClient((wxMDIParentFrame*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIClientWindow_php*)native_object)->CreateClient((wxMDIParentFrame*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxMDIClientWindow_php*)native_object)->CreateClient((wxMDIParentFrame*) object_pointer0_0));
 
                 references->AddReference(parent0, "wxMDIClientWindow::CreateClient at call 1 with 1 argument(s)");
 
@@ -4192,7 +4196,7 @@ PHP_METHOD(php_wxMDIClientWindow, CreateClient)
                 php_printf("Executing RETURN_BOOL(wxMDIClientWindow::CreateClient((wxMDIParentFrame*) object_pointer0_0, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIClientWindow_php*)native_object)->CreateClient((wxMDIParentFrame*) object_pointer0_0, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxMDIClientWindow_php*)native_object)->CreateClient((wxMDIParentFrame*) object_pointer0_0, (long) style0));
 
                 references->AddReference(parent0, "wxMDIClientWindow::CreateClient at call 1 with 2 argument(s)");
 
@@ -4216,9 +4220,9 @@ PHP_METHOD(php_wxMDIClientWindow, CreateClient)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMDIParentFrame_free(void *object)
+void php_wxMDIParentFrame_free(zend_object *object)
 {
-    zo_wxMDIParentFrame* custom_object = (zo_wxMDIParentFrame*) object;
+    zo_wxMDIParentFrame* custom_object = php_wxMDIParentFrame_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -4227,7 +4231,6 @@ void php_wxMDIParentFrame_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMDIParentFrame_new(zend_class_entry *class_type)
@@ -4252,6 +4255,9 @@ zend_object* php_wxMDIParentFrame_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMDIParentFrame_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMDIParentFrame_object_handlers);
+    wxphp_wxMDIParentFrame_object_handlers.offset = XtOffsetOf(zo_wxMDIParentFrame, zo);
+    wxphp_wxMDIParentFrame_object_handlers.free_obj = php_wxMDIParentFrame_free;
     custom_object->zo.handlers = &wxphp_wxMDIParentFrame_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4842,7 +4848,7 @@ PHP_METHOD(php_wxMDIParentFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIParentFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxMDIParentFrame::Create at call 1 with 3 argument(s)");
 
@@ -4855,7 +4861,7 @@ PHP_METHOD(php_wxMDIParentFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIParentFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxMDIParentFrame::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxMDIParentFrame::Create at call 3 with 4 argument(s)");
@@ -4869,7 +4875,7 @@ PHP_METHOD(php_wxMDIParentFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIParentFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
+                WXPHP_RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
 
                 references->AddReference(parent0, "wxMDIParentFrame::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxMDIParentFrame::Create at call 3 with 5 argument(s)");
@@ -4884,7 +4890,7 @@ PHP_METHOD(php_wxMDIParentFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIParentFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
 
                 references->AddReference(parent0, "wxMDIParentFrame::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxMDIParentFrame::Create at call 3 with 6 argument(s)");
@@ -4899,7 +4905,7 @@ PHP_METHOD(php_wxMDIParentFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIParentFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxMDIParentFrame::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos0, "wxMDIParentFrame::Create at call 3 with 7 argument(s)");
@@ -5270,7 +5276,7 @@ PHP_METHOD(php_wxMDIParentFrame, IsTDI)
                 php_printf("Executing RETURN_BOOL(wxMDIParentFrame::IsTDI())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxMDIParentFrame::IsTDI());
+                WXPHP_RETVAL_BOOL(wxMDIParentFrame::IsTDI());
 
 
                 return;
@@ -5882,9 +5888,9 @@ PHP_METHOD(php_wxMDIParentFrame, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMDIChildFrame_free(void *object)
+void php_wxMDIChildFrame_free(zend_object *object)
 {
-    zo_wxMDIChildFrame* custom_object = (zo_wxMDIChildFrame*) object;
+    zo_wxMDIChildFrame* custom_object = php_wxMDIChildFrame_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -5893,7 +5899,6 @@ void php_wxMDIChildFrame_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMDIChildFrame_new(zend_class_entry *class_type)
@@ -5918,6 +5923,9 @@ zend_object* php_wxMDIChildFrame_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMDIChildFrame_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMDIChildFrame_object_handlers);
+    wxphp_wxMDIChildFrame_object_handlers.offset = XtOffsetOf(zo_wxMDIChildFrame, zo);
+    wxphp_wxMDIChildFrame_object_handlers.free_obj = php_wxMDIChildFrame_free;
     custom_object->zo.handlers = &wxphp_wxMDIChildFrame_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6484,7 +6492,7 @@ PHP_METHOD(php_wxMDIChildFrame, IsAlwaysMaximized)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::IsAlwaysMaximized())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->IsAlwaysMaximized());
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->IsAlwaysMaximized());
 
 
                 return;
@@ -6788,7 +6796,7 @@ PHP_METHOD(php_wxMDIChildFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxMDIChildFrame::Create at call 1 with 3 argument(s)");
 
@@ -6801,7 +6809,7 @@ PHP_METHOD(php_wxMDIChildFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxMDIChildFrame::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxMDIChildFrame::Create at call 3 with 4 argument(s)");
@@ -6815,7 +6823,7 @@ PHP_METHOD(php_wxMDIChildFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
 
                 references->AddReference(parent0, "wxMDIChildFrame::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxMDIChildFrame::Create at call 3 with 5 argument(s)");
@@ -6830,7 +6838,7 @@ PHP_METHOD(php_wxMDIChildFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
 
                 references->AddReference(parent0, "wxMDIChildFrame::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxMDIChildFrame::Create at call 3 with 6 argument(s)");
@@ -6845,7 +6853,7 @@ PHP_METHOD(php_wxMDIChildFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxMDIChildFrame::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos0, "wxMDIChildFrame::Create at call 3 with 7 argument(s)");
@@ -6978,9 +6986,9 @@ PHP_METHOD(php_wxMDIChildFrame, Activate)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMiniFrame_free(void *object)
+void php_wxMiniFrame_free(zend_object *object)
 {
-    zo_wxMiniFrame* custom_object = (zo_wxMiniFrame*) object;
+    zo_wxMiniFrame* custom_object = php_wxMiniFrame_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -6989,7 +6997,6 @@ void php_wxMiniFrame_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMiniFrame_new(zend_class_entry *class_type)
@@ -7014,6 +7021,9 @@ zend_object* php_wxMiniFrame_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMiniFrame_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMiniFrame_object_handlers);
+    wxphp_wxMiniFrame_object_handlers.offset = XtOffsetOf(zo_wxMiniFrame, zo);
+    wxphp_wxMiniFrame_object_handlers.free_obj = php_wxMiniFrame_free;
     custom_object->zo.handlers = &wxphp_wxMiniFrame_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7176,7 +7186,7 @@ PHP_METHOD(php_wxMiniFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMiniFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxMiniFrame::Create at call 1 with 3 argument(s)");
 
@@ -7189,7 +7199,7 @@ PHP_METHOD(php_wxMiniFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMiniFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxMiniFrame::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxMiniFrame::Create at call 3 with 4 argument(s)");
@@ -7203,7 +7213,7 @@ PHP_METHOD(php_wxMiniFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMiniFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
+                WXPHP_RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
 
                 references->AddReference(parent0, "wxMiniFrame::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxMiniFrame::Create at call 3 with 5 argument(s)");
@@ -7218,7 +7228,7 @@ PHP_METHOD(php_wxMiniFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMiniFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
 
                 references->AddReference(parent0, "wxMiniFrame::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxMiniFrame::Create at call 3 with 6 argument(s)");
@@ -7233,7 +7243,7 @@ PHP_METHOD(php_wxMiniFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxMiniFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMiniFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxMiniFrame::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos0, "wxMiniFrame::Create at call 3 with 7 argument(s)");
@@ -7499,9 +7509,9 @@ PHP_METHOD(php_wxMiniFrame, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPopupWindow_free(void *object)
+void php_wxPopupWindow_free(zend_object *object)
 {
-    zo_wxPopupWindow* custom_object = (zo_wxPopupWindow*) object;
+    zo_wxPopupWindow* custom_object = php_wxPopupWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7545,7 +7555,6 @@ void php_wxPopupWindow_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPopupWindow_new(zend_class_entry *class_type)
@@ -7570,6 +7579,9 @@ zend_object* php_wxPopupWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPopupWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPopupWindow_object_handlers);
+    wxphp_wxPopupWindow_object_handlers.offset = XtOffsetOf(zo_wxPopupWindow, zo);
+    wxphp_wxPopupWindow_object_handlers.free_obj = php_wxPopupWindow_free;
     custom_object->zo.handlers = &wxphp_wxPopupWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7693,7 +7705,7 @@ PHP_METHOD(php_wxPopupWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxPopupWindow::Create((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPopupWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxPopupWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0));
 
                 references->AddReference(parent0, "wxPopupWindow::Create at call 1 with 1 argument(s)");
 
@@ -7706,7 +7718,7 @@ PHP_METHOD(php_wxPopupWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxPopupWindow::Create((wxWindow*) object_pointer0_0, (int) flags0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPopupWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (int) flags0));
+                WXPHP_RETVAL_BOOL(((wxPopupWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (int) flags0));
 
                 references->AddReference(parent0, "wxPopupWindow::Create at call 1 with 2 argument(s)");
 
@@ -8039,9 +8051,9 @@ PHP_METHOD(php_wxPopupWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPopupTransientWindow_free(void *object)
+void php_wxPopupTransientWindow_free(zend_object *object)
 {
-    zo_wxPopupTransientWindow* custom_object = (zo_wxPopupTransientWindow*) object;
+    zo_wxPopupTransientWindow* custom_object = php_wxPopupTransientWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8085,7 +8097,6 @@ void php_wxPopupTransientWindow_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPopupTransientWindow_new(zend_class_entry *class_type)
@@ -8110,6 +8121,9 @@ zend_object* php_wxPopupTransientWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPopupTransientWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPopupTransientWindow_object_handlers);
+    wxphp_wxPopupTransientWindow_object_handlers.offset = XtOffsetOf(zo_wxPopupTransientWindow, zo);
+    wxphp_wxPopupTransientWindow_object_handlers.free_obj = php_wxPopupTransientWindow_free;
     custom_object->zo.handlers = &wxphp_wxPopupTransientWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -8478,7 +8492,7 @@ PHP_METHOD(php_wxPopupTransientWindow, ProcessLeftDown)
                 php_printf("Executing RETURN_BOOL(wxPopupTransientWindow::ProcessLeftDown(*(wxMouseEvent*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPopupTransientWindow_php*)native_object)->ProcessLeftDown(*(wxMouseEvent*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxPopupTransientWindow_php*)native_object)->ProcessLeftDown(*(wxMouseEvent*) object_pointer0_0));
 
                 references->AddReference(event0, "wxPopupTransientWindow::ProcessLeftDown at call 3 with 1 argument(s)");
 
@@ -8656,9 +8670,9 @@ PHP_METHOD(php_wxPopupTransientWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPropertySheetDialog_free(void *object)
+void php_wxPropertySheetDialog_free(zend_object *object)
 {
-    zo_wxPropertySheetDialog* custom_object = (zo_wxPropertySheetDialog*) object;
+    zo_wxPropertySheetDialog* custom_object = php_wxPropertySheetDialog_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -8667,7 +8681,6 @@ void php_wxPropertySheetDialog_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPropertySheetDialog_new(zend_class_entry *class_type)
@@ -8692,6 +8705,9 @@ zend_object* php_wxPropertySheetDialog_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPropertySheetDialog_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPropertySheetDialog_object_handlers);
+    wxphp_wxPropertySheetDialog_object_handlers.offset = XtOffsetOf(zo_wxPropertySheetDialog, zo);
+    wxphp_wxPropertySheetDialog_object_handlers.free_obj = php_wxPropertySheetDialog_free;
     custom_object->zo.handlers = &wxphp_wxPropertySheetDialog_object_handlers;
 
     custom_object->native_object = NULL;
@@ -8985,7 +9001,7 @@ PHP_METHOD(php_wxPropertySheetDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxPropertySheetDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxPropertySheetDialog::Create at call 1 with 3 argument(s)");
 
@@ -8998,7 +9014,7 @@ PHP_METHOD(php_wxPropertySheetDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxPropertySheetDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxPropertySheetDialog::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxPropertySheetDialog::Create at call 3 with 4 argument(s)");
@@ -9012,7 +9028,7 @@ PHP_METHOD(php_wxPropertySheetDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxPropertySheetDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
+                WXPHP_RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
 
                 references->AddReference(parent0, "wxPropertySheetDialog::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxPropertySheetDialog::Create at call 3 with 5 argument(s)");
@@ -9027,7 +9043,7 @@ PHP_METHOD(php_wxPropertySheetDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxPropertySheetDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
 
                 references->AddReference(parent0, "wxPropertySheetDialog::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxPropertySheetDialog::Create at call 3 with 6 argument(s)");
@@ -9042,7 +9058,7 @@ PHP_METHOD(php_wxPropertySheetDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxPropertySheetDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxPropertySheetDialog::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos0, "wxPropertySheetDialog::Create at call 3 with 7 argument(s)");
@@ -9666,7 +9682,7 @@ PHP_METHOD(php_wxPropertySheetDialog, GetSheetStyle)
                 php_printf("Executing RETURN_LONG(wxPropertySheetDialog::GetSheetStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPropertySheetDialog_php*)native_object)->GetSheetStyle());
+                WXPHP_RETVAL_LONG(((wxPropertySheetDialog_php*)native_object)->GetSheetStyle());
 
 
                 return;
@@ -10296,9 +10312,9 @@ PHP_METHOD(php_wxPropertySheetDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSplashScreen_free(void *object)
+void php_wxSplashScreen_free(zend_object *object)
 {
-    zo_wxSplashScreen* custom_object = (zo_wxSplashScreen*) object;
+    zo_wxSplashScreen* custom_object = php_wxSplashScreen_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -10307,7 +10323,6 @@ void php_wxSplashScreen_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxSplashScreen_new(zend_class_entry *class_type)
@@ -10332,6 +10347,9 @@ zend_object* php_wxSplashScreen_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxSplashScreen_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxSplashScreen_object_handlers);
+    wxphp_wxSplashScreen_object_handlers.offset = XtOffsetOf(zo_wxSplashScreen, zo);
+    wxphp_wxSplashScreen_object_handlers.free_obj = php_wxSplashScreen_free;
     custom_object->zo.handlers = &wxphp_wxSplashScreen_object_handlers;
 
     custom_object->native_object = NULL;
@@ -10427,7 +10445,7 @@ PHP_METHOD(php_wxSplashScreen, GetSplashStyle)
                 php_printf("Executing RETURN_LONG(wxSplashScreen::GetSplashStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxSplashScreen_php*)native_object)->GetSplashStyle());
+                WXPHP_RETVAL_LONG(((wxSplashScreen_php*)native_object)->GetSplashStyle());
 
 
                 return;
@@ -10534,7 +10552,7 @@ PHP_METHOD(php_wxSplashScreen, GetTimeout)
                 php_printf("Executing RETURN_LONG(wxSplashScreen::GetTimeout())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxSplashScreen_php*)native_object)->GetTimeout());
+                WXPHP_RETVAL_LONG(((wxSplashScreen_php*)native_object)->GetTimeout());
 
 
                 return;
@@ -10770,9 +10788,9 @@ PHP_METHOD(php_wxSplashScreen, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTopLevelWindow_free(void *object)
+void php_wxTopLevelWindow_free(zend_object *object)
 {
-    zo_wxTopLevelWindow* custom_object = (zo_wxTopLevelWindow*) object;
+    zo_wxTopLevelWindow* custom_object = php_wxTopLevelWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10816,7 +10834,6 @@ void php_wxTopLevelWindow_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTopLevelWindow_new(zend_class_entry *class_type)
@@ -10841,6 +10858,9 @@ zend_object* php_wxTopLevelWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTopLevelWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTopLevelWindow_object_handlers);
+    wxphp_wxTopLevelWindow_object_handlers.offset = XtOffsetOf(zo_wxTopLevelWindow, zo);
+    wxphp_wxTopLevelWindow_object_handlers.free_obj = php_wxTopLevelWindow_free;
     custom_object->zo.handlers = &wxphp_wxTopLevelWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -11691,7 +11711,7 @@ PHP_METHOD(php_wxTopLevelWindow, GetTitle)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxTopLevelWindow_php*)native_object)->GetTitle();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11896,7 +11916,7 @@ PHP_METHOD(php_wxTopLevelWindow, ShowFullScreen)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::ShowFullScreen(show0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->ShowFullScreen(show0));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->ShowFullScreen(show0));
 
 
                 return;
@@ -11908,7 +11928,7 @@ PHP_METHOD(php_wxTopLevelWindow, ShowFullScreen)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::ShowFullScreen(show0, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->ShowFullScreen(show0, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->ShowFullScreen(show0, (long) style0));
 
 
                 return;
@@ -12107,7 +12127,7 @@ PHP_METHOD(php_wxTopLevelWindow, IsFullScreen)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::IsFullScreen())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsFullScreen());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsFullScreen());
 
 
                 return;
@@ -12529,7 +12549,7 @@ PHP_METHOD(php_wxTopLevelWindow, CanSetTransparent)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::CanSetTransparent())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->CanSetTransparent());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->CanSetTransparent());
 
 
                 return;
@@ -13801,7 +13821,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxTopLevelWindow::Create at call 1 with 3 argument(s)");
 
@@ -13814,7 +13834,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxTopLevelWindow::Create at call 3 with 4 argument(s)");
@@ -13828,7 +13848,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4));
 
                 references->AddReference(parent0, "wxTopLevelWindow::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxTopLevelWindow::Create at call 3 with 5 argument(s)");
@@ -13843,7 +13863,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0));
 
                 references->AddReference(parent0, "wxTopLevelWindow::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxTopLevelWindow::Create at call 3 with 6 argument(s)");
@@ -13858,7 +13878,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), *(wxPoint*) object_pointer0_3, *(wxSize*) object_pointer0_4, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxTopLevelWindow::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos0, "wxTopLevelWindow::Create at call 3 with 7 argument(s)");
@@ -13880,7 +13900,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8)));
 
                 references->AddReference(parent1, "wxTopLevelWindow::Create at call 1 with 3 argument(s)");
 
@@ -13893,7 +13913,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3));
 
                 references->AddReference(parent1, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos1, "wxTopLevelWindow::Create at call 3 with 4 argument(s)");
@@ -13907,7 +13927,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4));
 
                 references->AddReference(parent1, "wxTopLevelWindow::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos1, "wxTopLevelWindow::Create at call 3 with 5 argument(s)");
@@ -13922,7 +13942,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1));
 
                 references->AddReference(parent1, "wxTopLevelWindow::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos1, "wxTopLevelWindow::Create at call 3 with 6 argument(s)");
@@ -13937,7 +13957,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxMDIChildFrame::Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1, wxString(name1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1, wxString(name1, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->Create((wxMDIParentFrame*) object_pointer1_0, (wxWindowID) id1, wxString(title1, wxConvUTF8), *(wxPoint*) object_pointer1_3, *(wxSize*) object_pointer1_4, (long) style1, wxString(name1, wxConvUTF8)));
 
                 references->AddReference(parent1, "wxTopLevelWindow::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos1, "wxTopLevelWindow::Create at call 3 with 7 argument(s)");
@@ -13959,7 +13979,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2));
 
                 references->AddReference(parent2, "wxTopLevelWindow::Create at call 1 with 2 argument(s)");
 
@@ -13972,7 +13992,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8)));
 
                 references->AddReference(parent2, "wxTopLevelWindow::Create at call 1 with 3 argument(s)");
 
@@ -13985,7 +14005,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2));
 
                 references->AddReference(parent2, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
 
@@ -13998,7 +14018,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4));
 
                 references->AddReference(parent2, "wxTopLevelWindow::Create at call 1 with 5 argument(s)");
                 references->AddReference(config2, "wxTopLevelWindow::Create at call 1 with 5 argument(s)");
@@ -14012,7 +14032,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4, wxString(rootpath2, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4, wxString(rootpath2, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer2_0, (wxWindowID) id2, wxString(title2, wxConvUTF8), (int) style2, (wxConfigBase*) object_pointer2_4, wxString(rootpath2, wxConvUTF8)));
 
                 references->AddReference(parent2, "wxTopLevelWindow::Create at call 1 with 6 argument(s)");
                 references->AddReference(config2, "wxTopLevelWindow::Create at call 1 with 6 argument(s)");
@@ -14033,7 +14053,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxFindReplaceDialog::Create((wxWindow*) object_pointer3_0, (wxFindReplaceData*) object_pointer3_1, wxString(title3, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFindReplaceDialog_php*)native_object)->Create((wxWindow*) object_pointer3_0, (wxFindReplaceData*) object_pointer3_1, wxString(title3, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFindReplaceDialog_php*)native_object)->Create((wxWindow*) object_pointer3_0, (wxFindReplaceData*) object_pointer3_1, wxString(title3, wxConvUTF8)));
 
                 references->AddReference(parent3, "wxTopLevelWindow::Create at call 1 with 3 argument(s)");
                 references->AddReference(data3, "wxTopLevelWindow::Create at call 1 with 3 argument(s)");
@@ -14047,7 +14067,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxFindReplaceDialog::Create((wxWindow*) object_pointer3_0, (wxFindReplaceData*) object_pointer3_1, wxString(title3, wxConvUTF8), (int) style3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFindReplaceDialog_php*)native_object)->Create((wxWindow*) object_pointer3_0, (wxFindReplaceData*) object_pointer3_1, wxString(title3, wxConvUTF8), (int) style3));
+                WXPHP_RETVAL_BOOL(((wxFindReplaceDialog_php*)native_object)->Create((wxWindow*) object_pointer3_0, (wxFindReplaceData*) object_pointer3_1, wxString(title3, wxConvUTF8), (int) style3));
 
                 references->AddReference(parent3, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
                 references->AddReference(data3, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
@@ -14068,7 +14088,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxSymbolPickerDialog::Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3));
+                WXPHP_RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3));
 
                 references->AddReference(parent4, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
 
@@ -14081,7 +14101,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxSymbolPickerDialog::Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4));
+                WXPHP_RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4));
 
                 references->AddReference(parent4, "wxTopLevelWindow::Create at call 1 with 5 argument(s)");
 
@@ -14094,7 +14114,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxSymbolPickerDialog::Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8)));
 
                 references->AddReference(parent4, "wxTopLevelWindow::Create at call 1 with 6 argument(s)");
 
@@ -14107,7 +14127,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxSymbolPickerDialog::Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6));
+                WXPHP_RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6));
 
                 references->AddReference(parent4, "wxTopLevelWindow::Create at call 1 with 7 argument(s)");
                 references->AddReference(pos4, "wxTopLevelWindow::Create at call 3 with 7 argument(s)");
@@ -14121,7 +14141,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxSymbolPickerDialog::Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6, *(wxSize*) object_pointer4_7))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6, *(wxSize*) object_pointer4_7));
+                WXPHP_RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6, *(wxSize*) object_pointer4_7));
 
                 references->AddReference(parent4, "wxTopLevelWindow::Create at call 1 with 8 argument(s)");
                 references->AddReference(pos4, "wxTopLevelWindow::Create at call 3 with 8 argument(s)");
@@ -14136,7 +14156,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxSymbolPickerDialog::Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6, *(wxSize*) object_pointer4_7, (long) style4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6, *(wxSize*) object_pointer4_7, (long) style4));
+                WXPHP_RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->Create(wxString(symbol4, wxConvUTF8), wxString(initialFont4, wxConvUTF8), wxString(normalTextFont4, wxConvUTF8), (wxWindow*) object_pointer4_3, (wxWindowID) id4, wxString(caption4, wxConvUTF8), *(wxPoint*) object_pointer4_6, *(wxSize*) object_pointer4_7, (long) style4));
 
                 references->AddReference(parent4, "wxTopLevelWindow::Create at call 1 with 9 argument(s)");
                 references->AddReference(pos4, "wxTopLevelWindow::Create at call 3 with 9 argument(s)");
@@ -14158,7 +14178,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxWizard::Create((wxWindow*) object_pointer5_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0));
+                WXPHP_RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0));
 
                 references->AddReference(parent5, "wxTopLevelWindow::Create at call 1 with 1 argument(s)");
 
@@ -14171,7 +14191,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxWizard::Create((wxWindow*) object_pointer5_0, (int) id5))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5));
+                WXPHP_RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5));
 
                 references->AddReference(parent5, "wxTopLevelWindow::Create at call 1 with 2 argument(s)");
 
@@ -14184,7 +14204,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxWizard::Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8)));
 
                 references->AddReference(parent5, "wxTopLevelWindow::Create at call 1 with 3 argument(s)");
 
@@ -14197,7 +14217,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxWizard::Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3));
+                WXPHP_RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3));
 
                 references->AddReference(parent5, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
                 references->AddReference(bitmap5, "wxTopLevelWindow::Create at call 3 with 4 argument(s)");
@@ -14211,7 +14231,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxWizard::Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3, *(wxPoint*) object_pointer5_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3, *(wxPoint*) object_pointer5_4));
+                WXPHP_RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3, *(wxPoint*) object_pointer5_4));
 
                 references->AddReference(parent5, "wxTopLevelWindow::Create at call 1 with 5 argument(s)");
                 references->AddReference(bitmap5, "wxTopLevelWindow::Create at call 3 with 5 argument(s)");
@@ -14226,7 +14246,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxWizard::Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3, *(wxPoint*) object_pointer5_4, (long) style5))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3, *(wxPoint*) object_pointer5_4, (long) style5));
+                WXPHP_RETVAL_BOOL(((wxWizard_php*)native_object)->Create((wxWindow*) object_pointer5_0, (int) id5, wxString(title5, wxConvUTF8), *(wxBitmapBundle*) object_pointer5_3, *(wxPoint*) object_pointer5_4, (long) style5));
 
                 references->AddReference(parent5, "wxTopLevelWindow::Create at call 1 with 6 argument(s)");
                 references->AddReference(bitmap5, "wxTopLevelWindow::Create at call 3 with 6 argument(s)");
@@ -14248,7 +14268,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxColourDialog::Create((wxWindow*) object_pointer6_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxColourDialog_php*)native_object)->Create((wxWindow*) object_pointer6_0));
+                WXPHP_RETVAL_BOOL(((wxColourDialog_php*)native_object)->Create((wxWindow*) object_pointer6_0));
 
                 references->AddReference(parent6, "wxTopLevelWindow::Create at call 1 with 1 argument(s)");
 
@@ -14261,7 +14281,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxColourDialog::Create((wxWindow*) object_pointer6_0, (const wxColourData*) object_pointer6_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxColourDialog_php*)native_object)->Create((wxWindow*) object_pointer6_0, (const wxColourData*) object_pointer6_1));
+                WXPHP_RETVAL_BOOL(((wxColourDialog_php*)native_object)->Create((wxWindow*) object_pointer6_0, (const wxColourData*) object_pointer6_1));
 
                 references->AddReference(parent6, "wxTopLevelWindow::Create at call 1 with 2 argument(s)");
                 references->AddReference(data6, "wxTopLevelWindow::Create at call 1 with 2 argument(s)");
@@ -14282,7 +14302,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxFontDialog::Create((wxWindow*) object_pointer7_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFontDialog_php*)native_object)->Create((wxWindow*) object_pointer7_0));
+                WXPHP_RETVAL_BOOL(((wxFontDialog_php*)native_object)->Create((wxWindow*) object_pointer7_0));
 
                 references->AddReference(parent7, "wxTopLevelWindow::Create at call 1 with 1 argument(s)");
 
@@ -14302,7 +14322,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxFontDialog::Create((wxWindow*) object_pointer8_0, *(wxFontData*) object_pointer8_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFontDialog_php*)native_object)->Create((wxWindow*) object_pointer8_0, *(wxFontData*) object_pointer8_1));
+                WXPHP_RETVAL_BOOL(((wxFontDialog_php*)native_object)->Create((wxWindow*) object_pointer8_0, *(wxFontData*) object_pointer8_1));
 
                 references->AddReference(parent8, "wxTopLevelWindow::Create at call 1 with 2 argument(s)");
                 references->AddReference(data8, "wxTopLevelWindow::Create at call 3 with 2 argument(s)");
@@ -14323,7 +14343,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpDialog::Create((wxWindow*) object_pointer9_0, (wxWindowID) id9))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer9_0, (wxWindowID) id9));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer9_0, (wxWindowID) id9));
 
                 references->AddReference(parent9, "wxTopLevelWindow::Create at call 1 with 2 argument(s)");
 
@@ -14336,7 +14356,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpDialog::Create((wxWindow*) object_pointer9_0, (wxWindowID) id9, wxString(title9, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer9_0, (wxWindowID) id9, wxString(title9, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer9_0, (wxWindowID) id9, wxString(title9, wxConvUTF8)));
 
                 references->AddReference(parent9, "wxTopLevelWindow::Create at call 1 with 3 argument(s)");
 
@@ -14349,7 +14369,7 @@ PHP_METHOD(php_wxTopLevelWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpDialog::Create((wxWindow*) object_pointer9_0, (wxWindowID) id9, wxString(title9, wxConvUTF8), (int) style9))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer9_0, (wxWindowID) id9, wxString(title9, wxConvUTF8), (int) style9));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer9_0, (wxWindowID) id9, wxString(title9, wxConvUTF8), (int) style9));
 
                 references->AddReference(parent9, "wxTopLevelWindow::Create at call 1 with 4 argument(s)");
 
@@ -15841,7 +15861,7 @@ PHP_METHOD(php_wxTopLevelWindow, IsActive)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::IsActive())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsActive());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsActive());
 
 
                 return;
@@ -16040,7 +16060,7 @@ PHP_METHOD(php_wxTopLevelWindow, IsAlwaysMaximized)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::IsAlwaysMaximized())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsAlwaysMaximized());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsAlwaysMaximized());
 
 
                 return;
@@ -16239,7 +16259,7 @@ PHP_METHOD(php_wxTopLevelWindow, IsIconized)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::IsIconized())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsIconized());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsIconized());
 
 
                 return;
@@ -16438,7 +16458,7 @@ PHP_METHOD(php_wxTopLevelWindow, IsMaximized)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::IsMaximized())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsMaximized());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->IsMaximized());
 
 
                 return;
@@ -16637,7 +16657,7 @@ PHP_METHOD(php_wxTopLevelWindow, Layout)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::Layout())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Layout());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->Layout());
 
 
                 return;
@@ -18600,7 +18620,7 @@ PHP_METHOD(php_wxTopLevelWindow, SetTransparent)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::SetTransparent((wxByte) alpha0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->SetTransparent((wxByte) alpha0));
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->SetTransparent((wxByte) alpha0));
 
 
                 return;
@@ -18799,7 +18819,7 @@ PHP_METHOD(php_wxTopLevelWindow, ShouldPreventAppExit)
                 php_printf("Executing RETURN_BOOL(wxTopLevelWindow::ShouldPreventAppExit())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->ShouldPreventAppExit());
+                WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->ShouldPreventAppExit());
 
 
                 return;

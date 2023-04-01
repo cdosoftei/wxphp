@@ -44,7 +44,7 @@ typedef struct _zo_wxGBPosition{
     zend_object zo;
 } zo_wxGBPosition;
 
-void php_wxGBPosition_free(void *object);
+void php_wxGBPosition_free(zend_object *object);
 zend_object* php_wxGBPosition_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -91,7 +91,7 @@ typedef struct _zo_wxGridBagSizer{
     zend_object zo;
 } zo_wxGridBagSizer;
 
-void php_wxGridBagSizer_free(void *object);
+void php_wxGridBagSizer_free(zend_object *object);
 zend_object* php_wxGridBagSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -150,7 +150,7 @@ typedef struct _zo_wxGBSizerItem{
     zend_object zo;
 } zo_wxGBSizerItem;
 
-void php_wxGBSizerItem_free(void *object);
+void php_wxGBSizerItem_free(zend_object *object);
 zend_object* php_wxGBSizerItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -202,7 +202,7 @@ typedef struct _zo_wxGBSpan{
     zend_object zo;
 } zo_wxGBSpan;
 
-void php_wxGBSpan_free(void *object);
+void php_wxGBSpan_free(zend_object *object);
 zend_object* php_wxGBSpan_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -249,7 +249,7 @@ typedef struct _zo_wxLayoutAlgorithm{
     zend_object zo;
 } zo_wxLayoutAlgorithm;
 
-void php_wxLayoutAlgorithm_free(void *object);
+void php_wxLayoutAlgorithm_free(zend_object *object);
 zend_object* php_wxLayoutAlgorithm_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -296,7 +296,7 @@ typedef struct _zo_wxSizer{
     zend_object zo;
 } zo_wxSizer;
 
-void php_wxSizer_free(void *object);
+void php_wxSizer_free(zend_object *object);
 zend_object* php_wxSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -373,7 +373,7 @@ typedef struct _zo_wxStdDialogButtonSizer{
     zend_object zo;
 } zo_wxStdDialogButtonSizer;
 
-void php_wxStdDialogButtonSizer_free(void *object);
+void php_wxStdDialogButtonSizer_free(zend_object *object);
 zend_object* php_wxStdDialogButtonSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -426,7 +426,7 @@ typedef struct _zo_wxSizerItem{
     zend_object zo;
 } zo_wxSizerItem;
 
-void php_wxSizerItem_free(void *object);
+void php_wxSizerItem_free(zend_object *object);
 zend_object* php_wxSizerItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -502,7 +502,7 @@ typedef struct _zo_wxSizerFlags{
     zend_object zo;
 } zo_wxSizerFlags;
 
-void php_wxSizerFlags_free(void *object);
+void php_wxSizerFlags_free(zend_object *object);
 zend_object* php_wxSizerFlags_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -565,7 +565,7 @@ typedef struct _zo_wxFlexGridSizer{
     zend_object zo;
 } zo_wxFlexGridSizer;
 
-void php_wxFlexGridSizer_free(void *object);
+void php_wxFlexGridSizer_free(zend_object *object);
 zend_object* php_wxFlexGridSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -622,7 +622,7 @@ typedef struct _zo_wxGridSizer{
     zend_object zo;
 } zo_wxGridSizer;
 
-void php_wxGridSizer_free(void *object);
+void php_wxGridSizer_free(zend_object *object);
 zend_object* php_wxGridSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -677,7 +677,7 @@ typedef struct _zo_wxStaticBoxSizer{
     zend_object zo;
 } zo_wxStaticBoxSizer;
 
-void php_wxStaticBoxSizer_free(void *object);
+void php_wxStaticBoxSizer_free(zend_object *object);
 zend_object* php_wxStaticBoxSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -722,7 +722,7 @@ typedef struct _zo_wxBoxSizer{
     zend_object zo;
 } zo_wxBoxSizer;
 
-void php_wxBoxSizer_free(void *object);
+void php_wxBoxSizer_free(zend_object *object);
 zend_object* php_wxBoxSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -769,7 +769,7 @@ typedef struct _zo_wxWrapSizer{
     zend_object zo;
 } zo_wxWrapSizer;
 
-void php_wxWrapSizer_free(void *object);
+void php_wxWrapSizer_free(zend_object *object);
 zend_object* php_wxWrapSizer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

@@ -43,7 +43,7 @@ typedef struct _zo_wxClientData{
     zend_object zo;
 } zo_wxClientData;
 
-void php_wxClientData_free(void *object);
+void php_wxClientData_free(zend_object *object);
 zend_object* php_wxClientData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -86,7 +86,7 @@ typedef struct _zo_wxTreeItemData{
     zend_object zo;
 } zo_wxTreeItemData;
 
-void php_wxTreeItemData_free(void *object);
+void php_wxTreeItemData_free(zend_object *object);
 zend_object* php_wxTreeItemData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

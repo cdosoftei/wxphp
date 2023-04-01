@@ -43,7 +43,7 @@ typedef struct _zo_wxToolTip{
     zend_object zo;
 } zo_wxToolTip;
 
-void php_wxToolTip_free(void *object);
+void php_wxToolTip_free(zend_object *object);
 zend_object* php_wxToolTip_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

@@ -43,7 +43,7 @@ typedef struct _zo_wxFileHistory{
     zend_object zo;
 } zo_wxFileHistory;
 
-void php_wxFileHistory_free(void *object);
+void php_wxFileHistory_free(zend_object *object);
 zend_object* php_wxFileHistory_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

@@ -47,7 +47,7 @@ typedef struct _zo_wxBitmapBundle{
     zend_object zo;
 } zo_wxBitmapBundle;
 
-void php_wxBitmapBundle_free(void *object);
+void php_wxBitmapBundle_free(zend_object *object);
 zend_object* php_wxBitmapBundle_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -111,7 +111,7 @@ typedef struct _zo_wxBitmapBundleImpl{
     zend_object zo;
 } zo_wxBitmapBundleImpl;
 
-void php_wxBitmapBundleImpl_free(void *object);
+void php_wxBitmapBundleImpl_free(zend_object *object);
 zend_object* php_wxBitmapBundleImpl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -153,7 +153,7 @@ typedef struct _zo_wxGraphicsGradientStop{
     zend_object zo;
 } zo_wxGraphicsGradientStop;
 
-void php_wxGraphicsGradientStop_free(void *object);
+void php_wxGraphicsGradientStop_free(zend_object *object);
 zend_object* php_wxGraphicsGradientStop_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -200,7 +200,7 @@ typedef struct _zo_wxGraphicsGradientStops{
     zend_object zo;
 } zo_wxGraphicsGradientStops;
 
-void php_wxGraphicsGradientStops_free(void *object);
+void php_wxGraphicsGradientStops_free(zend_object *object);
 zend_object* php_wxGraphicsGradientStops_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -250,7 +250,7 @@ typedef struct _zo_wxBitmapHandler{
     zend_object zo;
 } zo_wxBitmapHandler;
 
-void php_wxBitmapHandler_free(void *object);
+void php_wxBitmapHandler_free(zend_object *object);
 zend_object* php_wxBitmapHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -311,7 +311,7 @@ typedef struct _zo_wxBitmap{
     zend_object zo;
 } zo_wxBitmap;
 
-void php_wxBitmap_free(void *object);
+void php_wxBitmap_free(zend_object *object);
 zend_object* php_wxBitmap_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -379,7 +379,7 @@ typedef struct _zo_wxMask{
     zend_object zo;
 } zo_wxMask;
 
-void php_wxMask_free(void *object);
+void php_wxMask_free(zend_object *object);
 zend_object* php_wxMask_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -426,7 +426,7 @@ typedef struct _zo_wxBrush{
     zend_object zo;
 } zo_wxBrush;
 
-void php_wxBrush_free(void *object);
+void php_wxBrush_free(zend_object *object);
 zend_object* php_wxBrush_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -483,7 +483,7 @@ typedef struct _zo_wxColour{
     zend_object zo;
 } zo_wxColour;
 
-void php_wxColour_free(void *object);
+void php_wxColour_free(zend_object *object);
 zend_object* php_wxColour_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -539,7 +539,7 @@ typedef struct _zo_wxCursor{
     zend_object zo;
 } zo_wxCursor;
 
-void php_wxCursor_free(void *object);
+void php_wxCursor_free(zend_object *object);
 zend_object* php_wxCursor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -585,7 +585,7 @@ typedef struct _zo_wxDCClipper{
     zend_object zo;
 } zo_wxDCClipper;
 
-void php_wxDCClipper_free(void *object);
+void php_wxDCClipper_free(zend_object *object);
 zend_object* php_wxDCClipper_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -633,7 +633,7 @@ typedef struct _zo_wxFont{
     zend_object zo;
 } zo_wxFont;
 
-void php_wxFont_free(void *object);
+void php_wxFont_free(zend_object *object);
 zend_object* php_wxFont_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -716,7 +716,7 @@ typedef struct _zo_wxFontList{
     zend_object zo;
 } zo_wxFontList;
 
-void php_wxFontList_free(void *object);
+void php_wxFontList_free(zend_object *object);
 zend_object* php_wxFontList_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -761,7 +761,7 @@ typedef struct _zo_wxFontEnumerator{
     zend_object zo;
 } zo_wxFontEnumerator;
 
-void php_wxFontEnumerator_free(void *object);
+void php_wxFontEnumerator_free(zend_object *object);
 zend_object* php_wxFontEnumerator_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -809,7 +809,7 @@ typedef struct _zo_wxNativeFontInfo{
     zend_object zo;
 } zo_wxNativeFontInfo;
 
-void php_wxNativeFontInfo_free(void *object);
+void php_wxNativeFontInfo_free(zend_object *object);
 zend_object* php_wxNativeFontInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -872,7 +872,7 @@ typedef struct _zo_wxColourDatabase{
     zend_object zo;
 } zo_wxColourDatabase;
 
-void php_wxColourDatabase_free(void *object);
+void php_wxColourDatabase_free(zend_object *object);
 zend_object* php_wxColourDatabase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -917,7 +917,7 @@ typedef struct _zo_wxGDIObject{
     zend_object zo;
 } zo_wxGDIObject;
 
-void php_wxGDIObject_free(void *object);
+void php_wxGDIObject_free(zend_object *object);
 zend_object* php_wxGDIObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -958,7 +958,7 @@ typedef struct _zo_wxGraphicsRenderer{
     zend_object zo;
 } zo_wxGraphicsRenderer;
 
-void php_wxGraphicsRenderer_free(void *object);
+void php_wxGraphicsRenderer_free(zend_object *object);
 zend_object* php_wxGraphicsRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -999,7 +999,7 @@ typedef struct _zo_wxGraphicsMatrix{
     zend_object zo;
 } zo_wxGraphicsMatrix;
 
-void php_wxGraphicsMatrix_free(void *object);
+void php_wxGraphicsMatrix_free(zend_object *object);
 zend_object* php_wxGraphicsMatrix_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1043,7 +1043,7 @@ typedef struct _zo_wxIcon{
     zend_object zo;
 } zo_wxIcon;
 
-void php_wxIcon_free(void *object);
+void php_wxIcon_free(zend_object *object);
 zend_object* php_wxIcon_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1096,7 +1096,7 @@ typedef struct _zo_wxIconBundle{
     zend_object zo;
 } zo_wxIconBundle;
 
-void php_wxIconBundle_free(void *object);
+void php_wxIconBundle_free(zend_object *object);
 zend_object* php_wxIconBundle_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1144,7 +1144,7 @@ typedef struct _zo_wxImageHandler{
     zend_object zo;
 } zo_wxImageHandler;
 
-void php_wxImageHandler_free(void *object);
+void php_wxImageHandler_free(zend_object *object);
 zend_object* php_wxImageHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1209,7 +1209,7 @@ typedef struct _zo_wxImage{
     zend_object zo;
 } zo_wxImage;
 
-void php_wxImage_free(void *object);
+void php_wxImage_free(zend_object *object);
 zend_object* php_wxImage_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1321,7 +1321,7 @@ typedef struct _zo_wxImageList{
     zend_object zo;
 } zo_wxImageList;
 
-void php_wxImageList_free(void *object);
+void php_wxImageList_free(zend_object *object);
 zend_object* php_wxImageList_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1376,7 +1376,7 @@ typedef struct _zo_wxPalette{
     zend_object zo;
 } zo_wxPalette;
 
-void php_wxPalette_free(void *object);
+void php_wxPalette_free(zend_object *object);
 zend_object* php_wxPalette_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1426,7 +1426,7 @@ typedef struct _zo_wxPen{
     zend_object zo;
 } zo_wxPen;
 
-void php_wxPen_free(void *object);
+void php_wxPen_free(zend_object *object);
 zend_object* php_wxPen_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1484,7 +1484,7 @@ typedef struct _zo_wxPenList{
     zend_object zo;
 } zo_wxPenList;
 
-void php_wxPenList_free(void *object);
+void php_wxPenList_free(zend_object *object);
 zend_object* php_wxPenList_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1543,7 +1543,7 @@ typedef struct _zo_wxRendererNative{
     zend_object zo;
 } zo_wxRendererNative;
 
-void php_wxRendererNative_free(void *object);
+void php_wxRendererNative_free(zend_object *object);
 zend_object* php_wxRendererNative_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

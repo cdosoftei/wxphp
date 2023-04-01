@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxBitmapBundle_free(void *object)
+void php_wxBitmapBundle_free(zend_object *object)
 {
-    zo_wxBitmapBundle* custom_object = (zo_wxBitmapBundle*) object;
+    zo_wxBitmapBundle* custom_object = php_wxBitmapBundle_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxBitmapBundle_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBitmapBundle_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxBitmapBundle_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBitmapBundle_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBitmapBundle_object_handlers);
+    wxphp_wxBitmapBundle_object_handlers.offset = XtOffsetOf(zo_wxBitmapBundle, zo);
+    wxphp_wxBitmapBundle_object_handlers.free_obj = php_wxBitmapBundle_free;
     custom_object->zo.handlers = &wxphp_wxBitmapBundle_object_handlers;
 
     custom_object->native_object = NULL;
@@ -531,7 +533,7 @@ PHP_METHOD(php_wxBitmapBundle, IsOk)
                 php_printf("Executing RETURN_BOOL(wxBitmapBundle::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmapBundle_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxBitmapBundle_php*)native_object)->IsOk());
 
 
                 return;
@@ -1726,7 +1728,7 @@ PHP_METHOD(php_wxBitmapBundle, IsSameAs)
                 php_printf("Executing RETURN_BOOL(wxBitmapBundle::IsSameAs(*(wxBitmapBundle*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmapBundle_php*)native_object)->IsSameAs(*(wxBitmapBundle*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxBitmapBundle_php*)native_object)->IsSameAs(*(wxBitmapBundle*) object_pointer0_0));
 
                 references->AddReference(other0, "wxBitmapBundle::IsSameAs at call 3 with 1 argument(s)");
 
@@ -3128,9 +3130,9 @@ PHP_METHOD(php_wxBitmapBundle, FromSVGResource)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBitmapBundleImpl_free(void *object)
+void php_wxBitmapBundleImpl_free(zend_object *object)
 {
-    zo_wxBitmapBundleImpl* custom_object = (zo_wxBitmapBundleImpl*) object;
+    zo_wxBitmapBundleImpl* custom_object = php_wxBitmapBundleImpl_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3171,7 +3173,6 @@ void php_wxBitmapBundleImpl_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBitmapBundleImpl_new(zend_class_entry *class_type)
@@ -3196,6 +3197,9 @@ zend_object* php_wxBitmapBundleImpl_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBitmapBundleImpl_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBitmapBundleImpl_object_handlers);
+    wxphp_wxBitmapBundleImpl_object_handlers.offset = XtOffsetOf(zo_wxBitmapBundleImpl, zo);
+    wxphp_wxBitmapBundleImpl_object_handlers.free_obj = php_wxBitmapBundleImpl_free;
     custom_object->zo.handlers = &wxphp_wxBitmapBundleImpl_object_handlers;
 
     custom_object->native_object = NULL;
@@ -3498,9 +3502,9 @@ wxBitmap wxBitmapBundleImpl_php::GetBitmap(const wxSize& size)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsGradientStop_free(void *object)
+void php_wxGraphicsGradientStop_free(zend_object *object)
 {
-    zo_wxGraphicsGradientStop* custom_object = (zo_wxGraphicsGradientStop*) object;
+    zo_wxGraphicsGradientStop* custom_object = php_wxGraphicsGradientStop_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3541,7 +3545,6 @@ void php_wxGraphicsGradientStop_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGraphicsGradientStop_new(zend_class_entry *class_type)
@@ -3566,6 +3569,9 @@ zend_object* php_wxGraphicsGradientStop_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGraphicsGradientStop_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGraphicsGradientStop_object_handlers);
+    wxphp_wxGraphicsGradientStop_object_handlers.offset = XtOffsetOf(zo_wxGraphicsGradientStop, zo);
+    wxphp_wxGraphicsGradientStop_object_handlers.free_obj = php_wxGraphicsGradientStop_free;
     custom_object->zo.handlers = &wxphp_wxGraphicsGradientStop_object_handlers;
 
     custom_object->native_object = NULL;
@@ -3788,7 +3794,7 @@ PHP_METHOD(php_wxGraphicsGradientStop, GetPosition)
                 php_printf("Executing RETURN_LONG(wxGraphicsGradientStop::GetPosition())\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxGraphicsGradientStop_php*)native_object)->GetPosition());
+                WXPHP_RETVAL_DOUBLE(((wxGraphicsGradientStop_php*)native_object)->GetPosition());
 
 
                 return;
@@ -4183,9 +4189,9 @@ PHP_METHOD(php_wxGraphicsGradientStop, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsGradientStops_free(void *object)
+void php_wxGraphicsGradientStops_free(zend_object *object)
 {
-    zo_wxGraphicsGradientStops* custom_object = (zo_wxGraphicsGradientStops*) object;
+    zo_wxGraphicsGradientStops* custom_object = php_wxGraphicsGradientStops_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4226,7 +4232,6 @@ void php_wxGraphicsGradientStops_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGraphicsGradientStops_new(zend_class_entry *class_type)
@@ -4251,6 +4256,9 @@ zend_object* php_wxGraphicsGradientStops_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGraphicsGradientStops_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGraphicsGradientStops_object_handlers);
+    wxphp_wxGraphicsGradientStops_object_handlers.offset = XtOffsetOf(zo_wxGraphicsGradientStops, zo);
+    wxphp_wxGraphicsGradientStops_object_handlers.free_obj = php_wxGraphicsGradientStops_free;
     custom_object->zo.handlers = &wxphp_wxGraphicsGradientStops_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4536,7 +4544,7 @@ PHP_METHOD(php_wxGraphicsGradientStops, GetCount)
                 php_printf("Executing RETURN_LONG(wxGraphicsGradientStops::GetCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGraphicsGradientStops_php*)native_object)->GetCount());
+                WXPHP_RETVAL_LONG(((wxGraphicsGradientStops_php*)native_object)->GetCount());
 
 
                 return;
@@ -5315,9 +5323,9 @@ PHP_METHOD(php_wxGraphicsGradientStops, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBitmapHandler_free(void *object)
+void php_wxBitmapHandler_free(zend_object *object)
 {
-    zo_wxBitmapHandler* custom_object = (zo_wxBitmapHandler*) object;
+    zo_wxBitmapHandler* custom_object = php_wxBitmapHandler_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5358,7 +5366,6 @@ void php_wxBitmapHandler_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBitmapHandler_new(zend_class_entry *class_type)
@@ -5383,6 +5390,9 @@ zend_object* php_wxBitmapHandler_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBitmapHandler_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBitmapHandler_object_handlers);
+    wxphp_wxBitmapHandler_object_handlers.offset = XtOffsetOf(zo_wxBitmapHandler, zo);
+    wxphp_wxBitmapHandler_object_handlers.free_obj = php_wxBitmapHandler_free;
     custom_object->zo.handlers = &wxphp_wxBitmapHandler_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5927,7 +5937,7 @@ PHP_METHOD(php_wxBitmapHandler, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxBitmapHandler::LoadFile((wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0, (int) desiredWidth0, (int) desiredHeight0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->LoadFile((wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0, (int) desiredWidth0, (int) desiredHeight0));
+                WXPHP_RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->LoadFile((wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0, (int) desiredWidth0, (int) desiredHeight0));
 
                 references->AddReference(bitmap0, "wxBitmapHandler::LoadFile at call 1 with 5 argument(s)");
 
@@ -6035,7 +6045,7 @@ PHP_METHOD(php_wxBitmapHandler, GetType)
                 php_printf("Executing RETURN_LONG(wxBitmapHandler::GetType())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBitmapHandler_php*)native_object)->GetType());
+                WXPHP_RETVAL_LONG(((wxBitmapHandler_php*)native_object)->GetType());
 
 
                 return;
@@ -6144,7 +6154,7 @@ PHP_METHOD(php_wxBitmapHandler, GetName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxBitmapHandler_php*)native_object)->GetName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -6253,7 +6263,7 @@ PHP_METHOD(php_wxBitmapHandler, GetExtension)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxBitmapHandler_php*)native_object)->GetExtension();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -6405,7 +6415,7 @@ PHP_METHOD(php_wxBitmapHandler, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxBitmapHandler::SaveFile((const wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->SaveFile((const wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0));
+                WXPHP_RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->SaveFile((const wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0));
 
                 references->AddReference(bitmap0, "wxBitmapHandler::SaveFile at call 1 with 3 argument(s)");
 
@@ -6418,7 +6428,7 @@ PHP_METHOD(php_wxBitmapHandler, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxBitmapHandler::SaveFile((const wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0, (const wxPalette*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->SaveFile((const wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0, (const wxPalette*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->SaveFile((const wxBitmap*) object_pointer0_0, wxString(name0, wxConvUTF8), (wxBitmapType) type0, (const wxPalette*) object_pointer0_3));
 
                 references->AddReference(bitmap0, "wxBitmapHandler::SaveFile at call 1 with 4 argument(s)");
                 references->AddReference(palette0, "wxBitmapHandler::SaveFile at call 1 with 4 argument(s)");
@@ -6556,7 +6566,7 @@ PHP_METHOD(php_wxBitmapHandler, Create)
                 php_printf("Executing RETURN_BOOL(wxBitmapHandler::Create((wxBitmap*) object_pointer0_0, (const void*) data0, (wxBitmapType) type0, (int) width0, (int) height0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->Create((wxBitmap*) object_pointer0_0, (const void*) data0, (wxBitmapType) type0, (int) width0, (int) height0));
+                WXPHP_RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->Create((wxBitmap*) object_pointer0_0, (const void*) data0, (wxBitmapType) type0, (int) width0, (int) height0));
 
                 references->AddReference(bitmap0, "wxBitmapHandler::Create at call 1 with 5 argument(s)");
 
@@ -6569,7 +6579,7 @@ PHP_METHOD(php_wxBitmapHandler, Create)
                 php_printf("Executing RETURN_BOOL(wxBitmapHandler::Create((wxBitmap*) object_pointer0_0, (const void*) data0, (wxBitmapType) type0, (int) width0, (int) height0, (int) depth0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->Create((wxBitmap*) object_pointer0_0, (const void*) data0, (wxBitmapType) type0, (int) width0, (int) height0, (int) depth0));
+                WXPHP_RETVAL_BOOL(((wxBitmapHandler_php*)native_object)->Create((wxBitmap*) object_pointer0_0, (const void*) data0, (wxBitmapType) type0, (int) width0, (int) height0, (int) depth0));
 
                 references->AddReference(bitmap0, "wxBitmapHandler::Create at call 1 with 6 argument(s)");
 
@@ -6593,9 +6603,9 @@ PHP_METHOD(php_wxBitmapHandler, Create)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBitmap_free(void *object)
+void php_wxBitmap_free(zend_object *object)
 {
-    zo_wxBitmap* custom_object = (zo_wxBitmap*) object;
+    zo_wxBitmap* custom_object = php_wxBitmap_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6636,7 +6646,6 @@ void php_wxBitmap_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBitmap_new(zend_class_entry *class_type)
@@ -6661,6 +6670,9 @@ zend_object* php_wxBitmap_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBitmap_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBitmap_object_handlers);
+    wxphp_wxBitmap_object_handlers.offset = XtOffsetOf(zo_wxBitmap, zo);
+    wxphp_wxBitmap_object_handlers.free_obj = php_wxBitmap_free;
     custom_object->zo.handlers = &wxphp_wxBitmap_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7777,7 +7789,7 @@ PHP_METHOD(php_wxBitmap, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxBitmap::LoadFile(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmap_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxBitmap_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -7789,7 +7801,7 @@ PHP_METHOD(php_wxBitmap, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxBitmap::LoadFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmap_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0));
+                WXPHP_RETVAL_BOOL(((wxBitmap_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0));
 
 
                 return;
@@ -7903,7 +7915,7 @@ PHP_METHOD(php_wxBitmap, RemoveHandler)
                 php_printf("Executing RETURN_BOOL(wxBitmap::RemoveHandler(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxBitmap::RemoveHandler(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxBitmap::RemoveHandler(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -8036,7 +8048,7 @@ PHP_METHOD(php_wxBitmap, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxBitmap::SaveFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmap_php*)native_object)->SaveFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0));
+                WXPHP_RETVAL_BOOL(((wxBitmap_php*)native_object)->SaveFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0));
 
 
                 return;
@@ -8048,7 +8060,7 @@ PHP_METHOD(php_wxBitmap, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxBitmap::SaveFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0, (const wxPalette*) object_pointer0_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmap_php*)native_object)->SaveFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0, (const wxPalette*) object_pointer0_2));
+                WXPHP_RETVAL_BOOL(((wxBitmap_php*)native_object)->SaveFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0, (const wxPalette*) object_pointer0_2));
 
                 references->AddReference(palette0, "wxBitmap::SaveFile at call 1 with 3 argument(s)");
 
@@ -8294,7 +8306,7 @@ PHP_METHOD(php_wxBitmap, CopyFromIcon)
                 php_printf("Executing RETURN_BOOL(wxBitmap::CopyFromIcon(*(wxIcon*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmap_php*)native_object)->CopyFromIcon(*(wxIcon*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxBitmap_php*)native_object)->CopyFromIcon(*(wxIcon*) object_pointer0_0));
 
                 references->AddReference(icon0, "wxBitmap::CopyFromIcon at call 3 with 1 argument(s)");
 
@@ -8427,7 +8439,7 @@ PHP_METHOD(php_wxBitmap, Create)
                 php_printf("Executing RETURN_BOOL(wxBitmap::Create((int) width0, (int) height0, *(wxDC*) object_pointer0_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmap_php*)native_object)->Create((int) width0, (int) height0, *(wxDC*) object_pointer0_2));
+                WXPHP_RETVAL_BOOL(((wxBitmap_php*)native_object)->Create((int) width0, (int) height0, *(wxDC*) object_pointer0_2));
 
                 references->AddReference(dc0, "wxBitmap::Create at call 3 with 3 argument(s)");
 
@@ -8790,7 +8802,7 @@ PHP_METHOD(php_wxBitmap, GetDepth)
                 php_printf("Executing RETURN_LONG(wxBitmap::GetDepth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBitmap_php*)native_object)->GetDepth());
+                WXPHP_RETVAL_LONG(((wxBitmap_php*)native_object)->GetDepth());
 
 
                 return;
@@ -8897,7 +8909,7 @@ PHP_METHOD(php_wxBitmap, GetHeight)
                 php_printf("Executing RETURN_LONG(wxBitmap::GetHeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBitmap_php*)native_object)->GetHeight());
+                WXPHP_RETVAL_LONG(((wxBitmap_php*)native_object)->GetHeight());
 
 
                 return;
@@ -9517,7 +9529,7 @@ PHP_METHOD(php_wxBitmap, GetWidth)
                 php_printf("Executing RETURN_LONG(wxBitmap::GetWidth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBitmap_php*)native_object)->GetWidth());
+                WXPHP_RETVAL_LONG(((wxBitmap_php*)native_object)->GetWidth());
 
 
                 return;
@@ -9863,7 +9875,7 @@ PHP_METHOD(php_wxBitmap, IsOk)
                 php_printf("Executing RETURN_BOOL(wxBitmap::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBitmap_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxBitmap_php*)native_object)->IsOk());
 
 
                 return;
@@ -10148,9 +10160,9 @@ PHP_METHOD(php_wxBitmap, SetPalette)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMask_free(void *object)
+void php_wxMask_free(zend_object *object)
 {
-    zo_wxMask* custom_object = (zo_wxMask*) object;
+    zo_wxMask* custom_object = php_wxMask_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10191,7 +10203,6 @@ void php_wxMask_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMask_new(zend_class_entry *class_type)
@@ -10216,6 +10227,9 @@ zend_object* php_wxMask_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMask_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMask_object_handlers);
+    wxphp_wxMask_object_handlers.offset = XtOffsetOf(zo_wxMask, zo);
+    wxphp_wxMask_object_handlers.free_obj = php_wxMask_free;
     custom_object->zo.handlers = &wxphp_wxMask_object_handlers;
 
     custom_object->native_object = NULL;
@@ -10432,7 +10446,7 @@ PHP_METHOD(php_wxMask, Create)
                 php_printf("Executing RETURN_BOOL(wxMask::Create(*(wxBitmap*) object_pointer0_0, (int) index0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMask_php*)native_object)->Create(*(wxBitmap*) object_pointer0_0, (int) index0));
+                WXPHP_RETVAL_BOOL(((wxMask_php*)native_object)->Create(*(wxBitmap*) object_pointer0_0, (int) index0));
 
                 references->AddReference(bitmap0, "wxMask::Create at call 3 with 2 argument(s)");
 
@@ -10452,7 +10466,7 @@ PHP_METHOD(php_wxMask, Create)
                 php_printf("Executing RETURN_BOOL(wxMask::Create(*(wxBitmap*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMask_php*)native_object)->Create(*(wxBitmap*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxMask_php*)native_object)->Create(*(wxBitmap*) object_pointer1_0));
 
                 references->AddReference(bitmap1, "wxMask::Create at call 3 with 1 argument(s)");
 
@@ -10472,7 +10486,7 @@ PHP_METHOD(php_wxMask, Create)
                 php_printf("Executing RETURN_BOOL(wxMask::Create(*(wxBitmap*) object_pointer2_0, *(wxColour*) object_pointer2_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxMask_php*)native_object)->Create(*(wxBitmap*) object_pointer2_0, *(wxColour*) object_pointer2_1));
+                WXPHP_RETVAL_BOOL(((wxMask_php*)native_object)->Create(*(wxBitmap*) object_pointer2_0, *(wxColour*) object_pointer2_1));
 
                 references->AddReference(bitmap2, "wxMask::Create at call 3 with 2 argument(s)");
                 references->AddReference(colour2, "wxMask::Create at call 3 with 2 argument(s)");
@@ -10775,9 +10789,9 @@ PHP_METHOD(php_wxMask, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBrush_free(void *object)
+void php_wxBrush_free(zend_object *object)
 {
-    zo_wxBrush* custom_object = (zo_wxBrush*) object;
+    zo_wxBrush* custom_object = php_wxBrush_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10818,7 +10832,6 @@ void php_wxBrush_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBrush_new(zend_class_entry *class_type)
@@ -10843,6 +10856,9 @@ zend_object* php_wxBrush_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBrush_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBrush_object_handlers);
+    wxphp_wxBrush_object_handlers.offset = XtOffsetOf(zo_wxBrush, zo);
+    wxphp_wxBrush_object_handlers.free_obj = php_wxBrush_free;
     custom_object->zo.handlers = &wxphp_wxBrush_object_handlers;
 
     custom_object->native_object = NULL;
@@ -11183,7 +11199,7 @@ PHP_METHOD(php_wxBrush, GetStyle)
                 php_printf("Executing RETURN_LONG(wxBrush::GetStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBrush_php*)native_object)->GetStyle());
+                WXPHP_RETVAL_LONG(((wxBrush_php*)native_object)->GetStyle());
 
 
                 return;
@@ -11290,7 +11306,7 @@ PHP_METHOD(php_wxBrush, IsHatch)
                 php_printf("Executing RETURN_BOOL(wxBrush::IsHatch())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBrush_php*)native_object)->IsHatch());
+                WXPHP_RETVAL_BOOL(((wxBrush_php*)native_object)->IsHatch());
 
 
                 return;
@@ -11397,7 +11413,7 @@ PHP_METHOD(php_wxBrush, IsNonTransparent)
                 php_printf("Executing RETURN_BOOL(wxBrush::IsNonTransparent())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBrush_php*)native_object)->IsNonTransparent());
+                WXPHP_RETVAL_BOOL(((wxBrush_php*)native_object)->IsNonTransparent());
 
 
                 return;
@@ -11504,7 +11520,7 @@ PHP_METHOD(php_wxBrush, IsOk)
                 php_printf("Executing RETURN_BOOL(wxBrush::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBrush_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxBrush_php*)native_object)->IsOk());
 
 
                 return;
@@ -11611,7 +11627,7 @@ PHP_METHOD(php_wxBrush, IsTransparent)
                 php_printf("Executing RETURN_BOOL(wxBrush::IsTransparent())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxBrush_php*)native_object)->IsTransparent());
+                WXPHP_RETVAL_BOOL(((wxBrush_php*)native_object)->IsTransparent());
 
 
                 return;
@@ -12320,9 +12336,9 @@ PHP_METHOD(php_wxBrush, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxColour_free(void *object)
+void php_wxColour_free(zend_object *object)
 {
-    zo_wxColour* custom_object = (zo_wxColour*) object;
+    zo_wxColour* custom_object = php_wxColour_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12363,7 +12379,6 @@ void php_wxColour_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxColour_new(zend_class_entry *class_type)
@@ -12388,6 +12403,9 @@ zend_object* php_wxColour_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxColour_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxColour_object_handlers);
+    wxphp_wxColour_object_handlers.offset = XtOffsetOf(zo_wxColour, zo);
+    wxphp_wxColour_object_handlers.free_obj = php_wxColour_free;
     custom_object->zo.handlers = &wxphp_wxColour_object_handlers;
 
     custom_object->native_object = NULL;
@@ -12857,7 +12875,7 @@ PHP_METHOD(php_wxColour, Set)
                 php_printf("Executing RETURN_BOOL(wxColour::Set(wxString(str2, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxColour_php*)native_object)->Set(wxString(str2, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxColour_php*)native_object)->Set(wxString(str2, wxConvUTF8)));
 
 
                 return;
@@ -12964,7 +12982,7 @@ PHP_METHOD(php_wxColour, Red)
                 php_printf("Executing RETURN_LONG(wxColour::Red())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxColour_php*)native_object)->Red());
+                WXPHP_RETVAL_LONG(((wxColour_php*)native_object)->Red());
 
 
                 return;
@@ -13295,7 +13313,7 @@ PHP_METHOD(php_wxColour, Blue)
                 php_printf("Executing RETURN_LONG(wxColour::Blue())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxColour_php*)native_object)->Blue());
+                WXPHP_RETVAL_LONG(((wxColour_php*)native_object)->Blue());
 
 
                 return;
@@ -13402,7 +13420,7 @@ PHP_METHOD(php_wxColour, Green)
                 php_printf("Executing RETURN_LONG(wxColour::Green())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxColour_php*)native_object)->Green());
+                WXPHP_RETVAL_LONG(((wxColour_php*)native_object)->Green());
 
 
                 return;
@@ -13509,7 +13527,7 @@ PHP_METHOD(php_wxColour, GetRGBA)
                 php_printf("Executing RETURN_LONG(wxColour::GetRGBA())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxColour_php*)native_object)->GetRGBA());
+                WXPHP_RETVAL_LONG(((wxColour_php*)native_object)->GetRGBA());
 
 
                 return;
@@ -13616,7 +13634,7 @@ PHP_METHOD(php_wxColour, GetRGB)
                 php_printf("Executing RETURN_LONG(wxColour::GetRGB())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxColour_php*)native_object)->GetRGB());
+                WXPHP_RETVAL_LONG(((wxColour_php*)native_object)->GetRGB());
 
 
                 return;
@@ -13723,7 +13741,7 @@ PHP_METHOD(php_wxColour, Alpha)
                 php_printf("Executing RETURN_LONG(wxColour::Alpha())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxColour_php*)native_object)->Alpha());
+                WXPHP_RETVAL_LONG(((wxColour_php*)native_object)->Alpha());
 
 
                 return;
@@ -13746,9 +13764,9 @@ PHP_METHOD(php_wxColour, Alpha)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxCursor_free(void *object)
+void php_wxCursor_free(zend_object *object)
 {
-    zo_wxCursor* custom_object = (zo_wxCursor*) object;
+    zo_wxCursor* custom_object = php_wxCursor_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13789,7 +13807,6 @@ void php_wxCursor_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxCursor_new(zend_class_entry *class_type)
@@ -13814,6 +13831,9 @@ zend_object* php_wxCursor_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxCursor_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxCursor_object_handlers);
+    wxphp_wxCursor_object_handlers.offset = XtOffsetOf(zo_wxCursor, zo);
+    wxphp_wxCursor_object_handlers.free_obj = php_wxCursor_free;
     custom_object->zo.handlers = &wxphp_wxCursor_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13909,7 +13929,7 @@ PHP_METHOD(php_wxCursor, IsOk)
                 php_printf("Executing RETURN_BOOL(wxCursor::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxCursor_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxCursor_php*)native_object)->IsOk());
 
 
                 return;
@@ -14246,9 +14266,9 @@ PHP_METHOD(php_wxCursor, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDCClipper_free(void *object)
+void php_wxDCClipper_free(zend_object *object)
 {
-    zo_wxDCClipper* custom_object = (zo_wxDCClipper*) object;
+    zo_wxDCClipper* custom_object = php_wxDCClipper_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14289,7 +14309,6 @@ void php_wxDCClipper_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDCClipper_new(zend_class_entry *class_type)
@@ -14314,6 +14333,9 @@ zend_object* php_wxDCClipper_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDCClipper_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDCClipper_object_handlers);
+    wxphp_wxDCClipper_object_handlers.offset = XtOffsetOf(zo_wxDCClipper, zo);
+    wxphp_wxDCClipper_object_handlers.free_obj = php_wxDCClipper_free;
     custom_object->zo.handlers = &wxphp_wxDCClipper_object_handlers;
 
     custom_object->native_object = NULL;
@@ -14592,9 +14614,9 @@ PHP_METHOD(php_wxDCClipper, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFont_free(void *object)
+void php_wxFont_free(zend_object *object)
 {
-    zo_wxFont* custom_object = (zo_wxFont*) object;
+    zo_wxFont* custom_object = php_wxFont_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14635,7 +14657,6 @@ void php_wxFont_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFont_new(zend_class_entry *class_type)
@@ -14660,6 +14681,9 @@ zend_object* php_wxFont_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFont_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFont_object_handlers);
+    wxphp_wxFont_object_handlers.offset = XtOffsetOf(zo_wxFont, zo);
+    wxphp_wxFont_object_handlers.free_obj = php_wxFont_free;
     custom_object->zo.handlers = &wxphp_wxFont_object_handlers;
 
     custom_object->native_object = NULL;
@@ -15290,7 +15314,7 @@ PHP_METHOD(php_wxFont, GetDefaultEncoding)
                 php_printf("Executing RETURN_LONG(wxFont::GetDefaultEncoding())\n\n");
                 #endif
 
-                RETVAL_LONG(wxFont::GetDefaultEncoding());
+                WXPHP_RETVAL_LONG(wxFont::GetDefaultEncoding());
 
 
                 return;
@@ -15397,7 +15421,7 @@ PHP_METHOD(php_wxFont, GetEncoding)
                 php_printf("Executing RETURN_LONG(wxFont::GetEncoding())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFont_php*)native_object)->GetEncoding());
+                WXPHP_RETVAL_LONG(((wxFont_php*)native_object)->GetEncoding());
 
 
                 return;
@@ -15506,7 +15530,7 @@ PHP_METHOD(php_wxFont, GetFaceName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxFont_php*)native_object)->GetFaceName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -15613,7 +15637,7 @@ PHP_METHOD(php_wxFont, GetFamily)
                 php_printf("Executing RETURN_LONG(wxFont::GetFamily())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFont_php*)native_object)->GetFamily());
+                WXPHP_RETVAL_LONG(((wxFont_php*)native_object)->GetFamily());
 
 
                 return;
@@ -15722,7 +15746,7 @@ PHP_METHOD(php_wxFont, GetNativeFontInfoDesc)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxFont_php*)native_object)->GetNativeFontInfoDesc();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -15831,7 +15855,7 @@ PHP_METHOD(php_wxFont, GetNativeFontInfoUserDesc)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxFont_php*)native_object)->GetNativeFontInfoUserDesc();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -16052,7 +16076,7 @@ PHP_METHOD(php_wxFont, GetPointSize)
                 php_printf("Executing RETURN_LONG(wxFont::GetPointSize())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFont_php*)native_object)->GetPointSize());
+                WXPHP_RETVAL_LONG(((wxFont_php*)native_object)->GetPointSize());
 
 
                 return;
@@ -16159,7 +16183,7 @@ PHP_METHOD(php_wxFont, GetStyle)
                 php_printf("Executing RETURN_LONG(wxFont::GetStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFont_php*)native_object)->GetStyle());
+                WXPHP_RETVAL_LONG(((wxFont_php*)native_object)->GetStyle());
 
 
                 return;
@@ -16266,7 +16290,7 @@ PHP_METHOD(php_wxFont, GetUnderlined)
                 php_printf("Executing RETURN_BOOL(wxFont::GetUnderlined())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFont_php*)native_object)->GetUnderlined());
+                WXPHP_RETVAL_BOOL(((wxFont_php*)native_object)->GetUnderlined());
 
 
                 return;
@@ -16373,7 +16397,7 @@ PHP_METHOD(php_wxFont, GetWeight)
                 php_printf("Executing RETURN_LONG(wxFont::GetWeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFont_php*)native_object)->GetWeight());
+                WXPHP_RETVAL_LONG(((wxFont_php*)native_object)->GetWeight());
 
 
                 return;
@@ -16480,7 +16504,7 @@ PHP_METHOD(php_wxFont, IsFixedWidth)
                 php_printf("Executing RETURN_BOOL(wxFont::IsFixedWidth())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFont_php*)native_object)->IsFixedWidth());
+                WXPHP_RETVAL_BOOL(((wxFont_php*)native_object)->IsFixedWidth());
 
 
                 return;
@@ -16587,7 +16611,7 @@ PHP_METHOD(php_wxFont, IsOk)
                 php_printf("Executing RETURN_BOOL(wxFont::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFont_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxFont_php*)native_object)->IsOk());
 
 
                 return;
@@ -18937,7 +18961,7 @@ PHP_METHOD(php_wxFont, SetFaceName)
                 php_printf("Executing RETURN_BOOL(wxFont::SetFaceName(wxString(faceName0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFont_php*)native_object)->SetFaceName(wxString(faceName0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFont_php*)native_object)->SetFaceName(wxString(faceName0, wxConvUTF8)));
 
 
                 return;
@@ -19201,7 +19225,7 @@ PHP_METHOD(php_wxFont, SetNativeFontInfo)
                 php_printf("Executing RETURN_BOOL(wxFont::SetNativeFontInfo(wxString(info0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFont_php*)native_object)->SetNativeFontInfo(wxString(info0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFont_php*)native_object)->SetNativeFontInfo(wxString(info0, wxConvUTF8)));
 
 
                 return;
@@ -19334,7 +19358,7 @@ PHP_METHOD(php_wxFont, SetNativeFontInfoUserDesc)
                 php_printf("Executing RETURN_BOOL(wxFont::SetNativeFontInfoUserDesc(wxString(info0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFont_php*)native_object)->SetNativeFontInfoUserDesc(wxString(info0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFont_php*)native_object)->SetNativeFontInfoUserDesc(wxString(info0, wxConvUTF8)));
 
 
                 return;
@@ -20521,9 +20545,9 @@ PHP_METHOD(php_wxFont, GetNativeFontInfo)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontList_free(void *object)
+void php_wxFontList_free(zend_object *object)
 {
-    zo_wxFontList* custom_object = (zo_wxFontList*) object;
+    zo_wxFontList* custom_object = php_wxFontList_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -20564,7 +20588,6 @@ void php_wxFontList_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFontList_new(zend_class_entry *class_type)
@@ -20589,6 +20612,9 @@ zend_object* php_wxFontList_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFontList_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFontList_object_handlers);
+    wxphp_wxFontList_object_handlers.offset = XtOffsetOf(zo_wxFontList, zo);
+    wxphp_wxFontList_object_handlers.free_obj = php_wxFontList_free;
     custom_object->zo.handlers = &wxphp_wxFontList_object_handlers;
 
     custom_object->native_object = NULL;
@@ -20930,9 +20956,9 @@ PHP_METHOD(php_wxFontList, FindOrCreateFont)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontEnumerator_free(void *object)
+void php_wxFontEnumerator_free(zend_object *object)
 {
-    zo_wxFontEnumerator* custom_object = (zo_wxFontEnumerator*) object;
+    zo_wxFontEnumerator* custom_object = php_wxFontEnumerator_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -20973,7 +20999,6 @@ void php_wxFontEnumerator_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFontEnumerator_new(zend_class_entry *class_type)
@@ -20998,6 +21023,9 @@ zend_object* php_wxFontEnumerator_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFontEnumerator_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFontEnumerator_object_handlers);
+    wxphp_wxFontEnumerator_object_handlers.offset = XtOffsetOf(zo_wxFontEnumerator, zo);
+    wxphp_wxFontEnumerator_object_handlers.free_obj = php_wxFontEnumerator_free;
     custom_object->zo.handlers = &wxphp_wxFontEnumerator_object_handlers;
 
     custom_object->native_object = NULL;
@@ -21289,7 +21317,7 @@ PHP_METHOD(php_wxFontEnumerator, IsValidFacename)
                 php_printf("Executing RETURN_BOOL(wxFontEnumerator::IsValidFacename(wxString(facename0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxFontEnumerator::IsValidFacename(wxString(facename0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxFontEnumerator::IsValidFacename(wxString(facename0, wxConvUTF8)));
 
 
                 return;
@@ -21701,7 +21729,7 @@ PHP_METHOD(php_wxFontEnumerator, EnumerateFacenames)
 
                 if(current_object_type == PHP_WXFONTENUMERATOR_TYPE)
                 {
-                    RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateFacenames());
+                    WXPHP_RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateFacenames());
                 }
 
 
@@ -21716,7 +21744,7 @@ PHP_METHOD(php_wxFontEnumerator, EnumerateFacenames)
 
                 if(current_object_type == PHP_WXFONTENUMERATOR_TYPE)
                 {
-                    RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateFacenames((wxFontEncoding) encoding0));
+                    WXPHP_RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateFacenames((wxFontEncoding) encoding0));
                 }
 
 
@@ -21731,7 +21759,7 @@ PHP_METHOD(php_wxFontEnumerator, EnumerateFacenames)
 
                 if(current_object_type == PHP_WXFONTENUMERATOR_TYPE)
                 {
-                    RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateFacenames((wxFontEncoding) encoding0, fixedWidthOnly0));
+                    WXPHP_RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateFacenames((wxFontEncoding) encoding0, fixedWidthOnly0));
                 }
 
 
@@ -21847,7 +21875,7 @@ PHP_METHOD(php_wxFontEnumerator, EnumerateEncodings)
 
                 if(current_object_type == PHP_WXFONTENUMERATOR_TYPE)
                 {
-                    RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateEncodings());
+                    WXPHP_RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateEncodings());
                 }
 
 
@@ -21862,7 +21890,7 @@ PHP_METHOD(php_wxFontEnumerator, EnumerateEncodings)
 
                 if(current_object_type == PHP_WXFONTENUMERATOR_TYPE)
                 {
-                    RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateEncodings(wxString(font0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFontEnumerator_php*)native_object)->EnumerateEncodings(wxString(font0, wxConvUTF8)));
                 }
 
 
@@ -21886,9 +21914,9 @@ PHP_METHOD(php_wxFontEnumerator, EnumerateEncodings)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxNativeFontInfo_free(void *object)
+void php_wxNativeFontInfo_free(zend_object *object)
 {
-    zo_wxNativeFontInfo* custom_object = (zo_wxNativeFontInfo*) object;
+    zo_wxNativeFontInfo* custom_object = php_wxNativeFontInfo_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -21929,7 +21957,6 @@ void php_wxNativeFontInfo_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxNativeFontInfo_new(zend_class_entry *class_type)
@@ -21954,6 +21981,9 @@ zend_object* php_wxNativeFontInfo_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxNativeFontInfo_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxNativeFontInfo_object_handlers);
+    wxphp_wxNativeFontInfo_object_handlers.offset = XtOffsetOf(zo_wxNativeFontInfo, zo);
+    wxphp_wxNativeFontInfo_object_handlers.free_obj = php_wxNativeFontInfo_free;
     custom_object->zo.handlers = &wxphp_wxNativeFontInfo_object_handlers;
 
     custom_object->native_object = NULL;
@@ -22194,7 +22224,7 @@ PHP_METHOD(php_wxNativeFontInfo, FromString)
                 php_printf("Executing RETURN_BOOL(wxNativeFontInfo::FromString(wxString(s0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->FromString(wxString(s0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->FromString(wxString(s0, wxConvUTF8)));
 
 
                 return;
@@ -22306,7 +22336,7 @@ PHP_METHOD(php_wxNativeFontInfo, FromUserString)
                 php_printf("Executing RETURN_BOOL(wxNativeFontInfo::FromUserString(wxString(s0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->FromUserString(wxString(s0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->FromUserString(wxString(s0, wxConvUTF8)));
 
 
                 return;
@@ -22412,7 +22442,7 @@ PHP_METHOD(php_wxNativeFontInfo, GetEncoding)
                 php_printf("Executing RETURN_LONG(wxNativeFontInfo::GetEncoding())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetEncoding());
+                WXPHP_RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetEncoding());
 
 
                 return;
@@ -22520,7 +22550,7 @@ PHP_METHOD(php_wxNativeFontInfo, GetFaceName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxNativeFontInfo_php*)native_object)->GetFaceName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -22626,7 +22656,7 @@ PHP_METHOD(php_wxNativeFontInfo, GetFamily)
                 php_printf("Executing RETURN_LONG(wxNativeFontInfo::GetFamily())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetFamily());
+                WXPHP_RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetFamily());
 
 
                 return;
@@ -22732,7 +22762,7 @@ PHP_METHOD(php_wxNativeFontInfo, GetPointSize)
                 php_printf("Executing RETURN_LONG(wxNativeFontInfo::GetPointSize())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetPointSize());
+                WXPHP_RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetPointSize());
 
 
                 return;
@@ -22838,7 +22868,7 @@ PHP_METHOD(php_wxNativeFontInfo, GetStyle)
                 php_printf("Executing RETURN_LONG(wxNativeFontInfo::GetStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetStyle());
+                WXPHP_RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetStyle());
 
 
                 return;
@@ -22944,7 +22974,7 @@ PHP_METHOD(php_wxNativeFontInfo, GetUnderlined)
                 php_printf("Executing RETURN_BOOL(wxNativeFontInfo::GetUnderlined())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->GetUnderlined());
+                WXPHP_RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->GetUnderlined());
 
 
                 return;
@@ -23050,7 +23080,7 @@ PHP_METHOD(php_wxNativeFontInfo, GetWeight)
                 php_printf("Executing RETURN_LONG(wxNativeFontInfo::GetWeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetWeight());
+                WXPHP_RETVAL_LONG(((wxNativeFontInfo_php*)native_object)->GetWeight());
 
 
                 return;
@@ -23530,7 +23560,7 @@ PHP_METHOD(php_wxNativeFontInfo, SetFaceName)
                 php_printf("Executing RETURN_BOOL(wxNativeFontInfo::SetFaceName(wxString(facename0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->SetFaceName(wxString(facename0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxNativeFontInfo_php*)native_object)->SetFaceName(wxString(facename0, wxConvUTF8)));
 
 
                 return;
@@ -24230,7 +24260,7 @@ PHP_METHOD(php_wxNativeFontInfo, ToString)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxNativeFontInfo_php*)native_object)->ToString();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -24338,7 +24368,7 @@ PHP_METHOD(php_wxNativeFontInfo, ToUserString)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxNativeFontInfo_php*)native_object)->ToUserString();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -24361,9 +24391,9 @@ PHP_METHOD(php_wxNativeFontInfo, ToUserString)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxColourDatabase_free(void *object)
+void php_wxColourDatabase_free(zend_object *object)
 {
-    zo_wxColourDatabase* custom_object = (zo_wxColourDatabase*) object;
+    zo_wxColourDatabase* custom_object = php_wxColourDatabase_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24404,7 +24434,6 @@ void php_wxColourDatabase_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxColourDatabase_new(zend_class_entry *class_type)
@@ -24429,6 +24458,9 @@ zend_object* php_wxColourDatabase_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxColourDatabase_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxColourDatabase_object_handlers);
+    wxphp_wxColourDatabase_object_handlers.offset = XtOffsetOf(zo_wxColourDatabase, zo);
+    wxphp_wxColourDatabase_object_handlers.free_obj = php_wxColourDatabase_free;
     custom_object->zo.handlers = &wxphp_wxColourDatabase_object_handlers;
 
     custom_object->native_object = NULL;
@@ -24803,7 +24835,7 @@ PHP_METHOD(php_wxColourDatabase, FindName)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxColourDatabase_php*)native_object)->FindName(*(wxColour*) object_pointer0_0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
                 references->AddReference(colour0, "wxColourDatabase::FindName at call 3 with 1 argument(s)");
 
@@ -24910,9 +24942,9 @@ PHP_METHOD(php_wxColourDatabase, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGDIObject_free(void *object)
+void php_wxGDIObject_free(zend_object *object)
 {
-    zo_wxGDIObject* custom_object = (zo_wxGDIObject*) object;
+    zo_wxGDIObject* custom_object = php_wxGDIObject_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24953,7 +24985,6 @@ void php_wxGDIObject_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGDIObject_new(zend_class_entry *class_type)
@@ -24978,6 +25009,9 @@ zend_object* php_wxGDIObject_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGDIObject_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGDIObject_object_handlers);
+    wxphp_wxGDIObject_object_handlers.offset = XtOffsetOf(zo_wxGDIObject, zo);
+    wxphp_wxGDIObject_object_handlers.free_obj = php_wxGDIObject_free;
     custom_object->zo.handlers = &wxphp_wxGDIObject_object_handlers;
 
     custom_object->native_object = NULL;
@@ -24989,9 +25023,9 @@ zend_object* php_wxGDIObject_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsRenderer_free(void *object)
+void php_wxGraphicsRenderer_free(zend_object *object)
 {
-    zo_wxGraphicsRenderer* custom_object = (zo_wxGraphicsRenderer*) object;
+    zo_wxGraphicsRenderer* custom_object = php_wxGraphicsRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25032,7 +25066,6 @@ void php_wxGraphicsRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGraphicsRenderer_new(zend_class_entry *class_type)
@@ -25057,6 +25090,9 @@ zend_object* php_wxGraphicsRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGraphicsRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGraphicsRenderer_object_handlers);
+    wxphp_wxGraphicsRenderer_object_handlers.offset = XtOffsetOf(zo_wxGraphicsRenderer, zo);
+    wxphp_wxGraphicsRenderer_object_handlers.free_obj = php_wxGraphicsRenderer_free;
     custom_object->zo.handlers = &wxphp_wxGraphicsRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25068,9 +25104,9 @@ zend_object* php_wxGraphicsRenderer_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGraphicsMatrix_free(void *object)
+void php_wxGraphicsMatrix_free(zend_object *object)
 {
-    zo_wxGraphicsMatrix* custom_object = (zo_wxGraphicsMatrix*) object;
+    zo_wxGraphicsMatrix* custom_object = php_wxGraphicsMatrix_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25111,7 +25147,6 @@ void php_wxGraphicsMatrix_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGraphicsMatrix_new(zend_class_entry *class_type)
@@ -25136,6 +25171,9 @@ zend_object* php_wxGraphicsMatrix_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGraphicsMatrix_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGraphicsMatrix_object_handlers);
+    wxphp_wxGraphicsMatrix_object_handlers.offset = XtOffsetOf(zo_wxGraphicsMatrix, zo);
+    wxphp_wxGraphicsMatrix_object_handlers.free_obj = php_wxGraphicsMatrix_free;
     custom_object->zo.handlers = &wxphp_wxGraphicsMatrix_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25147,9 +25185,9 @@ zend_object* php_wxGraphicsMatrix_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxIcon_free(void *object)
+void php_wxIcon_free(zend_object *object)
 {
-    zo_wxIcon* custom_object = (zo_wxIcon*) object;
+    zo_wxIcon* custom_object = php_wxIcon_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25190,7 +25228,6 @@ void php_wxIcon_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxIcon_new(zend_class_entry *class_type)
@@ -25215,6 +25252,9 @@ zend_object* php_wxIcon_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxIcon_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxIcon_object_handlers);
+    wxphp_wxIcon_object_handlers.offset = XtOffsetOf(zo_wxIcon, zo);
+    wxphp_wxIcon_object_handlers.free_obj = php_wxIcon_free;
     custom_object->zo.handlers = &wxphp_wxIcon_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25559,7 +25599,7 @@ PHP_METHOD(php_wxIcon, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxIcon::LoadFile(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxIcon_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxIcon_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -25571,7 +25611,7 @@ PHP_METHOD(php_wxIcon, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxIcon::LoadFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxIcon_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0));
+                WXPHP_RETVAL_BOOL(((wxIcon_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8), (wxBitmapType) type0));
 
 
                 return;
@@ -25590,7 +25630,7 @@ PHP_METHOD(php_wxIcon, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxIcon::LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1, (int) desiredWidth1, (int) desiredHeight1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxIcon_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1, (int) desiredWidth1, (int) desiredHeight1));
+                WXPHP_RETVAL_BOOL(((wxIcon_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1, (int) desiredWidth1, (int) desiredHeight1));
 
 
                 return;
@@ -25697,7 +25737,7 @@ PHP_METHOD(php_wxIcon, IsOk)
                 php_printf("Executing RETURN_BOOL(wxIcon::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxIcon_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxIcon_php*)native_object)->IsOk());
 
 
                 return;
@@ -25804,7 +25844,7 @@ PHP_METHOD(php_wxIcon, GetWidth)
                 php_printf("Executing RETURN_LONG(wxIcon::GetWidth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxIcon_php*)native_object)->GetWidth());
+                WXPHP_RETVAL_LONG(((wxIcon_php*)native_object)->GetWidth());
 
 
                 return;
@@ -25911,7 +25951,7 @@ PHP_METHOD(php_wxIcon, GetHeight)
                 php_printf("Executing RETURN_LONG(wxIcon::GetHeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxIcon_php*)native_object)->GetHeight());
+                WXPHP_RETVAL_LONG(((wxIcon_php*)native_object)->GetHeight());
 
 
                 return;
@@ -26018,7 +26058,7 @@ PHP_METHOD(php_wxIcon, GetDepth)
                 php_printf("Executing RETURN_LONG(wxIcon::GetDepth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxIcon_php*)native_object)->GetDepth());
+                WXPHP_RETVAL_LONG(((wxIcon_php*)native_object)->GetDepth());
 
 
                 return;
@@ -26172,9 +26212,9 @@ PHP_METHOD(php_wxIcon, CopyFromBitmap)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxIconBundle_free(void *object)
+void php_wxIconBundle_free(zend_object *object)
 {
-    zo_wxIconBundle* custom_object = (zo_wxIconBundle*) object;
+    zo_wxIconBundle* custom_object = php_wxIconBundle_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -26215,7 +26255,6 @@ void php_wxIconBundle_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxIconBundle_new(zend_class_entry *class_type)
@@ -26240,6 +26279,9 @@ zend_object* php_wxIconBundle_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxIconBundle_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxIconBundle_object_handlers);
+    wxphp_wxIconBundle_object_handlers.offset = XtOffsetOf(zo_wxIconBundle, zo);
+    wxphp_wxIconBundle_object_handlers.free_obj = php_wxIconBundle_free;
     custom_object->zo.handlers = &wxphp_wxIconBundle_object_handlers;
 
     custom_object->native_object = NULL;
@@ -26657,7 +26699,7 @@ PHP_METHOD(php_wxIconBundle, IsEmpty)
                 php_printf("Executing RETURN_BOOL(wxIconBundle::IsEmpty())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxIconBundle_php*)native_object)->IsEmpty());
+                WXPHP_RETVAL_BOOL(((wxIconBundle_php*)native_object)->IsEmpty());
 
 
                 return;
@@ -26903,7 +26945,7 @@ PHP_METHOD(php_wxIconBundle, GetIconCount)
                 php_printf("Executing RETURN_LONG(wxIconBundle::GetIconCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxIconBundle_php*)native_object)->GetIconCount());
+                WXPHP_RETVAL_LONG(((wxIconBundle_php*)native_object)->GetIconCount());
 
 
                 return;
@@ -27554,9 +27596,9 @@ PHP_METHOD(php_wxIconBundle, GetIcon)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxImageHandler_free(void *object)
+void php_wxImageHandler_free(zend_object *object)
 {
-    zo_wxImageHandler* custom_object = (zo_wxImageHandler*) object;
+    zo_wxImageHandler* custom_object = php_wxImageHandler_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -27597,7 +27639,6 @@ void php_wxImageHandler_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxImageHandler_new(zend_class_entry *class_type)
@@ -27622,6 +27663,9 @@ zend_object* php_wxImageHandler_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxImageHandler_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxImageHandler_object_handlers);
+    wxphp_wxImageHandler_object_handlers.offset = XtOffsetOf(zo_wxImageHandler, zo);
+    wxphp_wxImageHandler_object_handlers.free_obj = php_wxImageHandler_free;
     custom_object->zo.handlers = &wxphp_wxImageHandler_object_handlers;
 
     custom_object->native_object = NULL;
@@ -27764,7 +27808,7 @@ PHP_METHOD(php_wxImageHandler, CanRead)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_BOOL(((wxImageHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxImageHandler_php*)native_object)->CanRead(*(wxInputStream*) object_pointer0_0));
                 }
 
                 references->AddReference(stream0, "wxImageHandler::CanRead at call 3 with 1 argument(s)");
@@ -27787,7 +27831,7 @@ PHP_METHOD(php_wxImageHandler, CanRead)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_BOOL(((wxImageHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxImageHandler_php*)native_object)->CanRead(wxString(filename1, wxConvUTF8)));
                 }
 
 
@@ -28016,7 +28060,7 @@ PHP_METHOD(php_wxImageHandler, GetExtension)
                 {
                     value_to_return0 = ((wxImageHandler_php*)native_object)->GetExtension();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -28148,7 +28192,7 @@ PHP_METHOD(php_wxImageHandler, GetImageCount)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_LONG(((wxImageHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxImageHandler_php*)native_object)->GetImageCount(*(wxInputStream*) object_pointer0_0));
                 }
 
                 references->AddReference(stream0, "wxImageHandler::GetImageCount at call 3 with 1 argument(s)");
@@ -28262,7 +28306,7 @@ PHP_METHOD(php_wxImageHandler, GetMimeType)
                 {
                     value_to_return0 = ((wxImageHandler_php*)native_object)->GetMimeType();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -28374,7 +28418,7 @@ PHP_METHOD(php_wxImageHandler, GetName)
                 {
                     value_to_return0 = ((wxImageHandler_php*)native_object)->GetName();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -28483,7 +28527,7 @@ PHP_METHOD(php_wxImageHandler, GetType)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_LONG(((wxImageHandler_php*)native_object)->GetType());
+                    WXPHP_RETVAL_LONG(((wxImageHandler_php*)native_object)->GetType());
                 }
 
 
@@ -28637,7 +28681,7 @@ PHP_METHOD(php_wxImageHandler, LoadFile)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_BOOL(((wxImageHandler_php*)native_object)->LoadFile((wxImage*) object_pointer0_0, *(wxInputStream*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxImageHandler_php*)native_object)->LoadFile((wxImage*) object_pointer0_0, *(wxInputStream*) object_pointer0_1));
                 }
 
                 references->AddReference(image0, "wxImageHandler::LoadFile at call 1 with 2 argument(s)");
@@ -28654,7 +28698,7 @@ PHP_METHOD(php_wxImageHandler, LoadFile)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_BOOL(((wxImageHandler_php*)native_object)->LoadFile((wxImage*) object_pointer0_0, *(wxInputStream*) object_pointer0_1, verbose0));
+                    WXPHP_RETVAL_BOOL(((wxImageHandler_php*)native_object)->LoadFile((wxImage*) object_pointer0_0, *(wxInputStream*) object_pointer0_1, verbose0));
                 }
 
                 references->AddReference(image0, "wxImageHandler::LoadFile at call 1 with 3 argument(s)");
@@ -28671,7 +28715,7 @@ PHP_METHOD(php_wxImageHandler, LoadFile)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_BOOL(((wxImageHandler_php*)native_object)->LoadFile((wxImage*) object_pointer0_0, *(wxInputStream*) object_pointer0_1, verbose0, (int) index0));
+                    WXPHP_RETVAL_BOOL(((wxImageHandler_php*)native_object)->LoadFile((wxImage*) object_pointer0_0, *(wxInputStream*) object_pointer0_1, verbose0, (int) index0));
                 }
 
                 references->AddReference(image0, "wxImageHandler::LoadFile at call 1 with 4 argument(s)");
@@ -28826,7 +28870,7 @@ PHP_METHOD(php_wxImageHandler, SaveFile)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_BOOL(((wxImageHandler_php*)native_object)->SaveFile((wxImage*) object_pointer0_0, *(wxOutputStream*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxImageHandler_php*)native_object)->SaveFile((wxImage*) object_pointer0_0, *(wxOutputStream*) object_pointer0_1));
                 }
 
                 references->AddReference(image0, "wxImageHandler::SaveFile at call 1 with 2 argument(s)");
@@ -28843,7 +28887,7 @@ PHP_METHOD(php_wxImageHandler, SaveFile)
 
                 if(current_object_type == PHP_WXIMAGEHANDLER_TYPE)
                 {
-                    RETVAL_BOOL(((wxImageHandler_php*)native_object)->SaveFile((wxImage*) object_pointer0_0, *(wxOutputStream*) object_pointer0_1, verbose0));
+                    WXPHP_RETVAL_BOOL(((wxImageHandler_php*)native_object)->SaveFile((wxImage*) object_pointer0_0, *(wxOutputStream*) object_pointer0_1, verbose0));
                 }
 
                 references->AddReference(image0, "wxImageHandler::SaveFile at call 1 with 3 argument(s)");
@@ -29350,9 +29394,9 @@ PHP_METHOD(php_wxImageHandler, SetName)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxImage_free(void *object)
+void php_wxImage_free(zend_object *object)
 {
-    zo_wxImage* custom_object = (zo_wxImage*) object;
+    zo_wxImage* custom_object = php_wxImage_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -29393,7 +29437,6 @@ void php_wxImage_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxImage_new(zend_class_entry *class_type)
@@ -29418,6 +29461,9 @@ zend_object* php_wxImage_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxImage_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxImage_object_handlers);
+    wxphp_wxImage_object_handlers.offset = XtOffsetOf(zo_wxImage, zo);
+    wxphp_wxImage_object_handlers.free_obj = php_wxImage_free;
     custom_object->zo.handlers = &wxphp_wxImage_object_handlers;
 
     custom_object->native_object = NULL;
@@ -30868,7 +30914,7 @@ PHP_METHOD(php_wxImage, SetMaskFromImage)
                 php_printf("Executing RETURN_BOOL(wxImage::SetMaskFromImage(*(wxImage*) object_pointer0_0, (unsigned char) mr0, (unsigned char) mg0, (unsigned char) mb0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->SetMaskFromImage(*(wxImage*) object_pointer0_0, (unsigned char) mr0, (unsigned char) mg0, (unsigned char) mb0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->SetMaskFromImage(*(wxImage*) object_pointer0_0, (unsigned char) mr0, (unsigned char) mg0, (unsigned char) mb0));
 
                 references->AddReference(mask0, "wxImage::SetMaskFromImage at call 3 with 4 argument(s)");
 
@@ -31926,7 +31972,7 @@ PHP_METHOD(php_wxImage, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxImage::SaveFile(*(wxOutputStream*) object_pointer0_0, wxString(mimetype0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(*(wxOutputStream*) object_pointer0_0, wxString(mimetype0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(*(wxOutputStream*) object_pointer0_0, wxString(mimetype0, wxConvUTF8)));
 
                 references->AddReference(stream0, "wxImage::SaveFile at call 3 with 2 argument(s)");
 
@@ -31946,7 +31992,7 @@ PHP_METHOD(php_wxImage, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxImage::SaveFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1));
 
 
                 return;
@@ -31965,7 +32011,7 @@ PHP_METHOD(php_wxImage, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxImage::SaveFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8)));
 
 
                 return;
@@ -31984,7 +32030,7 @@ PHP_METHOD(php_wxImage, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxImage::SaveFile(wxString(name3, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(wxString(name3, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(wxString(name3, wxConvUTF8)));
 
 
                 return;
@@ -32003,7 +32049,7 @@ PHP_METHOD(php_wxImage, SaveFile)
                 php_printf("Executing RETURN_BOOL(wxImage::SaveFile(*(wxOutputStream*) object_pointer4_0, (wxBitmapType) type4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(*(wxOutputStream*) object_pointer4_0, (wxBitmapType) type4));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->SaveFile(*(wxOutputStream*) object_pointer4_0, (wxBitmapType) type4));
 
                 references->AddReference(stream4, "wxImage::SaveFile at call 3 with 2 argument(s)");
 
@@ -33247,7 +33293,7 @@ PHP_METHOD(php_wxImage, RemoveHandler)
                 php_printf("Executing RETURN_BOOL(wxImage::RemoveHandler(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxImage::RemoveHandler(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxImage::RemoveHandler(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -33757,7 +33803,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(*(wxInputStream*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer0_0));
 
                 references->AddReference(stream0, "wxImage::LoadFile at call 3 with 1 argument(s)");
 
@@ -33770,7 +33816,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(*(wxInputStream*) object_pointer0_0, (wxBitmapType) type0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer0_0, (wxBitmapType) type0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer0_0, (wxBitmapType) type0));
 
                 references->AddReference(stream0, "wxImage::LoadFile at call 3 with 2 argument(s)");
 
@@ -33783,7 +33829,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(*(wxInputStream*) object_pointer0_0, (wxBitmapType) type0, (int) index0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer0_0, (wxBitmapType) type0, (int) index0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer0_0, (wxBitmapType) type0, (int) index0));
 
                 references->AddReference(stream0, "wxImage::LoadFile at call 3 with 3 argument(s)");
 
@@ -33803,7 +33849,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(wxString(name1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8)));
 
 
                 return;
@@ -33815,7 +33861,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1));
 
 
                 return;
@@ -33827,7 +33873,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1, (int) index1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1, (int) index1));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name1, wxConvUTF8), (wxBitmapType) type1, (int) index1));
 
 
                 return;
@@ -33846,7 +33892,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8)));
 
 
                 return;
@@ -33858,7 +33904,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8), (int) index2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8), (int) index2));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(wxString(name2, wxConvUTF8), wxString(mimetype2, wxConvUTF8), (int) index2));
 
 
                 return;
@@ -33877,7 +33923,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(*(wxInputStream*) object_pointer3_0, wxString(mimetype3, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer3_0, wxString(mimetype3, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer3_0, wxString(mimetype3, wxConvUTF8)));
 
                 references->AddReference(stream3, "wxImage::LoadFile at call 3 with 2 argument(s)");
 
@@ -33890,7 +33936,7 @@ PHP_METHOD(php_wxImage, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxImage::LoadFile(*(wxInputStream*) object_pointer3_0, wxString(mimetype3, wxConvUTF8), (int) index3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer3_0, wxString(mimetype3, wxConvUTF8), (int) index3));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->LoadFile(*(wxInputStream*) object_pointer3_0, wxString(mimetype3, wxConvUTF8), (int) index3));
 
                 references->AddReference(stream3, "wxImage::LoadFile at call 3 with 3 argument(s)");
 
@@ -34005,7 +34051,7 @@ PHP_METHOD(php_wxImage, IsTransparent)
                 php_printf("Executing RETURN_BOOL(wxImage::IsTransparent((int) x0, (int) y0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->IsTransparent((int) x0, (int) y0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->IsTransparent((int) x0, (int) y0));
 
 
                 return;
@@ -34017,7 +34063,7 @@ PHP_METHOD(php_wxImage, IsTransparent)
                 php_printf("Executing RETURN_BOOL(wxImage::IsTransparent((int) x0, (int) y0, (unsigned char) threshold0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->IsTransparent((int) x0, (int) y0, (unsigned char) threshold0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->IsTransparent((int) x0, (int) y0, (unsigned char) threshold0));
 
 
                 return;
@@ -34124,7 +34170,7 @@ PHP_METHOD(php_wxImage, IsOk)
                 php_printf("Executing RETURN_BOOL(wxImage::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->IsOk());
 
 
                 return;
@@ -34583,7 +34629,7 @@ PHP_METHOD(php_wxImage, HasOption)
                 php_printf("Executing RETURN_BOOL(wxImage::HasOption(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->HasOption(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->HasOption(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -34690,7 +34736,7 @@ PHP_METHOD(php_wxImage, HasMask)
                 php_printf("Executing RETURN_BOOL(wxImage::HasMask())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->HasMask());
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->HasMask());
 
 
                 return;
@@ -34797,7 +34843,7 @@ PHP_METHOD(php_wxImage, HasAlpha)
                 php_printf("Executing RETURN_BOOL(wxImage::HasAlpha())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->HasAlpha());
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->HasAlpha());
 
 
                 return;
@@ -34904,7 +34950,7 @@ PHP_METHOD(php_wxImage, GetWidth)
                 php_printf("Executing RETURN_LONG(wxImage::GetWidth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetWidth());
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetWidth());
 
 
                 return;
@@ -35011,7 +35057,7 @@ PHP_METHOD(php_wxImage, GetType)
                 php_printf("Executing RETURN_LONG(wxImage::GetType())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetType());
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetType());
 
 
                 return;
@@ -35377,7 +35423,7 @@ PHP_METHOD(php_wxImage, GetRed)
                 php_printf("Executing RETURN_LONG(wxImage::GetRed((int) x0, (int) y0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetRed((int) x0, (int) y0));
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetRed((int) x0, (int) y0));
 
 
                 return;
@@ -35624,7 +35670,7 @@ PHP_METHOD(php_wxImage, GetOrFindMaskColour)
                 php_printf("Executing RETURN_BOOL(wxImage::GetOrFindMaskColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->GetOrFindMaskColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->GetOrFindMaskColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0));
 
                 size_t elements_returned0_0 = sizeof(r0)/sizeof(*r0);
                 array_init(&r0_ref);
@@ -35755,7 +35801,7 @@ PHP_METHOD(php_wxImage, GetOptionInt)
                 php_printf("Executing RETURN_LONG(wxImage::GetOptionInt(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetOptionInt(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetOptionInt(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -35870,7 +35916,7 @@ PHP_METHOD(php_wxImage, GetOption)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxImage_php*)native_object)->GetOption(wxString(name0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -35977,7 +36023,7 @@ PHP_METHOD(php_wxImage, GetMaskRed)
                 php_printf("Executing RETURN_LONG(wxImage::GetMaskRed())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetMaskRed());
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetMaskRed());
 
 
                 return;
@@ -36084,7 +36130,7 @@ PHP_METHOD(php_wxImage, GetMaskGreen)
                 php_printf("Executing RETURN_LONG(wxImage::GetMaskGreen())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetMaskGreen());
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetMaskGreen());
 
 
                 return;
@@ -36191,7 +36237,7 @@ PHP_METHOD(php_wxImage, GetMaskBlue)
                 php_printf("Executing RETURN_LONG(wxImage::GetMaskBlue())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetMaskBlue());
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetMaskBlue());
 
 
                 return;
@@ -36301,7 +36347,7 @@ PHP_METHOD(php_wxImage, GetImageExtWildcard)
 
                 wxString value_to_return0;
                 value_to_return0 = wxImage::GetImageExtWildcard();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -36456,7 +36502,7 @@ PHP_METHOD(php_wxImage, GetImageCount)
                 php_printf("Executing RETURN_LONG(wxImage::GetImageCount(wxString(filename0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(wxImage::GetImageCount(wxString(filename0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(wxImage::GetImageCount(wxString(filename0, wxConvUTF8)));
 
 
                 return;
@@ -36469,7 +36515,7 @@ PHP_METHOD(php_wxImage, GetImageCount)
                 php_printf("Executing RETURN_LONG(wxImage::GetImageCount(wxString(filename0, wxConvUTF8), (wxBitmapType) type0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxImage::GetImageCount(wxString(filename0, wxConvUTF8), (wxBitmapType) type0));
+                WXPHP_RETVAL_LONG(wxImage::GetImageCount(wxString(filename0, wxConvUTF8), (wxBitmapType) type0));
 
 
                 return;
@@ -36489,7 +36535,7 @@ PHP_METHOD(php_wxImage, GetImageCount)
                 php_printf("Executing RETURN_LONG(wxImage::GetImageCount(*(wxInputStream*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxImage::GetImageCount(*(wxInputStream*) object_pointer1_0));
+                WXPHP_RETVAL_LONG(wxImage::GetImageCount(*(wxInputStream*) object_pointer1_0));
 
 
                 return;
@@ -36502,7 +36548,7 @@ PHP_METHOD(php_wxImage, GetImageCount)
                 php_printf("Executing RETURN_LONG(wxImage::GetImageCount(*(wxInputStream*) object_pointer1_0, (wxBitmapType) type1))\n\n");
                 #endif
 
-                RETVAL_LONG(wxImage::GetImageCount(*(wxInputStream*) object_pointer1_0, (wxBitmapType) type1));
+                WXPHP_RETVAL_LONG(wxImage::GetImageCount(*(wxInputStream*) object_pointer1_0, (wxBitmapType) type1));
 
 
                 return;
@@ -36609,7 +36655,7 @@ PHP_METHOD(php_wxImage, GetHeight)
                 php_printf("Executing RETURN_LONG(wxImage::GetHeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetHeight());
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetHeight());
 
 
                 return;
@@ -36722,7 +36768,7 @@ PHP_METHOD(php_wxImage, GetGreen)
                 php_printf("Executing RETURN_LONG(wxImage::GetGreen((int) x0, (int) y0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetGreen((int) x0, (int) y0));
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetGreen((int) x0, (int) y0));
 
 
                 return;
@@ -36957,7 +37003,7 @@ PHP_METHOD(php_wxImage, GetBlue)
                 php_printf("Executing RETURN_LONG(wxImage::GetBlue((int) x0, (int) y0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetBlue((int) x0, (int) y0));
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetBlue((int) x0, (int) y0));
 
 
                 return;
@@ -37086,7 +37132,7 @@ PHP_METHOD(php_wxImage, GetAlpha)
                 php_printf("Executing RETURN_LONG(wxImage::GetAlpha())\n\n");
                 #endif
 
-                RETVAL_LONG(*(((wxImage_php*)native_object)->GetAlpha()));
+                WXPHP_RETVAL_LONG(*(((wxImage_php*)native_object)->GetAlpha()));
 
 
                 return;
@@ -37105,7 +37151,7 @@ PHP_METHOD(php_wxImage, GetAlpha)
                 php_printf("Executing RETURN_LONG(wxImage::GetAlpha((int) x1, (int) y1))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImage_php*)native_object)->GetAlpha((int) x1, (int) y1));
+                WXPHP_RETVAL_LONG(((wxImage_php*)native_object)->GetAlpha((int) x1, (int) y1));
 
 
                 return;
@@ -37616,7 +37662,7 @@ PHP_METHOD(php_wxImage, FindFirstUnusedColour)
                 php_printf("Executing RETURN_BOOL(wxImage::FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0));
 
                 size_t elements_returned0_0 = sizeof(r0)/sizeof(*r0);
                 array_init(&r0_ref);
@@ -37646,7 +37692,7 @@ PHP_METHOD(php_wxImage, FindFirstUnusedColour)
                 php_printf("Executing RETURN_BOOL(wxImage::FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0));
 
                 size_t elements_returned0_0 = sizeof(r0)/sizeof(*r0);
                 array_init(&r0_ref);
@@ -37676,7 +37722,7 @@ PHP_METHOD(php_wxImage, FindFirstUnusedColour)
                 php_printf("Executing RETURN_BOOL(wxImage::FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0, (unsigned char) startG0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0, (unsigned char) startG0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0, (unsigned char) startG0));
 
                 size_t elements_returned0_0 = sizeof(r0)/sizeof(*r0);
                 array_init(&r0_ref);
@@ -37706,7 +37752,7 @@ PHP_METHOD(php_wxImage, FindFirstUnusedColour)
                 php_printf("Executing RETURN_BOOL(wxImage::FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0, (unsigned char) startG0, (unsigned char) startB0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0, (unsigned char) startG0, (unsigned char) startB0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->FindFirstUnusedColour((unsigned char*) r0, (unsigned char*) g0, (unsigned char*) b0, (unsigned char) startR0, (unsigned char) startG0, (unsigned char) startB0));
 
                 size_t elements_returned0_0 = sizeof(r0)/sizeof(*r0);
                 array_init(&r0_ref);
@@ -38135,7 +38181,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create((int) width0, (int) height0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width0, (int) height0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width0, (int) height0));
 
 
                 return;
@@ -38147,7 +38193,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create((int) width0, (int) height0, clear0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width0, (int) height0, clear0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width0, (int) height0, clear0));
 
 
                 return;
@@ -38166,7 +38212,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create(*(wxSize*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer1_0));
 
                 references->AddReference(sz1, "wxImage::Create at call 3 with 1 argument(s)");
 
@@ -38179,7 +38225,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create(*(wxSize*) object_pointer1_0, clear1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer1_0, clear1));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer1_0, clear1));
 
                 references->AddReference(sz1, "wxImage::Create at call 3 with 2 argument(s)");
 
@@ -38199,7 +38245,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create((int) width2, (int) height2, (unsigned char*) data2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width2, (int) height2, (unsigned char*) data2));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width2, (int) height2, (unsigned char*) data2));
 
                 size_t elements_returned2_2 = sizeof(data2)/sizeof(*data2);
                 array_init(&data2_ref);
@@ -38217,7 +38263,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create((int) width2, (int) height2, (unsigned char*) data2, static_data2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width2, (int) height2, (unsigned char*) data2, static_data2));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width2, (int) height2, (unsigned char*) data2, static_data2));
 
                 size_t elements_returned2_2 = sizeof(data2)/sizeof(*data2);
                 array_init(&data2_ref);
@@ -38242,7 +38288,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create(*(wxSize*) object_pointer3_0, (unsigned char*) data3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer3_0, (unsigned char*) data3));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer3_0, (unsigned char*) data3));
 
                 references->AddReference(sz3, "wxImage::Create at call 3 with 2 argument(s)");
                 size_t elements_returned3_1 = sizeof(data3)/sizeof(*data3);
@@ -38261,7 +38307,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create(*(wxSize*) object_pointer3_0, (unsigned char*) data3, static_data3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer3_0, (unsigned char*) data3, static_data3));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer3_0, (unsigned char*) data3, static_data3));
 
                 references->AddReference(sz3, "wxImage::Create at call 3 with 3 argument(s)");
                 size_t elements_returned3_1 = sizeof(data3)/sizeof(*data3);
@@ -38287,7 +38333,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create((int) width4, (int) height4, (unsigned char*) data4, (unsigned char*) alpha4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width4, (int) height4, (unsigned char*) data4, (unsigned char*) alpha4));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width4, (int) height4, (unsigned char*) data4, (unsigned char*) alpha4));
 
                 size_t elements_returned4_2 = sizeof(data4)/sizeof(*data4);
                 array_init(&data4_ref);
@@ -38311,7 +38357,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create((int) width4, (int) height4, (unsigned char*) data4, (unsigned char*) alpha4, static_data4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width4, (int) height4, (unsigned char*) data4, (unsigned char*) alpha4, static_data4));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create((int) width4, (int) height4, (unsigned char*) data4, (unsigned char*) alpha4, static_data4));
 
                 size_t elements_returned4_2 = sizeof(data4)/sizeof(*data4);
                 array_init(&data4_ref);
@@ -38342,7 +38388,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create(*(wxSize*) object_pointer5_0, (unsigned char*) data5, (unsigned char*) alpha5))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer5_0, (unsigned char*) data5, (unsigned char*) alpha5));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer5_0, (unsigned char*) data5, (unsigned char*) alpha5));
 
                 references->AddReference(sz5, "wxImage::Create at call 3 with 3 argument(s)");
                 size_t elements_returned5_1 = sizeof(data5)/sizeof(*data5);
@@ -38367,7 +38413,7 @@ PHP_METHOD(php_wxImage, Create)
                 php_printf("Executing RETURN_BOOL(wxImage::Create(*(wxSize*) object_pointer5_0, (unsigned char*) data5, (unsigned char*) alpha5, static_data5))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer5_0, (unsigned char*) data5, (unsigned char*) alpha5, static_data5));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->Create(*(wxSize*) object_pointer5_0, (unsigned char*) data5, (unsigned char*) alpha5, static_data5));
 
                 references->AddReference(sz5, "wxImage::Create at call 3 with 4 argument(s)");
                 size_t elements_returned5_1 = sizeof(data5)/sizeof(*data5);
@@ -39058,7 +39104,7 @@ PHP_METHOD(php_wxImage, ConvertAlphaToMask)
                 php_printf("Executing RETURN_BOOL(wxImage::ConvertAlphaToMask())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask());
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask());
 
 
                 return;
@@ -39070,7 +39116,7 @@ PHP_METHOD(php_wxImage, ConvertAlphaToMask)
                 php_printf("Executing RETURN_BOOL(wxImage::ConvertAlphaToMask((unsigned char) threshold0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask((unsigned char) threshold0));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask((unsigned char) threshold0));
 
 
                 return;
@@ -39089,7 +39135,7 @@ PHP_METHOD(php_wxImage, ConvertAlphaToMask)
                 php_printf("Executing RETURN_BOOL(wxImage::ConvertAlphaToMask((unsigned char) mr1, (unsigned char) mg1, (unsigned char) mb1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask((unsigned char) mr1, (unsigned char) mg1, (unsigned char) mb1));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask((unsigned char) mr1, (unsigned char) mg1, (unsigned char) mb1));
 
 
                 return;
@@ -39101,7 +39147,7 @@ PHP_METHOD(php_wxImage, ConvertAlphaToMask)
                 php_printf("Executing RETURN_BOOL(wxImage::ConvertAlphaToMask((unsigned char) mr1, (unsigned char) mg1, (unsigned char) mb1, (unsigned char) threshold1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask((unsigned char) mr1, (unsigned char) mg1, (unsigned char) mb1, (unsigned char) threshold1));
+                WXPHP_RETVAL_BOOL(((wxImage_php*)native_object)->ConvertAlphaToMask((unsigned char) mr1, (unsigned char) mg1, (unsigned char) mb1, (unsigned char) threshold1));
 
 
                 return;
@@ -39593,7 +39639,7 @@ PHP_METHOD(php_wxImage, CanRead)
                 php_printf("Executing RETURN_BOOL(wxImage::CanRead(wxString(filename0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxImage::CanRead(wxString(filename0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxImage::CanRead(wxString(filename0, wxConvUTF8)));
 
 
                 return;
@@ -39613,7 +39659,7 @@ PHP_METHOD(php_wxImage, CanRead)
                 php_printf("Executing RETURN_BOOL(wxImage::CanRead(*(wxInputStream*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxImage::CanRead(*(wxInputStream*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(wxImage::CanRead(*(wxInputStream*) object_pointer1_0));
 
 
                 return;
@@ -40355,9 +40401,9 @@ PHP_METHOD(php_wxImage, Size)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxImageList_free(void *object)
+void php_wxImageList_free(zend_object *object)
 {
-    zo_wxImageList* custom_object = (zo_wxImageList*) object;
+    zo_wxImageList* custom_object = php_wxImageList_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -40398,7 +40444,6 @@ void php_wxImageList_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxImageList_new(zend_class_entry *class_type)
@@ -40423,6 +40468,9 @@ zend_object* php_wxImageList_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxImageList_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxImageList_object_handlers);
+    wxphp_wxImageList_object_handlers.offset = XtOffsetOf(zo_wxImageList, zo);
+    wxphp_wxImageList_object_handlers.free_obj = php_wxImageList_free;
     custom_object->zo.handlers = &wxphp_wxImageList_object_handlers;
 
     custom_object->native_object = NULL;
@@ -40618,7 +40666,7 @@ PHP_METHOD(php_wxImageList, Add)
                 php_printf("Executing RETURN_LONG(wxImageList::Add(*(wxBitmap*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImageList_php*)native_object)->Add(*(wxBitmap*) object_pointer0_0));
+                WXPHP_RETVAL_LONG(((wxImageList_php*)native_object)->Add(*(wxBitmap*) object_pointer0_0));
 
                 references->AddReference(bitmap0, "wxImageList::Add at call 3 with 1 argument(s)");
 
@@ -40631,7 +40679,7 @@ PHP_METHOD(php_wxImageList, Add)
                 php_printf("Executing RETURN_LONG(wxImageList::Add(*(wxBitmap*) object_pointer0_0, *(wxBitmap*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImageList_php*)native_object)->Add(*(wxBitmap*) object_pointer0_0, *(wxBitmap*) object_pointer0_1));
+                WXPHP_RETVAL_LONG(((wxImageList_php*)native_object)->Add(*(wxBitmap*) object_pointer0_0, *(wxBitmap*) object_pointer0_1));
 
                 references->AddReference(bitmap0, "wxImageList::Add at call 3 with 2 argument(s)");
                 references->AddReference(mask0, "wxImageList::Add at call 3 with 2 argument(s)");
@@ -40652,7 +40700,7 @@ PHP_METHOD(php_wxImageList, Add)
                 php_printf("Executing RETURN_LONG(wxImageList::Add(*(wxBitmap*) object_pointer1_0, *(wxColour*) object_pointer1_1))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImageList_php*)native_object)->Add(*(wxBitmap*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                WXPHP_RETVAL_LONG(((wxImageList_php*)native_object)->Add(*(wxBitmap*) object_pointer1_0, *(wxColour*) object_pointer1_1));
 
                 references->AddReference(bitmap1, "wxImageList::Add at call 3 with 2 argument(s)");
                 references->AddReference(maskColour1, "wxImageList::Add at call 3 with 2 argument(s)");
@@ -40769,7 +40817,7 @@ PHP_METHOD(php_wxImageList, Create)
                 php_printf("Executing RETURN_BOOL(wxImageList::Create((int) width0, (int) height0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Create((int) width0, (int) height0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Create((int) width0, (int) height0));
 
 
                 return;
@@ -40781,7 +40829,7 @@ PHP_METHOD(php_wxImageList, Create)
                 php_printf("Executing RETURN_BOOL(wxImageList::Create((int) width0, (int) height0, mask0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Create((int) width0, (int) height0, mask0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Create((int) width0, (int) height0, mask0));
 
 
                 return;
@@ -40793,7 +40841,7 @@ PHP_METHOD(php_wxImageList, Create)
                 php_printf("Executing RETURN_BOOL(wxImageList::Create((int) width0, (int) height0, mask0, (int) initialCount0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Create((int) width0, (int) height0, mask0, (int) initialCount0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Create((int) width0, (int) height0, mask0, (int) initialCount0));
 
 
                 return;
@@ -41140,7 +41188,7 @@ PHP_METHOD(php_wxImageList, GetImageCount)
                 php_printf("Executing RETURN_LONG(wxImageList::GetImageCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxImageList_php*)native_object)->GetImageCount());
+                WXPHP_RETVAL_LONG(((wxImageList_php*)native_object)->GetImageCount());
 
 
                 return;
@@ -41275,7 +41323,7 @@ PHP_METHOD(php_wxImageList, GetSize)
                 php_printf("Executing RETURN_BOOL(wxImageList::GetSize((int) index0, (int&) width0, (int&) height0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->GetSize((int) index0, (int&) width0, (int&) height0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->GetSize((int) index0, (int&) width0, (int&) height0));
 
                 ZVAL_LONG(&width0_ref, width0);
                 ZVAL_LONG(&height0_ref, height0);
@@ -41415,7 +41463,7 @@ PHP_METHOD(php_wxImageList, Remove)
                 php_printf("Executing RETURN_BOOL(wxImageList::Remove((int) index0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Remove((int) index0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Remove((int) index0));
 
 
                 return;
@@ -41522,7 +41570,7 @@ PHP_METHOD(php_wxImageList, RemoveAll)
                 php_printf("Executing RETURN_BOOL(wxImageList::RemoveAll())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->RemoveAll());
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->RemoveAll());
 
 
                 return;
@@ -41672,7 +41720,7 @@ PHP_METHOD(php_wxImageList, Replace)
                 php_printf("Executing RETURN_BOOL(wxImageList::Replace((int) index0, *(wxBitmap*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Replace((int) index0, *(wxBitmap*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Replace((int) index0, *(wxBitmap*) object_pointer0_1));
 
                 references->AddReference(bitmap0, "wxImageList::Replace at call 3 with 2 argument(s)");
 
@@ -41685,7 +41733,7 @@ PHP_METHOD(php_wxImageList, Replace)
                 php_printf("Executing RETURN_BOOL(wxImageList::Replace((int) index0, *(wxBitmap*) object_pointer0_1, *(wxBitmap*) object_pointer0_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Replace((int) index0, *(wxBitmap*) object_pointer0_1, *(wxBitmap*) object_pointer0_2));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Replace((int) index0, *(wxBitmap*) object_pointer0_1, *(wxBitmap*) object_pointer0_2));
 
                 references->AddReference(bitmap0, "wxImageList::Replace at call 3 with 3 argument(s)");
                 references->AddReference(mask0, "wxImageList::Replace at call 3 with 3 argument(s)");
@@ -41969,7 +42017,7 @@ PHP_METHOD(php_wxImageList, Draw)
                 php_printf("Executing RETURN_BOOL(wxImageList::Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0));
 
                 references->AddReference(dc0, "wxImageList::Draw at call 3 with 4 argument(s)");
 
@@ -41982,7 +42030,7 @@ PHP_METHOD(php_wxImageList, Draw)
                 php_printf("Executing RETURN_BOOL(wxImageList::Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0, (int) flags0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0, (int) flags0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0, (int) flags0));
 
                 references->AddReference(dc0, "wxImageList::Draw at call 3 with 5 argument(s)");
 
@@ -41995,7 +42043,7 @@ PHP_METHOD(php_wxImageList, Draw)
                 php_printf("Executing RETURN_BOOL(wxImageList::Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0, (int) flags0, solidBackground0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxImageList_php*)native_object)->Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0, (int) flags0, solidBackground0));
+                WXPHP_RETVAL_BOOL(((wxImageList_php*)native_object)->Draw((int) index0, *(wxDC*) object_pointer0_1, (int) x0, (int) y0, (int) flags0, solidBackground0));
 
                 references->AddReference(dc0, "wxImageList::Draw at call 3 with 6 argument(s)");
 
@@ -42019,9 +42067,9 @@ PHP_METHOD(php_wxImageList, Draw)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPalette_free(void *object)
+void php_wxPalette_free(zend_object *object)
 {
-    zo_wxPalette* custom_object = (zo_wxPalette*) object;
+    zo_wxPalette* custom_object = php_wxPalette_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -42062,7 +42110,6 @@ void php_wxPalette_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPalette_new(zend_class_entry *class_type)
@@ -42087,6 +42134,9 @@ zend_object* php_wxPalette_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPalette_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPalette_object_handlers);
+    wxphp_wxPalette_object_handlers.offset = XtOffsetOf(zo_wxPalette, zo);
+    wxphp_wxPalette_object_handlers.free_obj = php_wxPalette_free;
     custom_object->zo.handlers = &wxphp_wxPalette_object_handlers;
 
     custom_object->native_object = NULL;
@@ -42440,7 +42490,7 @@ PHP_METHOD(php_wxPalette, IsOk)
                 php_printf("Executing RETURN_BOOL(wxPalette::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPalette_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxPalette_php*)native_object)->IsOk());
 
 
                 return;
@@ -42554,7 +42604,7 @@ PHP_METHOD(php_wxPalette, GetPixel)
                 php_printf("Executing RETURN_LONG(wxPalette::GetPixel((unsigned char) red0, (unsigned char) green0, (unsigned char) blue0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPalette_php*)native_object)->GetPixel((unsigned char) red0, (unsigned char) green0, (unsigned char) blue0));
+                WXPHP_RETVAL_LONG(((wxPalette_php*)native_object)->GetPixel((unsigned char) red0, (unsigned char) green0, (unsigned char) blue0));
 
 
                 return;
@@ -42661,7 +42711,7 @@ PHP_METHOD(php_wxPalette, GetColoursCount)
                 php_printf("Executing RETURN_LONG(wxPalette::GetColoursCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPalette_php*)native_object)->GetColoursCount());
+                WXPHP_RETVAL_LONG(((wxPalette_php*)native_object)->GetColoursCount());
 
 
                 return;
@@ -42851,7 +42901,7 @@ PHP_METHOD(php_wxPalette, Create)
                 php_printf("Executing RETURN_BOOL(wxPalette::Create((int) n0, (const unsigned char*) integers_array0_1, (const unsigned char*) integers_array0_2, (const unsigned char*) integers_array0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPalette_php*)native_object)->Create((int) n0, (const unsigned char*) integers_array0_1, (const unsigned char*) integers_array0_2, (const unsigned char*) integers_array0_3));
+                WXPHP_RETVAL_BOOL(((wxPalette_php*)native_object)->Create((int) n0, (const unsigned char*) integers_array0_1, (const unsigned char*) integers_array0_2, (const unsigned char*) integers_array0_3));
 
                 delete[] integers_array0_1;
                 delete[] integers_array0_2;
@@ -42975,7 +43025,7 @@ PHP_METHOD(php_wxPalette, GetRGB)
                 php_printf("Executing RETURN_BOOL(wxPalette::GetRGB((int) pixel0, (unsigned char*) red0, (unsigned char*) green0, (unsigned char*) blue0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPalette_php*)native_object)->GetRGB((int) pixel0, (unsigned char*) red0, (unsigned char*) green0, (unsigned char*) blue0));
+                WXPHP_RETVAL_BOOL(((wxPalette_php*)native_object)->GetRGB((int) pixel0, (unsigned char*) red0, (unsigned char*) green0, (unsigned char*) blue0));
 
                 size_t elements_returned0_1 = sizeof(red0)/sizeof(*red0);
                 array_init(&red0_ref);
@@ -43016,9 +43066,9 @@ PHP_METHOD(php_wxPalette, GetRGB)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPen_free(void *object)
+void php_wxPen_free(zend_object *object)
 {
-    zo_wxPen* custom_object = (zo_wxPen*) object;
+    zo_wxPen* custom_object = php_wxPen_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -43059,7 +43109,6 @@ void php_wxPen_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPen_new(zend_class_entry *class_type)
@@ -43084,6 +43133,9 @@ zend_object* php_wxPen_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPen_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPen_object_handlers);
+    wxphp_wxPen_object_handlers.offset = XtOffsetOf(zo_wxPen, zo);
+    wxphp_wxPen_object_handlers.free_obj = php_wxPen_free;
     custom_object->zo.handlers = &wxphp_wxPen_object_handlers;
 
     custom_object->native_object = NULL;
@@ -43404,7 +43456,7 @@ PHP_METHOD(php_wxPen, IsTransparent)
                 php_printf("Executing RETURN_BOOL(wxPen::IsTransparent())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPen_php*)native_object)->IsTransparent());
+                WXPHP_RETVAL_BOOL(((wxPen_php*)native_object)->IsTransparent());
 
 
                 return;
@@ -43511,7 +43563,7 @@ PHP_METHOD(php_wxPen, IsOk)
                 php_printf("Executing RETURN_BOOL(wxPen::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPen_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxPen_php*)native_object)->IsOk());
 
 
                 return;
@@ -43618,7 +43670,7 @@ PHP_METHOD(php_wxPen, IsNonTransparent)
                 php_printf("Executing RETURN_BOOL(wxPen::IsNonTransparent())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPen_php*)native_object)->IsNonTransparent());
+                WXPHP_RETVAL_BOOL(((wxPen_php*)native_object)->IsNonTransparent());
 
 
                 return;
@@ -43725,7 +43777,7 @@ PHP_METHOD(php_wxPen, GetWidth)
                 php_printf("Executing RETURN_LONG(wxPen::GetWidth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPen_php*)native_object)->GetWidth());
+                WXPHP_RETVAL_LONG(((wxPen_php*)native_object)->GetWidth());
 
 
                 return;
@@ -43832,7 +43884,7 @@ PHP_METHOD(php_wxPen, GetStyle)
                 php_printf("Executing RETURN_LONG(wxPen::GetStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPen_php*)native_object)->GetStyle());
+                WXPHP_RETVAL_LONG(((wxPen_php*)native_object)->GetStyle());
 
 
                 return;
@@ -44069,7 +44121,7 @@ PHP_METHOD(php_wxPen, GetJoin)
                 php_printf("Executing RETURN_LONG(wxPen::GetJoin())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPen_php*)native_object)->GetJoin());
+                WXPHP_RETVAL_LONG(((wxPen_php*)native_object)->GetJoin());
 
 
                 return;
@@ -44291,7 +44343,7 @@ PHP_METHOD(php_wxPen, GetCap)
                 php_printf("Executing RETURN_LONG(wxPen::GetCap())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPen_php*)native_object)->GetCap());
+                WXPHP_RETVAL_LONG(((wxPen_php*)native_object)->GetCap());
 
 
                 return;
@@ -45066,9 +45118,9 @@ PHP_METHOD(php_wxPen, SetCap)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPenList_free(void *object)
+void php_wxPenList_free(zend_object *object)
 {
-    zo_wxPenList* custom_object = (zo_wxPenList*) object;
+    zo_wxPenList* custom_object = php_wxPenList_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -45109,7 +45161,6 @@ void php_wxPenList_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPenList_new(zend_class_entry *class_type)
@@ -45134,6 +45185,9 @@ zend_object* php_wxPenList_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPenList_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPenList_object_handlers);
+    wxphp_wxPenList_object_handlers.offset = XtOffsetOf(zo_wxPenList, zo);
+    wxphp_wxPenList_object_handlers.free_obj = php_wxPenList_free;
     custom_object->zo.handlers = &wxphp_wxPenList_object_handlers;
 
     custom_object->native_object = NULL;
@@ -45456,9 +45510,9 @@ PHP_METHOD(php_wxPenList, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRendererNative_free(void *object)
+void php_wxRendererNative_free(zend_object *object)
 {
-    zo_wxRendererNative* custom_object = (zo_wxRendererNative*) object;
+    zo_wxRendererNative* custom_object = php_wxRendererNative_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -45499,7 +45553,6 @@ void php_wxRendererNative_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxRendererNative_new(zend_class_entry *class_type)
@@ -45524,6 +45577,9 @@ zend_object* php_wxRendererNative_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxRendererNative_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxRendererNative_object_handlers);
+    wxphp_wxRendererNative_object_handlers.offset = XtOffsetOf(zo_wxRendererNative, zo);
+    wxphp_wxRendererNative_object_handlers.free_obj = php_wxRendererNative_free;
     custom_object->zo.handlers = &wxphp_wxRendererNative_object_handlers;
 
     custom_object->native_object = NULL;

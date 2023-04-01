@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxEventLoopBase_free(void *object)
+void php_wxEventLoopBase_free(zend_object *object)
 {
-    zo_wxEventLoopBase* custom_object = (zo_wxEventLoopBase*) object;
+    zo_wxEventLoopBase* custom_object = php_wxEventLoopBase_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxEventLoopBase_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxEventLoopBase_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxEventLoopBase_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxEventLoopBase_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxEventLoopBase_object_handlers);
+    wxphp_wxEventLoopBase_object_handlers.offset = XtOffsetOf(zo_wxEventLoopBase, zo);
+    wxphp_wxEventLoopBase_object_handlers.free_obj = php_wxEventLoopBase_free;
     custom_object->zo.handlers = &wxphp_wxEventLoopBase_object_handlers;
 
     custom_object->native_object = NULL;
@@ -520,7 +522,7 @@ PHP_METHOD(php_wxEventLoopBase, IsEventAllowedInsideYield)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsEventAllowedInsideYield((wxEventCategory) cat0));
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsEventAllowedInsideYield((wxEventCategory) cat0));
                 }
 
 
@@ -630,7 +632,7 @@ PHP_METHOD(php_wxEventLoopBase, IsMain)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsMain());
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsMain());
                 }
 
 
@@ -740,7 +742,7 @@ PHP_METHOD(php_wxEventLoopBase, IsOk)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsOk());
                 }
 
 
@@ -850,7 +852,7 @@ PHP_METHOD(php_wxEventLoopBase, IsRunning)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsRunning());
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsRunning());
                 }
 
 
@@ -960,7 +962,7 @@ PHP_METHOD(php_wxEventLoopBase, IsYielding)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsYielding());
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->IsYielding());
                 }
 
 
@@ -1234,7 +1236,7 @@ PHP_METHOD(php_wxEventLoopBase, ProcessIdle)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->ProcessIdle());
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->ProcessIdle());
                 }
 
 
@@ -1880,7 +1882,7 @@ PHP_METHOD(php_wxEventLoopBase, YieldMethod)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->Yield());
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->Yield());
                 }
 
 
@@ -1895,7 +1897,7 @@ PHP_METHOD(php_wxEventLoopBase, YieldMethod)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->Yield(onlyIfNeeded0));
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->Yield(onlyIfNeeded0));
                 }
 
 
@@ -2010,7 +2012,7 @@ PHP_METHOD(php_wxEventLoopBase, YieldFor)
 
                 if(current_object_type == PHP_WXEVENTLOOPBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->YieldFor((long) eventsToProcess0));
+                    WXPHP_RETVAL_BOOL(((wxEventLoopBase_php*)native_object)->YieldFor((long) eventsToProcess0));
                 }
 
 
@@ -2034,9 +2036,9 @@ PHP_METHOD(php_wxEventLoopBase, YieldFor)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxEventLoopActivator_free(void *object)
+void php_wxEventLoopActivator_free(zend_object *object)
 {
-    zo_wxEventLoopActivator* custom_object = (zo_wxEventLoopActivator*) object;
+    zo_wxEventLoopActivator* custom_object = php_wxEventLoopActivator_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2077,7 +2079,6 @@ void php_wxEventLoopActivator_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxEventLoopActivator_new(zend_class_entry *class_type)
@@ -2102,6 +2103,9 @@ zend_object* php_wxEventLoopActivator_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxEventLoopActivator_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxEventLoopActivator_object_handlers);
+    wxphp_wxEventLoopActivator_object_handlers.offset = XtOffsetOf(zo_wxEventLoopActivator, zo);
+    wxphp_wxEventLoopActivator_object_handlers.free_obj = php_wxEventLoopActivator_free;
     custom_object->zo.handlers = &wxphp_wxEventLoopActivator_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2220,9 +2224,9 @@ PHP_METHOD(php_wxEventLoopActivator, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxModule_free(void *object)
+void php_wxModule_free(zend_object *object)
 {
-    zo_wxModule* custom_object = (zo_wxModule*) object;
+    zo_wxModule* custom_object = php_wxModule_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2263,7 +2267,6 @@ void php_wxModule_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxModule_new(zend_class_entry *class_type)
@@ -2288,6 +2291,9 @@ zend_object* php_wxModule_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxModule_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxModule_object_handlers);
+    wxphp_wxModule_object_handlers.offset = XtOffsetOf(zo_wxModule, zo);
+    wxphp_wxModule_object_handlers.free_obj = php_wxModule_free;
     custom_object->zo.handlers = &wxphp_wxModule_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2542,9 +2548,9 @@ PHP_METHOD(php_wxModule, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxProcess_free(void *object)
+void php_wxProcess_free(zend_object *object)
 {
-    zo_wxProcess* custom_object = (zo_wxProcess*) object;
+    zo_wxProcess* custom_object = php_wxProcess_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2585,7 +2591,6 @@ void php_wxProcess_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxProcess_new(zend_class_entry *class_type)
@@ -2610,6 +2615,9 @@ zend_object* php_wxProcess_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxProcess_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxProcess_object_handlers);
+    wxphp_wxProcess_object_handlers.offset = XtOffsetOf(zo_wxProcess, zo);
+    wxphp_wxProcess_object_handlers.free_obj = php_wxProcess_free;
     custom_object->zo.handlers = &wxphp_wxProcess_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2925,7 +2933,7 @@ PHP_METHOD(php_wxProcess, Exists)
                 php_printf("Executing RETURN_BOOL(wxProcess::Exists((int) pid0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxProcess::Exists((int) pid0));
+                WXPHP_RETVAL_BOOL(wxProcess::Exists((int) pid0));
 
 
                 return;
@@ -3422,7 +3430,7 @@ PHP_METHOD(php_wxProcess, GetPid)
                 php_printf("Executing RETURN_LONG(wxProcess::GetPid())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxProcess_php*)native_object)->GetPid());
+                WXPHP_RETVAL_LONG(((wxProcess_php*)native_object)->GetPid());
 
 
                 return;
@@ -3529,7 +3537,7 @@ PHP_METHOD(php_wxProcess, IsErrorAvailable)
                 php_printf("Executing RETURN_BOOL(wxProcess::IsErrorAvailable())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxProcess_php*)native_object)->IsErrorAvailable());
+                WXPHP_RETVAL_BOOL(((wxProcess_php*)native_object)->IsErrorAvailable());
 
 
                 return;
@@ -3636,7 +3644,7 @@ PHP_METHOD(php_wxProcess, IsInputOpened)
                 php_printf("Executing RETURN_BOOL(wxProcess::IsInputOpened())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxProcess_php*)native_object)->IsInputOpened());
+                WXPHP_RETVAL_BOOL(((wxProcess_php*)native_object)->IsInputOpened());
 
 
                 return;
@@ -3751,7 +3759,7 @@ PHP_METHOD(php_wxProcess, Kill)
                 php_printf("Executing RETURN_LONG(wxProcess::Kill((int) pid0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxProcess::Kill((int) pid0));
+                WXPHP_RETVAL_LONG(wxProcess::Kill((int) pid0));
 
 
                 return;
@@ -3764,7 +3772,7 @@ PHP_METHOD(php_wxProcess, Kill)
                 php_printf("Executing RETURN_LONG(wxProcess::Kill((int) pid0, (wxSignal) sig0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxProcess::Kill((int) pid0, (wxSignal) sig0));
+                WXPHP_RETVAL_LONG(wxProcess::Kill((int) pid0, (wxSignal) sig0));
 
 
                 return;
@@ -3777,7 +3785,7 @@ PHP_METHOD(php_wxProcess, Kill)
                 php_printf("Executing RETURN_LONG(wxProcess::Kill((int) pid0, (wxSignal) sig0, (int) flags0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxProcess::Kill((int) pid0, (wxSignal) sig0, (int) flags0));
+                WXPHP_RETVAL_LONG(wxProcess::Kill((int) pid0, (wxSignal) sig0, (int) flags0));
 
 
                 return;
@@ -3884,7 +3892,7 @@ PHP_METHOD(php_wxProcess, IsInputAvailable)
                 php_printf("Executing RETURN_BOOL(wxProcess::IsInputAvailable())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxProcess_php*)native_object)->IsInputAvailable());
+                WXPHP_RETVAL_BOOL(((wxProcess_php*)native_object)->IsInputAvailable());
 
 
                 return;
@@ -4445,9 +4453,9 @@ PHP_METHOD(php_wxProcess, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSingleInstanceChecker_free(void *object)
+void php_wxSingleInstanceChecker_free(zend_object *object)
 {
-    zo_wxSingleInstanceChecker* custom_object = (zo_wxSingleInstanceChecker*) object;
+    zo_wxSingleInstanceChecker* custom_object = php_wxSingleInstanceChecker_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4488,7 +4496,6 @@ void php_wxSingleInstanceChecker_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxSingleInstanceChecker_new(zend_class_entry *class_type)
@@ -4513,6 +4520,9 @@ zend_object* php_wxSingleInstanceChecker_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxSingleInstanceChecker_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxSingleInstanceChecker_object_handlers);
+    wxphp_wxSingleInstanceChecker_object_handlers.offset = XtOffsetOf(zo_wxSingleInstanceChecker, zo);
+    wxphp_wxSingleInstanceChecker_object_handlers.free_obj = php_wxSingleInstanceChecker_free;
     custom_object->zo.handlers = &wxphp_wxSingleInstanceChecker_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4616,7 +4626,7 @@ PHP_METHOD(php_wxSingleInstanceChecker, Create)
                 php_printf("Executing RETURN_BOOL(wxSingleInstanceChecker::Create(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->Create(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->Create(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -4628,7 +4638,7 @@ PHP_METHOD(php_wxSingleInstanceChecker, Create)
                 php_printf("Executing RETURN_BOOL(wxSingleInstanceChecker::Create(wxString(name0, wxConvUTF8), wxString(path0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->Create(wxString(name0, wxConvUTF8), wxString(path0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->Create(wxString(name0, wxConvUTF8), wxString(path0, wxConvUTF8)));
 
 
                 return;
@@ -4735,7 +4745,7 @@ PHP_METHOD(php_wxSingleInstanceChecker, CreateDefault)
                 php_printf("Executing RETURN_BOOL(wxSingleInstanceChecker::CreateDefault())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->CreateDefault());
+                WXPHP_RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->CreateDefault());
 
 
                 return;
@@ -4842,7 +4852,7 @@ PHP_METHOD(php_wxSingleInstanceChecker, IsAnotherRunning)
                 php_printf("Executing RETURN_BOOL(wxSingleInstanceChecker::IsAnotherRunning())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->IsAnotherRunning());
+                WXPHP_RETVAL_BOOL(((wxSingleInstanceChecker_php*)native_object)->IsAnotherRunning());
 
 
                 return;

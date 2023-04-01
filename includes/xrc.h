@@ -45,7 +45,7 @@ typedef struct _zo_wxXmlResourceHandler{
     zend_object zo;
 } zo_wxXmlResourceHandler;
 
-void php_wxXmlResourceHandler_free(void *object);
+void php_wxXmlResourceHandler_free(zend_object *object);
 zend_object* php_wxXmlResourceHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -92,7 +92,7 @@ typedef struct _zo_wxXmlResource{
     zend_object zo;
 } zo_wxXmlResource;
 
-void php_wxXmlResource_free(void *object);
+void php_wxXmlResource_free(zend_object *object);
 zend_object* php_wxXmlResource_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

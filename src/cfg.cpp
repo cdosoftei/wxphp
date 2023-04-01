@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxConfigBase_free(void *object)
+void php_wxConfigBase_free(zend_object *object)
 {
-    zo_wxConfigBase* custom_object = (zo_wxConfigBase*) object;
+    zo_wxConfigBase* custom_object = php_wxConfigBase_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxConfigBase_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxConfigBase_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxConfigBase_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxConfigBase_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxConfigBase_object_handlers);
+    wxphp_wxConfigBase_object_handlers.offset = XtOffsetOf(zo_wxConfigBase, zo);
+    wxphp_wxConfigBase_object_handlers.free_obj = php_wxConfigBase_free;
     custom_object->zo.handlers = &wxphp_wxConfigBase_object_handlers;
 
     custom_object->native_object = NULL;
@@ -731,11 +733,11 @@ PHP_METHOD(php_wxConfigBase, Exists)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Exists(wxString(strName0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Exists(wxString(strName0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Exists(wxString(strName0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Exists(wxString(strName0, wxConvUTF8)));
                 }
 
 
@@ -1114,7 +1116,7 @@ PHP_METHOD(php_wxConfigBase, GetAppName)
                 {
                     value_to_return0 = ((wxConfigBase_php*)native_object)->GetAppName();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -1233,11 +1235,11 @@ PHP_METHOD(php_wxConfigBase, GetEntryType)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_LONG(((wxFileConfig_php*)native_object)->GetEntryType(wxString(name0, wxConvUTF8)));
+                    WXPHP_RETVAL_LONG(((wxFileConfig_php*)native_object)->GetEntryType(wxString(name0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxConfigBase_php*)native_object)->GetEntryType(wxString(name0, wxConvUTF8)));
+                    WXPHP_RETVAL_LONG(((wxConfigBase_php*)native_object)->GetEntryType(wxString(name0, wxConvUTF8)));
                 }
 
 
@@ -1982,7 +1984,7 @@ PHP_METHOD(php_wxConfigBase, GetVendorName)
                 {
                     value_to_return0 = ((wxConfigBase_php*)native_object)->GetVendorName();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -2273,11 +2275,11 @@ PHP_METHOD(php_wxConfigBase, IsExpandingEnvVars)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->IsExpandingEnvVars());
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->IsExpandingEnvVars());
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->IsExpandingEnvVars());
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->IsExpandingEnvVars());
                 }
 
 
@@ -2391,11 +2393,11 @@ PHP_METHOD(php_wxConfigBase, IsRecordingDefaults)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->IsRecordingDefaults());
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->IsRecordingDefaults());
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->IsRecordingDefaults());
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->IsRecordingDefaults());
                 }
 
 
@@ -2851,11 +2853,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key0, wxConvUTF8), &string_arg0_1));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key0, wxConvUTF8), &string_arg0_1));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key0, wxConvUTF8), &string_arg0_1));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key0, wxConvUTF8), &string_arg0_1));
                 }
 
                 ZVAL_STRING(&str0_ref, string_arg0_1.ToUTF8().data());
@@ -2879,11 +2881,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key1, wxConvUTF8), &string_arg1_1, wxString(defaultVal1, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key1, wxConvUTF8), &string_arg1_1, wxString(defaultVal1, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key1, wxConvUTF8), &string_arg1_1, wxString(defaultVal1, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key1, wxConvUTF8), &string_arg1_1, wxString(defaultVal1, wxConvUTF8)));
                 }
 
                 ZVAL_STRING(&str1_ref, string_arg1_1.ToUTF8().data());
@@ -2913,7 +2915,7 @@ PHP_METHOD(php_wxConfigBase, Read)
                 {
                     value_to_return2 = ((wxConfigBase_php*)native_object)->Read(wxString(key2, wxConvUTF8), wxString(defaultVal2, wxConvUTF8));
                 }
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -2934,11 +2936,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key3, wxConvUTF8), (long*) l3));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key3, wxConvUTF8), (long*) l3));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key3, wxConvUTF8), (long*) l3));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key3, wxConvUTF8), (long*) l3));
                 }
 
                 size_t elements_returned3_1 = sizeof(l3)/sizeof(*l3);
@@ -2966,11 +2968,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key4, wxConvUTF8), (long*) l4, (long) defaultVal4));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key4, wxConvUTF8), (long*) l4, (long) defaultVal4));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key4, wxConvUTF8), (long*) l4, (long) defaultVal4));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key4, wxConvUTF8), (long*) l4, (long) defaultVal4));
                 }
 
                 size_t elements_returned4_1 = sizeof(l4)/sizeof(*l4);
@@ -2998,11 +3000,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key5, wxConvUTF8), (size_t*) value5));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key5, wxConvUTF8), (size_t*) value5));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key5, wxConvUTF8), (size_t*) value5));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key5, wxConvUTF8), (size_t*) value5));
                 }
 
                 size_t elements_returned5_1 = sizeof(value5)/sizeof(*value5);
@@ -3030,11 +3032,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key6, wxConvUTF8), (size_t*) value6, (size_t) defaultVal6));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key6, wxConvUTF8), (size_t*) value6, (size_t) defaultVal6));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key6, wxConvUTF8), (size_t*) value6, (size_t) defaultVal6));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key6, wxConvUTF8), (size_t*) value6, (size_t) defaultVal6));
                 }
 
                 size_t elements_returned6_1 = sizeof(value6)/sizeof(*value6);
@@ -3062,11 +3064,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key7, wxConvUTF8), d7));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key7, wxConvUTF8), d7));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key7, wxConvUTF8), d7));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key7, wxConvUTF8), d7));
                 }
 
                 size_t elements_returned7_1 = sizeof(d7)/sizeof(*d7);
@@ -3094,11 +3096,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key8, wxConvUTF8), d8, defaultVal8));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key8, wxConvUTF8), d8, defaultVal8));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key8, wxConvUTF8), d8, defaultVal8));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key8, wxConvUTF8), d8, defaultVal8));
                 }
 
                 size_t elements_returned8_1 = sizeof(d8)/sizeof(*d8);
@@ -3126,11 +3128,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key9, wxConvUTF8), f9));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key9, wxConvUTF8), f9));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key9, wxConvUTF8), f9));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key9, wxConvUTF8), f9));
                 }
 
                 size_t elements_returned9_1 = sizeof(f9)/sizeof(*f9);
@@ -3158,11 +3160,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key10, wxConvUTF8), f10, defaultVal10));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key10, wxConvUTF8), f10, defaultVal10));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key10, wxConvUTF8), f10, defaultVal10));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key10, wxConvUTF8), f10, defaultVal10));
                 }
 
                 size_t elements_returned10_1 = sizeof(f10)/sizeof(*f10);
@@ -3190,11 +3192,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key11, wxConvUTF8), b11));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key11, wxConvUTF8), b11));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key11, wxConvUTF8), b11));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key11, wxConvUTF8), b11));
                 }
 
                 size_t elements_returned11_1 = sizeof(b11)/sizeof(*b11);
@@ -3222,11 +3224,11 @@ PHP_METHOD(php_wxConfigBase, Read)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key12, wxConvUTF8), d12, defaultVal12));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Read(wxString(key12, wxConvUTF8), d12, defaultVal12));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key12, wxConvUTF8), d12, defaultVal12));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Read(wxString(key12, wxConvUTF8), d12, defaultVal12));
                 }
 
                 size_t elements_returned12_1 = sizeof(d12)/sizeof(*d12);
@@ -3353,11 +3355,11 @@ PHP_METHOD(php_wxConfigBase, ReadBool)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->ReadBool(wxString(key0, wxConvUTF8), defaultVal0));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->ReadBool(wxString(key0, wxConvUTF8), defaultVal0));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->ReadBool(wxString(key0, wxConvUTF8), defaultVal0));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->ReadBool(wxString(key0, wxConvUTF8), defaultVal0));
                 }
 
 
@@ -3478,11 +3480,11 @@ PHP_METHOD(php_wxConfigBase, ReadDouble)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_DOUBLE(((wxFileConfig_php*)native_object)->ReadDouble(wxString(key0, wxConvUTF8), defaultVal0));
+                    WXPHP_RETVAL_DOUBLE(((wxFileConfig_php*)native_object)->ReadDouble(wxString(key0, wxConvUTF8), defaultVal0));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_DOUBLE(((wxConfigBase_php*)native_object)->ReadDouble(wxString(key0, wxConvUTF8), defaultVal0));
+                    WXPHP_RETVAL_DOUBLE(((wxConfigBase_php*)native_object)->ReadDouble(wxString(key0, wxConvUTF8), defaultVal0));
                 }
 
 
@@ -3603,11 +3605,11 @@ PHP_METHOD(php_wxConfigBase, ReadLong)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_LONG(((wxFileConfig_php*)native_object)->ReadLong(wxString(key0, wxConvUTF8), (long) defaultVal0));
+                    WXPHP_RETVAL_LONG(((wxFileConfig_php*)native_object)->ReadLong(wxString(key0, wxConvUTF8), (long) defaultVal0));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxConfigBase_php*)native_object)->ReadLong(wxString(key0, wxConvUTF8), (long) defaultVal0));
+                    WXPHP_RETVAL_LONG(((wxConfigBase_php*)native_object)->ReadLong(wxString(key0, wxConvUTF8), (long) defaultVal0));
                 }
 
 
@@ -4508,11 +4510,11 @@ PHP_METHOD(php_wxConfigBase, Write)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key0, wxConvUTF8), wxString(value0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key0, wxConvUTF8), wxString(value0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key0, wxConvUTF8), wxString(value0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key0, wxConvUTF8), wxString(value0, wxConvUTF8)));
                 }
 
 
@@ -4534,11 +4536,11 @@ PHP_METHOD(php_wxConfigBase, Write)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key1, wxConvUTF8), (long) value1));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key1, wxConvUTF8), (long) value1));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key1, wxConvUTF8), (long) value1));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key1, wxConvUTF8), (long) value1));
                 }
 
 
@@ -4560,11 +4562,11 @@ PHP_METHOD(php_wxConfigBase, Write)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key2, wxConvUTF8), value2));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key2, wxConvUTF8), value2));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key2, wxConvUTF8), value2));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key2, wxConvUTF8), value2));
                 }
 
 
@@ -4586,11 +4588,11 @@ PHP_METHOD(php_wxConfigBase, Write)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key3, wxConvUTF8), value3));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Write(wxString(key3, wxConvUTF8), value3));
                 }
                 else if(current_object_type == PHP_WXCONFIGBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key3, wxConvUTF8), value3));
+                    WXPHP_RETVAL_BOOL(((wxConfigBase_php*)native_object)->Write(wxString(key3, wxConvUTF8), value3));
                 }
 
 
@@ -4614,9 +4616,9 @@ PHP_METHOD(php_wxConfigBase, Write)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDisplay_free(void *object)
+void php_wxDisplay_free(zend_object *object)
 {
-    zo_wxDisplay* custom_object = (zo_wxDisplay*) object;
+    zo_wxDisplay* custom_object = php_wxDisplay_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4657,7 +4659,6 @@ void php_wxDisplay_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDisplay_new(zend_class_entry *class_type)
@@ -4682,6 +4683,9 @@ zend_object* php_wxDisplay_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDisplay_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDisplay_object_handlers);
+    wxphp_wxDisplay_object_handlers.offset = XtOffsetOf(zo_wxDisplay, zo);
+    wxphp_wxDisplay_object_handlers.free_obj = php_wxDisplay_free;
     custom_object->zo.handlers = &wxphp_wxDisplay_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4800,7 +4804,7 @@ PHP_METHOD(php_wxDisplay, ChangeMode)
                 php_printf("Executing RETURN_BOOL(wxDisplay::ChangeMode())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDisplay_php*)native_object)->ChangeMode());
+                WXPHP_RETVAL_BOOL(((wxDisplay_php*)native_object)->ChangeMode());
 
 
                 return;
@@ -4812,7 +4816,7 @@ PHP_METHOD(php_wxDisplay, ChangeMode)
                 php_printf("Executing RETURN_BOOL(wxDisplay::ChangeMode(*(wxVideoMode*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDisplay_php*)native_object)->ChangeMode(*(wxVideoMode*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxDisplay_php*)native_object)->ChangeMode(*(wxVideoMode*) object_pointer0_0));
 
                 references->AddReference(mode0, "wxDisplay::ChangeMode at call 3 with 1 argument(s)");
 
@@ -5035,7 +5039,7 @@ PHP_METHOD(php_wxDisplay, GetCount)
                 php_printf("Executing RETURN_LONG(wxDisplay::GetCount())\n\n");
                 #endif
 
-                RETVAL_LONG(wxDisplay::GetCount());
+                WXPHP_RETVAL_LONG(wxDisplay::GetCount());
 
 
                 return;
@@ -5280,7 +5284,7 @@ PHP_METHOD(php_wxDisplay, GetFromPoint)
                 php_printf("Executing RETURN_LONG(wxDisplay::GetFromPoint(*(wxPoint*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxDisplay::GetFromPoint(*(wxPoint*) object_pointer0_0));
+                WXPHP_RETVAL_LONG(wxDisplay::GetFromPoint(*(wxPoint*) object_pointer0_0));
 
 
                 return;
@@ -5411,7 +5415,7 @@ PHP_METHOD(php_wxDisplay, GetFromWindow)
                 php_printf("Executing RETURN_LONG(wxDisplay::GetFromWindow((const wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxDisplay::GetFromWindow((const wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_LONG(wxDisplay::GetFromWindow((const wxWindow*) object_pointer0_0));
 
 
                 return;
@@ -5634,7 +5638,7 @@ PHP_METHOD(php_wxDisplay, GetName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxDisplay_php*)native_object)->GetName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -5741,7 +5745,7 @@ PHP_METHOD(php_wxDisplay, IsPrimary)
                 php_printf("Executing RETURN_BOOL(wxDisplay::IsPrimary())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDisplay_php*)native_object)->IsPrimary());
+                WXPHP_RETVAL_BOOL(((wxDisplay_php*)native_object)->IsPrimary());
 
 
                 return;
@@ -5944,9 +5948,9 @@ PHP_METHOD(php_wxDisplay, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileConfig_free(void *object)
+void php_wxFileConfig_free(zend_object *object)
 {
-    zo_wxFileConfig* custom_object = (zo_wxFileConfig*) object;
+    zo_wxFileConfig* custom_object = php_wxFileConfig_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5987,7 +5991,6 @@ void php_wxFileConfig_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFileConfig_new(zend_class_entry *class_type)
@@ -6012,6 +6015,9 @@ zend_object* php_wxFileConfig_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFileConfig_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFileConfig_object_handlers);
+    wxphp_wxFileConfig_object_handlers.offset = XtOffsetOf(zo_wxFileConfig, zo);
+    wxphp_wxFileConfig_object_handlers.free_obj = php_wxFileConfig_free;
     custom_object->zo.handlers = &wxphp_wxFileConfig_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6109,7 +6115,7 @@ PHP_METHOD(php_wxFileConfig, DeleteAll)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteAll());
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteAll());
                 }
 
 
@@ -6226,7 +6232,7 @@ PHP_METHOD(php_wxFileConfig, DeleteEntry)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteEntry(wxString(key0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteEntry(wxString(key0, wxConvUTF8)));
                 }
 
 
@@ -6241,7 +6247,7 @@ PHP_METHOD(php_wxFileConfig, DeleteEntry)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteEntry(wxString(key0, wxConvUTF8), bDeleteGroupIfEmpty0));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteEntry(wxString(key0, wxConvUTF8), bDeleteGroupIfEmpty0));
                 }
 
 
@@ -6357,7 +6363,7 @@ PHP_METHOD(php_wxFileConfig, DeleteGroup)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteGroup(wxString(key0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->DeleteGroup(wxString(key0, wxConvUTF8)));
                 }
 
 
@@ -6472,7 +6478,7 @@ PHP_METHOD(php_wxFileConfig, Flush)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Flush());
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Flush());
                 }
 
 
@@ -6487,7 +6493,7 @@ PHP_METHOD(php_wxFileConfig, Flush)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->Flush(bCurrentOnly0));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->Flush(bCurrentOnly0));
                 }
 
 
@@ -6610,7 +6616,7 @@ PHP_METHOD(php_wxFileConfig, GetFirstEntry)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetFirstEntry(string_arg0_0, (long&) index0));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetFirstEntry(string_arg0_0, (long&) index0));
                 }
 
                 ZVAL_STRING(&str0_ref, string_arg0_0.ToUTF8().data());
@@ -6735,7 +6741,7 @@ PHP_METHOD(php_wxFileConfig, GetFirstGroup)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetFirstGroup(string_arg0_0, (long&) index0));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetFirstGroup(string_arg0_0, (long&) index0));
                 }
 
                 ZVAL_STRING(&str0_ref, string_arg0_0.ToUTF8().data());
@@ -6974,7 +6980,7 @@ PHP_METHOD(php_wxFileConfig, GetGlobalFileName)
 
                 wxString value_to_return1;
                 value_to_return1 = wxFileConfig::GetGlobalFileName(wxString(szFile0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -7232,7 +7238,7 @@ PHP_METHOD(php_wxFileConfig, GetLocalFileName)
 
                 wxString value_to_return1;
                 value_to_return1 = wxFileConfig::GetLocalFileName(wxString(szFile0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -7247,7 +7253,7 @@ PHP_METHOD(php_wxFileConfig, GetLocalFileName)
 
                 wxString value_to_return2;
                 value_to_return2 = wxFileConfig::GetLocalFileName(wxString(szFile0, wxConvUTF8), (int) style0);
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -7369,7 +7375,7 @@ PHP_METHOD(php_wxFileConfig, GetNextEntry)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetNextEntry(string_arg0_0, (long&) index0));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetNextEntry(string_arg0_0, (long&) index0));
                 }
 
                 ZVAL_STRING(&str0_ref, string_arg0_0.ToUTF8().data());
@@ -7494,7 +7500,7 @@ PHP_METHOD(php_wxFileConfig, GetNextGroup)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetNextGroup(string_arg0_0, (long&) index0));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->GetNextGroup(string_arg0_0, (long&) index0));
                 }
 
                 ZVAL_STRING(&str0_ref, string_arg0_0.ToUTF8().data());
@@ -7611,7 +7617,7 @@ PHP_METHOD(php_wxFileConfig, GetNumberOfEntries)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfEntries());
+                    WXPHP_RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfEntries());
                 }
 
 
@@ -7626,7 +7632,7 @@ PHP_METHOD(php_wxFileConfig, GetNumberOfEntries)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfEntries(bRecursive0));
+                    WXPHP_RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfEntries(bRecursive0));
                 }
 
 
@@ -7741,7 +7747,7 @@ PHP_METHOD(php_wxFileConfig, GetNumberOfGroups)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfGroups());
+                    WXPHP_RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfGroups());
                 }
 
 
@@ -7756,7 +7762,7 @@ PHP_METHOD(php_wxFileConfig, GetNumberOfGroups)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfGroups(bRecursive0));
+                    WXPHP_RETVAL_LONG(((wxFileConfig_php*)native_object)->GetNumberOfGroups(bRecursive0));
                 }
 
 
@@ -7869,7 +7875,7 @@ PHP_METHOD(php_wxFileConfig, GetPath)
                 {
                     value_to_return0 = ((wxFileConfig_php*)native_object)->GetPath();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -7983,7 +7989,7 @@ PHP_METHOD(php_wxFileConfig, HasEntry)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->HasEntry(wxString(strName0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->HasEntry(wxString(strName0, wxConvUTF8)));
                 }
 
 
@@ -8098,7 +8104,7 @@ PHP_METHOD(php_wxFileConfig, HasGroup)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->HasGroup(wxString(strName0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->HasGroup(wxString(strName0, wxConvUTF8)));
                 }
 
 
@@ -8216,7 +8222,7 @@ PHP_METHOD(php_wxFileConfig, RenameEntry)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->RenameEntry(wxString(oldName0, wxConvUTF8), wxString(newName0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->RenameEntry(wxString(oldName0, wxConvUTF8), wxString(newName0, wxConvUTF8)));
                 }
 
 
@@ -8334,7 +8340,7 @@ PHP_METHOD(php_wxFileConfig, RenameGroup)
 
                 if(current_object_type == PHP_WXFILECONFIG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileConfig_php*)native_object)->RenameGroup(wxString(oldName0, wxConvUTF8), wxString(newName0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxFileConfig_php*)native_object)->RenameGroup(wxString(oldName0, wxConvUTF8), wxString(newName0, wxConvUTF8)));
                 }
 
 
@@ -8589,9 +8595,9 @@ PHP_METHOD(php_wxFileConfig, SetUmask)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFontMapper_free(void *object)
+void php_wxFontMapper_free(zend_object *object)
 {
-    zo_wxFontMapper* custom_object = (zo_wxFontMapper*) object;
+    zo_wxFontMapper* custom_object = php_wxFontMapper_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8632,7 +8638,6 @@ void php_wxFontMapper_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFontMapper_new(zend_class_entry *class_type)
@@ -8657,6 +8662,9 @@ zend_object* php_wxFontMapper_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFontMapper_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFontMapper_object_handlers);
+    wxphp_wxFontMapper_object_handlers.offset = XtOffsetOf(zo_wxFontMapper, zo);
+    wxphp_wxFontMapper_object_handlers.free_obj = php_wxFontMapper_free;
     custom_object->zo.handlers = &wxphp_wxFontMapper_object_handlers;
 
     custom_object->native_object = NULL;
@@ -8759,7 +8767,7 @@ PHP_METHOD(php_wxFontMapper, CharsetToEncoding)
                 php_printf("Executing RETURN_LONG(wxFontMapper::CharsetToEncoding(wxString(charset0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFontMapper_php*)native_object)->CharsetToEncoding(wxString(charset0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(((wxFontMapper_php*)native_object)->CharsetToEncoding(wxString(charset0, wxConvUTF8)));
 
 
                 return;
@@ -8771,7 +8779,7 @@ PHP_METHOD(php_wxFontMapper, CharsetToEncoding)
                 php_printf("Executing RETURN_LONG(wxFontMapper::CharsetToEncoding(wxString(charset0, wxConvUTF8), interactive0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFontMapper_php*)native_object)->CharsetToEncoding(wxString(charset0, wxConvUTF8), interactive0));
+                WXPHP_RETVAL_LONG(((wxFontMapper_php*)native_object)->CharsetToEncoding(wxString(charset0, wxConvUTF8), interactive0));
 
 
                 return;
@@ -9018,7 +9026,7 @@ PHP_METHOD(php_wxFontMapper, GetAltForEncoding)
                 php_printf("Executing RETURN_BOOL(wxFontMapper::GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFontMapper_php*)native_object)->GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0));
+                WXPHP_RETVAL_BOOL(((wxFontMapper_php*)native_object)->GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0));
 
                 size_t elements_returned0_1 = sizeof(alt_encoding0)/sizeof(*alt_encoding0);
                 array_init(&alt_encoding0_ref);
@@ -9036,7 +9044,7 @@ PHP_METHOD(php_wxFontMapper, GetAltForEncoding)
                 php_printf("Executing RETURN_BOOL(wxFontMapper::GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0, wxString(facename0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFontMapper_php*)native_object)->GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0, wxString(facename0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFontMapper_php*)native_object)->GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0, wxString(facename0, wxConvUTF8)));
 
                 size_t elements_returned0_1 = sizeof(alt_encoding0)/sizeof(*alt_encoding0);
                 array_init(&alt_encoding0_ref);
@@ -9054,7 +9062,7 @@ PHP_METHOD(php_wxFontMapper, GetAltForEncoding)
                 php_printf("Executing RETURN_BOOL(wxFontMapper::GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0, wxString(facename0, wxConvUTF8), interactive0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFontMapper_php*)native_object)->GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0, wxString(facename0, wxConvUTF8), interactive0));
+                WXPHP_RETVAL_BOOL(((wxFontMapper_php*)native_object)->GetAltForEncoding((wxFontEncoding) encoding0, (wxFontEncoding*) alt_encoding0, wxString(facename0, wxConvUTF8), interactive0));
 
                 size_t elements_returned0_1 = sizeof(alt_encoding0)/sizeof(*alt_encoding0);
                 array_init(&alt_encoding0_ref);
@@ -9173,7 +9181,7 @@ PHP_METHOD(php_wxFontMapper, GetEncoding)
                 php_printf("Executing RETURN_LONG(wxFontMapper::GetEncoding((size_t) n0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxFontMapper::GetEncoding((size_t) n0));
+                WXPHP_RETVAL_LONG(wxFontMapper::GetEncoding((size_t) n0));
 
 
                 return;
@@ -9288,7 +9296,7 @@ PHP_METHOD(php_wxFontMapper, GetEncodingDescription)
 
                 wxString value_to_return1;
                 value_to_return1 = wxFontMapper::GetEncodingDescription((wxFontEncoding) encoding0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -9402,7 +9410,7 @@ PHP_METHOD(php_wxFontMapper, GetEncodingFromName)
                 php_printf("Executing RETURN_LONG(wxFontMapper::GetEncodingFromName(wxString(encoding0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(wxFontMapper::GetEncodingFromName(wxString(encoding0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(wxFontMapper::GetEncodingFromName(wxString(encoding0, wxConvUTF8)));
 
 
                 return;
@@ -9517,7 +9525,7 @@ PHP_METHOD(php_wxFontMapper, GetEncodingName)
 
                 wxString value_to_return1;
                 value_to_return1 = wxFontMapper::GetEncodingName((wxFontEncoding) encoding0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -9625,7 +9633,7 @@ PHP_METHOD(php_wxFontMapper, GetSupportedEncodingsCount)
                 php_printf("Executing RETURN_LONG(wxFontMapper::GetSupportedEncodingsCount())\n\n");
                 #endif
 
-                RETVAL_LONG(wxFontMapper::GetSupportedEncodingsCount());
+                WXPHP_RETVAL_LONG(wxFontMapper::GetSupportedEncodingsCount());
 
 
                 return;
@@ -9739,7 +9747,7 @@ PHP_METHOD(php_wxFontMapper, IsEncodingAvailable)
                 php_printf("Executing RETURN_BOOL(wxFontMapper::IsEncodingAvailable((wxFontEncoding) encoding0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFontMapper_php*)native_object)->IsEncodingAvailable((wxFontEncoding) encoding0));
+                WXPHP_RETVAL_BOOL(((wxFontMapper_php*)native_object)->IsEncodingAvailable((wxFontEncoding) encoding0));
 
 
                 return;
@@ -9751,7 +9759,7 @@ PHP_METHOD(php_wxFontMapper, IsEncodingAvailable)
                 php_printf("Executing RETURN_BOOL(wxFontMapper::IsEncodingAvailable((wxFontEncoding) encoding0, wxString(facename0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFontMapper_php*)native_object)->IsEncodingAvailable((wxFontEncoding) encoding0, wxString(facename0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxFontMapper_php*)native_object)->IsEncodingAvailable((wxFontEncoding) encoding0, wxString(facename0, wxConvUTF8)));
 
 
                 return;
@@ -10364,9 +10372,9 @@ PHP_METHOD(php_wxFontMapper, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPlatformInfo_free(void *object)
+void php_wxPlatformInfo_free(zend_object *object)
 {
-    zo_wxPlatformInfo* custom_object = (zo_wxPlatformInfo*) object;
+    zo_wxPlatformInfo* custom_object = php_wxPlatformInfo_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10407,7 +10415,6 @@ void php_wxPlatformInfo_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPlatformInfo_new(zend_class_entry *class_type)
@@ -10432,6 +10439,9 @@ zend_object* php_wxPlatformInfo_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPlatformInfo_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPlatformInfo_object_handlers);
+    wxphp_wxPlatformInfo_object_handlers.offset = XtOffsetOf(zo_wxPlatformInfo, zo);
+    wxphp_wxPlatformInfo_object_handlers.free_obj = php_wxPlatformInfo_free;
     custom_object->zo.handlers = &wxphp_wxPlatformInfo_object_handlers;
 
     custom_object->native_object = NULL;
@@ -10740,7 +10750,7 @@ PHP_METHOD(php_wxPlatformInfo, CheckOSVersion)
                 php_printf("Executing RETURN_BOOL(wxPlatformInfo::CheckOSVersion((int) major0, (int) minor0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckOSVersion((int) major0, (int) minor0));
+                WXPHP_RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckOSVersion((int) major0, (int) minor0));
 
 
                 return;
@@ -10752,7 +10762,7 @@ PHP_METHOD(php_wxPlatformInfo, CheckOSVersion)
                 php_printf("Executing RETURN_BOOL(wxPlatformInfo::CheckOSVersion((int) major0, (int) minor0, (int) micro0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckOSVersion((int) major0, (int) minor0, (int) micro0));
+                WXPHP_RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckOSVersion((int) major0, (int) minor0, (int) micro0));
 
 
                 return;
@@ -10866,7 +10876,7 @@ PHP_METHOD(php_wxPlatformInfo, CheckToolkitVersion)
                 php_printf("Executing RETURN_BOOL(wxPlatformInfo::CheckToolkitVersion((int) major0, (int) minor0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckToolkitVersion((int) major0, (int) minor0));
+                WXPHP_RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckToolkitVersion((int) major0, (int) minor0));
 
 
                 return;
@@ -10878,7 +10888,7 @@ PHP_METHOD(php_wxPlatformInfo, CheckToolkitVersion)
                 php_printf("Executing RETURN_BOOL(wxPlatformInfo::CheckToolkitVersion((int) major0, (int) minor0, (int) micro0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckToolkitVersion((int) major0, (int) minor0, (int) micro0));
+                WXPHP_RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->CheckToolkitVersion((int) major0, (int) minor0, (int) micro0));
 
 
                 return;
@@ -11111,7 +11121,7 @@ PHP_METHOD(php_wxPlatformInfo, GetDesktopEnvironment)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetDesktopEnvironment();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11241,7 +11251,7 @@ PHP_METHOD(php_wxPlatformInfo, GetEndianness)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetEndianness(wxString(end0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(wxPlatformInfo::GetEndianness(wxString(end0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(wxPlatformInfo::GetEndianness(wxString(end0, wxConvUTF8)));
 
 
                 return;
@@ -11260,7 +11270,7 @@ PHP_METHOD(php_wxPlatformInfo, GetEndianness)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetEndianness())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetEndianness());
+                WXPHP_RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetEndianness());
 
 
                 return;
@@ -11391,7 +11401,7 @@ PHP_METHOD(php_wxPlatformInfo, GetEndiannessName)
 
                 wxString value_to_return1;
                 value_to_return1 = wxPlatformInfo::GetEndiannessName((wxEndianness) end0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -11412,7 +11422,7 @@ PHP_METHOD(php_wxPlatformInfo, GetEndiannessName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetEndiannessName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11519,7 +11529,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOSMajorVersion)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOSMajorVersion())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOSMajorVersion());
+                WXPHP_RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOSMajorVersion());
 
 
                 return;
@@ -11626,7 +11636,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOSMinorVersion)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOSMinorVersion())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOSMinorVersion());
+                WXPHP_RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOSMinorVersion());
 
 
                 return;
@@ -11735,7 +11745,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemDescription)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetOperatingSystemDescription();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11845,7 +11855,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemDirectory)
 
                 wxString value_to_return0;
                 value_to_return0 = wxPlatformInfo::GetOperatingSystemDirectory();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -11976,7 +11986,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
 
                 wxString value_to_return1;
                 value_to_return1 = wxPlatformInfo::GetOperatingSystemFamilyName((wxOperatingSystemId) os0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -11997,7 +12007,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemFamilyName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetOperatingSystemFamilyName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12127,7 +12137,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOperatingSystemId(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(wxPlatformInfo::GetOperatingSystemId(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(wxPlatformInfo::GetOperatingSystemId(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -12146,7 +12156,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemId)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetOperatingSystemId())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOperatingSystemId());
+                WXPHP_RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetOperatingSystemId());
 
 
                 return;
@@ -12277,7 +12287,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
 
                 wxString value_to_return1;
                 value_to_return1 = wxPlatformInfo::GetOperatingSystemIdName((wxOperatingSystemId) os0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -12298,7 +12308,7 @@ PHP_METHOD(php_wxPlatformInfo, GetOperatingSystemIdName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetOperatingSystemIdName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12428,7 +12438,7 @@ PHP_METHOD(php_wxPlatformInfo, GetPortId)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetPortId(wxString(portname0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(wxPlatformInfo::GetPortId(wxString(portname0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(wxPlatformInfo::GetPortId(wxString(portname0, wxConvUTF8)));
 
 
                 return;
@@ -12447,7 +12457,7 @@ PHP_METHOD(php_wxPlatformInfo, GetPortId)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetPortId())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetPortId());
+                WXPHP_RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetPortId());
 
 
                 return;
@@ -12579,7 +12589,7 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
 
                 wxString value_to_return2;
                 value_to_return2 = wxPlatformInfo::GetPortIdName((wxPortId) port0, usingUniversal0);
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -12600,7 +12610,7 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetPortIdName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12732,7 +12742,7 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdShortName)
 
                 wxString value_to_return2;
                 value_to_return2 = wxPlatformInfo::GetPortIdShortName((wxPortId) port0, usingUniversal0);
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -12753,7 +12763,7 @@ PHP_METHOD(php_wxPlatformInfo, GetPortIdShortName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPlatformInfo_php*)native_object)->GetPortIdShortName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12860,7 +12870,7 @@ PHP_METHOD(php_wxPlatformInfo, GetToolkitMajorVersion)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetToolkitMajorVersion())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetToolkitMajorVersion());
+                WXPHP_RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetToolkitMajorVersion());
 
 
                 return;
@@ -12967,7 +12977,7 @@ PHP_METHOD(php_wxPlatformInfo, GetToolkitMinorVersion)
                 php_printf("Executing RETURN_LONG(wxPlatformInfo::GetToolkitMinorVersion())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetToolkitMinorVersion());
+                WXPHP_RETVAL_LONG(((wxPlatformInfo_php*)native_object)->GetToolkitMinorVersion());
 
 
                 return;
@@ -13074,7 +13084,7 @@ PHP_METHOD(php_wxPlatformInfo, IsOk)
                 php_printf("Executing RETURN_BOOL(wxPlatformInfo::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->IsOk());
 
 
                 return;
@@ -13181,7 +13191,7 @@ PHP_METHOD(php_wxPlatformInfo, IsUsingUniversalWidgets)
                 php_printf("Executing RETURN_BOOL(wxPlatformInfo::IsUsingUniversalWidgets())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->IsUsingUniversalWidgets());
+                WXPHP_RETVAL_BOOL(((wxPlatformInfo_php*)native_object)->IsUsingUniversalWidgets());
 
 
                 return;
@@ -14018,9 +14028,9 @@ PHP_METHOD(php_wxPlatformInfo, SetToolkitVersion)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSystemSettings_free(void *object)
+void php_wxSystemSettings_free(zend_object *object)
 {
-    zo_wxSystemSettings* custom_object = (zo_wxSystemSettings*) object;
+    zo_wxSystemSettings* custom_object = php_wxSystemSettings_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14061,7 +14071,6 @@ void php_wxSystemSettings_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxSystemSettings_new(zend_class_entry *class_type)
@@ -14086,6 +14095,9 @@ zend_object* php_wxSystemSettings_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxSystemSettings_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxSystemSettings_object_handlers);
+    wxphp_wxSystemSettings_object_handlers.offset = XtOffsetOf(zo_wxSystemSettings, zo);
+    wxphp_wxSystemSettings_object_handlers.free_obj = php_wxSystemSettings_free;
     custom_object->zo.handlers = &wxphp_wxSystemSettings_object_handlers;
 
     custom_object->native_object = NULL;
@@ -14452,7 +14464,7 @@ PHP_METHOD(php_wxSystemSettings, GetMetric)
                 php_printf("Executing RETURN_LONG(wxSystemSettings::GetMetric((wxSystemMetric) index0))\n\n");
                 #endif
 
-                RETVAL_LONG(wxSystemSettings::GetMetric((wxSystemMetric) index0));
+                WXPHP_RETVAL_LONG(wxSystemSettings::GetMetric((wxSystemMetric) index0));
 
 
                 return;
@@ -14465,7 +14477,7 @@ PHP_METHOD(php_wxSystemSettings, GetMetric)
                 php_printf("Executing RETURN_LONG(wxSystemSettings::GetMetric((wxSystemMetric) index0, (wxWindow*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_LONG(wxSystemSettings::GetMetric((wxSystemMetric) index0, (wxWindow*) object_pointer0_1));
+                WXPHP_RETVAL_LONG(wxSystemSettings::GetMetric((wxSystemMetric) index0, (wxWindow*) object_pointer0_1));
 
 
                 return;
@@ -14573,7 +14585,7 @@ PHP_METHOD(php_wxSystemSettings, GetScreenType)
                 php_printf("Executing RETURN_LONG(wxSystemSettings::GetScreenType())\n\n");
                 #endif
 
-                RETVAL_LONG(wxSystemSettings::GetScreenType());
+                WXPHP_RETVAL_LONG(wxSystemSettings::GetScreenType());
 
 
                 return;
@@ -14686,7 +14698,7 @@ PHP_METHOD(php_wxSystemSettings, HasFeature)
                 php_printf("Executing RETURN_BOOL(wxSystemSettings::HasFeature((wxSystemFeature) index0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxSystemSettings::HasFeature((wxSystemFeature) index0));
+                WXPHP_RETVAL_BOOL(wxSystemSettings::HasFeature((wxSystemFeature) index0));
 
 
                 return;
@@ -14709,9 +14721,9 @@ PHP_METHOD(php_wxSystemSettings, HasFeature)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSystemOptions_free(void *object)
+void php_wxSystemOptions_free(zend_object *object)
 {
-    zo_wxSystemOptions* custom_object = (zo_wxSystemOptions*) object;
+    zo_wxSystemOptions* custom_object = php_wxSystemOptions_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14752,7 +14764,6 @@ void php_wxSystemOptions_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxSystemOptions_new(zend_class_entry *class_type)
@@ -14777,6 +14788,9 @@ zend_object* php_wxSystemOptions_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxSystemOptions_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxSystemOptions_object_handlers);
+    wxphp_wxSystemOptions_object_handlers.offset = XtOffsetOf(zo_wxSystemOptions, zo);
+    wxphp_wxSystemOptions_object_handlers.free_obj = php_wxSystemOptions_free;
     custom_object->zo.handlers = &wxphp_wxSystemOptions_object_handlers;
 
     custom_object->native_object = NULL;
@@ -14881,7 +14895,7 @@ PHP_METHOD(php_wxSystemOptions, GetOption)
 
                 wxString value_to_return1;
                 value_to_return1 = wxSystemOptions::GetOption(wxString(name0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -14995,7 +15009,7 @@ PHP_METHOD(php_wxSystemOptions, GetOptionInt)
                 php_printf("Executing RETURN_LONG(wxSystemOptions::GetOptionInt(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_LONG(wxSystemOptions::GetOptionInt(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_LONG(wxSystemOptions::GetOptionInt(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -15109,7 +15123,7 @@ PHP_METHOD(php_wxSystemOptions, HasOption)
                 php_printf("Executing RETURN_BOOL(wxSystemOptions::HasOption(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxSystemOptions::HasOption(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxSystemOptions::HasOption(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -15223,7 +15237,7 @@ PHP_METHOD(php_wxSystemOptions, IsFalse)
                 php_printf("Executing RETURN_BOOL(wxSystemOptions::IsFalse(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxSystemOptions::IsFalse(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxSystemOptions::IsFalse(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -15405,9 +15419,9 @@ PHP_METHOD(php_wxSystemOptions, SetOption)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxVideoMode_free(void *object)
+void php_wxVideoMode_free(zend_object *object)
 {
-    zo_wxVideoMode* custom_object = (zo_wxVideoMode*) object;
+    zo_wxVideoMode* custom_object = php_wxVideoMode_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -15448,7 +15462,6 @@ void php_wxVideoMode_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxVideoMode_new(zend_class_entry *class_type)
@@ -15473,6 +15486,9 @@ zend_object* php_wxVideoMode_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxVideoMode_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxVideoMode_object_handlers);
+    wxphp_wxVideoMode_object_handlers.offset = XtOffsetOf(zo_wxVideoMode, zo);
+    wxphp_wxVideoMode_object_handlers.free_obj = php_wxVideoMode_free;
     custom_object->zo.handlers = &wxphp_wxVideoMode_object_handlers;
 
     custom_object->native_object = NULL;
@@ -15726,7 +15742,7 @@ PHP_METHOD(php_wxVideoMode, Matches)
                 php_printf("Executing RETURN_BOOL(wxVideoMode::Matches(*(wxVideoMode*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxVideoMode_php*)native_object)->Matches(*(wxVideoMode*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxVideoMode_php*)native_object)->Matches(*(wxVideoMode*) object_pointer0_0));
 
                 references->AddReference(other0, "wxVideoMode::Matches at call 3 with 1 argument(s)");
 
@@ -15834,7 +15850,7 @@ PHP_METHOD(php_wxVideoMode, IsOk)
                 php_printf("Executing RETURN_BOOL(wxVideoMode::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxVideoMode_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxVideoMode_php*)native_object)->IsOk());
 
 
                 return;
@@ -15941,7 +15957,7 @@ PHP_METHOD(php_wxVideoMode, GetWidth)
                 php_printf("Executing RETURN_LONG(wxVideoMode::GetWidth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxVideoMode_php*)native_object)->GetWidth());
+                WXPHP_RETVAL_LONG(((wxVideoMode_php*)native_object)->GetWidth());
 
 
                 return;
@@ -16048,7 +16064,7 @@ PHP_METHOD(php_wxVideoMode, GetHeight)
                 php_printf("Executing RETURN_LONG(wxVideoMode::GetHeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxVideoMode_php*)native_object)->GetHeight());
+                WXPHP_RETVAL_LONG(((wxVideoMode_php*)native_object)->GetHeight());
 
 
                 return;
@@ -16155,7 +16171,7 @@ PHP_METHOD(php_wxVideoMode, GetDepth)
                 php_printf("Executing RETURN_LONG(wxVideoMode::GetDepth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxVideoMode_php*)native_object)->GetDepth());
+                WXPHP_RETVAL_LONG(((wxVideoMode_php*)native_object)->GetDepth());
 
 
                 return;

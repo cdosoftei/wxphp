@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxToolTip_free(void *object)
+void php_wxToolTip_free(zend_object *object)
 {
-    zo_wxToolTip* custom_object = (zo_wxToolTip*) object;
+    zo_wxToolTip* custom_object = php_wxToolTip_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxToolTip_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxToolTip_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxToolTip_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxToolTip_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxToolTip_object_handlers);
+    wxphp_wxToolTip_object_handlers.offset = XtOffsetOf(zo_wxToolTip, zo);
+    wxphp_wxToolTip_object_handlers.free_obj = php_wxToolTip_free;
     custom_object->zo.handlers = &wxphp_wxToolTip_object_handlers;
 
     custom_object->native_object = NULL;
@@ -889,7 +891,7 @@ PHP_METHOD(php_wxToolTip, GetTip)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxToolTip_php*)native_object)->GetTip();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;

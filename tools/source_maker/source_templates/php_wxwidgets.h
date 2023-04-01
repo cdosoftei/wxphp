@@ -127,17 +127,53 @@ END_EXTERN_C()
     memcpy(&wxphp_##class_name##_object_handlers, zend_get_std_object_handlers(), sizeof(zend_object_handlers)); \
     wxphp_##class_name##_object_handlers.offset = XtOffsetOf(zo_##class_name, zo);
 
-class wxPhpClientData : public wxClientData
+class wxPhpCallbackData : public wxClientData
 {
 public:
-    wxPhpClientData(zend_fcall_info& fci, zend_fcall_info_cache& fci_cache)
+    wxPhpCallbackData(zend_fcall_info *fci, zend_fcall_info_cache *fci_cache)
     {
-        this->fci = fci;
-        this->fci_cache = fci_cache;
+        memcpy(&this->fci, fci, sizeof(zend_fcall_info));
+        memcpy(&this->fci_cache, fci_cache, sizeof(zend_fcall_info_cache));
+
+        this->ce = fci_cache->calling_scope;
+        this->func_ptr = fci_cache->function_handler;
+        this->obj = fci_cache->object;
+
+        if (this->obj) {
+            GC_ADDREF(this->obj);
+        }
+
+        if (Z_TYPE(fci->function_name) == IS_OBJECT) {
+            this->closure = Z_OBJ(fci->function_name);
+            GC_ADDREF(this->closure);
+        } else {
+            this->closure = NULL;
+        }
+    }
+
+    ~wxPhpCallbackData()
+    {
+        if (this->obj) {
+            zend_object_release(this->obj);
+        }
+
+        if (this->func_ptr &&
+            UNEXPECTED(this->func_ptr->common.fn_flags & ZEND_ACC_CALL_VIA_TRAMPOLINE)) {
+            zend_string_release_ex(this->func_ptr->common.function_name, 0);
+            zend_free_trampoline(this->func_ptr);
+        }
+
+        if (this->closure) {
+            zend_object_release(this->closure);
+        }
     }
 
     zend_fcall_info fci;
     zend_fcall_info_cache fci_cache;
+    zend_function *func_ptr;
+    zend_object *obj;
+    zend_object *closure;
+    zend_class_entry *ce;
 };
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_null, 0, 0, 0)

@@ -46,7 +46,7 @@ typedef struct _zo_wxFrame{
     zend_object zo;
 } zo_wxFrame;
 
-void php_wxFrame_free(void *object);
+void php_wxFrame_free(zend_object *object);
 zend_object* php_wxFrame_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -107,7 +107,7 @@ typedef struct _zo_wxMDIClientWindow{
     zend_object zo;
 } zo_wxMDIClientWindow;
 
-void php_wxMDIClientWindow_free(void *object);
+void php_wxMDIClientWindow_free(zend_object *object);
 zend_object* php_wxMDIClientWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -153,7 +153,7 @@ typedef struct _zo_wxMDIParentFrame{
     zend_object zo;
 } zo_wxMDIParentFrame;
 
-void php_wxMDIParentFrame_free(void *object);
+void php_wxMDIParentFrame_free(zend_object *object);
 zend_object* php_wxMDIParentFrame_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -207,7 +207,7 @@ typedef struct _zo_wxMDIChildFrame{
     zend_object zo;
 } zo_wxMDIChildFrame;
 
-void php_wxMDIChildFrame_free(void *object);
+void php_wxMDIChildFrame_free(zend_object *object);
 zend_object* php_wxMDIChildFrame_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -257,7 +257,7 @@ typedef struct _zo_wxMiniFrame{
     zend_object zo;
 } zo_wxMiniFrame;
 
-void php_wxMiniFrame_free(void *object);
+void php_wxMiniFrame_free(zend_object *object);
 zend_object* php_wxMiniFrame_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -302,7 +302,7 @@ typedef struct _zo_wxPopupWindow{
     zend_object zo;
 } zo_wxPopupWindow;
 
-void php_wxPopupWindow_free(void *object);
+void php_wxPopupWindow_free(zend_object *object);
 zend_object* php_wxPopupWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -348,7 +348,7 @@ typedef struct _zo_wxPopupTransientWindow{
     zend_object zo;
 } zo_wxPopupTransientWindow;
 
-void php_wxPopupTransientWindow_free(void *object);
+void php_wxPopupTransientWindow_free(zend_object *object);
 zend_object* php_wxPopupTransientWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -395,7 +395,7 @@ typedef struct _zo_wxPropertySheetDialog{
     zend_object zo;
 } zo_wxPropertySheetDialog;
 
-void php_wxPropertySheetDialog_free(void *object);
+void php_wxPropertySheetDialog_free(zend_object *object);
 zend_object* php_wxPropertySheetDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -448,7 +448,7 @@ typedef struct _zo_wxSplashScreen{
     zend_object zo;
 } zo_wxSplashScreen;
 
-void php_wxSplashScreen_free(void *object);
+void php_wxSplashScreen_free(zend_object *object);
 zend_object* php_wxSplashScreen_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -494,7 +494,7 @@ typedef struct _zo_wxTopLevelWindow{
     zend_object zo;
 } zo_wxTopLevelWindow;
 
-void php_wxTopLevelWindow_free(void *object);
+void php_wxTopLevelWindow_free(zend_object *object);
 zend_object* php_wxTopLevelWindow_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

@@ -44,7 +44,7 @@ typedef struct _zo_wxStyledTextCtrl{
     zend_object zo;
 } zo_wxStyledTextCtrl;
 
-void php_wxStyledTextCtrl_free(void *object);
+void php_wxStyledTextCtrl_free(zend_object *object);
 zend_object* php_wxStyledTextCtrl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

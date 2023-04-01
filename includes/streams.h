@@ -42,7 +42,7 @@ typedef struct _zo_wxDataOutputStream{
     zend_object zo;
 } zo_wxDataOutputStream;
 
-void php_wxDataOutputStream_free(void *object);
+void php_wxDataOutputStream_free(zend_object *object);
 zend_object* php_wxDataOutputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -89,7 +89,7 @@ typedef struct _zo_wxDataInputStream{
     zend_object zo;
 } zo_wxDataInputStream;
 
-void php_wxDataInputStream_free(void *object);
+void php_wxDataInputStream_free(zend_object *object);
 zend_object* php_wxDataInputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -139,7 +139,7 @@ typedef struct _zo_wxStreamBase{
     zend_object zo;
 } zo_wxStreamBase;
 
-void php_wxStreamBase_free(void *object);
+void php_wxStreamBase_free(zend_object *object);
 zend_object* php_wxStreamBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -188,7 +188,7 @@ typedef struct _zo_wxOutputStream{
     zend_object zo;
 } zo_wxOutputStream;
 
-void php_wxOutputStream_free(void *object);
+void php_wxOutputStream_free(zend_object *object);
 zend_object* php_wxOutputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -238,7 +238,7 @@ typedef struct _zo_wxInputStream{
     zend_object zo;
 } zo_wxInputStream;
 
-void php_wxInputStream_free(void *object);
+void php_wxInputStream_free(zend_object *object);
 zend_object* php_wxInputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -291,7 +291,7 @@ typedef struct _zo_wxFFileOutputStream{
     zend_object zo;
 } zo_wxFFileOutputStream;
 
-void php_wxFFileOutputStream_free(void *object);
+void php_wxFFileOutputStream_free(zend_object *object);
 zend_object* php_wxFFileOutputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -337,7 +337,7 @@ typedef struct _zo_wxFileOutputStream{
     zend_object zo;
 } zo_wxFileOutputStream;
 
-void php_wxFileOutputStream_free(void *object);
+void php_wxFileOutputStream_free(zend_object *object);
 zend_object* php_wxFileOutputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -383,7 +383,7 @@ typedef struct _zo_wxFileInputStream{
     zend_object zo;
 } zo_wxFileInputStream;
 
-void php_wxFileInputStream_free(void *object);
+void php_wxFileInputStream_free(zend_object *object);
 zend_object* php_wxFileInputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -428,7 +428,7 @@ typedef struct _zo_wxFFileInputStream{
     zend_object zo;
 } zo_wxFFileInputStream;
 
-void php_wxFFileInputStream_free(void *object);
+void php_wxFFileInputStream_free(zend_object *object);
 zend_object* php_wxFFileInputStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -472,7 +472,7 @@ typedef struct _zo_wxFFileStream{
     zend_object zo;
 } zo_wxFFileStream;
 
-void php_wxFFileStream_free(void *object);
+void php_wxFFileStream_free(zend_object *object);
 zend_object* php_wxFFileStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -536,7 +536,7 @@ typedef struct _zo_wxFileStream{
     zend_object zo;
 } zo_wxFileStream;
 
-void php_wxFileStream_free(void *object);
+void php_wxFileStream_free(zend_object *object);
 zend_object* php_wxFileStream_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

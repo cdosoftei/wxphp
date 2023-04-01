@@ -51,10 +51,10 @@ void <?=$class_name?>_php::onEvent(wxEvent& evnt)
 
     zval dummy;
     wxCommandEvent* ce;
-    wxPhpClientData* co;
+    wxPhpCallbackData* co;
 
     ce = (wxCommandEvent*) evnt.m_callbackUserData;
-    co = (wxPhpClientData*) ce->GetClientObject();
+    co = (wxPhpCallbackData*) ce->GetClientObject();
     co->fci.retval = &dummy;
     co->fci.param_count = 1;
     co->fci.params = arg;
@@ -67,17 +67,16 @@ void <?=$class_name?>_php::onEvent(wxEvent& evnt)
     co->fci.named_params = NULL;
     #endif
 
-    zend_result result = zend_call_function(&co->fci, &co->fci_cache);
+    zend_result res = zend_call_function(&co->fci, &co->fci_cache);
+    zval_ptr_dtor(&dummy);
     zval_ptr_dtor(&arg[0]);
 
-    if (EG(exception)) {
-        zend_error(E_CORE_ERROR, "Uncaught exception in onEvent handler");
-    } else if(result == FAILURE) {
-        wxString errorMessage = "Failed to call method: '";
-        errorMessage += ce->GetString().char_str();
-        errorMessage += "'";
+    if (res == FAILURE) {
+        zend_error(E_CORE_ERROR, "Cannot call wxEvtHandler::OnEvent");
+    }
 
-        wxMessageBox(errorMessage, "Error", wxOK|wxICON_ERROR);
+    if (EG(exception)) {
+        zend_error(E_CORE_ERROR, "Uncaught exception in wxEvtHandler::OnEvent");
     }
 }
 
@@ -197,7 +196,7 @@ PHP_METHOD(php_<?=$class_name?>, Connect)
     }
 
     wxCommandEvent* ce = new wxCommandEvent();
-    ce->SetClientObject(new wxPhpClientData(fci, fci_cache));
+    ce->SetClientObject(new wxPhpCallbackData(&fci, &fci_cache));
 
     switch(args)
     {

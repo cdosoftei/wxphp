@@ -43,7 +43,7 @@ typedef struct _zo_wxRefCounter{
     zend_object zo;
 } zo_wxRefCounter;
 
-void php_wxRefCounter_free(void *object);
+void php_wxRefCounter_free(zend_object *object);
 zend_object* php_wxRefCounter_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -90,7 +90,7 @@ typedef struct _zo_wxObject{
     zend_object zo;
 } zo_wxObject;
 
-void php_wxObject_free(void *object);
+void php_wxObject_free(zend_object *object);
 zend_object* php_wxObject_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -138,7 +138,7 @@ typedef struct _zo_wxClassInfo{
     zend_object zo;
 } zo_wxClassInfo;
 
-void php_wxClassInfo_free(void *object);
+void php_wxClassInfo_free(zend_object *object);
 zend_object* php_wxClassInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

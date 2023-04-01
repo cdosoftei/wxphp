@@ -43,7 +43,7 @@ typedef struct _zo_wxMenuBar{
     zend_object zo;
 } zo_wxMenuBar;
 
-void php_wxMenuBar_free(void *object);
+void php_wxMenuBar_free(zend_object *object);
 zend_object* php_wxMenuBar_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -113,7 +113,7 @@ typedef struct _zo_wxMenu{
     zend_object zo;
 } zo_wxMenu;
 
-void php_wxMenu_free(void *object);
+void php_wxMenu_free(zend_object *object);
 zend_object* php_wxMenu_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -197,7 +197,7 @@ typedef struct _zo_wxMenuItem{
     zend_object zo;
 } zo_wxMenuItem;
 
-void php_wxMenuItem_free(void *object);
+void php_wxMenuItem_free(zend_object *object);
 zend_object* php_wxMenuItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

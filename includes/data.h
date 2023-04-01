@@ -47,7 +47,7 @@ typedef struct _zo_wxRect{
     zend_object zo;
 } zo_wxRect;
 
-void php_wxRect_free(void *object);
+void php_wxRect_free(zend_object *object);
 zend_object* php_wxRect_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -120,7 +120,7 @@ typedef struct _zo_wxAcceleratorEntry{
     zend_object zo;
 } zo_wxAcceleratorEntry;
 
-void php_wxAcceleratorEntry_free(void *object);
+void php_wxAcceleratorEntry_free(zend_object *object);
 zend_object* php_wxAcceleratorEntry_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -171,7 +171,7 @@ typedef struct _zo_wxAcceleratorTable{
     zend_object zo;
 } zo_wxAcceleratorTable;
 
-void php_wxAcceleratorTable_free(void *object);
+void php_wxAcceleratorTable_free(zend_object *object);
 zend_object* php_wxAcceleratorTable_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -216,7 +216,7 @@ typedef struct _zo_wxCalendarDateAttr{
     zend_object zo;
 } zo_wxCalendarDateAttr;
 
-void php_wxCalendarDateAttr_free(void *object);
+void php_wxCalendarDateAttr_free(zend_object *object);
 zend_object* php_wxCalendarDateAttr_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -280,7 +280,7 @@ typedef struct _zo_wxPageSetupDialogData{
     zend_object zo;
 } zo_wxPageSetupDialogData;
 
-void php_wxPageSetupDialogData_free(void *object);
+void php_wxPageSetupDialogData_free(zend_object *object);
 zend_object* php_wxPageSetupDialogData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -353,7 +353,7 @@ typedef struct _zo_wxPrintData{
     zend_object zo;
 } zo_wxPrintData;
 
-void php_wxPrintData_free(void *object);
+void php_wxPrintData_free(zend_object *object);
 zend_object* php_wxPrintData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -421,7 +421,7 @@ typedef struct _zo_wxRealPoint{
     zend_object zo;
 } zo_wxRealPoint;
 
-void php_wxRealPoint_free(void *object);
+void php_wxRealPoint_free(zend_object *object);
 zend_object* php_wxRealPoint_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -466,7 +466,7 @@ typedef struct _zo_wxPoint{
     zend_object zo;
 } zo_wxPoint;
 
-void php_wxPoint_free(void *object);
+void php_wxPoint_free(zend_object *object);
 zend_object* php_wxPoint_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -511,7 +511,7 @@ typedef struct _zo_wxSize{
     zend_object zo;
 } zo_wxSize;
 
-void php_wxSize_free(void *object);
+void php_wxSize_free(zend_object *object);
 zend_object* php_wxSize_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -564,7 +564,7 @@ typedef struct _zo_wxListItem{
     zend_object zo;
 } zo_wxListItem;
 
-void php_wxListItem_free(void *object);
+void php_wxListItem_free(zend_object *object);
 zend_object* php_wxListItem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -631,7 +631,7 @@ typedef struct _zo_wxFileType{
     zend_object zo;
 } zo_wxFileType;
 
-void php_wxFileType_free(void *object);
+void php_wxFileType_free(zend_object *object);
 zend_object* php_wxFileType_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -679,7 +679,7 @@ typedef struct _zo_wxPosition{
     zend_object zo;
 } zo_wxPosition;
 
-void php_wxPosition_free(void *object);
+void php_wxPosition_free(zend_object *object);
 zend_object* php_wxPosition_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -735,7 +735,7 @@ typedef struct _zo_wxRegion{
     zend_object zo;
 } zo_wxRegion;
 
-void php_wxRegion_free(void *object);
+void php_wxRegion_free(zend_object *object);
 zend_object* php_wxRegion_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -789,7 +789,7 @@ typedef struct _zo_wxStatusBarPane{
     zend_object zo;
 } zo_wxStatusBarPane;
 
-void php_wxStatusBarPane_free(void *object);
+void php_wxStatusBarPane_free(zend_object *object);
 zend_object* php_wxStatusBarPane_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -835,7 +835,7 @@ typedef struct _zo_wxTreeItemId{
     zend_object zo;
 } zo_wxTreeItemId;
 
-void php_wxTreeItemId_free(void *object);
+void php_wxTreeItemId_free(zend_object *object);
 zend_object* php_wxTreeItemId_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -889,7 +889,7 @@ typedef struct _zo_wxVariant{
     zend_object zo;
 } zo_wxVariant;
 
-void php_wxVariant_free(void *object);
+void php_wxVariant_free(zend_object *object);
 zend_object* php_wxVariant_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -960,7 +960,7 @@ typedef struct _zo_wxVariantData{
     zend_object zo;
 } zo_wxVariantData;
 
-void php_wxVariantData_free(void *object);
+void php_wxVariantData_free(zend_object *object);
 zend_object* php_wxVariantData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1009,7 +1009,7 @@ typedef struct _zo_wxVersionInfo{
     zend_object zo;
 } zo_wxVersionInfo;
 
-void php_wxVersionInfo_free(void *object);
+void php_wxVersionInfo_free(zend_object *object);
 zend_object* php_wxVersionInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

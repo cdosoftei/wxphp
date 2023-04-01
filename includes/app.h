@@ -24,6 +24,7 @@ class wxAppWrapper : public wxApp
 {
     public:
         bool OnInit();
+        void OnEventLoopEnter(wxEventLoopBase *loop);
         int OnExit();
 
         #ifdef __WXMAC__
@@ -49,7 +50,7 @@ typedef struct _zo_wxApp
     zend_object zo;
 } zo_wxApp;
 
-void php_wxApp_free(void *object);
+void php_wxApp_free(zend_object *object);
 zend_object* php_wxApp_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

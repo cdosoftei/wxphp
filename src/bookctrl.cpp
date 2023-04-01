@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxAuiNotebookEvent_free(void *object)
+void php_wxAuiNotebookEvent_free(zend_object *object)
 {
-    zo_wxAuiNotebookEvent* custom_object = (zo_wxAuiNotebookEvent*) object;
+    zo_wxAuiNotebookEvent* custom_object = php_wxAuiNotebookEvent_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxAuiNotebookEvent_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxAuiNotebookEvent_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxAuiNotebookEvent_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxAuiNotebookEvent_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxAuiNotebookEvent_object_handlers);
+    wxphp_wxAuiNotebookEvent_object_handlers.offset = XtOffsetOf(zo_wxAuiNotebookEvent, zo);
+    wxphp_wxAuiNotebookEvent_object_handlers.free_obj = php_wxAuiNotebookEvent_free;
     custom_object->zo.handlers = &wxphp_wxAuiNotebookEvent_object_handlers;
 
     custom_object->native_object = NULL;
@@ -372,9 +374,9 @@ PHP_METHOD(php_wxAuiNotebookEvent, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBookCtrlBase_free(void *object)
+void php_wxBookCtrlBase_free(zend_object *object)
 {
-    zo_wxBookCtrlBase* custom_object = (zo_wxBookCtrlBase*) object;
+    zo_wxBookCtrlBase* custom_object = php_wxBookCtrlBase_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -386,7 +388,6 @@ void php_wxBookCtrlBase_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBookCtrlBase_new(zend_class_entry *class_type)
@@ -411,6 +412,9 @@ zend_object* php_wxBookCtrlBase_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBookCtrlBase_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBookCtrlBase_object_handlers);
+    wxphp_wxBookCtrlBase_object_handlers.offset = XtOffsetOf(zo_wxBookCtrlBase, zo);
+    wxphp_wxBookCtrlBase_object_handlers.free_obj = php_wxBookCtrlBase_free;
     custom_object->zo.handlers = &wxphp_wxBookCtrlBase_object_handlers;
 
     custom_object->native_object = NULL;
@@ -676,19 +680,19 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0));
                 }
 
                 references->AddReference(parent0, "wxBookCtrlBase::Create at call 1 with 2 argument(s)");
@@ -704,19 +708,19 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2));
                 }
 
                 references->AddReference(parent0, "wxBookCtrlBase::Create at call 1 with 3 argument(s)");
@@ -733,19 +737,19 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
                 }
 
                 references->AddReference(parent0, "wxBookCtrlBase::Create at call 1 with 4 argument(s)");
@@ -763,19 +767,19 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
                 }
 
                 references->AddReference(parent0, "wxBookCtrlBase::Create at call 1 with 5 argument(s)");
@@ -793,19 +797,19 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) winid0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
                 }
 
                 references->AddReference(parent0, "wxBookCtrlBase::Create at call 1 with 6 argument(s)");
@@ -828,7 +832,7 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::Create((wxWindow*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0));
 
                 references->AddReference(parent1, "wxBookCtrlBase::Create at call 1 with 1 argument(s)");
 
@@ -841,7 +845,7 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::Create((wxWindow*) object_pointer1_0, (wxWindowID) id1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1));
 
                 references->AddReference(parent1, "wxBookCtrlBase::Create at call 1 with 2 argument(s)");
 
@@ -854,7 +858,7 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2));
 
                 references->AddReference(parent1, "wxBookCtrlBase::Create at call 1 with 3 argument(s)");
                 references->AddReference(pos1, "wxBookCtrlBase::Create at call 3 with 3 argument(s)");
@@ -868,7 +872,7 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2, *(wxSize*) object_pointer1_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2, *(wxSize*) object_pointer1_3));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2, *(wxSize*) object_pointer1_3));
 
                 references->AddReference(parent1, "wxBookCtrlBase::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos1, "wxBookCtrlBase::Create at call 3 with 4 argument(s)");
@@ -883,7 +887,7 @@ PHP_METHOD(php_wxBookCtrlBase, Create)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2, *(wxSize*) object_pointer1_3, (long) style1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2, *(wxSize*) object_pointer1_3, (long) style1));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->Create((wxWindow*) object_pointer1_0, (wxWindowID) id1, *(wxPoint*) object_pointer1_2, *(wxSize*) object_pointer1_3, (long) style1));
 
                 references->AddReference(parent1, "wxBookCtrlBase::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos1, "wxBookCtrlBase::Create at call 3 with 5 argument(s)");
@@ -1107,23 +1111,23 @@ PHP_METHOD(php_wxBookCtrlBase, AddPage)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
                 }
 
                 references->AddReference(page0, "wxBookCtrlBase::AddPage at call 1 with 2 argument(s)");
@@ -1139,23 +1143,23 @@ PHP_METHOD(php_wxBookCtrlBase, AddPage)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
+                    WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0));
                 }
 
                 references->AddReference(page0, "wxBookCtrlBase::AddPage at call 1 with 3 argument(s)");
@@ -1171,23 +1175,23 @@ PHP_METHOD(php_wxBookCtrlBase, AddPage)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
+                    WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), select0, (int) imageId0));
                 }
 
                 references->AddReference(page0, "wxBookCtrlBase::AddPage at call 1 with 4 argument(s)");
@@ -1208,7 +1212,7 @@ PHP_METHOD(php_wxBookCtrlBase, AddPage)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8)));
 
                 references->AddReference(page1, "wxBookCtrlBase::AddPage at call 1 with 2 argument(s)");
 
@@ -1221,7 +1225,7 @@ PHP_METHOD(php_wxBookCtrlBase, AddPage)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8), select1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8), select1));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8), select1));
 
                 references->AddReference(page1, "wxBookCtrlBase::AddPage at call 1 with 3 argument(s)");
 
@@ -1234,7 +1238,7 @@ PHP_METHOD(php_wxBookCtrlBase, AddPage)
                 php_printf("Executing RETURN_BOOL(wxAuiNotebook::AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8), select1, *(wxBitmapBundle*) object_pointer1_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8), select1, *(wxBitmapBundle*) object_pointer1_3));
+                WXPHP_RETVAL_BOOL(((wxAuiNotebook_php*)native_object)->AddPage((wxWindow*) object_pointer1_0, wxString(caption1, wxConvUTF8), select1, *(wxBitmapBundle*) object_pointer1_3));
 
                 references->AddReference(page1, "wxBookCtrlBase::AddPage at call 1 with 4 argument(s)");
                 references->AddReference(bitmap1, "wxBookCtrlBase::AddPage at call 3 with 4 argument(s)");
@@ -1563,27 +1567,27 @@ PHP_METHOD(php_wxBookCtrlBase, DeleteAllPages)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->DeleteAllPages());
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->DeleteAllPages());
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->DeleteAllPages());
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->DeleteAllPages());
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxNotebook_php*)native_object)->DeleteAllPages());
+                    WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->DeleteAllPages());
                 }
                 else if(current_object_type == PHP_WXTREEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxTreebook_php*)native_object)->DeleteAllPages());
+                    WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->DeleteAllPages());
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->DeleteAllPages());
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->DeleteAllPages());
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->DeleteAllPages());
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->DeleteAllPages());
                 }
 
 
@@ -1722,23 +1726,23 @@ PHP_METHOD(php_wxBookCtrlBase, DeletePage)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->DeletePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->DeletePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->DeletePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->DeletePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxNotebook_php*)native_object)->DeletePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->DeletePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->DeletePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->DeletePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->DeletePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->DeletePage((size_t) page0));
                 }
 
 
@@ -2241,27 +2245,27 @@ PHP_METHOD(php_wxBookCtrlBase, GetPageCount)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxListbook_php*)native_object)->GetPageCount());
+                    WXPHP_RETVAL_LONG(((wxListbook_php*)native_object)->GetPageCount());
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxChoicebook_php*)native_object)->GetPageCount());
+                    WXPHP_RETVAL_LONG(((wxChoicebook_php*)native_object)->GetPageCount());
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxNotebook_php*)native_object)->GetPageCount());
+                    WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->GetPageCount());
                 }
                 else if(current_object_type == PHP_WXTREEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxTreebook_php*)native_object)->GetPageCount());
+                    WXPHP_RETVAL_LONG(((wxTreebook_php*)native_object)->GetPageCount());
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxToolbook_php*)native_object)->GetPageCount());
+                    WXPHP_RETVAL_LONG(((wxToolbook_php*)native_object)->GetPageCount());
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxBookCtrlBase_php*)native_object)->GetPageCount());
+                    WXPHP_RETVAL_LONG(((wxBookCtrlBase_php*)native_object)->GetPageCount());
                 }
 
 
@@ -2423,31 +2427,31 @@ PHP_METHOD(php_wxBookCtrlBase, HitTest)
 
                 if(current_object_type == PHP_WXAUINOTEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxAuiNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxAuiNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxListbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxListbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxChoicebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxChoicebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXTREEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxTreebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxTreebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxToolbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxToolbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxBookCtrlBase_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
+                    WXPHP_RETVAL_LONG(((wxBookCtrlBase_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0));
                 }
 
                 references->AddReference(pt0, "wxBookCtrlBase::HitTest at call 3 with 1 argument(s)");
@@ -2463,31 +2467,31 @@ PHP_METHOD(php_wxBookCtrlBase, HitTest)
 
                 if(current_object_type == PHP_WXAUINOTEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxAuiNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
+                    WXPHP_RETVAL_LONG(((wxAuiNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
                 }
                 else if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxListbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
+                    WXPHP_RETVAL_LONG(((wxListbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxChoicebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
+                    WXPHP_RETVAL_LONG(((wxChoicebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
+                    WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
                 }
                 else if(current_object_type == PHP_WXTREEBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxTreebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
+                    WXPHP_RETVAL_LONG(((wxTreebook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_LONG(((wxToolbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
+                    WXPHP_RETVAL_LONG(((wxToolbook_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxBookCtrlBase_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
+                    WXPHP_RETVAL_LONG(((wxBookCtrlBase_php*)native_object)->HitTest(*(wxPoint*) object_pointer0_0, (long*) flags0));
                 }
 
                 references->AddReference(pt0, "wxBookCtrlBase::HitTest at call 3 with 2 argument(s)");
@@ -2728,27 +2732,27 @@ PHP_METHOD(php_wxBookCtrlBase, RemovePage)
 
                 if(current_object_type == PHP_WXLISTBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxListbook_php*)native_object)->RemovePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxListbook_php*)native_object)->RemovePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXCHOICEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxChoicebook_php*)native_object)->RemovePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxChoicebook_php*)native_object)->RemovePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXNOTEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxNotebook_php*)native_object)->RemovePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->RemovePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXTREEBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxTreebook_php*)native_object)->RemovePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->RemovePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXTOOLBOOK_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolbook_php*)native_object)->RemovePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxToolbook_php*)native_object)->RemovePage((size_t) page0));
                 }
                 else if(current_object_type == PHP_WXBOOKCTRLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->RemovePage((size_t) page0));
+                    WXPHP_RETVAL_BOOL(((wxBookCtrlBase_php*)native_object)->RemovePage((size_t) page0));
                 }
 
 
@@ -3576,9 +3580,9 @@ int wxBookCtrlBase_php::ChangeSelection(size_t page)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBookCtrlEvent_free(void *object)
+void php_wxBookCtrlEvent_free(zend_object *object)
 {
-    zo_wxBookCtrlEvent* custom_object = (zo_wxBookCtrlEvent*) object;
+    zo_wxBookCtrlEvent* custom_object = php_wxBookCtrlEvent_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3619,7 +3623,6 @@ void php_wxBookCtrlEvent_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBookCtrlEvent_new(zend_class_entry *class_type)
@@ -3644,6 +3647,9 @@ zend_object* php_wxBookCtrlEvent_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBookCtrlEvent_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBookCtrlEvent_object_handlers);
+    wxphp_wxBookCtrlEvent_object_handlers.offset = XtOffsetOf(zo_wxBookCtrlEvent, zo);
+    wxphp_wxBookCtrlEvent_object_handlers.free_obj = php_wxBookCtrlEvent_free;
     custom_object->zo.handlers = &wxphp_wxBookCtrlEvent_object_handlers;
 
     custom_object->native_object = NULL;
@@ -3743,7 +3749,7 @@ PHP_METHOD(php_wxBookCtrlEvent, GetOldSelection)
                 php_printf("Executing RETURN_LONG(wxBookCtrlEvent::GetOldSelection())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBookCtrlEvent_php*)native_object)->GetOldSelection());
+                WXPHP_RETVAL_LONG(((wxBookCtrlEvent_php*)native_object)->GetOldSelection());
 
 
                 return;
@@ -3854,7 +3860,7 @@ PHP_METHOD(php_wxBookCtrlEvent, GetSelection)
                 php_printf("Executing RETURN_LONG(wxBookCtrlEvent::GetSelection())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBookCtrlEvent_php*)native_object)->GetSelection());
+                WXPHP_RETVAL_LONG(((wxBookCtrlEvent_php*)native_object)->GetSelection());
 
 
                 return;
@@ -4244,9 +4250,9 @@ PHP_METHOD(php_wxBookCtrlEvent, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxChoicebook_free(void *object)
+void php_wxChoicebook_free(zend_object *object)
 {
-    zo_wxChoicebook* custom_object = (zo_wxChoicebook*) object;
+    zo_wxChoicebook* custom_object = php_wxChoicebook_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4258,7 +4264,6 @@ void php_wxChoicebook_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxChoicebook_new(zend_class_entry *class_type)
@@ -4283,6 +4288,9 @@ zend_object* php_wxChoicebook_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxChoicebook_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxChoicebook_object_handlers);
+    wxphp_wxChoicebook_object_handlers.offset = XtOffsetOf(zo_wxChoicebook, zo);
+    wxphp_wxChoicebook_object_handlers.free_obj = php_wxChoicebook_free;
     custom_object->zo.handlers = &wxphp_wxChoicebook_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4662,9 +4670,9 @@ PHP_METHOD(php_wxChoicebook, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxListbook_free(void *object)
+void php_wxListbook_free(zend_object *object)
 {
-    zo_wxListbook* custom_object = (zo_wxListbook*) object;
+    zo_wxListbook* custom_object = php_wxListbook_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4676,7 +4684,6 @@ void php_wxListbook_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxListbook_new(zend_class_entry *class_type)
@@ -4701,6 +4708,9 @@ zend_object* php_wxListbook_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxListbook_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxListbook_object_handlers);
+    wxphp_wxListbook_object_handlers.offset = XtOffsetOf(zo_wxListbook, zo);
+    wxphp_wxListbook_object_handlers.free_obj = php_wxListbook_free;
     custom_object->zo.handlers = &wxphp_wxListbook_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5080,9 +5090,9 @@ PHP_METHOD(php_wxListbook, GetListView)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxNotebook_free(void *object)
+void php_wxNotebook_free(zend_object *object)
 {
-    zo_wxNotebook* custom_object = (zo_wxNotebook*) object;
+    zo_wxNotebook* custom_object = php_wxNotebook_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5094,7 +5104,6 @@ void php_wxNotebook_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxNotebook_new(zend_class_entry *class_type)
@@ -5119,6 +5128,9 @@ zend_object* php_wxNotebook_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxNotebook_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxNotebook_object_handlers);
+    wxphp_wxNotebook_object_handlers.offset = XtOffsetOf(zo_wxNotebook, zo);
+    wxphp_wxNotebook_object_handlers.free_obj = php_wxNotebook_free;
     custom_object->zo.handlers = &wxphp_wxNotebook_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5219,7 +5231,7 @@ PHP_METHOD(php_wxNotebook, ChangeSelection)
                 php_printf("Executing RETURN_LONG(wxNotebook::ChangeSelection((size_t) page0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNotebook_php*)native_object)->ChangeSelection((size_t) page0));
+                WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->ChangeSelection((size_t) page0));
 
 
                 return;
@@ -5391,7 +5403,7 @@ PHP_METHOD(php_wxNotebook, Create)
                 php_printf("Executing RETURN_BOOL(wxNotebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
 
                 references->AddReference(parent0, "wxNotebook::Create at call 1 with 2 argument(s)");
 
@@ -5404,7 +5416,7 @@ PHP_METHOD(php_wxNotebook, Create)
                 php_printf("Executing RETURN_BOOL(wxNotebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2));
 
                 references->AddReference(parent0, "wxNotebook::Create at call 1 with 3 argument(s)");
                 references->AddReference(pos0, "wxNotebook::Create at call 3 with 3 argument(s)");
@@ -5418,7 +5430,7 @@ PHP_METHOD(php_wxNotebook, Create)
                 php_printf("Executing RETURN_BOOL(wxNotebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxNotebook::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxNotebook::Create at call 3 with 4 argument(s)");
@@ -5433,7 +5445,7 @@ PHP_METHOD(php_wxNotebook, Create)
                 php_printf("Executing RETURN_BOOL(wxNotebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
 
                 references->AddReference(parent0, "wxNotebook::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxNotebook::Create at call 3 with 5 argument(s)");
@@ -5448,7 +5460,7 @@ PHP_METHOD(php_wxNotebook, Create)
                 php_printf("Executing RETURN_BOOL(wxNotebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxNotebook::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxNotebook::Create at call 3 with 6 argument(s)");
@@ -5563,7 +5575,7 @@ PHP_METHOD(php_wxNotebook, GetPageImage)
                 php_printf("Executing RETURN_LONG(wxNotebook::GetPageImage((size_t) nPage0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNotebook_php*)native_object)->GetPageImage((size_t) nPage0));
+                WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->GetPageImage((size_t) nPage0));
 
 
                 return;
@@ -5677,7 +5689,7 @@ PHP_METHOD(php_wxNotebook, GetPageText)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxNotebook_php*)native_object)->GetPageText((size_t) nPage0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -5784,7 +5796,7 @@ PHP_METHOD(php_wxNotebook, GetRowCount)
                 php_printf("Executing RETURN_LONG(wxNotebook::GetRowCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNotebook_php*)native_object)->GetRowCount());
+                WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->GetRowCount());
 
 
                 return;
@@ -5891,7 +5903,7 @@ PHP_METHOD(php_wxNotebook, GetSelection)
                 php_printf("Executing RETURN_LONG(wxNotebook::GetSelection())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNotebook_php*)native_object)->GetSelection());
+                WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->GetSelection());
 
 
                 return;
@@ -6141,7 +6153,7 @@ PHP_METHOD(php_wxNotebook, InsertPage)
                 php_printf("Executing RETURN_BOOL(wxNotebook::InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)));
 
                 references->AddReference(page0, "wxNotebook::InsertPage at call 1 with 3 argument(s)");
 
@@ -6154,7 +6166,7 @@ PHP_METHOD(php_wxNotebook, InsertPage)
                 php_printf("Executing RETURN_BOOL(wxNotebook::InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), select0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), select0));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), select0));
 
                 references->AddReference(page0, "wxNotebook::InsertPage at call 1 with 4 argument(s)");
 
@@ -6167,7 +6179,7 @@ PHP_METHOD(php_wxNotebook, InsertPage)
                 php_printf("Executing RETURN_BOOL(wxNotebook::InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), select0, (int) imageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), select0, (int) imageId0));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->InsertPage((size_t) index0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), select0, (int) imageId0));
 
                 references->AddReference(page0, "wxNotebook::InsertPage at call 1 with 5 argument(s)");
 
@@ -6412,7 +6424,7 @@ PHP_METHOD(php_wxNotebook, SetPageImage)
                 php_printf("Executing RETURN_BOOL(wxNotebook::SetPageImage((size_t) page0, (int) image0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->SetPageImage((size_t) page0, (int) image0));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->SetPageImage((size_t) page0, (int) image0));
 
 
                 return;
@@ -6526,7 +6538,7 @@ PHP_METHOD(php_wxNotebook, SetPageText)
                 php_printf("Executing RETURN_BOOL(wxNotebook::SetPageText((size_t) page0, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxNotebook_php*)native_object)->SetPageText((size_t) page0, wxString(text0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxNotebook_php*)native_object)->SetPageText((size_t) page0, wxString(text0, wxConvUTF8)));
 
 
                 return;
@@ -6638,7 +6650,7 @@ PHP_METHOD(php_wxNotebook, SetSelection)
                 php_printf("Executing RETURN_LONG(wxNotebook::SetSelection((size_t) page0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxNotebook_php*)native_object)->SetSelection((size_t) page0));
+                WXPHP_RETVAL_LONG(((wxNotebook_php*)native_object)->SetSelection((size_t) page0));
 
 
                 return;
@@ -6899,9 +6911,9 @@ PHP_METHOD(php_wxNotebook, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxToolbook_free(void *object)
+void php_wxToolbook_free(zend_object *object)
 {
-    zo_wxToolbook* custom_object = (zo_wxToolbook*) object;
+    zo_wxToolbook* custom_object = php_wxToolbook_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6913,7 +6925,6 @@ void php_wxToolbook_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxToolbook_new(zend_class_entry *class_type)
@@ -6938,6 +6949,9 @@ zend_object* php_wxToolbook_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxToolbook_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxToolbook_object_handlers);
+    wxphp_wxToolbook_object_handlers.offset = XtOffsetOf(zo_wxToolbook, zo);
+    wxphp_wxToolbook_object_handlers.free_obj = php_wxToolbook_free;
     custom_object->zo.handlers = &wxphp_wxToolbook_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7187,9 +7201,9 @@ PHP_METHOD(php_wxToolbook, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTreebook_free(void *object)
+void php_wxTreebook_free(zend_object *object)
 {
-    zo_wxTreebook* custom_object = (zo_wxTreebook*) object;
+    zo_wxTreebook* custom_object = php_wxTreebook_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7201,7 +7215,6 @@ void php_wxTreebook_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTreebook_new(zend_class_entry *class_type)
@@ -7226,6 +7239,9 @@ zend_object* php_wxTreebook_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTreebook_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTreebook_object_handlers);
+    wxphp_wxTreebook_object_handlers.offset = XtOffsetOf(zo_wxTreebook, zo);
+    wxphp_wxTreebook_object_handlers.free_obj = php_wxTreebook_free;
     custom_object->zo.handlers = &wxphp_wxTreebook_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7348,7 +7364,7 @@ PHP_METHOD(php_wxTreebook, AddPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
 
                 references->AddReference(page0, "wxTreebook::AddPage at call 1 with 2 argument(s)");
 
@@ -7361,7 +7377,7 @@ PHP_METHOD(php_wxTreebook, AddPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0));
 
                 references->AddReference(page0, "wxTreebook::AddPage at call 1 with 3 argument(s)");
 
@@ -7374,7 +7390,7 @@ PHP_METHOD(php_wxTreebook, AddPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->AddPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
 
                 references->AddReference(page0, "wxTreebook::AddPage at call 1 with 4 argument(s)");
 
@@ -7509,7 +7525,7 @@ PHP_METHOD(php_wxTreebook, AddSubPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8)));
 
                 references->AddReference(page0, "wxTreebook::AddSubPage at call 1 with 2 argument(s)");
 
@@ -7522,7 +7538,7 @@ PHP_METHOD(php_wxTreebook, AddSubPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0));
 
                 references->AddReference(page0, "wxTreebook::AddSubPage at call 1 with 3 argument(s)");
 
@@ -7535,7 +7551,7 @@ PHP_METHOD(php_wxTreebook, AddSubPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->AddSubPage((wxWindow*) object_pointer0_0, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
 
                 references->AddReference(page0, "wxTreebook::AddSubPage at call 1 with 4 argument(s)");
 
@@ -7648,7 +7664,7 @@ PHP_METHOD(php_wxTreebook, CollapseNode)
                 php_printf("Executing RETURN_BOOL(wxTreebook::CollapseNode((size_t) pageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->CollapseNode((size_t) pageId0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->CollapseNode((size_t) pageId0));
 
 
                 return;
@@ -7820,7 +7836,7 @@ PHP_METHOD(php_wxTreebook, Create)
                 php_printf("Executing RETURN_BOOL(wxTreebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
 
                 references->AddReference(parent0, "wxTreebook::Create at call 1 with 2 argument(s)");
 
@@ -7833,7 +7849,7 @@ PHP_METHOD(php_wxTreebook, Create)
                 php_printf("Executing RETURN_BOOL(wxTreebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2));
 
                 references->AddReference(parent0, "wxTreebook::Create at call 1 with 3 argument(s)");
                 references->AddReference(pos0, "wxTreebook::Create at call 3 with 3 argument(s)");
@@ -7847,7 +7863,7 @@ PHP_METHOD(php_wxTreebook, Create)
                 php_printf("Executing RETURN_BOOL(wxTreebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxTreebook::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxTreebook::Create at call 3 with 4 argument(s)");
@@ -7862,7 +7878,7 @@ PHP_METHOD(php_wxTreebook, Create)
                 php_printf("Executing RETURN_BOOL(wxTreebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0));
 
                 references->AddReference(parent0, "wxTreebook::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxTreebook::Create at call 3 with 5 argument(s)");
@@ -7877,7 +7893,7 @@ PHP_METHOD(php_wxTreebook, Create)
                 php_printf("Executing RETURN_BOOL(wxTreebook::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (long) style0, wxString(name0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxTreebook::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxTreebook::Create at call 3 with 6 argument(s)");
@@ -7992,7 +8008,7 @@ PHP_METHOD(php_wxTreebook, DeletePage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::DeletePage((size_t) pagePos0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->DeletePage((size_t) pagePos0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->DeletePage((size_t) pagePos0));
 
 
                 return;
@@ -8105,7 +8121,7 @@ PHP_METHOD(php_wxTreebook, ExpandNode)
                 php_printf("Executing RETURN_BOOL(wxTreebook::ExpandNode((size_t) pageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->ExpandNode((size_t) pageId0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->ExpandNode((size_t) pageId0));
 
 
                 return;
@@ -8117,7 +8133,7 @@ PHP_METHOD(php_wxTreebook, ExpandNode)
                 php_printf("Executing RETURN_BOOL(wxTreebook::ExpandNode((size_t) pageId0, expand0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->ExpandNode((size_t) pageId0, expand0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->ExpandNode((size_t) pageId0, expand0));
 
 
                 return;
@@ -8229,7 +8245,7 @@ PHP_METHOD(php_wxTreebook, GetPageParent)
                 php_printf("Executing RETURN_LONG(wxTreebook::GetPageParent((size_t) page0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxTreebook_php*)native_object)->GetPageParent((size_t) page0));
+                WXPHP_RETVAL_LONG(((wxTreebook_php*)native_object)->GetPageParent((size_t) page0));
 
 
                 return;
@@ -8336,7 +8352,7 @@ PHP_METHOD(php_wxTreebook, GetSelection)
                 php_printf("Executing RETURN_LONG(wxTreebook::GetSelection())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxTreebook_php*)native_object)->GetSelection());
+                WXPHP_RETVAL_LONG(((wxTreebook_php*)native_object)->GetSelection());
 
 
                 return;
@@ -8471,7 +8487,7 @@ PHP_METHOD(php_wxTreebook, InsertPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)));
 
                 references->AddReference(page0, "wxTreebook::InsertPage at call 1 with 3 argument(s)");
 
@@ -8484,7 +8500,7 @@ PHP_METHOD(php_wxTreebook, InsertPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0));
 
                 references->AddReference(page0, "wxTreebook::InsertPage at call 1 with 4 argument(s)");
 
@@ -8497,7 +8513,7 @@ PHP_METHOD(php_wxTreebook, InsertPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
 
                 references->AddReference(page0, "wxTreebook::InsertPage at call 1 with 5 argument(s)");
 
@@ -8633,7 +8649,7 @@ PHP_METHOD(php_wxTreebook, InsertSubPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8)));
 
                 references->AddReference(page0, "wxTreebook::InsertSubPage at call 1 with 3 argument(s)");
 
@@ -8646,7 +8662,7 @@ PHP_METHOD(php_wxTreebook, InsertSubPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0));
 
                 references->AddReference(page0, "wxTreebook::InsertSubPage at call 1 with 4 argument(s)");
 
@@ -8659,7 +8675,7 @@ PHP_METHOD(php_wxTreebook, InsertSubPage)
                 php_printf("Executing RETURN_BOOL(wxTreebook::InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->InsertSubPage((size_t) pagePos0, (wxWindow*) object_pointer0_1, wxString(text0, wxConvUTF8), bSelect0, (int) imageId0));
 
                 references->AddReference(page0, "wxTreebook::InsertSubPage at call 1 with 5 argument(s)");
 
@@ -8772,7 +8788,7 @@ PHP_METHOD(php_wxTreebook, IsNodeExpanded)
                 php_printf("Executing RETURN_BOOL(wxTreebook::IsNodeExpanded((size_t) pageId0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTreebook_php*)native_object)->IsNodeExpanded((size_t) pageId0));
+                WXPHP_RETVAL_BOOL(((wxTreebook_php*)native_object)->IsNodeExpanded((size_t) pageId0));
 
 
                 return;

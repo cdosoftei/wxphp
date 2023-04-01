@@ -76,7 +76,7 @@ typedef struct _zo_wxRibbonArtProvider{
     zend_object zo;
 } zo_wxRibbonArtProvider;
 
-void php_wxRibbonArtProvider_free(void *object);
+void php_wxRibbonArtProvider_free(zend_object *object);
 zend_object* php_wxRibbonArtProvider_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -121,7 +121,7 @@ typedef struct _zo_wxRibbonBar{
     zend_object zo;
 } zo_wxRibbonBar;
 
-void php_wxRibbonBar_free(void *object);
+void php_wxRibbonBar_free(zend_object *object);
 zend_object* php_wxRibbonBar_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -176,7 +176,7 @@ typedef struct _zo_wxRibbonButtonBar{
     zend_object zo;
 } zo_wxRibbonButtonBar;
 
-void php_wxRibbonButtonBar_free(void *object);
+void php_wxRibbonButtonBar_free(zend_object *object);
 zend_object* php_wxRibbonButtonBar_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -232,7 +232,7 @@ typedef struct _zo_wxRibbonControl{
     zend_object zo;
 } zo_wxRibbonControl;
 
-void php_wxRibbonControl_free(void *object);
+void php_wxRibbonControl_free(zend_object *object);
 zend_object* php_wxRibbonControl_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -283,7 +283,7 @@ typedef struct _zo_wxRibbonGallery{
     zend_object zo;
 } zo_wxRibbonGallery;
 
-void php_wxRibbonGallery_free(void *object);
+void php_wxRibbonGallery_free(zend_object *object);
 zend_object* php_wxRibbonGallery_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -348,7 +348,7 @@ typedef struct _zo_wxRibbonPage{
     zend_object zo;
 } zo_wxRibbonPage;
 
-void php_wxRibbonPage_free(void *object);
+void php_wxRibbonPage_free(zend_object *object);
 zend_object* php_wxRibbonPage_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -402,7 +402,7 @@ typedef struct _zo_wxRibbonPanel{
     zend_object zo;
 } zo_wxRibbonPanel;
 
-void php_wxRibbonPanel_free(void *object);
+void php_wxRibbonPanel_free(zend_object *object);
 zend_object* php_wxRibbonPanel_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -457,7 +457,7 @@ typedef struct _zo_wxRibbonToolBar{
     zend_object zo;
 } zo_wxRibbonToolBar;
 
-void php_wxRibbonToolBar_free(void *object);
+void php_wxRibbonToolBar_free(zend_object *object);
 zend_object* php_wxRibbonToolBar_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

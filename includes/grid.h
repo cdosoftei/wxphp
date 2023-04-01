@@ -45,7 +45,7 @@ typedef struct _zo_wxGridCellRenderer{
     zend_object zo;
 } zo_wxGridCellRenderer;
 
-void php_wxGridCellRenderer_free(void *object);
+void php_wxGridCellRenderer_free(zend_object *object);
 zend_object* php_wxGridCellRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -87,7 +87,7 @@ typedef struct _zo_wxGridCellAutoWrapStringRenderer{
     zend_object zo;
 } zo_wxGridCellAutoWrapStringRenderer;
 
-void php_wxGridCellAutoWrapStringRenderer_free(void *object);
+void php_wxGridCellAutoWrapStringRenderer_free(zend_object *object);
 zend_object* php_wxGridCellAutoWrapStringRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -130,7 +130,7 @@ typedef struct _zo_wxGridCellBoolRenderer{
     zend_object zo;
 } zo_wxGridCellBoolRenderer;
 
-void php_wxGridCellBoolRenderer_free(void *object);
+void php_wxGridCellBoolRenderer_free(zend_object *object);
 zend_object* php_wxGridCellBoolRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -173,7 +173,7 @@ typedef struct _zo_wxGridCellDateTimeRenderer{
     zend_object zo;
 } zo_wxGridCellDateTimeRenderer;
 
-void php_wxGridCellDateTimeRenderer_free(void *object);
+void php_wxGridCellDateTimeRenderer_free(zend_object *object);
 zend_object* php_wxGridCellDateTimeRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -216,7 +216,7 @@ typedef struct _zo_wxGridCellEnumRenderer{
     zend_object zo;
 } zo_wxGridCellEnumRenderer;
 
-void php_wxGridCellEnumRenderer_free(void *object);
+void php_wxGridCellEnumRenderer_free(zend_object *object);
 zend_object* php_wxGridCellEnumRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -260,7 +260,7 @@ typedef struct _zo_wxGridCellFloatRenderer{
     zend_object zo;
 } zo_wxGridCellFloatRenderer;
 
-void php_wxGridCellFloatRenderer_free(void *object);
+void php_wxGridCellFloatRenderer_free(zend_object *object);
 zend_object* php_wxGridCellFloatRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -310,7 +310,7 @@ typedef struct _zo_wxGridCellNumberRenderer{
     zend_object zo;
 } zo_wxGridCellNumberRenderer;
 
-void php_wxGridCellNumberRenderer_free(void *object);
+void php_wxGridCellNumberRenderer_free(zend_object *object);
 zend_object* php_wxGridCellNumberRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -353,7 +353,7 @@ typedef struct _zo_wxGridCellStringRenderer{
     zend_object zo;
 } zo_wxGridCellStringRenderer;
 
-void php_wxGridCellStringRenderer_free(void *object);
+void php_wxGridCellStringRenderer_free(zend_object *object);
 zend_object* php_wxGridCellStringRenderer_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -401,7 +401,7 @@ typedef struct _zo_wxGridCellEditor{
     zend_object zo;
 } zo_wxGridCellEditor;
 
-void php_wxGridCellEditor_free(void *object);
+void php_wxGridCellEditor_free(zend_object *object);
 zend_object* php_wxGridCellEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -451,7 +451,7 @@ typedef struct _zo_wxGridCellAutoWrapStringEditor{
     zend_object zo;
 } zo_wxGridCellAutoWrapStringEditor;
 
-void php_wxGridCellAutoWrapStringEditor_free(void *object);
+void php_wxGridCellAutoWrapStringEditor_free(zend_object *object);
 zend_object* php_wxGridCellAutoWrapStringEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -494,7 +494,7 @@ typedef struct _zo_wxGridCellBoolEditor{
     zend_object zo;
 } zo_wxGridCellBoolEditor;
 
-void php_wxGridCellBoolEditor_free(void *object);
+void php_wxGridCellBoolEditor_free(zend_object *object);
 zend_object* php_wxGridCellBoolEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -540,7 +540,7 @@ typedef struct _zo_wxGridCellChoiceEditor{
     zend_object zo;
 } zo_wxGridCellChoiceEditor;
 
-void php_wxGridCellChoiceEditor_free(void *object);
+void php_wxGridCellChoiceEditor_free(zend_object *object);
 zend_object* php_wxGridCellChoiceEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -584,7 +584,7 @@ typedef struct _zo_wxGridCellEnumEditor{
     zend_object zo;
 } zo_wxGridCellEnumEditor;
 
-void php_wxGridCellEnumEditor_free(void *object);
+void php_wxGridCellEnumEditor_free(zend_object *object);
 zend_object* php_wxGridCellEnumEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -627,7 +627,7 @@ typedef struct _zo_wxGridCellTextEditor{
     zend_object zo;
 } zo_wxGridCellTextEditor;
 
-void php_wxGridCellTextEditor_free(void *object);
+void php_wxGridCellTextEditor_free(zend_object *object);
 zend_object* php_wxGridCellTextEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -671,7 +671,7 @@ typedef struct _zo_wxGridCellFloatEditor{
     zend_object zo;
 } zo_wxGridCellFloatEditor;
 
-void php_wxGridCellFloatEditor_free(void *object);
+void php_wxGridCellFloatEditor_free(zend_object *object);
 zend_object* php_wxGridCellFloatEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -715,7 +715,7 @@ typedef struct _zo_wxGridCellNumberEditor{
     zend_object zo;
 } zo_wxGridCellNumberEditor;
 
-void php_wxGridCellNumberEditor_free(void *object);
+void php_wxGridCellNumberEditor_free(zend_object *object);
 zend_object* php_wxGridCellNumberEditor_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -760,7 +760,7 @@ typedef struct _zo_wxGridCellAttr{
     zend_object zo;
 } zo_wxGridCellAttr;
 
-void php_wxGridCellAttr_free(void *object);
+void php_wxGridCellAttr_free(zend_object *object);
 zend_object* php_wxGridCellAttr_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -832,7 +832,7 @@ typedef struct _zo_wxGridTableBase{
     zend_object zo;
 } zo_wxGridTableBase;
 
-void php_wxGridTableBase_free(void *object);
+void php_wxGridTableBase_free(zend_object *object);
 zend_object* php_wxGridTableBase_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -910,7 +910,7 @@ typedef struct _zo_wxGridSizesInfo{
     zend_object zo;
 } zo_wxGridSizesInfo;
 
-void php_wxGridSizesInfo_free(void *object);
+void php_wxGridSizesInfo_free(zend_object *object);
 zend_object* php_wxGridSizesInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -955,7 +955,7 @@ typedef struct _zo_wxGrid{
     zend_object zo;
 } zo_wxGrid;
 
-void php_wxGrid_free(void *object);
+void php_wxGrid_free(zend_object *object);
 zend_object* php_wxGrid_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1204,7 +1204,7 @@ typedef struct _zo_wxGridUpdateLocker{
     zend_object zo;
 } zo_wxGridUpdateLocker;
 
-void php_wxGridUpdateLocker_free(void *object);
+void php_wxGridUpdateLocker_free(zend_object *object);
 zend_object* php_wxGridUpdateLocker_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

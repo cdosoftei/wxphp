@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxGBPosition_free(void *object)
+void php_wxGBPosition_free(zend_object *object)
 {
-    zo_wxGBPosition* custom_object = (zo_wxGBPosition*) object;
+    zo_wxGBPosition* custom_object = php_wxGBPosition_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxGBPosition_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGBPosition_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxGBPosition_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGBPosition_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGBPosition_object_handlers);
+    wxphp_wxGBPosition_object_handlers.offset = XtOffsetOf(zo_wxGBPosition, zo);
+    wxphp_wxGBPosition_object_handlers.free_obj = php_wxGBPosition_free;
     custom_object->zo.handlers = &wxphp_wxGBPosition_object_handlers;
 
     custom_object->native_object = NULL;
@@ -216,7 +218,7 @@ PHP_METHOD(php_wxGBPosition, GetCol)
                 php_printf("Executing RETURN_LONG(wxGBPosition::GetCol())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGBPosition_php*)native_object)->GetCol());
+                WXPHP_RETVAL_LONG(((wxGBPosition_php*)native_object)->GetCol());
 
 
                 return;
@@ -323,7 +325,7 @@ PHP_METHOD(php_wxGBPosition, GetRow)
                 php_printf("Executing RETURN_LONG(wxGBPosition::GetRow())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGBPosition_php*)native_object)->GetRow());
+                WXPHP_RETVAL_LONG(((wxGBPosition_php*)native_object)->GetRow());
 
 
                 return;
@@ -693,9 +695,9 @@ PHP_METHOD(php_wxGBPosition, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridBagSizer_free(void *object)
+void php_wxGridBagSizer_free(zend_object *object)
 {
-    zo_wxGridBagSizer* custom_object = (zo_wxGridBagSizer*) object;
+    zo_wxGridBagSizer* custom_object = php_wxGridBagSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -707,7 +709,6 @@ void php_wxGridBagSizer_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridBagSizer_new(zend_class_entry *class_type)
@@ -732,6 +733,9 @@ zend_object* php_wxGridBagSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridBagSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridBagSizer_object_handlers);
+    wxphp_wxGridBagSizer_object_handlers.offset = XtOffsetOf(zo_wxGridBagSizer, zo);
+    wxphp_wxGridBagSizer_object_handlers.free_obj = php_wxGridBagSizer_free;
     custom_object->zo.handlers = &wxphp_wxGridBagSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2077,7 +2081,7 @@ PHP_METHOD(php_wxGridBagSizer, CheckForIntersection)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::CheckForIntersection((wxGBSizerItem*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection((wxGBSizerItem*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection((wxGBSizerItem*) object_pointer0_0));
 
                 references->AddReference(item0, "wxGridBagSizer::CheckForIntersection at call 1 with 1 argument(s)");
 
@@ -2090,7 +2094,7 @@ PHP_METHOD(php_wxGridBagSizer, CheckForIntersection)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::CheckForIntersection((wxGBSizerItem*) object_pointer0_0, (wxGBSizerItem*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection((wxGBSizerItem*) object_pointer0_0, (wxGBSizerItem*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection((wxGBSizerItem*) object_pointer0_0, (wxGBSizerItem*) object_pointer0_1));
 
                 references->AddReference(item0, "wxGridBagSizer::CheckForIntersection at call 1 with 2 argument(s)");
                 references->AddReference(excludeItem0, "wxGridBagSizer::CheckForIntersection at call 1 with 2 argument(s)");
@@ -2111,7 +2115,7 @@ PHP_METHOD(php_wxGridBagSizer, CheckForIntersection)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::CheckForIntersection(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1));
 
                 references->AddReference(pos1, "wxGridBagSizer::CheckForIntersection at call 3 with 2 argument(s)");
                 references->AddReference(span1, "wxGridBagSizer::CheckForIntersection at call 3 with 2 argument(s)");
@@ -2125,7 +2129,7 @@ PHP_METHOD(php_wxGridBagSizer, CheckForIntersection)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::CheckForIntersection(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1, (wxGBSizerItem*) object_pointer1_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1, (wxGBSizerItem*) object_pointer1_2));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->CheckForIntersection(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1, (wxGBSizerItem*) object_pointer1_2));
 
                 references->AddReference(pos1, "wxGridBagSizer::CheckForIntersection at call 3 with 3 argument(s)");
                 references->AddReference(span1, "wxGridBagSizer::CheckForIntersection at call 3 with 3 argument(s)");
@@ -3940,7 +3944,7 @@ PHP_METHOD(php_wxGridBagSizer, SetItemPosition)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::SetItemPosition((wxWindow*) object_pointer0_0, *(wxGBPosition*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemPosition((wxWindow*) object_pointer0_0, *(wxGBPosition*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemPosition((wxWindow*) object_pointer0_0, *(wxGBPosition*) object_pointer0_1));
 
                 references->AddReference(window0, "wxGridBagSizer::SetItemPosition at call 1 with 2 argument(s)");
                 references->AddReference(pos0, "wxGridBagSizer::SetItemPosition at call 3 with 2 argument(s)");
@@ -3961,7 +3965,7 @@ PHP_METHOD(php_wxGridBagSizer, SetItemPosition)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::SetItemPosition((wxSizer*) object_pointer1_0, *(wxGBPosition*) object_pointer1_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemPosition((wxSizer*) object_pointer1_0, *(wxGBPosition*) object_pointer1_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemPosition((wxSizer*) object_pointer1_0, *(wxGBPosition*) object_pointer1_1));
 
                 references->AddReference(sizer1, "wxGridBagSizer::SetItemPosition at call 1 with 2 argument(s)");
                 references->AddReference(pos1, "wxGridBagSizer::SetItemPosition at call 3 with 2 argument(s)");
@@ -3982,7 +3986,7 @@ PHP_METHOD(php_wxGridBagSizer, SetItemPosition)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::SetItemPosition((size_t) index2, *(wxGBPosition*) object_pointer2_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemPosition((size_t) index2, *(wxGBPosition*) object_pointer2_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemPosition((size_t) index2, *(wxGBPosition*) object_pointer2_1));
 
                 references->AddReference(pos2, "wxGridBagSizer::SetItemPosition at call 3 with 2 argument(s)");
 
@@ -4230,7 +4234,7 @@ PHP_METHOD(php_wxGridBagSizer, SetItemSpan)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::SetItemSpan((wxWindow*) object_pointer0_0, *(wxGBSpan*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemSpan((wxWindow*) object_pointer0_0, *(wxGBSpan*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemSpan((wxWindow*) object_pointer0_0, *(wxGBSpan*) object_pointer0_1));
 
                 references->AddReference(window0, "wxGridBagSizer::SetItemSpan at call 1 with 2 argument(s)");
                 references->AddReference(span0, "wxGridBagSizer::SetItemSpan at call 3 with 2 argument(s)");
@@ -4251,7 +4255,7 @@ PHP_METHOD(php_wxGridBagSizer, SetItemSpan)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::SetItemSpan((wxSizer*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemSpan((wxSizer*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemSpan((wxSizer*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1));
 
                 references->AddReference(sizer1, "wxGridBagSizer::SetItemSpan at call 1 with 2 argument(s)");
                 references->AddReference(span1, "wxGridBagSizer::SetItemSpan at call 3 with 2 argument(s)");
@@ -4272,7 +4276,7 @@ PHP_METHOD(php_wxGridBagSizer, SetItemSpan)
                 php_printf("Executing RETURN_BOOL(wxGridBagSizer::SetItemSpan((size_t) index2, *(wxGBSpan*) object_pointer2_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemSpan((size_t) index2, *(wxGBSpan*) object_pointer2_1));
+                WXPHP_RETVAL_BOOL(((wxGridBagSizer_php*)native_object)->SetItemSpan((size_t) index2, *(wxGBSpan*) object_pointer2_1));
 
                 references->AddReference(span2, "wxGridBagSizer::SetItemSpan at call 3 with 2 argument(s)");
 
@@ -4407,9 +4411,9 @@ PHP_METHOD(php_wxGridBagSizer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGBSizerItem_free(void *object)
+void php_wxGBSizerItem_free(zend_object *object)
 {
-    zo_wxGBSizerItem* custom_object = (zo_wxGBSizerItem*) object;
+    zo_wxGBSizerItem* custom_object = php_wxGBSizerItem_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4450,7 +4454,6 @@ void php_wxGBSizerItem_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGBSizerItem_new(zend_class_entry *class_type)
@@ -4475,6 +4478,9 @@ zend_object* php_wxGBSizerItem_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGBSizerItem_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGBSizerItem_object_handlers);
+    wxphp_wxGBSizerItem_object_handlers.offset = XtOffsetOf(zo_wxGBSizerItem, zo);
+    wxphp_wxGBSizerItem_object_handlers.free_obj = php_wxGBSizerItem_free;
     custom_object->zo.handlers = &wxphp_wxGBSizerItem_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5145,7 +5151,7 @@ PHP_METHOD(php_wxGBSizerItem, SetSpan)
                 php_printf("Executing RETURN_BOOL(wxGBSizerItem::SetSpan(*(wxGBSpan*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->SetSpan(*(wxGBSpan*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->SetSpan(*(wxGBSpan*) object_pointer0_0));
 
                 references->AddReference(span0, "wxGBSizerItem::SetSpan at call 3 with 1 argument(s)");
 
@@ -5276,7 +5282,7 @@ PHP_METHOD(php_wxGBSizerItem, SetPos)
                 php_printf("Executing RETURN_BOOL(wxGBSizerItem::SetPos(*(wxGBPosition*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->SetPos(*(wxGBPosition*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->SetPos(*(wxGBPosition*) object_pointer0_0));
 
                 references->AddReference(pos0, "wxGBSizerItem::SetPos at call 3 with 1 argument(s)");
 
@@ -5595,7 +5601,7 @@ PHP_METHOD(php_wxGBSizerItem, Intersects)
                 php_printf("Executing RETURN_BOOL(wxGBSizerItem::Intersects(*(wxGBSizerItem*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->Intersects(*(wxGBSizerItem*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->Intersects(*(wxGBSizerItem*) object_pointer0_0));
 
                 references->AddReference(other0, "wxGBSizerItem::Intersects at call 3 with 1 argument(s)");
 
@@ -5615,7 +5621,7 @@ PHP_METHOD(php_wxGBSizerItem, Intersects)
                 php_printf("Executing RETURN_BOOL(wxGBSizerItem::Intersects(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->Intersects(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1));
+                WXPHP_RETVAL_BOOL(((wxGBSizerItem_php*)native_object)->Intersects(*(wxGBPosition*) object_pointer1_0, *(wxGBSpan*) object_pointer1_1));
 
                 references->AddReference(pos1, "wxGBSizerItem::Intersects at call 3 with 2 argument(s)");
                 references->AddReference(span1, "wxGBSizerItem::Intersects at call 3 with 2 argument(s)");
@@ -6213,9 +6219,9 @@ PHP_METHOD(php_wxGBSizerItem, GetEndPos)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGBSpan_free(void *object)
+void php_wxGBSpan_free(zend_object *object)
 {
-    zo_wxGBSpan* custom_object = (zo_wxGBSpan*) object;
+    zo_wxGBSpan* custom_object = php_wxGBSpan_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6256,7 +6262,6 @@ void php_wxGBSpan_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGBSpan_new(zend_class_entry *class_type)
@@ -6281,6 +6286,9 @@ zend_object* php_wxGBSpan_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGBSpan_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGBSpan_object_handlers);
+    wxphp_wxGBSpan_object_handlers.offset = XtOffsetOf(zo_wxGBSpan, zo);
+    wxphp_wxGBSpan_object_handlers.free_obj = php_wxGBSpan_free;
     custom_object->zo.handlers = &wxphp_wxGBSpan_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6376,7 +6384,7 @@ PHP_METHOD(php_wxGBSpan, GetColspan)
                 php_printf("Executing RETURN_LONG(wxGBSpan::GetColspan())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGBSpan_php*)native_object)->GetColspan());
+                WXPHP_RETVAL_LONG(((wxGBSpan_php*)native_object)->GetColspan());
 
 
                 return;
@@ -6483,7 +6491,7 @@ PHP_METHOD(php_wxGBSpan, GetRowspan)
                 php_printf("Executing RETURN_LONG(wxGBSpan::GetRowspan())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGBSpan_php*)native_object)->GetRowspan());
+                WXPHP_RETVAL_LONG(((wxGBSpan_php*)native_object)->GetRowspan());
 
 
                 return;
@@ -6853,9 +6861,9 @@ PHP_METHOD(php_wxGBSpan, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLayoutAlgorithm_free(void *object)
+void php_wxLayoutAlgorithm_free(zend_object *object)
 {
-    zo_wxLayoutAlgorithm* custom_object = (zo_wxLayoutAlgorithm*) object;
+    zo_wxLayoutAlgorithm* custom_object = php_wxLayoutAlgorithm_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6896,7 +6904,6 @@ void php_wxLayoutAlgorithm_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLayoutAlgorithm_new(zend_class_entry *class_type)
@@ -6921,6 +6928,9 @@ zend_object* php_wxLayoutAlgorithm_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLayoutAlgorithm_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLayoutAlgorithm_object_handlers);
+    wxphp_wxLayoutAlgorithm_object_handlers.offset = XtOffsetOf(zo_wxLayoutAlgorithm, zo);
+    wxphp_wxLayoutAlgorithm_object_handlers.free_obj = php_wxLayoutAlgorithm_free;
     custom_object->zo.handlers = &wxphp_wxLayoutAlgorithm_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7058,7 +7068,7 @@ PHP_METHOD(php_wxLayoutAlgorithm, LayoutFrame)
                 php_printf("Executing RETURN_BOOL(wxLayoutAlgorithm::LayoutFrame((wxFrame*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutFrame((wxFrame*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutFrame((wxFrame*) object_pointer0_0));
 
                 references->AddReference(frame0, "wxLayoutAlgorithm::LayoutFrame at call 1 with 1 argument(s)");
 
@@ -7071,7 +7081,7 @@ PHP_METHOD(php_wxLayoutAlgorithm, LayoutFrame)
                 php_printf("Executing RETURN_BOOL(wxLayoutAlgorithm::LayoutFrame((wxFrame*) object_pointer0_0, (wxWindow*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutFrame((wxFrame*) object_pointer0_0, (wxWindow*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutFrame((wxFrame*) object_pointer0_0, (wxWindow*) object_pointer0_1));
 
                 references->AddReference(frame0, "wxLayoutAlgorithm::LayoutFrame at call 1 with 2 argument(s)");
                 references->AddReference(mainWindow0, "wxLayoutAlgorithm::LayoutFrame at call 1 with 2 argument(s)");
@@ -7222,7 +7232,7 @@ PHP_METHOD(php_wxLayoutAlgorithm, LayoutMDIFrame)
                 php_printf("Executing RETURN_BOOL(wxLayoutAlgorithm::LayoutMDIFrame((wxMDIParentFrame*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutMDIFrame((wxMDIParentFrame*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutMDIFrame((wxMDIParentFrame*) object_pointer0_0));
 
                 references->AddReference(frame0, "wxLayoutAlgorithm::LayoutMDIFrame at call 1 with 1 argument(s)");
 
@@ -7235,7 +7245,7 @@ PHP_METHOD(php_wxLayoutAlgorithm, LayoutMDIFrame)
                 php_printf("Executing RETURN_BOOL(wxLayoutAlgorithm::LayoutMDIFrame((wxMDIParentFrame*) object_pointer0_0, (wxRect*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutMDIFrame((wxMDIParentFrame*) object_pointer0_0, (wxRect*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutMDIFrame((wxMDIParentFrame*) object_pointer0_0, (wxRect*) object_pointer0_1));
 
                 references->AddReference(frame0, "wxLayoutAlgorithm::LayoutMDIFrame at call 1 with 2 argument(s)");
                 references->AddReference(rect0, "wxLayoutAlgorithm::LayoutMDIFrame at call 1 with 2 argument(s)");
@@ -7386,7 +7396,7 @@ PHP_METHOD(php_wxLayoutAlgorithm, LayoutWindow)
                 php_printf("Executing RETURN_BOOL(wxLayoutAlgorithm::LayoutWindow((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutWindow((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutWindow((wxWindow*) object_pointer0_0));
 
                 references->AddReference(parent0, "wxLayoutAlgorithm::LayoutWindow at call 1 with 1 argument(s)");
 
@@ -7399,7 +7409,7 @@ PHP_METHOD(php_wxLayoutAlgorithm, LayoutWindow)
                 php_printf("Executing RETURN_BOOL(wxLayoutAlgorithm::LayoutWindow((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutWindow((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxLayoutAlgorithm_php*)native_object)->LayoutWindow((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1));
 
                 references->AddReference(parent0, "wxLayoutAlgorithm::LayoutWindow at call 1 with 2 argument(s)");
                 references->AddReference(mainWindow0, "wxLayoutAlgorithm::LayoutWindow at call 1 with 2 argument(s)");
@@ -7507,9 +7517,9 @@ PHP_METHOD(php_wxLayoutAlgorithm, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSizer_free(void *object)
+void php_wxSizer_free(zend_object *object)
 {
-    zo_wxSizer* custom_object = (zo_wxSizer*) object;
+    zo_wxSizer* custom_object = php_wxSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7550,7 +7560,6 @@ void php_wxSizer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxSizer_new(zend_class_entry *class_type)
@@ -7575,6 +7584,9 @@ zend_object* php_wxSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxSizer_object_handlers);
+    wxphp_wxSizer_object_handlers.offset = XtOffsetOf(zo_wxSizer, zo);
+    wxphp_wxSizer_object_handlers.free_obj = php_wxSizer_free;
     custom_object->zo.handlers = &wxphp_wxSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7786,7 +7798,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxWindow*) object_pointer0_0));
 
                 references->AddReference(window0, "wxSizer::Show at call 1 with 1 argument(s)");
 
@@ -7799,7 +7811,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((wxWindow*) object_pointer0_0, show0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxWindow*) object_pointer0_0, show0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxWindow*) object_pointer0_0, show0));
 
                 references->AddReference(window0, "wxSizer::Show at call 1 with 2 argument(s)");
 
@@ -7812,7 +7824,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((wxWindow*) object_pointer0_0, show0, recursive0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxWindow*) object_pointer0_0, show0, recursive0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxWindow*) object_pointer0_0, show0, recursive0));
 
                 references->AddReference(window0, "wxSizer::Show at call 1 with 3 argument(s)");
 
@@ -7832,7 +7844,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((wxSizer*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxSizer*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxSizer*) object_pointer1_0));
 
                 references->AddReference(sizer1, "wxSizer::Show at call 1 with 1 argument(s)");
 
@@ -7845,7 +7857,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((wxSizer*) object_pointer1_0, show1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxSizer*) object_pointer1_0, show1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxSizer*) object_pointer1_0, show1));
 
                 references->AddReference(sizer1, "wxSizer::Show at call 1 with 2 argument(s)");
 
@@ -7858,7 +7870,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((wxSizer*) object_pointer1_0, show1, recursive1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxSizer*) object_pointer1_0, show1, recursive1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((wxSizer*) object_pointer1_0, show1, recursive1));
 
                 references->AddReference(sizer1, "wxSizer::Show at call 1 with 3 argument(s)");
 
@@ -7878,7 +7890,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((size_t) index2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((size_t) index2));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((size_t) index2));
 
 
                 return;
@@ -7890,7 +7902,7 @@ PHP_METHOD(php_wxSizer, Show)
                 php_printf("Executing RETURN_BOOL(wxSizer::Show((size_t) index2, show2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Show((size_t) index2, show2));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Show((size_t) index2, show2));
 
 
                 return;
@@ -8712,7 +8724,7 @@ PHP_METHOD(php_wxSizer, SetItemMinSize)
                 php_printf("Executing RETURN_BOOL(wxSizer::SetItemMinSize((wxWindow*) object_pointer0_0, (int) width0, (int) height0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxWindow*) object_pointer0_0, (int) width0, (int) height0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxWindow*) object_pointer0_0, (int) width0, (int) height0));
 
                 references->AddReference(window0, "wxSizer::SetItemMinSize at call 1 with 3 argument(s)");
 
@@ -8732,7 +8744,7 @@ PHP_METHOD(php_wxSizer, SetItemMinSize)
                 php_printf("Executing RETURN_BOOL(wxSizer::SetItemMinSize((wxWindow*) object_pointer1_0, *(wxSize*) object_pointer1_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxWindow*) object_pointer1_0, *(wxSize*) object_pointer1_1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxWindow*) object_pointer1_0, *(wxSize*) object_pointer1_1));
 
                 references->AddReference(window1, "wxSizer::SetItemMinSize at call 1 with 2 argument(s)");
                 references->AddReference(size1, "wxSizer::SetItemMinSize at call 3 with 2 argument(s)");
@@ -8753,7 +8765,7 @@ PHP_METHOD(php_wxSizer, SetItemMinSize)
                 php_printf("Executing RETURN_BOOL(wxSizer::SetItemMinSize((wxSizer*) object_pointer2_0, (int) width2, (int) height2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxSizer*) object_pointer2_0, (int) width2, (int) height2));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxSizer*) object_pointer2_0, (int) width2, (int) height2));
 
                 references->AddReference(sizer2, "wxSizer::SetItemMinSize at call 1 with 3 argument(s)");
 
@@ -8773,7 +8785,7 @@ PHP_METHOD(php_wxSizer, SetItemMinSize)
                 php_printf("Executing RETURN_BOOL(wxSizer::SetItemMinSize((wxSizer*) object_pointer3_0, *(wxSize*) object_pointer3_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxSizer*) object_pointer3_0, *(wxSize*) object_pointer3_1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((wxSizer*) object_pointer3_0, *(wxSize*) object_pointer3_1));
 
                 references->AddReference(sizer3, "wxSizer::SetItemMinSize at call 1 with 2 argument(s)");
                 references->AddReference(size3, "wxSizer::SetItemMinSize at call 3 with 2 argument(s)");
@@ -8794,7 +8806,7 @@ PHP_METHOD(php_wxSizer, SetItemMinSize)
                 php_printf("Executing RETURN_BOOL(wxSizer::SetItemMinSize((size_t) index4, (int) width4, (int) height4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((size_t) index4, (int) width4, (int) height4));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((size_t) index4, (int) width4, (int) height4));
 
 
                 return;
@@ -8813,7 +8825,7 @@ PHP_METHOD(php_wxSizer, SetItemMinSize)
                 php_printf("Executing RETURN_BOOL(wxSizer::SetItemMinSize((size_t) index5, *(wxSize*) object_pointer5_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((size_t) index5, *(wxSize*) object_pointer5_1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->SetItemMinSize((size_t) index5, *(wxSize*) object_pointer5_1));
 
                 references->AddReference(size5, "wxSizer::SetItemMinSize at call 3 with 2 argument(s)");
 
@@ -9313,7 +9325,7 @@ PHP_METHOD(php_wxSizer, Replace)
                 php_printf("Executing RETURN_BOOL(wxSizer::Replace((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1));
 
                 references->AddReference(oldwin0, "wxSizer::Replace at call 1 with 2 argument(s)");
                 references->AddReference(newwin0, "wxSizer::Replace at call 1 with 2 argument(s)");
@@ -9327,7 +9339,7 @@ PHP_METHOD(php_wxSizer, Replace)
                 php_printf("Executing RETURN_BOOL(wxSizer::Replace((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1, recursive0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1, recursive0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxWindow*) object_pointer0_0, (wxWindow*) object_pointer0_1, recursive0));
 
                 references->AddReference(oldwin0, "wxSizer::Replace at call 1 with 3 argument(s)");
                 references->AddReference(newwin0, "wxSizer::Replace at call 1 with 3 argument(s)");
@@ -9348,7 +9360,7 @@ PHP_METHOD(php_wxSizer, Replace)
                 php_printf("Executing RETURN_BOOL(wxSizer::Replace((wxSizer*) object_pointer1_0, (wxSizer*) object_pointer1_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxSizer*) object_pointer1_0, (wxSizer*) object_pointer1_1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxSizer*) object_pointer1_0, (wxSizer*) object_pointer1_1));
 
                 references->AddReference(oldsz1, "wxSizer::Replace at call 1 with 2 argument(s)");
                 references->AddReference(newsz1, "wxSizer::Replace at call 1 with 2 argument(s)");
@@ -9362,7 +9374,7 @@ PHP_METHOD(php_wxSizer, Replace)
                 php_printf("Executing RETURN_BOOL(wxSizer::Replace((wxSizer*) object_pointer1_0, (wxSizer*) object_pointer1_1, recursive1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxSizer*) object_pointer1_0, (wxSizer*) object_pointer1_1, recursive1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((wxSizer*) object_pointer1_0, (wxSizer*) object_pointer1_1, recursive1));
 
                 references->AddReference(oldsz1, "wxSizer::Replace at call 1 with 3 argument(s)");
                 references->AddReference(newsz1, "wxSizer::Replace at call 1 with 3 argument(s)");
@@ -9383,7 +9395,7 @@ PHP_METHOD(php_wxSizer, Replace)
                 php_printf("Executing RETURN_BOOL(wxSizer::Replace((size_t) index2, (wxSizerItem*) object_pointer2_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((size_t) index2, (wxSizerItem*) object_pointer2_1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Replace((size_t) index2, (wxSizerItem*) object_pointer2_1));
 
                 references->AddReference(newitem2, "wxSizer::Replace at call 1 with 2 argument(s)");
 
@@ -9563,7 +9575,7 @@ PHP_METHOD(php_wxSizer, Remove)
                 php_printf("Executing RETURN_BOOL(wxSizer::Remove((wxSizer*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Remove((wxSizer*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Remove((wxSizer*) object_pointer0_0));
 
                 references->AddReference(sizer0, "wxSizer::Remove at call 1 with 1 argument(s)");
 
@@ -9583,7 +9595,7 @@ PHP_METHOD(php_wxSizer, Remove)
                 php_printf("Executing RETURN_BOOL(wxSizer::Remove((int) index1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Remove((int) index1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Remove((int) index1));
 
 
                 return;
@@ -11492,7 +11504,7 @@ PHP_METHOD(php_wxSizer, IsShown)
                 php_printf("Executing RETURN_BOOL(wxSizer::IsShown((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->IsShown((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->IsShown((wxWindow*) object_pointer0_0));
 
                 references->AddReference(window0, "wxSizer::IsShown at call 1 with 1 argument(s)");
 
@@ -11512,7 +11524,7 @@ PHP_METHOD(php_wxSizer, IsShown)
                 php_printf("Executing RETURN_BOOL(wxSizer::IsShown((wxSizer*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->IsShown((wxSizer*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->IsShown((wxSizer*) object_pointer1_0));
 
                 references->AddReference(sizer1, "wxSizer::IsShown at call 1 with 1 argument(s)");
 
@@ -11532,7 +11544,7 @@ PHP_METHOD(php_wxSizer, IsShown)
                 php_printf("Executing RETURN_BOOL(wxSizer::IsShown((size_t) index2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->IsShown((size_t) index2));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->IsShown((size_t) index2));
 
 
                 return;
@@ -11667,7 +11679,7 @@ PHP_METHOD(php_wxSizer, IsEmpty)
                 php_printf("Executing RETURN_BOOL(wxSizer::IsEmpty())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->IsEmpty());
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->IsEmpty());
 
 
                 return;
@@ -13374,7 +13386,7 @@ PHP_METHOD(php_wxSizer, InformFirstDirection)
                 php_printf("Executing RETURN_BOOL(wxSizer::InformFirstDirection((int) direction0, (int) size0, (int) availableOtherDir0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->InformFirstDirection((int) direction0, (int) size0, (int) availableOtherDir0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->InformFirstDirection((int) direction0, (int) size0, (int) availableOtherDir0));
 
 
                 return;
@@ -13594,7 +13606,7 @@ PHP_METHOD(php_wxSizer, Hide)
                 php_printf("Executing RETURN_BOOL(wxSizer::Hide((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxWindow*) object_pointer0_0));
 
                 references->AddReference(window0, "wxSizer::Hide at call 1 with 1 argument(s)");
 
@@ -13607,7 +13619,7 @@ PHP_METHOD(php_wxSizer, Hide)
                 php_printf("Executing RETURN_BOOL(wxSizer::Hide((wxWindow*) object_pointer0_0, recursive0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxWindow*) object_pointer0_0, recursive0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxWindow*) object_pointer0_0, recursive0));
 
                 references->AddReference(window0, "wxSizer::Hide at call 1 with 2 argument(s)");
 
@@ -13627,7 +13639,7 @@ PHP_METHOD(php_wxSizer, Hide)
                 php_printf("Executing RETURN_BOOL(wxSizer::Hide((wxSizer*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxSizer*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxSizer*) object_pointer1_0));
 
                 references->AddReference(sizer1, "wxSizer::Hide at call 1 with 1 argument(s)");
 
@@ -13640,7 +13652,7 @@ PHP_METHOD(php_wxSizer, Hide)
                 php_printf("Executing RETURN_BOOL(wxSizer::Hide((wxSizer*) object_pointer1_0, recursive1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxSizer*) object_pointer1_0, recursive1));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((wxSizer*) object_pointer1_0, recursive1));
 
                 references->AddReference(sizer1, "wxSizer::Hide at call 1 with 2 argument(s)");
 
@@ -13660,7 +13672,7 @@ PHP_METHOD(php_wxSizer, Hide)
                 php_printf("Executing RETURN_BOOL(wxSizer::Hide((size_t) index2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((size_t) index2));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Hide((size_t) index2));
 
 
                 return;
@@ -14221,7 +14233,7 @@ PHP_METHOD(php_wxSizer, GetItemCount)
                 php_printf("Executing RETURN_LONG(wxSizer::GetItemCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxSizer_php*)native_object)->GetItemCount());
+                WXPHP_RETVAL_LONG(((wxSizer_php*)native_object)->GetItemCount());
 
 
                 return;
@@ -14764,7 +14776,7 @@ PHP_METHOD(php_wxSizer, Detach)
                 php_printf("Executing RETURN_BOOL(wxSizer::Detach((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Detach((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Detach((wxWindow*) object_pointer0_0));
 
                 references->AddReference(window0, "wxSizer::Detach at call 1 with 1 argument(s)");
 
@@ -14784,7 +14796,7 @@ PHP_METHOD(php_wxSizer, Detach)
                 php_printf("Executing RETURN_BOOL(wxSizer::Detach((wxSizer*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Detach((wxSizer*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Detach((wxSizer*) object_pointer1_0));
 
                 references->AddReference(sizer1, "wxSizer::Detach at call 1 with 1 argument(s)");
 
@@ -14804,7 +14816,7 @@ PHP_METHOD(php_wxSizer, Detach)
                 php_printf("Executing RETURN_BOOL(wxSizer::Detach((int) index2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizer_php*)native_object)->Detach((int) index2));
+                WXPHP_RETVAL_BOOL(((wxSizer_php*)native_object)->Detach((int) index2));
 
 
                 return;
@@ -18660,9 +18672,9 @@ PHP_METHOD(php_wxSizer, GetItemById)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxStdDialogButtonSizer_free(void *object)
+void php_wxStdDialogButtonSizer_free(zend_object *object)
 {
-    zo_wxStdDialogButtonSizer* custom_object = (zo_wxStdDialogButtonSizer*) object;
+    zo_wxStdDialogButtonSizer* custom_object = php_wxStdDialogButtonSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -18674,7 +18686,6 @@ void php_wxStdDialogButtonSizer_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxStdDialogButtonSizer_new(zend_class_entry *class_type)
@@ -18699,6 +18710,9 @@ zend_object* php_wxStdDialogButtonSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxStdDialogButtonSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxStdDialogButtonSizer_object_handlers);
+    wxphp_wxStdDialogButtonSizer_object_handlers.offset = XtOffsetOf(zo_wxStdDialogButtonSizer, zo);
+    wxphp_wxStdDialogButtonSizer_object_handlers.free_obj = php_wxStdDialogButtonSizer_free;
     custom_object->zo.handlers = &wxphp_wxStdDialogButtonSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -19538,9 +19552,9 @@ PHP_METHOD(php_wxStdDialogButtonSizer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSizerItem_free(void *object)
+void php_wxSizerItem_free(zend_object *object)
 {
-    zo_wxSizerItem* custom_object = (zo_wxSizerItem*) object;
+    zo_wxSizerItem* custom_object = php_wxSizerItem_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -19581,7 +19595,6 @@ void php_wxSizerItem_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxSizerItem_new(zend_class_entry *class_type)
@@ -19606,6 +19619,9 @@ zend_object* php_wxSizerItem_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxSizerItem_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxSizerItem_object_handlers);
+    wxphp_wxSizerItem_object_handlers.offset = XtOffsetOf(zo_wxSizerItem, zo);
+    wxphp_wxSizerItem_object_handlers.free_obj = php_wxSizerItem_free;
     custom_object->zo.handlers = &wxphp_wxSizerItem_object_handlers;
 
     custom_object->native_object = NULL;
@@ -21652,7 +21668,7 @@ PHP_METHOD(php_wxSizerItem, IsWindow)
                 php_printf("Executing RETURN_BOOL(wxSizerItem::IsWindow())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsWindow());
+                WXPHP_RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsWindow());
 
 
                 return;
@@ -21763,7 +21779,7 @@ PHP_METHOD(php_wxSizerItem, IsSpacer)
                 php_printf("Executing RETURN_BOOL(wxSizerItem::IsSpacer())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsSpacer());
+                WXPHP_RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsSpacer());
 
 
                 return;
@@ -21874,7 +21890,7 @@ PHP_METHOD(php_wxSizerItem, IsSizer)
                 php_printf("Executing RETURN_BOOL(wxSizerItem::IsSizer())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsSizer());
+                WXPHP_RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsSizer());
 
 
                 return;
@@ -21985,7 +22001,7 @@ PHP_METHOD(php_wxSizerItem, IsShown)
                 php_printf("Executing RETURN_BOOL(wxSizerItem::IsShown())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsShown());
+                WXPHP_RETVAL_BOOL(((wxSizerItem_php*)native_object)->IsShown());
 
 
                 return;
@@ -22882,7 +22898,7 @@ PHP_METHOD(php_wxSizerItem, GetBorder)
                 php_printf("Executing RETURN_LONG(wxSizerItem::GetBorder())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxSizerItem_php*)native_object)->GetBorder());
+                WXPHP_RETVAL_LONG(((wxSizerItem_php*)native_object)->GetBorder());
 
 
                 return;
@@ -22993,7 +23009,7 @@ PHP_METHOD(php_wxSizerItem, GetFlag)
                 php_printf("Executing RETURN_LONG(wxSizerItem::GetFlag())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxSizerItem_php*)native_object)->GetFlag());
+                WXPHP_RETVAL_LONG(((wxSizerItem_php*)native_object)->GetFlag());
 
 
                 return;
@@ -23104,7 +23120,7 @@ PHP_METHOD(php_wxSizerItem, GetId)
                 php_printf("Executing RETURN_LONG(wxSizerItem::GetId())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxSizerItem_php*)native_object)->GetId());
+                WXPHP_RETVAL_LONG(((wxSizerItem_php*)native_object)->GetId());
 
 
                 return;
@@ -23451,7 +23467,7 @@ PHP_METHOD(php_wxSizerItem, GetProportion)
                 php_printf("Executing RETURN_LONG(wxSizerItem::GetProportion())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxSizerItem_php*)native_object)->GetProportion());
+                WXPHP_RETVAL_LONG(((wxSizerItem_php*)native_object)->GetProportion());
 
 
                 return;
@@ -23562,7 +23578,7 @@ PHP_METHOD(php_wxSizerItem, GetRatio)
                 php_printf("Executing RETURN_LONG(wxSizerItem::GetRatio())\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxSizerItem_php*)native_object)->GetRatio());
+                WXPHP_RETVAL_DOUBLE(((wxSizerItem_php*)native_object)->GetRatio());
 
 
                 return;
@@ -24341,9 +24357,9 @@ PHP_METHOD(php_wxSizerItem, GetWindow)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxSizerFlags_free(void *object)
+void php_wxSizerFlags_free(zend_object *object)
 {
-    zo_wxSizerFlags* custom_object = (zo_wxSizerFlags*) object;
+    zo_wxSizerFlags* custom_object = php_wxSizerFlags_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24384,7 +24400,6 @@ void php_wxSizerFlags_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxSizerFlags_new(zend_class_entry *class_type)
@@ -24409,6 +24424,9 @@ zend_object* php_wxSizerFlags_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxSizerFlags_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxSizerFlags_object_handlers);
+    wxphp_wxSizerFlags_object_handlers.offset = XtOffsetOf(zo_wxSizerFlags, zo);
+    wxphp_wxSizerFlags_object_handlers.free_obj = php_wxSizerFlags_free;
     custom_object->zo.handlers = &wxphp_wxSizerFlags_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25535,7 +25553,7 @@ PHP_METHOD(php_wxSizerFlags, GetDefaultBorder)
                 php_printf("Executing RETURN_LONG(wxSizerFlags::GetDefaultBorder())\n\n");
                 #endif
 
-                RETVAL_LONG(wxSizerFlags::GetDefaultBorder());
+                WXPHP_RETVAL_LONG(wxSizerFlags::GetDefaultBorder());
 
 
                 return;
@@ -26841,9 +26859,9 @@ PHP_METHOD(php_wxSizerFlags, Align)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFlexGridSizer_free(void *object)
+void php_wxFlexGridSizer_free(zend_object *object)
 {
-    zo_wxFlexGridSizer* custom_object = (zo_wxFlexGridSizer*) object;
+    zo_wxFlexGridSizer* custom_object = php_wxFlexGridSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -26855,7 +26873,6 @@ void php_wxFlexGridSizer_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFlexGridSizer_new(zend_class_entry *class_type)
@@ -26880,6 +26897,9 @@ zend_object* php_wxFlexGridSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFlexGridSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFlexGridSizer_object_handlers);
+    wxphp_wxFlexGridSizer_object_handlers.offset = XtOffsetOf(zo_wxFlexGridSizer, zo);
+    wxphp_wxFlexGridSizer_object_handlers.free_obj = php_wxFlexGridSizer_free;
     custom_object->zo.handlers = &wxphp_wxFlexGridSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -27355,7 +27375,7 @@ PHP_METHOD(php_wxFlexGridSizer, GetFlexibleDirection)
                 php_printf("Executing RETURN_LONG(wxFlexGridSizer::GetFlexibleDirection())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFlexGridSizer_php*)native_object)->GetFlexibleDirection());
+                WXPHP_RETVAL_LONG(((wxFlexGridSizer_php*)native_object)->GetFlexibleDirection());
 
 
                 return;
@@ -27466,7 +27486,7 @@ PHP_METHOD(php_wxFlexGridSizer, GetNonFlexibleGrowMode)
                 php_printf("Executing RETURN_LONG(wxFlexGridSizer::GetNonFlexibleGrowMode())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxFlexGridSizer_php*)native_object)->GetNonFlexibleGrowMode());
+                WXPHP_RETVAL_LONG(((wxFlexGridSizer_php*)native_object)->GetNonFlexibleGrowMode());
 
 
                 return;
@@ -27582,7 +27602,7 @@ PHP_METHOD(php_wxFlexGridSizer, IsColGrowable)
                 php_printf("Executing RETURN_BOOL(wxFlexGridSizer::IsColGrowable((size_t) idx0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFlexGridSizer_php*)native_object)->IsColGrowable((size_t) idx0));
+                WXPHP_RETVAL_BOOL(((wxFlexGridSizer_php*)native_object)->IsColGrowable((size_t) idx0));
 
 
                 return;
@@ -27698,7 +27718,7 @@ PHP_METHOD(php_wxFlexGridSizer, IsRowGrowable)
                 php_printf("Executing RETURN_BOOL(wxFlexGridSizer::IsRowGrowable((size_t) idx0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxFlexGridSizer_php*)native_object)->IsRowGrowable((size_t) idx0));
+                WXPHP_RETVAL_BOOL(((wxFlexGridSizer_php*)native_object)->IsRowGrowable((size_t) idx0));
 
 
                 return;
@@ -28447,9 +28467,9 @@ PHP_METHOD(php_wxFlexGridSizer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridSizer_free(void *object)
+void php_wxGridSizer_free(zend_object *object)
 {
-    zo_wxGridSizer* custom_object = (zo_wxGridSizer*) object;
+    zo_wxGridSizer* custom_object = php_wxGridSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -28461,7 +28481,6 @@ void php_wxGridSizer_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridSizer_new(zend_class_entry *class_type)
@@ -28486,6 +28505,9 @@ zend_object* php_wxGridSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridSizer_object_handlers);
+    wxphp_wxGridSizer_object_handlers.offset = XtOffsetOf(zo_wxGridSizer, zo);
+    wxphp_wxGridSizer_object_handlers.free_obj = php_wxGridSizer_free;
     custom_object->zo.handlers = &wxphp_wxGridSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -28711,7 +28733,7 @@ PHP_METHOD(php_wxGridSizer, GetCols)
                 php_printf("Executing RETURN_LONG(wxGridSizer::GetCols())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridSizer_php*)native_object)->GetCols());
+                WXPHP_RETVAL_LONG(((wxGridSizer_php*)native_object)->GetCols());
 
 
                 return;
@@ -28826,7 +28848,7 @@ PHP_METHOD(php_wxGridSizer, GetEffectiveColsCount)
                 php_printf("Executing RETURN_LONG(wxGridSizer::GetEffectiveColsCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridSizer_php*)native_object)->GetEffectiveColsCount());
+                WXPHP_RETVAL_LONG(((wxGridSizer_php*)native_object)->GetEffectiveColsCount());
 
 
                 return;
@@ -28941,7 +28963,7 @@ PHP_METHOD(php_wxGridSizer, GetEffectiveRowsCount)
                 php_printf("Executing RETURN_LONG(wxGridSizer::GetEffectiveRowsCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridSizer_php*)native_object)->GetEffectiveRowsCount());
+                WXPHP_RETVAL_LONG(((wxGridSizer_php*)native_object)->GetEffectiveRowsCount());
 
 
                 return;
@@ -29056,7 +29078,7 @@ PHP_METHOD(php_wxGridSizer, GetHGap)
                 php_printf("Executing RETURN_LONG(wxGridSizer::GetHGap())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridSizer_php*)native_object)->GetHGap());
+                WXPHP_RETVAL_LONG(((wxGridSizer_php*)native_object)->GetHGap());
 
 
                 return;
@@ -29171,7 +29193,7 @@ PHP_METHOD(php_wxGridSizer, GetRows)
                 php_printf("Executing RETURN_LONG(wxGridSizer::GetRows())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridSizer_php*)native_object)->GetRows());
+                WXPHP_RETVAL_LONG(((wxGridSizer_php*)native_object)->GetRows());
 
 
                 return;
@@ -29286,7 +29308,7 @@ PHP_METHOD(php_wxGridSizer, GetVGap)
                 php_printf("Executing RETURN_LONG(wxGridSizer::GetVGap())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridSizer_php*)native_object)->GetVGap());
+                WXPHP_RETVAL_LONG(((wxGridSizer_php*)native_object)->GetVGap());
 
 
                 return;
@@ -30051,9 +30073,9 @@ PHP_METHOD(php_wxGridSizer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxStaticBoxSizer_free(void *object)
+void php_wxStaticBoxSizer_free(zend_object *object)
 {
-    zo_wxStaticBoxSizer* custom_object = (zo_wxStaticBoxSizer*) object;
+    zo_wxStaticBoxSizer* custom_object = php_wxStaticBoxSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -30065,7 +30087,6 @@ void php_wxStaticBoxSizer_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxStaticBoxSizer_new(zend_class_entry *class_type)
@@ -30090,6 +30111,9 @@ zend_object* php_wxStaticBoxSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxStaticBoxSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxStaticBoxSizer_object_handlers);
+    wxphp_wxStaticBoxSizer_object_handlers.offset = XtOffsetOf(zo_wxStaticBoxSizer, zo);
+    wxphp_wxStaticBoxSizer_object_handlers.free_obj = php_wxStaticBoxSizer_free;
     custom_object->zo.handlers = &wxphp_wxStaticBoxSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -30526,9 +30550,9 @@ PHP_METHOD(php_wxStaticBoxSizer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBoxSizer_free(void *object)
+void php_wxBoxSizer_free(zend_object *object)
 {
-    zo_wxBoxSizer* custom_object = (zo_wxBoxSizer*) object;
+    zo_wxBoxSizer* custom_object = php_wxBoxSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -30540,7 +30564,6 @@ void php_wxBoxSizer_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBoxSizer_new(zend_class_entry *class_type)
@@ -30565,6 +30588,9 @@ zend_object* php_wxBoxSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBoxSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBoxSizer_object_handlers);
+    wxphp_wxBoxSizer_object_handlers.offset = XtOffsetOf(zo_wxBoxSizer, zo);
+    wxphp_wxBoxSizer_object_handlers.free_obj = php_wxBoxSizer_free;
     custom_object->zo.handlers = &wxphp_wxBoxSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -30760,7 +30786,7 @@ PHP_METHOD(php_wxBoxSizer, GetOrientation)
                 php_printf("Executing RETURN_LONG(wxBoxSizer::GetOrientation())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxBoxSizer_php*)native_object)->GetOrientation());
+                WXPHP_RETVAL_LONG(((wxBoxSizer_php*)native_object)->GetOrientation());
 
 
                 return;
@@ -31056,9 +31082,9 @@ PHP_METHOD(php_wxBoxSizer, AddSpacer)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxWrapSizer_free(void *object)
+void php_wxWrapSizer_free(zend_object *object)
 {
-    zo_wxWrapSizer* custom_object = (zo_wxWrapSizer*) object;
+    zo_wxWrapSizer* custom_object = php_wxWrapSizer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -31070,7 +31096,6 @@ void php_wxWrapSizer_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxWrapSizer_new(zend_class_entry *class_type)
@@ -31095,6 +31120,9 @@ zend_object* php_wxWrapSizer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxWrapSizer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxWrapSizer_object_handlers);
+    wxphp_wxWrapSizer_object_handlers.offset = XtOffsetOf(zo_wxWrapSizer, zo);
+    wxphp_wxWrapSizer_object_handlers.free_obj = php_wxWrapSizer_free;
     custom_object->zo.handlers = &wxphp_wxWrapSizer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -31403,7 +31431,7 @@ PHP_METHOD(php_wxWrapSizer, InformFirstDirection)
                 php_printf("Executing RETURN_BOOL(wxWrapSizer::InformFirstDirection((int) direction0, (int) size0, (int) availableOtherDir0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxWrapSizer_php*)native_object)->InformFirstDirection((int) direction0, (int) size0, (int) availableOtherDir0));
+                WXPHP_RETVAL_BOOL(((wxWrapSizer_php*)native_object)->InformFirstDirection((int) direction0, (int) size0, (int) availableOtherDir0));
 
 
                 return;

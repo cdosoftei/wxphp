@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxDataViewChoiceRenderer_free(void *object)
+void php_wxDataViewChoiceRenderer_free(zend_object *object)
 {
-    zo_wxDataViewChoiceRenderer* custom_object = (zo_wxDataViewChoiceRenderer*) object;
+    zo_wxDataViewChoiceRenderer* custom_object = php_wxDataViewChoiceRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxDataViewChoiceRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewChoiceRenderer_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxDataViewChoiceRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewChoiceRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewChoiceRenderer_object_handlers);
+    wxphp_wxDataViewChoiceRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewChoiceRenderer, zo);
+    wxphp_wxDataViewChoiceRenderer_object_handlers.free_obj = php_wxDataViewChoiceRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewChoiceRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -223,7 +225,7 @@ PHP_METHOD(php_wxDataViewChoiceRenderer, GetChoice)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxDataViewChoiceRenderer_php*)native_object)->GetChoice((size_t) index0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -519,9 +521,9 @@ PHP_METHOD(php_wxDataViewChoiceRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewModel_free(void *object)
+void php_wxDataViewModel_free(zend_object *object)
 {
-    zo_wxDataViewModel* custom_object = (zo_wxDataViewModel*) object;
+    zo_wxDataViewModel* custom_object = php_wxDataViewModel_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -534,7 +536,6 @@ void php_wxDataViewModel_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewModel_new(zend_class_entry *class_type)
@@ -559,6 +560,9 @@ zend_object* php_wxDataViewModel_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewModel_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewModel_object_handlers);
+    wxphp_wxDataViewModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewModel, zo);
+    wxphp_wxDataViewModel_object_handlers.free_obj = php_wxDataViewModel_free;
     custom_object->zo.handlers = &wxphp_wxDataViewModel_object_handlers;
 
     custom_object->native_object = NULL;
@@ -893,27 +897,27 @@ PHP_METHOD(php_wxDataViewModel, ChangeValue)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ChangeValue(*(wxVariant*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) col0));
                 }
 
                 references->AddReference(variant0, "wxDataViewModel::ChangeValue at call 3 with 3 argument(s)");
@@ -1045,27 +1049,27 @@ PHP_METHOD(php_wxDataViewModel, Cleared)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->Cleared());
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->Cleared());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->Cleared());
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->Cleared());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->Cleared());
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->Cleared());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->Cleared());
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->Cleared());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->Cleared());
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->Cleared());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->Cleared());
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->Cleared());
                 }
 
 
@@ -1239,27 +1243,27 @@ PHP_METHOD(php_wxDataViewModel, Compare)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewListModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
+                    WXPHP_RETVAL_LONG(((wxDataViewListModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewIndexListModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
+                    WXPHP_RETVAL_LONG(((wxDataViewIndexListModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewListStore_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
+                    WXPHP_RETVAL_LONG(((wxDataViewListStore_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewVirtualListModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
+                    WXPHP_RETVAL_LONG(((wxDataViewVirtualListModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewTreeStore_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
+                    WXPHP_RETVAL_LONG(((wxDataViewTreeStore_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
+                    WXPHP_RETVAL_LONG(((wxDataViewModel_php*)native_object)->Compare(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1, (unsigned int) column0, ascending0));
                 }
 
                 references->AddReference(item10, "wxDataViewModel::Compare at call 3 with 4 argument(s)");
@@ -1434,27 +1438,27 @@ PHP_METHOD(php_wxDataViewModel, GetAttr)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->GetAttr(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
 
                 references->AddReference(item0, "wxDataViewModel::GetAttr at call 3 with 3 argument(s)");
@@ -1804,27 +1808,27 @@ PHP_METHOD(php_wxDataViewModel, HasContainerColumns)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->HasContainerColumns(*(wxDataViewItem*) object_pointer0_0));
                 }
 
                 references->AddReference(item0, "wxDataViewModel::HasContainerColumns at call 3 with 1 argument(s)");
@@ -1955,27 +1959,27 @@ PHP_METHOD(php_wxDataViewModel, HasDefaultCompare)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->HasDefaultCompare());
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->HasDefaultCompare());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->HasDefaultCompare());
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->HasDefaultCompare());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->HasDefaultCompare());
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->HasDefaultCompare());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->HasDefaultCompare());
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->HasDefaultCompare());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->HasDefaultCompare());
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->HasDefaultCompare());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->HasDefaultCompare());
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->HasDefaultCompare());
                 }
 
 
@@ -2129,27 +2133,27 @@ PHP_METHOD(php_wxDataViewModel, HasValue)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->HasValue(*(wxDataViewItem*) object_pointer0_0, (unsigned) col0));
                 }
 
                 references->AddReference(item0, "wxDataViewModel::HasValue at call 3 with 2 argument(s)");
@@ -2395,27 +2399,27 @@ PHP_METHOD(php_wxDataViewModel, IsEnabled)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->IsEnabled(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
 
                 references->AddReference(item0, "wxDataViewModel::IsEnabled at call 3 with 2 argument(s)");
@@ -2588,27 +2592,27 @@ PHP_METHOD(php_wxDataViewModel, ItemAdded)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ItemAdded(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
 
                 references->AddReference(parent0, "wxDataViewModel::ItemAdded at call 3 with 2 argument(s)");
@@ -2763,27 +2767,27 @@ PHP_METHOD(php_wxDataViewModel, ItemChanged)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ItemChanged(*(wxDataViewItem*) object_pointer0_0));
                 }
 
                 references->AddReference(item0, "wxDataViewModel::ItemChanged at call 3 with 1 argument(s)");
@@ -2956,27 +2960,27 @@ PHP_METHOD(php_wxDataViewModel, ItemDeleted)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ItemDeleted(*(wxDataViewItem*) object_pointer0_0, *(wxDataViewItem*) object_pointer0_1));
                 }
 
                 references->AddReference(parent0, "wxDataViewModel::ItemDeleted at call 3 with 2 argument(s)");
@@ -3550,27 +3554,27 @@ PHP_METHOD(php_wxDataViewModel, ValueChanged)
 
                 if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTREESTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTreeStore_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewModel_php*)native_object)->ValueChanged(*(wxDataViewItem*) object_pointer0_0, (unsigned int) col0));
                 }
 
                 references->AddReference(item0, "wxDataViewModel::ValueChanged at call 3 with 2 argument(s)");
@@ -3595,9 +3599,9 @@ PHP_METHOD(php_wxDataViewModel, ValueChanged)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewListModel_free(void *object)
+void php_wxDataViewListModel_free(zend_object *object)
 {
-    zo_wxDataViewListModel* custom_object = (zo_wxDataViewListModel*) object;
+    zo_wxDataViewListModel* custom_object = php_wxDataViewListModel_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3638,7 +3642,6 @@ void php_wxDataViewListModel_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewListModel_new(zend_class_entry *class_type)
@@ -3663,6 +3666,9 @@ zend_object* php_wxDataViewListModel_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewListModel_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewListModel_object_handlers);
+    wxphp_wxDataViewListModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewListModel, zo);
+    wxphp_wxDataViewListModel_object_handlers.free_obj = php_wxDataViewListModel_free;
     custom_object->zo.handlers = &wxphp_wxDataViewListModel_object_handlers;
 
     custom_object->native_object = NULL;
@@ -3797,19 +3803,19 @@ PHP_METHOD(php_wxDataViewListModel, GetAttrByRow)
 
                 if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->GetAttrByRow((unsigned int) row0, (unsigned int) col0, *(wxDataViewItemAttr*) object_pointer0_2));
                 }
 
                 references->AddReference(attr0, "wxDataViewListModel::GetAttrByRow at call 3 with 3 argument(s)");
@@ -4202,19 +4208,19 @@ PHP_METHOD(php_wxDataViewListModel, IsEnabledByRow)
 
                 if(current_object_type == PHP_WXDATAVIEWINDEXLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIndexListModel_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTSTORE_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWVIRTUALLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewVirtualListModel_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWLISTMODEL_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewListModel_php*)native_object)->IsEnabledByRow((unsigned int) row0, (unsigned int) col0));
                 }
 
 
@@ -4331,9 +4337,9 @@ bool wxDataViewListModel_php::SetValueByRow(const wxVariant& variant, unsigned i
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewIndexListModel_free(void *object)
+void php_wxDataViewIndexListModel_free(zend_object *object)
 {
-    zo_wxDataViewIndexListModel* custom_object = (zo_wxDataViewIndexListModel*) object;
+    zo_wxDataViewIndexListModel* custom_object = php_wxDataViewIndexListModel_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4374,7 +4380,6 @@ void php_wxDataViewIndexListModel_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewIndexListModel_new(zend_class_entry *class_type)
@@ -4399,6 +4404,9 @@ zend_object* php_wxDataViewIndexListModel_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewIndexListModel_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewIndexListModel_object_handlers);
+    wxphp_wxDataViewIndexListModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewIndexListModel, zo);
+    wxphp_wxDataViewIndexListModel_object_handlers.free_obj = php_wxDataViewIndexListModel_free;
     custom_object->zo.handlers = &wxphp_wxDataViewIndexListModel_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4410,9 +4418,9 @@ zend_object* php_wxDataViewIndexListModel_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxDataViewVirtualListModel_free(void *object)
+void php_wxDataViewVirtualListModel_free(zend_object *object)
 {
-    zo_wxDataViewVirtualListModel* custom_object = (zo_wxDataViewVirtualListModel*) object;
+    zo_wxDataViewVirtualListModel* custom_object = php_wxDataViewVirtualListModel_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4453,7 +4461,6 @@ void php_wxDataViewVirtualListModel_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewVirtualListModel_new(zend_class_entry *class_type)
@@ -4478,6 +4485,9 @@ zend_object* php_wxDataViewVirtualListModel_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewVirtualListModel_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewVirtualListModel_object_handlers);
+    wxphp_wxDataViewVirtualListModel_object_handlers.offset = XtOffsetOf(zo_wxDataViewVirtualListModel, zo);
+    wxphp_wxDataViewVirtualListModel_object_handlers.free_obj = php_wxDataViewVirtualListModel_free;
     custom_object->zo.handlers = &wxphp_wxDataViewVirtualListModel_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4489,9 +4499,9 @@ zend_object* php_wxDataViewVirtualListModel_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxDataViewItemAttr_free(void *object)
+void php_wxDataViewItemAttr_free(zend_object *object)
 {
-    zo_wxDataViewItemAttr* custom_object = (zo_wxDataViewItemAttr*) object;
+    zo_wxDataViewItemAttr* custom_object = php_wxDataViewItemAttr_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4532,7 +4542,6 @@ void php_wxDataViewItemAttr_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewItemAttr_new(zend_class_entry *class_type)
@@ -4557,6 +4566,9 @@ zend_object* php_wxDataViewItemAttr_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewItemAttr_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewItemAttr_object_handlers);
+    wxphp_wxDataViewItemAttr_object_handlers.offset = XtOffsetOf(zo_wxDataViewItemAttr, zo);
+    wxphp_wxDataViewItemAttr_object_handlers.free_obj = php_wxDataViewItemAttr_free;
     custom_object->zo.handlers = &wxphp_wxDataViewItemAttr_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5006,9 +5018,9 @@ PHP_METHOD(php_wxDataViewItemAttr, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewItem_free(void *object)
+void php_wxDataViewItem_free(zend_object *object)
 {
-    zo_wxDataViewItem* custom_object = (zo_wxDataViewItem*) object;
+    zo_wxDataViewItem* custom_object = php_wxDataViewItem_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5049,7 +5061,6 @@ void php_wxDataViewItem_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewItem_new(zend_class_entry *class_type)
@@ -5074,6 +5085,9 @@ zend_object* php_wxDataViewItem_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewItem_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewItem_object_handlers);
+    wxphp_wxDataViewItem_object_handlers.offset = XtOffsetOf(zo_wxDataViewItem, zo);
+    wxphp_wxDataViewItem_object_handlers.free_obj = php_wxDataViewItem_free;
     custom_object->zo.handlers = &wxphp_wxDataViewItem_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5169,7 +5183,7 @@ PHP_METHOD(php_wxDataViewItem, GetID)
                 php_printf("Executing wxDataViewItem::GetID()\n\n");
                 #endif
 
-                RETVAL_STRING((char*) ((wxDataViewItem_php*)native_object)->GetID());
+                WXPHP_RETVAL_STRING((char*) ((wxDataViewItem_php*)native_object)->GetID());
 
 
                 return;
@@ -5276,7 +5290,7 @@ PHP_METHOD(php_wxDataViewItem, IsOk)
                 php_printf("Executing RETURN_BOOL(wxDataViewItem::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataViewItem_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxDataViewItem_php*)native_object)->IsOk());
 
 
                 return;
@@ -5484,9 +5498,9 @@ PHP_METHOD(php_wxDataViewItem, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewModelNotifier_free(void *object)
+void php_wxDataViewModelNotifier_free(zend_object *object)
 {
-    zo_wxDataViewModelNotifier* custom_object = (zo_wxDataViewModelNotifier*) object;
+    zo_wxDataViewModelNotifier* custom_object = php_wxDataViewModelNotifier_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5527,7 +5541,6 @@ void php_wxDataViewModelNotifier_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewModelNotifier_new(zend_class_entry *class_type)
@@ -5552,6 +5565,9 @@ zend_object* php_wxDataViewModelNotifier_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewModelNotifier_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewModelNotifier_object_handlers);
+    wxphp_wxDataViewModelNotifier_object_handlers.offset = XtOffsetOf(zo_wxDataViewModelNotifier, zo);
+    wxphp_wxDataViewModelNotifier_object_handlers.free_obj = php_wxDataViewModelNotifier_free;
     custom_object->zo.handlers = &wxphp_wxDataViewModelNotifier_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6436,9 +6452,9 @@ PHP_METHOD(php_wxDataViewModelNotifier, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewRenderer_free(void *object)
+void php_wxDataViewRenderer_free(zend_object *object)
 {
-    zo_wxDataViewRenderer* custom_object = (zo_wxDataViewRenderer*) object;
+    zo_wxDataViewRenderer* custom_object = php_wxDataViewRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6479,7 +6495,6 @@ void php_wxDataViewRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewRenderer_new(zend_class_entry *class_type)
@@ -6504,6 +6519,9 @@ zend_object* php_wxDataViewRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewRenderer_object_handlers);
+    wxphp_wxDataViewRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewRenderer, zo);
+    wxphp_wxDataViewRenderer_object_handlers.free_obj = php_wxDataViewRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7057,43 +7075,43 @@ PHP_METHOD(php_wxDataViewRenderer, GetAlignment)
 
                 if(current_object_type == PHP_WXDATAVIEWBITMAPRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewBitmapRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewBitmapRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCHOICERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewChoiceRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewChoiceRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewCustomRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewCustomRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewSpinRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewSpinRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWDATERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewDateRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewDateRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWICONTEXTRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewIconTextRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewIconTextRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWPROGRESSRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewProgressRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewProgressRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTEXTRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewTextRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewTextRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTOGGLERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewToggleRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewToggleRenderer_php*)native_object)->GetAlignment());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewRenderer_php*)native_object)->GetAlignment());
+                    WXPHP_RETVAL_LONG(((wxDataViewRenderer_php*)native_object)->GetAlignment());
                 }
 
 
@@ -7239,43 +7257,43 @@ PHP_METHOD(php_wxDataViewRenderer, GetEllipsizeMode)
 
                 if(current_object_type == PHP_WXDATAVIEWBITMAPRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewBitmapRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewBitmapRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCHOICERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewChoiceRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewChoiceRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewCustomRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewCustomRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewSpinRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewSpinRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWDATERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewDateRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewDateRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWICONTEXTRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewIconTextRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewIconTextRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWPROGRESSRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewProgressRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewProgressRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTEXTRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewTextRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewTextRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTOGGLERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewToggleRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewToggleRenderer_php*)native_object)->GetEllipsizeMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewRenderer_php*)native_object)->GetEllipsizeMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewRenderer_php*)native_object)->GetEllipsizeMode());
                 }
 
 
@@ -7421,43 +7439,43 @@ PHP_METHOD(php_wxDataViewRenderer, GetMode)
 
                 if(current_object_type == PHP_WXDATAVIEWBITMAPRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewBitmapRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewBitmapRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCHOICERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewChoiceRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewChoiceRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewCustomRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewCustomRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewSpinRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewSpinRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWDATERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewDateRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewDateRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWICONTEXTRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewIconTextRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewIconTextRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWPROGRESSRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewProgressRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewProgressRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTEXTRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewTextRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewTextRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTOGGLERENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewToggleRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewToggleRenderer_php*)native_object)->GetMode());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWRENDERER_TYPE)
                 {
-                    RETVAL_LONG(((wxDataViewRenderer_php*)native_object)->GetMode());
+                    WXPHP_RETVAL_LONG(((wxDataViewRenderer_php*)native_object)->GetMode());
                 }
 
 
@@ -7947,7 +7965,7 @@ PHP_METHOD(php_wxDataViewRenderer, GetVariantType)
                 {
                     value_to_return0 = ((wxDataViewRenderer_php*)native_object)->GetVariantType();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -8599,43 +8617,43 @@ PHP_METHOD(php_wxDataViewRenderer, Validate)
 
                 if(current_object_type == PHP_WXDATAVIEWBITMAPRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewBitmapRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewBitmapRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCHOICERENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewChoiceRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewChoiceRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWDATERENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewDateRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewDateRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWICONTEXTRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewIconTextRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewIconTextRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWPROGRESSRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewProgressRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewProgressRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTEXTRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewTextRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewTextRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWTOGGLERENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewToggleRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewToggleRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewRenderer_php*)native_object)->Validate(*(wxVariant*) object_pointer0_0));
                 }
 
                 references->AddReference(value0, "wxDataViewRenderer::Validate at call 3 with 1 argument(s)");
@@ -8660,9 +8678,9 @@ PHP_METHOD(php_wxDataViewRenderer, Validate)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewTextRenderer_free(void *object)
+void php_wxDataViewTextRenderer_free(zend_object *object)
 {
-    zo_wxDataViewTextRenderer* custom_object = (zo_wxDataViewTextRenderer*) object;
+    zo_wxDataViewTextRenderer* custom_object = php_wxDataViewTextRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8703,7 +8721,6 @@ void php_wxDataViewTextRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewTextRenderer_new(zend_class_entry *class_type)
@@ -8728,6 +8745,9 @@ zend_object* php_wxDataViewTextRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewTextRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewTextRenderer_object_handlers);
+    wxphp_wxDataViewTextRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewTextRenderer, zo);
+    wxphp_wxDataViewTextRenderer_object_handlers.free_obj = php_wxDataViewTextRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewTextRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -8863,9 +8883,9 @@ PHP_METHOD(php_wxDataViewTextRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewIconTextRenderer_free(void *object)
+void php_wxDataViewIconTextRenderer_free(zend_object *object)
 {
-    zo_wxDataViewIconTextRenderer* custom_object = (zo_wxDataViewIconTextRenderer*) object;
+    zo_wxDataViewIconTextRenderer* custom_object = php_wxDataViewIconTextRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8906,7 +8926,6 @@ void php_wxDataViewIconTextRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewIconTextRenderer_new(zend_class_entry *class_type)
@@ -8931,6 +8950,9 @@ zend_object* php_wxDataViewIconTextRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewIconTextRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewIconTextRenderer_object_handlers);
+    wxphp_wxDataViewIconTextRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewIconTextRenderer, zo);
+    wxphp_wxDataViewIconTextRenderer_object_handlers.free_obj = php_wxDataViewIconTextRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewIconTextRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9066,9 +9088,9 @@ PHP_METHOD(php_wxDataViewIconTextRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewProgressRenderer_free(void *object)
+void php_wxDataViewProgressRenderer_free(zend_object *object)
 {
-    zo_wxDataViewProgressRenderer* custom_object = (zo_wxDataViewProgressRenderer*) object;
+    zo_wxDataViewProgressRenderer* custom_object = php_wxDataViewProgressRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9109,7 +9131,6 @@ void php_wxDataViewProgressRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewProgressRenderer_new(zend_class_entry *class_type)
@@ -9134,6 +9155,9 @@ zend_object* php_wxDataViewProgressRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewProgressRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewProgressRenderer_object_handlers);
+    wxphp_wxDataViewProgressRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewProgressRenderer, zo);
+    wxphp_wxDataViewProgressRenderer_object_handlers.free_obj = php_wxDataViewProgressRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewProgressRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9282,9 +9306,9 @@ PHP_METHOD(php_wxDataViewProgressRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewSpinRenderer_free(void *object)
+void php_wxDataViewSpinRenderer_free(zend_object *object)
 {
-    zo_wxDataViewSpinRenderer* custom_object = (zo_wxDataViewSpinRenderer*) object;
+    zo_wxDataViewSpinRenderer* custom_object = php_wxDataViewSpinRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9325,7 +9349,6 @@ void php_wxDataViewSpinRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewSpinRenderer_new(zend_class_entry *class_type)
@@ -9350,6 +9373,9 @@ zend_object* php_wxDataViewSpinRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewSpinRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewSpinRenderer_object_handlers);
+    wxphp_wxDataViewSpinRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewSpinRenderer, zo);
+    wxphp_wxDataViewSpinRenderer_object_handlers.free_obj = php_wxDataViewSpinRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewSpinRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9474,9 +9500,9 @@ PHP_METHOD(php_wxDataViewSpinRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewToggleRenderer_free(void *object)
+void php_wxDataViewToggleRenderer_free(zend_object *object)
 {
-    zo_wxDataViewToggleRenderer* custom_object = (zo_wxDataViewToggleRenderer*) object;
+    zo_wxDataViewToggleRenderer* custom_object = php_wxDataViewToggleRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9517,7 +9543,6 @@ void php_wxDataViewToggleRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewToggleRenderer_new(zend_class_entry *class_type)
@@ -9542,6 +9567,9 @@ zend_object* php_wxDataViewToggleRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewToggleRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewToggleRenderer_object_handlers);
+    wxphp_wxDataViewToggleRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewToggleRenderer, zo);
+    wxphp_wxDataViewToggleRenderer_object_handlers.free_obj = php_wxDataViewToggleRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewToggleRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9677,9 +9705,9 @@ PHP_METHOD(php_wxDataViewToggleRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewDateRenderer_free(void *object)
+void php_wxDataViewDateRenderer_free(zend_object *object)
 {
-    zo_wxDataViewDateRenderer* custom_object = (zo_wxDataViewDateRenderer*) object;
+    zo_wxDataViewDateRenderer* custom_object = php_wxDataViewDateRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9720,7 +9748,6 @@ void php_wxDataViewDateRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewDateRenderer_new(zend_class_entry *class_type)
@@ -9745,6 +9772,9 @@ zend_object* php_wxDataViewDateRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewDateRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewDateRenderer_object_handlers);
+    wxphp_wxDataViewDateRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewDateRenderer, zo);
+    wxphp_wxDataViewDateRenderer_object_handlers.free_obj = php_wxDataViewDateRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewDateRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9880,9 +9910,9 @@ PHP_METHOD(php_wxDataViewDateRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewCustomRenderer_free(void *object)
+void php_wxDataViewCustomRenderer_free(zend_object *object)
 {
-    zo_wxDataViewCustomRenderer* custom_object = (zo_wxDataViewCustomRenderer*) object;
+    zo_wxDataViewCustomRenderer* custom_object = php_wxDataViewCustomRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9923,7 +9953,6 @@ void php_wxDataViewCustomRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewCustomRenderer_new(zend_class_entry *class_type)
@@ -9948,6 +9977,9 @@ zend_object* php_wxDataViewCustomRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewCustomRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewCustomRenderer_object_handlers);
+    wxphp_wxDataViewCustomRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewCustomRenderer, zo);
+    wxphp_wxDataViewCustomRenderer_object_handlers.free_obj = php_wxDataViewCustomRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewCustomRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -10130,11 +10162,11 @@ PHP_METHOD(php_wxDataViewCustomRenderer, ActivateCell)
 
                 if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->ActivateCell(*(wxRect*) object_pointer0_0, (wxDataViewModel*) object_pointer0_1, *(wxDataViewItem*) object_pointer0_2, (unsigned int) col0, (const wxMouseEvent*) object_pointer0_4));
+                    WXPHP_RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->ActivateCell(*(wxRect*) object_pointer0_0, (wxDataViewModel*) object_pointer0_1, *(wxDataViewItem*) object_pointer0_2, (unsigned int) col0, (const wxMouseEvent*) object_pointer0_4));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->ActivateCell(*(wxRect*) object_pointer0_0, (wxDataViewModel*) object_pointer0_1, *(wxDataViewItem*) object_pointer0_2, (unsigned int) col0, (const wxMouseEvent*) object_pointer0_4));
+                    WXPHP_RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->ActivateCell(*(wxRect*) object_pointer0_0, (wxDataViewModel*) object_pointer0_1, *(wxDataViewItem*) object_pointer0_2, (unsigned int) col0, (const wxMouseEvent*) object_pointer0_4));
                 }
 
                 references->AddReference(cell0, "wxDataViewCustomRenderer::ActivateCell at call 3 with 5 argument(s)");
@@ -10728,11 +10760,11 @@ PHP_METHOD(php_wxDataViewCustomRenderer, GetValueFromEditorCtrl)
 
                 if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->GetValueFromEditorCtrl((wxWindow*) object_pointer0_0, *(wxVariant*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->GetValueFromEditorCtrl((wxWindow*) object_pointer0_0, *(wxVariant*) object_pointer0_1));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->GetValueFromEditorCtrl((wxWindow*) object_pointer0_0, *(wxVariant*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->GetValueFromEditorCtrl((wxWindow*) object_pointer0_0, *(wxVariant*) object_pointer0_1));
                 }
 
                 references->AddReference(editor0, "wxDataViewCustomRenderer::GetValueFromEditorCtrl at call 1 with 2 argument(s)");
@@ -10848,11 +10880,11 @@ PHP_METHOD(php_wxDataViewCustomRenderer, HasEditorCtrl)
 
                 if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->HasEditorCtrl());
+                    WXPHP_RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->HasEditorCtrl());
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->HasEditorCtrl());
+                    WXPHP_RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->HasEditorCtrl());
                 }
 
 
@@ -11306,11 +11338,11 @@ PHP_METHOD(php_wxDataViewCustomRenderer, StartDrag)
 
                 if(current_object_type == PHP_WXDATAVIEWSPINRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->StartDrag(*(wxPoint*) object_pointer0_0, *(wxRect*) object_pointer0_1, (wxDataViewModel*) object_pointer0_2, *(wxDataViewItem*) object_pointer0_3, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewSpinRenderer_php*)native_object)->StartDrag(*(wxPoint*) object_pointer0_0, *(wxRect*) object_pointer0_1, (wxDataViewModel*) object_pointer0_2, *(wxDataViewItem*) object_pointer0_3, (unsigned int) col0));
                 }
                 else if(current_object_type == PHP_WXDATAVIEWCUSTOMRENDERER_TYPE)
                 {
-                    RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->StartDrag(*(wxPoint*) object_pointer0_0, *(wxRect*) object_pointer0_1, (wxDataViewModel*) object_pointer0_2, *(wxDataViewItem*) object_pointer0_3, (unsigned int) col0));
+                    WXPHP_RETVAL_BOOL(((wxDataViewCustomRenderer_php*)native_object)->StartDrag(*(wxPoint*) object_pointer0_0, *(wxRect*) object_pointer0_1, (wxDataViewModel*) object_pointer0_2, *(wxDataViewItem*) object_pointer0_3, (unsigned int) col0));
                 }
 
                 references->AddReference(cursor0, "wxDataViewCustomRenderer::StartDrag at call 3 with 5 argument(s)");
@@ -11338,9 +11370,9 @@ PHP_METHOD(php_wxDataViewCustomRenderer, StartDrag)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewBitmapRenderer_free(void *object)
+void php_wxDataViewBitmapRenderer_free(zend_object *object)
 {
-    zo_wxDataViewBitmapRenderer* custom_object = (zo_wxDataViewBitmapRenderer*) object;
+    zo_wxDataViewBitmapRenderer* custom_object = php_wxDataViewBitmapRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -11381,7 +11413,6 @@ void php_wxDataViewBitmapRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewBitmapRenderer_new(zend_class_entry *class_type)
@@ -11406,6 +11437,9 @@ zend_object* php_wxDataViewBitmapRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewBitmapRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewBitmapRenderer_object_handlers);
+    wxphp_wxDataViewBitmapRenderer_object_handlers.offset = XtOffsetOf(zo_wxDataViewBitmapRenderer, zo);
+    wxphp_wxDataViewBitmapRenderer_object_handlers.free_obj = php_wxDataViewBitmapRenderer_free;
     custom_object->zo.handlers = &wxphp_wxDataViewBitmapRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -11541,9 +11575,9 @@ PHP_METHOD(php_wxDataViewBitmapRenderer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewColumn_free(void *object)
+void php_wxDataViewColumn_free(zend_object *object)
 {
-    zo_wxDataViewColumn* custom_object = (zo_wxDataViewColumn*) object;
+    zo_wxDataViewColumn* custom_object = php_wxDataViewColumn_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -11584,7 +11618,6 @@ void php_wxDataViewColumn_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewColumn_new(zend_class_entry *class_type)
@@ -11609,6 +11642,9 @@ zend_object* php_wxDataViewColumn_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewColumn_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewColumn_object_handlers);
+    wxphp_wxDataViewColumn_object_handlers.offset = XtOffsetOf(zo_wxDataViewColumn, zo);
+    wxphp_wxDataViewColumn_object_handlers.free_obj = php_wxDataViewColumn_free;
     custom_object->zo.handlers = &wxphp_wxDataViewColumn_object_handlers;
 
     custom_object->native_object = NULL;
@@ -11704,7 +11740,7 @@ PHP_METHOD(php_wxDataViewColumn, GetModelColumn)
                 php_printf("Executing RETURN_LONG(wxDataViewColumn::GetModelColumn())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataViewColumn_php*)native_object)->GetModelColumn());
+                WXPHP_RETVAL_LONG(((wxDataViewColumn_php*)native_object)->GetModelColumn());
 
 
                 return;
@@ -12257,9 +12293,9 @@ PHP_METHOD(php_wxDataViewColumn, GetRenderer)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewListStore_free(void *object)
+void php_wxDataViewListStore_free(zend_object *object)
 {
-    zo_wxDataViewListStore* custom_object = (zo_wxDataViewListStore*) object;
+    zo_wxDataViewListStore* custom_object = php_wxDataViewListStore_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12300,7 +12336,6 @@ void php_wxDataViewListStore_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewListStore_new(zend_class_entry *class_type)
@@ -12325,6 +12360,9 @@ zend_object* php_wxDataViewListStore_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewListStore_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewListStore_object_handlers);
+    wxphp_wxDataViewListStore_object_handlers.offset = XtOffsetOf(zo_wxDataViewListStore, zo);
+    wxphp_wxDataViewListStore_object_handlers.free_obj = php_wxDataViewListStore_free;
     custom_object->zo.handlers = &wxphp_wxDataViewListStore_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13137,7 +13175,7 @@ PHP_METHOD(php_wxDataViewListStore, SetValueByRow)
                 php_printf("Executing RETURN_BOOL(wxDataViewListStore::SetValueByRow(*(wxVariant*) object_pointer0_0, (unsigned int) row0, (unsigned int) col0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->SetValueByRow(*(wxVariant*) object_pointer0_0, (unsigned int) row0, (unsigned int) col0));
+                WXPHP_RETVAL_BOOL(((wxDataViewListStore_php*)native_object)->SetValueByRow(*(wxVariant*) object_pointer0_0, (unsigned int) row0, (unsigned int) col0));
 
                 references->AddReference(value0, "wxDataViewListStore::SetValueByRow at call 3 with 3 argument(s)");
 
@@ -13244,9 +13282,9 @@ PHP_METHOD(php_wxDataViewListStore, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewTreeStore_free(void *object)
+void php_wxDataViewTreeStore_free(zend_object *object)
 {
-    zo_wxDataViewTreeStore* custom_object = (zo_wxDataViewTreeStore*) object;
+    zo_wxDataViewTreeStore* custom_object = php_wxDataViewTreeStore_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13287,7 +13325,6 @@ void php_wxDataViewTreeStore_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewTreeStore_new(zend_class_entry *class_type)
@@ -13312,6 +13349,9 @@ zend_object* php_wxDataViewTreeStore_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewTreeStore_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewTreeStore_object_handlers);
+    wxphp_wxDataViewTreeStore_object_handlers.offset = XtOffsetOf(zo_wxDataViewTreeStore, zo);
+    wxphp_wxDataViewTreeStore_object_handlers.free_obj = php_wxDataViewTreeStore_free;
     custom_object->zo.handlers = &wxphp_wxDataViewTreeStore_object_handlers;
 
     custom_object->native_object = NULL;
@@ -14283,7 +14323,7 @@ PHP_METHOD(php_wxDataViewTreeStore, GetChildCount)
                 php_printf("Executing RETURN_LONG(wxDataViewTreeStore::GetChildCount(*(wxDataViewItem*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxDataViewTreeStore_php*)native_object)->GetChildCount(*(wxDataViewItem*) object_pointer0_0));
+                WXPHP_RETVAL_LONG(((wxDataViewTreeStore_php*)native_object)->GetChildCount(*(wxDataViewItem*) object_pointer0_0));
 
                 references->AddReference(parent0, "wxDataViewTreeStore::GetChildCount at call 3 with 1 argument(s)");
 
@@ -14848,7 +14888,7 @@ PHP_METHOD(php_wxDataViewTreeStore, GetItemText)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxDataViewTreeStore_php*)native_object)->GetItemText(*(wxDataViewItem*) object_pointer0_0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
                 references->AddReference(item0, "wxDataViewTreeStore::GetItemText at call 3 with 1 argument(s)");
 
@@ -16560,9 +16600,9 @@ PHP_METHOD(php_wxDataViewTreeStore, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxDataViewIconText_free(void *object)
+void php_wxDataViewIconText_free(zend_object *object)
 {
-    zo_wxDataViewIconText* custom_object = (zo_wxDataViewIconText*) object;
+    zo_wxDataViewIconText* custom_object = php_wxDataViewIconText_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -16603,7 +16643,6 @@ void php_wxDataViewIconText_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDataViewIconText_new(zend_class_entry *class_type)
@@ -16628,6 +16667,9 @@ zend_object* php_wxDataViewIconText_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDataViewIconText_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDataViewIconText_object_handlers);
+    wxphp_wxDataViewIconText_object_handlers.offset = XtOffsetOf(zo_wxDataViewIconText, zo);
+    wxphp_wxDataViewIconText_object_handlers.free_obj = php_wxDataViewIconText_free;
     custom_object->zo.handlers = &wxphp_wxDataViewIconText_object_handlers;
 
     custom_object->native_object = NULL;
@@ -16840,7 +16882,7 @@ PHP_METHOD(php_wxDataViewIconText, GetText)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxDataViewIconText_php*)native_object)->GetText();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;

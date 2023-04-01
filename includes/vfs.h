@@ -43,7 +43,7 @@ typedef struct _zo_wxFileSystem{
     zend_object zo;
 } zo_wxFileSystem;
 
-void php_wxFileSystem_free(void *object);
+void php_wxFileSystem_free(zend_object *object);
 zend_object* php_wxFileSystem_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -98,7 +98,7 @@ typedef struct _zo_wxFileSystemHandler{
     zend_object zo;
 } zo_wxFileSystemHandler;
 
-void php_wxFileSystemHandler_free(void *object);
+void php_wxFileSystemHandler_free(zend_object *object);
 zend_object* php_wxFileSystemHandler_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

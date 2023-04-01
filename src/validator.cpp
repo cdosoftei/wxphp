@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxGenericValidator_free(void *object)
+void php_wxGenericValidator_free(zend_object *object)
 {
-    zo_wxGenericValidator* custom_object = (zo_wxGenericValidator*) object;
+    zo_wxGenericValidator* custom_object = php_wxGenericValidator_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxGenericValidator_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGenericValidator_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxGenericValidator_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGenericValidator_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGenericValidator_object_handlers);
+    wxphp_wxGenericValidator_object_handlers.offset = XtOffsetOf(zo_wxGenericValidator, zo);
+    wxphp_wxGenericValidator_object_handlers.free_obj = php_wxGenericValidator_free;
     custom_object->zo.handlers = &wxphp_wxGenericValidator_object_handlers;
 
     custom_object->native_object = NULL;
@@ -346,7 +348,7 @@ PHP_METHOD(php_wxGenericValidator, TransferFromWindow)
                 php_printf("Executing RETURN_BOOL(wxGenericValidator::TransferFromWindow())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGenericValidator_php*)native_object)->TransferFromWindow());
+                WXPHP_RETVAL_BOOL(((wxGenericValidator_php*)native_object)->TransferFromWindow());
 
 
                 return;
@@ -453,7 +455,7 @@ PHP_METHOD(php_wxGenericValidator, TransferToWindow)
                 php_printf("Executing RETURN_BOOL(wxGenericValidator::TransferToWindow())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxGenericValidator_php*)native_object)->TransferToWindow());
+                WXPHP_RETVAL_BOOL(((wxGenericValidator_php*)native_object)->TransferToWindow());
 
 
                 return;
@@ -902,9 +904,9 @@ PHP_METHOD(php_wxGenericValidator, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxValidator_free(void *object)
+void php_wxValidator_free(zend_object *object)
 {
-    zo_wxValidator* custom_object = (zo_wxValidator*) object;
+    zo_wxValidator* custom_object = php_wxValidator_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -945,7 +947,6 @@ void php_wxValidator_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxValidator_new(zend_class_entry *class_type)
@@ -970,6 +971,9 @@ zend_object* php_wxValidator_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxValidator_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxValidator_object_handlers);
+    wxphp_wxValidator_object_handlers.offset = XtOffsetOf(zo_wxValidator, zo);
+    wxphp_wxValidator_object_handlers.free_obj = php_wxValidator_free;
     custom_object->zo.handlers = &wxphp_wxValidator_object_handlers;
 
     custom_object->native_object = NULL;
@@ -1179,7 +1183,7 @@ PHP_METHOD(php_wxValidator, Validate)
                 php_printf("Executing RETURN_BOOL(wxValidator::Validate((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxValidator_php*)native_object)->Validate((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxValidator_php*)native_object)->Validate((wxWindow*) object_pointer0_0));
 
                 references->AddReference(parent0, "wxValidator::Validate at call 1 with 1 argument(s)");
 
@@ -1295,7 +1299,7 @@ PHP_METHOD(php_wxValidator, TransferToWindow)
                 php_printf("Executing RETURN_BOOL(wxValidator::TransferToWindow())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxValidator_php*)native_object)->TransferToWindow());
+                WXPHP_RETVAL_BOOL(((wxValidator_php*)native_object)->TransferToWindow());
 
 
                 return;
@@ -1410,7 +1414,7 @@ PHP_METHOD(php_wxValidator, TransferFromWindow)
                 php_printf("Executing RETURN_BOOL(wxValidator::TransferFromWindow())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxValidator_php*)native_object)->TransferFromWindow());
+                WXPHP_RETVAL_BOOL(((wxValidator_php*)native_object)->TransferFromWindow());
 
 
                 return;
@@ -1982,9 +1986,9 @@ PHP_METHOD(php_wxValidator, CloneMethod)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTextValidator_free(void *object)
+void php_wxTextValidator_free(zend_object *object)
 {
-    zo_wxTextValidator* custom_object = (zo_wxTextValidator*) object;
+    zo_wxTextValidator* custom_object = php_wxTextValidator_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2025,7 +2029,6 @@ void php_wxTextValidator_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTextValidator_new(zend_class_entry *class_type)
@@ -2050,6 +2053,9 @@ zend_object* php_wxTextValidator_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTextValidator_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTextValidator_object_handlers);
+    wxphp_wxTextValidator_object_handlers.offset = XtOffsetOf(zo_wxTextValidator, zo);
+    wxphp_wxTextValidator_object_handlers.free_obj = php_wxTextValidator_free;
     custom_object->zo.handlers = &wxphp_wxTextValidator_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2501,7 +2507,7 @@ PHP_METHOD(php_wxTextValidator, GetStyle)
                 php_printf("Executing RETURN_LONG(wxTextValidator::GetStyle())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxTextValidator_php*)native_object)->GetStyle());
+                WXPHP_RETVAL_LONG(((wxTextValidator_php*)native_object)->GetStyle());
 
 
                 return;
@@ -2613,7 +2619,7 @@ PHP_METHOD(php_wxTextValidator, HasFlag)
                 php_printf("Executing RETURN_BOOL(wxTextValidator::HasFlag((wxTextValidatorStyle) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTextValidator_php*)native_object)->HasFlag((wxTextValidatorStyle) style0));
+                WXPHP_RETVAL_BOOL(((wxTextValidator_php*)native_object)->HasFlag((wxTextValidatorStyle) style0));
 
 
                 return;
@@ -2728,7 +2734,7 @@ PHP_METHOD(php_wxTextValidator, IsValid)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxTextValidator_php*)native_object)->IsValid(wxString(val0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -3433,7 +3439,7 @@ PHP_METHOD(php_wxTextValidator, TransferFromWindow)
                 php_printf("Executing RETURN_BOOL(wxTextValidator::TransferFromWindow())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTextValidator_php*)native_object)->TransferFromWindow());
+                WXPHP_RETVAL_BOOL(((wxTextValidator_php*)native_object)->TransferFromWindow());
 
 
                 return;
@@ -3540,7 +3546,7 @@ PHP_METHOD(php_wxTextValidator, TransferToWindow)
                 php_printf("Executing RETURN_BOOL(wxTextValidator::TransferToWindow())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTextValidator_php*)native_object)->TransferToWindow());
+                WXPHP_RETVAL_BOOL(((wxTextValidator_php*)native_object)->TransferToWindow());
 
 
                 return;
@@ -3670,7 +3676,7 @@ PHP_METHOD(php_wxTextValidator, Validate)
                 php_printf("Executing RETURN_BOOL(wxTextValidator::Validate((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxTextValidator_php*)native_object)->Validate((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxTextValidator_php*)native_object)->Validate((wxWindow*) object_pointer0_0));
 
                 references->AddReference(parent0, "wxTextValidator::Validate at call 1 with 1 argument(s)");
 

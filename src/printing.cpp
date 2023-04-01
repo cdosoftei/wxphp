@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxPrinterDC_free(void *object)
+void php_wxPrinterDC_free(zend_object *object)
 {
-    zo_wxPrinterDC* custom_object = (zo_wxPrinterDC*) object;
+    zo_wxPrinterDC* custom_object = php_wxPrinterDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxPrinterDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPrinterDC_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxPrinterDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPrinterDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPrinterDC_object_handlers);
+    wxphp_wxPrinterDC_object_handlers.offset = XtOffsetOf(zo_wxPrinterDC, zo);
+    wxphp_wxPrinterDC_object_handlers.free_obj = php_wxPrinterDC_free;
     custom_object->zo.handlers = &wxphp_wxPrinterDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -353,9 +355,9 @@ PHP_METHOD(php_wxPrinterDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPreviewControlBar_free(void *object)
+void php_wxPreviewControlBar_free(zend_object *object)
 {
-    zo_wxPreviewControlBar* custom_object = (zo_wxPreviewControlBar*) object;
+    zo_wxPreviewControlBar* custom_object = php_wxPreviewControlBar_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -367,7 +369,6 @@ void php_wxPreviewControlBar_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPreviewControlBar_new(zend_class_entry *class_type)
@@ -392,6 +393,9 @@ zend_object* php_wxPreviewControlBar_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPreviewControlBar_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPreviewControlBar_object_handlers);
+    wxphp_wxPreviewControlBar_object_handlers.offset = XtOffsetOf(zo_wxPreviewControlBar, zo);
+    wxphp_wxPreviewControlBar_object_handlers.free_obj = php_wxPreviewControlBar_free;
     custom_object->zo.handlers = &wxphp_wxPreviewControlBar_object_handlers;
 
     custom_object->native_object = NULL;
@@ -594,7 +598,7 @@ PHP_METHOD(php_wxPreviewControlBar, GetZoomControl)
                 php_printf("Executing RETURN_LONG(wxPreviewControlBar::GetZoomControl())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPreviewControlBar_php*)native_object)->GetZoomControl());
+                WXPHP_RETVAL_LONG(((wxPreviewControlBar_php*)native_object)->GetZoomControl());
 
 
                 return;
@@ -957,9 +961,9 @@ PHP_METHOD(php_wxPreviewControlBar, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPreviewCanvas_free(void *object)
+void php_wxPreviewCanvas_free(zend_object *object)
 {
-    zo_wxPreviewCanvas* custom_object = (zo_wxPreviewCanvas*) object;
+    zo_wxPreviewCanvas* custom_object = php_wxPreviewCanvas_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -971,7 +975,6 @@ void php_wxPreviewCanvas_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPreviewCanvas_new(zend_class_entry *class_type)
@@ -996,6 +999,9 @@ zend_object* php_wxPreviewCanvas_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPreviewCanvas_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPreviewCanvas_object_handlers);
+    wxphp_wxPreviewCanvas_object_handlers.offset = XtOffsetOf(zo_wxPreviewCanvas, zo);
+    wxphp_wxPreviewCanvas_object_handlers.free_obj = php_wxPreviewCanvas_free;
     custom_object->zo.handlers = &wxphp_wxPreviewCanvas_object_handlers;
 
     custom_object->native_object = NULL;
@@ -1234,9 +1240,9 @@ PHP_METHOD(php_wxPreviewCanvas, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPreviewFrame_free(void *object)
+void php_wxPreviewFrame_free(zend_object *object)
 {
-    zo_wxPreviewFrame* custom_object = (zo_wxPreviewFrame*) object;
+    zo_wxPreviewFrame* custom_object = php_wxPreviewFrame_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -1245,7 +1251,6 @@ void php_wxPreviewFrame_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPreviewFrame_new(zend_class_entry *class_type)
@@ -1270,6 +1275,9 @@ zend_object* php_wxPreviewFrame_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPreviewFrame_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPreviewFrame_object_handlers);
+    wxphp_wxPreviewFrame_object_handlers.offset = XtOffsetOf(zo_wxPreviewFrame, zo);
+    wxphp_wxPreviewFrame_object_handlers.free_obj = php_wxPreviewFrame_free;
     custom_object->zo.handlers = &wxphp_wxPreviewFrame_object_handlers;
 
     custom_object->native_object = NULL;
@@ -1726,9 +1734,9 @@ PHP_METHOD(php_wxPreviewFrame, InitializeWithModality)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrintPreview_free(void *object)
+void php_wxPrintPreview_free(zend_object *object)
 {
-    zo_wxPrintPreview* custom_object = (zo_wxPrintPreview*) object;
+    zo_wxPrintPreview* custom_object = php_wxPrintPreview_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1769,7 +1777,6 @@ void php_wxPrintPreview_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPrintPreview_new(zend_class_entry *class_type)
@@ -1794,6 +1801,9 @@ zend_object* php_wxPrintPreview_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPrintPreview_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPrintPreview_object_handlers);
+    wxphp_wxPrintPreview_object_handlers.offset = XtOffsetOf(zo_wxPrintPreview, zo);
+    wxphp_wxPrintPreview_object_handlers.free_obj = php_wxPrintPreview_free;
     custom_object->zo.handlers = &wxphp_wxPrintPreview_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2019,7 +2029,7 @@ PHP_METHOD(php_wxPrintPreview, GetCurrentPage)
                 php_printf("Executing RETURN_LONG(wxPrintPreview::GetCurrentPage())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPrintPreview_php*)native_object)->GetCurrentPage());
+                WXPHP_RETVAL_LONG(((wxPrintPreview_php*)native_object)->GetCurrentPage());
 
 
                 return;
@@ -2256,7 +2266,7 @@ PHP_METHOD(php_wxPrintPreview, GetMaxPage)
                 php_printf("Executing RETURN_LONG(wxPrintPreview::GetMaxPage())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPrintPreview_php*)native_object)->GetMaxPage());
+                WXPHP_RETVAL_LONG(((wxPrintPreview_php*)native_object)->GetMaxPage());
 
 
                 return;
@@ -2363,7 +2373,7 @@ PHP_METHOD(php_wxPrintPreview, GetMinPage)
                 php_printf("Executing RETURN_LONG(wxPrintPreview::GetMinPage())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPrintPreview_php*)native_object)->GetMinPage());
+                WXPHP_RETVAL_LONG(((wxPrintPreview_php*)native_object)->GetMinPage());
 
 
                 return;
@@ -2730,7 +2740,7 @@ PHP_METHOD(php_wxPrintPreview, IsOk)
                 php_printf("Executing RETURN_BOOL(wxPrintPreview::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrintPreview_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxPrintPreview_php*)native_object)->IsOk());
 
 
                 return;
@@ -2879,7 +2889,7 @@ PHP_METHOD(php_wxPrintPreview, PaintPage)
                 php_printf("Executing RETURN_BOOL(wxPrintPreview::PaintPage((wxPreviewCanvas*) object_pointer0_0, *(wxDC*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrintPreview_php*)native_object)->PaintPage((wxPreviewCanvas*) object_pointer0_0, *(wxDC*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxPrintPreview_php*)native_object)->PaintPage((wxPreviewCanvas*) object_pointer0_0, *(wxDC*) object_pointer0_1));
 
                 references->AddReference(canvas0, "wxPrintPreview::PaintPage at call 1 with 2 argument(s)");
                 references->AddReference(dc0, "wxPrintPreview::PaintPage at call 3 with 2 argument(s)");
@@ -2993,7 +3003,7 @@ PHP_METHOD(php_wxPrintPreview, PrintMethod)
                 php_printf("Executing RETURN_BOOL(wxPrintPreview::Print(prompt0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrintPreview_php*)native_object)->Print(prompt0));
+                WXPHP_RETVAL_BOOL(((wxPrintPreview_php*)native_object)->Print(prompt0));
 
 
                 return;
@@ -3105,7 +3115,7 @@ PHP_METHOD(php_wxPrintPreview, RenderPage)
                 php_printf("Executing RETURN_BOOL(wxPrintPreview::RenderPage((int) pageNum0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrintPreview_php*)native_object)->RenderPage((int) pageNum0));
+                WXPHP_RETVAL_BOOL(((wxPrintPreview_php*)native_object)->RenderPage((int) pageNum0));
 
 
                 return;
@@ -3348,7 +3358,7 @@ PHP_METHOD(php_wxPrintPreview, SetCurrentPage)
                 php_printf("Executing RETURN_BOOL(wxPrintPreview::SetCurrentPage((int) pageNum0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrintPreview_php*)native_object)->SetCurrentPage((int) pageNum0));
+                WXPHP_RETVAL_BOOL(((wxPrintPreview_php*)native_object)->SetCurrentPage((int) pageNum0));
 
 
                 return;
@@ -4015,9 +4025,9 @@ PHP_METHOD(php_wxPrintPreview, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrinter_free(void *object)
+void php_wxPrinter_free(zend_object *object)
 {
-    zo_wxPrinter* custom_object = (zo_wxPrinter*) object;
+    zo_wxPrinter* custom_object = php_wxPrinter_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4058,7 +4068,6 @@ void php_wxPrinter_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPrinter_new(zend_class_entry *class_type)
@@ -4083,6 +4092,9 @@ zend_object* php_wxPrinter_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPrinter_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPrinter_object_handlers);
+    wxphp_wxPrinter_object_handlers.offset = XtOffsetOf(zo_wxPrinter, zo);
+    wxphp_wxPrinter_object_handlers.free_obj = php_wxPrinter_free;
     custom_object->zo.handlers = &wxphp_wxPrinter_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4178,7 +4190,7 @@ PHP_METHOD(php_wxPrinter, GetAbort)
                 php_printf("Executing RETURN_BOOL(wxPrinter::GetAbort())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrinter_php*)native_object)->GetAbort());
+                WXPHP_RETVAL_BOOL(((wxPrinter_php*)native_object)->GetAbort());
 
 
                 return;
@@ -4286,7 +4298,7 @@ PHP_METHOD(php_wxPrinter, GetLastError)
                 php_printf("Executing RETURN_LONG(wxPrinter::GetLastError())\n\n");
                 #endif
 
-                RETVAL_LONG(wxPrinter::GetLastError());
+                WXPHP_RETVAL_LONG(wxPrinter::GetLastError());
 
 
                 return;
@@ -4563,7 +4575,7 @@ PHP_METHOD(php_wxPrinter, PrintMethod)
                 php_printf("Executing RETURN_BOOL(wxPrinter::Print((wxWindow*) object_pointer0_0, (wxPrintout*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrinter_php*)native_object)->Print((wxWindow*) object_pointer0_0, (wxPrintout*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(((wxPrinter_php*)native_object)->Print((wxWindow*) object_pointer0_0, (wxPrintout*) object_pointer0_1));
 
                 references->AddReference(parent0, "wxPrinter::Print at call 1 with 2 argument(s)");
                 references->AddReference(printout0, "wxPrinter::Print at call 1 with 2 argument(s)");
@@ -4577,7 +4589,7 @@ PHP_METHOD(php_wxPrinter, PrintMethod)
                 php_printf("Executing RETURN_BOOL(wxPrinter::Print((wxWindow*) object_pointer0_0, (wxPrintout*) object_pointer0_1, prompt0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrinter_php*)native_object)->Print((wxWindow*) object_pointer0_0, (wxPrintout*) object_pointer0_1, prompt0));
+                WXPHP_RETVAL_BOOL(((wxPrinter_php*)native_object)->Print((wxWindow*) object_pointer0_0, (wxPrintout*) object_pointer0_1, prompt0));
 
                 references->AddReference(parent0, "wxPrinter::Print at call 1 with 3 argument(s)");
                 references->AddReference(printout0, "wxPrinter::Print at call 1 with 3 argument(s)");
@@ -5027,9 +5039,9 @@ PHP_METHOD(php_wxPrinter, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrintout_free(void *object)
+void php_wxPrintout_free(zend_object *object)
 {
-    zo_wxPrintout* custom_object = (zo_wxPrintout*) object;
+    zo_wxPrintout* custom_object = php_wxPrintout_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5070,7 +5082,6 @@ void php_wxPrintout_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPrintout_new(zend_class_entry *class_type)
@@ -5095,6 +5106,9 @@ zend_object* php_wxPrintout_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPrintout_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPrintout_object_handlers);
+    wxphp_wxPrintout_object_handlers.offset = XtOffsetOf(zo_wxPrintout, zo);
+    wxphp_wxPrintout_object_handlers.free_obj = php_wxPrintout_free;
     custom_object->zo.handlers = &wxphp_wxPrintout_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7071,7 +7085,7 @@ PHP_METHOD(php_wxPrintout, GetTitle)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxPrintout_php*)native_object)->GetTitle();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -7187,7 +7201,7 @@ PHP_METHOD(php_wxPrintout, HasPage)
                 php_printf("Executing RETURN_BOOL(wxPrintout::HasPage((int) pageNum0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrintout_php*)native_object)->HasPage((int) pageNum0));
+                WXPHP_RETVAL_BOOL(((wxPrintout_php*)native_object)->HasPage((int) pageNum0));
 
 
                 return;
@@ -7298,7 +7312,7 @@ PHP_METHOD(php_wxPrintout, IsPreview)
                 php_printf("Executing RETURN_BOOL(wxPrintout::IsPreview())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxPrintout_php*)native_object)->IsPreview());
+                WXPHP_RETVAL_BOOL(((wxPrintout_php*)native_object)->IsPreview());
 
 
                 return;
@@ -8644,9 +8658,9 @@ PHP_METHOD(php_wxPrintout, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPrintDialog_free(void *object)
+void php_wxPrintDialog_free(zend_object *object)
 {
-    zo_wxPrintDialog* custom_object = (zo_wxPrintDialog*) object;
+    zo_wxPrintDialog* custom_object = php_wxPrintDialog_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8687,7 +8701,6 @@ void php_wxPrintDialog_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPrintDialog_new(zend_class_entry *class_type)
@@ -8712,6 +8725,9 @@ zend_object* php_wxPrintDialog_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPrintDialog_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPrintDialog_object_handlers);
+    wxphp_wxPrintDialog_object_handlers.offset = XtOffsetOf(zo_wxPrintDialog, zo);
+    wxphp_wxPrintDialog_object_handlers.free_obj = php_wxPrintDialog_free;
     custom_object->zo.handlers = &wxphp_wxPrintDialog_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9064,7 +9080,7 @@ PHP_METHOD(php_wxPrintDialog, ShowModal)
                 php_printf("Executing RETURN_LONG(wxPrintDialog::ShowModal())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPrintDialog_php*)native_object)->ShowModal());
+                WXPHP_RETVAL_LONG(((wxPrintDialog_php*)native_object)->ShowModal());
 
 
                 return;
@@ -9431,9 +9447,9 @@ PHP_METHOD(php_wxPrintDialog, GetPrintData)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPageSetupDialog_free(void *object)
+void php_wxPageSetupDialog_free(zend_object *object)
 {
-    zo_wxPageSetupDialog* custom_object = (zo_wxPageSetupDialog*) object;
+    zo_wxPageSetupDialog* custom_object = php_wxPageSetupDialog_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9474,7 +9490,6 @@ void php_wxPageSetupDialog_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPageSetupDialog_new(zend_class_entry *class_type)
@@ -9499,6 +9514,9 @@ zend_object* php_wxPageSetupDialog_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPageSetupDialog_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPageSetupDialog_object_handlers);
+    wxphp_wxPageSetupDialog_object_handlers.offset = XtOffsetOf(zo_wxPageSetupDialog, zo);
+    wxphp_wxPageSetupDialog_object_handlers.free_obj = php_wxPageSetupDialog_free;
     custom_object->zo.handlers = &wxphp_wxPageSetupDialog_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9860,7 +9878,7 @@ PHP_METHOD(php_wxPageSetupDialog, ShowModal)
                 php_printf("Executing RETURN_LONG(wxPageSetupDialog::ShowModal())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPageSetupDialog_php*)native_object)->ShowModal());
+                WXPHP_RETVAL_LONG(((wxPageSetupDialog_php*)native_object)->ShowModal());
 
 
                 return;

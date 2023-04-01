@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxLog_free(void *object)
+void php_wxLog_free(zend_object *object)
 {
-    zo_wxLog* custom_object = (zo_wxLog*) object;
+    zo_wxLog* custom_object = php_wxLog_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxLog_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLog_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxLog_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLog_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLog_object_handlers);
+    wxphp_wxLog_object_handlers.offset = XtOffsetOf(zo_wxLog, zo);
+    wxphp_wxLog_object_handlers.free_obj = php_wxLog_free;
     custom_object->zo.handlers = &wxphp_wxLog_object_handlers;
 
     custom_object->native_object = NULL;
@@ -969,7 +971,7 @@ PHP_METHOD(php_wxLog, EnableLogging)
                 php_printf("Executing RETURN_BOOL(wxLog::EnableLogging())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxLog::EnableLogging());
+                WXPHP_RETVAL_BOOL(wxLog::EnableLogging());
 
 
                 return;
@@ -982,7 +984,7 @@ PHP_METHOD(php_wxLog, EnableLogging)
                 php_printf("Executing RETURN_BOOL(wxLog::EnableLogging(enable0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxLog::EnableLogging(enable0));
+                WXPHP_RETVAL_BOOL(wxLog::EnableLogging(enable0));
 
 
                 return;
@@ -1547,7 +1549,7 @@ PHP_METHOD(php_wxLog, GetLogLevel)
                 php_printf("Executing RETURN_LONG(wxLog::GetLogLevel())\n\n");
                 #endif
 
-                RETVAL_LONG(wxLog::GetLogLevel());
+                WXPHP_RETVAL_LONG(wxLog::GetLogLevel());
 
 
                 return;
@@ -1679,7 +1681,7 @@ PHP_METHOD(php_wxLog, GetRepetitionCounting)
                 php_printf("Executing RETURN_BOOL(wxLog::GetRepetitionCounting())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxLog::GetRepetitionCounting());
+                WXPHP_RETVAL_BOOL(wxLog::GetRepetitionCounting());
 
 
                 return;
@@ -1813,7 +1815,7 @@ PHP_METHOD(php_wxLog, GetTimestamp)
 
                 wxString value_to_return0;
                 value_to_return0 = wxLog::GetTimestamp();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -2083,7 +2085,7 @@ PHP_METHOD(php_wxLog, GetVerbose)
                 php_printf("Executing RETURN_BOOL(wxLog::GetVerbose())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxLog::GetVerbose());
+                WXPHP_RETVAL_BOOL(wxLog::GetVerbose());
 
 
                 return;
@@ -2221,7 +2223,7 @@ PHP_METHOD(php_wxLog, IsAllowedTraceMask)
                 php_printf("Executing RETURN_BOOL(wxLog::IsAllowedTraceMask(wxString(mask0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxLog::IsAllowedTraceMask(wxString(mask0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxLog::IsAllowedTraceMask(wxString(mask0, wxConvUTF8)));
 
 
                 return;
@@ -2353,7 +2355,7 @@ PHP_METHOD(php_wxLog, IsEnabled)
                 php_printf("Executing RETURN_BOOL(wxLog::IsEnabled())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxLog::IsEnabled());
+                WXPHP_RETVAL_BOOL(wxLog::IsEnabled());
 
 
                 return;
@@ -2492,7 +2494,7 @@ PHP_METHOD(php_wxLog, IsLevelEnabled)
                 php_printf("Executing RETURN_BOOL(wxLog::IsLevelEnabled((wxLogLevel) level0, wxString(component0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxLog::IsLevelEnabled((wxLogLevel) level0, wxString(component0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(wxLog::IsLevelEnabled((wxLogLevel) level0, wxString(component0, wxConvUTF8)));
 
 
                 return;
@@ -3979,9 +3981,9 @@ PHP_METHOD(php_wxLog, Suspend)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogChain_free(void *object)
+void php_wxLogChain_free(zend_object *object)
 {
-    zo_wxLogChain* custom_object = (zo_wxLogChain*) object;
+    zo_wxLogChain* custom_object = php_wxLogChain_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4022,7 +4024,6 @@ void php_wxLogChain_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLogChain_new(zend_class_entry *class_type)
@@ -4047,6 +4048,9 @@ zend_object* php_wxLogChain_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLogChain_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLogChain_object_handlers);
+    wxphp_wxLogChain_object_handlers.offset = XtOffsetOf(zo_wxLogChain, zo);
+    wxphp_wxLogChain_object_handlers.free_obj = php_wxLogChain_free;
     custom_object->zo.handlers = &wxphp_wxLogChain_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4403,7 +4407,7 @@ PHP_METHOD(php_wxLogChain, IsPassingMessages)
                 php_printf("Executing RETURN_BOOL(wxLogChain::IsPassingMessages())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLogChain_php*)native_object)->IsPassingMessages());
+                WXPHP_RETVAL_BOOL(((wxLogChain_php*)native_object)->IsPassingMessages());
 
 
                 return;
@@ -4792,9 +4796,9 @@ PHP_METHOD(php_wxLogChain, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogInterposer_free(void *object)
+void php_wxLogInterposer_free(zend_object *object)
 {
-    zo_wxLogInterposer* custom_object = (zo_wxLogInterposer*) object;
+    zo_wxLogInterposer* custom_object = php_wxLogInterposer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4835,7 +4839,6 @@ void php_wxLogInterposer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLogInterposer_new(zend_class_entry *class_type)
@@ -4860,6 +4863,9 @@ zend_object* php_wxLogInterposer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLogInterposer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLogInterposer_object_handlers);
+    wxphp_wxLogInterposer_object_handlers.offset = XtOffsetOf(zo_wxLogInterposer, zo);
+    wxphp_wxLogInterposer_object_handlers.free_obj = php_wxLogInterposer_free;
     custom_object->zo.handlers = &wxphp_wxLogInterposer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4954,9 +4960,9 @@ PHP_METHOD(php_wxLogInterposer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogBuffer_free(void *object)
+void php_wxLogBuffer_free(zend_object *object)
 {
-    zo_wxLogBuffer* custom_object = (zo_wxLogBuffer*) object;
+    zo_wxLogBuffer* custom_object = php_wxLogBuffer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4997,7 +5003,6 @@ void php_wxLogBuffer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLogBuffer_new(zend_class_entry *class_type)
@@ -5022,6 +5027,9 @@ zend_object* php_wxLogBuffer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLogBuffer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLogBuffer_object_handlers);
+    wxphp_wxLogBuffer_object_handlers.offset = XtOffsetOf(zo_wxLogBuffer, zo);
+    wxphp_wxLogBuffer_object_handlers.free_obj = php_wxLogBuffer_free;
     custom_object->zo.handlers = &wxphp_wxLogBuffer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5226,7 +5234,7 @@ PHP_METHOD(php_wxLogBuffer, GetBuffer)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxLogBuffer_php*)native_object)->GetBuffer();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -5332,9 +5340,9 @@ PHP_METHOD(php_wxLogBuffer, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogWindow_free(void *object)
+void php_wxLogWindow_free(zend_object *object)
 {
-    zo_wxLogWindow* custom_object = (zo_wxLogWindow*) object;
+    zo_wxLogWindow* custom_object = php_wxLogWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5375,7 +5383,6 @@ void php_wxLogWindow_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLogWindow_new(zend_class_entry *class_type)
@@ -5400,6 +5407,9 @@ zend_object* php_wxLogWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLogWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLogWindow_object_handlers);
+    wxphp_wxLogWindow_object_handlers.offset = XtOffsetOf(zo_wxLogWindow, zo);
+    wxphp_wxLogWindow_object_handlers.free_obj = php_wxLogWindow_free;
     custom_object->zo.handlers = &wxphp_wxLogWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5990,9 +6000,9 @@ PHP_METHOD(php_wxLogWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogGui_free(void *object)
+void php_wxLogGui_free(zend_object *object)
 {
-    zo_wxLogGui* custom_object = (zo_wxLogGui*) object;
+    zo_wxLogGui* custom_object = php_wxLogGui_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6033,7 +6043,6 @@ void php_wxLogGui_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLogGui_new(zend_class_entry *class_type)
@@ -6058,6 +6067,9 @@ zend_object* php_wxLogGui_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLogGui_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLogGui_object_handlers);
+    wxphp_wxLogGui_object_handlers.offset = XtOffsetOf(zo_wxLogGui, zo);
+    wxphp_wxLogGui_object_handlers.free_obj = php_wxLogGui_free;
     custom_object->zo.handlers = &wxphp_wxLogGui_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6259,9 +6271,9 @@ PHP_METHOD(php_wxLogGui, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLogTextCtrl_free(void *object)
+void php_wxLogTextCtrl_free(zend_object *object)
 {
-    zo_wxLogTextCtrl* custom_object = (zo_wxLogTextCtrl*) object;
+    zo_wxLogTextCtrl* custom_object = php_wxLogTextCtrl_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6302,7 +6314,6 @@ void php_wxLogTextCtrl_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLogTextCtrl_new(zend_class_entry *class_type)
@@ -6327,6 +6338,9 @@ zend_object* php_wxLogTextCtrl_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLogTextCtrl_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLogTextCtrl_object_handlers);
+    wxphp_wxLogTextCtrl_object_handlers.offset = XtOffsetOf(zo_wxLogTextCtrl, zo);
+    wxphp_wxLogTextCtrl_object_handlers.free_obj = php_wxLogTextCtrl_free;
     custom_object->zo.handlers = &wxphp_wxLogTextCtrl_object_handlers;
 
     custom_object->native_object = NULL;

@@ -172,7 +172,6 @@ void wxAppWrapper::OnEventLoopEnter(wxEventLoopBase *loop)
             return;
         } else {
             zval_ptr_dtor(&params[0]);
-            zend_error(E_CORE_WARNING, "Cannot call wxApp::OnEventLoopEnter");
         }
 
         #ifdef USE_WXPHP_DEBUG

@@ -14,6 +14,7 @@
 
 #include "php_wxwidgets.h"
 #include "app.h"
+#include "appmanagement.h"
 
 /**
  * Set the wxWidgets application handler.
@@ -43,6 +44,9 @@ zend_object* php_wxApp_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxApp_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxApp_object_handlers);
+    wxphp_wxApp_object_handlers.offset = XtOffsetOf(zo_wxApp, zo);
+    wxphp_wxApp_object_handlers.free_obj = php_wxApp_free;
     custom_object->zo.handlers = &wxphp_wxApp_object_handlers;
 
     custom_object->native_object = NULL;
@@ -52,7 +56,7 @@ zend_object* php_wxApp_new(zend_class_entry *class_type)
     return &custom_object->zo;
 }
 
-void php_wxApp_free(void *object)
+void php_wxApp_free(zend_object *object)
 {
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -63,9 +67,8 @@ void php_wxApp_free(void *object)
     php_printf("===========================================\n");
     #endif
 
-    zo_wxApp* custom_object = (zo_wxApp*) object;
+    zo_wxApp* custom_object = php_wxApp_fetch_object(object);
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 END_EXTERN_C()
 
@@ -97,6 +100,11 @@ bool wxAppWrapper::OnInit()
                 0, NULL
         );
 
+        if (EG(exception)) {
+            zend_error(E_CORE_ERROR, "Uncaught exception in wxApp::OnInit");
+            return false;
+        }
+
         if(function_called == SUCCESS)
         {
             return true;
@@ -108,6 +116,68 @@ bool wxAppWrapper::OnInit()
     }
 
     return wxApp::OnInit();
+}
+
+void wxAppWrapper::OnEventLoopEnter(wxEventLoopBase *loop)
+{
+    #ifdef USE_WXPHP_DEBUG
+    php_printf("Invoking virtual wxApp::OnEventLoopEnter\n");
+    php_printf("===========================================\n");
+    #endif
+
+    if (!loop) {
+        return;
+    }
+
+    zval function_name, retval;
+    ZVAL_STRINGL(&function_name, "OnEventLoopEnter", 16);
+
+    int function_called;
+
+    #ifdef USE_WXPHP_DEBUG
+    php_printf(
+        "Trying to call user defined method '%s' on wxApp\n",
+        Z_STRVAL(function_name)
+    );
+    #endif
+
+    if(is_php_user_space_implemented)
+    {
+        zval params[1];
+        wxEventLoopBase_php* phpObjLoop = (wxEventLoopBase_php *)loop;
+
+        if (phpObjLoop->references.IsUserInitialized()) {
+            if (!Z_ISNULL(phpObjLoop->phpObj)) {
+                ZVAL_COPY_VALUE(&params[0], &phpObjLoop->phpObj);
+                zval_add_ref(&phpObjLoop->phpObj);
+            } else {
+                zend_error(E_CORE_WARNING, "Could not retreive original wxEventLoopBase zval.");
+                return;
+            }
+        } else {
+            object_init_ex(&params[0], php_wxEventLoopBase_entry);
+            Z_wxEventLoopBase_P(&params[0])->native_object = (wxEventLoopBase_php*) phpObjLoop;
+        }
+
+        function_called = call_user_function(NULL, &phpObj, &function_name, &retval, 1, params);
+        zval_ptr_dtor(&retval);
+
+        if (EG(exception)) {
+            zend_error(E_CORE_ERROR, "Uncaught exception in wxApp::OnEventLoopEnter");
+            zval_ptr_dtor(&params[0]);
+            return;
+        }
+
+        if (function_called == SUCCESS) {
+            return;
+        } else {
+            zval_ptr_dtor(&params[0]);
+        }
+
+        #ifdef USE_WXPHP_DEBUG
+        php_printf("Invocation of user defined method failed. Calling native method instead.\n");
+        #endif
+    }
 }
 
 int wxAppWrapper::OnExit()
@@ -137,6 +207,11 @@ int wxAppWrapper::OnExit()
             NULL, &phpObj, &function_name, &function_return_value,
             0, NULL
         );
+
+        if (EG(exception)) {
+            zend_error(E_CORE_ERROR, "Uncaught exception in wxApp::OnExit");
+            return false;
+        }
 
         if(function_called == SUCCESS)
         {

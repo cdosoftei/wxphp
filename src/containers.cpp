@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxClientData_free(void *object)
+void php_wxClientData_free(zend_object *object)
 {
-    zo_wxClientData* custom_object = (zo_wxClientData*) object;
+    zo_wxClientData* custom_object = php_wxClientData_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxClientData_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxClientData_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxClientData_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxClientData_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxClientData_object_handlers);
+    wxphp_wxClientData_object_handlers.offset = XtOffsetOf(zo_wxClientData, zo);
+    wxphp_wxClientData_object_handlers.free_obj = php_wxClientData_free;
     custom_object->zo.handlers = &wxphp_wxClientData_object_handlers;
 
     custom_object->native_object = NULL;
@@ -215,9 +217,9 @@ PHP_METHOD(php_wxClientData, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTreeItemData_free(void *object)
+void php_wxTreeItemData_free(zend_object *object)
 {
-    zo_wxTreeItemData* custom_object = (zo_wxTreeItemData*) object;
+    zo_wxTreeItemData* custom_object = php_wxTreeItemData_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -230,7 +232,6 @@ void php_wxTreeItemData_free(void *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTreeItemData_new(zend_class_entry *class_type)
@@ -255,6 +256,9 @@ zend_object* php_wxTreeItemData_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTreeItemData_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTreeItemData_object_handlers);
+    wxphp_wxTreeItemData_object_handlers.offset = XtOffsetOf(zo_wxTreeItemData, zo);
+    wxphp_wxTreeItemData_object_handlers.free_obj = php_wxTreeItemData_free;
     custom_object->zo.handlers = &wxphp_wxTreeItemData_object_handlers;
 
     custom_object->native_object = NULL;

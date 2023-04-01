@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpController_free(void *object)
+void php_wxHtmlHelpController_free(zend_object *object)
 {
-    zo_wxHtmlHelpController* custom_object = (zo_wxHtmlHelpController*) object;
+    zo_wxHtmlHelpController* custom_object = php_wxHtmlHelpController_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxHtmlHelpController_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlHelpController_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxHtmlHelpController_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlHelpController_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlHelpController_object_handlers);
+    wxphp_wxHtmlHelpController_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpController, zo);
+    wxphp_wxHtmlHelpController_object_handlers.free_obj = php_wxHtmlHelpController_free;
     custom_object->zo.handlers = &wxphp_wxHtmlHelpController_object_handlers;
 
     custom_object->native_object = NULL;
@@ -263,7 +265,7 @@ PHP_METHOD(php_wxHtmlHelpController, AddBook)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::AddBook(*(wxFileName*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(*(wxFileName*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(*(wxFileName*) object_pointer0_0));
 
                 references->AddReference(bookFile0, "wxHtmlHelpController::AddBook at call 3 with 1 argument(s)");
 
@@ -276,7 +278,7 @@ PHP_METHOD(php_wxHtmlHelpController, AddBook)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::AddBook(*(wxFileName*) object_pointer0_0, showWaitMsg0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(*(wxFileName*) object_pointer0_0, showWaitMsg0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(*(wxFileName*) object_pointer0_0, showWaitMsg0));
 
                 references->AddReference(bookFile0, "wxHtmlHelpController::AddBook at call 3 with 2 argument(s)");
 
@@ -296,7 +298,7 @@ PHP_METHOD(php_wxHtmlHelpController, AddBook)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::AddBook(wxString(bookUrl1, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(wxString(bookUrl1, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(wxString(bookUrl1, wxConvUTF8)));
 
 
                 return;
@@ -308,7 +310,7 @@ PHP_METHOD(php_wxHtmlHelpController, AddBook)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::AddBook(wxString(bookUrl1, wxConvUTF8), showWaitMsg1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(wxString(bookUrl1, wxConvUTF8), showWaitMsg1));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->AddBook(wxString(bookUrl1, wxConvUTF8), showWaitMsg1));
 
 
                 return;
@@ -652,7 +654,7 @@ PHP_METHOD(php_wxHtmlHelpController, Display)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::Display(wxString(x0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->Display(wxString(x0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->Display(wxString(x0, wxConvUTF8)));
 
 
                 return;
@@ -671,7 +673,7 @@ PHP_METHOD(php_wxHtmlHelpController, Display)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::Display((int) id1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->Display((int) id1));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->Display((int) id1));
 
 
                 return;
@@ -778,7 +780,7 @@ PHP_METHOD(php_wxHtmlHelpController, DisplayContents)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::DisplayContents())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->DisplayContents());
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->DisplayContents());
 
 
                 return;
@@ -885,7 +887,7 @@ PHP_METHOD(php_wxHtmlHelpController, DisplayIndex)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::DisplayIndex())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->DisplayIndex());
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->DisplayIndex());
 
 
                 return;
@@ -999,7 +1001,7 @@ PHP_METHOD(php_wxHtmlHelpController, KeywordSearch)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::KeywordSearch(wxString(keyword0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8)));
 
 
                 return;
@@ -1011,7 +1013,7 @@ PHP_METHOD(php_wxHtmlHelpController, KeywordSearch)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpController::KeywordSearch(wxString(keyword0, wxConvUTF8), (wxHelpSearchMode) mode0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8), (wxHelpSearchMode) mode0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpController_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8), (wxHelpSearchMode) mode0));
 
 
                 return;
@@ -2011,9 +2013,9 @@ PHP_METHOD(php_wxHtmlHelpController, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlModalHelp_free(void *object)
+void php_wxHtmlModalHelp_free(zend_object *object)
 {
-    zo_wxHtmlModalHelp* custom_object = (zo_wxHtmlModalHelp*) object;
+    zo_wxHtmlModalHelp* custom_object = php_wxHtmlModalHelp_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2054,7 +2056,6 @@ void php_wxHtmlModalHelp_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlModalHelp_new(zend_class_entry *class_type)
@@ -2079,6 +2080,9 @@ zend_object* php_wxHtmlModalHelp_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlModalHelp_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlModalHelp_object_handlers);
+    wxphp_wxHtmlModalHelp_object_handlers.offset = XtOffsetOf(zo_wxHtmlModalHelp, zo);
+    wxphp_wxHtmlModalHelp_object_handlers.free_obj = php_wxHtmlModalHelp_free;
     custom_object->zo.handlers = &wxphp_wxHtmlModalHelp_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2226,9 +2230,9 @@ PHP_METHOD(php_wxHtmlModalHelp, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpData_free(void *object)
+void php_wxHtmlHelpData_free(zend_object *object)
 {
-    zo_wxHtmlHelpData* custom_object = (zo_wxHtmlHelpData*) object;
+    zo_wxHtmlHelpData* custom_object = php_wxHtmlHelpData_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2269,7 +2273,6 @@ void php_wxHtmlHelpData_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlHelpData_new(zend_class_entry *class_type)
@@ -2294,6 +2297,9 @@ zend_object* php_wxHtmlHelpData_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlHelpData_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlHelpData_object_handlers);
+    wxphp_wxHtmlHelpData_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpData, zo);
+    wxphp_wxHtmlHelpData_object_handlers.free_obj = php_wxHtmlHelpData_free;
     custom_object->zo.handlers = &wxphp_wxHtmlHelpData_object_handlers;
 
     custom_object->native_object = NULL;
@@ -2395,7 +2401,7 @@ PHP_METHOD(php_wxHtmlHelpData, AddBook)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpData::AddBook(wxString(book_url0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpData_php*)native_object)->AddBook(wxString(book_url0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpData_php*)native_object)->AddBook(wxString(book_url0, wxConvUTF8)));
 
 
                 return;
@@ -2509,7 +2515,7 @@ PHP_METHOD(php_wxHtmlHelpData, FindPageById)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxHtmlHelpData_php*)native_object)->FindPageById((int) id0);
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -2624,7 +2630,7 @@ PHP_METHOD(php_wxHtmlHelpData, FindPageByName)
 
                 wxString value_to_return1;
                 value_to_return1 = ((wxHtmlHelpData_php*)native_object)->FindPageByName(wxString(page0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -2843,9 +2849,9 @@ PHP_METHOD(php_wxHtmlHelpData, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpDialog_free(void *object)
+void php_wxHtmlHelpDialog_free(zend_object *object)
 {
-    zo_wxHtmlHelpDialog* custom_object = (zo_wxHtmlHelpDialog*) object;
+    zo_wxHtmlHelpDialog* custom_object = php_wxHtmlHelpDialog_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -2854,7 +2860,6 @@ void php_wxHtmlHelpDialog_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlHelpDialog_new(zend_class_entry *class_type)
@@ -2879,6 +2884,9 @@ zend_object* php_wxHtmlHelpDialog_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlHelpDialog_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlHelpDialog_object_handlers);
+    wxphp_wxHtmlHelpDialog_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpDialog, zo);
+    wxphp_wxHtmlHelpDialog_object_handlers.free_obj = php_wxHtmlHelpDialog_free;
     custom_object->zo.handlers = &wxphp_wxHtmlHelpDialog_object_handlers;
 
     custom_object->native_object = NULL;
@@ -3133,7 +3141,7 @@ PHP_METHOD(php_wxHtmlHelpDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
 
                 references->AddReference(parent0, "wxHtmlHelpDialog::Create at call 1 with 2 argument(s)");
 
@@ -3146,7 +3154,7 @@ PHP_METHOD(php_wxHtmlHelpDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxHtmlHelpDialog::Create at call 1 with 3 argument(s)");
 
@@ -3159,7 +3167,7 @@ PHP_METHOD(php_wxHtmlHelpDialog, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpDialog::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0));
 
                 references->AddReference(parent0, "wxHtmlHelpDialog::Create at call 1 with 4 argument(s)");
 
@@ -3792,9 +3800,9 @@ PHP_METHOD(php_wxHtmlHelpDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpFrame_free(void *object)
+void php_wxHtmlHelpFrame_free(zend_object *object)
 {
-    zo_wxHtmlHelpFrame* custom_object = (zo_wxHtmlHelpFrame*) object;
+    zo_wxHtmlHelpFrame* custom_object = php_wxHtmlHelpFrame_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -3803,7 +3811,6 @@ void php_wxHtmlHelpFrame_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlHelpFrame_new(zend_class_entry *class_type)
@@ -3828,6 +3835,9 @@ zend_object* php_wxHtmlHelpFrame_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlHelpFrame_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlHelpFrame_object_handlers);
+    wxphp_wxHtmlHelpFrame_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpFrame, zo);
+    wxphp_wxHtmlHelpFrame_object_handlers.free_obj = php_wxHtmlHelpFrame_free;
     custom_object->zo.handlers = &wxphp_wxHtmlHelpFrame_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4103,7 +4113,7 @@ PHP_METHOD(php_wxHtmlHelpFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
 
                 references->AddReference(parent0, "wxHtmlHelpFrame::Create at call 1 with 2 argument(s)");
 
@@ -4116,7 +4126,7 @@ PHP_METHOD(php_wxHtmlHelpFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxHtmlHelpFrame::Create at call 1 with 3 argument(s)");
 
@@ -4129,7 +4139,7 @@ PHP_METHOD(php_wxHtmlHelpFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0));
 
                 references->AddReference(parent0, "wxHtmlHelpFrame::Create at call 1 with 4 argument(s)");
 
@@ -4142,7 +4152,7 @@ PHP_METHOD(php_wxHtmlHelpFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0, (wxConfigBase*) object_pointer0_4))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0, (wxConfigBase*) object_pointer0_4));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0, (wxConfigBase*) object_pointer0_4));
 
                 references->AddReference(parent0, "wxHtmlHelpFrame::Create at call 1 with 5 argument(s)");
                 references->AddReference(config0, "wxHtmlHelpFrame::Create at call 1 with 5 argument(s)");
@@ -4156,7 +4166,7 @@ PHP_METHOD(php_wxHtmlHelpFrame, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpFrame::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0, (wxConfigBase*) object_pointer0_4, wxString(rootpath0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0, (wxConfigBase*) object_pointer0_4, wxString(rootpath0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, wxString(title0, wxConvUTF8), (int) style0, (wxConfigBase*) object_pointer0_4, wxString(rootpath0, wxConvUTF8)));
 
                 references->AddReference(parent0, "wxHtmlHelpFrame::Create at call 1 with 6 argument(s)");
                 references->AddReference(config0, "wxHtmlHelpFrame::Create at call 1 with 6 argument(s)");
@@ -4839,9 +4849,9 @@ PHP_METHOD(php_wxHtmlHelpFrame, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlHelpWindow_free(void *object)
+void php_wxHtmlHelpWindow_free(zend_object *object)
 {
-    zo_wxHtmlHelpWindow* custom_object = (zo_wxHtmlHelpWindow*) object;
+    zo_wxHtmlHelpWindow* custom_object = php_wxHtmlHelpWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4885,7 +4895,6 @@ void php_wxHtmlHelpWindow_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlHelpWindow_new(zend_class_entry *class_type)
@@ -4910,6 +4919,9 @@ zend_object* php_wxHtmlHelpWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlHelpWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlHelpWindow_object_handlers);
+    wxphp_wxHtmlHelpWindow_object_handlers.offset = XtOffsetOf(zo_wxHtmlHelpWindow, zo);
+    wxphp_wxHtmlHelpWindow_object_handlers.free_obj = php_wxHtmlHelpWindow_free;
     custom_object->zo.handlers = &wxphp_wxHtmlHelpWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -5165,7 +5177,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0));
 
                 references->AddReference(parent0, "wxHtmlHelpWindow::Create at call 1 with 2 argument(s)");
 
@@ -5178,7 +5190,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2));
 
                 references->AddReference(parent0, "wxHtmlHelpWindow::Create at call 1 with 3 argument(s)");
                 references->AddReference(pos0, "wxHtmlHelpWindow::Create at call 3 with 3 argument(s)");
@@ -5192,7 +5204,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3));
 
                 references->AddReference(parent0, "wxHtmlHelpWindow::Create at call 1 with 4 argument(s)");
                 references->AddReference(pos0, "wxHtmlHelpWindow::Create at call 3 with 4 argument(s)");
@@ -5207,7 +5219,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (int) style0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (int) style0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (int) style0));
 
                 references->AddReference(parent0, "wxHtmlHelpWindow::Create at call 1 with 5 argument(s)");
                 references->AddReference(pos0, "wxHtmlHelpWindow::Create at call 3 with 5 argument(s)");
@@ -5222,7 +5234,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, Create)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (int) style0, (int) helpStyle0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (int) style0, (int) helpStyle0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Create((wxWindow*) object_pointer0_0, (wxWindowID) id0, *(wxPoint*) object_pointer0_2, *(wxSize*) object_pointer0_3, (int) style0, (int) helpStyle0));
 
                 references->AddReference(parent0, "wxHtmlHelpWindow::Create at call 1 with 6 argument(s)");
                 references->AddReference(pos0, "wxHtmlHelpWindow::Create at call 3 with 6 argument(s)");
@@ -5359,7 +5371,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, Display)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::Display(wxString(x0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Display(wxString(x0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Display(wxString(x0, wxConvUTF8)));
 
 
                 return;
@@ -5378,7 +5390,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, Display)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::Display((int) id1))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Display((int) id1));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->Display((int) id1));
 
 
                 return;
@@ -5485,7 +5497,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, DisplayIndex)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::DisplayIndex())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->DisplayIndex());
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->DisplayIndex());
 
 
                 return;
@@ -5722,7 +5734,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, DisplayContents)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::DisplayContents())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->DisplayContents());
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->DisplayContents());
 
 
                 return;
@@ -5836,7 +5848,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, KeywordSearch)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::KeywordSearch(wxString(keyword0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8)));
 
 
                 return;
@@ -5848,7 +5860,7 @@ PHP_METHOD(php_wxHtmlHelpWindow, KeywordSearch)
                 php_printf("Executing RETURN_BOOL(wxHtmlHelpWindow::KeywordSearch(wxString(keyword0, wxConvUTF8), (wxHelpSearchMode) mode0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8), (wxHelpSearchMode) mode0));
+                WXPHP_RETVAL_BOOL(((wxHtmlHelpWindow_php*)native_object)->KeywordSearch(wxString(keyword0, wxConvUTF8), (wxHelpSearchMode) mode0));
 
 
                 return;
@@ -6721,9 +6733,9 @@ PHP_METHOD(php_wxHtmlHelpWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlRenderingStyle_free(void *object)
+void php_wxHtmlRenderingStyle_free(zend_object *object)
 {
-    zo_wxHtmlRenderingStyle* custom_object = (zo_wxHtmlRenderingStyle*) object;
+    zo_wxHtmlRenderingStyle* custom_object = php_wxHtmlRenderingStyle_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6764,7 +6776,6 @@ void php_wxHtmlRenderingStyle_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlRenderingStyle_new(zend_class_entry *class_type)
@@ -6789,6 +6800,9 @@ zend_object* php_wxHtmlRenderingStyle_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlRenderingStyle_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlRenderingStyle_object_handlers);
+    wxphp_wxHtmlRenderingStyle_object_handlers.offset = XtOffsetOf(zo_wxHtmlRenderingStyle, zo);
+    wxphp_wxHtmlRenderingStyle_object_handlers.free_obj = php_wxHtmlRenderingStyle_free;
     custom_object->zo.handlers = &wxphp_wxHtmlRenderingStyle_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7002,9 +7016,9 @@ wxColour wxHtmlRenderingStyle_php::GetSelectedTextColour(const wxColour& clr)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlRenderingInfo_free(void *object)
+void php_wxHtmlRenderingInfo_free(zend_object *object)
 {
-    zo_wxHtmlRenderingInfo* custom_object = (zo_wxHtmlRenderingInfo*) object;
+    zo_wxHtmlRenderingInfo* custom_object = php_wxHtmlRenderingInfo_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7045,7 +7059,6 @@ void php_wxHtmlRenderingInfo_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlRenderingInfo_new(zend_class_entry *class_type)
@@ -7070,6 +7083,9 @@ zend_object* php_wxHtmlRenderingInfo_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlRenderingInfo_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlRenderingInfo_object_handlers);
+    wxphp_wxHtmlRenderingInfo_object_handlers.offset = XtOffsetOf(zo_wxHtmlRenderingInfo, zo);
+    wxphp_wxHtmlRenderingInfo_object_handlers.free_obj = php_wxHtmlRenderingInfo_free;
     custom_object->zo.handlers = &wxphp_wxHtmlRenderingInfo_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7422,9 +7438,9 @@ PHP_METHOD(php_wxHtmlRenderingInfo, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlCell_free(void *object)
+void php_wxHtmlCell_free(zend_object *object)
 {
-    zo_wxHtmlCell* custom_object = (zo_wxHtmlCell*) object;
+    zo_wxHtmlCell* custom_object = php_wxHtmlCell_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7465,7 +7481,6 @@ void php_wxHtmlCell_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlCell_new(zend_class_entry *class_type)
@@ -7490,6 +7505,9 @@ zend_object* php_wxHtmlCell_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlCell_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlCell_object_handlers);
+    wxphp_wxHtmlCell_object_handlers.offset = XtOffsetOf(zo_wxHtmlCell, zo);
+    wxphp_wxHtmlCell_object_handlers.free_obj = php_wxHtmlCell_free;
     custom_object->zo.handlers = &wxphp_wxHtmlCell_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7597,7 +7615,7 @@ PHP_METHOD(php_wxHtmlCell, GetDescent)
                 php_printf("Executing RETURN_LONG(wxHtmlCell::GetDescent())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetDescent());
+                WXPHP_RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetDescent());
 
 
                 return;
@@ -7858,7 +7876,7 @@ PHP_METHOD(php_wxHtmlCell, GetHeight)
                 php_printf("Executing RETURN_LONG(wxHtmlCell::GetHeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetHeight());
+                WXPHP_RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetHeight());
 
 
                 return;
@@ -7979,7 +7997,7 @@ PHP_METHOD(php_wxHtmlCell, GetId)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlCell_php*)native_object)->GetId();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -8600,7 +8618,7 @@ PHP_METHOD(php_wxHtmlCell, GetPosX)
                 php_printf("Executing RETURN_LONG(wxHtmlCell::GetPosX())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetPosX());
+                WXPHP_RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetPosX());
 
 
                 return;
@@ -8719,7 +8737,7 @@ PHP_METHOD(php_wxHtmlCell, GetPosY)
                 php_printf("Executing RETURN_LONG(wxHtmlCell::GetPosY())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetPosY());
+                WXPHP_RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetPosY());
 
 
                 return;
@@ -8838,7 +8856,7 @@ PHP_METHOD(php_wxHtmlCell, GetWidth)
                 php_printf("Executing RETURN_LONG(wxHtmlCell::GetWidth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetWidth());
+                WXPHP_RETVAL_LONG(((wxHtmlCell_php*)native_object)->GetWidth());
 
 
                 return;
@@ -9896,9 +9914,9 @@ PHP_METHOD(php_wxHtmlCell, Find)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlContainerCell_free(void *object)
+void php_wxHtmlContainerCell_free(zend_object *object)
 {
-    zo_wxHtmlContainerCell* custom_object = (zo_wxHtmlContainerCell*) object;
+    zo_wxHtmlContainerCell* custom_object = php_wxHtmlContainerCell_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9939,7 +9957,6 @@ void php_wxHtmlContainerCell_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlContainerCell_new(zend_class_entry *class_type)
@@ -9964,6 +9981,9 @@ zend_object* php_wxHtmlContainerCell_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlContainerCell_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlContainerCell_object_handlers);
+    wxphp_wxHtmlContainerCell_object_handlers.offset = XtOffsetOf(zo_wxHtmlContainerCell, zo);
+    wxphp_wxHtmlContainerCell_object_handlers.free_obj = php_wxHtmlContainerCell_free;
     custom_object->zo.handlers = &wxphp_wxHtmlContainerCell_object_handlers;
 
     custom_object->native_object = NULL;
@@ -11391,7 +11411,7 @@ PHP_METHOD(php_wxHtmlContainerCell, GetIndentUnits)
                 php_printf("Executing RETURN_LONG(wxHtmlContainerCell::GetIndentUnits((int) ind0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetIndentUnits((int) ind0));
+                WXPHP_RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetIndentUnits((int) ind0));
 
 
                 return;
@@ -11503,7 +11523,7 @@ PHP_METHOD(php_wxHtmlContainerCell, GetIndent)
                 php_printf("Executing RETURN_LONG(wxHtmlContainerCell::GetIndent((int) ind0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetIndent((int) ind0));
+                WXPHP_RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetIndent((int) ind0));
 
 
                 return;
@@ -11725,7 +11745,7 @@ PHP_METHOD(php_wxHtmlContainerCell, GetAlignVer)
                 php_printf("Executing RETURN_LONG(wxHtmlContainerCell::GetAlignVer())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetAlignVer());
+                WXPHP_RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetAlignVer());
 
 
                 return;
@@ -11832,7 +11852,7 @@ PHP_METHOD(php_wxHtmlContainerCell, GetAlignHor)
                 php_printf("Executing RETURN_LONG(wxHtmlContainerCell::GetAlignHor())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetAlignHor());
+                WXPHP_RETVAL_LONG(((wxHtmlContainerCell_php*)native_object)->GetAlignHor());
 
 
                 return;
@@ -11855,9 +11875,9 @@ PHP_METHOD(php_wxHtmlContainerCell, GetAlignHor)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlLinkInfo_free(void *object)
+void php_wxHtmlLinkInfo_free(zend_object *object)
 {
-    zo_wxHtmlLinkInfo* custom_object = (zo_wxHtmlLinkInfo*) object;
+    zo_wxHtmlLinkInfo* custom_object = php_wxHtmlLinkInfo_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -11898,7 +11918,6 @@ void php_wxHtmlLinkInfo_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlLinkInfo_new(zend_class_entry *class_type)
@@ -11923,6 +11942,9 @@ zend_object* php_wxHtmlLinkInfo_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlLinkInfo_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlLinkInfo_object_handlers);
+    wxphp_wxHtmlLinkInfo_object_handlers.offset = XtOffsetOf(zo_wxHtmlLinkInfo, zo);
+    wxphp_wxHtmlLinkInfo_object_handlers.free_obj = php_wxHtmlLinkInfo_free;
     custom_object->zo.handlers = &wxphp_wxHtmlLinkInfo_object_handlers;
 
     custom_object->native_object = NULL;
@@ -12150,7 +12172,7 @@ PHP_METHOD(php_wxHtmlLinkInfo, GetHref)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlLinkInfo_php*)native_object)->GetHref();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12389,7 +12411,7 @@ PHP_METHOD(php_wxHtmlLinkInfo, GetTarget)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlLinkInfo_php*)native_object)->GetTarget();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -12548,9 +12570,9 @@ PHP_METHOD(php_wxHtmlLinkInfo, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlColourCell_free(void *object)
+void php_wxHtmlColourCell_free(zend_object *object)
 {
-    zo_wxHtmlColourCell* custom_object = (zo_wxHtmlColourCell*) object;
+    zo_wxHtmlColourCell* custom_object = php_wxHtmlColourCell_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12591,7 +12613,6 @@ void php_wxHtmlColourCell_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlColourCell_new(zend_class_entry *class_type)
@@ -12616,6 +12637,9 @@ zend_object* php_wxHtmlColourCell_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlColourCell_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlColourCell_object_handlers);
+    wxphp_wxHtmlColourCell_object_handlers.offset = XtOffsetOf(zo_wxHtmlColourCell, zo);
+    wxphp_wxHtmlColourCell_object_handlers.free_obj = php_wxHtmlColourCell_free;
     custom_object->zo.handlers = &wxphp_wxHtmlColourCell_object_handlers;
 
     custom_object->native_object = NULL;
@@ -12747,9 +12771,9 @@ PHP_METHOD(php_wxHtmlColourCell, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlWidgetCell_free(void *object)
+void php_wxHtmlWidgetCell_free(zend_object *object)
 {
-    zo_wxHtmlWidgetCell* custom_object = (zo_wxHtmlWidgetCell*) object;
+    zo_wxHtmlWidgetCell* custom_object = php_wxHtmlWidgetCell_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12790,7 +12814,6 @@ void php_wxHtmlWidgetCell_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlWidgetCell_new(zend_class_entry *class_type)
@@ -12815,6 +12838,9 @@ zend_object* php_wxHtmlWidgetCell_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlWidgetCell_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlWidgetCell_object_handlers);
+    wxphp_wxHtmlWidgetCell_object_handlers.offset = XtOffsetOf(zo_wxHtmlWidgetCell, zo);
+    wxphp_wxHtmlWidgetCell_object_handlers.free_obj = php_wxHtmlWidgetCell_free;
     custom_object->zo.handlers = &wxphp_wxHtmlWidgetCell_object_handlers;
 
     custom_object->native_object = NULL;
@@ -12946,9 +12972,9 @@ PHP_METHOD(php_wxHtmlWidgetCell, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlFilter_free(void *object)
+void php_wxHtmlFilter_free(zend_object *object)
 {
-    zo_wxHtmlFilter* custom_object = (zo_wxHtmlFilter*) object;
+    zo_wxHtmlFilter* custom_object = php_wxHtmlFilter_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12989,7 +13015,6 @@ void php_wxHtmlFilter_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlFilter_new(zend_class_entry *class_type)
@@ -13014,6 +13039,9 @@ zend_object* php_wxHtmlFilter_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlFilter_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlFilter_object_handlers);
+    wxphp_wxHtmlFilter_object_handlers.offset = XtOffsetOf(zo_wxHtmlFilter, zo);
+    wxphp_wxHtmlFilter_object_handlers.free_obj = php_wxHtmlFilter_free;
     custom_object->zo.handlers = &wxphp_wxHtmlFilter_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13290,9 +13318,9 @@ PHP_METHOD(php_wxHtmlFilter, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlTagHandler_free(void *object)
+void php_wxHtmlTagHandler_free(zend_object *object)
 {
-    zo_wxHtmlTagHandler* custom_object = (zo_wxHtmlTagHandler*) object;
+    zo_wxHtmlTagHandler* custom_object = php_wxHtmlTagHandler_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13333,7 +13361,6 @@ void php_wxHtmlTagHandler_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlTagHandler_new(zend_class_entry *class_type)
@@ -13358,6 +13385,9 @@ zend_object* php_wxHtmlTagHandler_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlTagHandler_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlTagHandler_object_handlers);
+    wxphp_wxHtmlTagHandler_object_handlers.offset = XtOffsetOf(zo_wxHtmlTagHandler, zo);
+    wxphp_wxHtmlTagHandler_object_handlers.free_obj = php_wxHtmlTagHandler_free;
     custom_object->zo.handlers = &wxphp_wxHtmlTagHandler_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13623,9 +13653,9 @@ PHP_METHOD(php_wxHtmlTagHandler, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlTag_free(void *object)
+void php_wxHtmlTag_free(zend_object *object)
 {
-    zo_wxHtmlTag* custom_object = (zo_wxHtmlTag*) object;
+    zo_wxHtmlTag* custom_object = php_wxHtmlTag_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13666,7 +13696,6 @@ void php_wxHtmlTag_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlTag_new(zend_class_entry *class_type)
@@ -13691,6 +13720,9 @@ zend_object* php_wxHtmlTag_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlTag_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlTag_object_handlers);
+    wxphp_wxHtmlTag_object_handlers.offset = XtOffsetOf(zo_wxHtmlTag, zo);
+    wxphp_wxHtmlTag_object_handlers.free_obj = php_wxHtmlTag_free;
     custom_object->zo.handlers = &wxphp_wxHtmlTag_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13791,7 +13823,7 @@ PHP_METHOD(php_wxHtmlTag, GetAllParams)
                 {
                     value_to_return0 = ((wxHtmlTag_php*)native_object)->GetAllParams();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -13903,7 +13935,7 @@ PHP_METHOD(php_wxHtmlTag, GetName)
                 {
                     value_to_return0 = ((wxHtmlTag_php*)native_object)->GetName();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -14022,7 +14054,7 @@ PHP_METHOD(php_wxHtmlTag, GetParam)
                 {
                     value_to_return1 = ((wxHtmlTag_php*)native_object)->GetParam(wxString(par0, wxConvUTF8));
                 }
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -14039,7 +14071,7 @@ PHP_METHOD(php_wxHtmlTag, GetParam)
                 {
                     value_to_return2 = ((wxHtmlTag_php*)native_object)->GetParam(wxString(par0, wxConvUTF8), with_quotes0);
                 }
-                RETVAL_STRING(value_to_return2.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return2.ToUTF8().data());
 
 
                 return;
@@ -14173,7 +14205,7 @@ PHP_METHOD(php_wxHtmlTag, GetParamAsColour)
 
                 if(current_object_type == PHP_WXHTMLTAG_TYPE)
                 {
-                    RETVAL_BOOL(((wxHtmlTag_php*)native_object)->GetParamAsColour(wxString(par0, wxConvUTF8), (wxColour*) object_pointer0_1));
+                    WXPHP_RETVAL_BOOL(((wxHtmlTag_php*)native_object)->GetParamAsColour(wxString(par0, wxConvUTF8), (wxColour*) object_pointer0_1));
                 }
 
                 references->AddReference(clr0, "wxHtmlTag::GetParamAsColour at call 1 with 2 argument(s)");
@@ -14284,7 +14316,7 @@ PHP_METHOD(php_wxHtmlTag, HasEnding)
 
                 if(current_object_type == PHP_WXHTMLTAG_TYPE)
                 {
-                    RETVAL_BOOL(((wxHtmlTag_php*)native_object)->HasEnding());
+                    WXPHP_RETVAL_BOOL(((wxHtmlTag_php*)native_object)->HasEnding());
                 }
 
 
@@ -14400,7 +14432,7 @@ PHP_METHOD(php_wxHtmlTag, HasParam)
 
                 if(current_object_type == PHP_WXHTMLTAG_TYPE)
                 {
-                    RETVAL_BOOL(((wxHtmlTag_php*)native_object)->HasParam(wxString(par0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxHtmlTag_php*)native_object)->HasParam(wxString(par0, wxConvUTF8)));
                 }
 
 
@@ -14534,7 +14566,7 @@ PHP_METHOD(php_wxHtmlTag, ParseAsColour)
                 php_printf("Executing RETURN_BOOL(wxHtmlTag::ParseAsColour(wxString(str0, wxConvUTF8), (wxColour*) object_pointer0_1))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxHtmlTag::ParseAsColour(wxString(str0, wxConvUTF8), (wxColour*) object_pointer0_1));
+                WXPHP_RETVAL_BOOL(wxHtmlTag::ParseAsColour(wxString(str0, wxConvUTF8), (wxColour*) object_pointer0_1));
 
 
                 return;
@@ -14657,7 +14689,7 @@ PHP_METHOD(php_wxHtmlTag, ScanParam)
 
                 if(current_object_type == PHP_WXHTMLTAG_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlTag_php*)native_object)->ScanParam(wxString(par0, wxConvUTF8), format0, (void*) value0));
+                    WXPHP_RETVAL_LONG(((wxHtmlTag_php*)native_object)->ScanParam(wxString(par0, wxConvUTF8), format0, (void*) value0));
                 }
 
                 ZVAL_STRING(&value0_ref, (char*) value0);
@@ -14779,7 +14811,7 @@ PHP_METHOD(php_wxHtmlTag, GetParamAsInt)
 
                 if(current_object_type == PHP_WXHTMLTAG_TYPE)
                 {
-                    RETVAL_BOOL(((wxHtmlTag_php*)native_object)->GetParamAsInt(wxString(par0, wxConvUTF8), (int*) value0));
+                    WXPHP_RETVAL_BOOL(((wxHtmlTag_php*)native_object)->GetParamAsInt(wxString(par0, wxConvUTF8), (int*) value0));
                 }
 
                 size_t elements_returned0_1 = sizeof(value0)/sizeof(*value0);
@@ -14809,9 +14841,9 @@ PHP_METHOD(php_wxHtmlTag, GetParamAsInt)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlWindow_free(void *object)
+void php_wxHtmlWindow_free(zend_object *object)
 {
-    zo_wxHtmlWindow* custom_object = (zo_wxHtmlWindow*) object;
+    zo_wxHtmlWindow* custom_object = php_wxHtmlWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14823,7 +14855,6 @@ void php_wxHtmlWindow_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlWindow_new(zend_class_entry *class_type)
@@ -14848,6 +14879,9 @@ zend_object* php_wxHtmlWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlWindow_object_handlers);
+    wxphp_wxHtmlWindow_object_handlers.offset = XtOffsetOf(zo_wxHtmlWindow, zo);
+    wxphp_wxHtmlWindow_object_handlers.free_obj = php_wxHtmlWindow_free;
     custom_object->zo.handlers = &wxphp_wxHtmlWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -14949,7 +14983,7 @@ PHP_METHOD(php_wxHtmlWindow, AppendToPage)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::AppendToPage(wxString(source0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->AppendToPage(wxString(source0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->AppendToPage(wxString(source0, wxConvUTF8)));
 
 
                 return;
@@ -15058,7 +15092,7 @@ PHP_METHOD(php_wxHtmlWindow, GetOpenedAnchor)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlWindow_php*)native_object)->GetOpenedAnchor();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -15167,7 +15201,7 @@ PHP_METHOD(php_wxHtmlWindow, GetOpenedPage)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlWindow_php*)native_object)->GetOpenedPage();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -15276,7 +15310,7 @@ PHP_METHOD(php_wxHtmlWindow, GetOpenedPageTitle)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlWindow_php*)native_object)->GetOpenedPageTitle();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -15513,7 +15547,7 @@ PHP_METHOD(php_wxHtmlWindow, HistoryBack)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::HistoryBack())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryBack());
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryBack());
 
 
                 return;
@@ -15620,7 +15654,7 @@ PHP_METHOD(php_wxHtmlWindow, HistoryCanBack)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::HistoryCanBack())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryCanBack());
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryCanBack());
 
 
                 return;
@@ -15727,7 +15761,7 @@ PHP_METHOD(php_wxHtmlWindow, HistoryCanForward)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::HistoryCanForward())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryCanForward());
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryCanForward());
 
 
                 return;
@@ -15941,7 +15975,7 @@ PHP_METHOD(php_wxHtmlWindow, HistoryForward)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::HistoryForward())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryForward());
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->HistoryForward());
 
 
                 return;
@@ -16054,7 +16088,7 @@ PHP_METHOD(php_wxHtmlWindow, LoadPage)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::LoadPage(wxString(location0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->LoadPage(wxString(location0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->LoadPage(wxString(location0, wxConvUTF8)));
 
 
                 return;
@@ -16184,7 +16218,7 @@ PHP_METHOD(php_wxHtmlWindow, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::LoadFile(*(wxFileName*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->LoadFile(*(wxFileName*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->LoadFile(*(wxFileName*) object_pointer0_0));
 
                 references->AddReference(filename0, "wxHtmlWindow::LoadFile at call 3 with 1 argument(s)");
 
@@ -17144,7 +17178,7 @@ PHP_METHOD(php_wxHtmlWindow, SelectionToText)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlWindow_php*)native_object)->SelectionToText();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -17369,7 +17403,7 @@ PHP_METHOD(php_wxHtmlWindow, SetPage)
                 php_printf("Executing RETURN_BOOL(wxHtmlWindow::SetPage(wxString(source0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->SetPage(wxString(source0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlWindow_php*)native_object)->SetPage(wxString(source0, wxConvUTF8)));
 
 
                 return;
@@ -17948,7 +17982,7 @@ PHP_METHOD(php_wxHtmlWindow, ToText)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlWindow_php*)native_object)->ToText();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -18782,9 +18816,9 @@ PHP_METHOD(php_wxHtmlWindow, SetFonts)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlDCRenderer_free(void *object)
+void php_wxHtmlDCRenderer_free(zend_object *object)
 {
-    zo_wxHtmlDCRenderer* custom_object = (zo_wxHtmlDCRenderer*) object;
+    zo_wxHtmlDCRenderer* custom_object = php_wxHtmlDCRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -18825,7 +18859,6 @@ void php_wxHtmlDCRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlDCRenderer_new(zend_class_entry *class_type)
@@ -18850,6 +18883,9 @@ zend_object* php_wxHtmlDCRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlDCRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlDCRenderer_object_handlers);
+    wxphp_wxHtmlDCRenderer_object_handlers.offset = XtOffsetOf(zo_wxHtmlDCRenderer, zo);
+    wxphp_wxHtmlDCRenderer_object_handlers.free_obj = php_wxHtmlDCRenderer_free;
     custom_object->zo.handlers = &wxphp_wxHtmlDCRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -18945,7 +18981,7 @@ PHP_METHOD(php_wxHtmlDCRenderer, GetTotalHeight)
                 php_printf("Executing RETURN_LONG(wxHtmlDCRenderer::GetTotalHeight())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlDCRenderer_php*)native_object)->GetTotalHeight());
+                WXPHP_RETVAL_LONG(((wxHtmlDCRenderer_php*)native_object)->GetTotalHeight());
 
 
                 return;
@@ -19052,7 +19088,7 @@ PHP_METHOD(php_wxHtmlDCRenderer, GetTotalWidth)
                 php_printf("Executing RETURN_LONG(wxHtmlDCRenderer::GetTotalWidth())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxHtmlDCRenderer_php*)native_object)->GetTotalWidth());
+                WXPHP_RETVAL_LONG(((wxHtmlDCRenderer_php*)native_object)->GetTotalWidth());
 
 
                 return;
@@ -20001,9 +20037,9 @@ PHP_METHOD(php_wxHtmlDCRenderer, Render)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlEasyPrinting_free(void *object)
+void php_wxHtmlEasyPrinting_free(zend_object *object)
 {
-    zo_wxHtmlEasyPrinting* custom_object = (zo_wxHtmlEasyPrinting*) object;
+    zo_wxHtmlEasyPrinting* custom_object = php_wxHtmlEasyPrinting_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -20044,7 +20080,6 @@ void php_wxHtmlEasyPrinting_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlEasyPrinting_new(zend_class_entry *class_type)
@@ -20069,6 +20104,9 @@ zend_object* php_wxHtmlEasyPrinting_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlEasyPrinting_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlEasyPrinting_object_handlers);
+    wxphp_wxHtmlEasyPrinting_object_handlers.offset = XtOffsetOf(zo_wxHtmlEasyPrinting, zo);
+    wxphp_wxHtmlEasyPrinting_object_handlers.free_obj = php_wxHtmlEasyPrinting_free;
     custom_object->zo.handlers = &wxphp_wxHtmlEasyPrinting_object_handlers;
 
     custom_object->native_object = NULL;
@@ -20166,7 +20204,7 @@ PHP_METHOD(php_wxHtmlEasyPrinting, GetName)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxHtmlEasyPrinting_php*)native_object)->GetName();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -20776,7 +20814,7 @@ PHP_METHOD(php_wxHtmlEasyPrinting, PreviewFile)
                 php_printf("Executing RETURN_BOOL(wxHtmlEasyPrinting::PreviewFile(wxString(htmlfile0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PreviewFile(wxString(htmlfile0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PreviewFile(wxString(htmlfile0, wxConvUTF8)));
 
 
                 return;
@@ -20891,7 +20929,7 @@ PHP_METHOD(php_wxHtmlEasyPrinting, PreviewText)
                 php_printf("Executing RETURN_BOOL(wxHtmlEasyPrinting::PreviewText(wxString(htmltext0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PreviewText(wxString(htmltext0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PreviewText(wxString(htmltext0, wxConvUTF8)));
 
 
                 return;
@@ -20903,7 +20941,7 @@ PHP_METHOD(php_wxHtmlEasyPrinting, PreviewText)
                 php_printf("Executing RETURN_BOOL(wxHtmlEasyPrinting::PreviewText(wxString(htmltext0, wxConvUTF8), wxString(basepath0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PreviewText(wxString(htmltext0, wxConvUTF8), wxString(basepath0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PreviewText(wxString(htmltext0, wxConvUTF8), wxString(basepath0, wxConvUTF8)));
 
 
                 return;
@@ -21016,7 +21054,7 @@ PHP_METHOD(php_wxHtmlEasyPrinting, PrintFile)
                 php_printf("Executing RETURN_BOOL(wxHtmlEasyPrinting::PrintFile(wxString(htmlfile0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PrintFile(wxString(htmlfile0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PrintFile(wxString(htmlfile0, wxConvUTF8)));
 
 
                 return;
@@ -21131,7 +21169,7 @@ PHP_METHOD(php_wxHtmlEasyPrinting, PrintText)
                 php_printf("Executing RETURN_BOOL(wxHtmlEasyPrinting::PrintText(wxString(htmltext0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PrintText(wxString(htmltext0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PrintText(wxString(htmltext0, wxConvUTF8)));
 
 
                 return;
@@ -21143,7 +21181,7 @@ PHP_METHOD(php_wxHtmlEasyPrinting, PrintText)
                 php_printf("Executing RETURN_BOOL(wxHtmlEasyPrinting::PrintText(wxString(htmltext0, wxConvUTF8), wxString(basepath0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PrintText(wxString(htmltext0, wxConvUTF8), wxString(basepath0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxHtmlEasyPrinting_php*)native_object)->PrintText(wxString(htmltext0, wxConvUTF8), wxString(basepath0, wxConvUTF8)));
 
 
                 return;
@@ -22099,9 +22137,9 @@ PHP_METHOD(php_wxHtmlEasyPrinting, SetFonts)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlPrintout_free(void *object)
+void php_wxHtmlPrintout_free(zend_object *object)
 {
-    zo_wxHtmlPrintout* custom_object = (zo_wxHtmlPrintout*) object;
+    zo_wxHtmlPrintout* custom_object = php_wxHtmlPrintout_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -22142,7 +22180,6 @@ void php_wxHtmlPrintout_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlPrintout_new(zend_class_entry *class_type)
@@ -22167,6 +22204,9 @@ zend_object* php_wxHtmlPrintout_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlPrintout_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlPrintout_object_handlers);
+    wxphp_wxHtmlPrintout_object_handlers.offset = XtOffsetOf(zo_wxHtmlPrintout, zo);
+    wxphp_wxHtmlPrintout_object_handlers.free_obj = php_wxHtmlPrintout_free;
     custom_object->zo.handlers = &wxphp_wxHtmlPrintout_object_handlers;
 
     custom_object->native_object = NULL;
@@ -23303,9 +23343,9 @@ PHP_METHOD(php_wxHtmlPrintout, AddFilter)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlTagsModule_free(void *object)
+void php_wxHtmlTagsModule_free(zend_object *object)
 {
-    zo_wxHtmlTagsModule* custom_object = (zo_wxHtmlTagsModule*) object;
+    zo_wxHtmlTagsModule* custom_object = php_wxHtmlTagsModule_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -23346,7 +23386,6 @@ void php_wxHtmlTagsModule_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlTagsModule_new(zend_class_entry *class_type)
@@ -23371,6 +23410,9 @@ zend_object* php_wxHtmlTagsModule_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlTagsModule_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlTagsModule_object_handlers);
+    wxphp_wxHtmlTagsModule_object_handlers.offset = XtOffsetOf(zo_wxHtmlTagsModule, zo);
+    wxphp_wxHtmlTagsModule_object_handlers.free_obj = php_wxHtmlTagsModule_free;
     custom_object->zo.handlers = &wxphp_wxHtmlTagsModule_object_handlers;
 
     custom_object->native_object = NULL;
@@ -23516,9 +23558,9 @@ PHP_METHOD(php_wxHtmlTagsModule, FillHandlersTable)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxHtmlWinTagHandler_free(void *object)
+void php_wxHtmlWinTagHandler_free(zend_object *object)
 {
-    zo_wxHtmlWinTagHandler* custom_object = (zo_wxHtmlWinTagHandler*) object;
+    zo_wxHtmlWinTagHandler* custom_object = php_wxHtmlWinTagHandler_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -23559,7 +23601,6 @@ void php_wxHtmlWinTagHandler_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlWinTagHandler_new(zend_class_entry *class_type)
@@ -23584,6 +23625,9 @@ zend_object* php_wxHtmlWinTagHandler_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlWinTagHandler_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlWinTagHandler_object_handlers);
+    wxphp_wxHtmlWinTagHandler_object_handlers.offset = XtOffsetOf(zo_wxHtmlWinTagHandler, zo);
+    wxphp_wxHtmlWinTagHandler_object_handlers.free_obj = php_wxHtmlWinTagHandler_free;
     custom_object->zo.handlers = &wxphp_wxHtmlWinTagHandler_object_handlers;
 
     custom_object->native_object = NULL;
@@ -23595,9 +23639,9 @@ zend_object* php_wxHtmlWinTagHandler_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxHtmlWinParser_free(void *object)
+void php_wxHtmlWinParser_free(zend_object *object)
 {
-    zo_wxHtmlWinParser* custom_object = (zo_wxHtmlWinParser*) object;
+    zo_wxHtmlWinParser* custom_object = php_wxHtmlWinParser_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -23638,7 +23682,6 @@ void php_wxHtmlWinParser_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxHtmlWinParser_new(zend_class_entry *class_type)
@@ -23663,6 +23706,9 @@ zend_object* php_wxHtmlWinParser_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxHtmlWinParser_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxHtmlWinParser_object_handlers);
+    wxphp_wxHtmlWinParser_object_handlers.offset = XtOffsetOf(zo_wxHtmlWinParser, zo);
+    wxphp_wxHtmlWinParser_object_handlers.free_obj = php_wxHtmlWinParser_free;
     custom_object->zo.handlers = &wxphp_wxHtmlWinParser_object_handlers;
 
     custom_object->native_object = NULL;
@@ -24287,7 +24333,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetAlign)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetAlign());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetAlign());
                 }
 
 
@@ -24397,7 +24443,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetCharHeight)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetCharHeight());
                 }
 
 
@@ -24507,7 +24553,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetCharWidth)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetCharWidth());
                 }
 
 
@@ -24883,7 +24929,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetFontBold)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontBold());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontBold());
                 }
 
 
@@ -24996,7 +25042,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetFontFace)
                 {
                     value_to_return0 = ((wxHtmlWinParser_php*)native_object)->GetFontFace();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -25105,7 +25151,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetFontFixed)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontFixed());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontFixed());
                 }
 
 
@@ -25215,7 +25261,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetFontItalic)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontItalic());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontItalic());
                 }
 
 
@@ -25325,7 +25371,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetFontSize)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontSize());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontSize());
                 }
 
 
@@ -25435,7 +25481,7 @@ PHP_METHOD(php_wxHtmlWinParser, GetFontUnderlined)
 
                 if(current_object_type == PHP_WXHTMLWINPARSER_TYPE)
                 {
-                    RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontUnderlined());
+                    WXPHP_RETVAL_LONG(((wxHtmlWinParser_php*)native_object)->GetFontUnderlined());
                 }
 
 

@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxURI_free(void *object)
+void php_wxURI_free(zend_object *object)
 {
-    zo_wxURI* custom_object = (zo_wxURI*) object;
+    zo_wxURI* custom_object = php_wxURI_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxURI_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxURI_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxURI_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxURI_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxURI_object_handlers);
+    wxphp_wxURI_object_handlers.offset = XtOffsetOf(zo_wxURI, zo);
+    wxphp_wxURI_object_handlers.free_obj = php_wxURI_free;
     custom_object->zo.handlers = &wxphp_wxURI_object_handlers;
 
     custom_object->native_object = NULL;
@@ -218,7 +220,7 @@ PHP_METHOD(php_wxURI, BuildURI)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->BuildURI();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -327,7 +329,7 @@ PHP_METHOD(php_wxURI, BuildUnescapedURI)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->BuildUnescapedURI();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -440,7 +442,7 @@ PHP_METHOD(php_wxURI, Create)
                 php_printf("Executing RETURN_BOOL(wxURI::Create(wxString(uri0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->Create(wxString(uri0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->Create(wxString(uri0, wxConvUTF8)));
 
 
                 return;
@@ -549,7 +551,7 @@ PHP_METHOD(php_wxURI, GetFragment)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetFragment();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -656,7 +658,7 @@ PHP_METHOD(php_wxURI, GetHostType)
                 php_printf("Executing RETURN_LONG(wxURI::GetHostType())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxURI_php*)native_object)->GetHostType());
+                WXPHP_RETVAL_LONG(((wxURI_php*)native_object)->GetHostType());
 
 
                 return;
@@ -765,7 +767,7 @@ PHP_METHOD(php_wxURI, GetPassword)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetPassword();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -874,7 +876,7 @@ PHP_METHOD(php_wxURI, GetPath)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetPath();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -983,7 +985,7 @@ PHP_METHOD(php_wxURI, GetPort)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetPort();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -1280,7 +1282,7 @@ PHP_METHOD(php_wxURI, Unescape)
 
                 wxString value_to_return1;
                 value_to_return1 = wxURI::Unescape(wxString(uri0, wxConvUTF8));
-                RETVAL_STRING(value_to_return1.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return1.ToUTF8().data());
 
 
                 return;
@@ -1532,7 +1534,7 @@ PHP_METHOD(php_wxURI, IsReference)
                 php_printf("Executing RETURN_BOOL(wxURI::IsReference())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->IsReference());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->IsReference());
 
 
                 return;
@@ -1639,7 +1641,7 @@ PHP_METHOD(php_wxURI, HasUserInfo)
                 php_printf("Executing RETURN_BOOL(wxURI::HasUserInfo())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->HasUserInfo());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->HasUserInfo());
 
 
                 return;
@@ -1746,7 +1748,7 @@ PHP_METHOD(php_wxURI, HasServer)
                 php_printf("Executing RETURN_BOOL(wxURI::HasServer())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->HasServer());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->HasServer());
 
 
                 return;
@@ -1853,7 +1855,7 @@ PHP_METHOD(php_wxURI, HasScheme)
                 php_printf("Executing RETURN_BOOL(wxURI::HasScheme())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->HasScheme());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->HasScheme());
 
 
                 return;
@@ -1960,7 +1962,7 @@ PHP_METHOD(php_wxURI, HasQuery)
                 php_printf("Executing RETURN_BOOL(wxURI::HasQuery())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->HasQuery());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->HasQuery());
 
 
                 return;
@@ -2067,7 +2069,7 @@ PHP_METHOD(php_wxURI, HasPort)
                 php_printf("Executing RETURN_BOOL(wxURI::HasPort())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->HasPort());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->HasPort());
 
 
                 return;
@@ -2174,7 +2176,7 @@ PHP_METHOD(php_wxURI, HasPath)
                 php_printf("Executing RETURN_BOOL(wxURI::HasPath())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->HasPath());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->HasPath());
 
 
                 return;
@@ -2281,7 +2283,7 @@ PHP_METHOD(php_wxURI, HasFragment)
                 php_printf("Executing RETURN_BOOL(wxURI::HasFragment())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxURI_php*)native_object)->HasFragment());
+                WXPHP_RETVAL_BOOL(((wxURI_php*)native_object)->HasFragment());
 
 
                 return;
@@ -2390,7 +2392,7 @@ PHP_METHOD(php_wxURI, GetUserInfo)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetUserInfo();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -2499,7 +2501,7 @@ PHP_METHOD(php_wxURI, GetUser)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetUser();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -2608,7 +2610,7 @@ PHP_METHOD(php_wxURI, GetServer)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetServer();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -2717,7 +2719,7 @@ PHP_METHOD(php_wxURI, GetScheme)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetScheme();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -2826,7 +2828,7 @@ PHP_METHOD(php_wxURI, GetQuery)
 
                 wxString value_to_return0;
                 value_to_return0 = ((wxURI_php*)native_object)->GetQuery();
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;

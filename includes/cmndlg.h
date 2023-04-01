@@ -43,7 +43,7 @@ typedef struct _zo_wxAboutDialogInfo{
     zend_object zo;
 } zo_wxAboutDialogInfo;
 
-void php_wxAboutDialogInfo_free(void *object);
+void php_wxAboutDialogInfo_free(zend_object *object);
 zend_object* php_wxAboutDialogInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -107,7 +107,7 @@ typedef struct _zo_wxBusyInfo{
     zend_object zo;
 } zo_wxBusyInfo;
 
-void php_wxBusyInfo_free(void *object);
+void php_wxBusyInfo_free(zend_object *object);
 zend_object* php_wxBusyInfo_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -151,7 +151,7 @@ typedef struct _zo_wxSingleChoiceDialog{
     zend_object zo;
 } zo_wxSingleChoiceDialog;
 
-void php_wxSingleChoiceDialog_free(void *object);
+void php_wxSingleChoiceDialog_free(zend_object *object);
 zend_object* php_wxSingleChoiceDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -201,7 +201,7 @@ typedef struct _zo_wxPrintDialogData{
     zend_object zo;
 } zo_wxPrintDialogData;
 
-void php_wxPrintDialogData_free(void *object);
+void php_wxPrintDialogData_free(zend_object *object);
 zend_object* php_wxPrintDialogData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -268,7 +268,7 @@ typedef struct _zo_wxColourDialog{
     zend_object zo;
 } zo_wxColourDialog;
 
-void php_wxColourDialog_free(void *object);
+void php_wxColourDialog_free(zend_object *object);
 zend_object* php_wxColourDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -314,7 +314,7 @@ typedef struct _zo_wxColourData{
     zend_object zo;
 } zo_wxColourData;
 
-void php_wxColourData_free(void *object);
+void php_wxColourData_free(zend_object *object);
 zend_object* php_wxColourData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -366,7 +366,7 @@ typedef struct _zo_wxDialog{
     zend_object zo;
 } zo_wxDialog;
 
-void php_wxDialog_free(void *object);
+void php_wxDialog_free(zend_object *object);
 zend_object* php_wxDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -441,7 +441,7 @@ typedef struct _zo_wxDirDialog{
     zend_object zo;
 } zo_wxDirDialog;
 
-void php_wxDirDialog_free(void *object);
+void php_wxDirDialog_free(zend_object *object);
 zend_object* php_wxDirDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -489,7 +489,7 @@ typedef struct _zo_wxFindReplaceData{
     zend_object zo;
 } zo_wxFindReplaceData;
 
-void php_wxFindReplaceData_free(void *object);
+void php_wxFindReplaceData_free(zend_object *object);
 zend_object* php_wxFindReplaceData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -539,7 +539,7 @@ typedef struct _zo_wxFindReplaceDialog{
     zend_object zo;
 } zo_wxFindReplaceDialog;
 
-void php_wxFindReplaceDialog_free(void *object);
+void php_wxFindReplaceDialog_free(zend_object *object);
 zend_object* php_wxFindReplaceDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -584,7 +584,7 @@ typedef struct _zo_wxFileDialog{
     zend_object zo;
 } zo_wxFileDialog;
 
-void php_wxFileDialog_free(void *object);
+void php_wxFileDialog_free(zend_object *object);
 zend_object* php_wxFileDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -643,7 +643,7 @@ typedef struct _zo_wxFontData{
     zend_object zo;
 } zo_wxFontData;
 
-void php_wxFontData_free(void *object);
+void php_wxFontData_free(zend_object *object);
 zend_object* php_wxFontData_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -701,7 +701,7 @@ typedef struct _zo_wxFontDialog{
     zend_object zo;
 } zo_wxFontDialog;
 
-void php_wxFontDialog_free(void *object);
+void php_wxFontDialog_free(zend_object *object);
 zend_object* php_wxFontDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -747,7 +747,7 @@ typedef struct _zo_wxMessageDialog{
     zend_object zo;
 } zo_wxMessageDialog;
 
-void php_wxMessageDialog_free(void *object);
+void php_wxMessageDialog_free(zend_object *object);
 zend_object* php_wxMessageDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -809,7 +809,7 @@ typedef struct _zo_wxGenericProgressDialog{
     zend_object zo;
 } zo_wxGenericProgressDialog;
 
-void php_wxGenericProgressDialog_free(void *object);
+void php_wxGenericProgressDialog_free(zend_object *object);
 zend_object* php_wxGenericProgressDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -861,7 +861,7 @@ typedef struct _zo_wxRearrangeDialog{
     zend_object zo;
 } zo_wxRearrangeDialog;
 
-void php_wxRearrangeDialog_free(void *object);
+void php_wxRearrangeDialog_free(zend_object *object);
 zend_object* php_wxRearrangeDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -907,7 +907,7 @@ typedef struct _zo_wxSymbolPickerDialog{
     zend_object zo;
 } zo_wxSymbolPickerDialog;
 
-void php_wxSymbolPickerDialog_free(void *object);
+void php_wxSymbolPickerDialog_free(zend_object *object);
 zend_object* php_wxSymbolPickerDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -963,7 +963,7 @@ typedef struct _zo_wxPasswordEntryDialog{
     zend_object zo;
 } zo_wxPasswordEntryDialog;
 
-void php_wxPasswordEntryDialog_free(void *object);
+void php_wxPasswordEntryDialog_free(zend_object *object);
 zend_object* php_wxPasswordEntryDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1007,7 +1007,7 @@ typedef struct _zo_wxTextEntryDialog{
     zend_object zo;
 } zo_wxTextEntryDialog;
 
-void php_wxTextEntryDialog_free(void *object);
+void php_wxTextEntryDialog_free(zend_object *object);
 zend_object* php_wxTextEntryDialog_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -1054,7 +1054,7 @@ typedef struct _zo_wxWizard{
     zend_object zo;
 } zo_wxWizard;
 
-void php_wxWizard_free(void *object);
+void php_wxWizard_free(zend_object *object);
 zend_object* php_wxWizard_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxDC_free(void *object)
+void php_wxDC_free(zend_object *object)
 {
-    zo_wxDC* custom_object = (zo_wxDC*) object;
+    zo_wxDC* custom_object = php_wxDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -96,7 +96,6 @@ void php_wxDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxDC_new(zend_class_entry *class_type)
@@ -121,6 +120,9 @@ zend_object* php_wxDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxDC_object_handlers);
+    wxphp_wxDC_object_handlers.offset = XtOffsetOf(zo_wxDC, zo);
+    wxphp_wxDC_object_handlers.free_obj = php_wxDC_free;
     custom_object->zo.handlers = &wxphp_wxDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -466,51 +468,51 @@ PHP_METHOD(php_wxDC, StartDoc)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->StartDoc(wxString(message0, wxConvUTF8)));
                 }
 
 
@@ -1516,51 +1518,51 @@ PHP_METHOD(php_wxDC, CanUseTransformMatrix)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->CanUseTransformMatrix());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->CanUseTransformMatrix());
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->CanUseTransformMatrix());
                 }
 
 
@@ -2647,51 +2649,51 @@ PHP_METHOD(php_wxDC, DeviceToLogicalX)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalX((wxCoord) x0));
                 }
 
 
@@ -2850,51 +2852,51 @@ PHP_METHOD(php_wxDC, DeviceToLogicalXRel)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalXRel((wxCoord) x0));
                 }
 
 
@@ -3053,51 +3055,51 @@ PHP_METHOD(php_wxDC, DeviceToLogicalY)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalY((wxCoord) y0));
                 }
 
 
@@ -3256,51 +3258,51 @@ PHP_METHOD(php_wxDC, DeviceToLogicalYRel)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->DeviceToLogicalYRel((wxCoord) y0));
                 }
 
 
@@ -9548,51 +9550,51 @@ PHP_METHOD(php_wxDC, FloodFill)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2));
                 }
 
                 references->AddReference(colour0, "wxDC::FloodFill at call 3 with 3 argument(s)");
@@ -9608,51 +9610,51 @@ PHP_METHOD(php_wxDC, FloodFill)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill((wxCoord) x0, (wxCoord) y0, *(wxColour*) object_pointer0_2, (wxFloodFillStyle) style0));
                 }
 
                 references->AddReference(colour0, "wxDC::FloodFill at call 3 with 4 argument(s)");
@@ -9675,51 +9677,51 @@ PHP_METHOD(php_wxDC, FloodFill)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1));
                 }
 
                 references->AddReference(pt1, "wxDC::FloodFill at call 3 with 2 argument(s)");
@@ -9736,51 +9738,51 @@ PHP_METHOD(php_wxDC, FloodFill)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->FloodFill(*(wxPoint*) object_pointer1_0, *(wxColour*) object_pointer1_1, (wxFloodFillStyle) style1));
                 }
 
                 references->AddReference(pt1, "wxDC::FloodFill at call 3 with 3 argument(s)");
@@ -10165,51 +10167,51 @@ PHP_METHOD(php_wxDC, GetBackgroundMode)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetBackgroundMode());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->GetBackgroundMode());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->GetBackgroundMode());
                 }
 
 
@@ -10592,51 +10594,51 @@ PHP_METHOD(php_wxDC, GetCharHeight)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetCharHeight());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->GetCharHeight());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->GetCharHeight());
                 }
 
 
@@ -10790,51 +10792,51 @@ PHP_METHOD(php_wxDC, GetCharWidth)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetCharWidth());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->GetCharWidth());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->GetCharWidth());
                 }
 
 
@@ -11035,51 +11037,51 @@ PHP_METHOD(php_wxDC, GetClippingBox)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->GetClippingBox((wxCoord*) x0, (wxCoord*) y0, (wxCoord*) width0, (wxCoord*) height0));
                 }
 
 
@@ -11101,51 +11103,51 @@ PHP_METHOD(php_wxDC, GetClippingBox)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->GetClippingBox(*(wxRect*) object_pointer1_0));
                 }
 
                 references->AddReference(rect1, "wxDC::GetClippingBox at call 3 with 1 argument(s)");
@@ -11300,51 +11302,51 @@ PHP_METHOD(php_wxDC, GetDepth)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetDepth());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->GetDepth());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->GetDepth());
                 }
 
 
@@ -11998,51 +12000,51 @@ PHP_METHOD(php_wxDC, GetLayoutDirection)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetLayoutDirection());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->GetLayoutDirection());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->GetLayoutDirection());
                 }
 
 
@@ -12196,51 +12198,51 @@ PHP_METHOD(php_wxDC, GetLogicalFunction)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetLogicalFunction());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->GetLogicalFunction());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->GetLogicalFunction());
                 }
 
 
@@ -12974,51 +12976,51 @@ PHP_METHOD(php_wxDC, GetMapMode)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->GetMapMode());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->GetMapMode());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->GetMapMode());
                 }
 
 
@@ -14203,51 +14205,51 @@ PHP_METHOD(php_wxDC, GetPixel)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->GetPixel((wxCoord) x0, (wxCoord) y0, (wxColour*) object_pointer0_2));
                 }
 
                 references->AddReference(colour0, "wxDC::GetPixel at call 1 with 3 argument(s)");
@@ -17118,51 +17120,51 @@ PHP_METHOD(php_wxDC, IsOk)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->IsOk());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->IsOk());
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->IsOk());
                 }
 
 
@@ -17321,51 +17323,51 @@ PHP_METHOD(php_wxDC, LogicalToDeviceX)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceX((wxCoord) x0));
                 }
 
 
@@ -17524,51 +17526,51 @@ PHP_METHOD(php_wxDC, LogicalToDeviceY)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceY((wxCoord) y0));
                 }
 
 
@@ -17727,51 +17729,51 @@ PHP_METHOD(php_wxDC, LogicalToDeviceXRel)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceXRel((wxCoord) x0));
                 }
 
 
@@ -17930,51 +17932,51 @@ PHP_METHOD(php_wxDC, LogicalToDeviceYRel)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->LogicalToDeviceYRel((wxCoord) y0));
                 }
 
 
@@ -18128,51 +18130,51 @@ PHP_METHOD(php_wxDC, MaxX)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->MaxX());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->MaxX());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->MaxX());
                 }
 
 
@@ -18326,51 +18328,51 @@ PHP_METHOD(php_wxDC, MaxY)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->MaxY());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->MaxY());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->MaxY());
                 }
 
 
@@ -18524,51 +18526,51 @@ PHP_METHOD(php_wxDC, MinX)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->MinX());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->MinX());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->MinX());
                 }
 
 
@@ -18722,51 +18724,51 @@ PHP_METHOD(php_wxDC, MinY)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_LONG(((wxWindowDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxWindowDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxClientDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxClientDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPaintDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxPaintDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_LONG(((wxScreenDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxScreenDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxPostScriptDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_LONG(((wxPrinterDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxPrinterDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMemoryDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxMemoryDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxBufferedDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxBufferedPaintDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxAutoBufferedPaintDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_LONG(((wxMirrorDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxMirrorDC_php*)native_object)->MinY());
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_LONG(((wxDC_php*)native_object)->MinY());
+                    WXPHP_RETVAL_LONG(((wxDC_php*)native_object)->MinY());
                 }
 
 
@@ -22749,51 +22751,51 @@ PHP_METHOD(php_wxDC, StretchBlit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0));
                 }
 
                 references->AddReference(source0, "wxDC::StretchBlit at call 1 with 9 argument(s)");
@@ -22809,51 +22811,51 @@ PHP_METHOD(php_wxDC, StretchBlit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0));
                 }
 
                 references->AddReference(source0, "wxDC::StretchBlit at call 1 with 10 argument(s)");
@@ -22869,51 +22871,51 @@ PHP_METHOD(php_wxDC, StretchBlit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
 
                 references->AddReference(source0, "wxDC::StretchBlit at call 1 with 11 argument(s)");
@@ -22929,51 +22931,51 @@ PHP_METHOD(php_wxDC, StretchBlit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
 
                 references->AddReference(source0, "wxDC::StretchBlit at call 1 with 12 argument(s)");
@@ -22989,51 +22991,51 @@ PHP_METHOD(php_wxDC, StretchBlit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->StretchBlit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) dstWidth0, (wxCoord) dstHeight0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxCoord) srcWidth0, (wxCoord) srcHeight0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
 
                 references->AddReference(source0, "wxDC::StretchBlit at call 1 with 13 argument(s)");
@@ -23221,51 +23223,51 @@ PHP_METHOD(php_wxDC, Blit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0));
                 }
 
                 references->AddReference(source0, "wxDC::Blit at call 1 with 7 argument(s)");
@@ -23281,51 +23283,51 @@ PHP_METHOD(php_wxDC, Blit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0));
                 }
 
                 references->AddReference(source0, "wxDC::Blit at call 1 with 8 argument(s)");
@@ -23341,51 +23343,51 @@ PHP_METHOD(php_wxDC, Blit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0));
                 }
 
                 references->AddReference(source0, "wxDC::Blit at call 1 with 9 argument(s)");
@@ -23401,51 +23403,51 @@ PHP_METHOD(php_wxDC, Blit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0));
                 }
 
                 references->AddReference(source0, "wxDC::Blit at call 1 with 10 argument(s)");
@@ -23461,51 +23463,51 @@ PHP_METHOD(php_wxDC, Blit)
 
                 if(current_object_type == PHP_WXWINDOWDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxWindowDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXCLIENTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxClientDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXSCREENDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxScreenDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXPOSTSCRIPTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPostScriptDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXPRINTERDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxPrinterDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXMEMORYDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMemoryDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXAUTOBUFFEREDPAINTDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxAutoBufferedPaintDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXMIRRORDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxMirrorDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
                 else if(current_object_type == PHP_WXDC_TYPE)
                 {
-                    RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
+                    WXPHP_RETVAL_BOOL(((wxDC_php*)native_object)->Blit((wxCoord) xdest0, (wxCoord) ydest0, (wxCoord) width0, (wxCoord) height0, (wxDC*) object_pointer0_4, (wxCoord) xsrc0, (wxCoord) ysrc0, (wxRasterOperationMode) logicalFunc0, useMask0, (wxCoord) xsrcMask0, (wxCoord) ysrcMask0));
                 }
 
                 references->AddReference(source0, "wxDC::Blit at call 1 with 11 argument(s)");
@@ -23530,9 +23532,9 @@ PHP_METHOD(php_wxDC, Blit)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBufferedDC_free(void *object)
+void php_wxBufferedDC_free(zend_object *object)
 {
-    zo_wxBufferedDC* custom_object = (zo_wxBufferedDC*) object;
+    zo_wxBufferedDC* custom_object = php_wxBufferedDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -23573,7 +23575,6 @@ void php_wxBufferedDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBufferedDC_new(zend_class_entry *class_type)
@@ -23598,6 +23599,9 @@ zend_object* php_wxBufferedDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBufferedDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBufferedDC_object_handlers);
+    wxphp_wxBufferedDC_object_handlers.offset = XtOffsetOf(zo_wxBufferedDC, zo);
+    wxphp_wxBufferedDC_object_handlers.free_obj = php_wxBufferedDC_free;
     custom_object->zo.handlers = &wxphp_wxBufferedDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -24169,9 +24173,9 @@ PHP_METHOD(php_wxBufferedDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAutoBufferedPaintDC_free(void *object)
+void php_wxAutoBufferedPaintDC_free(zend_object *object)
 {
-    zo_wxAutoBufferedPaintDC* custom_object = (zo_wxAutoBufferedPaintDC*) object;
+    zo_wxAutoBufferedPaintDC* custom_object = php_wxAutoBufferedPaintDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24212,7 +24216,6 @@ void php_wxAutoBufferedPaintDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxAutoBufferedPaintDC_new(zend_class_entry *class_type)
@@ -24237,6 +24240,9 @@ zend_object* php_wxAutoBufferedPaintDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxAutoBufferedPaintDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxAutoBufferedPaintDC_object_handlers);
+    wxphp_wxAutoBufferedPaintDC_object_handlers.offset = XtOffsetOf(zo_wxAutoBufferedPaintDC, zo);
+    wxphp_wxAutoBufferedPaintDC_object_handlers.free_obj = php_wxAutoBufferedPaintDC_free;
     custom_object->zo.handlers = &wxphp_wxAutoBufferedPaintDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -24355,9 +24361,9 @@ PHP_METHOD(php_wxAutoBufferedPaintDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxBufferedPaintDC_free(void *object)
+void php_wxBufferedPaintDC_free(zend_object *object)
 {
-    zo_wxBufferedPaintDC* custom_object = (zo_wxBufferedPaintDC*) object;
+    zo_wxBufferedPaintDC* custom_object = php_wxBufferedPaintDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24398,7 +24404,6 @@ void php_wxBufferedPaintDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxBufferedPaintDC_new(zend_class_entry *class_type)
@@ -24423,6 +24428,9 @@ zend_object* php_wxBufferedPaintDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxBufferedPaintDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxBufferedPaintDC_object_handlers);
+    wxphp_wxBufferedPaintDC_object_handlers.offset = XtOffsetOf(zo_wxBufferedPaintDC, zo);
+    wxphp_wxBufferedPaintDC_object_handlers.free_obj = php_wxBufferedPaintDC_free;
     custom_object->zo.handlers = &wxphp_wxBufferedPaintDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -24646,9 +24654,9 @@ PHP_METHOD(php_wxBufferedPaintDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPaintDC_free(void *object)
+void php_wxPaintDC_free(zend_object *object)
 {
-    zo_wxPaintDC* custom_object = (zo_wxPaintDC*) object;
+    zo_wxPaintDC* custom_object = php_wxPaintDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24689,7 +24697,6 @@ void php_wxPaintDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPaintDC_new(zend_class_entry *class_type)
@@ -24714,6 +24721,9 @@ zend_object* php_wxPaintDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPaintDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPaintDC_object_handlers);
+    wxphp_wxPaintDC_object_handlers.offset = XtOffsetOf(zo_wxPaintDC, zo);
+    wxphp_wxPaintDC_object_handlers.free_obj = php_wxPaintDC_free;
     custom_object->zo.handlers = &wxphp_wxPaintDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -24832,9 +24842,9 @@ PHP_METHOD(php_wxPaintDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxClientDC_free(void *object)
+void php_wxClientDC_free(zend_object *object)
 {
-    zo_wxClientDC* custom_object = (zo_wxClientDC*) object;
+    zo_wxClientDC* custom_object = php_wxClientDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24875,7 +24885,6 @@ void php_wxClientDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxClientDC_new(zend_class_entry *class_type)
@@ -24900,6 +24909,9 @@ zend_object* php_wxClientDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxClientDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxClientDC_object_handlers);
+    wxphp_wxClientDC_object_handlers.offset = XtOffsetOf(zo_wxClientDC, zo);
+    wxphp_wxClientDC_object_handlers.free_obj = php_wxClientDC_free;
     custom_object->zo.handlers = &wxphp_wxClientDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25018,9 +25030,9 @@ PHP_METHOD(php_wxClientDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxWindowDC_free(void *object)
+void php_wxWindowDC_free(zend_object *object)
 {
-    zo_wxWindowDC* custom_object = (zo_wxWindowDC*) object;
+    zo_wxWindowDC* custom_object = php_wxWindowDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25061,7 +25073,6 @@ void php_wxWindowDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxWindowDC_new(zend_class_entry *class_type)
@@ -25086,6 +25097,9 @@ zend_object* php_wxWindowDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxWindowDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxWindowDC_object_handlers);
+    wxphp_wxWindowDC_object_handlers.offset = XtOffsetOf(zo_wxWindowDC, zo);
+    wxphp_wxWindowDC_object_handlers.free_obj = php_wxWindowDC_free;
     custom_object->zo.handlers = &wxphp_wxWindowDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25204,9 +25218,9 @@ PHP_METHOD(php_wxWindowDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMemoryDC_free(void *object)
+void php_wxMemoryDC_free(zend_object *object)
 {
-    zo_wxMemoryDC* custom_object = (zo_wxMemoryDC*) object;
+    zo_wxMemoryDC* custom_object = php_wxMemoryDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25247,7 +25261,6 @@ void php_wxMemoryDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMemoryDC_new(zend_class_entry *class_type)
@@ -25272,6 +25285,9 @@ zend_object* php_wxMemoryDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMemoryDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMemoryDC_object_handlers);
+    wxphp_wxMemoryDC_object_handlers.offset = XtOffsetOf(zo_wxMemoryDC, zo);
+    wxphp_wxMemoryDC_object_handlers.free_obj = php_wxMemoryDC_free;
     custom_object->zo.handlers = &wxphp_wxMemoryDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25768,9 +25784,9 @@ PHP_METHOD(php_wxMemoryDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxMirrorDC_free(void *object)
+void php_wxMirrorDC_free(zend_object *object)
 {
-    zo_wxMirrorDC* custom_object = (zo_wxMirrorDC*) object;
+    zo_wxMirrorDC* custom_object = php_wxMirrorDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25811,7 +25827,6 @@ void php_wxMirrorDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxMirrorDC_new(zend_class_entry *class_type)
@@ -25836,6 +25851,9 @@ zend_object* php_wxMirrorDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxMirrorDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxMirrorDC_object_handlers);
+    wxphp_wxMirrorDC_object_handlers.offset = XtOffsetOf(zo_wxMirrorDC, zo);
+    wxphp_wxMirrorDC_object_handlers.free_obj = php_wxMirrorDC_free;
     custom_object->zo.handlers = &wxphp_wxMirrorDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -25955,9 +25973,9 @@ PHP_METHOD(php_wxMirrorDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPostScriptDC_free(void *object)
+void php_wxPostScriptDC_free(zend_object *object)
 {
-    zo_wxPostScriptDC* custom_object = (zo_wxPostScriptDC*) object;
+    zo_wxPostScriptDC* custom_object = php_wxPostScriptDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25998,7 +26016,6 @@ void php_wxPostScriptDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPostScriptDC_new(zend_class_entry *class_type)
@@ -26023,6 +26040,9 @@ zend_object* php_wxPostScriptDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPostScriptDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPostScriptDC_object_handlers);
+    wxphp_wxPostScriptDC_object_handlers.offset = XtOffsetOf(zo_wxPostScriptDC, zo);
+    wxphp_wxPostScriptDC_object_handlers.free_obj = php_wxPostScriptDC_free;
     custom_object->zo.handlers = &wxphp_wxPostScriptDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -26174,9 +26194,9 @@ PHP_METHOD(php_wxPostScriptDC, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxScreenDC_free(void *object)
+void php_wxScreenDC_free(zend_object *object)
 {
-    zo_wxScreenDC* custom_object = (zo_wxScreenDC*) object;
+    zo_wxScreenDC* custom_object = php_wxScreenDC_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -26217,7 +26237,6 @@ void php_wxScreenDC_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxScreenDC_new(zend_class_entry *class_type)
@@ -26242,6 +26261,9 @@ zend_object* php_wxScreenDC_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxScreenDC_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxScreenDC_object_handlers);
+    wxphp_wxScreenDC_object_handlers.offset = XtOffsetOf(zo_wxScreenDC, zo);
+    wxphp_wxScreenDC_object_handlers.free_obj = php_wxScreenDC_free;
     custom_object->zo.handlers = &wxphp_wxScreenDC_object_handlers;
 
     custom_object->native_object = NULL;
@@ -26338,7 +26360,7 @@ PHP_METHOD(php_wxScreenDC, EndDrawingOnTop)
                 php_printf("Executing RETURN_BOOL(wxScreenDC::EndDrawingOnTop())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxScreenDC::EndDrawingOnTop());
+                WXPHP_RETVAL_BOOL(wxScreenDC::EndDrawingOnTop());
 
 
                 return;
@@ -26508,7 +26530,7 @@ PHP_METHOD(php_wxScreenDC, StartDrawingOnTop)
                 php_printf("Executing RETURN_BOOL(wxScreenDC::StartDrawingOnTop((wxWindow*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxScreenDC::StartDrawingOnTop((wxWindow*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(wxScreenDC::StartDrawingOnTop((wxWindow*) object_pointer0_0));
 
 
                 return;
@@ -26528,7 +26550,7 @@ PHP_METHOD(php_wxScreenDC, StartDrawingOnTop)
                 php_printf("Executing RETURN_BOOL(wxScreenDC::StartDrawingOnTop())\n\n");
                 #endif
 
-                RETVAL_BOOL(wxScreenDC::StartDrawingOnTop());
+                WXPHP_RETVAL_BOOL(wxScreenDC::StartDrawingOnTop());
 
 
                 return;
@@ -26541,7 +26563,7 @@ PHP_METHOD(php_wxScreenDC, StartDrawingOnTop)
                 php_printf("Executing RETURN_BOOL(wxScreenDC::StartDrawingOnTop((wxRect*) object_pointer1_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(wxScreenDC::StartDrawingOnTop((wxRect*) object_pointer1_0));
+                WXPHP_RETVAL_BOOL(wxScreenDC::StartDrawingOnTop((wxRect*) object_pointer1_0));
 
 
                 return;

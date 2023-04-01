@@ -53,9 +53,9 @@
 
 
 BEGIN_EXTERN_C()
-void php_wxScrolledWindow_free(void *object)
+void php_wxScrolledWindow_free(zend_object *object)
 {
-    zo_wxScrolledWindow* custom_object = (zo_wxScrolledWindow*) object;
+    zo_wxScrolledWindow* custom_object = php_wxScrolledWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -67,7 +67,6 @@ void php_wxScrolledWindow_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxScrolledWindow_new(zend_class_entry *class_type)
@@ -92,6 +91,9 @@ zend_object* php_wxScrolledWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxScrolledWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxScrolledWindow_object_handlers);
+    wxphp_wxScrolledWindow_object_handlers.offset = XtOffsetOf(zo_wxScrolledWindow, zo);
+    wxphp_wxScrolledWindow_object_handlers.free_obj = php_wxScrolledWindow_free;
     custom_object->zo.handlers = &wxphp_wxScrolledWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -352,9 +354,9 @@ PHP_METHOD(php_wxScrolledWindow, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxRibbonButtonBarButtonBase_free(void *object)
+void php_wxRibbonButtonBarButtonBase_free(zend_object *object)
 {
-    zo_wxRibbonButtonBarButtonBase* custom_object = (zo_wxRibbonButtonBarButtonBase*) object;
+    zo_wxRibbonButtonBarButtonBase* custom_object = php_wxRibbonButtonBarButtonBase_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -395,7 +397,6 @@ void php_wxRibbonButtonBarButtonBase_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxRibbonButtonBarButtonBase_new(zend_class_entry *class_type)
@@ -420,6 +421,9 @@ zend_object* php_wxRibbonButtonBarButtonBase_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxRibbonButtonBarButtonBase_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxRibbonButtonBarButtonBase_object_handlers);
+    wxphp_wxRibbonButtonBarButtonBase_object_handlers.offset = XtOffsetOf(zo_wxRibbonButtonBarButtonBase, zo);
+    wxphp_wxRibbonButtonBarButtonBase_object_handlers.free_obj = php_wxRibbonButtonBarButtonBase_free;
     custom_object->zo.handlers = &wxphp_wxRibbonButtonBarButtonBase_object_handlers;
 
     custom_object->native_object = NULL;
@@ -431,9 +435,9 @@ zend_object* php_wxRibbonButtonBarButtonBase_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxRibbonGalleryItem_free(void *object)
+void php_wxRibbonGalleryItem_free(zend_object *object)
 {
-    zo_wxRibbonGalleryItem* custom_object = (zo_wxRibbonGalleryItem*) object;
+    zo_wxRibbonGalleryItem* custom_object = php_wxRibbonGalleryItem_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -474,7 +478,6 @@ void php_wxRibbonGalleryItem_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxRibbonGalleryItem_new(zend_class_entry *class_type)
@@ -499,6 +502,9 @@ zend_object* php_wxRibbonGalleryItem_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxRibbonGalleryItem_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxRibbonGalleryItem_object_handlers);
+    wxphp_wxRibbonGalleryItem_object_handlers.offset = XtOffsetOf(zo_wxRibbonGalleryItem, zo);
+    wxphp_wxRibbonGalleryItem_object_handlers.free_obj = php_wxRibbonGalleryItem_free;
     custom_object->zo.handlers = &wxphp_wxRibbonGalleryItem_object_handlers;
 
     custom_object->native_object = NULL;
@@ -510,9 +516,9 @@ zend_object* php_wxRibbonGalleryItem_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxRibbonToolBarToolBase_free(void *object)
+void php_wxRibbonToolBarToolBase_free(zend_object *object)
 {
-    zo_wxRibbonToolBarToolBase* custom_object = (zo_wxRibbonToolBarToolBase*) object;
+    zo_wxRibbonToolBarToolBase* custom_object = php_wxRibbonToolBarToolBase_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -553,7 +559,6 @@ void php_wxRibbonToolBarToolBase_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxRibbonToolBarToolBase_new(zend_class_entry *class_type)
@@ -578,6 +583,9 @@ zend_object* php_wxRibbonToolBarToolBase_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxRibbonToolBarToolBase_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxRibbonToolBarToolBase_object_handlers);
+    wxphp_wxRibbonToolBarToolBase_object_handlers.offset = XtOffsetOf(zo_wxRibbonToolBarToolBase, zo);
+    wxphp_wxRibbonToolBarToolBase_object_handlers.free_obj = php_wxRibbonToolBarToolBase_free;
     custom_object->zo.handlers = &wxphp_wxRibbonToolBarToolBase_object_handlers;
 
     custom_object->native_object = NULL;
@@ -589,9 +597,9 @@ zend_object* php_wxRibbonToolBarToolBase_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGridCellCoords_free(void *object)
+void php_wxGridCellCoords_free(zend_object *object)
 {
-    zo_wxGridCellCoords* custom_object = (zo_wxGridCellCoords*) object;
+    zo_wxGridCellCoords* custom_object = php_wxGridCellCoords_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -632,7 +640,6 @@ void php_wxGridCellCoords_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridCellCoords_new(zend_class_entry *class_type)
@@ -657,6 +664,9 @@ zend_object* php_wxGridCellCoords_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridCellCoords_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridCellCoords_object_handlers);
+    wxphp_wxGridCellCoords_object_handlers.offset = XtOffsetOf(zo_wxGridCellCoords, zo);
+    wxphp_wxGridCellCoords_object_handlers.free_obj = php_wxGridCellCoords_free;
     custom_object->zo.handlers = &wxphp_wxGridCellCoords_object_handlers;
 
     custom_object->native_object = NULL;
@@ -875,7 +885,7 @@ PHP_METHOD(php_wxGridCellCoords, GetRow)
                 php_printf("Executing RETURN_LONG(wxGridCellCoords::GetRow())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridCellCoords_php*)native_object)->GetRow());
+                WXPHP_RETVAL_LONG(((wxGridCellCoords_php*)native_object)->GetRow());
 
 
                 return;
@@ -1094,7 +1104,7 @@ PHP_METHOD(php_wxGridCellCoords, GetCol)
                 php_printf("Executing RETURN_LONG(wxGridCellCoords::GetCol())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxGridCellCoords_php*)native_object)->GetCol());
+                WXPHP_RETVAL_LONG(((wxGridCellCoords_php*)native_object)->GetCol());
 
 
                 return;
@@ -1342,9 +1352,9 @@ PHP_METHOD(php_wxGridCellCoords, Set)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxNonOwnedWindow_free(void *object)
+void php_wxNonOwnedWindow_free(zend_object *object)
 {
-    zo_wxNonOwnedWindow* custom_object = (zo_wxNonOwnedWindow*) object;
+    zo_wxNonOwnedWindow* custom_object = php_wxNonOwnedWindow_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1388,7 +1398,6 @@ void php_wxNonOwnedWindow_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxNonOwnedWindow_new(zend_class_entry *class_type)
@@ -1413,6 +1422,9 @@ zend_object* php_wxNonOwnedWindow_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxNonOwnedWindow_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxNonOwnedWindow_object_handlers);
+    wxphp_wxNonOwnedWindow_object_handlers.offset = XtOffsetOf(zo_wxNonOwnedWindow, zo);
+    wxphp_wxNonOwnedWindow_object_handlers.free_obj = php_wxNonOwnedWindow_free;
     custom_object->zo.handlers = &wxphp_wxNonOwnedWindow_object_handlers;
 
     custom_object->native_object = NULL;
@@ -1637,111 +1649,111 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
 
                 if(current_object_type == PHP_WXTOPLEVELWINDOW_TYPE)
                 {
-                    RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxTopLevelWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXFRAME_TYPE)
                 {
-                    RETVAL_BOOL(((wxFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXSPLASHSCREEN_TYPE)
                 {
-                    RETVAL_BOOL(((wxSplashScreen_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxSplashScreen_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXMDICHILDFRAME_TYPE)
                 {
-                    RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxMDIChildFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXMDIPARENTFRAME_TYPE)
                 {
-                    RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxMDIParentFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXMINIFRAME_TYPE)
                 {
-                    RETVAL_BOOL(((wxMiniFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxMiniFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXPREVIEWFRAME_TYPE)
                 {
-                    RETVAL_BOOL(((wxPreviewFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxPreviewFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXHTMLHELPFRAME_TYPE)
                 {
-                    RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxHtmlHelpFrame_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXTEXTENTRYDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxTextEntryDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxTextEntryDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXPASSWORDENTRYDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxPasswordEntryDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxPasswordEntryDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXMESSAGEDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxMessageDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxMessageDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXFINDREPLACEDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFindReplaceDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxFindReplaceDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXDIRDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxDirDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxDirDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXSYMBOLPICKERDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxSymbolPickerDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXPROPERTYSHEETDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxPropertySheetDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXWIZARD_TYPE)
                 {
-                    RETVAL_BOOL(((wxWizard_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxWizard_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXCOLOURDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxColourDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxColourDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXFILEDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFileDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxFileDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXFONTDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxFontDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxFontDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXSINGLECHOICEDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxSingleChoiceDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxSingleChoiceDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXHTMLHELPDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxHtmlHelpDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXGENERICPROGRESSDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxGenericProgressDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxGenericProgressDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXPROGRESSDIALOG_TYPE)
                 {
-                    RETVAL_BOOL(((wxProgressDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxProgressDialog_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXPOPUPWINDOW_TYPE)
                 {
-                    RETVAL_BOOL(((wxPopupWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxPopupWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXPOPUPTRANSIENTWINDOW_TYPE)
                 {
-                    RETVAL_BOOL(((wxPopupTransientWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxPopupTransientWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
                 else if(current_object_type == PHP_WXNONOWNEDWINDOW_TYPE)
                 {
-                    RETVAL_BOOL(((wxNonOwnedWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
+                    WXPHP_RETVAL_BOOL(((wxNonOwnedWindow_php*)native_object)->SetShape(*(wxRegion*) object_pointer0_0));
                 }
 
                 references->AddReference(region0, "wxNonOwnedWindow::SetShape at call 3 with 1 argument(s)");
@@ -1766,9 +1778,9 @@ PHP_METHOD(php_wxNonOwnedWindow, SetShape)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAnyButton_free(void *object)
+void php_wxAnyButton_free(zend_object *object)
 {
-    zo_wxAnyButton* custom_object = (zo_wxAnyButton*) object;
+    zo_wxAnyButton* custom_object = php_wxAnyButton_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1780,7 +1792,6 @@ void php_wxAnyButton_free(void *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxAnyButton_new(zend_class_entry *class_type)
@@ -1805,6 +1816,9 @@ zend_object* php_wxAnyButton_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxAnyButton_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxAnyButton_object_handlers);
+    wxphp_wxAnyButton_object_handlers.offset = XtOffsetOf(zo_wxAnyButton, zo);
+    wxphp_wxAnyButton_object_handlers.free_obj = php_wxAnyButton_free;
     custom_object->zo.handlers = &wxphp_wxAnyButton_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4026,9 +4040,9 @@ PHP_METHOD(php_wxAnyButton, SetBitmapPressed)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxWithImages_free(void *object)
+void php_wxWithImages_free(zend_object *object)
 {
-    zo_wxWithImages* custom_object = (zo_wxWithImages*) object;
+    zo_wxWithImages* custom_object = php_wxWithImages_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4069,7 +4083,6 @@ void php_wxWithImages_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxWithImages_new(zend_class_entry *class_type)
@@ -4094,6 +4107,9 @@ zend_object* php_wxWithImages_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxWithImages_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxWithImages_object_handlers);
+    wxphp_wxWithImages_object_handlers.offset = XtOffsetOf(zo_wxWithImages, zo);
+    wxphp_wxWithImages_object_handlers.free_obj = php_wxWithImages_free;
     custom_object->zo.handlers = &wxphp_wxWithImages_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4675,9 +4691,9 @@ PHP_METHOD(php_wxWithImages, AssignImageList)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxAnimation_free(void *object)
+void php_wxAnimation_free(zend_object *object)
 {
-    zo_wxAnimation* custom_object = (zo_wxAnimation*) object;
+    zo_wxAnimation* custom_object = php_wxAnimation_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4718,7 +4734,6 @@ void php_wxAnimation_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxAnimation_new(zend_class_entry *class_type)
@@ -4743,6 +4758,9 @@ zend_object* php_wxAnimation_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxAnimation_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxAnimation_object_handlers);
+    wxphp_wxAnimation_object_handlers.offset = XtOffsetOf(zo_wxAnimation, zo);
+    wxphp_wxAnimation_object_handlers.free_obj = php_wxAnimation_free;
     custom_object->zo.handlers = &wxphp_wxAnimation_object_handlers;
 
     custom_object->native_object = NULL;
@@ -4843,7 +4861,7 @@ PHP_METHOD(php_wxAnimation, GetDelay)
                 php_printf("Executing RETURN_LONG(wxAnimation::GetDelay((unsigned int) frame0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxAnimation_php*)native_object)->GetDelay((unsigned int) frame0));
+                WXPHP_RETVAL_LONG(((wxAnimation_php*)native_object)->GetDelay((unsigned int) frame0));
 
 
                 return;
@@ -5070,7 +5088,7 @@ PHP_METHOD(php_wxAnimation, GetFrameCount)
                 php_printf("Executing RETURN_LONG(wxAnimation::GetFrameCount())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxAnimation_php*)native_object)->GetFrameCount());
+                WXPHP_RETVAL_LONG(((wxAnimation_php*)native_object)->GetFrameCount());
 
 
                 return;
@@ -5291,7 +5309,7 @@ PHP_METHOD(php_wxAnimation, IsOk)
                 php_printf("Executing RETURN_BOOL(wxAnimation::IsOk())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAnimation_php*)native_object)->IsOk());
+                WXPHP_RETVAL_BOOL(((wxAnimation_php*)native_object)->IsOk());
 
 
                 return;
@@ -5405,7 +5423,7 @@ PHP_METHOD(php_wxAnimation, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxAnimation::LoadFile(wxString(name0, wxConvUTF8)))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAnimation_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8)));
+                WXPHP_RETVAL_BOOL(((wxAnimation_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8)));
 
 
                 return;
@@ -5417,7 +5435,7 @@ PHP_METHOD(php_wxAnimation, LoadFile)
                 php_printf("Executing RETURN_BOOL(wxAnimation::LoadFile(wxString(name0, wxConvUTF8), (wxAnimationType) type0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAnimation_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8), (wxAnimationType) type0));
+                WXPHP_RETVAL_BOOL(((wxAnimation_php*)native_object)->LoadFile(wxString(name0, wxConvUTF8), (wxAnimationType) type0));
 
 
                 return;
@@ -5741,7 +5759,7 @@ PHP_METHOD(php_wxAnimation, Load)
                 php_printf("Executing RETURN_BOOL(wxAnimation::Load(*(wxInputStream*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAnimation_php*)native_object)->Load(*(wxInputStream*) object_pointer0_0));
+                WXPHP_RETVAL_BOOL(((wxAnimation_php*)native_object)->Load(*(wxInputStream*) object_pointer0_0));
 
                 references->AddReference(stream0, "wxAnimation::Load at call 3 with 1 argument(s)");
 
@@ -5754,7 +5772,7 @@ PHP_METHOD(php_wxAnimation, Load)
                 php_printf("Executing RETURN_BOOL(wxAnimation::Load(*(wxInputStream*) object_pointer0_0, (wxAnimationType) type0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxAnimation_php*)native_object)->Load(*(wxInputStream*) object_pointer0_0, (wxAnimationType) type0));
+                WXPHP_RETVAL_BOOL(((wxAnimation_php*)native_object)->Load(*(wxInputStream*) object_pointer0_0, (wxAnimationType) type0));
 
                 references->AddReference(stream0, "wxAnimation::Load at call 3 with 2 argument(s)");
 
@@ -5778,9 +5796,9 @@ PHP_METHOD(php_wxAnimation, Load)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTextCompleter_free(void *object)
+void php_wxTextCompleter_free(zend_object *object)
 {
-    zo_wxTextCompleter* custom_object = (zo_wxTextCompleter*) object;
+    zo_wxTextCompleter* custom_object = php_wxTextCompleter_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5821,7 +5839,6 @@ void php_wxTextCompleter_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTextCompleter_new(zend_class_entry *class_type)
@@ -5846,6 +5863,9 @@ zend_object* php_wxTextCompleter_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTextCompleter_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTextCompleter_object_handlers);
+    wxphp_wxTextCompleter_object_handlers.offset = XtOffsetOf(zo_wxTextCompleter, zo);
+    wxphp_wxTextCompleter_object_handlers.free_obj = php_wxTextCompleter_free;
     custom_object->zo.handlers = &wxphp_wxTextCompleter_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6027,9 +6047,9 @@ bool wxTextCompleter_php::Start(const wxString& prefix)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxListItemAttr_free(void *object)
+void php_wxListItemAttr_free(zend_object *object)
 {
-    zo_wxListItemAttr* custom_object = (zo_wxListItemAttr*) object;
+    zo_wxListItemAttr* custom_object = php_wxListItemAttr_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6070,7 +6090,6 @@ void php_wxListItemAttr_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxListItemAttr_new(zend_class_entry *class_type)
@@ -6095,6 +6114,9 @@ zend_object* php_wxListItemAttr_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxListItemAttr_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxListItemAttr_object_handlers);
+    wxphp_wxListItemAttr_object_handlers.offset = XtOffsetOf(zo_wxListItemAttr, zo);
+    wxphp_wxListItemAttr_object_handlers.free_obj = php_wxListItemAttr_free;
     custom_object->zo.handlers = &wxphp_wxListItemAttr_object_handlers;
 
     custom_object->native_object = NULL;
@@ -6891,7 +6913,7 @@ PHP_METHOD(php_wxListItemAttr, HasTextColour)
                 php_printf("Executing RETURN_BOOL(wxListItemAttr::HasTextColour())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxListItemAttr_php*)native_object)->HasTextColour());
+                WXPHP_RETVAL_BOOL(((wxListItemAttr_php*)native_object)->HasTextColour());
 
 
                 return;
@@ -6998,7 +7020,7 @@ PHP_METHOD(php_wxListItemAttr, HasFont)
                 php_printf("Executing RETURN_BOOL(wxListItemAttr::HasFont())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxListItemAttr_php*)native_object)->HasFont());
+                WXPHP_RETVAL_BOOL(((wxListItemAttr_php*)native_object)->HasFont());
 
 
                 return;
@@ -7105,7 +7127,7 @@ PHP_METHOD(php_wxListItemAttr, HasBackgroundColour)
                 php_printf("Executing RETURN_BOOL(wxListItemAttr::HasBackgroundColour())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxListItemAttr_php*)native_object)->HasBackgroundColour());
+                WXPHP_RETVAL_BOOL(((wxListItemAttr_php*)native_object)->HasBackgroundColour());
 
 
                 return;
@@ -7382,9 +7404,9 @@ PHP_METHOD(php_wxListItemAttr, GetFont)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxWindowModalDialogEvent_free(void *object)
+void php_wxWindowModalDialogEvent_free(zend_object *object)
 {
-    zo_wxWindowModalDialogEvent* custom_object = (zo_wxWindowModalDialogEvent*) object;
+    zo_wxWindowModalDialogEvent* custom_object = php_wxWindowModalDialogEvent_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7425,7 +7447,6 @@ void php_wxWindowModalDialogEvent_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxWindowModalDialogEvent_new(zend_class_entry *class_type)
@@ -7450,6 +7471,9 @@ zend_object* php_wxWindowModalDialogEvent_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxWindowModalDialogEvent_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxWindowModalDialogEvent_object_handlers);
+    wxphp_wxWindowModalDialogEvent_object_handlers.offset = XtOffsetOf(zo_wxWindowModalDialogEvent, zo);
+    wxphp_wxWindowModalDialogEvent_object_handlers.free_obj = php_wxWindowModalDialogEvent_free;
     custom_object->zo.handlers = &wxphp_wxWindowModalDialogEvent_object_handlers;
 
     custom_object->native_object = NULL;
@@ -7805,7 +7829,7 @@ PHP_METHOD(php_wxWindowModalDialogEvent, GetReturnCode)
                 php_printf("Executing RETURN_LONG(wxWindowModalDialogEvent::GetReturnCode())\n\n");
                 #endif
 
-                RETVAL_LONG(((wxWindowModalDialogEvent_php*)native_object)->GetReturnCode());
+                WXPHP_RETVAL_LONG(((wxWindowModalDialogEvent_php*)native_object)->GetReturnCode());
 
 
                 return;
@@ -7939,9 +7963,9 @@ PHP_METHOD(php_wxWindowModalDialogEvent, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPoint2DDouble_free(void *object)
+void php_wxPoint2DDouble_free(zend_object *object)
 {
-    zo_wxPoint2DDouble* custom_object = (zo_wxPoint2DDouble*) object;
+    zo_wxPoint2DDouble* custom_object = php_wxPoint2DDouble_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7982,7 +8006,6 @@ void php_wxPoint2DDouble_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPoint2DDouble_new(zend_class_entry *class_type)
@@ -8007,6 +8030,9 @@ zend_object* php_wxPoint2DDouble_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPoint2DDouble_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPoint2DDouble_object_handlers);
+    wxphp_wxPoint2DDouble_object_handlers.offset = XtOffsetOf(zo_wxPoint2DDouble, zo);
+    wxphp_wxPoint2DDouble_object_handlers.free_obj = php_wxPoint2DDouble_free;
     custom_object->zo.handlers = &wxphp_wxPoint2DDouble_object_handlers;
 
     custom_object->native_object = NULL;
@@ -8725,7 +8751,7 @@ PHP_METHOD(php_wxPoint2DDouble, GetVectorLength)
                 php_printf("Executing RETURN_LONG(wxPoint2DDouble::GetVectorLength())\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetVectorLength());
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetVectorLength());
 
 
                 return;
@@ -8831,7 +8857,7 @@ PHP_METHOD(php_wxPoint2DDouble, GetVectorAngle)
                 php_printf("Executing RETURN_LONG(wxPoint2DDouble::GetVectorAngle())\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetVectorAngle());
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetVectorAngle());
 
 
                 return;
@@ -8960,7 +8986,7 @@ PHP_METHOD(php_wxPoint2DDouble, GetDotProduct)
                 php_printf("Executing RETURN_LONG(wxPoint2DDouble::GetDotProduct(*(wxPoint2DDouble*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetDotProduct(*(wxPoint2DDouble*) object_pointer0_0));
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetDotProduct(*(wxPoint2DDouble*) object_pointer0_0));
 
                 references->AddReference(vec0, "wxPoint2DDouble::GetDotProduct at call 3 with 1 argument(s)");
 
@@ -9090,7 +9116,7 @@ PHP_METHOD(php_wxPoint2DDouble, GetDistanceSquare)
                 php_printf("Executing RETURN_LONG(wxPoint2DDouble::GetDistanceSquare(*(wxPoint2DDouble*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetDistanceSquare(*(wxPoint2DDouble*) object_pointer0_0));
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetDistanceSquare(*(wxPoint2DDouble*) object_pointer0_0));
 
                 references->AddReference(pt0, "wxPoint2DDouble::GetDistanceSquare at call 3 with 1 argument(s)");
 
@@ -9220,7 +9246,7 @@ PHP_METHOD(php_wxPoint2DDouble, GetDistance)
                 php_printf("Executing RETURN_LONG(wxPoint2DDouble::GetDistance(*(wxPoint2DDouble*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetDistance(*(wxPoint2DDouble*) object_pointer0_0));
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetDistance(*(wxPoint2DDouble*) object_pointer0_0));
 
                 references->AddReference(pt0, "wxPoint2DDouble::GetDistance at call 3 with 1 argument(s)");
 
@@ -9350,7 +9376,7 @@ PHP_METHOD(php_wxPoint2DDouble, GetCrossProduct)
                 php_printf("Executing RETURN_LONG(wxPoint2DDouble::GetCrossProduct(*(wxPoint2DDouble*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetCrossProduct(*(wxPoint2DDouble*) object_pointer0_0));
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DDouble_php*)native_object)->GetCrossProduct(*(wxPoint2DDouble*) object_pointer0_0));
 
                 references->AddReference(vec0, "wxPoint2DDouble::GetCrossProduct at call 3 with 1 argument(s)");
 
@@ -9598,9 +9624,9 @@ PHP_METHOD(php_wxPoint2DDouble, GetRounded)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPoint2DInt_free(void *object)
+void php_wxPoint2DInt_free(zend_object *object)
 {
-    zo_wxPoint2DInt* custom_object = (zo_wxPoint2DInt*) object;
+    zo_wxPoint2DInt* custom_object = php_wxPoint2DInt_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9641,7 +9667,6 @@ void php_wxPoint2DInt_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPoint2DInt_new(zend_class_entry *class_type)
@@ -9666,6 +9691,9 @@ zend_object* php_wxPoint2DInt_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPoint2DInt_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPoint2DInt_object_handlers);
+    wxphp_wxPoint2DInt_object_handlers.offset = XtOffsetOf(zo_wxPoint2DInt, zo);
+    wxphp_wxPoint2DInt_object_handlers.free_obj = php_wxPoint2DInt_free;
     custom_object->zo.handlers = &wxphp_wxPoint2DInt_object_handlers;
 
     custom_object->native_object = NULL;
@@ -9783,7 +9811,7 @@ PHP_METHOD(php_wxPoint2DInt, GetCrossProduct)
                 php_printf("Executing RETURN_LONG(wxPoint2DInt::GetCrossProduct(*(wxPoint2DInt*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPoint2DInt_php*)native_object)->GetCrossProduct(*(wxPoint2DInt*) object_pointer0_0));
+                WXPHP_RETVAL_LONG(((wxPoint2DInt_php*)native_object)->GetCrossProduct(*(wxPoint2DInt*) object_pointer0_0));
 
                 references->AddReference(vec0, "wxPoint2DInt::GetCrossProduct at call 3 with 1 argument(s)");
 
@@ -9913,7 +9941,7 @@ PHP_METHOD(php_wxPoint2DInt, GetDistance)
                 php_printf("Executing RETURN_LONG(wxPoint2DInt::GetDistance(*(wxPoint2DInt*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetDistance(*(wxPoint2DInt*) object_pointer0_0));
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetDistance(*(wxPoint2DInt*) object_pointer0_0));
 
                 references->AddReference(pt0, "wxPoint2DInt::GetDistance at call 3 with 1 argument(s)");
 
@@ -10043,7 +10071,7 @@ PHP_METHOD(php_wxPoint2DInt, GetDistanceSquare)
                 php_printf("Executing RETURN_LONG(wxPoint2DInt::GetDistanceSquare(*(wxPoint2DInt*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetDistanceSquare(*(wxPoint2DInt*) object_pointer0_0));
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetDistanceSquare(*(wxPoint2DInt*) object_pointer0_0));
 
                 references->AddReference(pt0, "wxPoint2DInt::GetDistanceSquare at call 3 with 1 argument(s)");
 
@@ -10173,7 +10201,7 @@ PHP_METHOD(php_wxPoint2DInt, GetDotProduct)
                 php_printf("Executing RETURN_LONG(wxPoint2DInt::GetDotProduct(*(wxPoint2DInt*) object_pointer0_0))\n\n");
                 #endif
 
-                RETVAL_LONG(((wxPoint2DInt_php*)native_object)->GetDotProduct(*(wxPoint2DInt*) object_pointer0_0));
+                WXPHP_RETVAL_LONG(((wxPoint2DInt_php*)native_object)->GetDotProduct(*(wxPoint2DInt*) object_pointer0_0));
 
                 references->AddReference(vec0, "wxPoint2DInt::GetDotProduct at call 3 with 1 argument(s)");
 
@@ -10280,7 +10308,7 @@ PHP_METHOD(php_wxPoint2DInt, GetVectorAngle)
                 php_printf("Executing RETURN_LONG(wxPoint2DInt::GetVectorAngle())\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetVectorAngle());
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetVectorAngle());
 
 
                 return;
@@ -10386,7 +10414,7 @@ PHP_METHOD(php_wxPoint2DInt, GetVectorLength)
                 php_printf("Executing RETURN_LONG(wxPoint2DInt::GetVectorLength())\n\n");
                 #endif
 
-                RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetVectorLength());
+                WXPHP_RETVAL_DOUBLE(((wxPoint2DInt_php*)native_object)->GetVectorLength());
 
 
                 return;
@@ -11199,9 +11227,9 @@ PHP_METHOD(php_wxPoint2DInt, GetRounded)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxProgressDialog_free(void *object)
+void php_wxProgressDialog_free(zend_object *object)
 {
-    zo_wxProgressDialog* custom_object = (zo_wxProgressDialog*) object;
+    zo_wxProgressDialog* custom_object = php_wxProgressDialog_fetch_object(object);
 
     /*zend_error(
         E_WARNING,
@@ -11210,7 +11238,6 @@ void php_wxProgressDialog_free(void *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxProgressDialog_new(zend_class_entry *class_type)
@@ -11235,6 +11262,9 @@ zend_object* php_wxProgressDialog_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxProgressDialog_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxProgressDialog_object_handlers);
+    wxphp_wxProgressDialog_object_handlers.offset = XtOffsetOf(zo_wxProgressDialog, zo);
+    wxphp_wxProgressDialog_object_handlers.free_obj = php_wxProgressDialog_free;
     custom_object->zo.handlers = &wxphp_wxProgressDialog_object_handlers;
 
     custom_object->native_object = NULL;
@@ -11392,9 +11422,9 @@ PHP_METHOD(php_wxProgressDialog, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxLayoutConstraints_free(void *object)
+void php_wxLayoutConstraints_free(zend_object *object)
 {
-    zo_wxLayoutConstraints* custom_object = (zo_wxLayoutConstraints*) object;
+    zo_wxLayoutConstraints* custom_object = php_wxLayoutConstraints_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -11435,7 +11465,6 @@ void php_wxLayoutConstraints_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxLayoutConstraints_new(zend_class_entry *class_type)
@@ -11460,6 +11489,9 @@ zend_object* php_wxLayoutConstraints_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxLayoutConstraints_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxLayoutConstraints_object_handlers);
+    wxphp_wxLayoutConstraints_object_handlers.offset = XtOffsetOf(zo_wxLayoutConstraints, zo);
+    wxphp_wxLayoutConstraints_object_handlers.free_obj = php_wxLayoutConstraints_free;
     custom_object->zo.handlers = &wxphp_wxLayoutConstraints_object_handlers;
 
     custom_object->native_object = NULL;
@@ -11554,7 +11586,7 @@ PHP_METHOD(php_wxLayoutConstraints, AreSatisfied)
                 php_printf("Executing RETURN_BOOL(wxLayoutConstraints::AreSatisfied())\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutConstraints_php*)native_object)->AreSatisfied());
+                WXPHP_RETVAL_BOOL(((wxLayoutConstraints_php*)native_object)->AreSatisfied());
 
 
                 return;
@@ -11770,7 +11802,7 @@ PHP_METHOD(php_wxLayoutConstraints, SatisfyConstraints)
                 php_printf("Executing RETURN_BOOL(wxLayoutConstraints::SatisfyConstraints((wxWindow*) object_pointer0_0, (int*) noChanges0))\n\n");
                 #endif
 
-                RETVAL_BOOL(((wxLayoutConstraints_php*)native_object)->SatisfyConstraints((wxWindow*) object_pointer0_0, (int*) noChanges0));
+                WXPHP_RETVAL_BOOL(((wxLayoutConstraints_php*)native_object)->SatisfyConstraints((wxWindow*) object_pointer0_0, (int*) noChanges0));
 
                 references->AddReference(win0, "wxLayoutConstraints::SatisfyConstraints at call 1 with 2 argument(s)");
                 size_t elements_returned0_1 = sizeof(noChanges0)/sizeof(*noChanges0);
@@ -11800,9 +11832,9 @@ PHP_METHOD(php_wxLayoutConstraints, SatisfyConstraints)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCellAttrProvider_free(void *object)
+void php_wxGridCellAttrProvider_free(zend_object *object)
 {
-    zo_wxGridCellAttrProvider* custom_object = (zo_wxGridCellAttrProvider*) object;
+    zo_wxGridCellAttrProvider* custom_object = php_wxGridCellAttrProvider_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -11843,7 +11875,6 @@ void php_wxGridCellAttrProvider_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridCellAttrProvider_new(zend_class_entry *class_type)
@@ -11868,6 +11899,9 @@ zend_object* php_wxGridCellAttrProvider_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridCellAttrProvider_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridCellAttrProvider_object_handlers);
+    wxphp_wxGridCellAttrProvider_object_handlers.offset = XtOffsetOf(zo_wxGridCellAttrProvider, zo);
+    wxphp_wxGridCellAttrProvider_object_handlers.free_obj = php_wxGridCellAttrProvider_free;
     custom_object->zo.handlers = &wxphp_wxGridCellAttrProvider_object_handlers;
 
     custom_object->native_object = NULL;
@@ -12887,9 +12921,9 @@ PHP_METHOD(php_wxGridCellAttrProvider, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridColumnHeaderRenderer_free(void *object)
+void php_wxGridColumnHeaderRenderer_free(zend_object *object)
 {
-    zo_wxGridColumnHeaderRenderer* custom_object = (zo_wxGridColumnHeaderRenderer*) object;
+    zo_wxGridColumnHeaderRenderer* custom_object = php_wxGridColumnHeaderRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12930,7 +12964,6 @@ void php_wxGridColumnHeaderRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridColumnHeaderRenderer_new(zend_class_entry *class_type)
@@ -12955,6 +12988,9 @@ zend_object* php_wxGridColumnHeaderRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridColumnHeaderRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridColumnHeaderRenderer_object_handlers);
+    wxphp_wxGridColumnHeaderRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridColumnHeaderRenderer, zo);
+    wxphp_wxGridColumnHeaderRenderer_object_handlers.free_obj = php_wxGridColumnHeaderRenderer_free;
     custom_object->zo.handlers = &wxphp_wxGridColumnHeaderRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -12966,9 +13002,9 @@ zend_object* php_wxGridColumnHeaderRenderer_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGridColumnHeaderRendererDefault_free(void *object)
+void php_wxGridColumnHeaderRendererDefault_free(zend_object *object)
 {
-    zo_wxGridColumnHeaderRendererDefault* custom_object = (zo_wxGridColumnHeaderRendererDefault*) object;
+    zo_wxGridColumnHeaderRendererDefault* custom_object = php_wxGridColumnHeaderRendererDefault_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13009,7 +13045,6 @@ void php_wxGridColumnHeaderRendererDefault_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridColumnHeaderRendererDefault_new(zend_class_entry *class_type)
@@ -13034,6 +13069,9 @@ zend_object* php_wxGridColumnHeaderRendererDefault_new(zend_class_entry *class_t
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridColumnHeaderRendererDefault_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridColumnHeaderRendererDefault_object_handlers);
+    wxphp_wxGridColumnHeaderRendererDefault_object_handlers.offset = XtOffsetOf(zo_wxGridColumnHeaderRendererDefault, zo);
+    wxphp_wxGridColumnHeaderRendererDefault_object_handlers.free_obj = php_wxGridColumnHeaderRendererDefault_free;
     custom_object->zo.handlers = &wxphp_wxGridColumnHeaderRendererDefault_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13219,9 +13257,9 @@ PHP_METHOD(php_wxGridColumnHeaderRendererDefault, DrawBorder)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridCornerHeaderRenderer_free(void *object)
+void php_wxGridCornerHeaderRenderer_free(zend_object *object)
 {
-    zo_wxGridCornerHeaderRenderer* custom_object = (zo_wxGridCornerHeaderRenderer*) object;
+    zo_wxGridCornerHeaderRenderer* custom_object = php_wxGridCornerHeaderRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13262,7 +13300,6 @@ void php_wxGridCornerHeaderRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridCornerHeaderRenderer_new(zend_class_entry *class_type)
@@ -13287,6 +13324,9 @@ zend_object* php_wxGridCornerHeaderRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridCornerHeaderRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridCornerHeaderRenderer_object_handlers);
+    wxphp_wxGridCornerHeaderRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridCornerHeaderRenderer, zo);
+    wxphp_wxGridCornerHeaderRenderer_object_handlers.free_obj = php_wxGridCornerHeaderRenderer_free;
     custom_object->zo.handlers = &wxphp_wxGridCornerHeaderRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13298,9 +13338,9 @@ zend_object* php_wxGridCornerHeaderRenderer_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGridCornerHeaderRendererDefault_free(void *object)
+void php_wxGridCornerHeaderRendererDefault_free(zend_object *object)
 {
-    zo_wxGridCornerHeaderRendererDefault* custom_object = (zo_wxGridCornerHeaderRendererDefault*) object;
+    zo_wxGridCornerHeaderRendererDefault* custom_object = php_wxGridCornerHeaderRendererDefault_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13341,7 +13381,6 @@ void php_wxGridCornerHeaderRendererDefault_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridCornerHeaderRendererDefault_new(zend_class_entry *class_type)
@@ -13366,6 +13405,9 @@ zend_object* php_wxGridCornerHeaderRendererDefault_new(zend_class_entry *class_t
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridCornerHeaderRendererDefault_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridCornerHeaderRendererDefault_object_handlers);
+    wxphp_wxGridCornerHeaderRendererDefault_object_handlers.offset = XtOffsetOf(zo_wxGridCornerHeaderRendererDefault, zo);
+    wxphp_wxGridCornerHeaderRendererDefault_object_handlers.free_obj = php_wxGridCornerHeaderRendererDefault_free;
     custom_object->zo.handlers = &wxphp_wxGridCornerHeaderRendererDefault_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13551,9 +13593,9 @@ PHP_METHOD(php_wxGridCornerHeaderRendererDefault, DrawBorder)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridHeaderLabelsRenderer_free(void *object)
+void php_wxGridHeaderLabelsRenderer_free(zend_object *object)
 {
-    zo_wxGridHeaderLabelsRenderer* custom_object = (zo_wxGridHeaderLabelsRenderer*) object;
+    zo_wxGridHeaderLabelsRenderer* custom_object = php_wxGridHeaderLabelsRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13594,7 +13636,6 @@ void php_wxGridHeaderLabelsRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridHeaderLabelsRenderer_new(zend_class_entry *class_type)
@@ -13619,6 +13660,9 @@ zend_object* php_wxGridHeaderLabelsRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridHeaderLabelsRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridHeaderLabelsRenderer_object_handlers);
+    wxphp_wxGridHeaderLabelsRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridHeaderLabelsRenderer, zo);
+    wxphp_wxGridHeaderLabelsRenderer_object_handlers.free_obj = php_wxGridHeaderLabelsRenderer_free;
     custom_object->zo.handlers = &wxphp_wxGridHeaderLabelsRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13841,9 +13885,9 @@ PHP_METHOD(php_wxGridHeaderLabelsRenderer, DrawLabel)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxGridRowHeaderRenderer_free(void *object)
+void php_wxGridRowHeaderRenderer_free(zend_object *object)
 {
-    zo_wxGridRowHeaderRenderer* custom_object = (zo_wxGridRowHeaderRenderer*) object;
+    zo_wxGridRowHeaderRenderer* custom_object = php_wxGridRowHeaderRenderer_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13884,7 +13928,6 @@ void php_wxGridRowHeaderRenderer_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridRowHeaderRenderer_new(zend_class_entry *class_type)
@@ -13909,6 +13952,9 @@ zend_object* php_wxGridRowHeaderRenderer_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridRowHeaderRenderer_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridRowHeaderRenderer_object_handlers);
+    wxphp_wxGridRowHeaderRenderer_object_handlers.offset = XtOffsetOf(zo_wxGridRowHeaderRenderer, zo);
+    wxphp_wxGridRowHeaderRenderer_object_handlers.free_obj = php_wxGridRowHeaderRenderer_free;
     custom_object->zo.handlers = &wxphp_wxGridRowHeaderRenderer_object_handlers;
 
     custom_object->native_object = NULL;
@@ -13920,9 +13966,9 @@ zend_object* php_wxGridRowHeaderRenderer_new(zend_class_entry *class_type)
 END_EXTERN_C()
 
 BEGIN_EXTERN_C()
-void php_wxGridRowHeaderRendererDefault_free(void *object)
+void php_wxGridRowHeaderRendererDefault_free(zend_object *object)
 {
-    zo_wxGridRowHeaderRendererDefault* custom_object = (zo_wxGridRowHeaderRendererDefault*) object;
+    zo_wxGridRowHeaderRendererDefault* custom_object = php_wxGridRowHeaderRendererDefault_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13963,7 +14009,6 @@ void php_wxGridRowHeaderRendererDefault_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxGridRowHeaderRendererDefault_new(zend_class_entry *class_type)
@@ -13988,6 +14033,9 @@ zend_object* php_wxGridRowHeaderRendererDefault_new(zend_class_entry *class_type
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxGridRowHeaderRendererDefault_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxGridRowHeaderRendererDefault_object_handlers);
+    wxphp_wxGridRowHeaderRendererDefault_object_handlers.offset = XtOffsetOf(zo_wxGridRowHeaderRendererDefault, zo);
+    wxphp_wxGridRowHeaderRendererDefault_object_handlers.free_obj = php_wxGridRowHeaderRendererDefault_free;
     custom_object->zo.handlers = &wxphp_wxGridRowHeaderRendererDefault_object_handlers;
 
     custom_object->native_object = NULL;
@@ -14173,9 +14221,9 @@ PHP_METHOD(php_wxGridRowHeaderRendererDefault, DrawBorder)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxPaletteChangedEvent_free(void *object)
+void php_wxPaletteChangedEvent_free(zend_object *object)
 {
-    zo_wxPaletteChangedEvent* custom_object = (zo_wxPaletteChangedEvent*) object;
+    zo_wxPaletteChangedEvent* custom_object = php_wxPaletteChangedEvent_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14216,7 +14264,6 @@ void php_wxPaletteChangedEvent_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxPaletteChangedEvent_new(zend_class_entry *class_type)
@@ -14241,6 +14288,9 @@ zend_object* php_wxPaletteChangedEvent_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxPaletteChangedEvent_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxPaletteChangedEvent_object_handlers);
+    wxphp_wxPaletteChangedEvent_object_handlers.offset = XtOffsetOf(zo_wxPaletteChangedEvent, zo);
+    wxphp_wxPaletteChangedEvent_object_handlers.free_obj = php_wxPaletteChangedEvent_free;
     custom_object->zo.handlers = &wxphp_wxPaletteChangedEvent_object_handlers;
 
     custom_object->native_object = NULL;
@@ -14609,9 +14659,9 @@ PHP_METHOD(php_wxPaletteChangedEvent, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxFileTypeInfo_free(void *object)
+void php_wxFileTypeInfo_free(zend_object *object)
 {
-    zo_wxFileTypeInfo* custom_object = (zo_wxFileTypeInfo*) object;
+    zo_wxFileTypeInfo* custom_object = php_wxFileTypeInfo_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14652,7 +14702,6 @@ void php_wxFileTypeInfo_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxFileTypeInfo_new(zend_class_entry *class_type)
@@ -14677,6 +14726,9 @@ zend_object* php_wxFileTypeInfo_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxFileTypeInfo_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxFileTypeInfo_object_handlers);
+    wxphp_wxFileTypeInfo_object_handlers.offset = XtOffsetOf(zo_wxFileTypeInfo, zo);
+    wxphp_wxFileTypeInfo_object_handlers.free_obj = php_wxFileTypeInfo_free;
     custom_object->zo.handlers = &wxphp_wxFileTypeInfo_object_handlers;
 
     custom_object->native_object = NULL;
@@ -15433,9 +15485,9 @@ PHP_METHOD(php_wxFileTypeInfo, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTimerRunner_free(void *object)
+void php_wxTimerRunner_free(zend_object *object)
 {
-    zo_wxTimerRunner* custom_object = (zo_wxTimerRunner*) object;
+    zo_wxTimerRunner* custom_object = php_wxTimerRunner_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -15476,7 +15528,6 @@ void php_wxTimerRunner_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTimerRunner_new(zend_class_entry *class_type)
@@ -15501,6 +15552,9 @@ zend_object* php_wxTimerRunner_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTimerRunner_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTimerRunner_object_handlers);
+    wxphp_wxTimerRunner_object_handlers.offset = XtOffsetOf(zo_wxTimerRunner, zo);
+    wxphp_wxTimerRunner_object_handlers.free_obj = php_wxTimerRunner_free;
     custom_object->zo.handlers = &wxphp_wxTimerRunner_object_handlers;
 
     custom_object->native_object = NULL;
@@ -15814,9 +15868,9 @@ PHP_METHOD(php_wxTimerRunner, __construct)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxToolBarToolBase_free(void *object)
+void php_wxToolBarToolBase_free(zend_object *object)
 {
-    zo_wxToolBarToolBase* custom_object = (zo_wxToolBarToolBase*) object;
+    zo_wxToolBarToolBase* custom_object = php_wxToolBarToolBase_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -15857,7 +15911,6 @@ void php_wxToolBarToolBase_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxToolBarToolBase_new(zend_class_entry *class_type)
@@ -15882,6 +15935,9 @@ zend_object* php_wxToolBarToolBase_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxToolBarToolBase_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxToolBarToolBase_object_handlers);
+    wxphp_wxToolBarToolBase_object_handlers.offset = XtOffsetOf(zo_wxToolBarToolBase, zo);
+    wxphp_wxToolBarToolBase_object_handlers.free_obj = php_wxToolBarToolBase_free;
     custom_object->zo.handlers = &wxphp_wxToolBarToolBase_object_handlers;
 
     custom_object->native_object = NULL;
@@ -16087,7 +16143,7 @@ PHP_METHOD(php_wxToolBarToolBase, CanBeToggled)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->CanBeToggled());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->CanBeToggled());
                 }
 
 
@@ -16201,7 +16257,7 @@ PHP_METHOD(php_wxToolBarToolBase, Enable)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->Enable(enable0));
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->Enable(enable0));
                 }
 
 
@@ -16940,7 +16996,7 @@ PHP_METHOD(php_wxToolBarToolBase, GetId)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxToolBarToolBase_php*)native_object)->GetId());
+                    WXPHP_RETVAL_LONG(((wxToolBarToolBase_php*)native_object)->GetId());
                 }
 
 
@@ -17049,7 +17105,7 @@ PHP_METHOD(php_wxToolBarToolBase, GetKind)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxToolBarToolBase_php*)native_object)->GetKind());
+                    WXPHP_RETVAL_LONG(((wxToolBarToolBase_php*)native_object)->GetKind());
                 }
 
 
@@ -17161,7 +17217,7 @@ PHP_METHOD(php_wxToolBarToolBase, GetLabel)
                 {
                     value_to_return0 = ((wxToolBarToolBase_php*)native_object)->GetLabel();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -17272,7 +17328,7 @@ PHP_METHOD(php_wxToolBarToolBase, GetLongHelp)
                 {
                     value_to_return0 = ((wxToolBarToolBase_php*)native_object)->GetLongHelp();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -17500,7 +17556,7 @@ PHP_METHOD(php_wxToolBarToolBase, GetShortHelp)
                 {
                     value_to_return0 = ((wxToolBarToolBase_php*)native_object)->GetShortHelp();
                 }
-                RETVAL_STRING(value_to_return0.ToUTF8().data());
+                WXPHP_RETVAL_STRING(value_to_return0.ToUTF8().data());
 
 
                 return;
@@ -17608,7 +17664,7 @@ PHP_METHOD(php_wxToolBarToolBase, GetStyle)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_LONG(((wxToolBarToolBase_php*)native_object)->GetStyle());
+                    WXPHP_RETVAL_LONG(((wxToolBarToolBase_php*)native_object)->GetStyle());
                 }
 
 
@@ -17717,7 +17773,7 @@ PHP_METHOD(php_wxToolBarToolBase, IsButton)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsButton());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsButton());
                 }
 
 
@@ -17826,7 +17882,7 @@ PHP_METHOD(php_wxToolBarToolBase, IsControl)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsControl());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsControl());
                 }
 
 
@@ -17935,7 +17991,7 @@ PHP_METHOD(php_wxToolBarToolBase, IsEnabled)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsEnabled());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsEnabled());
                 }
 
 
@@ -18044,7 +18100,7 @@ PHP_METHOD(php_wxToolBarToolBase, IsSeparator)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsSeparator());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsSeparator());
                 }
 
 
@@ -18153,7 +18209,7 @@ PHP_METHOD(php_wxToolBarToolBase, IsStretchable)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsStretchable());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsStretchable());
                 }
 
 
@@ -18262,7 +18318,7 @@ PHP_METHOD(php_wxToolBarToolBase, IsStretchableSpace)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsStretchableSpace());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsStretchableSpace());
                 }
 
 
@@ -18371,7 +18427,7 @@ PHP_METHOD(php_wxToolBarToolBase, IsToggled)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsToggled());
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->IsToggled());
                 }
 
 
@@ -18843,7 +18899,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetLongHelp)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->SetLongHelp(wxString(help0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->SetLongHelp(wxString(help0, wxConvUTF8)));
                 }
 
 
@@ -19091,7 +19147,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetShortHelp)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->SetShortHelp(wxString(help0, wxConvUTF8)));
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->SetShortHelp(wxString(help0, wxConvUTF8)));
                 }
 
 
@@ -19205,7 +19261,7 @@ PHP_METHOD(php_wxToolBarToolBase, SetToggle)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->SetToggle(toggle0));
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->SetToggle(toggle0));
                 }
 
 
@@ -19335,7 +19391,7 @@ PHP_METHOD(php_wxToolBarToolBase, Toggle)
 
                 if(current_object_type == PHP_WXTOOLBARTOOLBASE_TYPE)
                 {
-                    RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->Toggle(toggle0));
+                    WXPHP_RETVAL_BOOL(((wxToolBarToolBase_php*)native_object)->Toggle(toggle0));
                 }
 
 
@@ -19647,9 +19703,9 @@ PHP_METHOD(php_wxToolBarToolBase, SetClientData)
 /* }}} */
 
 BEGIN_EXTERN_C()
-void php_wxTextCompleterSimple_free(void *object)
+void php_wxTextCompleterSimple_free(zend_object *object)
 {
-    zo_wxTextCompleterSimple* custom_object = (zo_wxTextCompleterSimple*) object;
+    zo_wxTextCompleterSimple* custom_object = php_wxTextCompleterSimple_fetch_object(object);
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -19690,7 +19746,6 @@ void php_wxTextCompleterSimple_free(void *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
-    efree(custom_object);
 }
 
 zend_object* php_wxTextCompleterSimple_new(zend_class_entry *class_type)
@@ -19715,6 +19770,9 @@ zend_object* php_wxTextCompleterSimple_new(zend_class_entry *class_type)
     zend_object_std_init(&custom_object->zo, class_type);
     object_properties_init(&custom_object->zo, class_type);
 
+    memcpy(&wxphp_wxTextCompleterSimple_object_handlers, zend_get_std_object_handlers(), sizeof wxphp_wxTextCompleterSimple_object_handlers);
+    wxphp_wxTextCompleterSimple_object_handlers.offset = XtOffsetOf(zo_wxTextCompleterSimple, zo);
+    wxphp_wxTextCompleterSimple_object_handlers.free_obj = php_wxTextCompleterSimple_free;
     custom_object->zo.handlers = &wxphp_wxTextCompleterSimple_object_handlers;
 
     custom_object->native_object = NULL;

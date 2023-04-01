@@ -45,7 +45,7 @@ typedef struct _zo_wxXmlNode{
     zend_object zo;
 } zo_wxXmlNode;
 
-void php_wxXmlNode_free(void *object);
+void php_wxXmlNode_free(zend_object *object);
 zend_object* php_wxXmlNode_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -117,7 +117,7 @@ typedef struct _zo_wxXmlAttribute{
     zend_object zo;
 } zo_wxXmlAttribute;
 
-void php_wxXmlAttribute_free(void *object);
+void php_wxXmlAttribute_free(zend_object *object);
 zend_object* php_wxXmlAttribute_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -169,7 +169,7 @@ typedef struct _zo_wxXmlDocument{
     zend_object zo;
 } zo_wxXmlDocument;
 
-void php_wxXmlDocument_free(void *object);
+void php_wxXmlDocument_free(zend_object *object);
 zend_object* php_wxXmlDocument_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

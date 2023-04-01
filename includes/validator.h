@@ -50,7 +50,7 @@ typedef struct _zo_wxGenericValidator{
     zend_object zo;
 } zo_wxGenericValidator;
 
-void php_wxGenericValidator_free(void *object);
+void php_wxGenericValidator_free(zend_object *object);
 zend_object* php_wxGenericValidator_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -96,7 +96,7 @@ typedef struct _zo_wxValidator{
     zend_object zo;
 } zo_wxValidator;
 
-void php_wxValidator_free(void *object);
+void php_wxValidator_free(zend_object *object);
 zend_object* php_wxValidator_new(zend_class_entry *class_type);
 END_EXTERN_C()
 
@@ -147,7 +147,7 @@ typedef struct _zo_wxTextValidator{
     zend_object zo;
 } zo_wxTextValidator;
 
-void php_wxTextValidator_free(void *object);
+void php_wxTextValidator_free(zend_object *object);
 zend_object* php_wxTextValidator_new(zend_class_entry *class_type);
 END_EXTERN_C()
 

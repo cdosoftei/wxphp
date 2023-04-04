@@ -73,10 +73,8 @@ void <?=$class_name?>_php::onEvent(wxEvent& evnt)
 
     if (res == FAILURE) {
         zend_error(E_CORE_WARNING, "Cannot call wxEvtHandler::OnEvent");
-    }
-
-    if (EG(exception)) {
-        zend_error(E_CORE_WARNING, "Exception thrown in wxEvtHandler::OnEvent");
+    } else if (EG(exception)) {
+        zend_error(E_CORE_ERROR, "Exception thrown in wxEvtHandler::OnEvent");
     }
 }
 

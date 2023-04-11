@@ -49,10 +49,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRefCounter_functions[] = {
-    PHP_ME(php_wxRefCounter, DecRef, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRefCounter, GetRefCount, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRefCounter, IncRef, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRefCounter, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRefCounter, DecRef, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRefCounter, GetRefCount, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRefCounter, IncRef, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRefCounter, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -96,13 +96,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxObject_functions[] = {
-    PHP_ME(php_wxObject, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxObject, UnShare, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxObject, UnRef, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxObject, IsSameAs, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxObject, Ref, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxObject, GetClassInfo, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxObject, IsKindOf, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxObject, UnShare, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, UnRef, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, IsSameAs, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, Ref, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, GetClassInfo, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxObject, IsKindOf, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -144,11 +144,11 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxClassInfo_functions[] = {
-    PHP_ME(php_wxClassInfo, CreateObject, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClassInfo, FindClass, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClassInfo, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClassInfo, IsDynamic, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxClassInfo, IsKindOf, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClassInfo, CreateObject, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClassInfo, FindClass, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClassInfo, GetSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClassInfo, IsDynamic, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxClassInfo, IsKindOf, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

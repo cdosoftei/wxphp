@@ -50,32 +50,32 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxLog_functions[] = {
-    PHP_ME(php_wxLog, AddTraceMask, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, ClearTraceMasks, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, DisableTimestamp, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, DontCreateOnDemand, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, EnableLogging, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, Flush, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, FlushActive, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, GetActiveTarget, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, GetLogLevel, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, GetRepetitionCounting, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, GetTimestamp, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, GetTraceMasks, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, GetVerbose, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, IsAllowedTraceMask, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, IsEnabled, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, IsLevelEnabled, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, RemoveTraceMask, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, Resume, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, SetActiveTarget, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, SetComponentLevel, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, SetLogLevel, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, SetRepetitionCounting, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, SetThreadActiveTarget, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, SetTimestamp, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, SetVerbose, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLog, Suspend, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, AddTraceMask, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, ClearTraceMasks, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, DisableTimestamp, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, DontCreateOnDemand, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, EnableLogging, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, Flush, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, FlushActive, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, GetActiveTarget, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, GetLogLevel, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, GetRepetitionCounting, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, GetTimestamp, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, GetTraceMasks, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, GetVerbose, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, IsAllowedTraceMask, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, IsEnabled, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, IsLevelEnabled, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, RemoveTraceMask, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, Resume, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, SetActiveTarget, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, SetComponentLevel, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, SetLogLevel, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, SetRepetitionCounting, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, SetThreadActiveTarget, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, SetTimestamp, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, SetVerbose, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLog, Suspend, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -118,12 +118,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxLogChain_functions[] = {
-    PHP_ME(php_wxLogChain, DetachOldLog, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogChain, GetOldLog, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogChain, IsPassingMessages, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogChain, PassMessages, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogChain, SetLog, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogChain, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxLogChain, DetachOldLog, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogChain, GetOldLog, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogChain, IsPassingMessages, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogChain, PassMessages, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogChain, SetLog, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogChain, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -166,7 +166,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxLogInterposer_functions[] = {
-    PHP_ME(php_wxLogInterposer, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxLogInterposer, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -209,9 +209,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxLogBuffer_functions[] = {
-    PHP_ME(php_wxLogBuffer, Flush, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogBuffer, GetBuffer, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogBuffer, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxLogBuffer, Flush, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogBuffer, GetBuffer, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogBuffer, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -256,9 +256,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxLogWindow_functions[] = {
-    PHP_ME(php_wxLogWindow, GetFrame, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogWindow, Show, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogWindow, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxLogWindow, GetFrame, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogWindow, Show, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogWindow, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -301,8 +301,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxLogGui_functions[] = {
-    PHP_ME(php_wxLogGui, Flush, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxLogGui, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxLogGui, Flush, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxLogGui, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -345,7 +345,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxLogTextCtrl_functions[] = {
-    PHP_ME(php_wxLogTextCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxLogTextCtrl, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

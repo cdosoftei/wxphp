@@ -154,7 +154,7 @@ public:
     ~wxPhpCallbackData()
     {
         if (this->obj) {
-            zend_object_release(this->obj);
+            GC_DELREF(this->obj);
         }
 
         if (this->func_ptr &&
@@ -164,7 +164,7 @@ public:
         }
 
         if (this->closure) {
-            zend_object_release(this->closure);
+            GC_DELREF(this->closure);
         }
     }
 
@@ -176,7 +176,30 @@ public:
     zend_class_entry *ce;
 };
 
+enum wxphp_callback_type {
+    WXPHP_FD_EVENT_CB = 0,
+    WXPHP_CB_MAX      = 1
+};
+
+typedef struct {
+    zend_fcall_info fci;
+    zend_fcall_info_cache fcc;
+} wxphp_cb_t;
+
 ZEND_BEGIN_ARG_INFO_EX(arginfo_null, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_tmp_placeholder, 0, 0, 0)
+    ZEND_ARG_INFO(0, a0)
+    ZEND_ARG_INFO(0, a1)
+    ZEND_ARG_INFO(0, a2)
+    ZEND_ARG_INFO(0, a3)
+    ZEND_ARG_INFO(0, a4)
+    ZEND_ARG_INFO(0, a5)
+    ZEND_ARG_INFO(0, a6)
+    ZEND_ARG_INFO(0, a7)
+    ZEND_ARG_INFO(0, a8)
+    ZEND_ARG_INFO(0, a9)
 ZEND_END_ARG_INFO()
 
 /**
@@ -195,6 +218,7 @@ PHP_METHOD(php_wxApp, SetAppName);
 PHP_METHOD(php_wxApp, SetClassName);
 PHP_METHOD(php_wxApp, SetVendorDisplayName);
 PHP_METHOD(php_wxApp, SetVendorName);
+PHP_METHOD(php_wxApp, SetCallback);
 PHP_METHOD(php_wxApp, Yield);
 
 /**

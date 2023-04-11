@@ -15626,11 +15626,9 @@ void wxEvtHandler_php::onEvent(wxEvent& evnt)
     zval_ptr_dtor(&arg[0]);
 
     if (res == FAILURE) {
-        zend_error(E_CORE_ERROR, "Cannot call wxEvtHandler::OnEvent");
-    }
-
-    if (EG(exception)) {
-        zend_error(E_CORE_ERROR, "Uncaught exception in wxEvtHandler::OnEvent");
+        zend_error(E_CORE_WARNING, "Cannot call wxEvtHandler::OnEvent");
+    } else if (EG(exception)) {
+        zend_error(E_CORE_ERROR, "Exception thrown in wxEvtHandler::OnEvent");
     }
 }
 

@@ -1,145 +1,80 @@
+#include <unordered_map>
 #include <main/php_network.h>
+#include "app.h"
 
-// To do: there is no lifecycle management for the source handler (nor the event loop sources!)
-//        i.e. they're not being cleaned up when the monitored stream is removed.
+std::unordered_map<zend_long, wxEventLoopSource*> wxEventLoopSources;
+std::unordered_map<zend_long, wxEventLoopSource*> wxEventLoopReadSources;
+std::unordered_map<zend_long, wxEventLoopSource*> wxEventLoopWriteSources;
 
 class wxPhpEventLoopSourceHandler: public wxEventLoopSourceHandler
 {
     public:
-        wxPhpEventLoopSourceHandler(zval *fd, zend_fcall_info *fci, zend_fcall_info_cache *fci_cache)
+        wxPhpEventLoopSourceHandler(zval *fd)
         {
             stream = (php_stream *) zend_fetch_resource_ex(fd, NULL, php_file_le_stream());
-
-            memcpy(&this->fd, fd, sizeof(zval));
-            memcpy(&this->fci, fci, sizeof(zend_fcall_info));
-            memcpy(&this->fci_cache, fci_cache, sizeof(zend_fcall_info_cache));
-
-            this->ce = fci_cache->calling_scope;
-            this->func_ptr = fci_cache->function_handler;
-            this->obj = fci_cache->object;
-
-            if (this->obj) {
-                GC_ADDREF(this->obj);
-            }
-
-            if (Z_TYPE(fci->function_name) == IS_OBJECT) {
-                this->closure = Z_OBJ(fci->function_name);
-                GC_ADDREF(this->closure);
-            } else {
-                this->closure = NULL;
-            }
         }
 
         void OnReadWaiting()
         {
-            //php_stream *stream = (php_stream *) zend_fetch_resource_ex(&fd, NULL, php_file_le_stream());
-
-            // To do: we shouldn't have to do this with proper object lifecycle management
-            if (!stream) {
-                return;
-            }
-
-            zend_long streamId = php_stream_get_resource_id(stream);
-            php_printf("OnReadWaiting(%d)\n", streamId);
-
             Dispatch(wxEVENT_SOURCE_INPUT);
         }
 
         void OnWriteWaiting()
         {
-            //php_stream *stream = (php_stream *) zend_fetch_resource_ex(&fd, NULL, php_file_le_stream());
-
-            // To do: we shouldn't have to do this with proper object lifecycle management
-            if (!stream) {
-                return;
-            }
-
-            zend_long streamId = php_stream_get_resource_id(stream);
-            php_printf("OnWriteWaiting(%d)\n", streamId);
-
             Dispatch(wxEVENT_SOURCE_OUTPUT);
         }
 
         void OnExceptionWaiting()
         {
-            //php_stream *stream = (php_stream *) zend_fetch_resource_ex(&fd, NULL, php_file_le_stream());
-
-            // To do: we shouldn't have to do this with proper object lifecycle management
-            if (!stream) {
-                return;
-            }
-
-            zend_long streamId = php_stream_get_resource_id(stream);
-            php_printf("OnExceptionWaiting(%d)\n", streamId);
-
             Dispatch(wxEVENT_SOURCE_EXCEPTION);
-        }
-
-        ~wxPhpEventLoopSourceHandler()
-        {
-            php_printf("wxPhpEventLoopSourceHandler DESTROYER(%d)\n");
-
-            if (this->obj) {
-                zend_object_release(this->obj);
-            }
-
-            if (this->func_ptr &&
-                UNEXPECTED(this->func_ptr->common.fn_flags & ZEND_ACC_CALL_VIA_TRAMPOLINE)) {
-                zend_string_release_ex(this->func_ptr->common.function_name, 0);
-                zend_free_trampoline(this->func_ptr);
-            }
-
-            if (this->closure) {
-                zend_object_release(this->closure);
-            }
         }
 
     protected:
         void Dispatch(long flags)
         {
-            zval dummy;
+            wxAppWrapper* instance = (wxAppWrapper*) wxApp::GetInstance();
+
+            if (instance == NULL)
+            {
+                return;
+            }
+
+            zval retval;
             zval arg[2];
 
             ZVAL_LONG(&arg[0], flags);
             ZVAL_RES(&arg[1], stream->res);
-            // memcpy(&arg[1], &fd, sizeof(zval));
 
-            fci.retval = &dummy;
-            fci.param_count = 2;
-            fci.params = arg;
+            instance->FireCallback(&retval, arg, 2, WXPHP_FD_EVENT_CB);
 
-            #if PHP_VERSION_ID < 80000
-            fci.no_separation = 0;
-            #endif
-
-            #if PHP_VERSION_ID >= 80000
-            fci.named_params = NULL;
-            #endif
-
-            zend_result res = zend_call_function(&fci, &fci_cache);
-            zval_ptr_dtor(&dummy);
+            zval_ptr_dtor(&retval);
             zval_ptr_dtor(&arg[0]);
-
-            if (res == FAILURE) {
-                zend_error(E_CORE_WARNING, "Cannot call wxPhpEventLoopSourceHandler::Dispatch");
-            } else if (EG(exception)) {
-                zend_error(E_CORE_ERROR, "Exception thrown in wxPhpEventLoopSourceHandler::Dispatch");
-            }
         }
 
         php_stream *stream;
-
-        zval fd;
-        zend_fcall_info fci;
-        zend_fcall_info_cache fci_cache;
-        zend_function *func_ptr;
-        zend_object *obj;
-        zend_object *closure;
-        zend_class_entry *ce;
 };
 
+class wxPhpEventLoopSourceReadHandler: public wxPhpEventLoopSourceHandler
+{
+    using wxPhpEventLoopSourceHandler::wxPhpEventLoopSourceHandler;
 
-/* {{{ proto wxEventLoopSource wxEventLoopBase::AddSourceForFD(int fd, int flags)
+    void OnWriteWaiting()
+    {
+        zend_error(E_CORE_ERROR, "wxPhpEventLoopSourceReadHandler: Cannot handle write events for read handlers");
+    }
+};
+
+class wxPhpEventLoopSourceWriteHandler: public wxPhpEventLoopSourceHandler
+{
+    using wxPhpEventLoopSourceHandler::wxPhpEventLoopSourceHandler;
+
+    void OnReadWaiting()
+    {
+        zend_error(E_CORE_ERROR, "wxPhpEventLoopSourceWriteHandler: Cannot handle write events for read handlers");
+    }
+};
+
+/* {{{ proto wxEventLoopSource wxEventLoopBase::AddSourceForFD(stream res, int flags)
    wxEventLoopBase::AddSourceForFD */
 PHP_METHOD(php_wxEventLoopBase, AddSourceForFD)
 {
@@ -195,20 +130,16 @@ PHP_METHOD(php_wxEventLoopBase, AddSourceForFD)
         return;
     }
 
-    zval* fd0;
-    long flags0;
-    zend_fcall_info fci = empty_fcall_info;
-    zend_fcall_info_cache fci_cache = empty_fcall_info_cache;
+    zval* res;
+    long flags;
 
-    char parse_parameters_string[] = "zlf";
+    char parse_parameters_string[] = "zl";
     if (!zend_parse_parameters_ex(
         ZEND_PARSE_PARAMS_QUIET,
         arguments_received,
         parse_parameters_string,
-        &fd0,
-        &flags0,
-        &fci,
-        &fci_cache
+        &res,
+        &flags
     ) == SUCCESS) {
         zend_error(
             E_ERROR,
@@ -221,8 +152,8 @@ PHP_METHOD(php_wxEventLoopBase, AddSourceForFD)
     php_stream *stream;
     php_socket_t fd = -1;
 
-    if (Z_TYPE_P(fd0) == IS_RESOURCE) {
-        if ((stream = (php_stream *) zend_fetch_resource_ex(fd0, NULL, php_file_le_stream()))) {
+    if (Z_TYPE_P(res) == IS_RESOURCE) {
+        if ((stream = (php_stream *) zend_fetch_resource_ex(res, NULL, php_file_le_stream()))) {
             if (php_stream_cast(stream, PHP_STREAM_AS_FD | PHP_STREAM_CAST_INTERNAL, (void **) &fd, 1) != SUCCESS || fd < 0) {
                 fd = -1;
             }
@@ -234,34 +165,43 @@ PHP_METHOD(php_wxEventLoopBase, AddSourceForFD)
             E_ERROR,
             "wxEventLoopBase::AddSourceForFD cannot retrieve file handle for provided stream"
         );
-
-        return;
+        RETURN_NULL();
     }
 
-    wxPhpEventLoopSourceHandler* wxEvLoopSrcHandler = new wxPhpEventLoopSourceHandler(fd0, &fci, &fci_cache);
+    wxPhpEventLoopSourceHandler* wxEvLoopSrcHandler;
 
-    wxEventLoopSource_php* retval;
-    if (current_object_type == PHP_WXEVENTLOOPBASE_TYPE) {
-        retval = (wxEventLoopSource_php*) ((wxEventLoopBase_php*)native_object)->AddSourceForFD((int) fd, wxEvLoopSrcHandler, (int) flags0);
+    flags |= wxEVENT_SOURCE_EXCEPTION;
+
+    if (flags == wxEVENT_SOURCE_ALL) {
+        wxEvLoopSrcHandler = new wxPhpEventLoopSourceHandler(res);
+    } else if (flags & wxEVENT_SOURCE_INPUT) {
+        wxEvLoopSrcHandler = new wxPhpEventLoopSourceReadHandler(res);
+    } else if (flags & wxEVENT_SOURCE_OUTPUT) {
+        wxEvLoopSrcHandler = new wxPhpEventLoopSourceWriteHandler(res);
     }
 
-    if (retval == NULL) {
-        RETVAL_NULL();
-    } else if(retval->references.IsUserInitialized()) {
-        if (!Z_ISNULL(retval->phpObj)) {
-            ZVAL_COPY_VALUE(return_value, &retval->phpObj);
-            zval_add_ref(&retval->phpObj);
-            return_is_user_initialized = true;
-        } else {
-            zend_error(E_ERROR, "Could not retreive original zval.");
-        }
-    } else {
-        object_init_ex(return_value, php_wxEventLoopSource_entry);
-        Z_wxEventLoopSource_P(return_value)->native_object = (wxEventLoopSource_php*) retval;
-        Z_wxEventLoopSource_P(return_value)->is_user_initialized = true;
+    if (!wxEvLoopSrcHandler) {
+        zend_error(E_ERROR, "Could not create event loop source handler");
+        RETURN_NULL();
     }
 
-    if (Z_TYPE_P(return_value) != IS_NULL && (void*)retval != (void*)native_object && return_is_user_initialized) {
-        references->AddReference(return_value, "wxEventLoopBase::AddSourceForFD at call 5 with 3 argument(s)");
+    wxEventLoopSource *wxEventLoopSrc = (((wxEventLoopBase_php*)native_object)->AddSourceForFD(fd, wxEvLoopSrcHandler, flags));
+
+    if (!wxEventLoopSrc) {
+        delete wxEvLoopSrcHandler;
+        zend_error(E_ERROR, "Could not create event loop source handler");
+        RETURN_NULL();
     }
+
+    zend_long streamId = php_stream_get_resource_id(stream);
+
+    if (flags == wxEVENT_SOURCE_ALL) {
+        wxEventLoopSources[streamId] = wxEventLoopSrc;
+    } else if (flags & wxEVENT_SOURCE_INPUT) {
+        wxEventLoopReadSources[streamId] = wxEventLoopSrc;
+    } else if (flags & wxEVENT_SOURCE_OUTPUT) {
+        wxEventLoopWriteSources[streamId] = wxEventLoopSrc;
+    }
+
+    RETURN_LONG(streamId);
 }

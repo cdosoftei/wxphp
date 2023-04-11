@@ -48,17 +48,17 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxArtProvider_functions[] = {
-    PHP_ME(php_wxArtProvider, Remove, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, PushBack, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, Push, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, Pop, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, HasNativeProvider, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, GetSizeHint, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, GetNativeSizeHint, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, GetIconBundle, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, GetIcon, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, GetBitmap, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxArtProvider, Delete, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, Remove, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, PushBack, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, Push, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, Pop, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, HasNativeProvider, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, GetSizeHint, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, GetNativeSizeHint, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, GetIconBundle, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, GetIcon, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, GetBitmap, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxArtProvider, Delete, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -103,18 +103,18 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxCaret_functions[] = {
-    PHP_ME(php_wxCaret, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxCaret, Show, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, SetSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, SetBlinkTime, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, Move, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, IsVisible, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, Hide, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, GetWindow, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, GetSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, GetBlinkTime, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxCaret, GetPosition, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxCaret, Show, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, SetSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, SetBlinkTime, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, Move, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, IsVisible, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, IsOk, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, Hide, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, GetWindow, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, GetSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, GetBlinkTime, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxCaret, GetPosition, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -158,13 +158,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxNotificationMessage_functions[] = {
-    PHP_ME(php_wxNotificationMessage, Close, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxNotificationMessage, SetFlags, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxNotificationMessage, SetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxNotificationMessage, SetParent, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxNotificationMessage, SetTitle, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxNotificationMessage, Show, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxNotificationMessage, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxNotificationMessage, Close, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxNotificationMessage, SetFlags, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxNotificationMessage, SetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxNotificationMessage, SetParent, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxNotificationMessage, SetTitle, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxNotificationMessage, Show, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxNotificationMessage, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -207,11 +207,11 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxStopWatch_functions[] = {
-    PHP_ME(php_wxStopWatch, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxStopWatch, Time, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStopWatch, Start, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStopWatch, Resume, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxStopWatch, Pause, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxStopWatch, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxStopWatch, Time, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxStopWatch, Start, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxStopWatch, Resume, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxStopWatch, Pause, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -255,14 +255,14 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTaskBarIcon_functions[] = {
-    PHP_ME(php_wxTaskBarIcon, Destroy, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTaskBarIcon, IsAvailable, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTaskBarIcon, IsIconInstalled, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTaskBarIcon, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTaskBarIcon, PopupMenu, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTaskBarIcon, RemoveIcon, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTaskBarIcon, SetIcon, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTaskBarIcon, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTaskBarIcon, Destroy, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTaskBarIcon, IsAvailable, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTaskBarIcon, IsIconInstalled, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTaskBarIcon, IsOk, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTaskBarIcon, PopupMenu, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTaskBarIcon, RemoveIcon, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTaskBarIcon, SetIcon, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTaskBarIcon, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -306,16 +306,16 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTimer_functions[] = {
-    PHP_ME(php_wxTimer, GetId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, GetInterval, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, GetOwner, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, IsOneShot, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, IsRunning, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, Notify, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, SetOwner, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, Start, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, Stop, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTimer, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTimer, GetId, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, GetInterval, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, GetOwner, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, IsOneShot, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, IsRunning, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, Notify, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, SetOwner, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, Start, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, Stop, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTimer, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -359,7 +359,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWindowDisabler_functions[] = {
-    PHP_ME(php_wxWindowDisabler, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxWindowDisabler, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -402,7 +402,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxBusyCursor_functions[] = {
-    PHP_ME(php_wxBusyCursor, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxBusyCursor, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

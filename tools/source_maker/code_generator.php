@@ -950,7 +950,7 @@ $functions_table = "";
 foreach($defFunctions as $function_name=>$function_data)
 {
     //Write to functions table entry
-    $functions_table .= "    PHP_FALIAS($function_name, php_$function_name, arginfo_null)\n";
+    $functions_table .= "    PHP_FALIAS($function_name, php_$function_name, arginfo_tmp_placeholder)\n";
 }
 
 //Generate wxwidgets.cpp

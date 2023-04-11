@@ -73,12 +73,16 @@ zval * wxphp_sprintf(INTERNAL_FUNCTION_PARAMETERS, int offset = 0)
     zval    funcName, *string, *retVal;
 
     if (argc < 1) {
-        WRONG_PARAM_COUNT_WITH_RETVAL(NULL);
+        RETVAL_NULL();
+        zend_wrong_param_count();
+        return NULL;
     }
 
     if (zend_get_parameters_array_ex(argc, argv) == FAILURE) {
         efree(argv);
-        WRONG_PARAM_COUNT_WITH_RETVAL(NULL);
+        RETVAL_NULL();
+        zend_wrong_param_count();
+        return NULL;
     }
 
     ZVAL_STRINGL(&funcName, "sprintf", sizeof("sprintf") - 1);

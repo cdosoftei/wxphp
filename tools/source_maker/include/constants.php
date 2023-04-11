@@ -926,7 +926,9 @@ $defConsts["wxEVT_HELP"] = true;
 $defConsts["wxEVT_SASH_DRAGGED"] = true;
 $defConsts["wxEVT_UPDATE_UI"] = true;
 
-$defConsts["wxEVENT_SOURCE_INPUT"] = 0x01;
-$defConsts["wxEVENT_SOURCE_OUTPUT"] = 0x02;
-$defConsts["wxEVENT_SOURCE_EXCEPTION"] = 0x04;
-$defConsts["wxEVENT_SOURCE_ALL"] = $defConsts["wxEVENT_SOURCE_INPUT"] | $defConsts["wxEVENT_SOURCE_OUTPUT"] | $defConsts["wxEVENT_SOURCE_EXCEPTION"];
+$defConsts["wxEVENT_SOURCE_INPUT"] = true;
+$defConsts["wxEVENT_SOURCE_OUTPUT"] = true;
+$defConsts["wxEVENT_SOURCE_EXCEPTION"] = true;
+$defConsts["wxEVENT_SOURCE_ALL"] = true;
+
+$defConsts["WXPHP_FD_EVENT_CB"] = true;

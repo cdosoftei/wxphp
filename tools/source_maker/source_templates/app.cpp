@@ -226,6 +226,61 @@ int wxAppWrapper::OnExit()
     return wxApp::OnExit();
 }
 
+void wxAppWrapper::SetCallback(zend_fcall_info *fci, zend_fcall_info_cache *fcc, enum wxphp_callback_type type)
+{
+    wxphp_cb_t *cb;
+
+    if (wxphp_callbacks[type] == NULL) {
+        cb = (wxphp_cb_t *) emalloc(sizeof(wxphp_cb_t));
+    } else {
+        cb = wxphp_callbacks[type];
+
+        if (Z_TYPE(cb->fci.function_name) != IS_UNDEF) {
+            zval_dtor(&cb->fci.function_name);
+        }
+
+        if (cb->fci.object) {
+            GC_DELREF(cb->fci.object);
+        }
+    }
+
+    memcpy(&cb->fci, fci, sizeof(zend_fcall_info));
+    memcpy(&cb->fcc, fcc, sizeof(zend_fcall_info_cache));
+
+    if (ZEND_FCI_INITIALIZED(cb->fci)) {
+        Z_TRY_ADDREF(cb->fci.function_name);
+
+        if (cb->fci.object) {
+            GC_ADDREF(cb->fci.object);
+        }
+    }
+
+    wxphp_callbacks[type] = cb;
+}
+
+int wxAppWrapper::FireCallback(zval *retval_ptr, zval *params, int param_count, enum wxphp_callback_type type)
+{
+    int error = 0;
+
+    if (ZEND_FCI_INITIALIZED(wxphp_callbacks[type]->fci)) {
+        wxphp_callbacks[type]->fci.params = params;
+        wxphp_callbacks[type]->fci.retval = retval_ptr;
+        wxphp_callbacks[type]->fci.param_count = param_count;
+
+        if (zend_call_function(&wxphp_callbacks[type]->fci, &wxphp_callbacks[type]->fcc) != SUCCESS) {
+            error = -1;
+        }
+    } else {
+        error = -2;
+    }
+
+    if (EG(exception)) {
+        zend_error(E_CORE_ERROR, "Unhandled exception in wxAppWrapper::FireCallback");
+    }
+
+    return error;
+}
+
 #ifdef __WXMAC__
 void wxAppWrapper::MacNewFile()
 {
@@ -648,6 +703,24 @@ bool wxAppWrapper::OSXIsGUIApplication()
 }
 #endif
 
+wxAppWrapper::~wxAppWrapper()
+{
+    for (size_t i = 0; i < WXPHP_CB_MAX; i++) {
+        if (wxphp_callbacks[i] != NULL) {
+            if (ZEND_FCI_INITIALIZED(wxphp_callbacks[i]->fci)) {
+                zval_dtor(&wxphp_callbacks[i]->fci.function_name);
+
+                if (wxphp_callbacks[i]->fci.object) {
+                    OBJ_RELEASE(wxphp_callbacks[i]->fci.object);
+                }
+            }
+
+            efree(wxphp_callbacks[i]);
+            wxphp_callbacks[i] = NULL;
+        }
+    }
+}
+
 /* {{{ proto wxApp wxApp::__construct()
    Constructor. */
 PHP_METHOD(php_wxApp, __construct)
@@ -929,5 +1002,22 @@ PHP_METHOD(php_wxApp, SetVendorName)
             );
         }
     }
+}
+/* }}} */
+
+/* {{{ proto void wxApp::SetCallback(callable fn, long type) */
+PHP_METHOD(php_wxApp, SetCallback)
+{
+    wxAppWrapper* native_object = Z_wxApp_P(getThis())->native_object;
+    zend_fcall_info fci = empty_fcall_info;
+    zend_fcall_info_cache fcc = empty_fcall_info_cache;
+    zend_long type;
+
+    ZEND_PARSE_PARAMETERS_START(2, 2)
+        Z_PARAM_FUNC_EX(fci, fcc, 1, 0)
+        Z_PARAM_LONG(type)
+    ZEND_PARSE_PARAMETERS_END();
+
+    native_object->SetCallback(&fci, &fcc, WXPHP_FD_EVENT_CB);
 }
 /* }}} */

@@ -82,8 +82,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonArtProvider_functions[] = {
-    PHP_ME(php_wxRibbonArtProvider, GetColor, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonArtProvider, SetColor, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonArtProvider, GetColor, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonArtProvider, SetColor, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -127,18 +127,18 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonBar_functions[] = {
-    PHP_ME(php_wxRibbonBar, ArePanelsShown, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, DismissExpandedPanel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, GetActivePage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, GetPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, HidePanels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, Realize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, SetActivePage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, SetArtProvider, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, SetTabCtrlMargins, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, ShowPanels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonBar, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRibbonBar, ArePanelsShown, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, DismissExpandedPanel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, GetActivePage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, GetPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, HidePanels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, Realize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, SetActivePage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, SetArtProvider, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, SetTabCtrlMargins, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, ShowPanels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonBar, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -182,17 +182,17 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonButtonBar_functions[] = {
-    PHP_ME(php_wxRibbonButtonBar, AddDropdownButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, AddHybridButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, AddToggleButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, ClearButtons, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, DeleteButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, EnableButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, Realize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, ToggleButton, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonButtonBar, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxRibbonButtonBar, AddButton, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, AddDropdownButton, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, AddHybridButton, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, AddToggleButton, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, ClearButtons, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, DeleteButton, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, EnableButton, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, Realize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, ToggleButton, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonButtonBar, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRibbonButtonBar, AddButton, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -238,14 +238,14 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonControl_functions[] = {
-    PHP_ME(php_wxRibbonControl, GetArtProvider, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonControl, GetNextLargerSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonControl, GetNextSmallerSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonControl, IsSizingContinuous, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonControl, Realise, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonControl, Realize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonControl, SetArtProvider, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonControl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRibbonControl, GetArtProvider, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonControl, GetNextLargerSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonControl, GetNextSmallerSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonControl, IsSizingContinuous, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonControl, Realise, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonControl, Realize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonControl, SetArtProvider, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonControl, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -289,28 +289,28 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonGallery_functions[] = {
-    PHP_ME(php_wxRibbonGallery, Append, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, Clear, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, EnsureVisible, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetActiveItem, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetCount, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetDownButtonState, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetExtensionButtonState, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetHoveredItem, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetItem, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetItemClientData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetItemClientObject, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, GetUpButtonState, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, IsEmpty, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, IsHovered, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, ScrollLines, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, ScrollPixels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, SetItemClientData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, SetItemClientObject, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, SetSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonGallery, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRibbonGallery, Append, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, Clear, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, EnsureVisible, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetActiveItem, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetCount, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetDownButtonState, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetExtensionButtonState, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetHoveredItem, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetItem, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetItemClientData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetItemClientObject, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, GetUpButtonState, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, IsEmpty, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, IsHovered, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, ScrollLines, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, ScrollPixels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, SetItemClientData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, SetItemClientObject, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, SetSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonGallery, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -354,17 +354,17 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonPage_functions[] = {
-    PHP_ME(php_wxRibbonPage, AdjustRectToIncludeScrollButtons, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, DismissExpandedPanel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, GetIcon, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, GetMajorAxis, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, Realize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, ScrollLines, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, ScrollPixels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, SetArtProvider, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, SetSizeWithScrollButtonAdjustment, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPage, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRibbonPage, AdjustRectToIncludeScrollButtons, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, DismissExpandedPanel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, GetIcon, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, GetMajorAxis, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, Realize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, ScrollLines, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, ScrollPixels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, SetArtProvider, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, SetSizeWithScrollButtonAdjustment, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPage, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -408,18 +408,18 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonPanel_functions[] = {
-    PHP_ME(php_wxRibbonPanel, CanAutoMinimise, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, GetExpandedDummy, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, GetExpandedPanel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, GetMinimisedIcon, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, HideExpanded, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, IsHovered, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, IsMinimised, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, Realize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, SetArtProvider, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, ShowExpanded, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonPanel, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRibbonPanel, CanAutoMinimise, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, GetExpandedDummy, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, GetExpandedPanel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, GetMinimisedIcon, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, HideExpanded, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, IsHovered, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, IsMinimised, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, Realize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, SetArtProvider, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, ShowExpanded, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonPanel, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -463,13 +463,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRibbonToolBar_functions[] = {
-    PHP_ME(php_wxRibbonToolBar, AddDropdownTool, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonToolBar, AddHybridTool, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonToolBar, AddSeparator, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonToolBar, AddTool, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonToolBar, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonToolBar, SetRows, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRibbonToolBar, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRibbonToolBar, AddDropdownTool, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonToolBar, AddHybridTool, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonToolBar, AddSeparator, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonToolBar, AddTool, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonToolBar, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonToolBar, SetRows, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRibbonToolBar, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

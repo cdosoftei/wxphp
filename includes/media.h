@@ -50,24 +50,24 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMediaCtrl_functions[] = {
-    PHP_ME(php_wxMediaCtrl, Load, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, GetBestSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, GetPlaybackRate, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, GetVolume, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, Length, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, LoadURI, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, LoadURIWithProxy, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, Pause, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, Play, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, Seek, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, SetPlaybackRate, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, SetVolume, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, ShowPlayerControls, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, Stop, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxMediaCtrl, GetState, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMediaCtrl, Tell, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Load, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, GetBestSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, GetPlaybackRate, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, GetVolume, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Length, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, LoadURI, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, LoadURIWithProxy, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Pause, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Play, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Seek, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, SetPlaybackRate, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, SetVolume, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, ShowPlayerControls, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Stop, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMediaCtrl, GetState, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMediaCtrl, Tell, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -112,11 +112,11 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxSound_functions[] = {
-    PHP_ME(php_wxSound, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSound, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSound, Play, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSound, Stop, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSound, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxSound, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSound, IsOk, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSound, Play, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSound, Stop, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSound, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif

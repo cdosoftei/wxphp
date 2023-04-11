@@ -49,8 +49,8 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPrinterDC_functions[] = {
-    PHP_ME(php_wxPrinterDC, GetPaperRect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinterDC, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPrinterDC, GetPaperRect, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrinterDC, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -93,10 +93,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPreviewControlBar_functions[] = {
-    PHP_ME(php_wxPreviewControlBar, CreateButtons, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPreviewControlBar, GetZoomControl, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPreviewControlBar, SetZoomControl, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPreviewControlBar, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPreviewControlBar, CreateButtons, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPreviewControlBar, GetZoomControl, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPreviewControlBar, SetZoomControl, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPreviewControlBar, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -139,7 +139,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPreviewCanvas_functions[] = {
-    PHP_ME(php_wxPreviewCanvas, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPreviewCanvas, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -181,10 +181,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPreviewFrame_functions[] = {
-    PHP_ME(php_wxPreviewFrame, CreateCanvas, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPreviewFrame, CreateControlBar, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPreviewFrame, Initialize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPreviewFrame, InitializeWithModality, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPreviewFrame, CreateCanvas, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPreviewFrame, CreateControlBar, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPreviewFrame, Initialize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPreviewFrame, InitializeWithModality, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -228,23 +228,23 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPrintPreview_functions[] = {
-    PHP_ME(php_wxPrintPreview, GetCanvas, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, GetCurrentPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, GetFrame, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, GetMaxPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, GetMinPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, GetPrintout, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, GetPrintoutForPrinting, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, PaintPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, PrintMethod, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, RenderPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, SetCanvas, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, SetCurrentPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, SetFrame, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, SetPrintout, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, SetZoom, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintPreview, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPrintPreview, GetCanvas, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, GetCurrentPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, GetFrame, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, GetMaxPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, GetMinPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, GetPrintout, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, GetPrintoutForPrinting, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, IsOk, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, PaintPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, PrintMethod, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, RenderPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, SetCanvas, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, SetCurrentPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, SetFrame, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, SetPrintout, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, SetZoom, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintPreview, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -287,13 +287,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPrinter_functions[] = {
-    PHP_ME(php_wxPrinter, GetAbort, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinter, GetLastError, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinter, GetPrintDialogData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinter, PrintMethod, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinter, PrintDialog, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinter, ReportError, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrinter, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPrinter, GetAbort, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrinter, GetLastError, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrinter, GetPrintDialogData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrinter, PrintMethod, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrinter, PrintDialog, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrinter, ReportError, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrinter, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -342,30 +342,30 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPrintout_functions[] = {
-    PHP_ME(php_wxPrintout, FitThisSizeToPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, FitThisSizeToPageMargins, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, FitThisSizeToPaper, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetDC, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetLogicalPageMarginsRect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetLogicalPageRect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetLogicalPaperRect, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetPPIPrinter, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetPPIScreen, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetPageInfo, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetPageSizeMM, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetPageSizePixels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetPaperRectPixels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetPreview, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, GetTitle, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, HasPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, IsPreview, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, MapScreenSizeToDevice, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, MapScreenSizeToPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, MapScreenSizeToPageMargins, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, MapScreenSizeToPaper, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, OffsetLogicalOrigin, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, SetLogicalOrigin, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintout, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPrintout, FitThisSizeToPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, FitThisSizeToPageMargins, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, FitThisSizeToPaper, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetDC, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetLogicalPageMarginsRect, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetLogicalPageRect, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetLogicalPaperRect, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetPPIPrinter, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetPPIScreen, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetPageInfo, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetPageSizeMM, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetPageSizePixels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetPaperRectPixels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetPreview, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, GetTitle, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, HasPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, IsPreview, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, MapScreenSizeToDevice, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, MapScreenSizeToPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, MapScreenSizeToPageMargins, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, MapScreenSizeToPaper, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, OffsetLogicalOrigin, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, SetLogicalOrigin, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintout, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -409,11 +409,11 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPrintDialog_functions[] = {
-    PHP_ME(php_wxPrintDialog, GetPrintDC, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialog, GetPrintDialogData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxPrintDialog, GetPrintData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialog, GetPrintDC, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialog, GetPrintDialogData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPrintDialog, GetPrintData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -456,9 +456,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPageSetupDialog_functions[] = {
-    PHP_ME(php_wxPageSetupDialog, GetPageSetupData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPageSetupDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxPageSetupDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPageSetupDialog, GetPageSetupData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPageSetupDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPageSetupDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

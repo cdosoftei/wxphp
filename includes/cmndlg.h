@@ -49,28 +49,28 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxAboutDialogInfo_functions[] = {
-    PHP_ME(php_wxAboutDialogInfo, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxAboutDialogInfo, SetWebSite, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetVersion, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, AddDeveloper, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, AddDocWriter, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, AddTranslator, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, GetCopyright, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, GetDescription, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, HasCopyright, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, HasDescription, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetArtists, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetCopyright, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetDescription, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetDevelopers, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetDocWriters, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetIcon, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetLicence, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetLicense, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, SetTranslators, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, AddArtist, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxAboutDialogInfo, GetName, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxAboutDialogInfo, SetWebSite, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetVersion, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, AddDeveloper, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, AddDocWriter, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, AddTranslator, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, GetCopyright, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, GetDescription, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, HasCopyright, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, HasDescription, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetArtists, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetCopyright, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetDescription, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetDevelopers, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetDocWriters, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetIcon, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetLicence, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetLicense, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetName, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, SetTranslators, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, AddArtist, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxAboutDialogInfo, GetName, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -113,7 +113,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxBusyInfo_functions[] = {
-    PHP_ME(php_wxBusyInfo, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxBusyInfo, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -157,12 +157,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxSingleChoiceDialog_functions[] = {
-    PHP_ME(php_wxSingleChoiceDialog, GetSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSingleChoiceDialog, GetStringSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSingleChoiceDialog, SetSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSingleChoiceDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSingleChoiceDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxSingleChoiceDialog, GetSelectionData, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSingleChoiceDialog, GetSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSingleChoiceDialog, GetStringSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSingleChoiceDialog, SetSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSingleChoiceDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSingleChoiceDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxSingleChoiceDialog, GetSelectionData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -207,31 +207,31 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPrintDialogData_functions[] = {
-    PHP_ME(php_wxPrintDialogData, EnableHelp, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, EnablePageNumbers, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, EnablePrintToFile, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, EnableSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetAllPages, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetCollate, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetFromPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetMaxPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetMinPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetNoCopies, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetPrintData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetPrintToFile, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, GetToPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, IsOk, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetCollate, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetFromPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetMaxPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetMinPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetNoCopies, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetPrintData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetPrintToFile, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, SetToPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxPrintDialogData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPrintDialogData, EnableHelp, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, EnablePageNumbers, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, EnablePrintToFile, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, EnableSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetAllPages, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetCollate, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetFromPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetMaxPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetMinPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetNoCopies, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetPrintData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetPrintToFile, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, GetToPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, IsOk, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetCollate, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetFromPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetMaxPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetMinPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetNoCopies, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetPrintData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetPrintToFile, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, SetToPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxPrintDialogData, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -274,10 +274,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxColourDialog_functions[] = {
-    PHP_ME(php_wxColourDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxColourDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourDialog, GetColourData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxColourDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourDialog, GetColourData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourDialog, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -320,15 +320,15 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxColourData_functions[] = {
-    PHP_ME(php_wxColourData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxColourData, ToString, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourData, SetCustomColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourData, SetColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourData, SetChooseFull, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourData, GetCustomColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourData, GetColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourData, GetChooseFull, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxColourData, FromString, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxColourData, ToString, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, SetCustomColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, SetColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, SetChooseFull, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, GetCustomColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, GetColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, GetChooseFull, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxColourData, FromString, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -372,39 +372,39 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDialog_functions[] = {
-    PHP_ME(php_wxDialog, AddMainButtonId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, Centre, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, CreateButtonSizer, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, CreateSeparatedButtonSizer, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, CreateSeparatedSizer, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, CreateStdDialogButtonSizer, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, EndModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, GetAffirmativeId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, GetContentWindow, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, GetEscapeId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, GetReturnCode, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, Iconize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, IsIconized, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, IsModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetAffirmativeId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxDialog, ShowWindowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, Show, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetReturnCode, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetLayoutAdaptationMode, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetLayoutAdaptationLevel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetIcons, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetIcon, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetEscapeId, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, SetLayoutAdaptationDone, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, GetLayoutAdaptationDone, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, GetLayoutAdaptationLevel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, EnableLayoutAdaptation, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, DoLayoutAdaptation, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, CanDoLayoutAdaptation, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDialog, IsLayoutAdaptationEnabled, arginfo_null, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, AddMainButtonId, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, Centre, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, CreateButtonSizer, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, CreateSeparatedButtonSizer, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, CreateSeparatedSizer, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, CreateStdDialogButtonSizer, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, EndModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, GetAffirmativeId, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, GetContentWindow, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, GetEscapeId, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, GetReturnCode, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, Iconize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, IsIconized, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, IsModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetAffirmativeId, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDialog, ShowWindowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, Show, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetReturnCode, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetLayoutAdaptationMode, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetLayoutAdaptationLevel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetIcons, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetIcon, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetEscapeId, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, SetLayoutAdaptationDone, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, GetLayoutAdaptationDone, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, GetLayoutAdaptationLevel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, EnableLayoutAdaptation, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, DoLayoutAdaptation, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, CanDoLayoutAdaptation, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDialog, IsLayoutAdaptationEnabled, arginfo_tmp_placeholder, ZEND_ACC_STATIC|ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -447,12 +447,12 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxDirDialog_functions[] = {
-    PHP_ME(php_wxDirDialog, GetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirDialog, GetPath, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirDialog, SetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirDialog, SetPath, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxDirDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxDirDialog, GetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirDialog, GetPath, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirDialog, SetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirDialog, SetPath, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxDirDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -495,13 +495,13 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFindReplaceData_functions[] = {
-    PHP_ME(php_wxFindReplaceData, GetFindString, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceData, GetReplaceString, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceData, GetFlags, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceData, SetFindString, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceData, SetFlags, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceData, SetReplaceString, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFindReplaceData, GetFindString, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceData, GetReplaceString, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceData, GetFlags, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceData, SetFindString, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceData, SetFlags, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceData, SetReplaceString, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceData, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -545,9 +545,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFindReplaceDialog_functions[] = {
-    PHP_ME(php_wxFindReplaceDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceDialog, GetData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFindReplaceDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFindReplaceDialog, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceDialog, GetData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFindReplaceDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -590,23 +590,23 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFileDialog_functions[] = {
-    PHP_ME(php_wxFileDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxFileDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, SetWildcard, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, SetPath, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, SetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, SetFilterIndex, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, SetFilename, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, SetDirectory, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetWildcard, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetPaths, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetPath, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetFilterIndex, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetFilenames, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetFilename, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetExtraControl, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFileDialog, GetDirectory, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFileDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, SetWildcard, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, SetPath, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, SetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, SetFilterIndex, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, SetFilename, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, SetDirectory, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetWildcard, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetPaths, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetPath, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetFilterIndex, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetFilenames, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetFilename, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetExtraControl, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFileDialog, GetDirectory, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -649,20 +649,20 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFontData_functions[] = {
-    PHP_ME(php_wxFontData, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxFontData, SetShowHelp, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, SetRange, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, SetInitialFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, SetColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, SetChosenFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, SetAllowSymbols, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, GetShowHelp, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, GetInitialFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, GetEnableEffects, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, GetColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, GetChosenFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, GetAllowSymbols, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontData, EnableEffects, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFontData, SetShowHelp, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, SetRange, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, SetInitialFont, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, SetColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, SetChosenFont, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, SetAllowSymbols, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, GetShowHelp, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, GetInitialFont, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, GetEnableEffects, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, GetColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, GetChosenFont, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, GetAllowSymbols, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontData, EnableEffects, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -707,10 +707,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxFontDialog_functions[] = {
-    PHP_ME(php_wxFontDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontDialog, GetFontData, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxFontDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxFontDialog, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontDialog, GetFontData, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxFontDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -753,26 +753,26 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxMessageDialog_functions[] = {
-    PHP_ME(php_wxMessageDialog, GetCancelLabel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetCaption, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetEffectiveIcon, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetExtendedMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetHelpLabel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetMessageDialogStyle, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetNoLabel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetOKLabel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, GetYesLabel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, HasCustomLabels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, SetExtendedMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxMessageDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, SetYesNoLabels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, SetYesNoCancelLabels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, SetOKLabel, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, SetOKCancelLabels, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, SetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxMessageDialog, SetHelpLabel, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetCancelLabel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetCaption, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetEffectiveIcon, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetExtendedMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetHelpLabel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetMessageDialogStyle, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetNoLabel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetOKLabel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, GetYesLabel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, HasCustomLabels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, SetExtendedMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxMessageDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, SetYesNoLabels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, SetYesNoCancelLabels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, SetOKLabel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, SetOKCancelLabels, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, SetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxMessageDialog, SetHelpLabel, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif
@@ -815,16 +815,16 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxGenericProgressDialog_functions[] = {
-    PHP_ME(php_wxGenericProgressDialog, GetMessage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, GetRange, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, GetValue, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, Resume, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, Pulse, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, SetRange, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, Update, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, WasCancelled, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, WasSkipped, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxGenericProgressDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxGenericProgressDialog, GetMessage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, GetRange, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, GetValue, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, Resume, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, Pulse, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, SetRange, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, Update, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, WasCancelled, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, WasSkipped, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxGenericProgressDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -867,9 +867,9 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxRearrangeDialog_functions[] = {
-    PHP_ME(php_wxRearrangeDialog, AddExtraControls, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRearrangeDialog, GetList, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxRearrangeDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxRearrangeDialog, AddExtraControls, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRearrangeDialog, GetList, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxRearrangeDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -913,20 +913,20 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxSymbolPickerDialog_functions[] = {
-    PHP_ME(php_wxSymbolPickerDialog, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, GetFontName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, GetFromUnicode, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, GetNormalTextFontName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, GetSymbol, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, GetSymbolChar, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, HasSelection, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, SetFontName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, SetFromUnicode, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, SetNormalTextFontName, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, SetSymbol, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, SetUnicodeMode, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, UseNormalFont, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxSymbolPickerDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxSymbolPickerDialog, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, GetFontName, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, GetFromUnicode, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, GetNormalTextFontName, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, GetSymbol, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, GetSymbolChar, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, HasSelection, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, SetFontName, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, SetFromUnicode, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, SetNormalTextFontName, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, SetSymbol, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, SetUnicodeMode, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, UseNormalFont, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxSymbolPickerDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -969,7 +969,7 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxPasswordEntryDialog_functions[] = {
-    PHP_ME(php_wxPasswordEntryDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxPasswordEntryDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -1013,10 +1013,10 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxTextEntryDialog_functions[] = {
-    PHP_ME(php_wxTextEntryDialog, GetValue, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextEntryDialog, SetValue, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextEntryDialog, ShowModal, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxTextEntryDialog, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxTextEntryDialog, GetValue, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextEntryDialog, SetValue, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextEntryDialog, ShowModal, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxTextEntryDialog, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
     PHP_FE_END
 };
 #endif
@@ -1060,25 +1060,25 @@ END_EXTERN_C()
 
 #ifdef WXPHP_INCLUDE_METHOD_TABLES
 static zend_function_entry php_wxWizard_functions[] = {
-    PHP_ME(php_wxWizard, Create, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, FitToPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, GetBitmap, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, GetBitmapBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, GetBitmapPlacement, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, GetCurrentPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, GetMinimumBitmapWidth, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, GetPageSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, HasNextPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, HasPrevPage, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, RunWizard, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, SetBitmap, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, SetBitmapBackgroundColour, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, SetBitmapPlacement, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, SetBorder, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, SetMinimumBitmapWidth, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, SetPageSize, arginfo_null, ZEND_ACC_PUBLIC)
-    PHP_ME(php_wxWizard, __construct, arginfo_null, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
-    PHP_ME(php_wxWizard, GetPageAreaSizer, arginfo_null, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, Create, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, FitToPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, GetBitmap, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, GetBitmapBackgroundColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, GetBitmapPlacement, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, GetCurrentPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, GetMinimumBitmapWidth, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, GetPageSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, HasNextPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, HasPrevPage, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, RunWizard, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, SetBitmap, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, SetBitmapBackgroundColour, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, SetBitmapPlacement, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, SetBorder, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, SetMinimumBitmapWidth, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, SetPageSize, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
+    PHP_ME(php_wxWizard, __construct, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC|ZEND_ACC_CTOR)
+    PHP_ME(php_wxWizard, GetPageAreaSizer, arginfo_tmp_placeholder, ZEND_ACC_PUBLIC)
     PHP_FE_END
 };
 #endif

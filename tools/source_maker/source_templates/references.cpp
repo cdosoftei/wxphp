@@ -45,7 +45,9 @@ void wxPHPObjectReferences::AddReference(zval* var, std::string class_and_method
 
         Z_TRY_ADDREF_P(var);
 
-        m_references.push_back(var);
+        zval *tmp = (zval *)emalloc(sizeof(zval));
+        memcpy(tmp, var, sizeof(zval));
+        m_references.push_back(tmp);
     }
     #endif
 }
@@ -67,6 +69,7 @@ void wxPHPObjectReferences::RemoveReferences()
                 #endif
 
                 Z_TRY_DELREF_P(m_references[i]);
+                efree(m_references[i]);
             }
         }
     }

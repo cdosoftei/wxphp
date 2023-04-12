@@ -46,6 +46,9 @@ class wxConfigBase_php: public wxConfigBase{
     void SetPath(const wxString& strPath);
     
 
+    ~wxConfigBase_php();
+
+    struct _zo_wxConfigBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -107,6 +110,9 @@ class wxDisplay_php: public wxDisplay{
     
     
 
+    ~wxDisplay_php();
+
+    struct _zo_wxDisplay *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -158,6 +164,9 @@ class wxFileConfig_php: public wxFileConfig{
     
     
 
+    ~wxFileConfig_php();
+
+    struct _zo_wxFileConfig *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -221,6 +230,9 @@ class wxFontMapper_php: public wxFontMapper{
     
     
 
+    ~wxFontMapper_php();
+
+    struct _zo_wxFontMapper *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -278,6 +290,9 @@ class wxPlatformInfo_php: public wxPlatformInfo{
     
     
 
+    ~wxPlatformInfo_php();
+
+    struct _zo_wxPlatformInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -347,6 +362,9 @@ class wxSystemSettings_php: public wxSystemSettings{
     
     
 
+    ~wxSystemSettings_php();
+
+    struct _zo_wxSystemSettings *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -393,6 +411,9 @@ class wxSystemOptions_php: public wxSystemOptions{
     
     
 
+    ~wxSystemOptions_php();
+
+    struct _zo_wxSystemOptions *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -440,6 +461,9 @@ class wxVideoMode_php: public wxVideoMode{
     
     
 
+    ~wxVideoMode_php();
+
+    struct _zo_wxVideoMode *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

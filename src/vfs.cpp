@@ -98,6 +98,13 @@ void php_wxFileSystem_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFileSystem_php::~wxFileSystem_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFileSystem_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -198,6 +205,7 @@ PHP_METHOD(php_wxFileSystem, __construct)
         current_object = Z_wxFileSystem_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1530,6 +1538,13 @@ void php_wxFileSystemHandler_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFileSystemHandler_php::~wxFileSystemHandler_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFileSystemHandler_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2177,6 +2192,7 @@ PHP_METHOD(php_wxFileSystemHandler, __construct)
         current_object = Z_wxFileSystemHandler_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

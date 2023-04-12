@@ -34,6 +34,9 @@ class wxFrame_php: public wxFrame{
     wxToolBar* OnCreateToolBar(long style, wxWindowID id, const wxString& name);
     
 
+    ~wxFrame_php();
+
+    struct _zo_wxFrame *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -95,6 +98,9 @@ class wxMDIClientWindow_php: public wxMDIClientWindow{
     
     
 
+    ~wxMDIClientWindow_php();
+
+    struct _zo_wxMDIClientWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -141,6 +147,9 @@ class wxMDIParentFrame_php: public wxMDIParentFrame{
     wxMDIClientWindow* OnCreateClient();
     
 
+    ~wxMDIParentFrame_php();
+
+    struct _zo_wxMDIParentFrame *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -195,6 +204,9 @@ class wxMDIChildFrame_php: public wxMDIChildFrame{
     
     
 
+    ~wxMDIChildFrame_php();
+
+    struct _zo_wxMDIChildFrame *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -245,6 +257,9 @@ class wxMiniFrame_php: public wxMiniFrame{
     
     
 
+    ~wxMiniFrame_php();
+
+    struct _zo_wxMiniFrame *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -290,6 +305,9 @@ class wxPopupWindow_php: public wxPopupWindow{
     
     
 
+    ~wxPopupWindow_php();
+
+    struct _zo_wxPopupWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -336,6 +354,9 @@ class wxPopupTransientWindow_php: public wxPopupTransientWindow{
     
     
 
+    ~wxPopupTransientWindow_php();
+
+    struct _zo_wxPopupTransientWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -383,6 +404,9 @@ class wxPropertySheetDialog_php: public wxPropertySheetDialog{
     
     
 
+    ~wxPropertySheetDialog_php();
+
+    struct _zo_wxPropertySheetDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -436,6 +460,9 @@ class wxSplashScreen_php: public wxSplashScreen{
     
     
 
+    ~wxSplashScreen_php();
+
+    struct _zo_wxSplashScreen *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -482,6 +509,9 @@ class wxTopLevelWindow_php: public wxTopLevelWindow{
     
     
 
+    ~wxTopLevelWindow_php();
+
+    struct _zo_wxTopLevelWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

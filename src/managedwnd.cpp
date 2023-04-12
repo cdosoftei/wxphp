@@ -66,6 +66,13 @@ void php_wxFrame_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFrame_php::~wxFrame_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFrame_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -323,6 +330,7 @@ PHP_METHOD(php_wxFrame, __construct)
         current_object = Z_wxFrame_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -3956,6 +3964,13 @@ void php_wxMDIClientWindow_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxMDIClientWindow_php::~wxMDIClientWindow_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxMDIClientWindow_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4056,6 +4071,7 @@ PHP_METHOD(php_wxMDIClientWindow, __construct)
         current_object = Z_wxMDIClientWindow_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4231,6 +4247,13 @@ void php_wxMDIParentFrame_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxMDIParentFrame_php::~wxMDIParentFrame_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxMDIParentFrame_new(zend_class_entry *class_type)
@@ -5869,6 +5892,7 @@ PHP_METHOD(php_wxMDIParentFrame, __construct)
         current_object = Z_wxMDIParentFrame_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5899,6 +5923,13 @@ void php_wxMDIChildFrame_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxMDIChildFrame_php::~wxMDIChildFrame_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxMDIChildFrame_new(zend_class_entry *class_type)
@@ -6158,6 +6189,7 @@ PHP_METHOD(php_wxMDIChildFrame, __construct)
         current_object = Z_wxMDIChildFrame_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6999,6 +7031,13 @@ void php_wxMiniFrame_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxMiniFrame_php::~wxMiniFrame_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxMiniFrame_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -7490,6 +7529,7 @@ PHP_METHOD(php_wxMiniFrame, __construct)
         current_object = Z_wxMiniFrame_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7555,6 +7595,13 @@ void php_wxPopupWindow_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPopupWindow_php::~wxPopupWindow_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPopupWindow_new(zend_class_entry *class_type)
@@ -8032,6 +8079,7 @@ PHP_METHOD(php_wxPopupWindow, __construct)
         current_object = Z_wxPopupWindow_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -8097,6 +8145,13 @@ void php_wxPopupTransientWindow_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPopupTransientWindow_php::~wxPopupTransientWindow_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPopupTransientWindow_new(zend_class_entry *class_type)
@@ -8651,6 +8706,7 @@ PHP_METHOD(php_wxPopupTransientWindow, __construct)
         current_object = Z_wxPopupTransientWindow_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -8681,6 +8737,13 @@ void php_wxPropertySheetDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPropertySheetDialog_php::~wxPropertySheetDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPropertySheetDialog_new(zend_class_entry *class_type)
@@ -10293,6 +10356,7 @@ PHP_METHOD(php_wxPropertySheetDialog, __construct)
         current_object = Z_wxPropertySheetDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -10323,6 +10387,13 @@ void php_wxSplashScreen_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxSplashScreen_php::~wxSplashScreen_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxSplashScreen_new(zend_class_entry *class_type)
@@ -10769,6 +10840,7 @@ PHP_METHOD(php_wxSplashScreen, __construct)
         current_object = Z_wxSplashScreen_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -10834,6 +10906,13 @@ void php_wxTopLevelWindow_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTopLevelWindow_php::~wxTopLevelWindow_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTopLevelWindow_new(zend_class_entry *class_type)
@@ -11093,6 +11172,7 @@ PHP_METHOD(php_wxTopLevelWindow, __construct)
         current_object = Z_wxTopLevelWindow_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

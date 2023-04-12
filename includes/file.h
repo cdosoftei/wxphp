@@ -32,6 +32,9 @@ class wxFFile_php: public wxFFile{
     
     
 
+    ~wxFFile_php();
+
+    struct _zo_wxFFile *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -90,6 +93,9 @@ class wxFile_php: public wxFile{
     
     
 
+    ~wxFile_php();
+
+    struct _zo_wxFile *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -153,6 +159,9 @@ class wxPathList_php: public wxPathList{
     
     
 
+    ~wxPathList_php();
+
+    struct _zo_wxPathList *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -206,6 +215,9 @@ class wxFileName_php: public wxFileName{
     
     
 
+    ~wxFileName_php();
+
+    struct _zo_wxFileName *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -321,6 +333,9 @@ class wxFSFile_php: public wxFSFile{
     
     
 
+    ~wxFSFile_php();
+
+    struct _zo_wxFSFile *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -370,6 +385,9 @@ class wxFileSystemWatcher_php: public wxFileSystemWatcher{
     
     
 
+    ~wxFileSystemWatcher_php();
+
+    struct _zo_wxFileSystemWatcher *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -419,6 +437,9 @@ class wxStandardPaths_php: public wxStandardPaths{
     
     
 
+    ~wxStandardPaths_php();
+
+    struct _zo_wxStandardPaths *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

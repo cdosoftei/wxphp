@@ -70,6 +70,13 @@ void php_wxGridCellRenderer_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGridCellRenderer_php::~wxGridCellRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGridCellRenderer_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -454,6 +461,13 @@ void php_wxGridCellAutoWrapStringRenderer_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGridCellAutoWrapStringRenderer_php::~wxGridCellAutoWrapStringRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGridCellAutoWrapStringRenderer_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -554,6 +568,7 @@ PHP_METHOD(php_wxGridCellAutoWrapStringRenderer, __construct)
         current_object = Z_wxGridCellAutoWrapStringRenderer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -616,6 +631,13 @@ void php_wxGridCellBoolRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellBoolRenderer_php::~wxGridCellBoolRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellBoolRenderer_new(zend_class_entry *class_type)
@@ -718,6 +740,7 @@ PHP_METHOD(php_wxGridCellBoolRenderer, __construct)
         current_object = Z_wxGridCellBoolRenderer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -780,6 +803,13 @@ void php_wxGridCellDateTimeRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellDateTimeRenderer_php::~wxGridCellDateTimeRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellDateTimeRenderer_new(zend_class_entry *class_type)
@@ -912,6 +942,7 @@ PHP_METHOD(php_wxGridCellDateTimeRenderer, __construct)
         current_object = Z_wxGridCellDateTimeRenderer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -974,6 +1005,13 @@ void php_wxGridCellEnumRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellEnumRenderer_php::~wxGridCellEnumRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellEnumRenderer_new(zend_class_entry *class_type)
@@ -1206,6 +1244,7 @@ PHP_METHOD(php_wxGridCellEnumRenderer, __construct)
         current_object = Z_wxGridCellEnumRenderer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1268,6 +1307,13 @@ void php_wxGridCellFloatRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellFloatRenderer_php::~wxGridCellFloatRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellFloatRenderer_new(zend_class_entry *class_type)
@@ -2180,6 +2226,7 @@ PHP_METHOD(php_wxGridCellFloatRenderer, __construct)
         current_object = Z_wxGridCellFloatRenderer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2242,6 +2289,13 @@ void php_wxGridCellNumberRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellNumberRenderer_php::~wxGridCellNumberRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellNumberRenderer_new(zend_class_entry *class_type)
@@ -2344,6 +2398,7 @@ PHP_METHOD(php_wxGridCellNumberRenderer, __construct)
         current_object = Z_wxGridCellNumberRenderer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2406,6 +2461,13 @@ void php_wxGridCellStringRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellStringRenderer_php::~wxGridCellStringRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellStringRenderer_new(zend_class_entry *class_type)
@@ -2508,6 +2570,7 @@ PHP_METHOD(php_wxGridCellStringRenderer, __construct)
         current_object = Z_wxGridCellStringRenderer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2542,6 +2605,13 @@ void php_wxGridCellEditor_free(zend_object *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellEditor_php::~wxGridCellEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellEditor_new(zend_class_entry *class_type)
@@ -4674,6 +4744,13 @@ void php_wxGridCellAutoWrapStringEditor_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGridCellAutoWrapStringEditor_php::~wxGridCellAutoWrapStringEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGridCellAutoWrapStringEditor_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4773,6 +4850,7 @@ PHP_METHOD(php_wxGridCellAutoWrapStringEditor, __construct)
         current_object = Z_wxGridCellAutoWrapStringEditor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4807,6 +4885,13 @@ void php_wxGridCellBoolEditor_free(zend_object *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellBoolEditor_php::~wxGridCellBoolEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellBoolEditor_new(zend_class_entry *class_type)
@@ -5165,6 +5250,7 @@ PHP_METHOD(php_wxGridCellBoolEditor, __construct)
         current_object = Z_wxGridCellBoolEditor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5199,6 +5285,13 @@ void php_wxGridCellChoiceEditor_free(zend_object *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellChoiceEditor_php::~wxGridCellChoiceEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellChoiceEditor_new(zend_class_entry *class_type)
@@ -5582,6 +5675,7 @@ PHP_METHOD(php_wxGridCellChoiceEditor, __construct)
         current_object = Z_wxGridCellChoiceEditor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5616,6 +5710,13 @@ void php_wxGridCellEnumEditor_free(zend_object *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellEnumEditor_php::~wxGridCellEnumEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellEnumEditor_new(zend_class_entry *class_type)
@@ -5735,6 +5836,7 @@ PHP_METHOD(php_wxGridCellEnumEditor, __construct)
         current_object = Z_wxGridCellEnumEditor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5769,6 +5871,13 @@ void php_wxGridCellTextEditor_free(zend_object *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellTextEditor_php::~wxGridCellTextEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellTextEditor_new(zend_class_entry *class_type)
@@ -5887,6 +5996,7 @@ PHP_METHOD(php_wxGridCellTextEditor, __construct)
         current_object = Z_wxGridCellTextEditor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6048,6 +6158,13 @@ void php_wxGridCellFloatEditor_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGridCellFloatEditor_php::~wxGridCellFloatEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGridCellFloatEditor_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6188,6 +6305,7 @@ PHP_METHOD(php_wxGridCellFloatEditor, __construct)
         current_object = Z_wxGridCellFloatEditor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6337,6 +6455,13 @@ void php_wxGridCellNumberEditor_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGridCellNumberEditor_php::~wxGridCellNumberEditor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGridCellNumberEditor_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6465,6 +6590,7 @@ PHP_METHOD(php_wxGridCellNumberEditor, __construct)
         current_object = Z_wxGridCellNumberEditor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6612,6 +6738,13 @@ void php_wxGridCellAttr_free(zend_object *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellAttr_php::~wxGridCellAttr_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellAttr_new(zend_class_entry *class_type)
@@ -9917,6 +10050,7 @@ PHP_METHOD(php_wxGridCellAttr, __construct)
         current_object = Z_wxGridCellAttr_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -9979,6 +10113,13 @@ void php_wxGridTableBase_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridTableBase_php::~wxGridTableBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridTableBase_new(zend_class_entry *class_type)
@@ -14667,6 +14808,7 @@ PHP_METHOD(php_wxGridTableBase, __construct)
         current_object = Z_wxGridTableBase_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -14729,6 +14871,13 @@ void php_wxGridSizesInfo_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridSizesInfo_php::~wxGridSizesInfo_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridSizesInfo_new(zend_class_entry *class_type)
@@ -14831,6 +14980,7 @@ PHP_METHOD(php_wxGridSizesInfo, __construct)
         current_object = Z_wxGridSizesInfo_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -15005,6 +15155,13 @@ void php_wxGrid_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGrid_php::~wxGrid_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGrid_new(zend_class_entry *class_type)
@@ -40386,6 +40543,7 @@ PHP_METHOD(php_wxGrid, __construct)
         current_object = Z_wxGrid_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -40448,6 +40606,13 @@ void php_wxGridUpdateLocker_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridUpdateLocker_php::~wxGridUpdateLocker_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridUpdateLocker_new(zend_class_entry *class_type)
@@ -40716,6 +40881,7 @@ PHP_METHOD(php_wxGridUpdateLocker, __construct)
         current_object = Z_wxGridUpdateLocker_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

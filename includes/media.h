@@ -32,6 +32,9 @@ class wxMediaCtrl_php: public wxMediaCtrl{
     
     
 
+    ~wxMediaCtrl_php();
+
+    struct _zo_wxMediaCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -94,6 +97,9 @@ class wxSound_php: public wxSound{
     
     
 
+    ~wxSound_php();
+
+    struct _zo_wxSound *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

@@ -33,6 +33,9 @@ class wxTextAttr_php: public wxTextAttr{
     
     
 
+    ~wxTextAttr_php();
+
+    struct _zo_wxTextAttr *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

@@ -98,6 +98,13 @@ void php_wxClientData_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxClientData_php::~wxClientData_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxClientData_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -198,6 +205,7 @@ PHP_METHOD(php_wxClientData, __construct)
         current_object = Z_wxClientData_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -232,6 +240,13 @@ void php_wxTreeItemData_free(zend_object *object)
 
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTreeItemData_php::~wxTreeItemData_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTreeItemData_new(zend_class_entry *class_type)
@@ -592,6 +607,7 @@ PHP_METHOD(php_wxTreeItemData, __construct)
         current_object = Z_wxTreeItemData_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

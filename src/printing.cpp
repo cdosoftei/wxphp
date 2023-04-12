@@ -98,6 +98,13 @@ void php_wxPrinterDC_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxPrinterDC_php::~wxPrinterDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxPrinterDC_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -336,6 +343,7 @@ PHP_METHOD(php_wxPrinterDC, __construct)
         current_object = Z_wxPrinterDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -369,6 +377,13 @@ void php_wxPreviewControlBar_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPreviewControlBar_php::~wxPreviewControlBar_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPreviewControlBar_new(zend_class_entry *class_type)
@@ -942,6 +957,7 @@ PHP_METHOD(php_wxPreviewControlBar, __construct)
         current_object = Z_wxPreviewControlBar_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -975,6 +991,13 @@ void php_wxPreviewCanvas_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPreviewCanvas_php::~wxPreviewCanvas_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPreviewCanvas_new(zend_class_entry *class_type)
@@ -1221,6 +1244,7 @@ PHP_METHOD(php_wxPreviewCanvas, __construct)
         current_object = Z_wxPreviewCanvas_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1251,6 +1275,13 @@ void php_wxPreviewFrame_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPreviewFrame_php::~wxPreviewFrame_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPreviewFrame_new(zend_class_entry *class_type)
@@ -1777,6 +1808,13 @@ void php_wxPrintPreview_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPrintPreview_php::~wxPrintPreview_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPrintPreview_new(zend_class_entry *class_type)
@@ -4006,6 +4044,7 @@ PHP_METHOD(php_wxPrintPreview, __construct)
         current_object = Z_wxPrintPreview_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4068,6 +4107,13 @@ void php_wxPrinter_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPrinter_php::~wxPrinter_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPrinter_new(zend_class_entry *class_type)
@@ -5020,6 +5066,7 @@ PHP_METHOD(php_wxPrinter, __construct)
         current_object = Z_wxPrinter_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5082,6 +5129,13 @@ void php_wxPrintout_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPrintout_php::~wxPrintout_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPrintout_new(zend_class_entry *class_type)
@@ -8639,6 +8693,7 @@ PHP_METHOD(php_wxPrintout, __construct)
         current_object = Z_wxPrintout_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -8701,6 +8756,13 @@ void php_wxPrintDialog_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPrintDialog_php::~wxPrintDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPrintDialog_new(zend_class_entry *class_type)
@@ -9301,6 +9363,7 @@ PHP_METHOD(php_wxPrintDialog, __construct)
         current_object = Z_wxPrintDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -9490,6 +9553,13 @@ void php_wxPageSetupDialog_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPageSetupDialog_php::~wxPageSetupDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPageSetupDialog_new(zend_class_entry *class_type)
@@ -9775,6 +9845,7 @@ PHP_METHOD(php_wxPageSetupDialog, __construct)
         current_object = Z_wxPageSetupDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

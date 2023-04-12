@@ -31,6 +31,9 @@ class wxDataViewChoiceRenderer_php: public wxDataViewChoiceRenderer{
     
     
 
+    ~wxDataViewChoiceRenderer_php();
+
+    struct _zo_wxDataViewChoiceRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -79,6 +82,9 @@ class wxDataViewModel_php: public wxDataViewModel{
     bool SetValue(const wxVariant& variant, const wxDataViewItem& item, unsigned int col);
     
 
+    ~wxDataViewModel_php();
+
+    struct _zo_wxDataViewModel *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -139,6 +145,9 @@ class wxDataViewListModel_php: public wxDataViewListModel{
     bool SetValueByRow(const wxVariant& variant, unsigned int row, unsigned int col);
     
 
+    ~wxDataViewListModel_php();
+
+    struct _zo_wxDataViewListModel *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -182,6 +191,9 @@ class wxDataViewIndexListModel_php: public wxDataViewIndexListModel{
     
     
 
+    ~wxDataViewIndexListModel_php();
+
+    struct _zo_wxDataViewIndexListModel *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -223,6 +235,9 @@ class wxDataViewVirtualListModel_php: public wxDataViewVirtualListModel{
     
     
 
+    ~wxDataViewVirtualListModel_php();
+
+    struct _zo_wxDataViewVirtualListModel *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -265,6 +280,9 @@ class wxDataViewItemAttr_php: public wxDataViewItemAttr{
     
     
 
+    ~wxDataViewItemAttr_php();
+
+    struct _zo_wxDataViewItemAttr *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -313,6 +331,9 @@ class wxDataViewItem_php: public wxDataViewItem{
     
     
 
+    ~wxDataViewItem_php();
+
+    struct _zo_wxDataViewItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -364,6 +385,9 @@ class wxDataViewModelNotifier_php: public wxDataViewModelNotifier{
     bool ValueChanged(const wxDataViewItem& item, unsigned int col);
     
 
+    ~wxDataViewModelNotifier_php();
+
+    struct _zo_wxDataViewModelNotifier *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -410,6 +434,9 @@ class wxDataViewRenderer_php: public wxDataViewRenderer{
     bool SetValue(const wxVariant& value);
     
 
+    ~wxDataViewRenderer_php();
+
+    struct _zo_wxDataViewRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -462,6 +489,9 @@ class wxDataViewTextRenderer_php: public wxDataViewTextRenderer{
     
     
 
+    ~wxDataViewTextRenderer_php();
+
+    struct _zo_wxDataViewTextRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -505,6 +535,9 @@ class wxDataViewIconTextRenderer_php: public wxDataViewIconTextRenderer{
     
     
 
+    ~wxDataViewIconTextRenderer_php();
+
+    struct _zo_wxDataViewIconTextRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -548,6 +581,9 @@ class wxDataViewProgressRenderer_php: public wxDataViewProgressRenderer{
     
     
 
+    ~wxDataViewProgressRenderer_php();
+
+    struct _zo_wxDataViewProgressRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -591,6 +627,9 @@ class wxDataViewSpinRenderer_php: public wxDataViewSpinRenderer{
     
     
 
+    ~wxDataViewSpinRenderer_php();
+
+    struct _zo_wxDataViewSpinRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -634,6 +673,9 @@ class wxDataViewToggleRenderer_php: public wxDataViewToggleRenderer{
     
     
 
+    ~wxDataViewToggleRenderer_php();
+
+    struct _zo_wxDataViewToggleRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -677,6 +719,9 @@ class wxDataViewDateRenderer_php: public wxDataViewDateRenderer{
     
     
 
+    ~wxDataViewDateRenderer_php();
+
+    struct _zo_wxDataViewDateRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -721,6 +766,9 @@ class wxDataViewCustomRenderer_php: public wxDataViewCustomRenderer{
     bool Render(wxRect cell, wxDC* dc, int state);
     
 
+    ~wxDataViewCustomRenderer_php();
+
+    struct _zo_wxDataViewCustomRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -770,6 +818,9 @@ class wxDataViewBitmapRenderer_php: public wxDataViewBitmapRenderer{
     
     
 
+    ~wxDataViewBitmapRenderer_php();
+
+    struct _zo_wxDataViewBitmapRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -814,6 +865,9 @@ class wxDataViewColumn_php: public wxDataViewColumn{
     
     
 
+    ~wxDataViewColumn_php();
+
+    struct _zo_wxDataViewColumn *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -860,6 +914,9 @@ class wxDataViewListStore_php: public wxDataViewListStore{
     
     
 
+    ~wxDataViewListStore_php();
+
+    struct _zo_wxDataViewListStore *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -910,6 +967,9 @@ class wxDataViewTreeStore_php: public wxDataViewTreeStore{
     
     
 
+    ~wxDataViewTreeStore_php();
+
+    struct _zo_wxDataViewTreeStore *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -972,6 +1032,9 @@ class wxDataViewIconText_php: public wxDataViewIconText{
     
     
 
+    ~wxDataViewIconText_php();
+
+    struct _zo_wxDataViewIconText *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

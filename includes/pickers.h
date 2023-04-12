@@ -32,6 +32,9 @@ class wxColourPickerCtrl_php: public wxColourPickerCtrl{
     
     
 
+    ~wxColourPickerCtrl_php();
+
+    struct _zo_wxColourPickerCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -79,6 +82,9 @@ class wxDatePickerCtrl_php: public wxDatePickerCtrl{
     
     
 
+    ~wxDatePickerCtrl_php();
+
+    struct _zo_wxDatePickerCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -128,6 +134,9 @@ class wxFilePickerCtrl_php: public wxFilePickerCtrl{
     
     
 
+    ~wxFilePickerCtrl_php();
+
+    struct _zo_wxFilePickerCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -177,6 +186,9 @@ class wxDirPickerCtrl_php: public wxDirPickerCtrl{
     
     
 
+    ~wxDirPickerCtrl_php();
+
+    struct _zo_wxDirPickerCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -226,6 +238,9 @@ class wxFontPickerCtrl_php: public wxFontPickerCtrl{
     
     
 
+    ~wxFontPickerCtrl_php();
+
+    struct _zo_wxFontPickerCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -273,6 +288,9 @@ class wxPickerBase_php: public wxPickerBase{
     
     
 
+    ~wxPickerBase_php();
+
+    struct _zo_wxPickerBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -329,6 +347,9 @@ class wxTimePickerCtrl_php: public wxTimePickerCtrl{
     
     
 
+    ~wxTimePickerCtrl_php();
+
+    struct _zo_wxTimePickerCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

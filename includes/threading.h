@@ -31,6 +31,9 @@ class wxCondition_php: public wxCondition{
     
     
 
+    ~wxCondition_php();
+
+    struct _zo_wxCondition *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -79,6 +82,9 @@ class wxCriticalSectionLocker_php: public wxCriticalSectionLocker{
     
     
 
+    ~wxCriticalSectionLocker_php();
+
+    struct _zo_wxCriticalSectionLocker *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -121,6 +127,9 @@ class wxThreadHelper_php: public wxThreadHelper{
     
     
 
+    ~wxThreadHelper_php();
+
+    struct _zo_wxThreadHelper *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -165,6 +174,9 @@ class wxCriticalSection_php: public wxCriticalSection{
     
     
 
+    ~wxCriticalSection_php();
+
+    struct _zo_wxCriticalSection *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -210,6 +222,9 @@ class wxThread_php: public wxThread{
     
     
 
+    ~wxThread_php();
+
+    struct _zo_wxThread *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -271,6 +286,9 @@ class wxSemaphore_php: public wxSemaphore{
     
     
 
+    ~wxSemaphore_php();
+
+    struct _zo_wxSemaphore *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -318,6 +336,9 @@ class wxMutexLocker_php: public wxMutexLocker{
     
     
 
+    ~wxMutexLocker_php();
+
+    struct _zo_wxMutexLocker *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -362,6 +383,9 @@ class wxMutex_php: public wxMutex{
     
     
 
+    ~wxMutex_php();
+
+    struct _zo_wxMutex *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

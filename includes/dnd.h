@@ -31,6 +31,9 @@ class wxClipboard_php: public wxClipboard{
     
     
 
+    ~wxClipboard_php();
+
+    struct _zo_wxClipboard *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -87,6 +90,9 @@ class wxDataFormat_php: public wxDataFormat{
     
     
 
+    ~wxDataFormat_php();
+
+    struct _zo_wxDataFormat *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -139,6 +145,9 @@ class wxDataObject_php: public wxDataObject{
     wxDataFormat GetPreferredFormat(Direction dir=Get) const;
     
 
+    ~wxDataObject_php();
+
+    struct _zo_wxDataObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -184,6 +193,9 @@ class wxCustomDataObject_php: public wxCustomDataObject{
     
     
 
+    ~wxCustomDataObject_php();
+
+    struct _zo_wxCustomDataObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -233,6 +245,9 @@ class wxDataObjectComposite_php: public wxDataObjectComposite{
     
     
 
+    ~wxDataObjectComposite_php();
+
+    struct _zo_wxDataObjectComposite *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -279,6 +294,9 @@ class wxDataObjectSimple_php: public wxDataObjectSimple{
     
     
 
+    ~wxDataObjectSimple_php();
+
+    struct _zo_wxDataObjectSimple *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -327,6 +345,9 @@ class wxBitmapDataObject_php: public wxBitmapDataObject{
     
     
 
+    ~wxBitmapDataObject_php();
+
+    struct _zo_wxBitmapDataObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -372,6 +393,9 @@ class wxURLDataObject_php: public wxURLDataObject{
     
     
 
+    ~wxURLDataObject_php();
+
+    struct _zo_wxURLDataObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -417,6 +441,9 @@ class wxTextDataObject_php: public wxTextDataObject{
     
     
 
+    ~wxTextDataObject_php();
+
+    struct _zo_wxTextDataObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -466,6 +493,9 @@ class wxFileDataObject_php: public wxFileDataObject{
     
     
 
+    ~wxFileDataObject_php();
+
+    struct _zo_wxFileDataObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -516,6 +546,9 @@ class wxDropTarget_php: public wxDropTarget{
     bool OnDrop(wxCoord x, wxCoord y);
     
 
+    ~wxDropTarget_php();
+
+    struct _zo_wxDropTarget *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -563,6 +596,9 @@ class wxTextDropTarget_php: public wxTextDropTarget{
     bool OnDrop(wxCoord x, wxCoord y);
     
 
+    ~wxTextDropTarget_php();
+
+    struct _zo_wxTextDropTarget *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -608,6 +644,9 @@ class wxFileDropTarget_php: public wxFileDropTarget{
     bool OnDrop(wxCoord x, wxCoord y);
     
 
+    ~wxFileDropTarget_php();
+
+    struct _zo_wxFileDropTarget *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

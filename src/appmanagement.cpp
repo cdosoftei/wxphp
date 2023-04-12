@@ -98,6 +98,13 @@ void php_wxEventLoopBase_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxEventLoopBase_php::~wxEventLoopBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxEventLoopBase_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2431,6 +2438,13 @@ void php_wxEventLoopActivator_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxEventLoopActivator_php::~wxEventLoopActivator_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxEventLoopActivator_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2555,6 +2569,7 @@ PHP_METHOD(php_wxEventLoopActivator, __construct)
         current_object = Z_wxEventLoopActivator_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2617,6 +2632,13 @@ void php_wxModule_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxModule_php::~wxModule_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxModule_new(zend_class_entry *class_type)
@@ -2879,6 +2901,7 @@ PHP_METHOD(php_wxModule, __construct)
         current_object = Z_wxModule_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2941,6 +2964,13 @@ void php_wxProcess_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxProcess_php::~wxProcess_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxProcess_new(zend_class_entry *class_type)
@@ -4784,6 +4814,7 @@ PHP_METHOD(php_wxProcess, __construct)
         current_object = Z_wxProcess_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4846,6 +4877,13 @@ void php_wxSingleInstanceChecker_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxSingleInstanceChecker_php::~wxSingleInstanceChecker_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxSingleInstanceChecker_new(zend_class_entry *class_type)
@@ -5342,6 +5380,7 @@ PHP_METHOD(php_wxSingleInstanceChecker, __construct)
         current_object = Z_wxSingleInstanceChecker_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

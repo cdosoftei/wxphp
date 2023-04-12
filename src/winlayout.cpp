@@ -98,6 +98,13 @@ void php_wxGBPosition_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGBPosition_php::~wxGBPosition_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGBPosition_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -676,6 +683,7 @@ PHP_METHOD(php_wxGBPosition, __construct)
         current_object = Z_wxGBPosition_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -709,6 +717,13 @@ void php_wxGridBagSizer_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridBagSizer_php::~wxGridBagSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridBagSizer_new(zend_class_entry *class_type)
@@ -4392,6 +4407,7 @@ PHP_METHOD(php_wxGridBagSizer, __construct)
         current_object = Z_wxGridBagSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4454,6 +4470,13 @@ void php_wxGBSizerItem_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGBSizerItem_php::~wxGBSizerItem_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGBSizerItem_new(zend_class_entry *class_type)
@@ -5025,6 +5048,7 @@ PHP_METHOD(php_wxGBSizerItem, __construct)
         current_object = Z_wxGBSizerItem_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6264,6 +6288,13 @@ void php_wxGBSpan_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGBSpan_php::~wxGBSpan_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGBSpan_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6842,6 +6873,7 @@ PHP_METHOD(php_wxGBSpan, __construct)
         current_object = Z_wxGBSpan_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6904,6 +6936,13 @@ void php_wxLayoutAlgorithm_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxLayoutAlgorithm_php::~wxLayoutAlgorithm_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxLayoutAlgorithm_new(zend_class_entry *class_type)
@@ -7498,6 +7537,7 @@ PHP_METHOD(php_wxLayoutAlgorithm, __construct)
         current_object = Z_wxLayoutAlgorithm_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7560,6 +7600,13 @@ void php_wxSizer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxSizer_php::~wxSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxSizer_new(zend_class_entry *class_type)
@@ -7989,6 +8036,7 @@ PHP_METHOD(php_wxSizer, __construct)
         current_object = Z_wxSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -18688,6 +18736,13 @@ void php_wxStdDialogButtonSizer_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxStdDialogButtonSizer_php::~wxStdDialogButtonSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxStdDialogButtonSizer_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -19533,6 +19588,7 @@ PHP_METHOD(php_wxStdDialogButtonSizer, __construct)
         current_object = Z_wxStdDialogButtonSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -19595,6 +19651,13 @@ void php_wxSizerItem_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxSizerItem_php::~wxSizerItem_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxSizerItem_new(zend_class_entry *class_type)
@@ -20184,6 +20247,7 @@ PHP_METHOD(php_wxSizerItem, __construct)
         current_object = Z_wxSizerItem_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -24402,6 +24466,13 @@ void php_wxSizerFlags_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxSizerFlags_php::~wxSizerFlags_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxSizerFlags_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -24518,6 +24589,7 @@ PHP_METHOD(php_wxSizerFlags, __construct)
         current_object = Z_wxSizerFlags_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -26875,6 +26947,13 @@ void php_wxFlexGridSizer_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFlexGridSizer_php::~wxFlexGridSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFlexGridSizer_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -28448,6 +28527,7 @@ PHP_METHOD(php_wxFlexGridSizer, __construct)
         current_object = Z_wxFlexGridSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -28481,6 +28561,13 @@ void php_wxGridSizer_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridSizer_php::~wxGridSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridSizer_new(zend_class_entry *class_type)
@@ -30054,6 +30141,7 @@ PHP_METHOD(php_wxGridSizer, __construct)
         current_object = Z_wxGridSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -30087,6 +30175,13 @@ void php_wxStaticBoxSizer_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxStaticBoxSizer_php::~wxStaticBoxSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxStaticBoxSizer_new(zend_class_entry *class_type)
@@ -30531,6 +30626,7 @@ PHP_METHOD(php_wxStaticBoxSizer, __construct)
         current_object = Z_wxStaticBoxSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -30564,6 +30660,13 @@ void php_wxBoxSizer_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxBoxSizer_php::~wxBoxSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxBoxSizer_new(zend_class_entry *class_type)
@@ -30671,6 +30774,7 @@ PHP_METHOD(php_wxBoxSizer, __construct)
         current_object = Z_wxBoxSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -31098,6 +31202,13 @@ void php_wxWrapSizer_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxWrapSizer_php::~wxWrapSizer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxWrapSizer_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -31226,6 +31337,7 @@ PHP_METHOD(php_wxWrapSizer, __construct)
         current_object = Z_wxWrapSizer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

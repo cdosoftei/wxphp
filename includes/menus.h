@@ -31,6 +31,9 @@ class wxMenuBar_php: public wxMenuBar{
     
     
 
+    ~wxMenuBar_php();
+
+    struct _zo_wxMenuBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -101,6 +104,9 @@ class wxMenu_php: public wxMenu{
     
     
 
+    ~wxMenu_php();
+
+    struct _zo_wxMenu *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -185,6 +191,9 @@ class wxMenuItem_php: public wxMenuItem{
     
     
 
+    ~wxMenuItem_php();
+
+    struct _zo_wxMenuItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

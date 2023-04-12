@@ -98,6 +98,13 @@ void php_wxAboutDialogInfo_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAboutDialogInfo_php::~wxAboutDialogInfo_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAboutDialogInfo_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -198,6 +205,7 @@ PHP_METHOD(php_wxAboutDialogInfo, __construct)
         current_object = Z_wxAboutDialogInfo_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2725,6 +2733,13 @@ void php_wxBusyInfo_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxBusyInfo_php::~wxBusyInfo_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxBusyInfo_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2862,6 +2877,7 @@ PHP_METHOD(php_wxBusyInfo, __construct)
         current_object = Z_wxBusyInfo_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2892,6 +2908,13 @@ void php_wxSingleChoiceDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxSingleChoiceDialog_php::~wxSingleChoiceDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxSingleChoiceDialog_new(zend_class_entry *class_type)
@@ -3781,6 +3804,7 @@ PHP_METHOD(php_wxSingleChoiceDialog, __construct)
         current_object = Z_wxSingleChoiceDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -3950,6 +3974,13 @@ void php_wxPrintDialogData_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPrintDialogData_php::~wxPrintDialogData_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPrintDialogData_new(zend_class_entry *class_type)
@@ -6840,6 +6871,7 @@ PHP_METHOD(php_wxPrintDialogData, __construct)
         current_object = Z_wxPrintDialogData_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6870,6 +6902,13 @@ void php_wxColourDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxColourDialog_php::~wxColourDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxColourDialog_new(zend_class_entry *class_type)
@@ -7028,6 +7067,7 @@ PHP_METHOD(php_wxColourDialog, __construct)
         current_object = Z_wxColourDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7490,6 +7530,13 @@ void php_wxColourData_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxColourData_php::~wxColourData_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxColourData_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -7590,6 +7637,7 @@ PHP_METHOD(php_wxColourData, __construct)
         current_object = Z_wxColourData_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -8571,6 +8619,13 @@ void php_wxDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxDialog_php::~wxDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxDialog_new(zend_class_entry *class_type)
@@ -12595,6 +12650,7 @@ PHP_METHOD(php_wxDialog, __construct)
         current_object = Z_wxDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -15396,6 +15452,13 @@ void php_wxDirDialog_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxDirDialog_php::~wxDirDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxDirDialog_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -16193,6 +16256,7 @@ PHP_METHOD(php_wxDirDialog, __construct)
         current_object = Z_wxDirDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -16255,6 +16319,13 @@ void php_wxFindReplaceData_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFindReplaceData_php::~wxFindReplaceData_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFindReplaceData_new(zend_class_entry *class_type)
@@ -17036,6 +17107,7 @@ PHP_METHOD(php_wxFindReplaceData, __construct)
         current_object = Z_wxFindReplaceData_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -17066,6 +17138,13 @@ void php_wxFindReplaceDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFindReplaceDialog_php::~wxFindReplaceDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFindReplaceDialog_new(zend_class_entry *class_type)
@@ -17559,6 +17638,7 @@ PHP_METHOD(php_wxFindReplaceDialog, __construct)
         current_object = Z_wxFindReplaceDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -17589,6 +17669,13 @@ void php_wxFileDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileDialog_php::~wxFileDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileDialog_new(zend_class_entry *class_type)
@@ -17865,6 +17952,7 @@ PHP_METHOD(php_wxFileDialog, __construct)
         current_object = Z_wxFileDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -19767,6 +19855,13 @@ void php_wxFontData_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFontData_php::~wxFontData_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFontData_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -19867,6 +19962,7 @@ PHP_METHOD(php_wxFontData, __construct)
         current_object = Z_wxFontData_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -21419,6 +21515,13 @@ void php_wxFontDialog_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFontDialog_php::~wxFontDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFontDialog_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -22154,6 +22257,7 @@ PHP_METHOD(php_wxFontDialog, __construct)
         current_object = Z_wxFontDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -22184,6 +22288,13 @@ void php_wxMessageDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxMessageDialog_php::~wxMessageDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxMessageDialog_new(zend_class_entry *class_type)
@@ -23666,6 +23777,7 @@ PHP_METHOD(php_wxMessageDialog, __construct)
         current_object = Z_wxMessageDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -24489,6 +24601,13 @@ void php_wxGenericProgressDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGenericProgressDialog_php::~wxGenericProgressDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGenericProgressDialog_new(zend_class_entry *class_type)
@@ -25744,6 +25863,7 @@ PHP_METHOD(php_wxGenericProgressDialog, __construct)
         current_object = Z_wxGenericProgressDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -25806,6 +25926,13 @@ void php_wxRearrangeDialog_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRearrangeDialog_php::~wxRearrangeDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRearrangeDialog_new(zend_class_entry *class_type)
@@ -26169,6 +26296,7 @@ PHP_METHOD(php_wxRearrangeDialog, __construct)
         current_object = Z_wxRearrangeDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -26199,6 +26327,13 @@ void php_wxSymbolPickerDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxSymbolPickerDialog_php::~wxSymbolPickerDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxSymbolPickerDialog_new(zend_class_entry *class_type)
@@ -28039,6 +28174,7 @@ PHP_METHOD(php_wxSymbolPickerDialog, __construct)
         current_object = Z_wxSymbolPickerDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -28069,6 +28205,13 @@ void php_wxPasswordEntryDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPasswordEntryDialog_php::~wxPasswordEntryDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPasswordEntryDialog_new(zend_class_entry *class_type)
@@ -28270,6 +28413,7 @@ PHP_METHOD(php_wxPasswordEntryDialog, __construct)
         current_object = Z_wxPasswordEntryDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -28300,6 +28444,13 @@ void php_wxTextEntryDialog_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTextEntryDialog_php::~wxTextEntryDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTextEntryDialog_new(zend_class_entry *class_type)
@@ -28876,6 +29027,7 @@ PHP_METHOD(php_wxTextEntryDialog, __construct)
         current_object = Z_wxTextEntryDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -28906,6 +29058,13 @@ void php_wxWizard_free(zend_object *object)
     );*/
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxWizard_php::~wxWizard_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxWizard_new(zend_class_entry *class_type)
@@ -31369,6 +31528,7 @@ PHP_METHOD(php_wxWizard, __construct)
         current_object = Z_wxWizard_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

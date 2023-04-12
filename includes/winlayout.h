@@ -32,6 +32,9 @@ class wxGBPosition_php: public wxGBPosition{
     
     
 
+    ~wxGBPosition_php();
+
+    struct _zo_wxGBPosition *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -79,6 +82,9 @@ class wxGridBagSizer_php: public wxGridBagSizer{
     
     
 
+    ~wxGridBagSizer_php();
+
+    struct _zo_wxGridBagSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -138,6 +144,9 @@ class wxGBSizerItem_php: public wxGBSizerItem{
     
     
 
+    ~wxGBSizerItem_php();
+
+    struct _zo_wxGBSizerItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -190,6 +199,9 @@ class wxGBSpan_php: public wxGBSpan{
     
     
 
+    ~wxGBSpan_php();
+
+    struct _zo_wxGBSpan *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -237,6 +249,9 @@ class wxLayoutAlgorithm_php: public wxLayoutAlgorithm{
     
     
 
+    ~wxLayoutAlgorithm_php();
+
+    struct _zo_wxLayoutAlgorithm *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -284,6 +299,9 @@ class wxSizer_php: public wxSizer{
     wxSize CalcMin();
     
 
+    ~wxSizer_php();
+
+    struct _zo_wxSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -361,6 +379,9 @@ class wxStdDialogButtonSizer_php: public wxStdDialogButtonSizer{
     
     
 
+    ~wxStdDialogButtonSizer_php();
+
+    struct _zo_wxStdDialogButtonSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -414,6 +435,9 @@ class wxSizerItem_php: public wxSizerItem{
     
     
 
+    ~wxSizerItem_php();
+
+    struct _zo_wxSizerItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -490,6 +514,9 @@ class wxSizerFlags_php: public wxSizerFlags{
     
     
 
+    ~wxSizerFlags_php();
+
+    struct _zo_wxSizerFlags *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -553,6 +580,9 @@ class wxFlexGridSizer_php: public wxFlexGridSizer{
     
     
 
+    ~wxFlexGridSizer_php();
+
+    struct _zo_wxFlexGridSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -610,6 +640,9 @@ class wxGridSizer_php: public wxGridSizer{
     
     
 
+    ~wxGridSizer_php();
+
+    struct _zo_wxGridSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -665,6 +698,9 @@ class wxStaticBoxSizer_php: public wxStaticBoxSizer{
     
     
 
+    ~wxStaticBoxSizer_php();
+
+    struct _zo_wxStaticBoxSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -710,6 +746,9 @@ class wxBoxSizer_php: public wxBoxSizer{
     
     
 
+    ~wxBoxSizer_php();
+
+    struct _zo_wxBoxSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -757,6 +796,9 @@ class wxWrapSizer_php: public wxWrapSizer{
     bool IsSpaceItem(wxSizerItem* item) const;
     
 
+    ~wxWrapSizer_php();
+
+    struct _zo_wxWrapSizer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

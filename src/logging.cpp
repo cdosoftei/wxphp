@@ -98,6 +98,13 @@ void php_wxLog_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxLog_php::~wxLog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxLog_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4026,6 +4033,13 @@ void php_wxLogChain_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxLogChain_php::~wxLogChain_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxLogChain_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4777,6 +4791,7 @@ PHP_METHOD(php_wxLogChain, __construct)
         current_object = Z_wxLogChain_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4839,6 +4854,13 @@ void php_wxLogInterposer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxLogInterposer_php::~wxLogInterposer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxLogInterposer_new(zend_class_entry *class_type)
@@ -4941,6 +4963,7 @@ PHP_METHOD(php_wxLogInterposer, __construct)
         current_object = Z_wxLogInterposer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5003,6 +5026,13 @@ void php_wxLogBuffer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxLogBuffer_php::~wxLogBuffer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxLogBuffer_new(zend_class_entry *class_type)
@@ -5321,6 +5351,7 @@ PHP_METHOD(php_wxLogBuffer, __construct)
         current_object = Z_wxLogBuffer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5383,6 +5414,13 @@ void php_wxLogWindow_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxLogWindow_php::~wxLogWindow_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxLogWindow_new(zend_class_entry *class_type)
@@ -5981,6 +6019,7 @@ PHP_METHOD(php_wxLogWindow, __construct)
         current_object = Z_wxLogWindow_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6043,6 +6082,13 @@ void php_wxLogGui_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxLogGui_php::~wxLogGui_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxLogGui_new(zend_class_entry *class_type)
@@ -6252,6 +6298,7 @@ PHP_METHOD(php_wxLogGui, __construct)
         current_object = Z_wxLogGui_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6314,6 +6361,13 @@ void php_wxLogTextCtrl_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxLogTextCtrl_php::~wxLogTextCtrl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxLogTextCtrl_new(zend_class_entry *class_type)
@@ -6440,6 +6494,7 @@ PHP_METHOD(php_wxLogTextCtrl, __construct)
         current_object = Z_wxLogTextCtrl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

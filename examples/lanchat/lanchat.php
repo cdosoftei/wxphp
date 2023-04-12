@@ -17,7 +17,7 @@ class AcceptConnections extends wxThread
 {
 	function __construct($parent)
 	{
-		parent::__construct(wxTHREAD_JOINABLE);
+		// parent::__construct(wxTHREAD_JOINABLE);
 		
 		$this->parent = $parent;
 	}
@@ -442,7 +442,10 @@ class TaskBarIcon extends wxTaskBarIcon
 	{
 		parent::__construct();
 		
-		$this->SetIcon(new wxIcon("images/app.png", wxBITMAP_TYPE_PNG), "wxPHP Lan Chat v0.1");
+		$this->SetIcon(
+			new wxBitmapBundle(new wxIcon("images/app.png", wxBITMAP_TYPE_PNG, 32, 32)),
+			"wxPHP Lan Chat v0.1"
+		);
 	}
 }
 

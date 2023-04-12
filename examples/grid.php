@@ -75,7 +75,7 @@ class wxGridButtonRenderer extends wxGridCellRenderer
         // draw the button-label
         $dc->SetBackgroundMode(wxPENSTYLE_TRANSPARENT);
         $dc->SetTextForeground($attr->GetTextColour());
-        $dc->SetFont($attr->GetFont());
+        // $dc->SetFont($attr->GetFont());
         $dc->DrawLabel(
             $this->label,
             $rect,
@@ -150,8 +150,8 @@ class MyFrame1 extends wxFrame {
 
         $this->Centre( wxBOTH );
 
-        $font = $this->GetFont();
-        var_dump($font->GetFaceName());
+        // $font = $this->GetFont();
+        // var_dump($font->GetFaceName());
     }
 
     function OnGridCellLeftClick($event)

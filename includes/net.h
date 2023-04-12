@@ -33,6 +33,9 @@ class wxURI_php: public wxURI{
     
     
 
+    ~wxURI_php();
+
+    struct _zo_wxURI *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

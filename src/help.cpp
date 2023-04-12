@@ -98,6 +98,13 @@ void php_wxToolTip_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxToolTip_php::~wxToolTip_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxToolTip_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -204,6 +211,7 @@ PHP_METHOD(php_wxToolTip, __construct)
         current_object = Z_wxToolTip_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

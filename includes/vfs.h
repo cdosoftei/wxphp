@@ -31,6 +31,9 @@ class wxFileSystem_php: public wxFileSystem{
     
     
 
+    ~wxFileSystem_php();
+
+    struct _zo_wxFileSystem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -86,6 +89,9 @@ class wxFileSystemHandler_php: public wxFileSystemHandler{
     wxFSFile* OpenFile(wxFileSystem& fs, const wxString& location);
     
 
+    ~wxFileSystemHandler_php();
+
+    struct _zo_wxFileSystemHandler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

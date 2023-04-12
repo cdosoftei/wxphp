@@ -32,6 +32,9 @@ class wxAuiToolBarItem_php: public wxAuiToolBarItem{
     
     
 
+    ~wxAuiToolBarItem_php();
+
+    struct _zo_wxAuiToolBarItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -132,6 +135,9 @@ class wxAuiToolBarArt_php: public wxAuiToolBarArt{
     void SetTextOrientation(int orientation);
     
 
+    ~wxAuiToolBarArt_php();
+
+    struct _zo_wxAuiToolBarArt *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -174,6 +180,9 @@ class wxAuiDefaultToolBarArt_php: public wxAuiDefaultToolBarArt{
     
     
 
+    ~wxAuiDefaultToolBarArt_php();
+
+    struct _zo_wxAuiDefaultToolBarArt *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -237,6 +246,9 @@ class wxAuiToolBar_php: public wxAuiToolBar{
     
     
 
+    ~wxAuiToolBar_php();
+
+    struct _zo_wxAuiToolBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -342,6 +354,9 @@ class wxAuiNotebook_php: public wxAuiNotebook{
     
     
 
+    ~wxAuiNotebook_php();
+
+    struct _zo_wxAuiNotebook *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -426,6 +441,9 @@ class wxAuiTabArt_php: public wxAuiTabArt{
     wxAuiTabArt* Clone();
     
 
+    ~wxAuiTabArt_php();
+
+    struct _zo_wxAuiTabArt *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -469,6 +487,9 @@ class wxAuiManager_php: public wxAuiManager{
     bool ProcessDockResult(wxAuiPaneInfo& target, const wxAuiPaneInfo& new_pos);
     
 
+    ~wxAuiManager_php();
+
+    struct _zo_wxAuiManager *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -532,6 +553,9 @@ class wxAuiPaneInfo_php: public wxAuiPaneInfo{
     
     
 
+    ~wxAuiPaneInfo_php();
+
+    struct _zo_wxAuiPaneInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

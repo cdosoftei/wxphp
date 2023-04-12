@@ -69,6 +69,13 @@ void php_wxMenuBar_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxMenuBar_php::~wxMenuBar_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxMenuBar_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -185,6 +192,7 @@ PHP_METHOD(php_wxMenuBar, __construct)
         current_object = Z_wxMenuBar_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -3237,6 +3245,13 @@ void php_wxMenu_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxMenu_php::~wxMenu_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxMenu_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -3428,6 +3443,7 @@ PHP_METHOD(php_wxMenu, __construct)
         current_object = Z_wxMenu_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -10066,6 +10082,13 @@ void php_wxMenuItem_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxMenuItem_php::~wxMenuItem_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxMenuItem_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -10287,6 +10310,7 @@ PHP_METHOD(php_wxMenuItem, __construct)
         current_object = Z_wxMenuItem_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

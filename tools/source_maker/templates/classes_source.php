@@ -40,7 +40,7 @@ void php_<?=$class_name?>_destruction_handler(zend_resource *rsrc)
         php_printf("Pointer address %x\n", (unsigned int)(size_t)rsrc->ptr);
         #endif
 
-        if(object->references.IsUserInitialized())
+        if(object->references && object->references.IsUserInitialized())
         {
 <?if(inherits_from_class("wxWindow", $class_name) && $class_name != "wxPageSetupDialog" && $class_name != "wxPrintDialog"){?>
             #ifdef USE_WXPHP_DEBUG
@@ -167,6 +167,13 @@ void php_<?=$class_name?>_free(zend_object *object)
 <?}?>
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+<?=$class_name?>_php::~<?=$class_name?>_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_<?=$class_name?>_new(zend_class_entry *class_type)

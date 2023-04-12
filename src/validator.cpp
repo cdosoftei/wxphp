@@ -98,6 +98,13 @@ void php_wxGenericValidator_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGenericValidator_php::~wxGenericValidator_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGenericValidator_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -885,6 +892,7 @@ PHP_METHOD(php_wxGenericValidator, __construct)
         current_object = Z_wxGenericValidator_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -947,6 +955,13 @@ void php_wxValidator_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxValidator_php::~wxValidator_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxValidator_new(zend_class_entry *class_type)
@@ -1049,6 +1064,7 @@ PHP_METHOD(php_wxValidator, __construct)
         current_object = Z_wxValidator_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2029,6 +2045,13 @@ void php_wxTextValidator_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTextValidator_php::~wxTextValidator_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTextValidator_new(zend_class_entry *class_type)
@@ -3856,6 +3879,7 @@ PHP_METHOD(php_wxTextValidator, __construct)
         current_object = Z_wxTextValidator_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

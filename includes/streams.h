@@ -30,6 +30,9 @@ class wxDataOutputStream_php: public wxDataOutputStream{
     
     
 
+    ~wxDataOutputStream_php();
+
+    struct _zo_wxDataOutputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -77,6 +80,9 @@ class wxDataInputStream_php: public wxDataInputStream{
     
     
 
+    ~wxDataInputStream_php();
+
+    struct _zo_wxDataInputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -127,6 +133,9 @@ class wxStreamBase_php: public wxStreamBase{
     wxFileOffset OnSysTell() const;
     
 
+    ~wxStreamBase_php();
+
+    struct _zo_wxStreamBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -176,6 +185,9 @@ class wxOutputStream_php: public wxOutputStream{
     
     
 
+    ~wxOutputStream_php();
+
+    struct _zo_wxOutputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -226,6 +238,9 @@ class wxInputStream_php: public wxInputStream{
     size_t OnSysRead(void* buffer, size_t bufsize);
     
 
+    ~wxInputStream_php();
+
+    struct _zo_wxInputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -279,6 +294,9 @@ class wxFFileOutputStream_php: public wxFFileOutputStream{
     
     
 
+    ~wxFFileOutputStream_php();
+
+    struct _zo_wxFFileOutputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -325,6 +343,9 @@ class wxFileOutputStream_php: public wxFileOutputStream{
     
     
 
+    ~wxFileOutputStream_php();
+
+    struct _zo_wxFileOutputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -371,6 +392,9 @@ class wxFileInputStream_php: public wxFileInputStream{
     
     
 
+    ~wxFileInputStream_php();
+
+    struct _zo_wxFileInputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -416,6 +440,9 @@ class wxFFileInputStream_php: public wxFFileInputStream{
     
     
 
+    ~wxFFileInputStream_php();
+
+    struct _zo_wxFFileInputStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -460,6 +487,9 @@ class wxFFileStream_php: public wxFFileStream{
     
     
 
+    ~wxFFileStream_php();
+
+    struct _zo_wxFFileStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -524,6 +554,9 @@ class wxFileStream_php: public wxFileStream{
     
     
 
+    ~wxFileStream_php();
+
+    struct _zo_wxFileStream *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

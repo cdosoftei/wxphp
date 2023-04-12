@@ -31,6 +31,9 @@ class wxClientData_php: public wxClientData{
     
     
 
+    ~wxClientData_php();
+
+    struct _zo_wxClientData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -74,6 +77,9 @@ class wxTreeItemData_php: public wxTreeItemData{
     
     
 
+    ~wxTreeItemData_php();
+
+    struct _zo_wxTreeItemData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

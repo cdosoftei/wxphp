@@ -34,6 +34,7 @@ PHP_METHOD(php_<?=$class_name?>, __construct)
         current_object = Z_<?=$class_name?>_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

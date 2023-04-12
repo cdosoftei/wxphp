@@ -98,6 +98,13 @@ void php_wxAuiToolBarItem_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAuiToolBarItem_php::~wxAuiToolBarItem_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAuiToolBarItem_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -256,6 +263,7 @@ PHP_METHOD(php_wxAuiToolBarItem, __construct)
         current_object = Z_wxAuiToolBarItem_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4797,6 +4805,13 @@ void php_wxAuiToolBarArt_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAuiToolBarArt_php::~wxAuiToolBarArt_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAuiToolBarArt_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6628,6 +6643,13 @@ void php_wxAuiDefaultToolBarArt_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxAuiDefaultToolBarArt_php::~wxAuiDefaultToolBarArt_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxAuiDefaultToolBarArt_new(zend_class_entry *class_type)
@@ -9554,6 +9576,7 @@ PHP_METHOD(php_wxAuiDefaultToolBarArt, __construct)
         current_object = Z_wxAuiDefaultToolBarArt_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -9587,6 +9610,13 @@ void php_wxAuiToolBar_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxAuiToolBar_php::~wxAuiToolBar_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxAuiToolBar_new(zend_class_entry *class_type)
@@ -9840,6 +9870,7 @@ PHP_METHOD(php_wxAuiToolBar, __construct)
         current_object = Z_wxAuiToolBar_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -17729,6 +17760,13 @@ void php_wxAuiNotebook_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAuiNotebook_php::~wxAuiNotebook_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAuiNotebook_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -17980,6 +18018,7 @@ PHP_METHOD(php_wxAuiNotebook, __construct)
         current_object = Z_wxAuiNotebook_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -21801,6 +21840,13 @@ void php_wxAuiTabArt_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAuiTabArt_php::~wxAuiTabArt_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAuiTabArt_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -22966,6 +23012,13 @@ void php_wxAuiManager_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAuiManager_php::~wxAuiManager_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAuiManager_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -23114,6 +23167,7 @@ PHP_METHOD(php_wxAuiManager, __construct)
         current_object = Z_wxAuiManager_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -25948,6 +26002,13 @@ void php_wxAuiPaneInfo_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAuiPaneInfo_php::~wxAuiPaneInfo_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAuiPaneInfo_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -26105,6 +26166,7 @@ PHP_METHOD(php_wxAuiPaneInfo, __construct)
         current_object = Z_wxAuiPaneInfo_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

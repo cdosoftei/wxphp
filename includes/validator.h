@@ -38,6 +38,9 @@ class wxGenericValidator_php: public wxGenericValidator{
     
     
 
+    ~wxGenericValidator_php();
+
+    struct _zo_wxGenericValidator *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -84,6 +87,9 @@ class wxValidator_php: public wxValidator{
     
     
 
+    ~wxValidator_php();
+
+    struct _zo_wxValidator *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -135,6 +141,9 @@ class wxTextValidator_php: public wxTextValidator{
     
     
 
+    ~wxTextValidator_php();
+
+    struct _zo_wxTextValidator *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

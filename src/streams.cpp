@@ -98,6 +98,13 @@ void php_wxDataOutputStream_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxDataOutputStream_php::~wxDataOutputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxDataOutputStream_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -1072,6 +1079,13 @@ void php_wxDataInputStream_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxDataInputStream_php::~wxDataInputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxDataInputStream_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2006,6 +2020,13 @@ void php_wxStreamBase_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxStreamBase_php::~wxStreamBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxStreamBase_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2106,6 +2127,7 @@ PHP_METHOD(php_wxStreamBase, __construct)
         current_object = Z_wxStreamBase_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -3200,6 +3222,13 @@ void php_wxOutputStream_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxOutputStream_php::~wxOutputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxOutputStream_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -3300,6 +3329,7 @@ PHP_METHOD(php_wxOutputStream, __construct)
         current_object = Z_wxOutputStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4231,6 +4261,13 @@ void php_wxInputStream_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxInputStream_php::~wxInputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxInputStream_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4331,6 +4368,7 @@ PHP_METHOD(php_wxInputStream, __construct)
         current_object = Z_wxInputStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5775,6 +5813,13 @@ void php_wxFFileOutputStream_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFFileOutputStream_php::~wxFFileOutputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFFileOutputStream_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -6063,6 +6108,7 @@ PHP_METHOD(php_wxFFileOutputStream, __construct)
         current_object = Z_wxFFileOutputStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6125,6 +6171,13 @@ void php_wxFileOutputStream_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileOutputStream_php::~wxFileOutputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileOutputStream_new(zend_class_entry *class_type)
@@ -6441,6 +6494,7 @@ PHP_METHOD(php_wxFileOutputStream, __construct)
         current_object = Z_wxFileOutputStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6503,6 +6557,13 @@ void php_wxFileInputStream_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileInputStream_php::~wxFileInputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileInputStream_new(zend_class_entry *class_type)
@@ -6819,6 +6880,7 @@ PHP_METHOD(php_wxFileInputStream, __construct)
         current_object = Z_wxFileInputStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6881,6 +6943,13 @@ void php_wxFFileInputStream_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFFileInputStream_php::~wxFFileInputStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFFileInputStream_new(zend_class_entry *class_type)
@@ -7060,6 +7129,7 @@ PHP_METHOD(php_wxFFileInputStream, __construct)
         current_object = Z_wxFFileInputStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7233,6 +7303,13 @@ void php_wxFFileStream_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFFileStream_php::~wxFFileStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFFileStream_new(zend_class_entry *class_type)
@@ -7461,6 +7538,7 @@ PHP_METHOD(php_wxFFileStream, __construct)
         current_object = Z_wxFFileStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7523,6 +7601,13 @@ void php_wxFileStream_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileStream_php::~wxFileStream_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileStream_new(zend_class_entry *class_type)
@@ -7738,6 +7823,7 @@ PHP_METHOD(php_wxFileStream, __construct)
         current_object = Z_wxFileStream_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

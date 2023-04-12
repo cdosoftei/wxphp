@@ -69,6 +69,13 @@ void php_wxColourPickerCtrl_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxColourPickerCtrl_php::~wxColourPickerCtrl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxColourPickerCtrl_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -988,6 +995,7 @@ PHP_METHOD(php_wxColourPickerCtrl, __construct)
         current_object = Z_wxColourPickerCtrl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1021,6 +1029,13 @@ void php_wxDatePickerCtrl_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxDatePickerCtrl_php::~wxDatePickerCtrl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxDatePickerCtrl_new(zend_class_entry *class_type)
@@ -1326,6 +1341,7 @@ PHP_METHOD(php_wxDatePickerCtrl, __construct)
         current_object = Z_wxDatePickerCtrl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -2097,6 +2113,13 @@ void php_wxFilePickerCtrl_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFilePickerCtrl_php::~wxFilePickerCtrl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFilePickerCtrl_new(zend_class_entry *class_type)
@@ -3096,6 +3119,7 @@ PHP_METHOD(php_wxFilePickerCtrl, __construct)
         current_object = Z_wxFilePickerCtrl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -3243,6 +3267,13 @@ void php_wxDirPickerCtrl_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxDirPickerCtrl_php::~wxDirPickerCtrl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxDirPickerCtrl_new(zend_class_entry *class_type)
@@ -4327,6 +4358,7 @@ PHP_METHOD(php_wxDirPickerCtrl, __construct)
         current_object = Z_wxDirPickerCtrl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4360,6 +4392,13 @@ void php_wxFontPickerCtrl_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFontPickerCtrl_php::~wxFontPickerCtrl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFontPickerCtrl_new(zend_class_entry *class_type)
@@ -5459,6 +5498,7 @@ PHP_METHOD(php_wxFontPickerCtrl, __construct)
         current_object = Z_wxFontPickerCtrl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5492,6 +5532,13 @@ void php_wxPickerBase_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPickerBase_php::~wxPickerBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPickerBase_new(zend_class_entry *class_type)
@@ -7533,6 +7580,13 @@ void php_wxTimePickerCtrl_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxTimePickerCtrl_php::~wxTimePickerCtrl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxTimePickerCtrl_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -7836,6 +7890,7 @@ PHP_METHOD(php_wxTimePickerCtrl, __construct)
         current_object = Z_wxTimePickerCtrl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

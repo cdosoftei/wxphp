@@ -31,6 +31,9 @@ class wxToolTip_php: public wxToolTip{
     
     
 
+    ~wxToolTip_php();
+
+    struct _zo_wxToolTip *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

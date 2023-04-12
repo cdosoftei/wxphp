@@ -98,6 +98,13 @@ void php_wxDC_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxDC_php::~wxDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxDC_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -23577,6 +23584,13 @@ void php_wxBufferedDC_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxBufferedDC_php::~wxBufferedDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxBufferedDC_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -24154,6 +24168,7 @@ PHP_METHOD(php_wxBufferedDC, __construct)
         current_object = Z_wxBufferedDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -24216,6 +24231,13 @@ void php_wxAutoBufferedPaintDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxAutoBufferedPaintDC_php::~wxAutoBufferedPaintDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxAutoBufferedPaintDC_new(zend_class_entry *class_type)
@@ -24342,6 +24364,7 @@ PHP_METHOD(php_wxAutoBufferedPaintDC, __construct)
         current_object = Z_wxAutoBufferedPaintDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -24404,6 +24427,13 @@ void php_wxBufferedPaintDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxBufferedPaintDC_php::~wxBufferedPaintDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxBufferedPaintDC_new(zend_class_entry *class_type)
@@ -24635,6 +24665,7 @@ PHP_METHOD(php_wxBufferedPaintDC, __construct)
         current_object = Z_wxBufferedPaintDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -24697,6 +24728,13 @@ void php_wxPaintDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPaintDC_php::~wxPaintDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPaintDC_new(zend_class_entry *class_type)
@@ -24823,6 +24861,7 @@ PHP_METHOD(php_wxPaintDC, __construct)
         current_object = Z_wxPaintDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -24885,6 +24924,13 @@ void php_wxClientDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxClientDC_php::~wxClientDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxClientDC_new(zend_class_entry *class_type)
@@ -25011,6 +25057,7 @@ PHP_METHOD(php_wxClientDC, __construct)
         current_object = Z_wxClientDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -25073,6 +25120,13 @@ void php_wxWindowDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxWindowDC_php::~wxWindowDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxWindowDC_new(zend_class_entry *class_type)
@@ -25199,6 +25253,7 @@ PHP_METHOD(php_wxWindowDC, __construct)
         current_object = Z_wxWindowDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -25261,6 +25316,13 @@ void php_wxMemoryDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxMemoryDC_php::~wxMemoryDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxMemoryDC_new(zend_class_entry *class_type)
@@ -25765,6 +25827,7 @@ PHP_METHOD(php_wxMemoryDC, __construct)
         current_object = Z_wxMemoryDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -25827,6 +25890,13 @@ void php_wxMirrorDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxMirrorDC_php::~wxMirrorDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxMirrorDC_new(zend_class_entry *class_type)
@@ -25954,6 +26024,7 @@ PHP_METHOD(php_wxMirrorDC, __construct)
         current_object = Z_wxMirrorDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -26016,6 +26087,13 @@ void php_wxPostScriptDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPostScriptDC_php::~wxPostScriptDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPostScriptDC_new(zend_class_entry *class_type)
@@ -26175,6 +26253,7 @@ PHP_METHOD(php_wxPostScriptDC, __construct)
         current_object = Z_wxPostScriptDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -26237,6 +26316,13 @@ void php_wxScreenDC_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxScreenDC_php::~wxScreenDC_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxScreenDC_new(zend_class_entry *class_type)
@@ -26650,6 +26736,7 @@ PHP_METHOD(php_wxScreenDC, __construct)
         current_object = Z_wxScreenDC_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

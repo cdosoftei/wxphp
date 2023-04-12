@@ -32,6 +32,9 @@ class wxEventFilter_php: public wxEventFilter{
     int FilterEvent(wxEvent& event);
     
 
+    ~wxEventFilter_php();
+
+    struct _zo_wxEventFilter *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -75,6 +78,9 @@ class wxKeyboardState_php: public wxKeyboardState{
     
     
 
+    ~wxKeyboardState_php();
+
+    struct _zo_wxKeyboardState *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -129,6 +135,9 @@ class wxAuiToolBarEvent_php: public wxAuiToolBarEvent{
     
     
 
+    ~wxAuiToolBarEvent_php();
+
+    struct _zo_wxAuiToolBarEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -175,6 +184,9 @@ class wxAuiManagerEvent_php: public wxAuiManagerEvent{
     
     
 
+    ~wxAuiManagerEvent_php();
+
+    struct _zo_wxAuiManagerEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -229,6 +241,9 @@ class wxCalendarEvent_php: public wxCalendarEvent{
     
     
 
+    ~wxCalendarEvent_php();
+
+    struct _zo_wxCalendarEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -274,6 +289,9 @@ class wxColourPickerEvent_php: public wxColourPickerEvent{
     
     
 
+    ~wxColourPickerEvent_php();
+
+    struct _zo_wxColourPickerEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -319,6 +337,9 @@ class wxCollapsiblePaneEvent_php: public wxCollapsiblePaneEvent{
     
     
 
+    ~wxCollapsiblePaneEvent_php();
+
+    struct _zo_wxCollapsiblePaneEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -367,6 +388,9 @@ class wxDataViewEvent_php: public wxDataViewEvent{
     
     
 
+    ~wxDataViewEvent_php();
+
+    struct _zo_wxDataViewEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -424,6 +448,9 @@ class wxDateEvent_php: public wxDateEvent{
     
     
 
+    ~wxDateEvent_php();
+
+    struct _zo_wxDateEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -469,6 +496,9 @@ class wxEvent_php: public wxEvent{
     wxEvent* Clone() const;
     
 
+    ~wxEvent_php();
+
+    struct _zo_wxEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -527,6 +557,9 @@ class wxEventBlocker_php: public wxEventBlocker{
     
     
 
+    ~wxEventBlocker_php();
+
+    struct _zo_wxEventBlocker *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -573,7 +606,10 @@ class wxEvtHandler_php: public wxEvtHandler{
     bool TryBefore(wxEvent& event);
     
 
+    ~wxEvtHandler_php();
+
     void onEvent(wxEvent& evnt);
+    struct _zo_wxEvtHandler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -641,6 +677,9 @@ class wxKeyEvent_php: public wxKeyEvent{
     
     
 
+    ~wxKeyEvent_php();
+
+    struct _zo_wxKeyEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -726,6 +765,9 @@ class wxScrollWinEvent_php: public wxScrollWinEvent{
     
     
 
+    ~wxScrollWinEvent_php();
+
+    struct _zo_wxScrollWinEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -773,6 +815,9 @@ class wxSysColourChangedEvent_php: public wxSysColourChangedEvent{
     
     
 
+    ~wxSysColourChangedEvent_php();
+
+    struct _zo_wxSysColourChangedEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -816,6 +861,9 @@ class wxCommandEvent_php: public wxCommandEvent{
     
     
 
+    ~wxCommandEvent_php();
+
+    struct _zo_wxCommandEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -868,6 +916,9 @@ class wxWindowCreateEvent_php: public wxWindowCreateEvent{
     
     
 
+    ~wxWindowCreateEvent_php();
+
+    struct _zo_wxWindowCreateEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -911,6 +962,9 @@ class wxPaintEvent_php: public wxPaintEvent{
     
     
 
+    ~wxPaintEvent_php();
+
+    struct _zo_wxPaintEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -953,6 +1007,9 @@ class wxMaximizeEvent_php: public wxMaximizeEvent{
     
     
 
+    ~wxMaximizeEvent_php();
+
+    struct _zo_wxMaximizeEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -996,6 +1053,9 @@ class wxUpdateUIEvent_php: public wxUpdateUIEvent{
     
     
 
+    ~wxUpdateUIEvent_php();
+
+    struct _zo_wxUpdateUIEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1057,6 +1117,9 @@ class wxClipboardTextEvent_php: public wxClipboardTextEvent{
     
     
 
+    ~wxClipboardTextEvent_php();
+
+    struct _zo_wxClipboardTextEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1100,6 +1163,9 @@ class wxMouseEvent_php: public wxMouseEvent{
     
     
 
+    ~wxMouseEvent_php();
+
+    struct _zo_wxMouseEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1225,6 +1291,9 @@ class wxDropFilesEvent_php: public wxDropFilesEvent{
     
     
 
+    ~wxDropFilesEvent_php();
+
+    struct _zo_wxDropFilesEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1270,6 +1339,9 @@ class wxActivateEvent_php: public wxActivateEvent{
     
     
 
+    ~wxActivateEvent_php();
+
+    struct _zo_wxActivateEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1314,6 +1386,9 @@ class wxContextMenuEvent_php: public wxContextMenuEvent{
     
     
 
+    ~wxContextMenuEvent_php();
+
+    struct _zo_wxContextMenuEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1359,6 +1434,9 @@ class wxEraseEvent_php: public wxEraseEvent{
     
     
 
+    ~wxEraseEvent_php();
+
+    struct _zo_wxEraseEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1403,6 +1481,9 @@ class wxFocusEvent_php: public wxFocusEvent{
     
     
 
+    ~wxFocusEvent_php();
+
+    struct _zo_wxFocusEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1448,6 +1529,9 @@ class wxChildFocusEvent_php: public wxChildFocusEvent{
     
     
 
+    ~wxChildFocusEvent_php();
+
+    struct _zo_wxChildFocusEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1492,6 +1576,9 @@ class wxDisplayChangedEvent_php: public wxDisplayChangedEvent{
     
     
 
+    ~wxDisplayChangedEvent_php();
+
+    struct _zo_wxDisplayChangedEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1535,6 +1622,9 @@ class wxNotifyEvent_php: public wxNotifyEvent{
     
     
 
+    ~wxNotifyEvent_php();
+
+    struct _zo_wxNotifyEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1581,6 +1671,9 @@ class wxThreadEvent_php: public wxThreadEvent{
     
     
 
+    ~wxThreadEvent_php();
+
+    struct _zo_wxThreadEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1632,6 +1725,9 @@ class wxHelpEvent_php: public wxHelpEvent{
     
     
 
+    ~wxHelpEvent_php();
+
+    struct _zo_wxHelpEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1679,6 +1775,9 @@ class wxScrollEvent_php: public wxScrollEvent{
     
     
 
+    ~wxScrollEvent_php();
+
+    struct _zo_wxScrollEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1726,6 +1825,9 @@ class wxIdleEvent_php: public wxIdleEvent{
     
     
 
+    ~wxIdleEvent_php();
+
+    struct _zo_wxIdleEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1773,6 +1875,9 @@ class wxInitDialogEvent_php: public wxInitDialogEvent{
     
     
 
+    ~wxInitDialogEvent_php();
+
+    struct _zo_wxInitDialogEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1816,6 +1921,9 @@ class wxWindowDestroyEvent_php: public wxWindowDestroyEvent{
     
     
 
+    ~wxWindowDestroyEvent_php();
+
+    struct _zo_wxWindowDestroyEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1861,6 +1969,9 @@ class wxNavigationKeyEvent_php: public wxNavigationKeyEvent{
     
     
 
+    ~wxNavigationKeyEvent_php();
+
+    struct _zo_wxNavigationKeyEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1913,6 +2024,9 @@ class wxCloseEvent_php: public wxCloseEvent{
     
     
 
+    ~wxCloseEvent_php();
+
+    struct _zo_wxCloseEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1961,6 +2075,9 @@ class wxMenuEvent_php: public wxMenuEvent{
     
     
 
+    ~wxMenuEvent_php();
+
+    struct _zo_wxMenuEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2007,6 +2124,9 @@ class wxShowEvent_php: public wxShowEvent{
     
     
 
+    ~wxShowEvent_php();
+
+    struct _zo_wxShowEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2052,6 +2172,9 @@ class wxIconizeEvent_php: public wxIconizeEvent{
     
     
 
+    ~wxIconizeEvent_php();
+
+    struct _zo_wxIconizeEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2096,6 +2219,9 @@ class wxMoveEvent_php: public wxMoveEvent{
     
     
 
+    ~wxMoveEvent_php();
+
+    struct _zo_wxMoveEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2143,6 +2269,9 @@ class wxSizeEvent_php: public wxSizeEvent{
     
     
 
+    ~wxSizeEvent_php();
+
+    struct _zo_wxSizeEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2190,6 +2319,9 @@ class wxSetCursorEvent_php: public wxSetCursorEvent{
     
     
 
+    ~wxSetCursorEvent_php();
+
+    struct _zo_wxSetCursorEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2238,6 +2370,9 @@ class wxFileCtrlEvent_php: public wxFileCtrlEvent{
     
     
 
+    ~wxFileCtrlEvent_php();
+
+    struct _zo_wxFileCtrlEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2289,6 +2424,9 @@ class wxFileDirPickerEvent_php: public wxFileDirPickerEvent{
     
     
 
+    ~wxFileDirPickerEvent_php();
+
+    struct _zo_wxFileDirPickerEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2334,6 +2472,9 @@ class wxFontPickerEvent_php: public wxFontPickerEvent{
     
     
 
+    ~wxFontPickerEvent_php();
+
+    struct _zo_wxFontPickerEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2378,6 +2519,9 @@ class wxFileSystemWatcherEvent_php: public wxFileSystemWatcherEvent{
     
     
 
+    ~wxFileSystemWatcherEvent_php();
+
+    struct _zo_wxFileSystemWatcherEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2427,6 +2571,9 @@ class wxGridEvent_php: public wxGridEvent{
     
     
 
+    ~wxGridEvent_php();
+
+    struct _zo_wxGridEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2479,6 +2626,9 @@ class wxGridSizeEvent_php: public wxGridSizeEvent{
     
     
 
+    ~wxGridSizeEvent_php();
+
+    struct _zo_wxGridSizeEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2529,6 +2679,9 @@ class wxGridRangeSelectEvent_php: public wxGridRangeSelectEvent{
     
     
 
+    ~wxGridRangeSelectEvent_php();
+
+    struct _zo_wxGridRangeSelectEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2584,6 +2737,9 @@ class wxGridEditorCreatedEvent_php: public wxGridEditorCreatedEvent{
     
     
 
+    ~wxGridEditorCreatedEvent_php();
+
+    struct _zo_wxGridEditorCreatedEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2632,6 +2788,9 @@ class wxHeaderCtrlEvent_php: public wxHeaderCtrlEvent{
     
     
 
+    ~wxHeaderCtrlEvent_php();
+
+    struct _zo_wxHeaderCtrlEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2677,6 +2836,9 @@ class wxHtmlLinkEvent_php: public wxHtmlLinkEvent{
     
     
 
+    ~wxHtmlLinkEvent_php();
+
+    struct _zo_wxHtmlLinkEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2721,6 +2883,9 @@ class wxHtmlCellEvent_php: public wxHtmlCellEvent{
     
     
 
+    ~wxHtmlCellEvent_php();
+
+    struct _zo_wxHtmlCellEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2768,6 +2933,9 @@ class wxHyperlinkEvent_php: public wxHyperlinkEvent{
     
     
 
+    ~wxHyperlinkEvent_php();
+
+    struct _zo_wxHyperlinkEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2813,6 +2981,9 @@ class wxQueryLayoutInfoEvent_php: public wxQueryLayoutInfoEvent{
     
     
 
+    ~wxQueryLayoutInfoEvent_php();
+
+    struct _zo_wxQueryLayoutInfoEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2866,6 +3037,9 @@ class wxCalculateLayoutEvent_php: public wxCalculateLayoutEvent{
     
     
 
+    ~wxCalculateLayoutEvent_php();
+
+    struct _zo_wxCalculateLayoutEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2913,6 +3087,9 @@ class wxListEvent_php: public wxListEvent{
     
     
 
+    ~wxListEvent_php();
+
+    struct _zo_wxListEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2968,6 +3145,9 @@ class wxMediaEvent_php: public wxMediaEvent{
     
     
 
+    ~wxMediaEvent_php();
+
+    struct _zo_wxMediaEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3020,6 +3200,9 @@ class wxMouseEventsManager_php: public wxMouseEventsManager{
     int MouseHitTest(const wxPoint& pos);
     
 
+    ~wxMouseEventsManager_php();
+
+    struct _zo_wxMouseEventsManager *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3064,6 +3247,9 @@ class wxMouseState_php: public wxMouseState{
     
     
 
+    ~wxMouseState_php();
+
+    struct _zo_wxMouseState *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3124,6 +3310,9 @@ class wxProcessEvent_php: public wxProcessEvent{
     
     
 
+    ~wxProcessEvent_php();
+
+    struct _zo_wxProcessEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3169,6 +3358,9 @@ class wxRibbonBarEvent_php: public wxRibbonBarEvent{
     
     
 
+    ~wxRibbonBarEvent_php();
+
+    struct _zo_wxRibbonBarEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3214,6 +3406,9 @@ class wxRibbonButtonBarEvent_php: public wxRibbonButtonBarEvent{
     
     
 
+    ~wxRibbonButtonBarEvent_php();
+
+    struct _zo_wxRibbonButtonBarEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3260,6 +3455,9 @@ class wxRibbonGalleryEvent_php: public wxRibbonGalleryEvent{
     
     
 
+    ~wxRibbonGalleryEvent_php();
+
+    struct _zo_wxRibbonGalleryEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3307,6 +3505,9 @@ class wxSashEvent_php: public wxSashEvent{
     
     
 
+    ~wxSashEvent_php();
+
+    struct _zo_wxSashEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3353,6 +3554,9 @@ class wxSpinEvent_php: public wxSpinEvent{
     
     
 
+    ~wxSpinEvent_php();
+
+    struct _zo_wxSpinEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3399,6 +3603,9 @@ class wxSpinDoubleEvent_php: public wxSpinDoubleEvent{
     
     
 
+    ~wxSpinDoubleEvent_php();
+
+    struct _zo_wxSpinDoubleEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3444,6 +3651,9 @@ class wxSplitterEvent_php: public wxSplitterEvent{
     
     
 
+    ~wxSplitterEvent_php();
+
+    struct _zo_wxSplitterEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3493,6 +3703,9 @@ class wxStyledTextEvent_php: public wxStyledTextEvent{
     
     
 
+    ~wxStyledTextEvent_php();
+
+    struct _zo_wxStyledTextEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3573,6 +3786,9 @@ class wxTaskBarIconEvent_php: public wxTaskBarIconEvent{
     
     
 
+    ~wxTaskBarIconEvent_php();
+
+    struct _zo_wxTaskBarIconEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3615,6 +3831,9 @@ class wxTimerEvent_php: public wxTimerEvent{
     
     
 
+    ~wxTimerEvent_php();
+
+    struct _zo_wxTimerEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3658,6 +3877,9 @@ class wxTreeEvent_php: public wxTreeEvent{
     
     
 
+    ~wxTreeEvent_php();
+
+    struct _zo_wxTreeEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3709,6 +3931,9 @@ class wxWizardEvent_php: public wxWizardEvent{
     
     
 
+    ~wxWizardEvent_php();
+
+    struct _zo_wxWizardEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

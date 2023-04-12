@@ -35,6 +35,9 @@ class wxBitmapBundle_php: public wxBitmapBundle{
     
     
 
+    ~wxBitmapBundle_php();
+
+    struct _zo_wxBitmapBundle *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -99,6 +102,9 @@ class wxBitmapBundleImpl_php: public wxBitmapBundleImpl{
     wxBitmap GetBitmap(const wxSize& size);
     
 
+    ~wxBitmapBundleImpl_php();
+
+    struct _zo_wxBitmapBundleImpl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -141,6 +147,9 @@ class wxGraphicsGradientStop_php: public wxGraphicsGradientStop{
     
     
 
+    ~wxGraphicsGradientStop_php();
+
+    struct _zo_wxGraphicsGradientStop *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -188,6 +197,9 @@ class wxGraphicsGradientStops_php: public wxGraphicsGradientStops{
     
     
 
+    ~wxGraphicsGradientStops_php();
+
+    struct _zo_wxGraphicsGradientStops *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -238,6 +250,9 @@ class wxBitmapHandler_php: public wxBitmapHandler{
     
     
 
+    ~wxBitmapHandler_php();
+
+    struct _zo_wxBitmapHandler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -299,6 +314,9 @@ class wxBitmap_php: public wxBitmap{
     
     
 
+    ~wxBitmap_php();
+
+    struct _zo_wxBitmap *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -367,6 +385,9 @@ class wxMask_php: public wxMask{
     
     
 
+    ~wxMask_php();
+
+    struct _zo_wxMask *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -414,6 +435,9 @@ class wxBrush_php: public wxBrush{
     
     
 
+    ~wxBrush_php();
+
+    struct _zo_wxBrush *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -471,6 +495,9 @@ class wxColour_php: public wxColour{
     
     
 
+    ~wxColour_php();
+
+    struct _zo_wxColour *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -527,6 +554,9 @@ class wxCursor_php: public wxCursor{
     
     
 
+    ~wxCursor_php();
+
+    struct _zo_wxCursor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -573,6 +603,9 @@ class wxDCClipper_php: public wxDCClipper{
     
     
 
+    ~wxDCClipper_php();
+
+    struct _zo_wxDCClipper *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -621,6 +654,9 @@ class wxFont_php: public wxFont{
     
     
 
+    ~wxFont_php();
+
+    struct _zo_wxFont *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -704,6 +740,9 @@ class wxFontList_php: public wxFontList{
     
     
 
+    ~wxFontList_php();
+
+    struct _zo_wxFontList *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -749,6 +788,9 @@ class wxFontEnumerator_php: public wxFontEnumerator{
     bool OnFacename(const wxString& font);
     
 
+    ~wxFontEnumerator_php();
+
+    struct _zo_wxFontEnumerator *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -797,6 +839,9 @@ class wxNativeFontInfo_php: public wxNativeFontInfo{
     
     
 
+    ~wxNativeFontInfo_php();
+
+    struct _zo_wxNativeFontInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -860,6 +905,9 @@ class wxColourDatabase_php: public wxColourDatabase{
     
     
 
+    ~wxColourDatabase_php();
+
+    struct _zo_wxColourDatabase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -905,6 +953,9 @@ class wxGDIObject_php: public wxGDIObject{
     
     
 
+    ~wxGDIObject_php();
+
+    struct _zo_wxGDIObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -946,6 +997,9 @@ class wxGraphicsRenderer_php: public wxGraphicsRenderer{
     
     
 
+    ~wxGraphicsRenderer_php();
+
+    struct _zo_wxGraphicsRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -987,6 +1041,9 @@ class wxGraphicsMatrix_php: public wxGraphicsMatrix{
     
     
 
+    ~wxGraphicsMatrix_php();
+
+    struct _zo_wxGraphicsMatrix *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1031,6 +1088,9 @@ class wxIcon_php: public wxIcon{
     
     
 
+    ~wxIcon_php();
+
+    struct _zo_wxIcon *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1084,6 +1144,9 @@ class wxIconBundle_php: public wxIconBundle{
     
     
 
+    ~wxIconBundle_php();
+
+    struct _zo_wxIconBundle *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1132,6 +1195,9 @@ class wxImageHandler_php: public wxImageHandler{
     
     
 
+    ~wxImageHandler_php();
+
+    struct _zo_wxImageHandler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1197,6 +1263,9 @@ class wxImage_php: public wxImage{
     
     
 
+    ~wxImage_php();
+
+    struct _zo_wxImage *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1309,6 +1378,9 @@ class wxImageList_php: public wxImageList{
     
     
 
+    ~wxImageList_php();
+
+    struct _zo_wxImageList *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1364,6 +1436,9 @@ class wxPalette_php: public wxPalette{
     
     
 
+    ~wxPalette_php();
+
+    struct _zo_wxPalette *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1414,6 +1489,9 @@ class wxPen_php: public wxPen{
     
     
 
+    ~wxPen_php();
+
+    struct _zo_wxPen *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1472,6 +1550,9 @@ class wxPenList_php: public wxPenList{
     
     
 
+    ~wxPenList_php();
+
+    struct _zo_wxPenList *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1531,6 +1612,9 @@ class wxRendererNative_php: public wxRendererNative{
     int GetHeaderButtonMargin(wxWindow* win);
     
 
+    ~wxRendererNative_php();
+
+    struct _zo_wxRendererNative *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

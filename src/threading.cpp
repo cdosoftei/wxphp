@@ -98,6 +98,13 @@ void php_wxCondition_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxCondition_php::~wxCondition_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxCondition_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -762,6 +769,7 @@ PHP_METHOD(php_wxCondition, __construct)
         current_object = Z_wxCondition_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -824,6 +832,13 @@ void php_wxCriticalSectionLocker_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxCriticalSectionLocker_php::~wxCriticalSectionLocker_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxCriticalSectionLocker_new(zend_class_entry *class_type)
@@ -950,6 +965,7 @@ PHP_METHOD(php_wxCriticalSectionLocker, __construct)
         current_object = Z_wxCriticalSectionLocker_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1012,6 +1028,13 @@ void php_wxThreadHelper_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxThreadHelper_php::~wxThreadHelper_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxThreadHelper_new(zend_class_entry *class_type)
@@ -1372,6 +1395,13 @@ void php_wxCriticalSection_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxCriticalSection_php::~wxCriticalSection_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxCriticalSection_new(zend_class_entry *class_type)
@@ -1811,6 +1841,7 @@ PHP_METHOD(php_wxCriticalSection, __construct)
         current_object = Z_wxCriticalSection_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1844,6 +1875,13 @@ void php_wxThread_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxThread_php::~wxThread_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxThread_new(zend_class_entry *class_type)
@@ -4059,6 +4097,13 @@ void php_wxSemaphore_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxSemaphore_php::~wxSemaphore_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxSemaphore_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4620,6 +4665,7 @@ PHP_METHOD(php_wxSemaphore, __construct)
         current_object = Z_wxSemaphore_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4682,6 +4728,13 @@ void php_wxMutexLocker_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxMutexLocker_php::~wxMutexLocker_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxMutexLocker_new(zend_class_entry *class_type)
@@ -4915,6 +4968,7 @@ PHP_METHOD(php_wxMutexLocker, __construct)
         current_object = Z_wxMutexLocker_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4977,6 +5031,13 @@ void php_wxMutex_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxMutex_php::~wxMutex_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxMutex_new(zend_class_entry *class_type)
@@ -5528,6 +5589,7 @@ PHP_METHOD(php_wxMutex, __construct)
         current_object = Z_wxMutex_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

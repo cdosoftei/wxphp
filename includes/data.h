@@ -35,6 +35,9 @@ class wxRect_php: public wxRect{
     
     
 
+    ~wxRect_php();
+
+    struct _zo_wxRect *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -108,6 +111,9 @@ class wxAcceleratorEntry_php: public wxAcceleratorEntry{
     
     
 
+    ~wxAcceleratorEntry_php();
+
+    struct _zo_wxAcceleratorEntry *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -159,6 +165,9 @@ class wxAcceleratorTable_php: public wxAcceleratorTable{
     
     
 
+    ~wxAcceleratorTable_php();
+
+    struct _zo_wxAcceleratorTable *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -204,6 +213,9 @@ class wxCalendarDateAttr_php: public wxCalendarDateAttr{
     
     
 
+    ~wxCalendarDateAttr_php();
+
+    struct _zo_wxCalendarDateAttr *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -268,6 +280,9 @@ class wxPageSetupDialogData_php: public wxPageSetupDialogData{
     
     
 
+    ~wxPageSetupDialogData_php();
+
+    struct _zo_wxPageSetupDialogData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -341,6 +356,9 @@ class wxPrintData_php: public wxPrintData{
     
     
 
+    ~wxPrintData_php();
+
+    struct _zo_wxPrintData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -409,6 +427,9 @@ class wxRealPoint_php: public wxRealPoint{
     
     
 
+    ~wxRealPoint_php();
+
+    struct _zo_wxRealPoint *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -454,6 +475,9 @@ class wxPoint_php: public wxPoint{
     
     
 
+    ~wxPoint_php();
+
+    struct _zo_wxPoint *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -499,6 +523,9 @@ class wxSize_php: public wxSize{
     
     
 
+    ~wxSize_php();
+
+    struct _zo_wxSize *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -552,6 +579,9 @@ class wxListItem_php: public wxListItem{
     
     
 
+    ~wxListItem_php();
+
+    struct _zo_wxListItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -619,6 +649,9 @@ class wxFileType_php: public wxFileType{
     
     
 
+    ~wxFileType_php();
+
+    struct _zo_wxFileType *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -667,6 +700,9 @@ class wxPosition_php: public wxPosition{
     
     
 
+    ~wxPosition_php();
+
+    struct _zo_wxPosition *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -723,6 +759,9 @@ class wxRegion_php: public wxRegion{
     
     
 
+    ~wxRegion_php();
+
+    struct _zo_wxRegion *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -777,6 +816,9 @@ class wxStatusBarPane_php: public wxStatusBarPane{
     
     
 
+    ~wxStatusBarPane_php();
+
+    struct _zo_wxStatusBarPane *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -823,6 +865,9 @@ class wxTreeItemId_php: public wxTreeItemId{
     
     
 
+    ~wxTreeItemId_php();
+
+    struct _zo_wxTreeItemId *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -877,6 +922,9 @@ class wxVariant_php: public wxVariant{
     
     
 
+    ~wxVariant_php();
+
+    struct _zo_wxVariant *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -948,6 +996,9 @@ class wxVariantData_php: public wxVariantData{
     wxString GetType() const;
     
 
+    ~wxVariantData_php();
+
+    struct _zo_wxVariantData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -997,6 +1048,9 @@ class wxVersionInfo_php: public wxVersionInfo{
     
     
 
+    ~wxVersionInfo_php();
+
+    struct _zo_wxVersionInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

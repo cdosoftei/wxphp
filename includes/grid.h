@@ -33,6 +33,9 @@ class wxGridCellRenderer_php: public wxGridCellRenderer{
     wxGridCellRenderer* Clone() const;
     
 
+    ~wxGridCellRenderer_php();
+
+    struct _zo_wxGridCellRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -75,6 +78,9 @@ class wxGridCellAutoWrapStringRenderer_php: public wxGridCellAutoWrapStringRende
     
     
 
+    ~wxGridCellAutoWrapStringRenderer_php();
+
+    struct _zo_wxGridCellAutoWrapStringRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -118,6 +124,9 @@ class wxGridCellBoolRenderer_php: public wxGridCellBoolRenderer{
     
     
 
+    ~wxGridCellBoolRenderer_php();
+
+    struct _zo_wxGridCellBoolRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -161,6 +170,9 @@ class wxGridCellDateTimeRenderer_php: public wxGridCellDateTimeRenderer{
     
     
 
+    ~wxGridCellDateTimeRenderer_php();
+
+    struct _zo_wxGridCellDateTimeRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -204,6 +216,9 @@ class wxGridCellEnumRenderer_php: public wxGridCellEnumRenderer{
     
     
 
+    ~wxGridCellEnumRenderer_php();
+
+    struct _zo_wxGridCellEnumRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -248,6 +263,9 @@ class wxGridCellFloatRenderer_php: public wxGridCellFloatRenderer{
     
     
 
+    ~wxGridCellFloatRenderer_php();
+
+    struct _zo_wxGridCellFloatRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -298,6 +316,9 @@ class wxGridCellNumberRenderer_php: public wxGridCellNumberRenderer{
     
     
 
+    ~wxGridCellNumberRenderer_php();
+
+    struct _zo_wxGridCellNumberRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -341,6 +362,9 @@ class wxGridCellStringRenderer_php: public wxGridCellStringRenderer{
     
     
 
+    ~wxGridCellStringRenderer_php();
+
+    struct _zo_wxGridCellStringRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -389,6 +413,9 @@ class wxGridCellEditor_php: public wxGridCellEditor{
     void Reset();
     
 
+    ~wxGridCellEditor_php();
+
+    struct _zo_wxGridCellEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -439,6 +466,9 @@ class wxGridCellAutoWrapStringEditor_php: public wxGridCellAutoWrapStringEditor{
     
     
 
+    ~wxGridCellAutoWrapStringEditor_php();
+
+    struct _zo_wxGridCellAutoWrapStringEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -482,6 +512,9 @@ class wxGridCellBoolEditor_php: public wxGridCellBoolEditor{
     
     
 
+    ~wxGridCellBoolEditor_php();
+
+    struct _zo_wxGridCellBoolEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -528,6 +561,9 @@ class wxGridCellChoiceEditor_php: public wxGridCellChoiceEditor{
     
     
 
+    ~wxGridCellChoiceEditor_php();
+
+    struct _zo_wxGridCellChoiceEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -572,6 +608,9 @@ class wxGridCellEnumEditor_php: public wxGridCellEnumEditor{
     
     
 
+    ~wxGridCellEnumEditor_php();
+
+    struct _zo_wxGridCellEnumEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -615,6 +654,9 @@ class wxGridCellTextEditor_php: public wxGridCellTextEditor{
     
     
 
+    ~wxGridCellTextEditor_php();
+
+    struct _zo_wxGridCellTextEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -659,6 +701,9 @@ class wxGridCellFloatEditor_php: public wxGridCellFloatEditor{
     
     
 
+    ~wxGridCellFloatEditor_php();
+
+    struct _zo_wxGridCellFloatEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -703,6 +748,9 @@ class wxGridCellNumberEditor_php: public wxGridCellNumberEditor{
     
     
 
+    ~wxGridCellNumberEditor_php();
+
+    struct _zo_wxGridCellNumberEditor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -748,6 +796,9 @@ class wxGridCellAttr_php: public wxGridCellAttr{
     
     
 
+    ~wxGridCellAttr_php();
+
+    struct _zo_wxGridCellAttr *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -820,6 +871,9 @@ class wxGridTableBase_php: public wxGridTableBase{
     void SetValue(int row, int col, const wxString& value);
     
 
+    ~wxGridTableBase_php();
+
+    struct _zo_wxGridTableBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -898,6 +952,9 @@ class wxGridSizesInfo_php: public wxGridSizesInfo{
     
     
 
+    ~wxGridSizesInfo_php();
+
+    struct _zo_wxGridSizesInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -943,6 +1000,9 @@ class wxGrid_php: public wxGrid{
     
     
 
+    ~wxGrid_php();
+
+    struct _zo_wxGrid *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1192,6 +1252,9 @@ class wxGridUpdateLocker_php: public wxGridUpdateLocker{
     
     
 
+    ~wxGridUpdateLocker_php();
+
+    struct _zo_wxGridUpdateLocker *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

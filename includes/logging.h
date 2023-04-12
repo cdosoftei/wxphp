@@ -32,6 +32,9 @@ class wxLog_php: public wxLog{
     void DoLogTextAtLevel(wxLogLevel level, const wxString& msg);
     
 
+    ~wxLog_php();
+
+    struct _zo_wxLog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -100,6 +103,9 @@ class wxLogChain_php: public wxLogChain{
     
     
 
+    ~wxLogChain_php();
+
+    struct _zo_wxLogChain *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -148,6 +154,9 @@ class wxLogInterposer_php: public wxLogInterposer{
     
     
 
+    ~wxLogInterposer_php();
+
+    struct _zo_wxLogInterposer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -191,6 +200,9 @@ class wxLogBuffer_php: public wxLogBuffer{
     
     
 
+    ~wxLogBuffer_php();
+
+    struct _zo_wxLogBuffer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -238,6 +250,9 @@ class wxLogWindow_php: public wxLogWindow{
     void OnFrameDelete(wxFrame* frame);
     
 
+    ~wxLogWindow_php();
+
+    struct _zo_wxLogWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -283,6 +298,9 @@ class wxLogGui_php: public wxLogGui{
     
     
 
+    ~wxLogGui_php();
+
+    struct _zo_wxLogGui *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -327,6 +345,9 @@ class wxLogTextCtrl_php: public wxLogTextCtrl{
     
     
 
+    ~wxLogTextCtrl_php();
+
+    struct _zo_wxLogTextCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

@@ -98,6 +98,13 @@ void php_wxTextAttr_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxTextAttr_php::~wxTextAttr_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxTextAttr_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -394,6 +401,7 @@ PHP_METHOD(php_wxTextAttr, __construct)
         current_object = Z_wxTextAttr_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

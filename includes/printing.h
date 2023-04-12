@@ -31,6 +31,9 @@ class wxPrinterDC_php: public wxPrinterDC{
     
     
 
+    ~wxPrinterDC_php();
+
+    struct _zo_wxPrinterDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -75,6 +78,9 @@ class wxPreviewControlBar_php: public wxPreviewControlBar{
     
     
 
+    ~wxPreviewControlBar_php();
+
+    struct _zo_wxPreviewControlBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -121,6 +127,9 @@ class wxPreviewCanvas_php: public wxPreviewCanvas{
     
     
 
+    ~wxPreviewCanvas_php();
+
+    struct _zo_wxPreviewCanvas *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -163,6 +172,9 @@ class wxPreviewFrame_php: public wxPreviewFrame{
     
     
 
+    ~wxPreviewFrame_php();
+
+    struct _zo_wxPreviewFrame *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -210,6 +222,9 @@ class wxPrintPreview_php: public wxPrintPreview{
     
     
 
+    ~wxPrintPreview_php();
+
+    struct _zo_wxPrintPreview *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -269,6 +284,9 @@ class wxPrinter_php: public wxPrinter{
     
     
 
+    ~wxPrinter_php();
+
+    struct _zo_wxPrinter *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -324,6 +342,9 @@ class wxPrintout_php: public wxPrintout{
     bool OnPrintPage(int pageNum);
     
 
+    ~wxPrintout_php();
+
+    struct _zo_wxPrintout *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -391,6 +412,9 @@ class wxPrintDialog_php: public wxPrintDialog{
     
     
 
+    ~wxPrintDialog_php();
+
+    struct _zo_wxPrintDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -438,6 +462,9 @@ class wxPageSetupDialog_php: public wxPageSetupDialog{
     
     
 
+    ~wxPageSetupDialog_php();
+
+    struct _zo_wxPageSetupDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

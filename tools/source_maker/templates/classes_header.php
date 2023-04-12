@@ -18,9 +18,12 @@ class <?=$class_name?>_php<?if($class_name == "wxScrolled"){?>: public <?=$class
     void** properties;
 <?}?>
 
+    ~<?=$class_name?>_php();
+
 <?if($class_name == "wxEvtHandler"){?>
     void onEvent(wxEvent& evnt);
 <? } ?>
+    struct _zo_<?=$class_name?> *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

@@ -31,6 +31,9 @@ class wxRefCounter_php: public wxRefCounter{
     
     
 
+    ~wxRefCounter_php();
+
+    struct _zo_wxRefCounter *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -78,6 +81,9 @@ class wxObject_php: public wxObject{
     
     
 
+    ~wxObject_php();
+
+    struct _zo_wxObject *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -126,6 +132,9 @@ class wxClassInfo_php: public wxClassInfo{
     
     
 
+    ~wxClassInfo_php();
+
+    struct _zo_wxClassInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

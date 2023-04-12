@@ -98,6 +98,13 @@ void php_wxXmlNode_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxXmlNode_php::~wxXmlNode_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxXmlNode_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -3979,6 +3986,7 @@ PHP_METHOD(php_wxXmlNode, __construct)
         current_object = Z_wxXmlNode_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4041,6 +4049,13 @@ void php_wxXmlAttribute_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxXmlAttribute_php::~wxXmlAttribute_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxXmlAttribute_new(zend_class_entry *class_type)
@@ -4921,6 +4936,7 @@ PHP_METHOD(php_wxXmlAttribute, __construct)
         current_object = Z_wxXmlAttribute_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4983,6 +4999,13 @@ void php_wxXmlDocument_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxXmlDocument_php::~wxXmlDocument_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxXmlDocument_new(zend_class_entry *class_type)
@@ -7274,6 +7297,7 @@ PHP_METHOD(php_wxXmlDocument, __construct)
         current_object = Z_wxXmlDocument_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

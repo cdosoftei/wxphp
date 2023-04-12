@@ -34,6 +34,9 @@ class wxHtmlHelpController_php: public wxHtmlHelpController{
     wxHtmlHelpFrame* CreateHelpFrame(wxHtmlHelpData* data);
     
 
+    ~wxHtmlHelpController_php();
+
+    struct _zo_wxHtmlHelpController *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -88,6 +91,9 @@ class wxHtmlModalHelp_php: public wxHtmlModalHelp{
     
     
 
+    ~wxHtmlModalHelp_php();
+
+    struct _zo_wxHtmlModalHelp *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -131,6 +137,9 @@ class wxHtmlHelpData_php: public wxHtmlHelpData{
     
     
 
+    ~wxHtmlHelpData_php();
+
+    struct _zo_wxHtmlHelpData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -179,6 +188,9 @@ class wxHtmlHelpDialog_php: public wxHtmlHelpDialog{
     
     
 
+    ~wxHtmlHelpDialog_php();
+
+    struct _zo_wxHtmlHelpDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -228,6 +240,9 @@ class wxHtmlHelpFrame_php: public wxHtmlHelpFrame{
     
     
 
+    ~wxHtmlHelpFrame_php();
+
+    struct _zo_wxHtmlHelpFrame *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -278,6 +293,9 @@ class wxHtmlHelpWindow_php: public wxHtmlHelpWindow{
     void AddToolbarButtons(wxToolBar* toolBar, int style);
     
 
+    ~wxHtmlHelpWindow_php();
+
+    struct _zo_wxHtmlHelpWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -332,6 +350,9 @@ class wxHtmlRenderingStyle_php: public wxHtmlRenderingStyle{
     wxColour GetSelectedTextColour(const wxColour& clr);
     
 
+    ~wxHtmlRenderingStyle_php();
+
+    struct _zo_wxHtmlRenderingStyle *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -374,6 +395,9 @@ class wxHtmlRenderingInfo_php: public wxHtmlRenderingInfo{
     
     
 
+    ~wxHtmlRenderingInfo_php();
+
+    struct _zo_wxHtmlRenderingInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -419,6 +443,9 @@ class wxHtmlCell_php: public wxHtmlCell{
     
     
 
+    ~wxHtmlCell_php();
+
+    struct _zo_wxHtmlCell *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -479,6 +506,9 @@ class wxHtmlContainerCell_php: public wxHtmlContainerCell{
     
     
 
+    ~wxHtmlContainerCell_php();
+
+    struct _zo_wxHtmlContainerCell *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -537,6 +567,9 @@ class wxHtmlLinkInfo_php: public wxHtmlLinkInfo{
     
     
 
+    ~wxHtmlLinkInfo_php();
+
+    struct _zo_wxHtmlLinkInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -584,6 +617,9 @@ class wxHtmlColourCell_php: public wxHtmlColourCell{
     
     
 
+    ~wxHtmlColourCell_php();
+
+    struct _zo_wxHtmlColourCell *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -627,6 +663,9 @@ class wxHtmlWidgetCell_php: public wxHtmlWidgetCell{
     
     
 
+    ~wxHtmlWidgetCell_php();
+
+    struct _zo_wxHtmlWidgetCell *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -672,6 +711,9 @@ class wxHtmlFilter_php: public wxHtmlFilter{
     wxString ReadFile(const wxFSFile& file) const;
     
 
+    ~wxHtmlFilter_php();
+
+    struct _zo_wxHtmlFilter *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -717,6 +759,9 @@ class wxHtmlTagHandler_php: public wxHtmlTagHandler{
     bool HandleTag(const wxHtmlTag& tag);
     
 
+    ~wxHtmlTagHandler_php();
+
+    struct _zo_wxHtmlTagHandler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -759,6 +804,9 @@ class wxHtmlTag_php: public wxHtmlTag{
     
     
 
+    ~wxHtmlTag_php();
+
+    struct _zo_wxHtmlTag *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -816,6 +864,9 @@ class wxHtmlWindow_php: public wxHtmlWindow{
     wxHtmlOpeningStatus OnOpeningURL(wxHtmlURLType type, const wxString& url, wxString* redirect) const;
     
 
+    ~wxHtmlWindow_php();
+
+    struct _zo_wxHtmlWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1142,6 +1193,9 @@ class wxHtmlDCRenderer_php: public wxHtmlDCRenderer{
     
     
 
+    ~wxHtmlDCRenderer_php();
+
+    struct _zo_wxHtmlDCRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1193,6 +1247,9 @@ class wxHtmlEasyPrinting_php: public wxHtmlEasyPrinting{
     
     
 
+    ~wxHtmlEasyPrinting_php();
+
+    struct _zo_wxHtmlEasyPrinting *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1251,6 +1308,9 @@ class wxHtmlPrintout_php: public wxHtmlPrintout{
     
     
 
+    ~wxHtmlPrintout_php();
+
+    struct _zo_wxHtmlPrintout *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1300,6 +1360,9 @@ class wxHtmlTagsModule_php: public wxHtmlTagsModule{
     
     
 
+    ~wxHtmlTagsModule_php();
+
+    struct _zo_wxHtmlTagsModule *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1342,6 +1405,9 @@ class wxHtmlWinTagHandler_php: public wxHtmlWinTagHandler{
     
     
 
+    ~wxHtmlWinTagHandler_php();
+
+    struct _zo_wxHtmlWinTagHandler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1383,6 +1449,9 @@ class wxHtmlWinParser_php: public wxHtmlWinParser{
     
     
 
+    ~wxHtmlWinParser_php();
+
+    struct _zo_wxHtmlWinParser *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

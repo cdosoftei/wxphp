@@ -30,6 +30,9 @@ class wxArtProvider_php: public wxArtProvider{
     
     
 
+    ~wxArtProvider_php();
+
+    struct _zo_wxArtProvider *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -85,6 +88,9 @@ class wxCaret_php: public wxCaret{
     
     
 
+    ~wxCaret_php();
+
+    struct _zo_wxCaret *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -140,6 +146,9 @@ class wxNotificationMessage_php: public wxNotificationMessage{
     
     
 
+    ~wxNotificationMessage_php();
+
+    struct _zo_wxNotificationMessage *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -189,6 +198,9 @@ class wxStopWatch_php: public wxStopWatch{
     
     
 
+    ~wxStopWatch_php();
+
+    struct _zo_wxStopWatch *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -237,6 +249,9 @@ class wxTaskBarIcon_php: public wxTaskBarIcon{
     wxMenu* CreatePopupMenu();
     
 
+    ~wxTaskBarIcon_php();
+
+    struct _zo_wxTaskBarIcon *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -288,6 +303,9 @@ class wxTimer_php: public wxTimer{
     
     
 
+    ~wxTimer_php();
+
+    struct _zo_wxTimer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -341,6 +359,9 @@ class wxWindowDisabler_php: public wxWindowDisabler{
     
     
 
+    ~wxWindowDisabler_php();
+
+    struct _zo_wxWindowDisabler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -384,6 +405,9 @@ class wxBusyCursor_php: public wxBusyCursor{
     
     
 
+    ~wxBusyCursor_php();
+
+    struct _zo_wxBusyCursor *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

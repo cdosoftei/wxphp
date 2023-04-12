@@ -69,6 +69,13 @@ void php_wxScrolledWindow_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxScrolledWindow_php::~wxScrolledWindow_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxScrolledWindow_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -335,6 +342,7 @@ PHP_METHOD(php_wxScrolledWindow, __construct)
         current_object = Z_wxScrolledWindow_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -397,6 +405,13 @@ void php_wxRibbonButtonBarButtonBase_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRibbonButtonBarButtonBase_php::~wxRibbonButtonBarButtonBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRibbonButtonBarButtonBase_new(zend_class_entry *class_type)
@@ -480,6 +495,13 @@ void php_wxRibbonGalleryItem_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxRibbonGalleryItem_php::~wxRibbonGalleryItem_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxRibbonGalleryItem_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -561,6 +583,13 @@ void php_wxRibbonToolBarToolBase_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxRibbonToolBarToolBase_php::~wxRibbonToolBarToolBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxRibbonToolBarToolBase_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -640,6 +669,13 @@ void php_wxGridCellCoords_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellCoords_php::~wxGridCellCoords_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellCoords_new(zend_class_entry *class_type)
@@ -782,6 +818,7 @@ PHP_METHOD(php_wxGridCellCoords, __construct)
         current_object = Z_wxGridCellCoords_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1400,6 +1437,13 @@ void php_wxNonOwnedWindow_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxNonOwnedWindow_php::~wxNonOwnedWindow_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxNonOwnedWindow_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -1794,6 +1838,13 @@ void php_wxAnyButton_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAnyButton_php::~wxAnyButton_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAnyButton_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -1893,6 +1944,7 @@ PHP_METHOD(php_wxAnyButton, __construct)
         current_object = Z_wxAnyButton_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4085,6 +4137,13 @@ void php_wxWithImages_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxWithImages_php::~wxWithImages_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxWithImages_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4184,6 +4243,7 @@ PHP_METHOD(php_wxWithImages, __construct)
         current_object = Z_wxWithImages_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4734,6 +4794,13 @@ void php_wxAnimation_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxAnimation_php::~wxAnimation_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxAnimation_new(zend_class_entry *class_type)
@@ -5632,6 +5699,7 @@ PHP_METHOD(php_wxAnimation, __construct)
         current_object = Z_wxAnimation_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5839,6 +5907,13 @@ void php_wxTextCompleter_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTextCompleter_php::~wxTextCompleter_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTextCompleter_new(zend_class_entry *class_type)
@@ -6090,6 +6165,13 @@ void php_wxListItemAttr_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxListItemAttr_php::~wxListItemAttr_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxListItemAttr_new(zend_class_entry *class_type)
@@ -6417,6 +6499,7 @@ PHP_METHOD(php_wxListItemAttr, __construct)
         current_object = Z_wxListItemAttr_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7449,6 +7532,13 @@ void php_wxWindowModalDialogEvent_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxWindowModalDialogEvent_php::~wxWindowModalDialogEvent_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxWindowModalDialogEvent_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -7944,6 +8034,7 @@ PHP_METHOD(php_wxWindowModalDialogEvent, __construct)
         current_object = Z_wxWindowModalDialogEvent_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -8006,6 +8097,13 @@ void php_wxPoint2DDouble_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPoint2DDouble_php::~wxPoint2DDouble_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPoint2DDouble_new(zend_class_entry *class_type)
@@ -8321,6 +8419,7 @@ PHP_METHOD(php_wxPoint2DDouble, __construct)
         current_object = Z_wxPoint2DDouble_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -9669,6 +9768,13 @@ void php_wxPoint2DInt_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxPoint2DInt_php::~wxPoint2DInt_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxPoint2DInt_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -10984,6 +11090,7 @@ PHP_METHOD(php_wxPoint2DInt, __construct)
         current_object = Z_wxPoint2DInt_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -11240,6 +11347,13 @@ void php_wxProgressDialog_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxProgressDialog_php::~wxProgressDialog_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxProgressDialog_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -11403,6 +11517,7 @@ PHP_METHOD(php_wxProgressDialog, __construct)
         current_object = Z_wxProgressDialog_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -11465,6 +11580,13 @@ void php_wxLayoutConstraints_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxLayoutConstraints_php::~wxLayoutConstraints_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxLayoutConstraints_new(zend_class_entry *class_type)
@@ -11672,6 +11794,7 @@ PHP_METHOD(php_wxLayoutConstraints, __construct)
         current_object = Z_wxLayoutConstraints_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -11875,6 +11998,13 @@ void php_wxGridCellAttrProvider_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCellAttrProvider_php::~wxGridCellAttrProvider_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCellAttrProvider_new(zend_class_entry *class_type)
@@ -12902,6 +13032,7 @@ PHP_METHOD(php_wxGridCellAttrProvider, __construct)
         current_object = Z_wxGridCellAttrProvider_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -12964,6 +13095,13 @@ void php_wxGridColumnHeaderRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridColumnHeaderRenderer_php::~wxGridColumnHeaderRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridColumnHeaderRenderer_new(zend_class_entry *class_type)
@@ -13045,6 +13183,13 @@ void php_wxGridColumnHeaderRendererDefault_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridColumnHeaderRendererDefault_php::~wxGridColumnHeaderRendererDefault_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridColumnHeaderRendererDefault_new(zend_class_entry *class_type)
@@ -13302,6 +13447,13 @@ void php_wxGridCornerHeaderRenderer_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGridCornerHeaderRenderer_php::~wxGridCornerHeaderRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGridCornerHeaderRenderer_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -13381,6 +13533,13 @@ void php_wxGridCornerHeaderRendererDefault_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridCornerHeaderRendererDefault_php::~wxGridCornerHeaderRendererDefault_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridCornerHeaderRendererDefault_new(zend_class_entry *class_type)
@@ -13636,6 +13795,13 @@ void php_wxGridHeaderLabelsRenderer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridHeaderLabelsRenderer_php::~wxGridHeaderLabelsRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridHeaderLabelsRenderer_new(zend_class_entry *class_type)
@@ -13930,6 +14096,13 @@ void php_wxGridRowHeaderRenderer_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxGridRowHeaderRenderer_php::~wxGridRowHeaderRenderer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxGridRowHeaderRenderer_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -14009,6 +14182,13 @@ void php_wxGridRowHeaderRendererDefault_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxGridRowHeaderRendererDefault_php::~wxGridRowHeaderRendererDefault_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxGridRowHeaderRendererDefault_new(zend_class_entry *class_type)
@@ -14264,6 +14444,13 @@ void php_wxPaletteChangedEvent_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPaletteChangedEvent_php::~wxPaletteChangedEvent_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPaletteChangedEvent_new(zend_class_entry *class_type)
@@ -14640,6 +14827,7 @@ PHP_METHOD(php_wxPaletteChangedEvent, __construct)
         current_object = Z_wxPaletteChangedEvent_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -14702,6 +14890,13 @@ void php_wxFileTypeInfo_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileTypeInfo_php::~wxFileTypeInfo_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileTypeInfo_new(zend_class_entry *class_type)
@@ -15466,6 +15661,7 @@ PHP_METHOD(php_wxFileTypeInfo, __construct)
         current_object = Z_wxFileTypeInfo_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -15528,6 +15724,13 @@ void php_wxTimerRunner_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTimerRunner_php::~wxTimerRunner_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTimerRunner_new(zend_class_entry *class_type)
@@ -15849,6 +16052,7 @@ PHP_METHOD(php_wxTimerRunner, __construct)
         current_object = Z_wxTimerRunner_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -15911,6 +16115,13 @@ void php_wxToolBarToolBase_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxToolBarToolBase_php::~wxToolBarToolBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxToolBarToolBase_new(zend_class_entry *class_type)
@@ -19746,6 +19957,13 @@ void php_wxTextCompleterSimple_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTextCompleterSimple_php::~wxTextCompleterSimple_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTextCompleterSimple_new(zend_class_entry *class_type)

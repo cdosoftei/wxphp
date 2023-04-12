@@ -98,6 +98,13 @@ void php_wxRibbonArtProvider_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxRibbonArtProvider_php::~wxRibbonArtProvider_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxRibbonArtProvider_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -3739,6 +3746,13 @@ void php_wxRibbonBar_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxRibbonBar_php::~wxRibbonBar_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxRibbonBar_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5467,6 +5481,7 @@ PHP_METHOD(php_wxRibbonBar, __construct)
         current_object = Z_wxRibbonBar_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5500,6 +5515,13 @@ void php_wxRibbonButtonBar_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRibbonButtonBar_php::~wxRibbonButtonBar_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRibbonButtonBar_new(zend_class_entry *class_type)
@@ -7130,6 +7152,7 @@ PHP_METHOD(php_wxRibbonButtonBar, __construct)
         current_object = Z_wxRibbonButtonBar_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7696,6 +7719,13 @@ void php_wxRibbonControl_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRibbonControl_php::~wxRibbonControl_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRibbonControl_new(zend_class_entry *class_type)
@@ -9319,6 +9349,7 @@ PHP_METHOD(php_wxRibbonControl, __construct)
         current_object = Z_wxRibbonControl_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -9352,6 +9383,13 @@ void php_wxRibbonGallery_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRibbonGallery_php::~wxRibbonGallery_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRibbonGallery_new(zend_class_entry *class_type)
@@ -12515,6 +12553,7 @@ PHP_METHOD(php_wxRibbonGallery, __construct)
         current_object = Z_wxRibbonGallery_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -12548,6 +12587,13 @@ void php_wxRibbonPage_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRibbonPage_php::~wxRibbonPage_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRibbonPage_new(zend_class_entry *class_type)
@@ -14038,6 +14084,7 @@ PHP_METHOD(php_wxRibbonPage, __construct)
         current_object = Z_wxRibbonPage_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -14071,6 +14118,13 @@ void php_wxRibbonPanel_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRibbonPanel_php::~wxRibbonPanel_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRibbonPanel_new(zend_class_entry *class_type)
@@ -15925,6 +15979,7 @@ PHP_METHOD(php_wxRibbonPanel, __construct)
         current_object = Z_wxRibbonPanel_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -15958,6 +16013,13 @@ void php_wxRibbonToolBar_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxRibbonToolBar_php::~wxRibbonToolBar_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxRibbonToolBar_new(zend_class_entry *class_type)
@@ -17547,6 +17609,7 @@ PHP_METHOD(php_wxRibbonToolBar, __construct)
         current_object = Z_wxRibbonToolBar_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

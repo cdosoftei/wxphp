@@ -42,6 +42,8 @@
 zend_class_entry *php_wxApp_entry;
 zend_object_handlers wxphp_wxApp_object_handlers;
 
+<?php print $object_constants_struct_entry ?>
+
 /**
  * Custom function to register global objects as constants
  */
@@ -316,6 +318,15 @@ PHP_RINIT_FUNCTION(php_wxWidgets)
     return SUCCESS;
 }
 
+PHP_RSHUTDOWN_FUNCTION(php_wxWidgets)
+{
+<?php print $destroy_object_constants ?>
+
+    wxUninitialize();
+
+    return SUCCESS;
+}
+
 PHP_MINIT_FUNCTION(php_wxWidgets)
 {
     #ifdef ISOLATION_AWARE_ENABLED
@@ -381,19 +392,18 @@ PHP_MINFO_FUNCTION(php_wxWidgets)
     php_info_print_table_end();
 }
 
-
 /**
  * Declaration of wxWidgets module
  */
 zend_module_entry wxWidgets_module_entry = {
     STANDARD_MODULE_HEADER,
     PHP_WXWIDGETS_EXTNAME,
-    php_wxWidgets_functions,        /* Functions (module functions) */
-    PHP_MINIT(php_wxWidgets),       /* MINIT (module initialization function) */
-    PHP_MSHUTDOWN(php_wxWidgets),   /* MSHUTDOWN (module shutdown function) */
-    PHP_RINIT(php_wxWidgets),       /* RINIT (request initialization function) */
-    NULL,                           /* RSHUTDOWN (request shutdown function) */
-    PHP_MINFO(php_wxWidgets),       /* MINFO (module information function) */
+    php_wxWidgets_functions,
+    PHP_MINIT(php_wxWidgets),
+    PHP_MSHUTDOWN(php_wxWidgets),
+    PHP_RINIT(php_wxWidgets),
+    PHP_RSHUTDOWN(php_wxWidgets),
+    PHP_MINFO(php_wxWidgets),
     PHP_WXWIDGETS_VERSION,
     STANDARD_MODULE_PROPERTIES
 };

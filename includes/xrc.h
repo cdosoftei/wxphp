@@ -33,6 +33,9 @@ class wxXmlResourceHandler_php: public wxXmlResourceHandler{
     wxObject* DoCreateResource();
     
 
+    ~wxXmlResourceHandler_php();
+
+    struct _zo_wxXmlResourceHandler *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -80,6 +83,9 @@ class wxXmlResource_php: public wxXmlResource{
     void DoReportError(const wxString& xrcFile, const wxXmlNode* position, const wxString& message);
     
 
+    ~wxXmlResource_php();
+
+    struct _zo_wxXmlResource *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

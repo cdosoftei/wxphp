@@ -98,6 +98,13 @@ void php_wxAuiNotebookEvent_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxAuiNotebookEvent_php::~wxAuiNotebookEvent_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxAuiNotebookEvent_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -355,6 +362,7 @@ PHP_METHOD(php_wxAuiNotebookEvent, __construct)
         current_object = Z_wxAuiNotebookEvent_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -388,6 +396,13 @@ void php_wxBookCtrlBase_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxBookCtrlBase_php::~wxBookCtrlBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxBookCtrlBase_new(zend_class_entry *class_type)
@@ -3625,6 +3640,13 @@ void php_wxBookCtrlEvent_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxBookCtrlEvent_php::~wxBookCtrlEvent_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxBookCtrlEvent_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4231,6 +4253,7 @@ PHP_METHOD(php_wxBookCtrlEvent, __construct)
         current_object = Z_wxBookCtrlEvent_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4264,6 +4287,13 @@ void php_wxChoicebook_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxChoicebook_php::~wxChoicebook_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxChoicebook_new(zend_class_entry *class_type)
@@ -4651,6 +4681,7 @@ PHP_METHOD(php_wxChoicebook, __construct)
         current_object = Z_wxChoicebook_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4684,6 +4715,13 @@ void php_wxListbook_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxListbook_php::~wxListbook_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxListbook_new(zend_class_entry *class_type)
@@ -4941,6 +4979,7 @@ PHP_METHOD(php_wxListbook, __construct)
         current_object = Z_wxListbook_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5104,6 +5143,13 @@ void php_wxNotebook_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxNotebook_php::~wxNotebook_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxNotebook_new(zend_class_entry *class_type)
@@ -6892,6 +6938,7 @@ PHP_METHOD(php_wxNotebook, __construct)
         current_object = Z_wxNotebook_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6925,6 +6972,13 @@ void php_wxToolbook_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxToolbook_php::~wxToolbook_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxToolbook_new(zend_class_entry *class_type)
@@ -7182,6 +7236,7 @@ PHP_METHOD(php_wxToolbook, __construct)
         current_object = Z_wxToolbook_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7215,6 +7270,13 @@ void php_wxTreebook_free(zend_object *object)
     #endif
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTreebook_php::~wxTreebook_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTreebook_new(zend_class_entry *class_type)
@@ -9030,6 +9092,7 @@ PHP_METHOD(php_wxTreebook, __construct)
         current_object = Z_wxTreebook_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

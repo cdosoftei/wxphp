@@ -31,6 +31,9 @@ class wxAnimationCtrl_php: public wxAnimationCtrl{
     
     
 
+    ~wxAnimationCtrl_php();
+
+    struct _zo_wxAnimationCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -85,6 +88,9 @@ class wxBitmapButton_php: public wxBitmapButton{
     
     
 
+    ~wxBitmapButton_php();
+
+    struct _zo_wxBitmapButton *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -131,6 +137,9 @@ class wxBitmapComboBox_php: public wxBitmapComboBox{
     
     
 
+    ~wxBitmapComboBox_php();
+
+    struct _zo_wxBitmapComboBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -181,6 +190,9 @@ class wxButton_php: public wxButton{
     
     
 
+    ~wxButton_php();
+
+    struct _zo_wxButton *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -232,6 +244,9 @@ class wxCalendarCtrl_php: public wxCalendarCtrl{
     
     
 
+    ~wxCalendarCtrl_php();
+
+    struct _zo_wxCalendarCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -298,6 +313,9 @@ class wxCheckBox_php: public wxCheckBox{
     
     
 
+    ~wxCheckBox_php();
+
+    struct _zo_wxCheckBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -351,6 +369,9 @@ class wxCheckListBox_php: public wxCheckListBox{
     
     
 
+    ~wxCheckListBox_php();
+
+    struct _zo_wxCheckListBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -399,6 +420,9 @@ class wxChoice_php: public wxChoice{
     
     
 
+    ~wxChoice_php();
+
+    struct _zo_wxChoice *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -698,6 +722,9 @@ class wxCollapsiblePane_php: public wxCollapsiblePane{
     
     
 
+    ~wxCollapsiblePane_php();
+
+    struct _zo_wxCollapsiblePane *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -754,6 +781,9 @@ class wxComboPopup_php: public wxComboPopup{
     bool Create(wxWindow* parent);
     
 
+    ~wxComboPopup_php();
+
+    struct _zo_wxComboPopup *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -812,6 +842,9 @@ class wxComboCtrl_php: public wxComboCtrl{
     bool AnimateShow(const wxRect& rect, int flags);
     
 
+    ~wxComboCtrl_php();
+
+    struct _zo_wxComboCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1159,6 +1192,9 @@ class wxComboBox_php: public wxComboBox{
     
     
 
+    ~wxComboBox_php();
+
+    struct _zo_wxComboBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1493,6 +1529,9 @@ class wxControl_php: public wxControl{
     
     
 
+    ~wxControl_php();
+
+    struct _zo_wxControl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1549,6 +1588,9 @@ class wxItemContainerImmutable_php: public wxItemContainerImmutable{
     void SetString(unsigned int n, const wxString& string);
     
 
+    ~wxItemContainerImmutable_php();
+
+    struct _zo_wxItemContainerImmutable *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1594,6 +1636,9 @@ class wxItemContainer_php: public wxItemContainer{
     
     
 
+    ~wxItemContainer_php();
+
+    struct _zo_wxItemContainer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1640,6 +1685,9 @@ class wxControlWithItems_php: public wxControlWithItems{
     
     
 
+    ~wxControlWithItems_php();
+
+    struct _zo_wxControlWithItems *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1929,6 +1977,9 @@ class wxDataViewCtrl_php: public wxDataViewCtrl{
     
     
 
+    ~wxDataViewCtrl_php();
+
+    struct _zo_wxDataViewCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2015,6 +2066,9 @@ class wxDataViewListCtrl_php: public wxDataViewListCtrl{
     
     
 
+    ~wxDataViewListCtrl_php();
+
+    struct _zo_wxDataViewListCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2082,6 +2136,9 @@ class wxDataViewTreeCtrl_php: public wxDataViewTreeCtrl{
     
     
 
+    ~wxDataViewTreeCtrl_php();
+
+    struct _zo_wxDataViewTreeCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2150,6 +2207,9 @@ class wxGenericDirCtrl_php: public wxGenericDirCtrl{
     
     
 
+    ~wxGenericDirCtrl_php();
+
+    struct _zo_wxGenericDirCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2217,6 +2277,9 @@ class wxEditableListBox_php: public wxEditableListBox{
     
     
 
+    ~wxEditableListBox_php();
+
+    struct _zo_wxEditableListBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2264,6 +2327,9 @@ class wxFileCtrl_php: public wxFileCtrl{
     
     
 
+    ~wxFileCtrl_php();
+
+    struct _zo_wxFileCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2321,6 +2387,9 @@ class wxGauge_php: public wxGauge{
     
     
 
+    ~wxGauge_php();
+
+    struct _zo_wxGauge *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2378,6 +2447,9 @@ class wxHeaderColumn_php: public wxHeaderColumn{
     bool IsSortOrderAscending() const;
     
 
+    ~wxHeaderColumn_php();
+
+    struct _zo_wxHeaderColumn *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2432,6 +2504,9 @@ class wxSettableHeaderColumn_php: public wxSettableHeaderColumn{
     void SetAlignment(wxAlignment align);
     
 
+    ~wxSettableHeaderColumn_php();
+
+    struct _zo_wxSettableHeaderColumn *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2485,6 +2560,9 @@ class wxHeaderColumnSimple_php: public wxHeaderColumnSimple{
     
     
 
+    ~wxHeaderColumnSimple_php();
+
+    struct _zo_wxHeaderColumnSimple *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2548,6 +2626,9 @@ class wxHeaderCtrl_php: public wxHeaderCtrl{
     bool UpdateColumnWidthToFit(unsigned int idx, int widthTitle);
     
 
+    ~wxHeaderCtrl_php();
+
+    struct _zo_wxHeaderCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2604,6 +2685,9 @@ class wxHeaderCtrlSimple_php: public wxHeaderCtrlSimple{
     int GetBestFittingWidth(unsigned int idx) const;
     
 
+    ~wxHeaderCtrlSimple_php();
+
+    struct _zo_wxHeaderCtrlSimple *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2660,6 +2744,9 @@ class wxHtmlListBox_php: public wxHtmlListBox{
     wxString OnGetItem(size_t n) const;
     
 
+    ~wxHtmlListBox_php();
+
+    struct _zo_wxHtmlListBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2706,6 +2793,9 @@ class wxSimpleHtmlListBox_php: public wxSimpleHtmlListBox{
     
     
 
+    ~wxSimpleHtmlListBox_php();
+
+    struct _zo_wxSimpleHtmlListBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2782,6 +2872,9 @@ class wxHyperlinkCtrl_php: public wxHyperlinkCtrl{
     void SetVisited(bool visited=true);
     
 
+    ~wxHyperlinkCtrl_php();
+
+    struct _zo_wxHyperlinkCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -2836,6 +2929,9 @@ class wxListBox_php: public wxListBox{
     
     
 
+    ~wxListBox_php();
+
+    struct _zo_wxListBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3140,6 +3236,9 @@ class wxListCtrl_php: public wxListCtrl{
     int OnGetItemColumnImage(long item, long column) const;
     
 
+    ~wxListCtrl_php();
+
+    struct _zo_wxListCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3236,6 +3335,9 @@ class wxListView_php: public wxListView{
     
     
 
+    ~wxListView_php();
+
+    struct _zo_wxListView *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3288,6 +3390,9 @@ class wxRadioBox_php: public wxRadioBox{
     
     
 
+    ~wxRadioBox_php();
+
+    struct _zo_wxRadioBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3587,6 +3692,9 @@ class wxRadioButton_php: public wxRadioButton{
     
     
 
+    ~wxRadioButton_php();
+
+    struct _zo_wxRadioButton *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3633,6 +3741,9 @@ class wxRearrangeList_php: public wxRearrangeList{
     
     
 
+    ~wxRearrangeList_php();
+
+    struct _zo_wxRearrangeList *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3680,6 +3791,9 @@ class wxRearrangeCtrl_php: public wxRearrangeCtrl{
     
     
 
+    ~wxRearrangeCtrl_php();
+
+    struct _zo_wxRearrangeCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3725,6 +3839,9 @@ class wxScrollBar_php: public wxScrollBar{
     
     
 
+    ~wxScrollBar_php();
+
+    struct _zo_wxScrollBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3776,6 +3893,9 @@ class wxSlider_php: public wxSlider{
     
     
 
+    ~wxSlider_php();
+
+    struct _zo_wxSlider *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3830,6 +3950,9 @@ class wxSpinButton_php: public wxSpinButton{
     
     
 
+    ~wxSpinButton_php();
+
+    struct _zo_wxSpinButton *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3880,6 +4003,9 @@ class wxSpinCtrl_php: public wxSpinCtrl{
     
     
 
+    ~wxSpinCtrl_php();
+
+    struct _zo_wxSpinCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3931,6 +4057,9 @@ class wxSpinCtrlDouble_php: public wxSpinCtrlDouble{
     
     
 
+    ~wxSpinCtrlDouble_php();
+
+    struct _zo_wxSpinCtrlDouble *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -3985,6 +4114,9 @@ class wxSearchCtrl_php: public wxSearchCtrl{
     
     
 
+    ~wxSearchCtrl_php();
+
+    struct _zo_wxSearchCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4312,6 +4444,9 @@ class wxStaticBitmap_php: public wxStaticBitmap{
     
     
 
+    ~wxStaticBitmap_php();
+
+    struct _zo_wxStaticBitmap *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4361,6 +4496,9 @@ class wxStaticBox_php: public wxStaticBox{
     
     
 
+    ~wxStaticBox_php();
+
+    struct _zo_wxStaticBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4406,6 +4544,9 @@ class wxStaticLine_php: public wxStaticLine{
     
     
 
+    ~wxStaticLine_php();
+
+    struct _zo_wxStaticLine *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4453,6 +4594,9 @@ class wxStaticText_php: public wxStaticText{
     
     
 
+    ~wxStaticText_php();
+
+    struct _zo_wxStaticText *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4500,6 +4644,9 @@ class wxTextCtrl_php: public wxTextCtrl{
     
     
 
+    ~wxTextCtrl_php();
+
+    struct _zo_wxTextCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4836,6 +4983,9 @@ class wxTextEntry_php: public wxTextEntry{
     
     
 
+    ~wxTextEntry_php();
+
+    struct _zo_wxTextEntry *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4917,6 +5067,9 @@ class wxToggleButton_php: public wxToggleButton{
     
     
 
+    ~wxToggleButton_php();
+
+    struct _zo_wxToggleButton *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -4964,6 +5117,9 @@ class wxBitmapToggleButton_php: public wxBitmapToggleButton{
     
     
 
+    ~wxBitmapToggleButton_php();
+
+    struct _zo_wxBitmapToggleButton *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -5011,6 +5167,9 @@ class wxTreeCtrl_php: public wxTreeCtrl{
     
     
 
+    ~wxTreeCtrl_php();
+
+    struct _zo_wxTreeCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -5363,6 +5522,9 @@ class wxTreeListItem_php: public wxTreeListItem{
     
     
 
+    ~wxTreeListItem_php();
+
+    struct _zo_wxTreeListItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -5408,6 +5570,9 @@ class wxTreeListCtrl_php: public wxTreeListCtrl{
     
     
 
+    ~wxTreeListCtrl_php();
+
+    struct _zo_wxTreeListCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -5500,6 +5665,9 @@ class wxVListBox_php: public wxVListBox{
     void OnDrawBackground(wxDC& dc, const wxRect& rect, size_t n) const;
     
 
+    ~wxVListBox_php();
+
+    struct _zo_wxVListBox *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

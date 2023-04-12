@@ -31,6 +31,9 @@ class wxAuiNotebookEvent_php: public wxAuiNotebookEvent{
     
     
 
+    ~wxAuiNotebookEvent_php();
+
+    struct _zo_wxAuiNotebookEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -82,6 +85,9 @@ class wxBookCtrlBase_php: public wxBookCtrlBase{
     int ChangeSelection(size_t page);
     
 
+    ~wxBookCtrlBase_php();
+
+    struct _zo_wxBookCtrlBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -373,6 +379,9 @@ class wxBookCtrlEvent_php: public wxBookCtrlEvent{
     
     
 
+    ~wxBookCtrlEvent_php();
+
+    struct _zo_wxBookCtrlEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -421,6 +430,9 @@ class wxChoicebook_php: public wxChoicebook{
     
     
 
+    ~wxChoicebook_php();
+
+    struct _zo_wxChoicebook *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -466,6 +478,9 @@ class wxListbook_php: public wxListbook{
     
     
 
+    ~wxListbook_php();
+
+    struct _zo_wxListbook *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -511,6 +526,9 @@ class wxNotebook_php: public wxNotebook{
     
     
 
+    ~wxNotebook_php();
+
+    struct _zo_wxNotebook *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -567,6 +585,9 @@ class wxToolbook_php: public wxToolbook{
     
     
 
+    ~wxToolbook_php();
+
+    struct _zo_wxToolbook *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -611,6 +632,9 @@ class wxTreebook_php: public wxTreebook{
     
     
 
+    ~wxTreebook_php();
+
+    struct _zo_wxTreebook *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

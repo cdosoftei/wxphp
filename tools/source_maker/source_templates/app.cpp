@@ -129,8 +129,8 @@ void wxAppWrapper::OnEventLoopEnter(wxEventLoopBase *loop)
         return;
     }
 
-    zval function_name, retval;
-    ZVAL_STRINGL(&function_name, "OnEventLoopEnter", 16);
+    zval retval;
+    zend_string *function_name = zend_string_init("OnEventLoopEnter", strlen("OnEventLoopEnter"), 0);
 
     int function_called;
 
@@ -141,37 +141,26 @@ void wxAppWrapper::OnEventLoopEnter(wxEventLoopBase *loop)
     );
     #endif
 
-    if(is_php_user_space_implemented)
-    {
+    if (is_php_user_space_implemented) {
         zval params[1];
         wxEventLoopBase_php* phpObjLoop = (wxEventLoopBase_php *)loop;
 
-        if (phpObjLoop->references.IsUserInitialized()) {
-            if (!Z_ISNULL(phpObjLoop->phpObj)) {
-                ZVAL_COPY_VALUE(&params[0], &phpObjLoop->phpObj);
-                zval_add_ref(&phpObjLoop->phpObj);
-            } else {
-                zend_error(E_CORE_WARNING, "Could not retreive original wxEventLoopBase zval.");
-                return;
-            }
-        } else {
-            object_init_ex(&params[0], php_wxEventLoopBase_entry);
-            Z_wxEventLoopBase_P(&params[0])->native_object = (wxEventLoopBase_php*) phpObjLoop;
-        }
+        object_init_ex(&params[0], php_wxEventLoopBase_entry);
+        Z_wxEventLoopBase_P(&params[0])->native_object = (wxEventLoopBase_php*) phpObjLoop;
 
-        function_called = call_user_function(NULL, &phpObj, &function_name, &retval, 1, params);
+        function_called = zend_call_method_if_exists(Z_OBJ(phpObj), function_name, &retval, 1, params);
+        zend_string_release(function_name);
         zval_ptr_dtor(&retval);
+
+        if (function_called != SUCCESS) {
+            zval_ptr_dtor(&params[0]);
+            return;
+        }
 
         if (EG(exception)) {
             zend_error(E_CORE_ERROR, "Uncaught exception in wxApp::OnEventLoopEnter");
             zval_ptr_dtor(&params[0]);
             return;
-        }
-
-        if (function_called == SUCCESS) {
-            return;
-        } else {
-            zval_ptr_dtor(&params[0]);
         }
 
         #ifdef USE_WXPHP_DEBUG

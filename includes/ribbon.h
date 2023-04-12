@@ -64,6 +64,9 @@ class wxRibbonArtProvider_php: public wxRibbonArtProvider{
     bool GetButtonBarButtonSize(wxDC& dc, wxWindow* wnd, wxRibbonButtonKind kind, wxRibbonButtonBarButtonState size, const wxString& label, wxCoord text_min_width, wxSize bitmap_size_large, wxSize bitmap_size_small, wxSize* button_size, wxRect* normal_region, wxRect* dropdown_region);
     
 
+    ~wxRibbonArtProvider_php();
+
+    struct _zo_wxRibbonArtProvider *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -109,6 +112,9 @@ class wxRibbonBar_php: public wxRibbonBar{
     
     
 
+    ~wxRibbonBar_php();
+
+    struct _zo_wxRibbonBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -164,6 +170,9 @@ class wxRibbonButtonBar_php: public wxRibbonButtonBar{
     
     
 
+    ~wxRibbonButtonBar_php();
+
+    struct _zo_wxRibbonButtonBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -220,6 +229,9 @@ class wxRibbonControl_php: public wxRibbonControl{
     wxSize DoGetNextSmallerSize(wxOrientation direction, wxSize relative_to) const;
     
 
+    ~wxRibbonControl_php();
+
+    struct _zo_wxRibbonControl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -271,6 +283,9 @@ class wxRibbonGallery_php: public wxRibbonGallery{
     
     
 
+    ~wxRibbonGallery_php();
+
+    struct _zo_wxRibbonGallery *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -336,6 +351,9 @@ class wxRibbonPage_php: public wxRibbonPage{
     
     
 
+    ~wxRibbonPage_php();
+
+    struct _zo_wxRibbonPage *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -390,6 +408,9 @@ class wxRibbonPanel_php: public wxRibbonPanel{
     
     
 
+    ~wxRibbonPanel_php();
+
+    struct _zo_wxRibbonPanel *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -445,6 +466,9 @@ class wxRibbonToolBar_php: public wxRibbonToolBar{
     
     
 
+    ~wxRibbonToolBar_php();
+
+    struct _zo_wxRibbonToolBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

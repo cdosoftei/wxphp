@@ -33,6 +33,9 @@ class wxBannerWindow_php: public wxBannerWindow{
     
     
 
+    ~wxBannerWindow_php();
+
+    struct _zo_wxBannerWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -81,6 +84,9 @@ class wxInfoBar_php: public wxInfoBar{
     
     
 
+    ~wxInfoBar_php();
+
+    struct _zo_wxInfoBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -135,6 +141,9 @@ class wxRichToolTip_php: public wxRichToolTip{
     
     
 
+    ~wxRichToolTip_php();
+
+    struct _zo_wxRichToolTip *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -186,6 +195,9 @@ class wxScrolled_php: public wxScrolled<wxPanel>{
     wxSize GetSizeAvailableForScrollTarget(const wxSize& size);
     
 
+    ~wxScrolled_php();
+
+    struct _zo_wxScrolled *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -258,6 +270,9 @@ class wxSashLayoutWindow_php: public wxSashLayoutWindow{
     
     
 
+    ~wxSashLayoutWindow_php();
+
+    struct _zo_wxSashLayoutWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -308,6 +323,9 @@ class wxPanel_php: public wxPanel{
     
     
 
+    ~wxPanel_php();
+
+    struct _zo_wxPanel *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -358,6 +376,9 @@ class wxSashWindow_php: public wxSashWindow{
     
     
 
+    ~wxSashWindow_php();
+
+    struct _zo_wxSashWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -415,6 +436,9 @@ class wxSplitterWindow_php: public wxSplitterWindow{
     void OnUnsplit(wxWindow* removed);
     
 
+    ~wxSplitterWindow_php();
+
+    struct _zo_wxSplitterWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -478,6 +502,9 @@ class wxStatusBar_php: public wxStatusBar{
     
     
 
+    ~wxStatusBar_php();
+
+    struct _zo_wxStatusBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -539,6 +566,9 @@ class wxToolBar_php: public wxToolBar{
     bool OnLeftClick(int toolId, bool toggleDown);
     
 
+    ~wxToolBar_php();
+
+    struct _zo_wxToolBar *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -624,6 +654,9 @@ class wxHScrolledWindow_php: public wxHScrolledWindow{
     
     
 
+    ~wxHScrolledWindow_php();
+
+    struct _zo_wxHScrolledWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -903,6 +936,9 @@ class wxWindow_php: public wxWindow{
     void QueueEvent(wxEvent* event);
     
 
+    ~wxWindow_php();
+
+    struct _zo_wxWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1158,6 +1194,9 @@ class wxWizardPage_php: public wxWizardPage{
     wxWizardPage* GetNext() const;
     
 
+    ~wxWizardPage_php();
+
+    struct _zo_wxWizardPage *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1203,6 +1242,9 @@ class wxWizardPageSimple_php: public wxWizardPageSimple{
     
     
 
+    ~wxWizardPageSimple_php();
+
+    struct _zo_wxWizardPageSimple *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

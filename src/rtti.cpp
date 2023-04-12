@@ -70,6 +70,13 @@ void php_wxRefCounter_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxRefCounter_php::~wxRefCounter_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxRefCounter_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -575,6 +582,7 @@ PHP_METHOD(php_wxRefCounter, __construct)
         current_object = Z_wxRefCounter_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -637,6 +645,13 @@ void php_wxObject_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxObject_php::~wxObject_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxObject_new(zend_class_entry *class_type)
@@ -797,6 +812,7 @@ PHP_METHOD(php_wxObject, __construct)
         current_object = Z_wxObject_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -8724,6 +8740,13 @@ void php_wxClassInfo_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxClassInfo_php::~wxClassInfo_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxClassInfo_new(zend_class_entry *class_type)

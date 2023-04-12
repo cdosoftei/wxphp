@@ -98,6 +98,13 @@ void php_wxArtProvider_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxArtProvider_php::~wxArtProvider_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxArtProvider_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -1770,6 +1777,13 @@ void php_wxCaret_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxCaret_php::~wxCaret_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxCaret_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2008,6 +2022,7 @@ PHP_METHOD(php_wxCaret, __construct)
         current_object = Z_wxCaret_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -3556,6 +3571,13 @@ void php_wxNotificationMessage_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxNotificationMessage_php::~wxNotificationMessage_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxNotificationMessage_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4453,6 +4475,7 @@ PHP_METHOD(php_wxNotificationMessage, __construct)
         current_object = Z_wxNotificationMessage_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4515,6 +4538,13 @@ void php_wxStopWatch_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxStopWatch_php::~wxStopWatch_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxStopWatch_new(zend_class_entry *class_type)
@@ -4617,6 +4647,7 @@ PHP_METHOD(php_wxStopWatch, __construct)
         current_object = Z_wxStopWatch_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5124,6 +5155,13 @@ void php_wxTaskBarIcon_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTaskBarIcon_php::~wxTaskBarIcon_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTaskBarIcon_new(zend_class_entry *class_type)
@@ -6149,6 +6187,7 @@ PHP_METHOD(php_wxTaskBarIcon, __construct)
         current_object = Z_wxTaskBarIcon_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -6211,6 +6250,13 @@ void php_wxTimer_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxTimer_php::~wxTimer_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxTimer_new(zend_class_entry *class_type)
@@ -7438,6 +7484,7 @@ PHP_METHOD(php_wxTimer, __construct)
         current_object = Z_wxTimer_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7500,6 +7547,13 @@ void php_wxWindowDisabler_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxWindowDisabler_php::~wxWindowDisabler_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxWindowDisabler_new(zend_class_entry *class_type)
@@ -7708,6 +7762,7 @@ PHP_METHOD(php_wxWindowDisabler, __construct)
         current_object = Z_wxWindowDisabler_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -7770,6 +7825,13 @@ void php_wxBusyCursor_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxBusyCursor_php::~wxBusyCursor_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxBusyCursor_new(zend_class_entry *class_type)
@@ -7907,6 +7969,7 @@ PHP_METHOD(php_wxBusyCursor, __construct)
         current_object = Z_wxBusyCursor_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

@@ -31,6 +31,9 @@ class wxAboutDialogInfo_php: public wxAboutDialogInfo{
     
     
 
+    ~wxAboutDialogInfo_php();
+
+    struct _zo_wxAboutDialogInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -95,6 +98,9 @@ class wxBusyInfo_php: public wxBusyInfo{
     
     
 
+    ~wxBusyInfo_php();
+
+    struct _zo_wxBusyInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -139,6 +145,9 @@ class wxSingleChoiceDialog_php: public wxSingleChoiceDialog{
     
     
 
+    ~wxSingleChoiceDialog_php();
+
+    struct _zo_wxSingleChoiceDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -189,6 +198,9 @@ class wxPrintDialogData_php: public wxPrintDialogData{
     
     
 
+    ~wxPrintDialogData_php();
+
+    struct _zo_wxPrintDialogData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -256,6 +268,9 @@ class wxColourDialog_php: public wxColourDialog{
     
     
 
+    ~wxColourDialog_php();
+
+    struct _zo_wxColourDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -302,6 +317,9 @@ class wxColourData_php: public wxColourData{
     
     
 
+    ~wxColourData_php();
+
+    struct _zo_wxColourData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -354,6 +372,9 @@ class wxDialog_php: public wxDialog{
     
     
 
+    ~wxDialog_php();
+
+    struct _zo_wxDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -429,6 +450,9 @@ class wxDirDialog_php: public wxDirDialog{
     
     
 
+    ~wxDirDialog_php();
+
+    struct _zo_wxDirDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -477,6 +501,9 @@ class wxFindReplaceData_php: public wxFindReplaceData{
     
     
 
+    ~wxFindReplaceData_php();
+
+    struct _zo_wxFindReplaceData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -527,6 +554,9 @@ class wxFindReplaceDialog_php: public wxFindReplaceDialog{
     
     
 
+    ~wxFindReplaceDialog_php();
+
+    struct _zo_wxFindReplaceDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -572,6 +602,9 @@ class wxFileDialog_php: public wxFileDialog{
     
     
 
+    ~wxFileDialog_php();
+
+    struct _zo_wxFileDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -631,6 +664,9 @@ class wxFontData_php: public wxFontData{
     
     
 
+    ~wxFontData_php();
+
+    struct _zo_wxFontData *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -689,6 +725,9 @@ class wxFontDialog_php: public wxFontDialog{
     
     
 
+    ~wxFontDialog_php();
+
+    struct _zo_wxFontDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -735,6 +774,9 @@ class wxMessageDialog_php: public wxMessageDialog{
     
     
 
+    ~wxMessageDialog_php();
+
+    struct _zo_wxMessageDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -797,6 +839,9 @@ class wxGenericProgressDialog_php: public wxGenericProgressDialog{
     
     
 
+    ~wxGenericProgressDialog_php();
+
+    struct _zo_wxGenericProgressDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -849,6 +894,9 @@ class wxRearrangeDialog_php: public wxRearrangeDialog{
     
     
 
+    ~wxRearrangeDialog_php();
+
+    struct _zo_wxRearrangeDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -895,6 +943,9 @@ class wxSymbolPickerDialog_php: public wxSymbolPickerDialog{
     
     
 
+    ~wxSymbolPickerDialog_php();
+
+    struct _zo_wxSymbolPickerDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -951,6 +1002,9 @@ class wxPasswordEntryDialog_php: public wxPasswordEntryDialog{
     
     
 
+    ~wxPasswordEntryDialog_php();
+
+    struct _zo_wxPasswordEntryDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -995,6 +1049,9 @@ class wxTextEntryDialog_php: public wxTextEntryDialog{
     
     
 
+    ~wxTextEntryDialog_php();
+
+    struct _zo_wxTextEntryDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1042,6 +1099,9 @@ class wxWizard_php: public wxWizard{
     
     
 
+    ~wxWizard_php();
+
+    struct _zo_wxWizard *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

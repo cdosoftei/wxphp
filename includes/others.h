@@ -32,6 +32,9 @@ class wxScrolledWindow_php: public wxScrolledWindow{
     
     
 
+    ~wxScrolledWindow_php();
+
+    struct _zo_wxScrolledWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -332,6 +335,9 @@ class wxRibbonButtonBarButtonBase_php{
     
     
 
+    ~wxRibbonButtonBarButtonBase_php();
+
+    struct _zo_wxRibbonButtonBarButtonBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -373,6 +379,9 @@ class wxRibbonGalleryItem_php{
     
     
 
+    ~wxRibbonGalleryItem_php();
+
+    struct _zo_wxRibbonGalleryItem *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -414,6 +423,9 @@ class wxRibbonToolBarToolBase_php{
     
     
 
+    ~wxRibbonToolBarToolBase_php();
+
+    struct _zo_wxRibbonToolBarToolBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -457,6 +469,9 @@ class wxGridCellCoords_php: public wxGridCellCoords{
     
     
 
+    ~wxGridCellCoords_php();
+
+    struct _zo_wxGridCellCoords *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -504,6 +519,9 @@ class wxNonOwnedWindow_php: public wxNonOwnedWindow{
     
     
 
+    ~wxNonOwnedWindow_php();
+
+    struct _zo_wxNonOwnedWindow *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -547,6 +565,9 @@ class wxAnyButton_php: public wxAnyButton{
     
     
 
+    ~wxAnyButton_php();
+
+    struct _zo_wxAnyButton *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -605,6 +626,9 @@ class wxWithImages_php: public wxWithImages{
     
     
 
+    ~wxWithImages_php();
+
+    struct _zo_wxWithImages *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -653,6 +677,9 @@ class wxAnimation_php: public wxAnimation{
     
     
 
+    ~wxAnimation_php();
+
+    struct _zo_wxAnimation *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -704,6 +731,9 @@ class wxTextCompleter_php: public wxTextCompleter{
     bool Start(const wxString& prefix);
     
 
+    ~wxTextCompleter_php();
+
+    struct _zo_wxTextCompleter *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -747,6 +777,9 @@ class wxListItemAttr_php: public wxListItemAttr{
     
     
 
+    ~wxListItemAttr_php();
+
+    struct _zo_wxListItemAttr *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -799,6 +832,9 @@ class wxWindowModalDialogEvent_php: public wxWindowModalDialogEvent{
     
     
 
+    ~wxWindowModalDialogEvent_php();
+
+    struct _zo_wxWindowModalDialogEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -849,6 +885,9 @@ class wxPoint2DDouble_php: public wxPoint2DDouble{
     
     
 
+    ~wxPoint2DDouble_php();
+
+    struct _zo_wxPoint2DDouble *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -906,6 +945,9 @@ class wxPoint2DInt_php: public wxPoint2DInt{
     
     
 
+    ~wxPoint2DInt_php();
+
+    struct _zo_wxPoint2DInt *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -960,6 +1002,9 @@ class wxProgressDialog_php: public wxProgressDialog{
     
     
 
+    ~wxProgressDialog_php();
+
+    struct _zo_wxProgressDialog *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1003,6 +1048,9 @@ class wxLayoutConstraints_php: public wxLayoutConstraints{
     
     
 
+    ~wxLayoutConstraints_php();
+
+    struct _zo_wxLayoutConstraints *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1048,6 +1096,9 @@ class wxGridCellAttrProvider_php: public wxGridCellAttrProvider{
     
     
 
+    ~wxGridCellAttrProvider_php();
+
+    struct _zo_wxGridCellAttrProvider *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1097,6 +1148,9 @@ class wxGridColumnHeaderRenderer_php: public wxGridColumnHeaderRenderer{
     
     
 
+    ~wxGridColumnHeaderRenderer_php();
+
+    struct _zo_wxGridColumnHeaderRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1138,6 +1192,9 @@ class wxGridColumnHeaderRendererDefault_php: public wxGridColumnHeaderRendererDe
     
     
 
+    ~wxGridColumnHeaderRendererDefault_php();
+
+    struct _zo_wxGridColumnHeaderRendererDefault *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1180,6 +1237,9 @@ class wxGridCornerHeaderRenderer_php: public wxGridCornerHeaderRenderer{
     
     
 
+    ~wxGridCornerHeaderRenderer_php();
+
+    struct _zo_wxGridCornerHeaderRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1221,6 +1281,9 @@ class wxGridCornerHeaderRendererDefault_php: public wxGridCornerHeaderRendererDe
     
     
 
+    ~wxGridCornerHeaderRendererDefault_php();
+
+    struct _zo_wxGridCornerHeaderRendererDefault *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1263,6 +1326,9 @@ class wxGridHeaderLabelsRenderer_php: public wxGridHeaderLabelsRenderer{
     
     
 
+    ~wxGridHeaderLabelsRenderer_php();
+
+    struct _zo_wxGridHeaderLabelsRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1305,6 +1371,9 @@ class wxGridRowHeaderRenderer_php: public wxGridRowHeaderRenderer{
     
     
 
+    ~wxGridRowHeaderRenderer_php();
+
+    struct _zo_wxGridRowHeaderRenderer *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1346,6 +1415,9 @@ class wxGridRowHeaderRendererDefault_php: public wxGridRowHeaderRendererDefault{
     
     
 
+    ~wxGridRowHeaderRendererDefault_php();
+
+    struct _zo_wxGridRowHeaderRendererDefault *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1389,6 +1461,9 @@ class wxPaletteChangedEvent_php: public wxPaletteChangedEvent{
     
     
 
+    ~wxPaletteChangedEvent_php();
+
+    struct _zo_wxPaletteChangedEvent *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1436,6 +1511,9 @@ class wxFileTypeInfo_php: public wxFileTypeInfo{
     
     
 
+    ~wxFileTypeInfo_php();
+
+    struct _zo_wxFileTypeInfo *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1485,6 +1563,9 @@ class wxTimerRunner_php: public wxTimerRunner{
     
     
 
+    ~wxTimerRunner_php();
+
+    struct _zo_wxTimerRunner *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1528,6 +1609,9 @@ class wxToolBarToolBase_php: public wxToolBarToolBase{
     
     
 
+    ~wxToolBarToolBase_php();
+
+    struct _zo_wxToolBarToolBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -1602,6 +1686,9 @@ class wxTextCompleterSimple_php: public wxTextCompleterSimple{
     void GetCompletions(const wxString& prefix, wxArrayString& res);
     
 
+    ~wxTextCompleterSimple_php();
+
+    struct _zo_wxTextCompleterSimple *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

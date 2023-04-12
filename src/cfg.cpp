@@ -98,6 +98,13 @@ void php_wxConfigBase_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxConfigBase_php::~wxConfigBase_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxConfigBase_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4661,6 +4668,13 @@ void php_wxDisplay_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxDisplay_php::~wxDisplay_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxDisplay_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -5929,6 +5943,7 @@ PHP_METHOD(php_wxDisplay, __construct)
         current_object = Z_wxDisplay_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5991,6 +6006,13 @@ void php_wxFileConfig_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileConfig_php::~wxFileConfig_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileConfig_new(zend_class_entry *class_type)
@@ -8640,6 +8662,13 @@ void php_wxFontMapper_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFontMapper_php::~wxFontMapper_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFontMapper_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -10353,6 +10382,7 @@ PHP_METHOD(php_wxFontMapper, __construct)
         current_object = Z_wxFontMapper_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -10415,6 +10445,13 @@ void php_wxPlatformInfo_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxPlatformInfo_php::~wxPlatformInfo_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxPlatformInfo_new(zend_class_entry *class_type)
@@ -10640,6 +10677,7 @@ PHP_METHOD(php_wxPlatformInfo, __construct)
         current_object = Z_wxPlatformInfo_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -14073,6 +14111,13 @@ void php_wxSystemSettings_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxSystemSettings_php::~wxSystemSettings_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxSystemSettings_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -14764,6 +14809,13 @@ void php_wxSystemOptions_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxSystemOptions_php::~wxSystemOptions_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxSystemOptions_new(zend_class_entry *class_type)
@@ -15464,6 +15516,13 @@ void php_wxVideoMode_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxVideoMode_php::~wxVideoMode_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxVideoMode_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -15616,6 +15675,7 @@ PHP_METHOD(php_wxVideoMode, __construct)
         current_object = Z_wxVideoMode_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }

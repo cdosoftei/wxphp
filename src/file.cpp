@@ -98,6 +98,13 @@ void php_wxFFile_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFFile_php::~wxFFile_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFFile_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -250,6 +257,7 @@ PHP_METHOD(php_wxFFile, __construct)
         current_object = Z_wxFFile_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -1779,6 +1787,13 @@ void php_wxFile_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFile_php::~wxFile_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFile_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -2547,6 +2562,7 @@ PHP_METHOD(php_wxFile, __construct)
         current_object = Z_wxFile_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -4193,6 +4209,13 @@ void php_wxPathList_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxPathList_php::~wxPathList_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxPathList_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -4977,6 +5000,7 @@ PHP_METHOD(php_wxPathList, __construct)
         current_object = Z_wxPathList_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -5039,6 +5063,13 @@ void php_wxFileName_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileName_php::~wxFileName_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileName_new(zend_class_entry *class_type)
@@ -6066,6 +6097,7 @@ PHP_METHOD(php_wxFileName, __construct)
         current_object = Z_wxFileName_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -15344,6 +15376,13 @@ void php_wxFSFile_free(zend_object *object)
     zend_object_std_dtor(&custom_object->zo);
 }
 
+wxFSFile_php::~wxFSFile_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
+}
+
 zend_object* php_wxFSFile_new(zend_class_entry *class_type)
 {
     #ifdef USE_WXPHP_DEBUG
@@ -15475,6 +15514,7 @@ PHP_METHOD(php_wxFSFile, __construct)
         current_object = Z_wxFSFile_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -16233,6 +16273,13 @@ void php_wxFileSystemWatcher_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxFileSystemWatcher_php::~wxFileSystemWatcher_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxFileSystemWatcher_new(zend_class_entry *class_type)
@@ -17247,6 +17294,7 @@ PHP_METHOD(php_wxFileSystemWatcher, __construct)
         current_object = Z_wxFileSystemWatcher_P(getThis());
 
         current_object->native_object = native_object;
+        native_object->zo = current_object;
 
         current_object->is_user_initialized = 1;
     }
@@ -17309,6 +17357,13 @@ void php_wxStandardPaths_free(zend_object *object)
     }
 
     zend_object_std_dtor(&custom_object->zo);
+}
+
+wxStandardPaths_php::~wxStandardPaths_php()
+{
+    if (zo) {
+        zo->native_object = NULL;
+    }
 }
 
 zend_object* php_wxStandardPaths_new(zend_class_entry *class_type)

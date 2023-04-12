@@ -30,6 +30,9 @@ class wxDC_php: public wxDC{
     
     
 
+    ~wxDC_php();
+
+    struct _zo_wxDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -161,6 +164,9 @@ class wxBufferedDC_php: public wxBufferedDC{
     
     
 
+    ~wxBufferedDC_php();
+
+    struct _zo_wxBufferedDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -205,6 +211,9 @@ class wxAutoBufferedPaintDC_php: public wxAutoBufferedPaintDC{
     
     
 
+    ~wxAutoBufferedPaintDC_php();
+
+    struct _zo_wxAutoBufferedPaintDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -249,6 +258,9 @@ class wxBufferedPaintDC_php: public wxBufferedPaintDC{
     
     
 
+    ~wxBufferedPaintDC_php();
+
+    struct _zo_wxBufferedPaintDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -292,6 +304,9 @@ class wxPaintDC_php: public wxPaintDC{
     
     
 
+    ~wxPaintDC_php();
+
+    struct _zo_wxPaintDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -335,6 +350,9 @@ class wxClientDC_php: public wxClientDC{
     
     
 
+    ~wxClientDC_php();
+
+    struct _zo_wxClientDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -378,6 +396,9 @@ class wxWindowDC_php: public wxWindowDC{
     
     
 
+    ~wxWindowDC_php();
+
+    struct _zo_wxWindowDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -423,6 +444,9 @@ class wxMemoryDC_php: public wxMemoryDC{
     
     
 
+    ~wxMemoryDC_php();
+
+    struct _zo_wxMemoryDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -468,6 +492,9 @@ class wxMirrorDC_php: public wxMirrorDC{
     
     
 
+    ~wxMirrorDC_php();
+
+    struct _zo_wxMirrorDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -512,6 +539,9 @@ class wxPostScriptDC_php: public wxPostScriptDC{
     
     
 
+    ~wxPostScriptDC_php();
+
+    struct _zo_wxPostScriptDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -555,6 +585,9 @@ class wxScreenDC_php: public wxScreenDC{
     
     
 
+    ~wxScreenDC_php();
+
+    struct _zo_wxScreenDC *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

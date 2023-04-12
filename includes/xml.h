@@ -33,6 +33,9 @@ class wxXmlNode_php: public wxXmlNode{
     
     
 
+    ~wxXmlNode_php();
+
+    struct _zo_wxXmlNode *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -105,6 +108,9 @@ class wxXmlAttribute_php: public wxXmlAttribute{
     
     
 
+    ~wxXmlAttribute_php();
+
+    struct _zo_wxXmlAttribute *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -157,6 +163,9 @@ class wxXmlDocument_php: public wxXmlDocument{
     
     
 
+    ~wxXmlDocument_php();
+
+    struct _zo_wxXmlDocument *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

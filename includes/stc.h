@@ -32,6 +32,9 @@ class wxStyledTextCtrl_php: public wxStyledTextCtrl{
     
     
 
+    ~wxStyledTextCtrl_php();
+
+    struct _zo_wxStyledTextCtrl *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

@@ -36,6 +36,9 @@ class wxEventLoopBase_php: public wxEventLoopBase{
     void WakeUp();
     
 
+    ~wxEventLoopBase_php();
+
+    struct _zo_wxEventLoopBase *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -92,6 +95,9 @@ class wxEventLoopActivator_php: public wxEventLoopActivator{
     
     
 
+    ~wxEventLoopActivator_php();
+
+    struct _zo_wxEventLoopActivator *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -137,6 +143,9 @@ class wxModule_php: public wxModule{
     bool OnInit();
     
 
+    ~wxModule_php();
+
+    struct _zo_wxModule *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -182,6 +191,9 @@ class wxProcess_php: public wxProcess{
     void OnTerminate(int pid, int status);
     
 
+    ~wxProcess_php();
+
+    struct _zo_wxProcess *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };
@@ -239,6 +251,9 @@ class wxSingleInstanceChecker_php: public wxSingleInstanceChecker{
     
     
 
+    ~wxSingleInstanceChecker_php();
+
+    struct _zo_wxSingleInstanceChecker *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

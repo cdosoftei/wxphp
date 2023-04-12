@@ -31,6 +31,9 @@ class wxFileHistory_php: public wxFileHistory{
     
     
 
+    ~wxFileHistory_php();
+
+    struct _zo_wxFileHistory *zo = NULL;
     zval phpObj;
     wxPHPObjectReferences references;
 };

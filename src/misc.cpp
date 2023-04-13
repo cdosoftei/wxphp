@@ -57,6 +57,10 @@ void php_wxArtProvider_free(zend_object *object)
 {
     zo_wxArtProvider* custom_object = php_wxArtProvider_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxArtProvider_free on %s at line %i\n",
@@ -1735,6 +1739,10 @@ BEGIN_EXTERN_C()
 void php_wxCaret_free(zend_object *object)
 {
     zo_wxCaret* custom_object = php_wxCaret_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3530,6 +3538,10 @@ void php_wxNotificationMessage_free(zend_object *object)
 {
     zo_wxNotificationMessage* custom_object = php_wxNotificationMessage_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxNotificationMessage_free on %s at line %i\n",
@@ -4499,6 +4511,10 @@ void php_wxStopWatch_free(zend_object *object)
 {
     zo_wxStopWatch* custom_object = php_wxStopWatch_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxStopWatch_free on %s at line %i\n",
@@ -5115,6 +5131,10 @@ BEGIN_EXTERN_C()
 void php_wxTaskBarIcon_free(zend_object *object)
 {
     zo_wxTaskBarIcon* custom_object = php_wxTaskBarIcon_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6210,6 +6230,10 @@ BEGIN_EXTERN_C()
 void php_wxTimer_free(zend_object *object)
 {
     zo_wxTimer* custom_object = php_wxTimer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7508,6 +7532,10 @@ void php_wxWindowDisabler_free(zend_object *object)
 {
     zo_wxWindowDisabler* custom_object = php_wxWindowDisabler_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxWindowDisabler_free on %s at line %i\n",
@@ -7785,6 +7813,10 @@ BEGIN_EXTERN_C()
 void php_wxBusyCursor_free(zend_object *object)
 {
     zo_wxBusyCursor* custom_object = php_wxBusyCursor_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

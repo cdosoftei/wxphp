@@ -57,6 +57,10 @@ void php_wxMenuBar_free(zend_object *object)
 {
     zo_wxMenuBar* custom_object = php_wxMenuBar_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxMenuBar on %s at line %i\n",
@@ -3232,6 +3236,10 @@ BEGIN_EXTERN_C()
 void php_wxMenu_free(zend_object *object)
 {
     zo_wxMenu* custom_object = php_wxMenu_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10069,6 +10077,10 @@ BEGIN_EXTERN_C()
 void php_wxMenuItem_free(zend_object *object)
 {
     zo_wxMenuItem* custom_object = php_wxMenuItem_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

@@ -57,6 +57,10 @@ void php_wxClientData_free(zend_object *object)
 {
     zo_wxClientData* custom_object = php_wxClientData_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxClientData_free on %s at line %i\n",
@@ -228,6 +232,10 @@ BEGIN_EXTERN_C()
 void php_wxTreeItemData_free(zend_object *object)
 {
     zo_wxTreeItemData* custom_object = php_wxTreeItemData_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

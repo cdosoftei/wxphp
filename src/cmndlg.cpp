@@ -57,6 +57,10 @@ void php_wxAboutDialogInfo_free(zend_object *object)
 {
     zo_wxAboutDialogInfo* custom_object = php_wxAboutDialogInfo_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAboutDialogInfo_free on %s at line %i\n",
@@ -2692,6 +2696,10 @@ void php_wxBusyInfo_free(zend_object *object)
 {
     zo_wxBusyInfo* custom_object = php_wxBusyInfo_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxBusyInfo_free on %s at line %i\n",
@@ -2900,6 +2908,10 @@ BEGIN_EXTERN_C()
 void php_wxSingleChoiceDialog_free(zend_object *object)
 {
     zo_wxSingleChoiceDialog* custom_object = php_wxSingleChoiceDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -3934,6 +3946,10 @@ BEGIN_EXTERN_C()
 void php_wxPrintDialogData_free(zend_object *object)
 {
     zo_wxPrintDialogData* custom_object = php_wxPrintDialogData_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6895,6 +6911,10 @@ void php_wxColourDialog_free(zend_object *object)
 {
     zo_wxColourDialog* custom_object = php_wxColourDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxColourDialog went out of scope. "
@@ -7488,6 +7508,10 @@ BEGIN_EXTERN_C()
 void php_wxColourData_free(zend_object *object)
 {
     zo_wxColourData* custom_object = php_wxColourData_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8611,6 +8635,10 @@ BEGIN_EXTERN_C()
 void php_wxDialog_free(zend_object *object)
 {
     zo_wxDialog* custom_object = php_wxDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -15443,6 +15471,10 @@ void php_wxDirDialog_free(zend_object *object)
 {
     zo_wxDirDialog* custom_object = php_wxDirDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxDirDialog went out of scope. "
@@ -16279,6 +16311,10 @@ BEGIN_EXTERN_C()
 void php_wxFindReplaceData_free(zend_object *object)
 {
     zo_wxFindReplaceData* custom_object = php_wxFindReplaceData_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -17131,6 +17167,10 @@ void php_wxFindReplaceDialog_free(zend_object *object)
 {
     zo_wxFindReplaceDialog* custom_object = php_wxFindReplaceDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxFindReplaceDialog went out of scope. "
@@ -17661,6 +17701,10 @@ BEGIN_EXTERN_C()
 void php_wxFileDialog_free(zend_object *object)
 {
     zo_wxFileDialog* custom_object = php_wxFileDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -19814,6 +19858,10 @@ void php_wxFontData_free(zend_object *object)
 {
     zo_wxFontData* custom_object = php_wxFontData_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFontData_free on %s at line %i\n",
@@ -21506,6 +21554,10 @@ void php_wxFontDialog_free(zend_object *object)
 {
     zo_wxFontDialog* custom_object = php_wxFontDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxFontDialog went out of scope. "
@@ -22280,6 +22332,10 @@ BEGIN_EXTERN_C()
 void php_wxMessageDialog_free(zend_object *object)
 {
     zo_wxMessageDialog* custom_object = php_wxMessageDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -24594,6 +24650,10 @@ void php_wxGenericProgressDialog_free(zend_object *object)
 {
     zo_wxGenericProgressDialog* custom_object = php_wxGenericProgressDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxGenericProgressDialog went out of scope. "
@@ -25887,6 +25947,10 @@ void php_wxRearrangeDialog_free(zend_object *object)
 {
     zo_wxRearrangeDialog* custom_object = php_wxRearrangeDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxRearrangeDialog_free on %s at line %i\n",
@@ -26319,6 +26383,10 @@ BEGIN_EXTERN_C()
 void php_wxSymbolPickerDialog_free(zend_object *object)
 {
     zo_wxSymbolPickerDialog* custom_object = php_wxSymbolPickerDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -28198,6 +28266,10 @@ void php_wxPasswordEntryDialog_free(zend_object *object)
 {
     zo_wxPasswordEntryDialog* custom_object = php_wxPasswordEntryDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxPasswordEntryDialog went out of scope. "
@@ -28436,6 +28508,10 @@ BEGIN_EXTERN_C()
 void php_wxTextEntryDialog_free(zend_object *object)
 {
     zo_wxTextEntryDialog* custom_object = php_wxTextEntryDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -29050,6 +29126,10 @@ BEGIN_EXTERN_C()
 void php_wxWizard_free(zend_object *object)
 {
     zo_wxWizard* custom_object = php_wxWizard_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,

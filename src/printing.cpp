@@ -57,6 +57,10 @@ void php_wxPrinterDC_free(zend_object *object)
 {
     zo_wxPrinterDC* custom_object = php_wxPrinterDC_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPrinterDC_free on %s at line %i\n",
@@ -366,6 +370,10 @@ BEGIN_EXTERN_C()
 void php_wxPreviewControlBar_free(zend_object *object)
 {
     zo_wxPreviewControlBar* custom_object = php_wxPreviewControlBar_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -981,6 +989,10 @@ void php_wxPreviewCanvas_free(zend_object *object)
 {
     zo_wxPreviewCanvas* custom_object = php_wxPreviewCanvas_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxPreviewCanvas on %s at line %i\n",
@@ -1267,6 +1279,10 @@ BEGIN_EXTERN_C()
 void php_wxPreviewFrame_free(zend_object *object)
 {
     zo_wxPreviewFrame* custom_object = php_wxPreviewFrame_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -1768,6 +1784,10 @@ BEGIN_EXTERN_C()
 void php_wxPrintPreview_free(zend_object *object)
 {
     zo_wxPrintPreview* custom_object = php_wxPrintPreview_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4068,6 +4088,10 @@ void php_wxPrinter_free(zend_object *object)
 {
     zo_wxPrinter* custom_object = php_wxPrinter_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPrinter_free on %s at line %i\n",
@@ -5089,6 +5113,10 @@ BEGIN_EXTERN_C()
 void php_wxPrintout_free(zend_object *object)
 {
     zo_wxPrintout* custom_object = php_wxPrintout_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8717,6 +8745,10 @@ void php_wxPrintDialog_free(zend_object *object)
 {
     zo_wxPrintDialog* custom_object = php_wxPrintDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPrintDialog_free on %s at line %i\n",
@@ -9513,6 +9545,10 @@ BEGIN_EXTERN_C()
 void php_wxPageSetupDialog_free(zend_object *object)
 {
     zo_wxPageSetupDialog* custom_object = php_wxPageSetupDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

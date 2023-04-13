@@ -57,6 +57,10 @@ void php_wxMediaCtrl_free(zend_object *object)
 {
     zo_wxMediaCtrl* custom_object = php_wxMediaCtrl_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxMediaCtrl on %s at line %i\n",
@@ -2641,6 +2645,10 @@ BEGIN_EXTERN_C()
 void php_wxSound_free(zend_object *object)
 {
     zo_wxSound* custom_object = php_wxSound_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

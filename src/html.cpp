@@ -57,6 +57,10 @@ void php_wxHtmlHelpController_free(zend_object *object)
 {
     zo_wxHtmlHelpController* custom_object = php_wxHtmlHelpController_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlHelpController_free on %s at line %i\n",
@@ -2025,6 +2029,10 @@ void php_wxHtmlModalHelp_free(zend_object *object)
 {
     zo_wxHtmlModalHelp* custom_object = php_wxHtmlModalHelp_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlModalHelp_free on %s at line %i\n",
@@ -2249,6 +2257,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlHelpData_free(zend_object *object)
 {
     zo_wxHtmlHelpData* custom_object = php_wxHtmlHelpData_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2876,6 +2888,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlHelpDialog_free(zend_object *object)
 {
     zo_wxHtmlHelpDialog* custom_object = php_wxHtmlHelpDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -3835,6 +3851,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlHelpFrame_free(zend_object *object)
 {
     zo_wxHtmlHelpFrame* custom_object = php_wxHtmlHelpFrame_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -4892,6 +4912,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlHelpWindow_free(zend_object *object)
 {
     zo_wxHtmlHelpWindow* custom_object = php_wxHtmlHelpWindow_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6785,6 +6809,10 @@ void php_wxHtmlRenderingStyle_free(zend_object *object)
 {
     zo_wxHtmlRenderingStyle* custom_object = php_wxHtmlRenderingStyle_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlRenderingStyle_free on %s at line %i\n",
@@ -7074,6 +7102,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlRenderingInfo_free(zend_object *object)
 {
     zo_wxHtmlRenderingInfo* custom_object = php_wxHtmlRenderingInfo_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7504,6 +7536,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlCell_free(zend_object *object)
 {
     zo_wxHtmlCell* custom_object = php_wxHtmlCell_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9989,6 +10025,10 @@ void php_wxHtmlContainerCell_free(zend_object *object)
 {
     zo_wxHtmlContainerCell* custom_object = php_wxHtmlContainerCell_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlContainerCell_free on %s at line %i\n",
@@ -11958,6 +11998,10 @@ void php_wxHtmlLinkInfo_free(zend_object *object)
 {
     zo_wxHtmlLinkInfo* custom_object = php_wxHtmlLinkInfo_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlLinkInfo_free on %s at line %i\n",
@@ -12661,6 +12705,10 @@ void php_wxHtmlColourCell_free(zend_object *object)
 {
     zo_wxHtmlColourCell* custom_object = php_wxHtmlColourCell_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlColourCell_free on %s at line %i\n",
@@ -12870,6 +12918,10 @@ void php_wxHtmlWidgetCell_free(zend_object *object)
 {
     zo_wxHtmlWidgetCell* custom_object = php_wxHtmlWidgetCell_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlWidgetCell_free on %s at line %i\n",
@@ -13078,6 +13130,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlFilter_free(zend_object *object)
 {
     zo_wxHtmlFilter* custom_object = php_wxHtmlFilter_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13433,6 +13489,10 @@ void php_wxHtmlTagHandler_free(zend_object *object)
 {
     zo_wxHtmlTagHandler* custom_object = php_wxHtmlTagHandler_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlTagHandler_free on %s at line %i\n",
@@ -13775,6 +13835,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlTag_free(zend_object *object)
 {
     zo_wxHtmlTag* custom_object = php_wxHtmlTag_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14970,6 +15034,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlWindow_free(zend_object *object)
 {
     zo_wxHtmlWindow* custom_object = php_wxHtmlWindow_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -18954,6 +19022,10 @@ void php_wxHtmlDCRenderer_free(zend_object *object)
 {
     zo_wxHtmlDCRenderer* custom_object = php_wxHtmlDCRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlDCRenderer_free on %s at line %i\n",
@@ -20182,6 +20254,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlEasyPrinting_free(zend_object *object)
 {
     zo_wxHtmlEasyPrinting* custom_object = php_wxHtmlEasyPrinting_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -22291,6 +22367,10 @@ void php_wxHtmlPrintout_free(zend_object *object)
 {
     zo_wxHtmlPrintout* custom_object = php_wxHtmlPrintout_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlPrintout_free on %s at line %i\n",
@@ -23505,6 +23585,10 @@ void php_wxHtmlTagsModule_free(zend_object *object)
 {
     zo_wxHtmlTagsModule* custom_object = php_wxHtmlTagsModule_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlTagsModule_free on %s at line %i\n",
@@ -23727,6 +23811,10 @@ void php_wxHtmlWinTagHandler_free(zend_object *object)
 {
     zo_wxHtmlWinTagHandler* custom_object = php_wxHtmlWinTagHandler_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxHtmlWinTagHandler_free on %s at line %i\n",
@@ -23814,6 +23902,10 @@ BEGIN_EXTERN_C()
 void php_wxHtmlWinParser_free(zend_object *object)
 {
     zo_wxHtmlWinParser* custom_object = php_wxHtmlWinParser_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

@@ -57,6 +57,10 @@ void php_wxEventLoopBase_free(zend_object *object)
 {
     zo_wxEventLoopBase* custom_object = php_wxEventLoopBase_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxEventLoopBase_free on %s at line %i\n",
@@ -2397,6 +2401,10 @@ void php_wxEventLoopActivator_free(zend_object *object)
 {
     zo_wxEventLoopActivator* custom_object = php_wxEventLoopActivator_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxEventLoopActivator_free on %s at line %i\n",
@@ -2592,6 +2600,10 @@ BEGIN_EXTERN_C()
 void php_wxModule_free(zend_object *object)
 {
     zo_wxModule* custom_object = php_wxModule_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2924,6 +2936,10 @@ BEGIN_EXTERN_C()
 void php_wxProcess_free(zend_object *object)
 {
     zo_wxProcess* custom_object = php_wxProcess_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4837,6 +4853,10 @@ BEGIN_EXTERN_C()
 void php_wxSingleInstanceChecker_free(zend_object *object)
 {
     zo_wxSingleInstanceChecker* custom_object = php_wxSingleInstanceChecker_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

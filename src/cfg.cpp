@@ -57,6 +57,10 @@ void php_wxConfigBase_free(zend_object *object)
 {
     zo_wxConfigBase* custom_object = php_wxConfigBase_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxConfigBase_free on %s at line %i\n",
@@ -4627,6 +4631,10 @@ void php_wxDisplay_free(zend_object *object)
 {
     zo_wxDisplay* custom_object = php_wxDisplay_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDisplay_free on %s at line %i\n",
@@ -5966,6 +5974,10 @@ BEGIN_EXTERN_C()
 void php_wxFileConfig_free(zend_object *object)
 {
     zo_wxFileConfig* custom_object = php_wxFileConfig_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8621,6 +8633,10 @@ void php_wxFontMapper_free(zend_object *object)
 {
     zo_wxFontMapper* custom_object = php_wxFontMapper_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFontMapper_free on %s at line %i\n",
@@ -10405,6 +10421,10 @@ BEGIN_EXTERN_C()
 void php_wxPlatformInfo_free(zend_object *object)
 {
     zo_wxPlatformInfo* custom_object = php_wxPlatformInfo_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14070,6 +14090,10 @@ void php_wxSystemSettings_free(zend_object *object)
 {
     zo_wxSystemSettings* custom_object = php_wxSystemSettings_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxSystemSettings_free on %s at line %i\n",
@@ -14769,6 +14793,10 @@ BEGIN_EXTERN_C()
 void php_wxSystemOptions_free(zend_object *object)
 {
     zo_wxSystemOptions* custom_object = php_wxSystemOptions_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -15474,6 +15502,10 @@ BEGIN_EXTERN_C()
 void php_wxVideoMode_free(zend_object *object)
 {
     zo_wxVideoMode* custom_object = php_wxVideoMode_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

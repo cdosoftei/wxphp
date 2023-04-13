@@ -57,6 +57,10 @@ void php_wxLog_free(zend_object *object)
 {
     zo_wxLog* custom_object = php_wxLog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxLog_free on %s at line %i\n",
@@ -3992,6 +3996,10 @@ void php_wxLogChain_free(zend_object *object)
 {
     zo_wxLogChain* custom_object = php_wxLogChain_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxLogChain_free on %s at line %i\n",
@@ -4815,6 +4823,10 @@ void php_wxLogInterposer_free(zend_object *object)
 {
     zo_wxLogInterposer* custom_object = php_wxLogInterposer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxLogInterposer_free on %s at line %i\n",
@@ -4986,6 +4998,10 @@ BEGIN_EXTERN_C()
 void php_wxLogBuffer_free(zend_object *object)
 {
     zo_wxLogBuffer* custom_object = php_wxLogBuffer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5374,6 +5390,10 @@ BEGIN_EXTERN_C()
 void php_wxLogWindow_free(zend_object *object)
 {
     zo_wxLogWindow* custom_object = php_wxLogWindow_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6043,6 +6063,10 @@ void php_wxLogGui_free(zend_object *object)
 {
     zo_wxLogGui* custom_object = php_wxLogGui_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxLogGui_free on %s at line %i\n",
@@ -6321,6 +6345,10 @@ BEGIN_EXTERN_C()
 void php_wxLogTextCtrl_free(zend_object *object)
 {
     zo_wxLogTextCtrl* custom_object = php_wxLogTextCtrl_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

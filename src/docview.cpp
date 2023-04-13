@@ -57,6 +57,10 @@ void php_wxFileHistory_free(zend_object *object)
 {
     zo_wxFileHistory* custom_object = php_wxFileHistory_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFileHistory_free on %s at line %i\n",

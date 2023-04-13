@@ -57,6 +57,10 @@ void php_wxDataOutputStream_free(zend_object *object)
 {
     zo_wxDataOutputStream* custom_object = php_wxDataOutputStream_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataOutputStream_free on %s at line %i\n",
@@ -1038,6 +1042,10 @@ void php_wxDataInputStream_free(zend_object *object)
 {
     zo_wxDataInputStream* custom_object = php_wxDataInputStream_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataInputStream_free on %s at line %i\n",
@@ -1978,6 +1986,10 @@ BEGIN_EXTERN_C()
 void php_wxStreamBase_free(zend_object *object)
 {
     zo_wxStreamBase* custom_object = php_wxStreamBase_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3181,6 +3193,10 @@ void php_wxOutputStream_free(zend_object *object)
 {
     zo_wxOutputStream* custom_object = php_wxOutputStream_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxOutputStream_free on %s at line %i\n",
@@ -4219,6 +4235,10 @@ BEGIN_EXTERN_C()
 void php_wxInputStream_free(zend_object *object)
 {
     zo_wxInputStream* custom_object = php_wxInputStream_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5772,6 +5792,10 @@ void php_wxFFileOutputStream_free(zend_object *object)
 {
     zo_wxFFileOutputStream* custom_object = php_wxFFileOutputStream_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFFileOutputStream_free on %s at line %i\n",
@@ -6131,6 +6155,10 @@ BEGIN_EXTERN_C()
 void php_wxFileOutputStream_free(zend_object *object)
 {
     zo_wxFileOutputStream* custom_object = php_wxFileOutputStream_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6518,6 +6546,10 @@ void php_wxFileInputStream_free(zend_object *object)
 {
     zo_wxFileInputStream* custom_object = php_wxFileInputStream_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFileInputStream_free on %s at line %i\n",
@@ -6904,6 +6936,10 @@ void php_wxFFileInputStream_free(zend_object *object)
 {
     zo_wxFFileInputStream* custom_object = php_wxFFileInputStream_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFFileInputStream_free on %s at line %i\n",
@@ -7264,6 +7300,10 @@ void php_wxFFileStream_free(zend_object *object)
 {
     zo_wxFFileStream* custom_object = php_wxFFileStream_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFFileStream_free on %s at line %i\n",
@@ -7561,6 +7601,10 @@ BEGIN_EXTERN_C()
 void php_wxFileStream_free(zend_object *object)
 {
     zo_wxFileStream* custom_object = php_wxFileStream_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

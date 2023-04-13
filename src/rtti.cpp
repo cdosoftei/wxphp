@@ -57,6 +57,10 @@ void php_wxRefCounter_free(zend_object *object)
 {
     zo_wxRefCounter* custom_object = php_wxRefCounter_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxRefCounter_free on %s at line %i\n",
@@ -605,6 +609,10 @@ BEGIN_EXTERN_C()
 void php_wxObject_free(zend_object *object)
 {
     zo_wxObject* custom_object = php_wxObject_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8700,6 +8708,10 @@ BEGIN_EXTERN_C()
 void php_wxClassInfo_free(zend_object *object)
 {
     zo_wxClassInfo* custom_object = php_wxClassInfo_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

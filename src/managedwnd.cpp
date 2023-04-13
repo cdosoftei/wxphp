@@ -57,6 +57,10 @@ void php_wxFrame_free(zend_object *object)
 {
     zo_wxFrame* custom_object = php_wxFrame_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxFrame went out of scope. "
@@ -3920,6 +3924,10 @@ void php_wxMDIClientWindow_free(zend_object *object)
 {
     zo_wxMDIClientWindow* custom_object = php_wxMDIClientWindow_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxMDIClientWindow_free on %s at line %i\n",
@@ -4239,6 +4247,10 @@ BEGIN_EXTERN_C()
 void php_wxMDIParentFrame_free(zend_object *object)
 {
     zo_wxMDIParentFrame* custom_object = php_wxMDIParentFrame_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -5916,6 +5928,10 @@ void php_wxMDIChildFrame_free(zend_object *object)
 {
     zo_wxMDIChildFrame* custom_object = php_wxMDIChildFrame_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxMDIChildFrame went out of scope. "
@@ -7022,6 +7038,10 @@ void php_wxMiniFrame_free(zend_object *object)
 {
     zo_wxMiniFrame* custom_object = php_wxMiniFrame_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxMiniFrame went out of scope. "
@@ -7552,6 +7572,10 @@ BEGIN_EXTERN_C()
 void php_wxPopupWindow_free(zend_object *object)
 {
     zo_wxPopupWindow* custom_object = php_wxPopupWindow_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8102,6 +8126,10 @@ BEGIN_EXTERN_C()
 void php_wxPopupTransientWindow_free(zend_object *object)
 {
     zo_wxPopupTransientWindow* custom_object = php_wxPopupTransientWindow_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8729,6 +8757,10 @@ BEGIN_EXTERN_C()
 void php_wxPropertySheetDialog_free(zend_object *object)
 {
     zo_wxPropertySheetDialog* custom_object = php_wxPropertySheetDialog_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     /*zend_error(
         E_WARNING,
@@ -10380,6 +10412,10 @@ void php_wxSplashScreen_free(zend_object *object)
 {
     zo_wxSplashScreen* custom_object = php_wxSplashScreen_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxSplashScreen went out of scope. "
@@ -10863,6 +10899,10 @@ BEGIN_EXTERN_C()
 void php_wxTopLevelWindow_free(zend_object *object)
 {
     zo_wxTopLevelWindow* custom_object = php_wxTopLevelWindow_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

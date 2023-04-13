@@ -57,6 +57,10 @@ void php_wxColourPickerCtrl_free(zend_object *object)
 {
     zo_wxColourPickerCtrl* custom_object = php_wxColourPickerCtrl_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxColourPickerCtrl on %s at line %i\n",
@@ -1018,6 +1022,10 @@ BEGIN_EXTERN_C()
 void php_wxDatePickerCtrl_free(zend_object *object)
 {
     zo_wxDatePickerCtrl* custom_object = php_wxDatePickerCtrl_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2102,6 +2110,10 @@ BEGIN_EXTERN_C()
 void php_wxFilePickerCtrl_free(zend_object *object)
 {
     zo_wxFilePickerCtrl* custom_object = php_wxFilePickerCtrl_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3257,6 +3269,10 @@ void php_wxDirPickerCtrl_free(zend_object *object)
 {
     zo_wxDirPickerCtrl* custom_object = php_wxDirPickerCtrl_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxDirPickerCtrl on %s at line %i\n",
@@ -4381,6 +4397,10 @@ BEGIN_EXTERN_C()
 void php_wxFontPickerCtrl_free(zend_object *object)
 {
     zo_wxFontPickerCtrl* custom_object = php_wxFontPickerCtrl_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5521,6 +5541,10 @@ BEGIN_EXTERN_C()
 void php_wxPickerBase_free(zend_object *object)
 {
     zo_wxPickerBase* custom_object = php_wxPickerBase_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7567,6 +7591,10 @@ BEGIN_EXTERN_C()
 void php_wxTimePickerCtrl_free(zend_object *object)
 {
     zo_wxTimePickerCtrl* custom_object = php_wxTimePickerCtrl_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

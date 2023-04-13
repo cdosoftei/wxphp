@@ -57,6 +57,10 @@ void php_wxRibbonArtProvider_free(zend_object *object)
 {
     zo_wxRibbonArtProvider* custom_object = php_wxRibbonArtProvider_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxRibbonArtProvider_free on %s at line %i\n",
@@ -3734,6 +3738,10 @@ void php_wxRibbonBar_free(zend_object *object)
 {
     zo_wxRibbonBar* custom_object = php_wxRibbonBar_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxRibbonBar on %s at line %i\n",
@@ -5504,6 +5512,10 @@ BEGIN_EXTERN_C()
 void php_wxRibbonButtonBar_free(zend_object *object)
 {
     zo_wxRibbonButtonBar* custom_object = php_wxRibbonButtonBar_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7709,6 +7721,10 @@ void php_wxRibbonControl_free(zend_object *object)
 {
     zo_wxRibbonControl* custom_object = php_wxRibbonControl_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxRibbonControl on %s at line %i\n",
@@ -9372,6 +9388,10 @@ BEGIN_EXTERN_C()
 void php_wxRibbonGallery_free(zend_object *object)
 {
     zo_wxRibbonGallery* custom_object = php_wxRibbonGallery_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12577,6 +12597,10 @@ void php_wxRibbonPage_free(zend_object *object)
 {
     zo_wxRibbonPage* custom_object = php_wxRibbonPage_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxRibbonPage on %s at line %i\n",
@@ -14107,6 +14131,10 @@ BEGIN_EXTERN_C()
 void php_wxRibbonPanel_free(zend_object *object)
 {
     zo_wxRibbonPanel* custom_object = php_wxRibbonPanel_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -16002,6 +16030,10 @@ BEGIN_EXTERN_C()
 void php_wxRibbonToolBar_free(zend_object *object)
 {
     zo_wxRibbonToolBar* custom_object = php_wxRibbonToolBar_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

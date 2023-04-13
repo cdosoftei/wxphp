@@ -57,6 +57,10 @@ void php_wxCondition_free(zend_object *object)
 {
     zo_wxCondition* custom_object = php_wxCondition_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxCondition_free on %s at line %i\n",
@@ -793,6 +797,10 @@ void php_wxCriticalSectionLocker_free(zend_object *object)
 {
     zo_wxCriticalSectionLocker* custom_object = php_wxCriticalSectionLocker_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxCriticalSectionLocker_free on %s at line %i\n",
@@ -988,6 +996,10 @@ BEGIN_EXTERN_C()
 void php_wxThreadHelper_free(zend_object *object)
 {
     zo_wxThreadHelper* custom_object = php_wxThreadHelper_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1355,6 +1367,10 @@ BEGIN_EXTERN_C()
 void php_wxCriticalSection_free(zend_object *object)
 {
     zo_wxCriticalSection* custom_object = php_wxCriticalSection_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1864,6 +1880,10 @@ BEGIN_EXTERN_C()
 void php_wxThread_free(zend_object *object)
 {
     zo_wxThread* custom_object = php_wxThread_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4056,6 +4076,10 @@ void php_wxSemaphore_free(zend_object *object)
 {
     zo_wxSemaphore* custom_object = php_wxSemaphore_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxSemaphore_free on %s at line %i\n",
@@ -4689,6 +4713,10 @@ void php_wxMutexLocker_free(zend_object *object)
 {
     zo_wxMutexLocker* custom_object = php_wxMutexLocker_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxMutexLocker_free on %s at line %i\n",
@@ -4991,6 +5019,10 @@ BEGIN_EXTERN_C()
 void php_wxMutex_free(zend_object *object)
 {
     zo_wxMutex* custom_object = php_wxMutex_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

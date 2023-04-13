@@ -57,6 +57,10 @@ void php_wxFileSystem_free(zend_object *object)
 {
     zo_wxFileSystem* custom_object = php_wxFileSystem_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFileSystem_free on %s at line %i\n",
@@ -1496,6 +1500,10 @@ BEGIN_EXTERN_C()
 void php_wxFileSystemHandler_free(zend_object *object)
 {
     zo_wxFileSystemHandler* custom_object = php_wxFileSystemHandler_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

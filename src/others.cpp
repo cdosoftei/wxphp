@@ -57,6 +57,10 @@ void php_wxScrolledWindow_free(zend_object *object)
 {
     zo_wxScrolledWindow* custom_object = php_wxScrolledWindow_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxScrolledWindow on %s at line %i\n",
@@ -366,6 +370,10 @@ void php_wxRibbonButtonBarButtonBase_free(zend_object *object)
 {
     zo_wxRibbonButtonBarButtonBase* custom_object = php_wxRibbonButtonBarButtonBase_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxRibbonButtonBarButtonBase_free on %s at line %i\n",
@@ -453,6 +461,10 @@ BEGIN_EXTERN_C()
 void php_wxRibbonGalleryItem_free(zend_object *object)
 {
     zo_wxRibbonGalleryItem* custom_object = php_wxRibbonGalleryItem_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -542,6 +554,10 @@ void php_wxRibbonToolBarToolBase_free(zend_object *object)
 {
     zo_wxRibbonToolBarToolBase* custom_object = php_wxRibbonToolBarToolBase_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxRibbonToolBarToolBase_free on %s at line %i\n",
@@ -629,6 +645,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellCoords_free(zend_object *object)
 {
     zo_wxGridCellCoords* custom_object = php_wxGridCellCoords_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1393,6 +1413,10 @@ void php_wxNonOwnedWindow_free(zend_object *object)
 {
     zo_wxNonOwnedWindow* custom_object = php_wxNonOwnedWindow_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxNonOwnedWindow_free on %s at line %i\n",
@@ -1825,6 +1849,10 @@ BEGIN_EXTERN_C()
 void php_wxAnyButton_free(zend_object *object)
 {
     zo_wxAnyButton* custom_object = php_wxAnyButton_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4096,6 +4124,10 @@ void php_wxWithImages_free(zend_object *object)
 {
     zo_wxWithImages* custom_object = php_wxWithImages_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxWithImages_free on %s at line %i\n",
@@ -4754,6 +4786,10 @@ BEGIN_EXTERN_C()
 void php_wxAnimation_free(zend_object *object)
 {
     zo_wxAnimation* custom_object = php_wxAnimation_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5868,6 +5904,10 @@ void php_wxTextCompleter_free(zend_object *object)
 {
     zo_wxTextCompleter* custom_object = php_wxTextCompleter_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxTextCompleter_free on %s at line %i\n",
@@ -6125,6 +6165,10 @@ BEGIN_EXTERN_C()
 void php_wxListItemAttr_free(zend_object *object)
 {
     zo_wxListItemAttr* custom_object = php_wxListItemAttr_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7491,6 +7535,10 @@ void php_wxWindowModalDialogEvent_free(zend_object *object)
 {
     zo_wxWindowModalDialogEvent* custom_object = php_wxWindowModalDialogEvent_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxWindowModalDialogEvent_free on %s at line %i\n",
@@ -8057,6 +8105,10 @@ BEGIN_EXTERN_C()
 void php_wxPoint2DDouble_free(zend_object *object)
 {
     zo_wxPoint2DDouble* custom_object = php_wxPoint2DDouble_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9727,6 +9779,10 @@ void php_wxPoint2DInt_free(zend_object *object)
 {
     zo_wxPoint2DInt* custom_object = php_wxPoint2DInt_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPoint2DInt_free on %s at line %i\n",
@@ -11338,6 +11394,10 @@ void php_wxProgressDialog_free(zend_object *object)
 {
     zo_wxProgressDialog* custom_object = php_wxProgressDialog_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     /*zend_error(
         E_WARNING,
         "Object of class wxProgressDialog went out of scope. "
@@ -11540,6 +11600,10 @@ BEGIN_EXTERN_C()
 void php_wxLayoutConstraints_free(zend_object *object)
 {
     zo_wxLayoutConstraints* custom_object = php_wxLayoutConstraints_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -11958,6 +12022,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellAttrProvider_free(zend_object *object)
 {
     zo_wxGridCellAttrProvider* custom_object = php_wxGridCellAttrProvider_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13056,6 +13124,10 @@ void php_wxGridColumnHeaderRenderer_free(zend_object *object)
 {
     zo_wxGridColumnHeaderRenderer* custom_object = php_wxGridColumnHeaderRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridColumnHeaderRenderer_free on %s at line %i\n",
@@ -13143,6 +13215,10 @@ BEGIN_EXTERN_C()
 void php_wxGridColumnHeaderRendererDefault_free(zend_object *object)
 {
     zo_wxGridColumnHeaderRendererDefault* custom_object = php_wxGridColumnHeaderRendererDefault_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13406,6 +13482,10 @@ void php_wxGridCornerHeaderRenderer_free(zend_object *object)
 {
     zo_wxGridCornerHeaderRenderer* custom_object = php_wxGridCornerHeaderRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCornerHeaderRenderer_free on %s at line %i\n",
@@ -13493,6 +13573,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCornerHeaderRendererDefault_free(zend_object *object)
 {
     zo_wxGridCornerHeaderRendererDefault* custom_object = php_wxGridCornerHeaderRendererDefault_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13755,6 +13839,10 @@ BEGIN_EXTERN_C()
 void php_wxGridHeaderLabelsRenderer_free(zend_object *object)
 {
     zo_wxGridHeaderLabelsRenderer* custom_object = php_wxGridHeaderLabelsRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14055,6 +14143,10 @@ void php_wxGridRowHeaderRenderer_free(zend_object *object)
 {
     zo_wxGridRowHeaderRenderer* custom_object = php_wxGridRowHeaderRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridRowHeaderRenderer_free on %s at line %i\n",
@@ -14142,6 +14234,10 @@ BEGIN_EXTERN_C()
 void php_wxGridRowHeaderRendererDefault_free(zend_object *object)
 {
     zo_wxGridRowHeaderRendererDefault* custom_object = php_wxGridRowHeaderRendererDefault_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14404,6 +14500,10 @@ BEGIN_EXTERN_C()
 void php_wxPaletteChangedEvent_free(zend_object *object)
 {
     zo_wxPaletteChangedEvent* custom_object = php_wxPaletteChangedEvent_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14850,6 +14950,10 @@ BEGIN_EXTERN_C()
 void php_wxFileTypeInfo_free(zend_object *object)
 {
     zo_wxFileTypeInfo* custom_object = php_wxFileTypeInfo_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -15685,6 +15789,10 @@ void php_wxTimerRunner_free(zend_object *object)
 {
     zo_wxTimerRunner* custom_object = php_wxTimerRunner_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxTimerRunner_free on %s at line %i\n",
@@ -16075,6 +16183,10 @@ BEGIN_EXTERN_C()
 void php_wxToolBarToolBase_free(zend_object *object)
 {
     zo_wxToolBarToolBase* custom_object = php_wxToolBarToolBase_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -19917,6 +20029,10 @@ BEGIN_EXTERN_C()
 void php_wxTextCompleterSimple_free(zend_object *object)
 {
     zo_wxTextCompleterSimple* custom_object = php_wxTextCompleterSimple_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

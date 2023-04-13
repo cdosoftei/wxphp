@@ -57,6 +57,10 @@ void php_wxGenericValidator_free(zend_object *object)
 {
     zo_wxGenericValidator* custom_object = php_wxGenericValidator_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGenericValidator_free on %s at line %i\n",
@@ -915,6 +919,10 @@ BEGIN_EXTERN_C()
 void php_wxValidator_free(zend_object *object)
 {
     zo_wxValidator* custom_object = php_wxValidator_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2005,6 +2013,10 @@ BEGIN_EXTERN_C()
 void php_wxTextValidator_free(zend_object *object)
 {
     zo_wxTextValidator* custom_object = php_wxTextValidator_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

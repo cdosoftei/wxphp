@@ -57,6 +57,10 @@ void php_wxXmlNode_free(zend_object *object)
 {
     zo_wxXmlNode* custom_object = php_wxXmlNode_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxXmlNode_free on %s at line %i\n",
@@ -4010,6 +4014,10 @@ void php_wxXmlAttribute_free(zend_object *object)
 {
     zo_wxXmlAttribute* custom_object = php_wxXmlAttribute_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxXmlAttribute_free on %s at line %i\n",
@@ -4959,6 +4967,10 @@ BEGIN_EXTERN_C()
 void php_wxXmlDocument_free(zend_object *object)
 {
     zo_wxXmlDocument* custom_object = php_wxXmlDocument_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

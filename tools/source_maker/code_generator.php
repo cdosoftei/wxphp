@@ -903,7 +903,7 @@ foreach($defGlobals as $variable_name => $variable_type)
                     $object_constants_struct_entry .= tabs(1) . "zval z_{$variable_name};\n";
 
                     $object_constants .= tabs(2) . "object_init_ex(&wxphpGlobalConsts.z_{$variable_name}, php_{$plain_type}_entry);\n";
-                    $object_constants .= tabs(2) . "Z_{$plain_type}_P(&wxphpGlobalConsts.z_{$variable_name})->native_object = ({$plain_type}_php*) {$variable_name};\n";
+                    $object_constants .= tabs(2) . "Z_{$plain_type}_P(&wxphpGlobalConsts.z_{$variable_name})->native_object = ({$plain_type}_php *) {$variable_name};\n";
                     $object_constants .= tabs(2) . "wxPHP_REGISTER_OBJECT_CONSTANT(\"$variable_name\", wxphpGlobalConsts.z_{$variable_name}, CONST_CS | CONST_PERSISTENT);\n\n";
 
                     $destroy_object_constants .= tabs(1) . "php_{$plain_type}_free(Z_OBJ_P(&wxphpGlobalConsts.z_{$variable_name}));\n";
@@ -916,7 +916,7 @@ foreach($defGlobals as $variable_name => $variable_type)
                     $object_constants_struct_entry .= tabs(1) . "zval z_{$variable_name};\n";
 
                     $object_constants .= tabs(2) . "object_init_ex(&wxphpGlobalConsts.z_{$variable_name}, php_{$plain_type}_entry);\n";
-                    $object_constants .= tabs(2) . "Z_{$plain_type}_P(&wxphpGlobalConsts.z_{$variable_name})->native_object = ({$plain_type}_php*) &{$variable_name};\n";
+                    $object_constants .= tabs(2) . "Z_{$plain_type}_P(&wxphpGlobalConsts.z_{$variable_name})->native_object = ({$plain_type}_php *) &{$variable_name};\n";
                     $object_constants .= tabs(2) . "wxPHP_REGISTER_OBJECT_CONSTANT(\"$variable_name\", wxphpGlobalConsts.z_{$variable_name}, CONST_CS | CONST_PERSISTENT);\n\n";
 
                     $destroy_object_constants .= tabs(1) . "php_{$plain_type}_free(Z_OBJ_P(&wxphpGlobalConsts.z_{$variable_name}));\n";

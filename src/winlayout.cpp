@@ -57,6 +57,10 @@ void php_wxGBPosition_free(zend_object *object)
 {
     zo_wxGBPosition* custom_object = php_wxGBPosition_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGBPosition_free on %s at line %i\n",
@@ -706,6 +710,10 @@ BEGIN_EXTERN_C()
 void php_wxGridBagSizer_free(zend_object *object)
 {
     zo_wxGridBagSizer* custom_object = php_wxGridBagSizer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4431,6 +4439,10 @@ void php_wxGBSizerItem_free(zend_object *object)
 {
     zo_wxGBSizerItem* custom_object = php_wxGBSizerItem_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGBSizerItem_free on %s at line %i\n",
@@ -6247,6 +6259,10 @@ void php_wxGBSpan_free(zend_object *object)
 {
     zo_wxGBSpan* custom_object = php_wxGBSpan_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGBSpan_free on %s at line %i\n",
@@ -6896,6 +6912,10 @@ BEGIN_EXTERN_C()
 void php_wxLayoutAlgorithm_free(zend_object *object)
 {
     zo_wxLayoutAlgorithm* custom_object = php_wxLayoutAlgorithm_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -7560,6 +7580,10 @@ BEGIN_EXTERN_C()
 void php_wxSizer_free(zend_object *object)
 {
     zo_wxSizer* custom_object = php_wxSizer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -18724,6 +18748,10 @@ void php_wxStdDialogButtonSizer_free(zend_object *object)
 {
     zo_wxStdDialogButtonSizer* custom_object = php_wxStdDialogButtonSizer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxStdDialogButtonSizer on %s at line %i\n",
@@ -19611,6 +19639,10 @@ BEGIN_EXTERN_C()
 void php_wxSizerItem_free(zend_object *object)
 {
     zo_wxSizerItem* custom_object = php_wxSizerItem_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24425,6 +24457,10 @@ void php_wxSizerFlags_free(zend_object *object)
 {
     zo_wxSizerFlags* custom_object = php_wxSizerFlags_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxSizerFlags_free on %s at line %i\n",
@@ -26935,6 +26971,10 @@ void php_wxFlexGridSizer_free(zend_object *object)
 {
     zo_wxFlexGridSizer* custom_object = php_wxFlexGridSizer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxFlexGridSizer on %s at line %i\n",
@@ -28551,6 +28591,10 @@ void php_wxGridSizer_free(zend_object *object)
 {
     zo_wxGridSizer* custom_object = php_wxGridSizer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxGridSizer on %s at line %i\n",
@@ -30165,6 +30209,10 @@ void php_wxStaticBoxSizer_free(zend_object *object)
 {
     zo_wxStaticBoxSizer* custom_object = php_wxStaticBoxSizer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxStaticBoxSizer on %s at line %i\n",
@@ -30649,6 +30697,10 @@ BEGIN_EXTERN_C()
 void php_wxBoxSizer_free(zend_object *object)
 {
     zo_wxBoxSizer* custom_object = php_wxBoxSizer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -31189,6 +31241,10 @@ BEGIN_EXTERN_C()
 void php_wxWrapSizer_free(zend_object *object)
 {
     zo_wxWrapSizer* custom_object = php_wxWrapSizer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

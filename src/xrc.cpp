@@ -57,6 +57,10 @@ void php_wxXmlResourceHandler_free(zend_object *object)
 {
     zo_wxXmlResourceHandler* custom_object = php_wxXmlResourceHandler_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxXmlResourceHandler_free on %s at line %i\n",
@@ -734,6 +738,10 @@ BEGIN_EXTERN_C()
 void php_wxXmlResource_free(zend_object *object)
 {
     zo_wxXmlResource* custom_object = php_wxXmlResource_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

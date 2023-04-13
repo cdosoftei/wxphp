@@ -57,6 +57,10 @@ void php_wxFFile_free(zend_object *object)
 {
     zo_wxFFile* custom_object = php_wxFFile_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFFile_free on %s at line %i\n",
@@ -1745,6 +1749,10 @@ BEGIN_EXTERN_C()
 void php_wxFile_free(zend_object *object)
 {
     zo_wxFile* custom_object = php_wxFile_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4168,6 +4176,10 @@ void php_wxPathList_free(zend_object *object)
 {
     zo_wxPathList* custom_object = php_wxPathList_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPathList_free on %s at line %i\n",
@@ -5023,6 +5035,10 @@ BEGIN_EXTERN_C()
 void php_wxFileName_free(zend_object *object)
 {
     zo_wxFileName* custom_object = php_wxFileName_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -15335,6 +15351,10 @@ void php_wxFSFile_free(zend_object *object)
 {
     zo_wxFSFile* custom_object = php_wxFSFile_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFSFile_free on %s at line %i\n",
@@ -16233,6 +16253,10 @@ BEGIN_EXTERN_C()
 void php_wxFileSystemWatcher_free(zend_object *object)
 {
     zo_wxFileSystemWatcher* custom_object = php_wxFileSystemWatcher_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -17317,6 +17341,10 @@ BEGIN_EXTERN_C()
 void php_wxStandardPaths_free(zend_object *object)
 {
     zo_wxStandardPaths* custom_object = php_wxStandardPaths_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

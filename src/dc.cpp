@@ -57,6 +57,10 @@ void php_wxDC_free(zend_object *object)
 {
     zo_wxDC* custom_object = php_wxDC_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDC_free on %s at line %i\n",
@@ -23543,6 +23547,10 @@ void php_wxBufferedDC_free(zend_object *object)
 {
     zo_wxBufferedDC* custom_object = php_wxBufferedDC_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxBufferedDC_free on %s at line %i\n",
@@ -24192,6 +24200,10 @@ void php_wxAutoBufferedPaintDC_free(zend_object *object)
 {
     zo_wxAutoBufferedPaintDC* custom_object = php_wxAutoBufferedPaintDC_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAutoBufferedPaintDC_free on %s at line %i\n",
@@ -24387,6 +24399,10 @@ BEGIN_EXTERN_C()
 void php_wxBufferedPaintDC_free(zend_object *object)
 {
     zo_wxBufferedPaintDC* custom_object = php_wxBufferedPaintDC_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24689,6 +24705,10 @@ void php_wxPaintDC_free(zend_object *object)
 {
     zo_wxPaintDC* custom_object = php_wxPaintDC_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPaintDC_free on %s at line %i\n",
@@ -24884,6 +24904,10 @@ BEGIN_EXTERN_C()
 void php_wxClientDC_free(zend_object *object)
 {
     zo_wxClientDC* custom_object = php_wxClientDC_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25081,6 +25105,10 @@ void php_wxWindowDC_free(zend_object *object)
 {
     zo_wxWindowDC* custom_object = php_wxWindowDC_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxWindowDC_free on %s at line %i\n",
@@ -25276,6 +25304,10 @@ BEGIN_EXTERN_C()
 void php_wxMemoryDC_free(zend_object *object)
 {
     zo_wxMemoryDC* custom_object = php_wxMemoryDC_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25851,6 +25883,10 @@ void php_wxMirrorDC_free(zend_object *object)
 {
     zo_wxMirrorDC* custom_object = php_wxMirrorDC_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxMirrorDC_free on %s at line %i\n",
@@ -26047,6 +26083,10 @@ BEGIN_EXTERN_C()
 void php_wxPostScriptDC_free(zend_object *object)
 {
     zo_wxPostScriptDC* custom_object = php_wxPostScriptDC_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -26276,6 +26316,10 @@ BEGIN_EXTERN_C()
 void php_wxScreenDC_free(zend_object *object)
 {
     zo_wxScreenDC* custom_object = php_wxScreenDC_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

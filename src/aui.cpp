@@ -57,6 +57,10 @@ void php_wxAuiToolBarItem_free(zend_object *object)
 {
     zo_wxAuiToolBarItem* custom_object = php_wxAuiToolBarItem_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAuiToolBarItem_free on %s at line %i\n",
@@ -4764,6 +4768,10 @@ void php_wxAuiToolBarArt_free(zend_object *object)
 {
     zo_wxAuiToolBarArt* custom_object = php_wxAuiToolBarArt_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAuiToolBarArt_free on %s at line %i\n",
@@ -6603,6 +6611,10 @@ BEGIN_EXTERN_C()
 void php_wxAuiDefaultToolBarArt_free(zend_object *object)
 {
     zo_wxAuiDefaultToolBarArt* custom_object = php_wxAuiDefaultToolBarArt_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9599,6 +9611,10 @@ BEGIN_EXTERN_C()
 void php_wxAuiToolBar_free(zend_object *object)
 {
     zo_wxAuiToolBar* custom_object = php_wxAuiToolBar_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -17748,6 +17764,10 @@ void php_wxAuiNotebook_free(zend_object *object)
 {
     zo_wxAuiNotebook* custom_object = php_wxAuiNotebook_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxAuiNotebook on %s at line %i\n",
@@ -21799,6 +21819,10 @@ void php_wxAuiTabArt_free(zend_object *object)
 {
     zo_wxAuiTabArt* custom_object = php_wxAuiTabArt_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAuiTabArt_free on %s at line %i\n",
@@ -22999,6 +23023,10 @@ BEGIN_EXTERN_C()
 void php_wxAuiManager_free(zend_object *object)
 {
     zo_wxAuiManager* custom_object = php_wxAuiManager_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25960,6 +25988,10 @@ BEGIN_EXTERN_C()
 void php_wxAuiPaneInfo_free(zend_object *object)
 {
     zo_wxAuiPaneInfo* custom_object = php_wxAuiPaneInfo_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

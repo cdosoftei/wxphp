@@ -57,6 +57,10 @@ void php_wxBitmapBundle_free(zend_object *object)
 {
     zo_wxBitmapBundle* custom_object = php_wxBitmapBundle_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxBitmapBundle_free on %s at line %i\n",
@@ -3142,6 +3146,10 @@ void php_wxBitmapBundleImpl_free(zend_object *object)
 {
     zo_wxBitmapBundleImpl* custom_object = php_wxBitmapBundleImpl_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxBitmapBundleImpl_free on %s at line %i\n",
@@ -3520,6 +3528,10 @@ BEGIN_EXTERN_C()
 void php_wxGraphicsGradientStop_free(zend_object *object)
 {
     zo_wxGraphicsGradientStop* custom_object = php_wxGraphicsGradientStop_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4215,6 +4227,10 @@ BEGIN_EXTERN_C()
 void php_wxGraphicsGradientStops_free(zend_object *object)
 {
     zo_wxGraphicsGradientStops* custom_object = php_wxGraphicsGradientStops_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5357,6 +5373,10 @@ BEGIN_EXTERN_C()
 void php_wxBitmapHandler_free(zend_object *object)
 {
     zo_wxBitmapHandler* custom_object = php_wxBitmapHandler_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6645,6 +6665,10 @@ BEGIN_EXTERN_C()
 void php_wxBitmap_free(zend_object *object)
 {
     zo_wxBitmap* custom_object = php_wxBitmap_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10211,6 +10235,10 @@ void php_wxMask_free(zend_object *object)
 {
     zo_wxMask* custom_object = php_wxMask_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxMask_free on %s at line %i\n",
@@ -10847,6 +10875,10 @@ BEGIN_EXTERN_C()
 void php_wxBrush_free(zend_object *object)
 {
     zo_wxBrush* custom_object = php_wxBrush_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12403,6 +12435,10 @@ void php_wxColour_free(zend_object *object)
 {
     zo_wxColour* custom_object = php_wxColour_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxColour_free on %s at line %i\n",
@@ -13839,6 +13875,10 @@ void php_wxCursor_free(zend_object *object)
 {
     zo_wxCursor* custom_object = php_wxCursor_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxCursor_free on %s at line %i\n",
@@ -14349,6 +14389,10 @@ void php_wxDCClipper_free(zend_object *object)
 {
     zo_wxDCClipper* custom_object = php_wxDCClipper_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDCClipper_free on %s at line %i\n",
@@ -14704,6 +14748,10 @@ BEGIN_EXTERN_C()
 void php_wxFont_free(zend_object *object)
 {
     zo_wxFont* custom_object = php_wxFont_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -20644,6 +20692,10 @@ void php_wxFontList_free(zend_object *object)
 {
     zo_wxFontList* custom_object = php_wxFontList_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFontList_free on %s at line %i\n",
@@ -21062,6 +21114,10 @@ BEGIN_EXTERN_C()
 void php_wxFontEnumerator_free(zend_object *object)
 {
     zo_wxFontEnumerator* custom_object = php_wxFontEnumerator_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -22027,6 +22083,10 @@ BEGIN_EXTERN_C()
 void php_wxNativeFontInfo_free(zend_object *object)
 {
     zo_wxNativeFontInfo* custom_object = php_wxNativeFontInfo_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24513,6 +24573,10 @@ void php_wxColourDatabase_free(zend_object *object)
 {
     zo_wxColourDatabase* custom_object = php_wxColourDatabase_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxColourDatabase_free on %s at line %i\n",
@@ -25072,6 +25136,10 @@ void php_wxGDIObject_free(zend_object *object)
 {
     zo_wxGDIObject* custom_object = php_wxGDIObject_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGDIObject_free on %s at line %i\n",
@@ -25159,6 +25227,10 @@ BEGIN_EXTERN_C()
 void php_wxGraphicsRenderer_free(zend_object *object)
 {
     zo_wxGraphicsRenderer* custom_object = php_wxGraphicsRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -25248,6 +25320,10 @@ void php_wxGraphicsMatrix_free(zend_object *object)
 {
     zo_wxGraphicsMatrix* custom_object = php_wxGraphicsMatrix_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGraphicsMatrix_free on %s at line %i\n",
@@ -25335,6 +25411,10 @@ BEGIN_EXTERN_C()
 void php_wxIcon_free(zend_object *object)
 {
     zo_wxIcon* custom_object = php_wxIcon_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -26370,6 +26450,10 @@ BEGIN_EXTERN_C()
 void php_wxIconBundle_free(zend_object *object)
 {
     zo_wxIconBundle* custom_object = php_wxIconBundle_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -27762,6 +27846,10 @@ BEGIN_EXTERN_C()
 void php_wxImageHandler_free(zend_object *object)
 {
     zo_wxImageHandler* custom_object = php_wxImageHandler_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -29567,6 +29655,10 @@ BEGIN_EXTERN_C()
 void php_wxImage_free(zend_object *object)
 {
     zo_wxImage* custom_object = php_wxImage_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -40583,6 +40675,10 @@ void php_wxImageList_free(zend_object *object)
 {
     zo_wxImageList* custom_object = php_wxImageList_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxImageList_free on %s at line %i\n",
@@ -42257,6 +42353,10 @@ void php_wxPalette_free(zend_object *object)
 {
     zo_wxPalette* custom_object = php_wxPalette_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPalette_free on %s at line %i\n",
@@ -43263,6 +43363,10 @@ BEGIN_EXTERN_C()
 void php_wxPen_free(zend_object *object)
 {
     zo_wxPen* custom_object = php_wxPen_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -45324,6 +45428,10 @@ void php_wxPenList_free(zend_object *object)
 {
     zo_wxPenList* custom_object = php_wxPenList_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPenList_free on %s at line %i\n",
@@ -45723,6 +45831,10 @@ BEGIN_EXTERN_C()
 void php_wxRendererNative_free(zend_object *object)
 {
     zo_wxRendererNative* custom_object = php_wxRendererNative_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

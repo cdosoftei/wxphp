@@ -57,6 +57,10 @@ void php_wxStyledTextCtrl_free(zend_object *object)
 {
     zo_wxStyledTextCtrl* custom_object = php_wxStyledTextCtrl_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxStyledTextCtrl on %s at line %i\n",

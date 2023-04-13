@@ -57,6 +57,10 @@ void php_wxGridCellRenderer_free(zend_object *object)
 {
     zo_wxGridCellRenderer* custom_object = php_wxGridCellRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellRenderer_free on %s at line %i\n",
@@ -420,6 +424,10 @@ void php_wxGridCellAutoWrapStringRenderer_free(zend_object *object)
 {
     zo_wxGridCellAutoWrapStringRenderer* custom_object = php_wxGridCellAutoWrapStringRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellAutoWrapStringRenderer_free on %s at line %i\n",
@@ -592,6 +600,10 @@ void php_wxGridCellBoolRenderer_free(zend_object *object)
 {
     zo_wxGridCellBoolRenderer* custom_object = php_wxGridCellBoolRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellBoolRenderer_free on %s at line %i\n",
@@ -763,6 +775,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellDateTimeRenderer_free(zend_object *object)
 {
     zo_wxGridCellDateTimeRenderer* custom_object = php_wxGridCellDateTimeRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -965,6 +981,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellEnumRenderer_free(zend_object *object)
 {
     zo_wxGridCellEnumRenderer* custom_object = php_wxGridCellEnumRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -1267,6 +1287,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellFloatRenderer_free(zend_object *object)
 {
     zo_wxGridCellFloatRenderer* custom_object = php_wxGridCellFloatRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -2250,6 +2274,10 @@ void php_wxGridCellNumberRenderer_free(zend_object *object)
 {
     zo_wxGridCellNumberRenderer* custom_object = php_wxGridCellNumberRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellNumberRenderer_free on %s at line %i\n",
@@ -2422,6 +2450,10 @@ void php_wxGridCellStringRenderer_free(zend_object *object)
 {
     zo_wxGridCellStringRenderer* custom_object = php_wxGridCellStringRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellStringRenderer_free on %s at line %i\n",
@@ -2593,6 +2625,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellEditor_free(zend_object *object)
 {
     zo_wxGridCellEditor* custom_object = php_wxGridCellEditor_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -4731,6 +4767,10 @@ void php_wxGridCellAutoWrapStringEditor_free(zend_object *object)
 {
     zo_wxGridCellAutoWrapStringEditor* custom_object = php_wxGridCellAutoWrapStringEditor_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellAutoWrapStringEditor_free on %s at line %i\n",
@@ -4873,6 +4913,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellBoolEditor_free(zend_object *object)
 {
     zo_wxGridCellBoolEditor* custom_object = php_wxGridCellBoolEditor_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5273,6 +5317,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellChoiceEditor_free(zend_object *object)
 {
     zo_wxGridCellChoiceEditor* custom_object = php_wxGridCellChoiceEditor_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5699,6 +5747,10 @@ void php_wxGridCellEnumEditor_free(zend_object *object)
 {
     zo_wxGridCellEnumEditor* custom_object = php_wxGridCellEnumEditor_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellEnumEditor_free on %s at line %i\n",
@@ -5859,6 +5911,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellTextEditor_free(zend_object *object)
 {
     zo_wxGridCellTextEditor* custom_object = php_wxGridCellTextEditor_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6144,6 +6200,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellFloatEditor_free(zend_object *object)
 {
     zo_wxGridCellFloatEditor* custom_object = php_wxGridCellFloatEditor_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6442,6 +6502,10 @@ void php_wxGridCellNumberEditor_free(zend_object *object)
 {
     zo_wxGridCellNumberEditor* custom_object = php_wxGridCellNumberEditor_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridCellNumberEditor_free on %s at line %i\n",
@@ -6726,6 +6790,10 @@ BEGIN_EXTERN_C()
 void php_wxGridCellAttr_free(zend_object *object)
 {
     zo_wxGridCellAttr* custom_object = php_wxGridCellAttr_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -10073,6 +10141,10 @@ BEGIN_EXTERN_C()
 void php_wxGridTableBase_free(zend_object *object)
 {
     zo_wxGridTableBase* custom_object = php_wxGridTableBase_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -14832,6 +14904,10 @@ void php_wxGridSizesInfo_free(zend_object *object)
 {
     zo_wxGridSizesInfo* custom_object = php_wxGridSizesInfo_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxGridSizesInfo_free on %s at line %i\n",
@@ -15115,6 +15191,10 @@ BEGIN_EXTERN_C()
 void php_wxGrid_free(zend_object *object)
 {
     zo_wxGrid* custom_object = php_wxGrid_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -40566,6 +40646,10 @@ BEGIN_EXTERN_C()
 void php_wxGridUpdateLocker_free(zend_object *object)
 {
     zo_wxGridUpdateLocker* custom_object = php_wxGridUpdateLocker_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

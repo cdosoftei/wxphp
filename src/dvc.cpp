@@ -57,6 +57,10 @@ void php_wxDataViewChoiceRenderer_free(zend_object *object)
 {
     zo_wxDataViewChoiceRenderer* custom_object = php_wxDataViewChoiceRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewChoiceRenderer_free on %s at line %i\n",
@@ -532,6 +536,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewModel_free(zend_object *object)
 {
     zo_wxDataViewModel* custom_object = php_wxDataViewModel_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3618,6 +3626,10 @@ void php_wxDataViewListModel_free(zend_object *object)
 {
     zo_wxDataViewListModel* custom_object = php_wxDataViewListModel_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewListModel_free on %s at line %i\n",
@@ -4363,6 +4375,10 @@ void php_wxDataViewIndexListModel_free(zend_object *object)
 {
     zo_wxDataViewIndexListModel* custom_object = php_wxDataViewIndexListModel_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewIndexListModel_free on %s at line %i\n",
@@ -4451,6 +4467,10 @@ void php_wxDataViewVirtualListModel_free(zend_object *object)
 {
     zo_wxDataViewVirtualListModel* custom_object = php_wxDataViewVirtualListModel_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewVirtualListModel_free on %s at line %i\n",
@@ -4538,6 +4558,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewItemAttr_free(zend_object *object)
 {
     zo_wxDataViewItemAttr* custom_object = php_wxDataViewItemAttr_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -5066,6 +5090,10 @@ void php_wxDataViewItem_free(zend_object *object)
 {
     zo_wxDataViewItem* custom_object = php_wxDataViewItem_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewItem_free on %s at line %i\n",
@@ -5553,6 +5581,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewModelNotifier_free(zend_object *object)
 {
     zo_wxDataViewModelNotifier* custom_object = php_wxDataViewModelNotifier_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6515,6 +6547,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewRenderer_free(zend_object *object)
 {
     zo_wxDataViewRenderer* custom_object = php_wxDataViewRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8749,6 +8785,10 @@ void php_wxDataViewTextRenderer_free(zend_object *object)
 {
     zo_wxDataViewTextRenderer* custom_object = php_wxDataViewTextRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewTextRenderer_free on %s at line %i\n",
@@ -8962,6 +9002,10 @@ void php_wxDataViewIconTextRenderer_free(zend_object *object)
 {
     zo_wxDataViewIconTextRenderer* custom_object = php_wxDataViewIconTextRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewIconTextRenderer_free on %s at line %i\n",
@@ -9174,6 +9218,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewProgressRenderer_free(zend_object *object)
 {
     zo_wxDataViewProgressRenderer* custom_object = php_wxDataViewProgressRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9401,6 +9449,10 @@ void php_wxDataViewSpinRenderer_free(zend_object *object)
 {
     zo_wxDataViewSpinRenderer* custom_object = php_wxDataViewSpinRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewSpinRenderer_free on %s at line %i\n",
@@ -9602,6 +9654,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewToggleRenderer_free(zend_object *object)
 {
     zo_wxDataViewToggleRenderer* custom_object = php_wxDataViewToggleRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -9816,6 +9872,10 @@ void php_wxDataViewDateRenderer_free(zend_object *object)
 {
     zo_wxDataViewDateRenderer* custom_object = php_wxDataViewDateRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewDateRenderer_free on %s at line %i\n",
@@ -10028,6 +10088,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewCustomRenderer_free(zend_object *object)
 {
     zo_wxDataViewCustomRenderer* custom_object = php_wxDataViewCustomRenderer_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -11496,6 +11560,10 @@ void php_wxDataViewBitmapRenderer_free(zend_object *object)
 {
     zo_wxDataViewBitmapRenderer* custom_object = php_wxDataViewBitmapRenderer_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxDataViewBitmapRenderer_free on %s at line %i\n",
@@ -11708,6 +11776,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewColumn_free(zend_object *object)
 {
     zo_wxDataViewColumn* custom_object = php_wxDataViewColumn_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12434,6 +12506,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewListStore_free(zend_object *object)
 {
     zo_wxDataViewListStore* custom_object = php_wxDataViewListStore_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -13431,6 +13507,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewTreeStore_free(zend_object *object)
 {
     zo_wxDataViewTreeStore* custom_object = php_wxDataViewTreeStore_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -16757,6 +16837,10 @@ BEGIN_EXTERN_C()
 void php_wxDataViewIconText_free(zend_object *object)
 {
     zo_wxDataViewIconText* custom_object = php_wxDataViewIconText_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

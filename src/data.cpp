@@ -57,6 +57,10 @@ void php_wxRect_free(zend_object *object)
 {
     zo_wxRect* custom_object = php_wxRect_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxRect_free on %s at line %i\n",
@@ -4637,6 +4641,10 @@ void php_wxAcceleratorEntry_free(zend_object *object)
 {
     zo_wxAcceleratorEntry* custom_object = php_wxAcceleratorEntry_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAcceleratorEntry_free on %s at line %i\n",
@@ -5864,6 +5872,10 @@ void php_wxAcceleratorTable_free(zend_object *object)
 {
     zo_wxAcceleratorTable* custom_object = php_wxAcceleratorTable_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAcceleratorTable_free on %s at line %i\n",
@@ -6142,6 +6154,10 @@ BEGIN_EXTERN_C()
 void php_wxCalendarDateAttr_free(zend_object *object)
 {
     zo_wxCalendarDateAttr* custom_object = php_wxCalendarDateAttr_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -8794,6 +8810,10 @@ BEGIN_EXTERN_C()
 void php_wxPageSetupDialogData_free(zend_object *object)
 {
     zo_wxPageSetupDialogData* custom_object = php_wxPageSetupDialogData_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -12480,6 +12500,10 @@ void php_wxPrintData_free(zend_object *object)
 {
     zo_wxPrintData* custom_object = php_wxPrintData_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxPrintData_free on %s at line %i\n",
@@ -15228,6 +15252,10 @@ void php_wxRealPoint_free(zend_object *object)
 {
     zo_wxRealPoint* custom_object = php_wxRealPoint_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxRealPoint_free on %s at line %i\n",
@@ -15497,6 +15525,10 @@ BEGIN_EXTERN_C()
 void php_wxPoint_free(zend_object *object)
 {
     zo_wxPoint* custom_object = php_wxPoint_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -15874,6 +15906,10 @@ BEGIN_EXTERN_C()
 void php_wxSize_free(zend_object *object)
 {
     zo_wxSize* custom_object = php_wxSize_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -17270,6 +17306,10 @@ BEGIN_EXTERN_C()
 void php_wxListItem_free(zend_object *object)
 {
     zo_wxListItem* custom_object = php_wxListItem_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -20313,6 +20353,10 @@ void php_wxFileType_free(zend_object *object)
 {
     zo_wxFileType* custom_object = php_wxFileType_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxFileType_free on %s at line %i\n",
@@ -21040,6 +21084,10 @@ BEGIN_EXTERN_C()
 void php_wxPosition_free(zend_object *object)
 {
     zo_wxPosition* custom_object = php_wxPosition_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -21909,6 +21957,10 @@ BEGIN_EXTERN_C()
 void php_wxRegion_free(zend_object *object)
 {
     zo_wxRegion* custom_object = php_wxRegion_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -24645,6 +24697,10 @@ void php_wxStatusBarPane_free(zend_object *object)
 {
     zo_wxStatusBarPane* custom_object = php_wxStatusBarPane_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxStatusBarPane_free on %s at line %i\n",
@@ -25168,6 +25224,10 @@ void php_wxTreeItemId_free(zend_object *object)
 {
     zo_wxTreeItemId* custom_object = php_wxTreeItemId_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxTreeItemId_free on %s at line %i\n",
@@ -25446,6 +25506,10 @@ BEGIN_EXTERN_C()
 void php_wxVariant_free(zend_object *object)
 {
     zo_wxVariant* custom_object = php_wxVariant_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -29407,6 +29471,10 @@ void php_wxVariantData_free(zend_object *object)
 {
     zo_wxVariantData* custom_object = php_wxVariantData_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxVariantData_free on %s at line %i\n",
@@ -30433,6 +30501,10 @@ BEGIN_EXTERN_C()
 void php_wxVersionInfo_free(zend_object *object)
 {
     zo_wxVersionInfo* custom_object = php_wxVersionInfo_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(

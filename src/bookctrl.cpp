@@ -57,6 +57,10 @@ void php_wxAuiNotebookEvent_free(zend_object *object)
 {
     zo_wxAuiNotebookEvent* custom_object = php_wxAuiNotebookEvent_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxAuiNotebookEvent_free on %s at line %i\n",
@@ -385,6 +389,10 @@ BEGIN_EXTERN_C()
 void php_wxBookCtrlBase_free(zend_object *object)
 {
     zo_wxBookCtrlBase* custom_object = php_wxBookCtrlBase_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -3599,6 +3607,10 @@ void php_wxBookCtrlEvent_free(zend_object *object)
 {
     zo_wxBookCtrlEvent* custom_object = php_wxBookCtrlEvent_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Calling php_wxBookCtrlEvent_free on %s at line %i\n",
@@ -4277,6 +4289,10 @@ void php_wxChoicebook_free(zend_object *object)
 {
     zo_wxChoicebook* custom_object = php_wxChoicebook_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxChoicebook on %s at line %i\n",
@@ -4705,6 +4721,10 @@ void php_wxListbook_free(zend_object *object)
 {
     zo_wxListbook* custom_object = php_wxListbook_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxListbook on %s at line %i\n",
@@ -5132,6 +5152,10 @@ BEGIN_EXTERN_C()
 void php_wxNotebook_free(zend_object *object)
 {
     zo_wxNotebook* custom_object = php_wxNotebook_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
@@ -6962,6 +6986,10 @@ void php_wxToolbook_free(zend_object *object)
 {
     zo_wxToolbook* custom_object = php_wxToolbook_fetch_object(object);
 
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
+
     #ifdef USE_WXPHP_DEBUG
     php_printf(
         "Obviate delete call for wxToolbook on %s at line %i\n",
@@ -7259,6 +7287,10 @@ BEGIN_EXTERN_C()
 void php_wxTreebook_free(zend_object *object)
 {
     zo_wxTreebook* custom_object = php_wxTreebook_fetch_object(object);
+
+    if (custom_object->is_user_initialized && (custom_object->native_object != NULL)) {
+        custom_object->native_object->zo = NULL;
+    }
 
     #ifdef USE_WXPHP_DEBUG
     php_printf(
